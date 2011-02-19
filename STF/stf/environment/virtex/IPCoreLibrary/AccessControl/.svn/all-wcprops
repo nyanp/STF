@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/nj_repo/!svn/ver/1370/src/FPGA_Bus/trunk/SDK_projects/MicroBlaze0_obc/COMMON_LIB/IPCoreLibrary/AccessControl
+END
+MUTEX.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/nj_repo/!svn/ver/1370/src/FPGA_Bus/trunk/SDK_projects/MicroBlaze0_obc/COMMON_LIB/IPCoreLibrary/AccessControl/MUTEX.cpp
+END
+AccessControl.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/nj_repo/!svn/ver/1370/src/FPGA_Bus/trunk/SDK_projects/MicroBlaze0_obc/COMMON_LIB/IPCoreLibrary/AccessControl/AccessControl.hpp
+END
+MUTEX.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/nj_repo/!svn/ver/1370/src/FPGA_Bus/trunk/SDK_projects/MicroBlaze0_obc/COMMON_LIB/IPCoreLibrary/AccessControl/MUTEX.hpp
+END
+NoLock.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/nj_repo/!svn/ver/1370/src/FPGA_Bus/trunk/SDK_projects/MicroBlaze0_obc/COMMON_LIB/IPCoreLibrary/AccessControl/NoLock.hpp
+END

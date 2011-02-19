@@ -1,0 +1,459 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{3DACBBD5-7CDE-41F0-8D7B-6CFE686671BB}</ProjectGuid>
+    <RootNamespace>AOCSFramework</RootNamespace>
+    <ProjectName>STF</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LibraryPath>C:\Program Files\boost\boost_1_44\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Program Files\boost\boost_1_44;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>C:\Program Files\boost\boost_1_44;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <None Include="..\..\..\..\..\Desktop\My Dropbox\software\AOCSFramework\argoum\RootObject.cpp.bak" />
+    <None Include="..\..\..\..\..\Desktop\My Dropbox\software\AOCSFramework\argoum\RootObject.h.bak" />
+    <None Include="..\..\..\..\..\Desktop\My Dropbox\software\AOCSFramework\argoum\SystemManager.cpp.bak" />
+    <None Include="..\..\..\..\..\Desktop\My Dropbox\software\AOCSFramework\argoum\SystemManager.h.bak" />
+    <None Include="..\igrf10.coef" />
+    <None Include="ClassDiagram1.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stf\core\command\Command.cpp" />
+    <ClCompile Include="stf\core\command\GainSettingCommand.cpp" />
+    <ClCompile Include="stf\core\command\GetCommand.cpp" />
+    <ClCompile Include="stf\core\command\MessageCommand.cpp" />
+    <ClCompile Include="stf\core\command\ModeChangeCommand.cpp" />
+    <ClCompile Include="stf\core\command\OrbitSettingCommand.cpp" />
+    <ClCompile Include="stf\core\command\SequenceCommand.cpp" />
+    <ClCompile Include="stf\core\command\SimpleFunctionCommand.cpp" />
+    <ClCompile Include="stf\core\command\SwitchCommand.cpp" />
+    <ClCompile Include="stf\core\command\TypeListFunctionCommand.cpp" />
+    <ClCompile Include="stf\core\command\UnaryFunctionCommand.cpp" />
+    <ClCompile Include="stf\core\devicedriver\adc\ADCBase.cpp" />
+    <ClCompile Include="stf\core\devicedriver\AOCSActuator.cpp" />
+    <ClCompile Include="stf\core\devicedriver\AOCSSensor.cpp" />
+    <ClCompile Include="stf\core\devicedriver\CDHComponent.cpp" />
+    <ClCompile Include="stf\core\devicedriver\clock\DummyClock.cpp" />
+    <ClCompile Include="stf\core\datapool\Datapool.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="stf\core\devicedriver\AOCSComponent.cpp" />
+    <ClCompile Include="stf\core\devicedriver\cmhandler\DummyCommandReceiver.cpp" />
+    <ClCompile Include="stf\core\devicedriver\Composite.cpp" />
+    <ClCompile Include="stf\core\devicedriver\earthsensor\EarthSensor.cpp" />
+    <ClCompile Include="stf\core\devicedriver\earthsensor\EarthSensorBase.cpp" />
+    <ClCompile Include="stf\core\devicedriver\gps\DummyGPS.cpp" />
+    <ClCompile Include="stf\core\devicedriver\gps\GPSBase.cpp" />
+    <ClCompile Include="stf\core\devicedriver\gyro\Gyro.cpp" />
+    <ClCompile Include="stf\core\devicedriver\gyro\GyroBase.cpp" />
+    <ClCompile Include="stf\core\devicedriver\magnetometer\TAM.cpp" />
+    <ClCompile Include="stf\core\devicedriver\magnetometer\TAMBase.cpp" />
+    <ClCompile Include="stf\core\devicedriver\mtq\MTQ.cpp" />
+    <ClCompile Include="stf\core\devicedriver\mtq\MTQBase.cpp" />
+    <ClCompile Include="stf\core\devicedriver\mtq\SmallMTQ.cpp" />
+    <ClCompile Include="stf\core\devicedriver\rw\RW.cpp" />
+    <ClCompile Include="stf\core\devicedriver\rw\RWBase.cpp" />
+    <ClCompile Include="stf\core\devicedriver\stt\STT.cpp" />
+    <ClCompile Include="stf\core\devicedriver\stt\STTBase.cpp" />
+    <ClCompile Include="stf\core\devicedriver\sunsensor\SunSensor.cpp" />
+    <ClCompile Include="stf\core\devicedriver\sunsensor\SunSensorBase.cpp" />
+    <ClCompile Include="stf\core\event\SubjectBase.cpp" />
+    <ClCompile Include="stf\core\functor\Functor.cpp" />
+    <ClCompile Include="stf\core\functor\InputFunctor.cpp" />
+    <ClCompile Include="stf\core\functor\OutputFunctor.cpp" />
+    <ClCompile Include="stf\core\manager\CommandManager.cpp" />
+    <ClCompile Include="stf\core\manager\CommandManagerBase.cpp" />
+    <ClCompile Include="stf\core\manager\ControlManager.cpp" />
+    <ClCompile Include="stf\core\manager\ControlManagerBase.cpp" />
+    <ClCompile Include="stf\core\manager\CustomManager.cpp" />
+    <ClCompile Include="stf\core\manager\CustomManagerBase.cpp" />
+    <ClCompile Include="stf\core\manager\ManagerBase.cpp" />
+    <ClCompile Include="stf\core\manager\ModeManager.cpp" />
+    <ClCompile Include="stf\core\manager\ModeManagerBase.cpp" />
+    <ClCompile Include="stf\core\manager\SystemManager.cpp" />
+    <ClCompile Include="stf\core\manager\SystemManagerBase.cpp" />
+    <ClCompile Include="stf\core\manager\TelemetryManager.cpp" />
+    <ClCompile Include="stf\core\manager\TelemetryManagerBase.cpp" />
+    <ClCompile Include="stf\core\manager\UnitManager.cpp" />
+    <ClCompile Include="stf\core\manager\UnitManagerBase.cpp" />
+    <ClCompile Include="stf\core\mode\ModeBase.cpp" />
+    <ClCompile Include="stf\core\strategy\control\Bdot.cpp" />
+    <ClCompile Include="stf\core\strategy\control\Combining.cpp" />
+    <ClCompile Include="stf\core\strategy\control\CouplingCompensation.cpp" />
+    <ClCompile Include="stf\core\strategy\control\EKF.cpp" />
+    <ClCompile Include="stf\core\strategy\control\EKFParamaters.cpp" />
+    <ClCompile Include="stf\core\strategy\control\FirstOrderCorrection.cpp" />
+    <ClCompile Include="stf\core\strategy\control\GGCompensation.cpp" />
+    <ClCompile Include="stf\core\strategy\control\LiniarCorrection.cpp" />
+    <ClCompile Include="stf\core\strategy\control\MagneticMomentToTorque.cpp" />
+    <ClCompile Include="stf\core\strategy\control\PID.cpp" />
+    <ClCompile Include="stf\core\strategy\control\QUEST.cpp" />
+    <ClCompile Include="stf\core\strategy\control\RateDumping.cpp" />
+    <ClCompile Include="stf\core\strategy\control\RMMEKF.cpp" />
+    <ClCompile Include="stf\core\strategy\control\SingleAxisPID.cpp" />
+    <ClCompile Include="stf\core\strategy\control\SolarPointing.cpp" />
+    <ClCompile Include="stf\core\strategy\control\CrossProduct.cpp" />
+    <ClCompile Include="stf\core\strategy\control\TorqueCombining.cpp" />
+    <ClCompile Include="stf\core\strategy\control\TRIAD.cpp" />
+    <ClCompile Include="stf\core\strategy\control\WheelUnloading.cpp" />
+    <ClCompile Include="stf\core\strategy\telemetry\OutputAll.cpp" />
+    <ClCompile Include="stf\core\strategy\telemetry\SelectingOutput.cpp" />
+    <ClCompile Include="stf\datatype\DateTime.cpp" />
+    <ClCompile Include="stf\datatype\Magnetic.cpp" />
+    <ClCompile Include="stf\datatype\OrbitCalc.cpp" />
+    <ClCompile Include="stf\datatype\OrbitInfo.cpp" />
+    <ClCompile Include="stf\datatype\SatelliteModel.cpp" />
+    <ClCompile Include="stf\datatype\Scalar.cpp" />
+    <ClCompile Include="stf\datatype\StaticMatrix.cpp" />
+    <ClCompile Include="stf\datatype\Time.cpp" />
+    <ClCompile Include="stf\core\devicedriver\tmhandler\DebugLogger.cpp" />
+    <ClCompile Include="stf\environment\IODriverBase.cpp" />
+    <ClCompile Include="stf\environment\models\igrf.cpp" />
+    <ClCompile Include="stf\environment\NullEnv.cpp" />
+    <ClCompile Include="stf\environment\Orbit.cpp" />
+    <ClCompile Include="stf\environment\sgp4\matrixvector.cpp" />
+    <ClCompile Include="stf\environment\sgp4\orbitutil.cpp" />
+    <ClCompile Include="stf\environment\sgp4\sgp4ext.cpp" />
+    <ClCompile Include="stf\environment\sgp4\sgp4io.cpp" />
+    <ClCompile Include="stf\environment\sgp4\sgp4unit.cpp" />
+    <ClCompile Include="stf\environment\SH.cpp" />
+    <ClCompile Include="stf\environment\Simulator.cpp" />
+    <ClCompile Include="stf\environment\torquesource\ImpulseNoise.cpp" />
+    <ClCompile Include="stf\environment\torquesource\StepNoise.cpp" />
+    <ClCompile Include="stf\environment\torquesource\WhiteNoise.cpp" />
+    <ClCompile Include="stf\environment\virtex\IPCoreLibrary\BRAM.cpp" />
+    <ClCompile Include="stf\factory\SatelliteFactory.cpp" />
+    <ClCompile Include="stf\GlobalObject.cpp" />
+    <ClCompile Include="stf\RootObject.cpp" />
+    <ClCompile Include="stf\satellite\NJFactory.cpp" />
+    <ClCompile Include="stf\satellite\nj\NJADC.cpp" />
+    <ClCompile Include="stf\satellite\nj\NJCoarseTAM.cpp" />
+    <ClCompile Include="stf\satellite\nj\NJCommandReceiver.cpp" />
+    <ClCompile Include="stf\satellite\nj\NJControllers.cpp" />
+    <ClCompile Include="stf\satellite\nj\NJEKF.cpp" />
+    <ClCompile Include="stf\satellite\nj\NJFineTAM.cpp" />
+    <ClCompile Include="stf\satellite\nj\NJFOG.cpp" />
+    <ClCompile Include="stf\satellite\nj\NJGlobal.cpp" />
+    <ClCompile Include="stf\satellite\nj\NJGPS.cpp" />
+    <ClCompile Include="stf\satellite\nj\NJGyro.cpp" />
+    <ClCompile Include="stf\satellite\nj\NJMC.cpp" />
+    <ClCompile Include="stf\satellite\nj\NJMTQ.cpp" />
+    <ClCompile Include="stf\satellite\nj\NJRMMEKF.cpp" />
+    <ClCompile Include="stf\satellite\nj\NJRoughTAM.cpp" />
+    <ClCompile Include="stf\satellite\nj\NJRTC.cpp" />
+    <ClCompile Include="stf\satellite\nj\NJRW.cpp" />
+    <ClCompile Include="stf\satellite\nj\NJSTT.cpp" />
+    <ClCompile Include="stf\satellite\nj\NJSunSensor.cpp" />
+    <ClCompile Include="stf\satellite\nj\NJSwitchable.cpp" />
+    <ClCompile Include="stf\satellite\nj\NJTelemetryHandler.cpp" />
+    <ClCompile Include="stf\satellite\nj\NJTRIAD.cpp" />
+    <ClCompile Include="stf\satellite\PRISMFactory.cpp" />
+    <ClCompile Include="stf\satellite\prism\PRISMADC.cpp" />
+    <ClCompile Include="stf\satellite\prism\PRISMCommandReceiver.cpp" />
+    <ClCompile Include="stf\satellite\prism\PRISMControlBlock.cpp" />
+    <ClCompile Include="stf\satellite\prism\PRISMCustomManager.cpp" />
+    <ClCompile Include="stf\satellite\prism\PRISMDummyClock.cpp" />
+    <ClCompile Include="stf\satellite\prism\PRISMEKF.cpp" />
+    <ClCompile Include="stf\satellite\prism\PRISMGlobal.cpp" />
+    <ClCompile Include="stf\satellite\prism\PRISMGyro.cpp" />
+    <ClCompile Include="stf\satellite\prism\PRISMMTQ.cpp" />
+    <ClCompile Include="stf\satellite\prism\PRISMRMMEKF.cpp" />
+    <ClCompile Include="stf\satellite\prism\PRISMSunSensor.cpp" />
+    <ClCompile Include="stf\satellite\prism\PRISMTAM.cpp" />
+    <ClCompile Include="stf\satellite\prism\PRISMTelemetryHandler.cpp" />
+    <ClCompile Include="stf\satellite\prism\PRISMTelemetryStrategy.cpp" />
+    <ClCompile Include="stf\satellite\prism\PRISMTRIAD.cpp" />
+    <ClCompile Include="stf\util\math.cpp" />
+    <ClCompile Include="stf\datatype\DCM.cpp" />
+    <ClCompile Include="stf\datatype\EulerAngle.cpp" />
+    <ClCompile Include="stf\datatype\Matrix.cpp" />
+    <ClCompile Include="stf\datatype\Quaternion.cpp" />
+    <ClCompile Include="stf\datatype\String.cpp" />
+    <ClCompile Include="stf\datatype\TypeConverter.cpp" />
+    <ClCompile Include="stf\datatype\Vector.cpp" />
+    <ClCompile Include="stf\util\math\Exp.cpp" />
+    <ClCompile Include="stf\util\math\Rand.cpp" />
+    <ClCompile Include="stf\util\Ostream.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stf\core\command\Command.h" />
+    <ClInclude Include="stf\core\command\GainSettingCommand.h" />
+    <ClInclude Include="stf\core\command\GetCommand.h" />
+    <ClInclude Include="stf\core\command\Includes.h" />
+    <ClInclude Include="stf\core\command\MessageCommand.h" />
+    <ClInclude Include="stf\core\command\ModeChangeCommand.h" />
+    <ClInclude Include="stf\core\command\OrbitSettingCommand.h" />
+    <ClInclude Include="stf\core\command\SequenceCommand.h" />
+    <ClInclude Include="stf\core\command\SimpleFunctionCommand.h" />
+    <ClInclude Include="stf\core\command\SwitchCommand.h" />
+    <ClInclude Include="stf\core\command\TypeListFunctionCommand.h" />
+    <ClInclude Include="stf\core\command\UnaryFunctionCommand.h" />
+    <ClInclude Include="scube\core\datapool\IDatapoolConnector.h" />
+    <ClInclude Include="stf\core\devicedriver\adc\ADCBase.h" />
+    <ClInclude Include="stf\core\devicedriver\AOCSActuator.h" />
+    <ClInclude Include="stf\core\devicedriver\AOCSSensor.h" />
+    <ClInclude Include="stf\core\devicedriver\CDHComponent.h" />
+    <ClInclude Include="stf\core\devicedriver\clock\DummyClock.h" />
+    <ClInclude Include="stf\core\datapool\Datapool.h" />
+    <ClInclude Include="stf\core\datapool\DatapoolSettings.h" />
+    <ClInclude Include="stf\core\devicedriver\AOCSComponent.h" />
+    <ClInclude Include="stf\core\devicedriver\clock\IAbsoluteTimeClock.h" />
+    <ClInclude Include="stf\core\devicedriver\clock\ITimeClock.h" />
+    <ClInclude Include="stf\core\devicedriver\cmhandler\DummyCommandReceiver.h" />
+    <ClInclude Include="stf\core\devicedriver\cmhandler\ICommandReceiver.h" />
+    <ClInclude Include="scube\core\devicedriver\commandhandler\ICommandReceiver.h" />
+    <ClInclude Include="stf\core\devicedriver\Composite.h" />
+    <ClInclude Include="stf\core\devicedriver\earthsensor\EarthSensor.h" />
+    <ClInclude Include="stf\core\devicedriver\earthsensor\EarthSensorBase.h" />
+    <ClInclude Include="stf\core\devicedriver\gps\DummyGPS.h" />
+    <ClInclude Include="stf\core\devicedriver\gps\GPSBase.h" />
+    <ClInclude Include="stf\core\devicedriver\gyro\Gyro.h" />
+    <ClInclude Include="stf\core\devicedriver\gyro\GyroBase.h" />
+    <ClInclude Include="stf\core\devicedriver\IAOCSDataInput.h" />
+    <ClInclude Include="stf\core\devicedriver\IDatapoolProducer.h" />
+    <ClInclude Include="stf\core\devicedriver\IDataUpdatable.h" />
+    <ClInclude Include="stf\core\devicedriver\Includes.h" />
+    <ClInclude Include="stf\core\devicedriver\IOPort.h" />
+    <ClInclude Include="stf\core\devicedriver\ISwitchable.h" />
+    <ClInclude Include="stf\core\devicedriver\ITorquable.h" />
+    <ClInclude Include="stf\core\devicedriver\magnetometer\TAM.h" />
+    <ClInclude Include="stf\core\devicedriver\magnetometer\TAMBase.h" />
+    <ClInclude Include="scube\core\devicedriver\magnetometer\SunSensor.h" />
+    <ClInclude Include="stf\core\devicedriver\mtq\MTQ.h" />
+    <ClInclude Include="stf\core\devicedriver\mtq\MTQBase.h" />
+    <ClInclude Include="stf\core\devicedriver\mtq\SmallMTQ.h" />
+    <ClInclude Include="stf\core\devicedriver\rw\RW.h" />
+    <ClInclude Include="stf\core\devicedriver\rw\RWBase.h" />
+    <ClInclude Include="stf\core\devicedriver\stt\STT.h" />
+    <ClInclude Include="stf\core\devicedriver\stt\STTBase.h" />
+    <ClInclude Include="stf\core\devicedriver\sunsensor\SunSensor.h" />
+    <ClInclude Include="stf\core\devicedriver\sunsensor\SunSensorBase.h" />
+    <ClInclude Include="scube\core\devicedriver\telemetryhandler\DummyStorage.h" />
+    <ClInclude Include="scube\core\devicedriver\telemetryhandler\ITelemetable.h" />
+    <ClInclude Include="scube\core\devicedriver\timemanagement\ITimeClock.h" />
+    <ClInclude Include="stf\core\devicedriver\tmhandler\debuglogger.h" />
+    <ClInclude Include="stf\core\event\commandevent.h" />
+    <ClInclude Include="stf\core\event\EventBase.h" />
+    <ClInclude Include="stf\core\event\Includes.h" />
+    <ClInclude Include="stf\core\event\ModeChangeEvent.h" />
+    <ClInclude Include="stf\core\event\SubjectBase.h" />
+    <ClInclude Include="stf\core\functor\Functor.h" />
+    <ClInclude Include="stf\core\functor\InputFunctor.h" />
+    <ClInclude Include="stf\core\functor\OutputFunctor.h" />
+    <ClInclude Include="stf\core\IEnabable.h" />
+    <ClInclude Include="stf\core\manager\CommandManager.h" />
+    <ClInclude Include="stf\core\manager\CommandManagerBase.h" />
+    <ClInclude Include="stf\core\manager\ControlManager.h" />
+    <ClInclude Include="stf\core\manager\ControlManagerBase.h" />
+    <ClInclude Include="stf\core\manager\CustomManager.h" />
+    <ClInclude Include="stf\core\manager\CustomManagerBase.h" />
+    <ClInclude Include="stf\core\manager\Includes.h" />
+    <ClInclude Include="stf\core\manager\managerbase.h" />
+    <ClInclude Include="stf\core\manager\modemanager.h" />
+    <ClInclude Include="stf\core\manager\ModeManagerBase.h" />
+    <ClInclude Include="stf\core\manager\SystemManager.h" />
+    <ClInclude Include="stf\core\manager\SystemManagerBase.h" />
+    <ClInclude Include="stf\core\manager\TelemetryManager.h" />
+    <ClInclude Include="stf\core\manager\TelemetryManagerBase.h" />
+    <ClInclude Include="stf\core\manager\UnitManager.h" />
+    <ClInclude Include="stf\core\manager\UnitManagerBase.h" />
+    <ClInclude Include="stf\core\mode\Includes.h" />
+    <ClInclude Include="stf\core\mode\ModeBase.h" />
+    <ClInclude Include="stf\core\mode\ModeHotSpot.h" />
+    <ClInclude Include="scube\core\mode\strategy\control\IControlStrategy.h" />
+    <ClInclude Include="scube\core\mode\strategy\control\NoControl.h" />
+    <ClInclude Include="scube\core\mode\strategy\input\NoInput.h" />
+    <ClInclude Include="scube\core\mode\strategy\output\IOutputStrategy.h" />
+    <ClInclude Include="scube\core\mode\strategy\output\NoOutput.h" />
+    <ClInclude Include="scube\core\mode\strategy\StrategyBase.h" />
+    <ClInclude Include="stf\core\strategy\control\Bdot.h" />
+    <ClInclude Include="stf\core\strategy\control\Combining.h" />
+    <ClInclude Include="stf\core\strategy\control\ControlBlock.h" />
+    <ClInclude Include="stf\core\strategy\control\CouplingCompensation.h" />
+    <ClInclude Include="stf\core\strategy\control\EKF.h" />
+    <ClInclude Include="stf\core\strategy\control\EKFParamaters.h" />
+    <ClInclude Include="stf\core\strategy\control\FirstOrderCorrection.h" />
+    <ClInclude Include="stf\core\strategy\control\GGCompensation.h" />
+    <ClInclude Include="stf\core\strategy\control\IControlStrategy.h" />
+    <ClInclude Include="stf\core\strategy\control\Includes.h" />
+    <ClInclude Include="stf\core\strategy\control\LiniarCorrection.h" />
+    <ClInclude Include="stf\core\strategy\control\MagneticMomentToTorque.h" />
+    <ClInclude Include="stf\core\strategy\control\NoControl.h" />
+    <ClInclude Include="stf\core\strategy\control\PID.h" />
+    <ClInclude Include="stf\core\strategy\control\QUEST.h" />
+    <ClInclude Include="stf\core\strategy\control\RateDumping.h" />
+    <ClInclude Include="stf\core\strategy\control\RMMEKF.h" />
+    <ClInclude Include="stf\core\strategy\control\SingleAxisPID.h" />
+    <ClInclude Include="stf\core\strategy\control\SolarPointing.h" />
+    <ClInclude Include="stf\core\strategy\control\CrossProduct.h" />
+    <ClInclude Include="stf\core\strategy\control\TorqueCombining.h" />
+    <ClInclude Include="stf\core\strategy\control\TRIAD.h" />
+    <ClInclude Include="stf\core\strategy\control\WheelUnloading.h" />
+    <ClInclude Include="stf\core\strategy\StrategyBase.h" />
+    <ClInclude Include="stf\core\strategy\telemetry\Includes.h" />
+    <ClInclude Include="stf\core\strategy\telemetry\ITelemetryStrategy.h" />
+    <ClInclude Include="stf\core\strategy\telemetry\OutputAll.h" />
+    <ClInclude Include="stf\core\strategy\telemetry\SelectingOutput.h" />
+    <ClInclude Include="scube\datatype\Current.h" />
+    <ClInclude Include="stf\datatype\DateTime.h" />
+    <ClInclude Include="stf\datatype\Envitonments.h" />
+    <ClInclude Include="stf\datatype\ITelemetable.h" />
+    <ClInclude Include="stf\datatype\Magnetic.h" />
+    <ClInclude Include="stf\datatype\OrbitCalc.h" />
+    <ClInclude Include="stf\datatype\OrbitInfo.h" />
+    <ClInclude Include="stf\datatype\SatelliteModel.h" />
+    <ClInclude Include="stf\datatype\Scalar.h" />
+    <ClInclude Include="stf\datatype\StaticMatrix.h" />
+    <ClInclude Include="stf\datatype\StaticVector.h" />
+    <ClInclude Include="stf\datatype\Time.h" />
+    <ClInclude Include="stf\core\devicedriver\tmhandler\ITelemetryStoragable.h" />
+    <ClInclude Include="stf\environment\IODriverBase.h" />
+    <ClInclude Include="stf\environment\models\igrf.h" />
+    <ClInclude Include="stf\environment\NullEnv.h" />
+    <ClInclude Include="stf\environment\Orbit.h" />
+    <ClInclude Include="stf\environment\sgp4\matrixvector.h" />
+    <ClInclude Include="scube\environment\sgp4\orbit.h" />
+    <ClInclude Include="stf\environment\sgp4\orbitutil.h" />
+    <ClInclude Include="stf\environment\sgp4\sgp4ext.h" />
+    <ClInclude Include="stf\environment\sgp4\sgp4io.h" />
+    <ClInclude Include="stf\environment\sgp4\sgp4unit.h" />
+    <ClInclude Include="stf\environment\SH.h" />
+    <ClInclude Include="stf\environment\sh\iodefine.h" />
+    <ClInclude Include="stf\environment\Simulator.h" />
+    <ClInclude Include="stf\environment\torquesource\ImpulseNoise.h" />
+    <ClInclude Include="stf\environment\torquesource\NoiseBase.h" />
+    <ClInclude Include="stf\environment\torquesource\StepNoise.h" />
+    <ClInclude Include="stf\environment\torquesource\WhiteNoise.h" />
+    <ClInclude Include="stf\environment\virtex\IPCoreLibrary\AccessControl\AccessControl.hpp" />
+    <ClInclude Include="stf\environment\virtex\IPCoreLibrary\AccessControl\NoLock.hpp" />
+    <ClInclude Include="stf\environment\virtex\IPCoreLibrary\BRAM.hpp" />
+    <ClInclude Include="stf\environment\virtex\IPCoreLibrary\DAC.hpp" />
+    <ClInclude Include="stf\environment\virtex\IPCoreLibrary\GPIO.hpp" />
+    <ClInclude Include="stf\environment\virtex\IPCoreLibrary\SDC.hpp" />
+    <ClInclude Include="stf\environment\virtex\IPCoreLibrary\SPI.hpp" />
+    <ClInclude Include="stf\environment\virtex\IPCoreLibrary\SPIParams.hpp" />
+    <ClInclude Include="stf\environment\virtex\IPCoreLibrary\SPI_ifs.hpp" />
+    <ClInclude Include="stf\environment\virtex\IPCoreLibrary\SPI_tfs.hpp" />
+    <ClInclude Include="stf\environment\virtex\IPCoreLibrary\UART.hpp" />
+    <ClInclude Include="stf\factory\SatelliteFactory.h" />
+    <ClInclude Include="stf\GlobalObject.h" />
+    <ClInclude Include="stf\InstanceID.h" />
+    <ClInclude Include="stf\interface\Iterator.h" />
+    <ClInclude Include="stf\Macros.h" />
+    <ClInclude Include="stf\RootObject.h" />
+    <ClInclude Include="stf\satellite\NJFactory.h" />
+    <ClInclude Include="stf\satellite\nj\NJADC.h" />
+    <ClInclude Include="stf\satellite\nj\njcoarsetam.h" />
+    <ClInclude Include="stf\satellite\nj\NJCommandReceiver.h" />
+    <ClInclude Include="stf\satellite\nj\NJControllers.h" />
+    <ClInclude Include="stf\satellite\nj\NJEKF.h" />
+    <ClInclude Include="stf\satellite\nj\njfinetam.h" />
+    <ClInclude Include="stf\satellite\nj\NJFOG.h" />
+    <ClInclude Include="stf\satellite\nj\NJGlobal.h" />
+    <ClInclude Include="stf\satellite\nj\NJGPS.h" />
+    <ClInclude Include="stf\satellite\nj\NJGyro.h" />
+    <ClInclude Include="stf\satellite\nj\NJIterator.h" />
+    <ClInclude Include="stf\satellite\nj\NJMC.h" />
+    <ClInclude Include="stf\satellite\nj\NJMTQ.h" />
+    <ClInclude Include="stf\satellite\nj\NJRMMEKF.h" />
+    <ClInclude Include="stf\satellite\nj\NJRoughTAM.h" />
+    <ClInclude Include="stf\satellite\nj\NJRTC.h" />
+    <ClInclude Include="stf\satellite\nj\NJRW.h" />
+    <ClInclude Include="stf\satellite\nj\NJSTT.h" />
+    <ClInclude Include="stf\satellite\nj\NJSunSensor.h" />
+    <ClInclude Include="stf\satellite\nj\NJSwitchable.h" />
+    <ClInclude Include="stf\satellite\nj\NJTelemetryHandler.h" />
+    <ClInclude Include="stf\satellite\nj\NJTRIAD.h" />
+    <ClInclude Include="stf\satellite\PRISMFactory.h" />
+    <ClInclude Include="stf\satellite\prism\PRISMADC.h" />
+    <ClInclude Include="stf\satellite\prism\PRISMCommandReceiver.h" />
+    <ClInclude Include="scube\satellite\prism\PRISMControlBlock - コピー.h" />
+    <ClInclude Include="stf\satellite\prism\PRISMControlBlock.h" />
+    <ClInclude Include="stf\satellite\prism\PRISMCustomManager.h" />
+    <ClInclude Include="stf\satellite\prism\PRISMDummyClock.h" />
+    <ClInclude Include="stf\satellite\prism\PRISMEKF.h" />
+    <ClInclude Include="stf\satellite\prism\PRISMGlobal.h" />
+    <ClInclude Include="stf\satellite\prism\PRISMGyro.h" />
+    <ClInclude Include="stf\satellite\prism\PRISMIterator.h" />
+    <ClInclude Include="stf\satellite\prism\PRISMMTQ.h" />
+    <ClInclude Include="stf\satellite\prism\PRISMRMMEKF.h" />
+    <ClInclude Include="stf\satellite\prism\PRISMSunSensor.h" />
+    <ClInclude Include="stf\satellite\prism\PRISMTAM.h" />
+    <ClInclude Include="stf\satellite\prism\PRISMTelemetryHandler.h" />
+    <ClInclude Include="stf\satellite\prism\PRISMTelemetryStrategy.h" />
+    <ClInclude Include="stf\satellite\prism\PRISMTRIAD.h" />
+    <ClInclude Include="stf\util\math.h" />
+    <ClInclude Include="stf\datatype\DCM.h" />
+    <ClInclude Include="stf\datatype\EulerAngle.h" />
+    <ClInclude Include="stf\datatype\IAocsData.h" />
+    <ClInclude Include="stf\datatype\List.h" />
+    <ClInclude Include="stf\datatype\Matrix.h" />
+    <ClInclude Include="stf\datatype\Quaternion.h" />
+    <ClInclude Include="stf\datatype\String.h" />
+    <ClInclude Include="stf\datatype\TypeConverter.h" />
+    <ClInclude Include="stf\datatype\Vector.h" />
+    <ClInclude Include="stf\util\math\Exp.h" />
+    <ClInclude Include="stf\util\math\Rand.h" />
+    <ClInclude Include="stf\util\math\RungeKutta.h" />
+    <ClInclude Include="stf\util\Null.h" />
+    <ClInclude Include="stf\util\Ostream.h" />
+    <ClInclude Include="stf\util\TypeList.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
