@@ -1,3 +1,10 @@
+/**
+ * @file   CommandManagerBase.h
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #ifndef core_manager_CommandManagerBase_h
 #define core_manager_CommandManagerBase_h
 #include <assert.h>

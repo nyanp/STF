@@ -1,3 +1,10 @@
+/**
+ * @file   Vector.cpp
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #include "Vector.h"
 #include "../util/math.h"
 #include "../util/Ostream.h"

@@ -1,3 +1,10 @@
+/**
+ * @file   GlobalObject.cpp
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #ifndef GlobalObject_cpp
 #define GlobalObject_cpp
 

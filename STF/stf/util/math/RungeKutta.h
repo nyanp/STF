@@ -1,3 +1,10 @@
+/**
+ * @file   RungeKutta.h
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #ifndef util_math_RungeKutta_h
 #define util_math_RungeKutta_h
 

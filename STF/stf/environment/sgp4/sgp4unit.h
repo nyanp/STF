@@ -1,3 +1,10 @@
+/**
+ * @file   sgp4unit.h
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 
 #ifndef _sgp4unit_
 #define _sgp4unit_

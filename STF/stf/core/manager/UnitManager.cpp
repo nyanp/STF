@@ -1,3 +1,10 @@
+/**
+ * @file   UnitManager.cpp
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #include "UnitManager.h"
 
 namespace stf {

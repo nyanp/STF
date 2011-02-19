@@ -1,3 +1,10 @@
+/**
+ * @file   TypeList.h
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #ifndef stf_util_Typelist_h
 #define stf_util_Typelist_h
 

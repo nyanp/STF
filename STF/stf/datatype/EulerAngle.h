@@ -1,3 +1,10 @@
+/**
+ * @file   EulerAngle.h
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #ifndef stf_datatype_EulerAngle_h
 #define stf_datatype_EulerAngle_h
 

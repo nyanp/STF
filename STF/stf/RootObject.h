@@ -1,3 +1,10 @@
+/**
+ * @file   RootObject.h
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #ifndef RootObject_h
 #define RootObject_h
 

@@ -1,3 +1,10 @@
+/**
+ * @file   CustomManagerBase.cpp
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #include "UnitManagerBase.h"
 #include "../devicedriver/IDataUpdatable.h"
 #include "../mode/ModeBase.h"

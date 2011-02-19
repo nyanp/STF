@@ -1,3 +1,10 @@
+/**
+ * @file   ADCBase.cpp
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #include "ADCBase.h"
 #include<assert.h>
 

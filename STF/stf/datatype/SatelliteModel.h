@@ -1,3 +1,10 @@
+/**
+ * @file   SatelliteModel.h
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #ifndef stf_datatype_SatelliteModel_h
 #define stf_datatype_SatelliteModel_h
 

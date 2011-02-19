@@ -1,3 +1,10 @@
+/**
+ * @file   EKF.cpp
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #include "EKF.h"
 #include "../../../util/math.h"
 #include "../../../util/math/Exp.h"

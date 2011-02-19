@@ -1,3 +1,10 @@
+/**
+ * @file   SatelliteFactory.h
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #ifndef factory_SatelliteFactory_h
 #define factory_SatelliteFactory_h
 

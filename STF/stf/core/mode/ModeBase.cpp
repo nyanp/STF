@@ -1,3 +1,10 @@
+/**
+ * @file   ModeBase.cpp
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #include "ModeBase.h"
 #include "../../core/devicedriver/ISwitchable.h"
 #include "../../core/devicedriver/IDataUpdatable.h"

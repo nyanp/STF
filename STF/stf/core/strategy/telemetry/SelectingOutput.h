@@ -1,3 +1,10 @@
+/**
+ * @file   SelectingOutput.h
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #ifndef stf_core_strategy_telemetry_SelectingOutput_h
 #define stf_core_strategy_telemetry_SelectingOutput_h
 #include "ITelemetryStrategy.h"

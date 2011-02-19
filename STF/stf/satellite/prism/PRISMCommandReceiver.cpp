@@ -1,3 +1,10 @@
+/**
+ * @file   PRISMCommandReceiver.cpp
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #include "PRISMCommandReceiver.h"
 #include "../../core/command/Includes.h"
 #include "PRISMGlobal.h"

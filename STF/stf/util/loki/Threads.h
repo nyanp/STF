@@ -1,3 +1,10 @@
+/**
+ * @file   Threads.h
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #ifndef THREADS_H_
 #define THREADS_H_
 

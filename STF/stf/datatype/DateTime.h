@@ -1,3 +1,10 @@
+/**
+ * @file   DateTime.h
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #ifndef datatype_DateTime_h
 #define datatype_DateTime_h
 #include<assert.h>

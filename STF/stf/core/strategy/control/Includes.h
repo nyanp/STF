@@ -1,3 +1,10 @@
+/**
+ * @file   Includes.h
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #include "ControlBlock.h"
 #include "Bdot.h"
 #include "Combining.h"

@@ -1,3 +1,10 @@
+/**
+ * @file   NJCommandReceiver.cpp
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #include "NJCommandReceiver.h"
 #include "../../core/command/Includes.h"
 #include "NJGlobal.h"

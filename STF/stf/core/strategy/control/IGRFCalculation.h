@@ -1,3 +1,10 @@
+/**
+ * @file   IGRFCalculation.h
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #ifndef scube_core_strategy_control_IGRFCalculation_h
 #define scube_core_strategy_control_IGRFCalculation_h
 

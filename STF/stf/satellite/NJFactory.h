@@ -1,3 +1,10 @@
+/**
+ * @file   NJFactory.h
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #ifndef factory_NJFactory_h
 #define factory_NJFactory_h
 

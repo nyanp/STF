@@ -1,3 +1,10 @@
+/**
+ * @file   TAMBase.cpp
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #include "TAMBase.h"
 #include "../../../datatype/TypeConverter.h"
 #include "../../../environment/Simulator.h"

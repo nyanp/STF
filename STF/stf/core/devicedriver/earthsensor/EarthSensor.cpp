@@ -1,3 +1,10 @@
+/**
+ * @file   EarthSensor.cpp
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #include "EarthSensor.h"
 namespace stf {
 namespace core {

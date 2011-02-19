@@ -1,3 +1,10 @@
+/**
+ * @file   TorqueCombining.cpp
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #include "TorqueCombining.h"
 #include "../../../datatype/TypeConverter.h"
 

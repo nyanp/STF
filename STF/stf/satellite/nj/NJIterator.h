@@ -1,3 +1,10 @@
+/**
+ * @file   NJIterator.h
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #ifndef stf_satellite_nj_NJIterator_h
 #define stf_satellite_nj_NJIterator_h
 

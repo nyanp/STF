@@ -1,3 +1,10 @@
+/**
+ * @file   Time.h
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #ifndef datatype_Time_h
 #define datatype_Time_h
 #include<assert.h>

@@ -1,3 +1,10 @@
+/**
+ * @file   GlobalObject.h
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #ifndef stf_GlobalObject_h
 #define stf_GlobalObject_h
 

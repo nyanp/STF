@@ -1,3 +1,10 @@
+/**
+ * @file   OrbitCalc.h
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #ifndef stf_datatype_OrbitCalc_h
 #define stf_datatype_OrbitCalc_h
 

@@ -1,3 +1,10 @@
+/**
+ * @file   SatelliteFactory.cpp
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #include "SatelliteFactory.h"
 namespace stf {
 namespace factory {

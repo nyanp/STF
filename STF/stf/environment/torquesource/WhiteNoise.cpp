@@ -1,3 +1,10 @@
+/**
+ * @file   WhiteNoise.cpp
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #include "WhiteNoise.h"
 #include "../../util/math/Rand.h"
 

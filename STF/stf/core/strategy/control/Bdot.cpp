@@ -1,3 +1,10 @@
+/**
+ * @file   Bdot.cpp
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #include "Bdot.h"
 #include "../../../datatype/Time.h"
 #include "../../../util/Ostream.h"

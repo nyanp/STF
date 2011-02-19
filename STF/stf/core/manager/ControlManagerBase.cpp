@@ -1,3 +1,10 @@
+/**
+ * @file   ControlManagerBase.cpp
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #include "ControlManagerBase.h"
 #include "../mode/ModeBase.h"
 #include "../../util/Ostream.h"

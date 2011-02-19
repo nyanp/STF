@@ -1,3 +1,10 @@
+/**
+ * @file   math.h
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #ifndef stf_util_math_h
 #define stf_util_math_h
 //#include "math/Exp.h"

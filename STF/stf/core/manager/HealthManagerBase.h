@@ -1,3 +1,10 @@
+/**
+ * @file   HealthManagerBase.h
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #ifndef core_manager_HealthManager_h
 #define core_manager_HealthManager_h
 

@@ -1,3 +1,10 @@
+/**
+ * @file   CommandManagerBase.cpp
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #include "CommandManagerBase.h"
 #include "../../util/Ostream.h"
 #include "../../datatype/Time.h"

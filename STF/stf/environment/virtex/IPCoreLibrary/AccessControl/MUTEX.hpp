@@ -1,3 +1,10 @@
+/**
+ * @file   MUTEX.hpp
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 /*!
   \file   MUTEX.hpp
   \author TAKISAWA Jun'ichi

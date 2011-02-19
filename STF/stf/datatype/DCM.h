@@ -1,3 +1,10 @@
+/**
+ * @file   DCM.h
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #ifndef datatype_DCM_h
 #define datatype_DCM_h
 

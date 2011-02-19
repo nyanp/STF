@@ -1,3 +1,10 @@
+/**
+ * @file   DummyCommandReceiver.cpp
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #include "DummyCommandReceiver.h"
 #include "../../command/Command.h"
 #include "../../manager/CommandManagerBase.h"

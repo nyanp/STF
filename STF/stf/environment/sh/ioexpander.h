@@ -1,3 +1,10 @@
+/**
+ * @file   ioexpander.h
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 /*****************************/
 /* IO Expander制御用ヘッダ   */
 /* PRISM 2ndEM用             */

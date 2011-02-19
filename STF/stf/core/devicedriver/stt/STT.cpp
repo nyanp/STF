@@ -1,3 +1,10 @@
+/**
+ * @file   STT.cpp
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #include "STT.h"
 namespace stf {
 namespace core {

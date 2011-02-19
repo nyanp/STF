@@ -1,3 +1,10 @@
+/**
+ * @file   matrixvector.cpp
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 
 /* 簡易ベクトル・行列演算ライブラリー */
 /* matrixvector.c : 実装ファイル */

@@ -1,3 +1,10 @@
+/**
+ * @file   PRISMTAM.cpp
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #include "PRISMTAM.h"
 namespace stf {
 namespace core {

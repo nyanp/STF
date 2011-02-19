@@ -1,3 +1,10 @@
+/**
+ * @file   RMMEKF.cpp
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #include "RMMEKF.h"
 #include "../../../util/math.h"
 #include "../../../util/math/Exp.h"

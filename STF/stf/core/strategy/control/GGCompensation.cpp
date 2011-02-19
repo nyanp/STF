@@ -1,3 +1,10 @@
+/**
+ * @file   GGCompensation.cpp
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #include "GGCompensation.h"
 #include "../../../datatype/DateTime.h"
 #include "../../../datatype/DCM.h"

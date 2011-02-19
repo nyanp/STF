@@ -1,3 +1,10 @@
+/**
+ * @file   IAocsData.h
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #ifndef stf_datatype_IAocsData_h
 #define stf_datatype_IAocsData_h
 

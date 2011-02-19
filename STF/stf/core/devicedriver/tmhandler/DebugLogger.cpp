@@ -1,3 +1,10 @@
+/**
+ * @file   DebugLogger.cpp
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #include "DebugLogger.h"
 #include "ITelemetryStoragable.h"
 #include "../../../datatype/String.h"

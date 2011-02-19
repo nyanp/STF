@@ -1,3 +1,10 @@
+/**
+ * @file   PRISMFactory.cpp
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #include "PRISMFactory.h"
 #include "../environment/Simulator.h"
 #include "../environment/NullEnv.h"

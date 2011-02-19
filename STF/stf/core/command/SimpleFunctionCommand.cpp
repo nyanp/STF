@@ -1,3 +1,10 @@
+/**
+ * @file   SimpleFunctionCommand.cpp
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #include "SimpleFunctionCommand.h"
 
 namespace stf {

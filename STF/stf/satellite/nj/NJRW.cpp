@@ -1,3 +1,10 @@
+/**
+ * @file   NJRW.cpp
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #include "NJRW.h"
 
 namespace stf {

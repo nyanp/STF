@@ -1,3 +1,10 @@
+/**
+ * @file   TypeTraits.h
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #ifndef TYPETRAITS_INC_
 #define TYPETRAITS_INC_
 

@@ -1,3 +1,10 @@
+/**
+ * @file   GPIO.hpp
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 /*!
   \file   GPIO.hpp
   \author TAKISAWA, Jun'ichi.

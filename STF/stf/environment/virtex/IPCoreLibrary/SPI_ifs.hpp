@@ -1,3 +1,10 @@
+/**
+ * @file   SPI_ifs.hpp
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #ifndef SPI_IFS_HPP_
 #define SPI_IFS_HPP_
 

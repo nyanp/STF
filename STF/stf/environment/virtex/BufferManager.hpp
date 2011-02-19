@@ -1,3 +1,10 @@
+/**
+ * @file   BufferManager.hpp
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #ifndef BUFFER_MANAGER_HPP_
 #define BUFFER_MANAGER_HPP_
 

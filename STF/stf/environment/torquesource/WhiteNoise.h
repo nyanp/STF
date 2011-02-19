@@ -1,3 +1,10 @@
+/**
+ * @file   WhiteNoise.h
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #ifndef aocs_environment_torquesource_WhiteNoise_h
 #define aocs_environment_torquesource_WhiteNoise_h
 

@@ -1,3 +1,10 @@
+/**
+ * @file   SDC.hpp
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 /*!
   	\file   SDC.hpp
   	\author IDOBATA Hiroaki

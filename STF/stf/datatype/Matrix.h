@@ -1,3 +1,10 @@
+/**
+ * @file   Matrix.h
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #ifndef stf_datatype_Matrix_h
 #define stf_datatype_Matrix_h
 

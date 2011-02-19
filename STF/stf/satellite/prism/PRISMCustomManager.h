@@ -1,3 +1,10 @@
+/**
+ * @file   PRISMCustomManager.h
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #ifndef stf_core_manager_PRISMCustomManager_h
 #define stf_core_manager_PRISMCustomManager_h
 

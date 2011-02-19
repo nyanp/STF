@@ -1,3 +1,10 @@
+/**
+ * @file   Iterator.h
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #ifndef stf_interface_Iterator_h
 #define stf_interface_Iterator_h
 

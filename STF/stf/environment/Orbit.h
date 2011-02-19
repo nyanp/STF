@@ -1,3 +1,10 @@
+/**
+ * @file   Orbit.h
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #ifndef stf_environment_Orbit_h
 #define stf_environment_Orbit_h
 

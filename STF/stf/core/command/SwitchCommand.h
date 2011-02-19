@@ -1,3 +1,10 @@
+/**
+ * @file   SwitchCommand.h
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #ifndef stf_core_command_SwitchCommand_h
 #define stf_core_command_SwitchCommand_h
 

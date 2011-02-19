@@ -1,3 +1,10 @@
+/**
+ * @file   IControlStrategy.h
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #ifndef stf_core_strategy_control_IControlStorategy_h
 #define stf_core_strategy_control_IControlStorategy_h
 #include "../../../datatype/IAocsData.h"

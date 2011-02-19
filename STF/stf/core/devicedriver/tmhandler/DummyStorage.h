@@ -1,3 +1,10 @@
+/**
+ * @file   DummyStorage.h
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #ifndef scube_core_devicedriver_tmhandler_DummyStorage_h
 #define scube_core_devicedriver_tmhandler_DummyStorage_h
 

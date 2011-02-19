@@ -1,3 +1,10 @@
+/**
+ * @file   Macros.h
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #ifndef Macros_h
 #define Macros_h
 

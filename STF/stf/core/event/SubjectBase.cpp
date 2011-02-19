@@ -1,3 +1,10 @@
+/**
+ * @file   SubjectBase.cpp
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #include "SubjectBase.h"
 #include "ModeChangeEvent.h"
 #include "../manager/ModeManagerBase.h"

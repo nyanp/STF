@@ -1,3 +1,10 @@
+/**
+ * @file   PRISMTelemetryStrategy.h
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #ifndef stf_core_strategy_telemetry_PRISMTelemetryStrategy_h
 #define stf_core_strategy_telemetry_PRISMTelemetryStrategy_h
 #include "../../core/strategy/telemetry/SelectingOutput.h"

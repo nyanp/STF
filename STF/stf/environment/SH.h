@@ -1,3 +1,10 @@
+/**
+ * @file   SH.h
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #ifndef stf_environment_SH_h
 #define stf_environment_SH_h
 

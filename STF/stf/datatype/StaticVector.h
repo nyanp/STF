@@ -1,3 +1,10 @@
+/**
+ * @file   StaticVector.h
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #ifndef stf_datatype_StaticVector_h
 #define stf_datatype_StaticVector_h
 #include "assert.h"

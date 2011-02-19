@@ -1,3 +1,10 @@
+/**
+ * @file   Includes.h
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #ifndef core_command_Includes_h
 #define core_command_Includes_h
 

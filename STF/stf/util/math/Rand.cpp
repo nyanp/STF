@@ -1,3 +1,10 @@
+/**
+ * @file   Rand.cpp
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #include<cmath>
 #include"Rand.h"
 

@@ -1,3 +1,10 @@
+/**
+ * @file   CommandEvent.h
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #ifndef stf_core_event_CommandEvent_h
 #define stf_core_event_CommandEvent_h
 #include "EventBase.h"

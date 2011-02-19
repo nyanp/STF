@@ -1,3 +1,10 @@
+/**
+ * @file   ITorquable.h
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #ifndef interface_ITorquable_h
 #define interface_ITorquable_h
 

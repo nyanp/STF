@@ -1,3 +1,10 @@
+/**
+ * @file   Composite.h
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #ifndef core_component_Composite_h
 #define core_component_Composite_h
 #include <assert.h>

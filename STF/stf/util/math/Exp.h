@@ -1,3 +1,10 @@
+/**
+ * @file   Exp.h
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #ifndef util_math_Exp_h
 #define util_math_Exp_h
 

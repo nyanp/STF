@@ -1,3 +1,10 @@
+/**
+ * @file   NJGyro.h
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #ifndef stf_core_devicedriver_NJGyro_NJGyro_h
 #define stf_core_devicedriver_NJGyro_NJGyro_h
 

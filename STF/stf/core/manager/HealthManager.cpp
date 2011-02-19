@@ -1,3 +1,10 @@
+/**
+ * @file   HealthManager.cpp
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #include <core/mode/Mode.h>
 #include <interface/IConsistencyCheckable.h>
 #include <interface/ITelemetryStoragable.h>

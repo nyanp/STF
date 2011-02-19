@@ -1,3 +1,10 @@
+/**
+ * @file   BRAM.hpp
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #ifndef BRAM_HPP_
 #define BRAM_HPP_
 

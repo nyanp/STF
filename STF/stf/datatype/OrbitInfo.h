@@ -1,3 +1,10 @@
+/**
+ * @file   OrbitInfo.h
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #ifndef stf_datatype_OrbitInfo_h
 #define stf_datatype_OrbitInfo_h
 #include "assert.h"

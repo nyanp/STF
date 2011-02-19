@@ -1,3 +1,10 @@
+/**
+ * @file   SwitchCommand.cpp
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #include "SwitchCommand.h"
 #include "../../util/Ostream.h"
 #include "../devicedriver/ISwitchable.h"

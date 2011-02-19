@@ -1,3 +1,10 @@
+/**
+ * @file   RWBase.cpp
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #include "RWBase.h"
 #include "../../../environment/Simulator.h"
 #include "../../datapool/Datapool.h"

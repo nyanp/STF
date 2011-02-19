@@ -1,3 +1,10 @@
+/**
+ * @file   i2c_emu.h
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 /**************************************************/
 /* IO ExpanderによるI2Cのエミュレーションヘッダ   */
 /* PRISM 2ndEM用                                  */

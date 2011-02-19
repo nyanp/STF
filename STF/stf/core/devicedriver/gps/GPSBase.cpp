@@ -1,3 +1,10 @@
+/**
+ * @file   GPSBase.cpp
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #include "GPSBase.h"
 #include "../../datapool/Datapool.h"
 #include "../../../environment/Simulator.h"

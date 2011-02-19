@@ -1,3 +1,10 @@
+/**
+ * @file   SystemManagerBase.cpp
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #include "SystemManagerBase.h"
 #include "../mode/ModeBase.h"
 #include "../datapool/Datapool.h"

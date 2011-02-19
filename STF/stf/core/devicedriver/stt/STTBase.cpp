@@ -1,3 +1,10 @@
+/**
+ * @file   STTBase.cpp
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #include "STTBase.h"
 #include "../../../datatype/TypeConverter.h"
 #include "../../../environment/Simulator.h"

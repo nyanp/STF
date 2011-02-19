@@ -1,3 +1,10 @@
+/**
+ * @file   TelemetryManagerBase.cpp
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #include "TelemetryManagerBase.h"
 #include "../strategy/telemetry/ITelemetryStrategy.h"
 #include "../../util/Ostream.h"

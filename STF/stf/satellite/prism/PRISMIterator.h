@@ -1,3 +1,10 @@
+/**
+ * @file   PRISMIterator.h
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #ifndef  stf_satellite_prism_PRISMIterator_h
 #define stf_satellite_prism_PRISMIterator_h
 

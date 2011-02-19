@@ -1,3 +1,10 @@
+/**
+ * @file   Orbit.cpp
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #include "Orbit.h"
 #include "sgp4/sgp4ext.h"
 #include "sgp4/sgp4unit.h"

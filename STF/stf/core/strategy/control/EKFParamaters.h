@@ -1,3 +1,10 @@
+/**
+ * @file   EKFParamaters.h
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #ifndef aocs_core_strategy_control_EKFParamaters_h
 #define aocs_core_strategy_control_EKFParamaters_h
 

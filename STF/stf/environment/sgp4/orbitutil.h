@@ -1,3 +1,10 @@
+/**
+ * @file   orbitutil.h
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #ifndef __orbit_H__
 #define __orbit_H__
 

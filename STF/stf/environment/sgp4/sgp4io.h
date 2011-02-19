@@ -1,3 +1,10 @@
+/**
+ * @file   sgp4io.h
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #ifndef _sgp4io_
 #define _sgp4io_
 /*     ----------------------------------------------------------------

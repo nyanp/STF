@@ -1,3 +1,10 @@
+/**
+ * @file   Simulator.cpp
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #include "Simulator.h"
 //#include "core/devicedriver/gyro/Tamagawa_FOG.h"
 //#include "core/strategy/input/EKF.h"

@@ -1,3 +1,10 @@
+/**
+ * @file   SunSensor.cpp
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #include "SunSensor.h"
 namespace stf {
 namespace core {

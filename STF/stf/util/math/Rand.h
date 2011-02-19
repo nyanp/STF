@@ -1,3 +1,10 @@
+/**
+ * @file   Rand.h
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #ifndef util_math_Rand_h
 #define util_math_Rand_h
 

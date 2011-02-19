@@ -1,3 +1,10 @@
+/**
+ * @file   ITelemetryStrategy.h
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #ifndef stf_core_strategy_telemetry_ITelemetryStrategy_h
 #define stf_core_strategy_telemetry_ITelemetryStrategy_h
 

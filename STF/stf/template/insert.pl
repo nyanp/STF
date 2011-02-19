@@ -3,7 +3,7 @@ use warnings;
 use File::Find;
 use IO::File;
 
-my $dir = "./";
+my $dir = "../";
 
 sub print_file_name {
     if( /\.(h|hpp|cpp)$/ ){

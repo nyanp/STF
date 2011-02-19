@@ -1,3 +1,10 @@
+/**
+ * @file   igrf.h
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #ifndef __igrf_H__
 #define __igrf_H__
 

@@ -1,3 +1,10 @@
+/**
+ * @file   OutputAll.h
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #ifndef stf_core_strategy_telemetry_OutputAll_h
 #define stf_core_strategy_telemetry_OutputAll_h
 #include "ITelemetryStrategy.h"

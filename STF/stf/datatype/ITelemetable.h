@@ -1,3 +1,10 @@
+/**
+ * @file   ITelemetable.h
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #ifndef stf_datatype_ITelemetable_h
 #define stf_datatype_ITelemetable_h
 

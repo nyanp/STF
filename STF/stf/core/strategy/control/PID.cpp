@@ -1,3 +1,10 @@
+/**
+ * @file   PID.cpp
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #include "PID.h"
 #include "../../../datatype/TypeConverter.h"
 #include "../../../datatype/Time.h"

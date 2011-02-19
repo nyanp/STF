@@ -1,3 +1,10 @@
+/**
+ * @file   ModeChangeCommand.cpp
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #include "ModeChangeCommand.h"
 #include "../manager/ModeManagerBase.h"
 #include "../../util/Ostream.h"

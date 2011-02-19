@@ -1,3 +1,10 @@
+/**
+ * @file   TRIAD.cpp
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #include "TRIAD.h"
 #include "../../../datatype/DateTime.h"
 #include "../../../datatype/DCM.h"

@@ -1,3 +1,10 @@
+/**
+ * @file   UART.hpp
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 /*!
   \file   UART.hpp
   \author TAKISAWA Jun'ichi.

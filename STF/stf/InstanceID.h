@@ -1,3 +1,10 @@
+/**
+ * @file   InstanceID.h
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #ifndef InstanceID_h
 #define InstanceID_h
 

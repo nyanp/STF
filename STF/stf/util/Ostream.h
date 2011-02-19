@@ -1,3 +1,10 @@
+/**
+ * @file   Ostream.h
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #ifndef util_Ostream_h
 #define util_Ostream_h
 #include<iostream>

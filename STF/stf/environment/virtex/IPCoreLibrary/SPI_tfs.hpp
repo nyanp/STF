@@ -1,3 +1,10 @@
+/**
+ * @file   SPI_tfs.hpp
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #ifndef SPI_TFS_HPP_
 #define SPI_TFS_HPP_
 

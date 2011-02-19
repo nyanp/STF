@@ -1,3 +1,10 @@
+/**
+ * @file   TelemetryManager.h
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #ifndef stf_core_manager_TelemetryManager_h
 #define stf_core_manager_TelemetryManager_h
 

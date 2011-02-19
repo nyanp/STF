@@ -1,3 +1,10 @@
+/**
+ * @file   static_check.h
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 ////////////////////////////////////////////////////////////////////////////////
 // The Loki Library
 // Copyright (c) 2001 by Andrei Alexandrescu

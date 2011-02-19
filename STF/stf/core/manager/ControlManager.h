@@ -1,3 +1,10 @@
+/**
+ * @file   ControlManager.h
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #ifndef core_manager_ControlManager_h
 #define core_manager_ControlManager_h
 

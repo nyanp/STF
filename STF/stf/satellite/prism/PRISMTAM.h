@@ -1,3 +1,10 @@
+/**
+ * @file   PRISMTAM.h
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #ifndef stf_core_devicedriver_magnetometer_PRISMTAM_h
 #define stf_core_devicedriver_magnetometer_PRISMTAM_h
 

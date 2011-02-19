@@ -1,3 +1,10 @@
+/**
+ * @file   NJGlobal.h
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #ifndef satellite_prism_NJGlobal_h
 #define satellite_prism_NJGlobal_h
 #include "../../GlobalObject.h"

@@ -1,3 +1,10 @@
+/**
+ * @file   PRISMADC.cpp
+ * @brief  
+ *
+ * @author Taiga Nomi
+ * @date   2011.02.16
+ */
 #include "PRISMADC.h"
 #include<assert.h>
 
