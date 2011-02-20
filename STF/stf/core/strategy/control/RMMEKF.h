@@ -49,24 +49,7 @@ public:
 	}//“`”ÀCXVˆ—
 
 private:
-	/*datatype::StaticVector<3> omega_;
-    datatype::Quaternion q_;
-    datatype::Vector bref_;
-	//“`”À•p“x(sec)
-	double dt_;
-    datatype::Matrix A_;
-    datatype::Matrix B_;
-    datatype::Matrix G_;
-    datatype::Matrix F_;
-    datatype::Matrix H_;
-    datatype::Matrix P_;
-    datatype::Matrix K_;
-    datatype::Matrix Q_;
-    datatype::Matrix R_;
-    datatype::Vector x_;
-    datatype::Matrix Ht_;
-    datatype::Matrix Omega_;
-    */
+
 };
 
 

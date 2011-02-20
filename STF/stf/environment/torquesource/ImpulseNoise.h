@@ -9,7 +9,7 @@
 #define aocs_environment_torquesource_ImpulseNoise_h
 
 #include "NoiseBase.h"
-#include "../../datatype/Vector.h"
+#include "../../datatype/StaticVector.h"
 #include "../../datatype/Time.h"
 
 
@@ -25,17 +25,17 @@ namespace torquesource {
 
 class ImpulseNoise : virtual public NoiseBase {
 public:
-    ImpulseNoise(double magnitude, const datatype::Vector &vector, const int &startTimeInSecond, const double &durationInMillisec, environment::Simulator *env);
+    ImpulseNoise(double magnitude, const datatype::StaticVector<3> &vector, const int &startTimeInSecond, const double &durationInMillisec, environment::Simulator *env);
     ImpulseNoise(double magnitude, environment::Simulator *env);
     virtual ~ImpulseNoise();
     virtual double get_torque() const ;
-    virtual datatype::Vector get_torque_bodyframe() const ;
+    virtual datatype::StaticVector<3> get_torque_bodyframe() const ;
     virtual void set_torque(double value);
 private:
     ImpulseNoise();
     datatype::Time starttime_;
     datatype::Time duration_;
-    datatype::Vector vector_;
+    datatype::StaticVector<3> vector_;
     double magnitude_;
 };
 

@@ -38,6 +38,7 @@
 #include "stf/core/devicedriver/IOPort.h"
 #include "stf/satellite/PRISMFactory.h"
 #include "stf/satellite/NJFactory.h"
+#include "stf/util/math/Exp.h"
 
 #include "stf/environment/sh/iodefine.h"
 #include "stf/interface/Iterator.h"
@@ -140,6 +141,12 @@ int main(void){
 	util::cout << sizeof(datatype::StaticMatrix<4,4>) << util::endl;
 	util::cout << sizeof(environment::Simulator) << util::endl;
 
+	datatype::StaticMatrix<2,2> mat2;
+	mat2[0][0] = 0.3;
+	mat2[0][1] = 0;
+	mat2[1][1] = 0.2;
+
+	util::cout << util::math::exp(mat2,4);
 
 
 	typedef devicedriver::CompositeOutput<devicedriver::mtq::MTQ<ENV>,3> ThreeAxisMTQ;
@@ -230,7 +237,7 @@ int main(void){
 
 	///////////////////////////////////////////////
 	// é¿çs
-	for(int i = 0; i < 20; i++)
+	for(int i = 0; i < 2000; i++)
 		s.runOneCycle();
 
 	return 1;

@@ -28,9 +28,9 @@ double WhiteNoise::get_torque() const
 }
 
 
-datatype::Vector WhiteNoise::get_torque_bodyframe() const 
+datatype::StaticVector<3> WhiteNoise::get_torque_bodyframe() const 
 {
-    datatype::Vector v(3);
+    datatype::StaticVector<3> v;
     for(int i = 0; i < 3; i++){
         v[i] = util::math::WhiteNoise(this->sigma_,this->mu_);
     }

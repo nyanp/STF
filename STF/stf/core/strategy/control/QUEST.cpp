@@ -68,7 +68,7 @@ datatype::Quaternion QUEST::estimate_(
 	double sigma = B.trace();
 	datatype::StaticMatrix<3,3> C;
 	datatype::DCM S = B + C;
-	datatype::Matrix I(3,3); I.unitize();
+	datatype::StaticMatrix<3,3> I; I.unitize();
 	double det = S.det();
 
 	//TBD!

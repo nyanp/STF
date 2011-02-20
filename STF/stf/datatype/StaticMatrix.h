@@ -26,7 +26,7 @@ public:
     inline const StaticVector<cols> &operator[](int index) const;
     inline StaticVector<cols> &operator[](int index);
     StaticMatrix &unitize();
-    StaticMatrix trans() const ;
+    StaticMatrix<cols,rows> trans() const ;
     StaticMatrix inverse() const ;
     bool isSquare();
     int pivot(StaticMatrix &m, int row) const ;
@@ -192,10 +192,10 @@ double StaticMatrix<rows,cols>::trace() const
 }
 
 template<int rows, int cols>
-StaticMatrix<rows,cols> StaticMatrix<rows,cols>::trans() const 
+StaticMatrix<cols,rows> StaticMatrix<rows,cols>::trans() const 
 {
 	//assert(rows == cols);
-	StaticMatrix<rows,cols> temp;
+	StaticMatrix<cols,rows> temp;
 	for(int i = 0; i < rows; i++)
 		for(int j = 0; j < cols; j++)
 			temp[j][i] = value_[i][j];

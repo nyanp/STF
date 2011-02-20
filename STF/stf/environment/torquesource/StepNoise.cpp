@@ -6,7 +6,6 @@
  * @date   2011.02.16
  */
 #include "../Simulator.h"
-
 #include "StepNoise.h"
 
 namespace stf {
@@ -14,12 +13,12 @@ namespace environment {
 namespace torquesource {
 
 StepNoise::StepNoise(double magnitude, stf::environment::Simulator *env)
-: magnitude_(magnitude), NoiseBase(env), vector_(3)
+: magnitude_(magnitude), NoiseBase(env)
 {
     vector_[0] = 1;//デフォルトはX軸まわりのトルク
 }
 
-StepNoise::StepNoise(double magnitude, const datatype::Vector &vector, const int &startTimeInSecond, stf::environment::Simulator *env)
+StepNoise::StepNoise(double magnitude, const datatype::StaticVector<3> &vector, const int &startTimeInSecond, stf::environment::Simulator *env)
 : magnitude_(magnitude), vector_(vector), starttime_(startTimeInSecond,0), NoiseBase(env)
 {
 }
@@ -38,16 +37,16 @@ void StepNoise::set_torque(double value)
     this->magnitude_ = value;
 }
 
-datatype::Vector StepNoise::get_torque_bodyframe() const 
+datatype::StaticVector<3> StepNoise::get_torque_bodyframe() const 
 {
 	if(this->starttime_ >= this->environment_->getTrueTime())
         return this->magnitude_ * this->vector_;
-    datatype::Vector v(3);
+    datatype::StaticVector<3> v;
     return v;
 }
 
 StepNoise::StepNoise()
-: magnitude_(0), vector_(3), NoiseBase(0)
+: magnitude_(0), NoiseBase(0)
 {
 }
 

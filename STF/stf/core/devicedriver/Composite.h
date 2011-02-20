@@ -11,7 +11,7 @@
 #include "AOCSComponent.h"
 #include "AOCSActuator.h"
 #include "AOCSSensor.h"
-#include "../../datatype/Matrix.h"
+#include "../../datatype/StaticMatrix.h"
 #include "../../datatype/List.h"
 #include "../../datatype/Quaternion.h"
 #include "../../util/Ostream.h"
@@ -48,7 +48,7 @@ private:
 template<class Leaf,int Numbers>
 class CompositeOutput : public AOCSActuator<typename Leaf::Target> {
 public:
-	CompositeOutput(int instance_id, const datatype::DCM& dcm) : AOCSActuator<typename Leaf::Target>(instance_id,"Composite",dcm), output_mat_(Numbers,3), index_(0)
+	CompositeOutput(int instance_id, const datatype::DCM& dcm) : AOCSActuator<typename Leaf::Target>(instance_id,"Composite",dcm), index_(0)
 	{
 		for(int i = 0; i < Numbers; i++) childs_[index_] = 0;
 		output_mat_.unitize(); //デフォルトでトルク分配行列は単位行列
@@ -61,7 +61,7 @@ public:
 protected:
 private:
 	Leaf* childs_[Numbers];
-	datatype::Matrix output_mat_;//トルク分配行列
+	datatype::StaticMatrix<Numbers,3> output_mat_;//トルク分配行列
 	unsigned char index_;//max 255 childs
 };
 
@@ -138,7 +138,7 @@ template <class Leaf,int Numbers>
 void CompositeOutput<Leaf,Numbers>::distribute(){
 	//util::cout << value_;
 	//util::cout << output_mat_;
-	datatype::Vector v = this->output_mat_ * this->value_;
+	datatype::StaticVector<Numbers> v = this->output_mat_ * this->value_;
 	for(int i = 0; i < Numbers; i++){
 		childs_[i]->set_torque(v[i]);
 	}
@@ -149,7 +149,7 @@ void CompositeOutput<Leaf,Numbers>::distribute(){
 //疑似逆行列でエネルギー最小のトルク分配行列を計算．
 template <class Leaf,int Numbers>
 void CompositeOutput<Leaf,Numbers>::matrixset(){
-	datatype::Matrix m(3,Numbers);
+	datatype::StaticMatrix<3,Numbers> m;
 	for(int i = 0; i < Numbers; i++){
 		datatype::DCM d = this->childs_[i]->getDCM();
 		for(int j = 0; j < 3; j++)

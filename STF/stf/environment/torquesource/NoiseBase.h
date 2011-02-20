@@ -8,7 +8,7 @@
 #ifndef aocs_environment_torquesource_NoiseBase_h
 #define aocs_environment_torquesource_NoiseBase_h
 
-#include "../../datatype/Vector.h"
+#include "../../datatype/StaticVector.h"
 
 namespace stf {
 namespace environment {
@@ -25,7 +25,7 @@ public:
 	NoiseBase(environment::Simulator* env) : environment_(env) {}
 	virtual ~NoiseBase(){}
     virtual double get_torque() const = 0;
-    virtual datatype::Vector get_torque_bodyframe() const = 0;
+    virtual datatype::StaticVector<3> get_torque_bodyframe() const = 0;
     virtual void set_torque(double value) = 0;
  public:
     environment::Simulator *environment_;
