@@ -31,7 +31,7 @@ public:
 	void setstate(bool enable) { is_enabled_ = enable; }
 	virtual void write_to_telemetry(){
 		if(is_enabled_)
-			if( this->start_obc_ >= this->clock_->getTime() || this->start_rtc_ >= this->clock_->getAbsoluteTime() ){
+			if( this->start_obc_ >= this->clock_->get_time() || this->start_rtc_ >= this->clock_->get_datetime() ){
 				SelectingOutput<short,SCALE>::write_to_telemetry();
 			}
 	}

@@ -30,17 +30,17 @@ public:
 		devicedriver::OutputPort<T>* source_1, 
 		devicedriver::OutputPort<T>* source_2,
 		devicedriver::InputPort<T>* torque_out) : StrategyBase(instance_id, "Combining_2") {
-			this->connectSource<0>(source_1);
-			this->connectSource<1>(source_2);
-			torque_out->connectSource_(this);
+			this->connect_source<0>(source_1);
+			this->connect_source<1>(source_2);
+			torque_out->connect_source_(this);
 	}
 	~Combining_2(){}
 	virtual void do_compute(const datatype::Time& t){
 		if(t > this->last_update_){//既に別のブロック経由で更新済みなら再計算しない
 			util::cout << "compute: combining-2" << util::endl;
 			this->value_b_.reset();
-			this->value_b_ += this->source<0,T>().getValueInBodyFrame(t);
-			this->value_b_ += this->source<1,T>().getValueInBodyFrame(t);
+			this->value_b_ += this->source<0,T>().get_in_bodyframe(t);
+			this->value_b_ += this->source<1,T>().get_in_bodyframe(t);
 			this->last_update_ = t;
 		}
 	}
@@ -60,18 +60,18 @@ public:
 		devicedriver::OutputPort<T>* source_2,
 		devicedriver::OutputPort<T>* source_3,
 		devicedriver::InputPort<T>* torque_out) : StrategyBase(instance_id, "Combining_3") {
-			this->connectSource<0>(source_1);
-			this->connectSource<1>(source_2);
-			this->connectSource<2>(source_3);
-			torque_out->connectSource_(this);
+			this->connect_source<0>(source_1);
+			this->connect_source<1>(source_2);
+			this->connect_source<2>(source_3);
+			torque_out->connect_source_(this);
 	}
 	~Combining_3(){}
 	virtual void do_compute(const datatype::Time& t){
 		if(t > this->last_update_){//既に別のブロック経由で更新済みなら再計算しない
 			this->value_b_.reset();
-			this->value_b_ += this->source<0,T>().getValueInBodyFrame(t);
-			this->value_b_ += this->source<1,T>().getValueInBodyFrame(t);
-			this->value_b_ += this->source<2,T>().getValueInBodyFrame(t);
+			this->value_b_ += this->source<0,T>().get_in_bodyframe(t);
+			this->value_b_ += this->source<1,T>().get_in_bodyframe(t);
+			this->value_b_ += this->source<2,T>().get_in_bodyframe(t);
 			this->last_update_ = t;
 		}
 	}
@@ -92,20 +92,20 @@ public:
 		devicedriver::OutputPort<T>* source_3,
 		devicedriver::OutputPort<T>* source_4,
 		devicedriver::InputPort<T>* torque_out) : StrategyBase(instance_id, "Combining_4") {
-			this->connectSource<0>(source_1);
-			this->connectSource<1>(source_2);
-			this->connectSource<2>(source_3);
-			this->connectSource<3>(source_4);
-			torque_out->connectSource_(this);
+			this->connect_source<0>(source_1);
+			this->connect_source<1>(source_2);
+			this->connect_source<2>(source_3);
+			this->connect_source<3>(source_4);
+			torque_out->connect_source_(this);
 	}
 	~Combining_4(){}
 	virtual void do_compute(const datatype::Time& t){
 		if(t > this->last_update_){//既に別のブロック経由で更新済みなら再計算しない
 			this->value_b_.reset();
-			this->value_b_ += this->source<0,T>().getValueInBodyFrame(t);
-			this->value_b_ += this->source<1,T>().getValueInBodyFrame(t);
-			this->value_b_ += this->source<2,T>().getValueInBodyFrame(t);
-			this->value_b_ += this->source<3,T>().getValueInBodyFrame(t);
+			this->value_b_ += this->source<0,T>().get_in_bodyframe(t);
+			this->value_b_ += this->source<1,T>().get_in_bodyframe(t);
+			this->value_b_ += this->source<2,T>().get_in_bodyframe(t);
+			this->value_b_ += this->source<3,T>().get_in_bodyframe(t);
 			this->last_update_ = t;
 		}
 	}
@@ -126,22 +126,22 @@ public:
 		devicedriver::OutputPort<T>* source_4,
 		devicedriver::OutputPort<T>* source_5,
 		devicedriver::InputPort<T>* torque_out) : StrategyBase(instance_id, "Combining_5") {
-			this->connectSource<0>(source_1);
-			this->connectSource<1>(source_2);
-			this->connectSource<2>(source_3);
-			this->connectSource<3>(source_4);
-			this->connectSource<4>(source_5);
-			torque_out->connectSource_(this);
+			this->connect_source<0>(source_1);
+			this->connect_source<1>(source_2);
+			this->connect_source<2>(source_3);
+			this->connect_source<3>(source_4);
+			this->connect_source<4>(source_5);
+			torque_out->connect_source_(this);
 	}
 	~Combining_5(){}
 	virtual void do_compute(const datatype::Time& t){
 		if(t > this->last_update_){//既に別のブロック経由で更新済みなら再計算しない
 			this->value_b_.reset();
-			this->value_b_ += this->source<0,T>().getValueInBodyFrame(t);
-			this->value_b_ += this->source<1,T>().getValueInBodyFrame(t);
-			this->value_b_ += this->source<2,T>().getValueInBodyFrame(t);
-			this->value_b_ += this->source<3,T>().getValueInBodyFrame(t);
-			this->value_b_ += this->source<4,T>().getValueInBodyFrame(t);
+			this->value_b_ += this->source<0,T>().get_in_bodyframe(t);
+			this->value_b_ += this->source<1,T>().get_in_bodyframe(t);
+			this->value_b_ += this->source<2,T>().get_in_bodyframe(t);
+			this->value_b_ += this->source<3,T>().get_in_bodyframe(t);
+			this->value_b_ += this->source<4,T>().get_in_bodyframe(t);
 			this->last_update_ = t;
 		}
 	}
@@ -163,24 +163,24 @@ public:
 		devicedriver::OutputPort<T>* source_5,
 		devicedriver::OutputPort<T>* source_6,
 		devicedriver::InputPort<T>* torque_out) : StrategyBase(instance_id, "Combining_6") {
-			this->connectSource<0>(source_1);
-			this->connectSource<1>(source_2);
-			this->connectSource<2>(source_3);
-			this->connectSource<3>(source_4);
-			this->connectSource<4>(source_5);
-			this->connectSource<5>(source_6);
-			torque_out->connectSource_(this);
+			this->connect_source<0>(source_1);
+			this->connect_source<1>(source_2);
+			this->connect_source<2>(source_3);
+			this->connect_source<3>(source_4);
+			this->connect_source<4>(source_5);
+			this->connect_source<5>(source_6);
+			torque_out->connect_source_(this);
 	}
 	~Combining_6(){}
 	virtual void do_compute(const datatype::Time& t){
 		if(t > this->last_update_){//既に別のブロック経由で更新済みなら再計算しない
 			this->value_b_.reset();
-			this->value_b_ += this->source<0,T>().getValueInBodyFrame(t);
-			this->value_b_ += this->source<1,T>().getValueInBodyFrame(t);
-			this->value_b_ += this->source<2,T>().getValueInBodyFrame(t);
-			this->value_b_ += this->source<3,T>().getValueInBodyFrame(t);
-			this->value_b_ += this->source<4,T>().getValueInBodyFrame(t);
-			this->value_b_ += this->source<5,T>().getValueInBodyFrame(t);
+			this->value_b_ += this->source<0,T>().get_in_bodyframe(t);
+			this->value_b_ += this->source<1,T>().get_in_bodyframe(t);
+			this->value_b_ += this->source<2,T>().get_in_bodyframe(t);
+			this->value_b_ += this->source<3,T>().get_in_bodyframe(t);
+			this->value_b_ += this->source<4,T>().get_in_bodyframe(t);
+			this->value_b_ += this->source<5,T>().get_in_bodyframe(t);
 			this->last_update_ = t;
 		}
 	}

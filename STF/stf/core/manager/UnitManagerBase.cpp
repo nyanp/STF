@@ -31,7 +31,7 @@ void UnitManagerBase::run()
 	datatype::List<HotSpot>::iterator it = unit_list_->begin();
 	while(it != unit_list_->end()){
 		//ここにgetTelemetryLengthを用いてストリーム長さを評価するコードが必要．TBD
-		(*it).doUpdate();
+		(*it).do_update();
 		++it;
 	}      
 }

@@ -23,10 +23,10 @@ CrossProduct::CrossProduct(int instance_id,
 		devicedriver::InputPort<datatype::MagneticMoment>* mag_out
 		) : StrategyBase(instance_id, "CrossProduct")
 {
-	this->connectSource<0>(torquer_source);
-	this->connectSource<1>(b_source);
+	this->connect_source<0>(torquer_source);
+	this->connect_source<1>(b_source);
 	if(mag_out != 0){
-		mag_out->connectSource_(this);
+		mag_out->connect_source_(this);
 	}
 }
 
@@ -34,8 +34,8 @@ void CrossProduct::do_compute(const datatype::Time& t) {
 	if(t <= this->last_update_) return; //既に別のブロック経由で更新済みなら再計算しない
 	util::cout << "compute: crossproduct" << util::endl;	
 	// M = B * T / |B|2
-	datatype::MagneticField B = this->source<1,datatype::MagneticField>().getValueInBodyFrame(t);
-	datatype::StaticVector<3> T = this->source<0,datatype::StaticVector<3>>().getValueInBodyFrame(t);
+	datatype::MagneticField B = this->source<1,datatype::MagneticField>().get_in_bodyframe(t);
+	datatype::StaticVector<3> T = this->source<0,datatype::StaticVector<3>>().get_in_bodyframe(t);
 
 	this->value_b_ = (B % T) / (B.norm(2) * B.norm(2));
 

@@ -26,12 +26,12 @@ QUEST::QUEST(int instance_id, double sigma_sun, double sigma_earth,
 		devicedriver::InputPort<datatype::Quaternion>* q_out
 		) : StrategyBase(instance_id, "QUEST"), sigma_sun_(sigma_sun), sigma_earth_(sigma_earth)
 {
-	this->connectSource<0>(sunvector_source);
-	this->connectSource<1>(earthvector_source);
-	this->connectSource<2>(position_source);
-	this->connectSource<3>(time_source);
+	this->connect_source<0>(sunvector_source);
+	this->connect_source<1>(earthvector_source);
+	this->connect_source<2>(position_source);
+	this->connect_source<3>(time_source);
 	if(q_out != 0){
-		q_out->connectSource_(this);
+		q_out->connect_source_(this);
 	}
 	init_();
 }
@@ -40,11 +40,11 @@ void QUEST::do_compute(const datatype::Time& t) {
 	if(t <= this->last_update_) return; //既に別のブロック経由で更新済みなら再計算しない
 		util::cout << "compute: QUEST" << util::endl;
 	//センサから取得した衛星基準座標系における地球，太陽方向
-	datatype::StaticVector<2> w_sun = this->source<0,datatype::StaticVector<2>>().getValueInBodyFrame(t);
-	datatype::StaticVector<2> w_earth = this->source<1,datatype::StaticVector<2>>().getValueInBodyFrame(t);
+	datatype::StaticVector<2> w_sun = this->source<0,datatype::StaticVector<2>>().get_in_bodyframe(t);
+	datatype::StaticVector<2> w_earth = this->source<1,datatype::StaticVector<2>>().get_in_bodyframe(t);
 	//軌道情報をもとに計算された衛星位置における地球，太陽方向
-	datatype::StaticVector<3> v1 = datatype::OrbitCalc::getSunDirection3D(this->source<3,datatype::DateTime>().getValueInBodyFrame());
-	datatype::StaticVector<3> v2 = datatype::OrbitCalc::getEarthDirection3D(this->source<2,datatype::PositionInfo>().getValueInBodyFrame(t));
+	datatype::StaticVector<3> v1 = datatype::OrbitCalc::getSunDirection3D(this->source<3,datatype::DateTime>().get_in_bodyframe());
+	datatype::StaticVector<3> v2 = datatype::OrbitCalc::getEarthDirection3D(this->source<2,datatype::PositionInfo>().get_in_bodyframe(t));
 	datatype::StaticVector<3> w1 = datatype::TypeConverter::toRectangular(w_sun);
 	datatype::StaticVector<3> w2 = datatype::TypeConverter::toRectangular(w_earth);
 

@@ -25,9 +25,9 @@ class WhiteNoise : virtual public NoiseBase {
 public:
     virtual ~WhiteNoise();
     WhiteNoise(double sigma, double mu);
-    virtual double getTorque() const ;
-    virtual datatype::Vector getTorqueInBodyFrame() const ;
-    virtual void setTorque(double value);
+    virtual double get_torque() const ;
+    virtual datatype::Vector get_torque_bodyframe() const ;
+    virtual void set_torque(double value);
     environment::Simulator *environment_;
 private:
     double sigma_;

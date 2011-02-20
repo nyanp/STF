@@ -22,7 +22,7 @@ public:
 	~NJMTQ(){}
 	//1Nmo—ÍCüŒ`«Œë·5“
 	NJMTQ(int instance_id, const datatype::DCM &angle) : MTQBase(instance_id, angle, 1, -1, 5){}
-	virtual void doUpdate(){}
+	virtual void do_update(){}
 private:
 	NJMTQ(){}
 };

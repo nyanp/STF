@@ -16,16 +16,16 @@ namespace devicedriver {
 namespace gps {
 
 template <>
-void GPSBase<environment::Simulator>::doUpdate(){
-	this->setValue(inputFilter(this->environment_->getTrueSatellitePosition()));
+void GPSBase<environment::Simulator>::do_update(){
+	this->set_value(filter(this->environment_->getTrueSatellitePosition()));
 
-	if(this->datapool_ != 0){
-		datapool_->set<GPSBase<environment::Simulator>>(datapool_hold_index_,this->value_);
-	}
+	//if(this->datapool_ != 0){
+	//	datapool_->set<GPSBase<environment::Simulator>>(datapool_hold_index_,this->value_);
+	//}
 }
 //
 template <>
-datatype::PositionInfo GPSBase<environment::Simulator>::inputFilter(const datatype::PositionInfo& value){
+datatype::PositionInfo GPSBase<environment::Simulator>::filter(const datatype::PositionInfo& value){
 	return value;
 }
 

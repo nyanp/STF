@@ -39,9 +39,9 @@ public:
 		devicedriver::OutputPort<datatype::Quaternion>* stt_2,
 		devicedriver::InputPort<datatype::Quaternion>* q_out = 0) : StrategyBase(instance_id, "Quaternion Averaging")
 	{
-			this->connectSource<0>(stt_1);
-			this->connectSource<1>(stt_2);
-			if(q_out != 0) q_out->connectSource_(this);
+			this->connect_source<0>(stt_1);
+			this->connect_source<1>(stt_2);
+			if(q_out != 0) q_out->connect_source_(this);
 	}
 	~QuaternionAveraging(){}
 	virtual void do_compute(const datatype::Time& t);
@@ -69,7 +69,7 @@ class MidRangeSpinController : public devicedriver::InputPorts< TYPELIST_1(datat
 public:
 	MidRangeSpinController(int instance_id) : StrategyBase(instance_id, "MidSpinController") {}
 	MidRangeSpinController(int instance_id, devicedriver::OutputPort<datatype::Quaternion>* q_source) : StrategyBase(instance_id, "MidSpinController"){
-		this->connectSource<0>(q_source);
+		this->connect_source<0>(q_source);
 	}
 	virtual void do_compute(const datatype::Time& t);
 private:

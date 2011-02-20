@@ -20,7 +20,7 @@ public:
 	// 3-SigmaÇ≈1ìxê∏ìx
 	NJCoarseTAM(int instance_id, const datatype::DCM &angle) : TAMBase(instance_id,angle){}
 	~NJCoarseTAM(){}
-	virtual void doUpdate(){}
+	virtual void do_update(){}
 private:
 	NJCoarseTAM(){}
 };

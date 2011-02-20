@@ -20,10 +20,10 @@ namespace stt {
 //STT本体のQuaternion
 //シミュレータ環境ではSTT座標系での真値を取得する
 template <>
-void STTBase<environment::Simulator>::doUpdate(){
+void STTBase<environment::Simulator>::do_update(){
 	count_++;
 	if(count_ >= 5){
-		this->setValue(inputFilter(this->environment_->getQuaternion(*this)));
+		this->set_value(filter(this->environment_->getQuaternion(*this)));
 		if(this->datapool_ != 0){
 			datapool_->set<STTBase<environment::Simulator>>(datapool_hold_index_,this->value_);
 		}
@@ -32,7 +32,7 @@ void STTBase<environment::Simulator>::doUpdate(){
 }
 
 template <>
-datatype::Quaternion STTBase<environment::Simulator>::inputFilter(const datatype::Quaternion& value){
+datatype::Quaternion STTBase<environment::Simulator>::filter(const datatype::Quaternion& value){
 	datatype::EulerAngle angle;
 	angle[0] = util::math::WhiteNoise(this->err_arcsec_ * util::math::ARCSEC2RAD ,0) / 3;
 	angle[1] = util::math::WhiteNoise(this->err_arcsec_ * util::math::ARCSEC2RAD, 0) / 3;

@@ -22,8 +22,8 @@ public:
 	NJGPS(){}
 	//Sigma =0.02, tau(ECRV)=1000sec
 	NJGPS(int instance_id) : GPSBase(instance_id){}
-	void setOrbit(const datatype::OrbitInfo& orbit){
-		this->setValue(datatype::TypeConverter::toPositionInfo(orbit));//‹O“¹—v‘f‚ğ‰q¯‚Ì6ŸŒ³ó‘Ô—Ê‚É•ÏŠ·
+	void set_orbit(const datatype::OrbitInfo& orbit){
+		this->set_value(datatype::TypeConverter::toPositionInfo(orbit));//‹O“¹—v‘f‚ğ‰q¯‚Ì6ŸŒ³ó‘Ô—Ê‚É•ÏŠ·
 	}
 	~NJGPS(){}
 private:

@@ -119,13 +119,13 @@ template<class Env>
 class Global{
 
 public:
-	//static Global<Env>& getInstance();//Environmentごとに単一のインスタンスのみを生成
-	virtual const core::datapool::AocsDataPool* getDataPool() const = 0;
-	virtual const core::datapool::EventDataPool* getEventDataPool() const = 0;
+	//static Global<Env>& get_instance();//Environmentごとに単一のインスタンスのみを生成
+	virtual const core::datapool::AocsDataPool* get_datapool() const = 0;
+	virtual const core::datapool::EventDataPool* get_eventdatapool() const = 0;
 
-	virtual const datatype::Time getGlobalTime() = 0;//衛星のOBC時刻を取得
-	virtual const datatype::DateTime getGlobalDateTime() = 0;//衛星のRTC時刻を取得
-	virtual const datatype::SatelliteModel getSatelliteModel() const = 0;//衛星の質量特性モデルを取得
+	virtual const datatype::Time get_global_time() = 0;//衛星のOBC時刻を取得
+	virtual const datatype::DateTime get_global_datetime() = 0;//衛星のRTC時刻を取得
+	virtual const datatype::SatelliteModel get_satellitemodel() const = 0;//衛星の質量特性モデルを取得
 	virtual datatype::List<core::manager::ManagerBase>* getFunctionManager() {return &(this->managers_);}
 
 	//static datapool::AocsDataPool g_DataPool;

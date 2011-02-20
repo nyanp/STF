@@ -27,8 +27,8 @@ class SunSensorBase : public AOCSSensor<datatype::StaticVector<2>,datatype::Stat
 public:
 	SunSensorBase(int instance_id, const datatype::DCM &angle, double err_deg, int sigma = 3);
 	virtual ~SunSensorBase(){}
-	virtual void doUpdate();
-	virtual datatype::StaticVector<2> inputFilter(const datatype::StaticVector<2>& value); 
+	virtual void do_update();
+	virtual datatype::StaticVector<2> filter(const datatype::StaticVector<2>& value); 
 private:
     SunSensorBase();
 	double err_deg_;
@@ -43,15 +43,15 @@ SunSensorBase<T>::SunSensorBase(int instance_id, const datatype::DCM& dcm, doubl
 }
 
 template <class T>
-void SunSensorBase<T>::doUpdate(){
+void SunSensorBase<T>::do_update(){
 
 }
 
 //シミュレータ用の特殊化
 template <>
-void SunSensorBase<environment::Simulator>::doUpdate();
+void SunSensorBase<environment::Simulator>::do_update();
 template <>
-datatype::StaticVector<2> SunSensorBase<environment::Simulator>::inputFilter(const datatype::StaticVector<2>& value); 
+datatype::StaticVector<2> SunSensorBase<environment::Simulator>::filter(const datatype::StaticVector<2>& value); 
 
 } /* End of namespace stf::core::devicedriver::sunsensor */
 } /* End of namespace stf::core::devicedriver */

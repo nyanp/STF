@@ -14,6 +14,7 @@
 #include"../datatype/Matrix.h"
 #include"../datatype/Scalar.h"
 #include"../datatype/Time.h"
+#include"../datatype/DateTime.h"
 #include"../datatype/OrbitInfo.h"
 #include"../datatype/StaticVector.h"
 #include"../datatype/StaticMatrix.h"
@@ -66,6 +67,7 @@ std::ostream &operator << (std::ostream& out_file, const stf::datatype::Matrix& 
 std::ostream &operator << (std::ostream& out_file, const stf::datatype::Scalar& scalar);
 std::ostream &operator << (std::ostream& out_file, const stf::datatype::String& str);
 std::ostream &operator << (std::ostream& out_file, const stf::datatype::Time& time);
+std::ostream &operator << (std::ostream& out_file, const stf::datatype::DateTime& time);
 std::ostream &operator << (std::ostream& out_file, const stf::datatype::OrbitInfo& orbit);
 std::ostream &operator << (std::ostream& out_file, const stf::datatype::PositionInfo& pos);
 

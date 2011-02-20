@@ -19,8 +19,8 @@ namespace magnetometer {
 //STT本体のQuaternion
 //シミュレータ環境ではSTT座標系での真値を取得する
 template <>
-void TAMBase<environment::Simulator>::doUpdate(){
-	this->setValue(inputFilter(this->environment_->getMagneticField(*this)));
+void TAMBase<environment::Simulator>::do_update(){
+	this->set_value(filter(this->environment_->getMagneticField(*this)));
 	util::cout << this->value_b_;
 	if(this->datapool_ != 0){
 		datapool_->set<TAMBase<environment::Simulator>>(datapool_hold_index_,this->value_);
@@ -28,7 +28,7 @@ void TAMBase<environment::Simulator>::doUpdate(){
 }
 
 template <>
-datatype::MagneticField TAMBase<environment::Simulator>::inputFilter(const datatype::MagneticField& value){
+datatype::MagneticField TAMBase<environment::Simulator>::filter(const datatype::MagneticField& value){
 	return value;
 }
 

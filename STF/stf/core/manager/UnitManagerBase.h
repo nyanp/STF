@@ -12,7 +12,7 @@
 #include "../../datatype/List.h"
 #include "../event/ModeChangeEvent.h"
 #include "../event/SubjectBase.h"
-#include "ModeManagerBase.h"
+#include "../../util/loki/TypeManip.h"
 
 namespace stf {
 namespace core {
@@ -25,7 +25,7 @@ class UnitManagerBase : public ManagerBase, virtual public event::Observer<event
 {
 public:
 	typedef core::devicedriver::IDataUpdatable HotSpot;
-	typedef stf::util::Type2Type<core::devicedriver::IDataUpdatable> SpotType;
+	typedef Loki::Type2Type<core::devicedriver::IDataUpdatable> SpotType;
 
 	UnitManagerBase(int instance_id) : ManagerBase(instance_id, "UnitManager"), unit_list_(0) {}
 	virtual ~UnitManagerBase(){}

@@ -33,7 +33,7 @@ public:
 	virtual ~RateDumping(){}
 	virtual void do_compute(const datatype::Time& t);
 protected:
-    datatype::StaticVector<3> computeTorque_(const datatype::StaticVector<3>& input);
+    datatype::StaticVector<3> compute_torque_(const datatype::StaticVector<3>& input);
     RateDumping();
     double ki_;
     double kd_;

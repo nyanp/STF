@@ -19,10 +19,10 @@ MagneticMomentToTorque::MagneticMomentToTorque(int instance_id,
 		devicedriver::InputPort<datatype::StaticVector<3>>* torque_out
 		) : StrategyBase(instance_id, "MagneticMomentToTorque")
 {
-	this->connectSource<0>(mag_body_source);
-	this->connectSource<1>(mag_out_source);
+	this->connect_source<0>(mag_body_source);
+	this->connect_source<1>(mag_out_source);
 	if(torque_out != 0){
-		torque_out->connectSource_(this);
+		torque_out->connect_source_(this);
 	}
 }
 
@@ -31,8 +31,8 @@ void MagneticMomentToTorque::do_compute(const datatype::Time& t) {
 	util::cout << "compute: MM->Torque" << util::endl;
 	// T = M * B
 	this->value_b_ = 
-		this->source<1,datatype::MagneticMoment>().getValueInBodyFrame(t) % 
-		this->source<0,datatype::MagneticMoment>().getValueInBodyFrame(t);
+		this->source<1,datatype::MagneticMoment>().get_in_bodyframe(t) % 
+		this->source<0,datatype::MagneticMoment>().get_in_bodyframe(t);
 
 	this->last_update_ = t;
 }

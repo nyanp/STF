@@ -29,7 +29,7 @@ public:
     MTQBase();
 	MTQBase(int instance_id, const datatype::DCM &dcm, double max_torque, double min_torque, double linearity);
     virtual ~MTQBase();
-	virtual void doUpdate();
+	virtual void do_update();
 private:
     double linearity_;
 };
@@ -53,12 +53,12 @@ MTQBase<T>::~MTQBase()
 }
 
 template<class T>
-void MTQBase<T>::doUpdate(){
+void MTQBase<T>::do_update(){
 //	this->datapool_.get< 0, MTQBase >();
 }
 
 template <>
-void MTQBase<environment::Simulator>::doUpdate();
+void MTQBase<environment::Simulator>::do_update();
 
 template<>
 MTQBase<environment::Simulator>::MTQBase(int instance_id, const datatype::DCM &dcm, double max_torque, double min_torque, double linearity);

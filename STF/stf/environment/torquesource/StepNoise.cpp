@@ -28,17 +28,17 @@ StepNoise::~StepNoise()
 {
 }
 
-double StepNoise::getTorque() const 
+double StepNoise::get_torque() const 
 {
     return this->magnitude_;
 }
 
-void StepNoise::setTorque(double value)
+void StepNoise::set_torque(double value)
 {
     this->magnitude_ = value;
 }
 
-datatype::Vector StepNoise::getTorqueInBodyFrame() const 
+datatype::Vector StepNoise::get_torque_bodyframe() const 
 {
 	if(this->starttime_ >= this->environment_->getTrueTime())
         return this->magnitude_ * this->vector_;

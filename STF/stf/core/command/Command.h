@@ -22,7 +22,7 @@ class Command : public RootObject {
 public:
 	Command(const datatype::Time& t, const datatype::String& name) : RootObject(0, name), rcv_(0),time_(t) {}
 	virtual ~Command(){}
-	const datatype::Time& getTime() const { return time_; }
+	const datatype::Time& get_time() const { return time_; }
 	void  connectReceiver(devicedriver::cmhandler::ICommandReceiver* rcv) { rcv_ = rcv; }
 	virtual void execute() = 0;
 	virtual Command* clone(const datatype::Time& t) = 0;

@@ -19,7 +19,7 @@ namespace clock {
 class IAbsoluteTimeClock : virtual public IDataUpdatable
 {
 public:
-	virtual const datatype::DateTime getAbsoluteTime() const = 0;
+	virtual const datatype::DateTime get_datetime() const = 0;
 	virtual void set_absolute_time(datatype::DateTime) = 0;
 	virtual void set_absolute_time(int year, int month, int day, int hour, int minute, int second) = 0;
 	virtual ~IAbsoluteTimeClock(void){}

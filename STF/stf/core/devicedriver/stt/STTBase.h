@@ -25,9 +25,9 @@ class STTBase : public AOCSSensor<datatype::Quaternion,datatype::Quaternion,T>{
 public:
 	STTBase(int instance_id, const datatype::DCM &angle,double err_arcsec,int sigma = 3);
     virtual ~STTBase();
-	virtual void doUpdate();
-	virtual const datatype::Quaternion& getValueInBodyFrame();
-	virtual datatype::Quaternion inputFilter(const datatype::Quaternion& value); 
+	virtual void do_update();
+	virtual const datatype::Quaternion& get_in_bodyframe();
+	virtual datatype::Quaternion filter(const datatype::Quaternion& value); 
 private:
     STTBase();
     //datatype::Quaternion q_;
@@ -58,22 +58,22 @@ STTBase<T>::~STTBase()
 }
 
 template <class T>
-void STTBase<T>::doUpdate(){
+void STTBase<T>::do_update(){
 
 }
 
 // DCMで計算せずにQuaternionで計算するためにオーバーライド
 template <class T>
-const datatype::Quaternion& STTBase<T>::getValueInBodyFrame(){
+const datatype::Quaternion& STTBase<T>::get_in_bodyframe(){
 	this->value_b_ = q_set_angle_ * value_;
 	return this->value_b_;
 }
 
 //STT本体のQuaternion
 template <>
-void STTBase<environment::Simulator>::doUpdate();
+void STTBase<environment::Simulator>::do_update();
 template <>
-datatype::Quaternion STTBase<environment::Simulator>::inputFilter(const datatype::Quaternion& value); 
+datatype::Quaternion STTBase<environment::Simulator>::filter(const datatype::Quaternion& value); 
 } /* End of namespace stf::core::devicedriver::stt */
 } /* End of namespace stf::core::devicedriver */
 } /* End of namespace stf::core */

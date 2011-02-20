@@ -10,8 +10,9 @@
 #define stf_core_devicedriver_AOCSComponent_h
 
 #include "IDataUpdatable.h"
-#include "IDatapoolProducer.h"
+
 #include "ISwitchable.h"
+#include "../../RootObject.h"
 #include "../../datatype/DCM.h"
 #include "../../datatype/Vector.h"
 #include "../../datatype/Magnetic.h"
@@ -19,7 +20,7 @@
 #include "../../datatype/String.h"
 #include "../../datatype/Time.h"
 #include "../../datatype/OrbitInfo.h"
-#include "../../RootObject.h"
+#include "../../datatype/Quaternion.h"
 #include "../../datatype/TypeConverter.h"
 #include "../datapool/Datapool.h"
 #include "IOPort.h"
@@ -51,18 +52,18 @@ public:
 	virtual void on(){ is_on_ = true;}
 	virtual void off(){ is_on_ = false;}
 	virtual bool is_on() const{ return is_on_; }
-	virtual void setValue(const U& value) { 
+	virtual void set_value(const U& value) { 
 		value_ = value; 
 		copyToBodyFrame_(Loki::Type2Type<Target>(),Loki::Type2Type<Hold>());
-		this->last_update_ = this->clock_->getTime();
+		this->last_update_ = this->clock_->get_time();
 	}
-	virtual void setValueInBodyFrame(const T& value){ 
+	virtual void set_valueInBodyFrame(const T& value){ 
 		value_b_ = value; 	
 		copyToLocalFrame_(Loki::Type2Type<Target>(),Loki::Type2Type<Hold>());
-		this->last_update_ = this->clock_->getTime(); 	
+		this->last_update_ = this->clock_->get_time(); 	
 	}
 	virtual const U& getValue() const{ return value_; }
-	virtual const T& getValueInBodyFrame(){ return value_b_;}//getValue(Loki::Type2Type<Target>(),Loki::Type2Type<Hold>());}
+	virtual const T& get_in_bodyframe(){ return value_b_;}//getValue(Loki::Type2Type<Target>(),Loki::Type2Type<Hold>());}
 	virtual void do_compute(const datatype::Time& t){}
 	virtual ~AOCSComponent(){}
 protected:
@@ -102,13 +103,13 @@ private:
 template<class T,class U,class Env>
 AOCSComponent<T,U,Env>::AOCSComponent(int instance_id, const datatype::String& name) : RootObject(instance_id,name)
 {
-	this->environment_ = &Env::getInstance();
+	this->environment_ = &Env::get_instance();
 }
 
 template<class T,class U,class Env>
 AOCSComponent<T,U,Env>::AOCSComponent(int instance_id, const datatype::String& name, const datatype::DCM& dcm) : set_angle_(dcm), RootObject(instance_id,name)
 {
-	this->environment_ = &Env::getInstance();
+	this->environment_ = &Env::get_instance();
 }
 
 template<class T,class U,class Env>

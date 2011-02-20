@@ -26,7 +26,7 @@ namespace control {
 public:
 	NoControl(int instance_id) : StrategyBase(instance_id, "NoControl"){}
 	~NoControl(){}
-	virtual const datatype::StaticVector<3>& getValueInBodyFrame(const datatype::Time& t){
+	virtual const datatype::StaticVector<3>& get_in_bodyframe(const datatype::Time& t){
 		return this->value_b_;
 	}//‰½‚à‚µ‚È‚¢
 private:

@@ -27,12 +27,12 @@ void Simulator::init(Global<Simulator>* global, double stepTimeInSecond, double 
     this->global_ = global;
     this->timestep_.add_milliseconds(stepTimeInSecond * 1000);
     this->max_time_.add_milliseconds(maxTimeInSecond * 1000);
-	this->orbit_.setOrbitElement(orbit);
+	this->orbit_.set_orbitElement(orbit);
     if(ostream != 0)
         this->ofstream_ = ostream;
 }
 
-Simulator& Simulator::getInstance(){
+Simulator& Simulator::get_instance(){
 	return *singleton_;
 }
 
@@ -54,8 +54,7 @@ datatype::StaticVector<3> Simulator::getAngularVelocity(const core::devicedriver
 
 datatype::Scalar Simulator::getAngularVelocity(const core::devicedriver::AOCSComponent<datatype::StaticVector<3>,datatype::Scalar,Simulator> &component) const 
 {
-	datatype::StaticVector<3> v  = component.getDCM().inverse() * this->true_angular_velocity_;
-	return v[2];
+	return datatype::Scalar((component.getDCM().inverse() * this->true_angular_velocity_)[2]);
 }
 
 datatype::Quaternion Simulator::getQuaternion(const core::devicedriver::AOCSComponent<datatype::Quaternion,datatype::Quaternion,Simulator> &component) const 
@@ -66,7 +65,7 @@ datatype::Quaternion Simulator::getQuaternion(const core::devicedriver::AOCSComp
 
 datatype::StaticVector<2> Simulator::getSunDirection(const core::devicedriver::AOCSComponent<datatype::StaticVector<2>,datatype::StaticVector<2>,Simulator> &component) const 
 {
-	return datatype::TypeConverter::toPolar(component.getDCM().inverse() * datatype::OrbitCalc::getSunDirectionInBodyFrame(this->orbit_.getTime(), this->true_quaternion_));
+	return datatype::TypeConverter::toPolar(component.getDCM().inverse() * datatype::OrbitCalc::getSunDirectionInBodyFrame(this->orbit_.get_time(), this->true_quaternion_));
 }
 
 datatype::StaticVector<2> Simulator::getEarthDirection(const core::devicedriver::AOCSComponent<datatype::StaticVector<2>,datatype::StaticVector<2>,Simulator> &component) const 
@@ -79,7 +78,7 @@ const datatype::PositionInfo Simulator::getTrueSatellitePosition() const
 	return this->orbit_.getSatellitePosition();
 }
 
-datatype::Time Simulator::getTime(const core::devicedriver::clock::ITimeClock &component) const 
+datatype::Time Simulator::get_time(const core::devicedriver::clock::ITimeClock &component) const 
 {
     return this->true_time_;
 }
@@ -132,13 +131,13 @@ void Simulator::runOneCycle()
     this->true_torque_.reset();//トルクを一旦リセットし，外部ソースから計算しなおす
     std::vector<TorqueSource*>::iterator it = this->torque_sources_.begin();
     while( it != this->torque_sources_.end()){
-		this->true_torque_ += (*it)->getValueInBodyFrame();
+		this->true_torque_ += (*it)->get_in_bodyframe();
         ++it;
     }
 	this->noise_torque_.reset();
 	std::vector< torquesource::NoiseBase* >::iterator it2 = this->noise_sources_.begin();
     while( it2 != this->noise_sources_.end()){
-		this->noise_torque_ += (*it2)->getTorqueInBodyFrame();
+		this->noise_torque_ += (*it2)->get_torque_bodyframe();
         ++it2;
     }
 
@@ -184,7 +183,7 @@ void Simulator::attachMagneticSource(MagneticSource* source)
 }
 
 Simulator::Simulator()
-: true_torque_(3),Omega_(4,4), orbit_()
+: Omega_(4,4), orbit_()
 {
 	util::math::WhiteNoise_init(0);
 }

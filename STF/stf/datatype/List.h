@@ -18,7 +18,7 @@ namespace datatype {
 	@brief 機能を最小限に絞ったコンテナクラス．
 	・assertが有効ならば[]演算子に範囲外チェックが入る
 	・データの追加は末尾のみ対応，データの削除は任意位置に対して可能
-	・適合する最初の要素を削除するremove,適合する全要素を削除するremoveAllを用意
+	・適合する最初の要素を削除するremove,適合する全要素を削除するremove_allを用意
 	・データ参照と追加はO(1)，オブジェクトを引数に取った削除はO(n)
 	・イテレータのインターフェースはC++標準コンテナとほぼ同一
 
@@ -137,7 +137,7 @@ public:
             i++;
         }
     }
-    void removeAll(T& data){
+    void remove_all(T& data){
         int i = 0;
         while(i < size_){
           if(data_[i] == &data) removeat_(i);

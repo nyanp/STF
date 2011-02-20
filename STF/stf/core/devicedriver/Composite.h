@@ -35,9 +35,9 @@ public:
 		for(int i = 0; i < Numbers; i++) childs_[index_] = 0;
 	}
 	virtual ~CompositeInput(){}
-	virtual void doUpdate();
+	virtual void do_update();
 	virtual void aggregate();
-	virtual typename Leaf::Target inputFilter(const typename Leaf::Target& value){ return value; }//compositeはフィルタをそのまま返す
+	virtual typename Leaf::Target filter(const typename Leaf::Target& value){ return value; }//compositeはフィルタをそのまま返す
 	void appendChild(Leaf* c);
 protected:
 private:
@@ -54,7 +54,7 @@ public:
 		output_mat_.unitize(); //デフォルトでトルク分配行列は単位行列
 	}
 	virtual ~CompositeOutput(){}
-	virtual void doUpdate();
+	virtual void do_update();
 	virtual void distribute();
 	virtual void matrixset();//疑似逆行列を用いてトルク分配行列を生成
 	void appendChild(Leaf* c);
@@ -85,10 +85,10 @@ void CompositeOutput<Leaf,Numbers>::appendChild(Leaf* c){
 //Input:親から子へ再帰的にUpdateを実行する．
 // 実センサから値を取得→各センサオブジェクトがローカルに保持した値をCompositeに集約→Body座標系での値としてDBに登録
 template <class Leaf,int Numbers>
-void CompositeInput<Leaf,Numbers>::doUpdate(){
+void CompositeInput<Leaf,Numbers>::do_update(){
 	for(unsigned char i = 0; i < Numbers; ++i){
 		if(childs_[i] != 0)
-			childs_[i]->doUpdate();
+			childs_[i]->do_update();
 	}
 	aggregate();
 	if(this->datapool_ != 0){
@@ -104,8 +104,8 @@ void CompositeInput<Leaf,Numbers>::aggregate(){
 	int updatedsensors = 0;
 	for(unsigned char i = 0; i < Numbers; ++i){
 		if(childs_[i] != 0){
-			if(childs_[i]->getLastUpdateTime() > this->getLastUpdateTime()){//古いものはスキップ？
-				v += childs_[i]->getValueInBodyFrame();//単純加算で合成できる？
+			if(childs_[i]->get_lastupdate() > this->get_lastupdate()){//古いものはスキップ？
+				v += childs_[i]->get_in_bodyframe();//単純加算で合成できる？
 				updatedsensors ++;
 			}
 		}
@@ -114,21 +114,21 @@ void CompositeInput<Leaf,Numbers>::aggregate(){
 		return;
 	}
 	v.normalize();//物理量を正規化
-	this->setValueInBodyFrame(v);
+	this->set_valueInBodyFrame(v);
 }
 
 
 //Output:親から子へ再帰的にUpdateを実行する．
 // Body座標系での指令値をDBから読み込み→各センサへトルクを分配→各センサオブジェクトがローカルに保持した値を実アクチュエータに送信
 template <class Leaf,int Numbers>
-void CompositeOutput<Leaf,Numbers>::doUpdate(){
+void CompositeOutput<Leaf,Numbers>::do_update(){
 	if(this->datapool_ != 0){
 		this->datapool_->set<CompositeOutput<Leaf,Numbers>>(datapool_hold_index_,this->value_b_);//
 	}
 	distribute();
 	for(unsigned char i = 0; i < Numbers; ++i){
 		if(childs_[i] != 0)
-			childs_[i]->doUpdate();
+			childs_[i]->do_update();
 	}
 }
 
@@ -140,7 +140,7 @@ void CompositeOutput<Leaf,Numbers>::distribute(){
 	//util::cout << output_mat_;
 	datatype::Vector v = this->output_mat_ * this->value_;
 	for(int i = 0; i < Numbers; i++){
-		childs_[i]->setTorque(v[i]);
+		childs_[i]->set_torque(v[i]);
 	}
 
 }

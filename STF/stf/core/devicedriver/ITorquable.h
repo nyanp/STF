@@ -18,12 +18,12 @@ namespace devicedriver {
 class ITorquable {
 public:
 	///
-    //virtual double getTorque() const  = 0;
-	///　新しいトルクの指令値をセットします．デバイスへの送信はdoUpdateによって実行されます
-    virtual void setTorque(double value)  = 0;
+    //virtual double get_torque() const  = 0;
+	///　新しいトルクの指令値をセットします．デバイスへの送信はdo_updateによって実行されます
+    virtual void set_torque(double value)  = 0;
 
 	///
-    //virtual datatype::Vector getTorqueInBodyFrame() const  = 0;
+    //virtual datatype::Vector get_torque_bodyframe() const  = 0;
     virtual ~ITorquable() { }
 };
 

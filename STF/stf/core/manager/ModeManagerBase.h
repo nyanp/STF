@@ -12,6 +12,7 @@
 #include "../../datatype/List.h"
 #include "../event/ModeChangeEvent.h"
 #include "../event/SubjectBase.h"
+#include "../../util/loki/TypeManip.h"
 
 namespace stf {
 namespace core {
@@ -31,7 +32,7 @@ namespace manager {
 class ModeManagerBase : public ManagerBase, virtual public event::SubjectBase<event::ModeChangeEvent>,virtual public event::Observer<event::ModeChangeEvent>{
 public:
 	typedef core::devicedriver::ISwitchable HotSpot;
-	typedef stf::util::Type2Type<core::devicedriver::ISwitchable> SpotType;
+	typedef Loki::Type2Type<core::devicedriver::ISwitchable> SpotType;
 
 	ModeManagerBase(int instance_id) : ManagerBase(instance_id, "ModeManager"),current_mode_(0), component_(0) {}
 	virtual ~ModeManagerBase(){}

@@ -19,7 +19,7 @@ namespace clock {
 class ITimeClock : virtual public IDataUpdatable
 {
 public:
-	virtual const datatype::Time getTime() const = 0;
+	virtual const datatype::Time get_time() const = 0;
 	virtual void set_time(datatype::Time) = 0;
 	virtual void set_time(int sec, int millisec) = 0;
 	virtual ~ITimeClock(void){}

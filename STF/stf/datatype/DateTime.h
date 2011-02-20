@@ -8,7 +8,6 @@
 #ifndef datatype_DateTime_h
 #define datatype_DateTime_h
 #include<assert.h>
-#include "../util/Ostream.h"
 #include "Time.h"
 
 namespace stf { 
@@ -19,12 +18,21 @@ namespace datatype {
 class DateTime {
 public:
     DateTime(): date_(0), hour_(0), minute_(0), second_(0) {}
+
 	DateTime(int date, int hour, int minute, int second) : date_(date), hour_(hour), minute_(minute), second_(second) {}
+
 	DateTime(int year, int month, int day, int hour = 0, int minute = 0, int second = 0) 
 	{
 		init(year,month,day,hour,minute,second);
 	}
-    DateTime(const DateTime &rhs);
+
+    DateTime(const DateTime &rhs){
+		this->second_ = rhs.second_;
+		this->minute_ = rhs.minute_;
+		this->hour_ = rhs.hour_;
+		this->date_ = rhs.date_;
+	}
+
 	virtual ~DateTime(){}
 
 	inline void init(int year, int month, int day, int hour, int minute, int second);
@@ -35,33 +43,33 @@ public:
 
 	int minutes() const { return this->minute_; }
     inline void add_minutes(int minutes);
-    inline int totalMinutes() const;
+    inline int total_minutes() const;
 
 	int hours() const { return this->hour_; }
     inline void add_hours(int hours);
-    inline int totalHours() const;
+    inline int total_hours() const;
 
 	int dates() const { return this->date_; }
-    inline void addDates(int dates);
+    inline void add_dates(int dates);
 
-	inline double getJulius() const;
+	inline double get_julius() const;
     inline void clear();
     inline DateTime &operator=(const DateTime &rhs);
     inline DateTime &operator+=(const Time &rhs);
     inline DateTime &operator-=(const Time &rhs);
 
 private:
-	int date_;
-	int hour_;
-	int minute_;
-	int second_;
-
     friend inline bool operator ==(const DateTime&,const DateTime&);
     friend inline bool operator !=(const DateTime&,const DateTime&);
     friend inline bool operator >(const DateTime&,const DateTime&);
     friend inline bool operator <(const DateTime&,const DateTime&);
     friend inline bool operator >=(const DateTime&,const DateTime&);
     friend inline bool operator <=(const DateTime&,const DateTime&);
+
+	int date_;
+	int hour_;
+	int minute_;
+	int second_;
 };
 
 //////////////////////////////////
@@ -90,7 +98,7 @@ inline void DateTime::add_seconds(int second)
 
 inline int DateTime::total_seconds() const 
 {
-    return this->second_ + 60 * this->totalMinutes();
+    return this->second_ + 60 * this->total_minutes();
 }
 
 inline void DateTime::add_minutes(int minutes)
@@ -106,9 +114,9 @@ inline void DateTime::add_minutes(int minutes)
 	}
 }
 
-inline int DateTime::totalMinutes() const 
+inline int DateTime::total_minutes() const 
 {
-	return this->minute_ + 60 * this->totalHours();
+	return this->minute_ + 60 * this->total_hours();
 }
 
 inline void DateTime::add_hours(int hours)
@@ -116,25 +124,25 @@ inline void DateTime::add_hours(int hours)
 	this->hour_ += hours;
 	while(this->hour_ >= 24){
 		this->hour_ -= 24;
-		this->addDates(1);
+		this->add_dates(1);
 	}
 	while(this->hour_ < 0){
 		this->hour_ += 24;
-		this->addDates(-1);
+		this->add_dates(-1);
 	}
 }
 
-inline int DateTime::totalHours() const 
+inline int DateTime::total_hours() const 
 {
 	return this->hour_ + 24 * this->date_;
 }
 
-inline void DateTime::addDates(int dates)
+inline void DateTime::add_dates(int dates)
 {
 	this->date_ += dates;
 }
 
-inline double DateTime::getJulius() const
+inline double DateTime::get_julius() const
 {
 	return this->date_ + ( this->hour_ + (this->minute_ + (this->second_ / 60)) / 60 )/ 24 ;
 }

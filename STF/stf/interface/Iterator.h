@@ -27,8 +27,8 @@ public:
 class DataIterator : public Iterator {
 public:
 	DataIterator(const datatype::IAocsData* data): index_(0) {
-		size_ = data->getStreamLength();
-		data_ = data->toStream();
+		size_ = data->stream_length();
+		data_ = data->to_stream();
 	}
 	virtual void init(){ index_ = 0; }
 	virtual bool end(){ if(index_ == size_) return true; return false;}

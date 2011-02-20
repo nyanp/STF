@@ -18,7 +18,7 @@ private:
 	NullEnv(){}
 	~NullEnv(){}
 public:
-	static NullEnv& getInstance();
+	static NullEnv& get_instance();
 };
 
 } /* End of namespace stf::environment */

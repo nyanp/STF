@@ -35,18 +35,18 @@ class NJFactory : public SatelliteFactory<Env>{
 public:
 	NJFactory(){ this->global_ = new NJGlobal<Env>();}
 	virtual ~NJFactory(){ delete this->global_; }
-	virtual void createComponent();
-	virtual void createFunctionManager();
-	virtual void createControlHotSpot();
-	virtual void createTelemetryHotSpot();
-	virtual void createCommandHotSpot();
-	virtual void createFunctorHotSpot();
-	virtual void createDataUpdateHotSpot();
-	virtual void createSwitchHotSpot();
-	virtual void createAdditionalHotSpot();
-	virtual void createMode();
-	virtual void createDataPoolConnection();
-	virtual Global<Env>* returnCreatedObject(){
+	virtual void create_component();
+	virtual void create_funcmanager();
+	virtual void create_controller();
+	virtual void create_telemetry();
+	virtual void create_command();
+	virtual void create_functor();
+	virtual void create_dataupdates();
+	virtual void create_switches();
+	virtual void create_additional_hotspot();
+	virtual void create_mode();
+	virtual void create_datapool();
+	virtual Global<Env>* return_created_object(){
 		return this->global_;
 	}
 private:
@@ -54,7 +54,7 @@ private:
 };
 
 template<class Env>
-void NJFactory<Env>::createMode(){
+void NJFactory<Env>::create_mode(){
 	this->global_->nj_sfem = new core::mode::ModeBase(ID_SAFEMODE,"NJ_SAFEMODE");
 	this->global_->nj_stbm = new core::mode::ModeBase(ID_SAFEMODE,"NJ_STBMODE");
 	this->global_->nj_inim = new core::mode::ModeBase(ID_SAFEMODE,"NJ_INITIALMODE");
@@ -69,7 +69,7 @@ void NJFactory<Env>::createMode(){
 }
 
 template<class Env>
-void NJFactory<Env>::createComponent(){
+void NJFactory<Env>::create_component(){
 	typedef devicedriver::mtq::NJMTQ<Env> MTQ;
 	typedef devicedriver::CompositeOutput<MTQ,3> ThreeAxisMTQ;
 	typedef devicedriver::mtq::NJMC<Env> MC;
@@ -189,7 +189,7 @@ void NJFactory<Env>::createComponent(){
 }
 
 template<class Env>
-void NJFactory<Env>::createFunctionManager(){
+void NJFactory<Env>::create_funcmanager(){
 	this->global_->nj_modeman = new core::manager::ModeManager(ID_MODEMANAGER);
 	this->global_->nj_conman = new core::manager::ControlManager(ID_CONTROLMANAGER);
 	this->global_->nj_uniman1 = new core::manager::UnitManager(ID_UNITMANAGER);
@@ -201,7 +201,7 @@ void NJFactory<Env>::createFunctionManager(){
 }
 
 template<class Env>
-void NJFactory<Env>::createControlHotSpot(){
+void NJFactory<Env>::create_controller(){
 	typedef core::strategy::control::ControlBlock CONTROLLER;
 	typedef core::strategy::control::PID SimplePID;
 	typedef core::strategy::control::DynamicPID PID;
@@ -247,10 +247,10 @@ void NJFactory<Env>::createControlHotSpot(){
 	// 姿勢制御:磁気センサのみの太陽捕捉制御(制御ハンドブック9.3.3.3)
 	SOLAR_POINTING* stbm_pointing = new SOLAR_POINTING(0,1);
 
-	stbm_pointing->connectSource<0>(this->global_->nj_st4);
-	stbm_pointing->connectSource<1>(this->global_->nj_ss);
+	stbm_pointing->connect_source<0>(this->global_->nj_st4);
+	stbm_pointing->connect_source<1>(this->global_->nj_ss);
 
-	NJ_CONTROLLER_STBM->setActuator(this->global_->nj_mtq,stbm_pointing);
+	NJ_CONTROLLER_STBM->set_actuator(this->global_->nj_mtq,stbm_pointing);
 	this->global_->nj_stbm->add_list(NJ_CONTROLLER_STBM);
 
 	//////////////////////////////////////
@@ -260,12 +260,12 @@ void NJFactory<Env>::createControlHotSpot(){
 	RATE_DUMPING* inim_ratedumping = new RATE_DUMPING(0, 1, 0.1, 0.1, STEPTIME);
 	CROSS_PRODUCT* inim_crossproduct = new CROSS_PRODUCT(0);
 
-	inim_ratedumping->connectSource<0>(this->global_->nj_gyro);
+	inim_ratedumping->connect_source<0>(this->global_->nj_gyro);
 
-	inim_crossproduct->connectSource<0>(inim_ratedumping);
-	inim_crossproduct->connectSource<1>(this->global_->nj_st4);
+	inim_crossproduct->connect_source<0>(inim_ratedumping);
+	inim_crossproduct->connect_source<1>(this->global_->nj_st4);
 
-	NJ_CONTROLLER_INIM->setActuator(this->global_->nj_mtq, inim_crossproduct);
+	NJ_CONTROLLER_INIM->set_actuator(this->global_->nj_mtq, inim_crossproduct);
 	this->global_->nj_inim->add_list(NJ_CONTROLLER_INIM);
 
 	//////////////////////////////////////
@@ -277,20 +277,20 @@ void NJFactory<Env>::createControlHotSpot(){
 	SimplePID* ctrm_pid = new SimplePID(0, 1, 0.01, 0.5, STEPTIME, *(new datatype::Quaternion));
 	CROSS_PRODUCT* ctrm_crossproduct = new CROSS_PRODUCT(0);
 
-	ctrm_crossproduct->connectSource<0>(ctrm_pid);
-	ctrm_crossproduct->connectSource<1>(this->global_->nj_st4);
+	ctrm_crossproduct->connect_source<0>(ctrm_pid);
+	ctrm_crossproduct->connect_source<1>(this->global_->nj_st4);
 
-	ctrm_pid->connectSource<0>(ctrm_ekf);
-	ctrm_pid->connectSource<1>(ctrm_ekf);//TRIADから直接QuaternionをとるのではなくEKFを挟むことで，蝕時にはFOGからの伝搬値が自動的に用いられる
+	ctrm_pid->connect_source<0>(ctrm_ekf);
+	ctrm_pid->connect_source<1>(ctrm_ekf);//TRIADから直接QuaternionをとるのではなくEKFを挟むことで，蝕時にはFOGからの伝搬値が自動的に用いられる
 
-	ctrm_ekf->connectSource<0>(ctrm_triad);
-	ctrm_ekf->connectSource<1>(this->global_->nj_fog);
+	ctrm_ekf->connect_source<0>(ctrm_triad);
+	ctrm_ekf->connect_source<1>(this->global_->nj_fog);
 
-	ctrm_triad->connectSource<0>(this->global_->nj_ss);
-	ctrm_triad->connectSource<1>(this->global_->nj_st4);
-	ctrm_triad->connectSource<2>(this->global_->nj_gps);
+	ctrm_triad->connect_source<0>(this->global_->nj_ss);
+	ctrm_triad->connect_source<1>(this->global_->nj_st4);
+	ctrm_triad->connect_source<2>(this->global_->nj_gps);
 
-	NJ_CONTROLLER_CTRM->setActuator(this->global_->nj_mtq, ctrm_crossproduct);
+	NJ_CONTROLLER_CTRM->set_actuator(this->global_->nj_mtq, ctrm_crossproduct);
 	this->global_->nj_ctrm->add_list(NJ_CONTROLLER_CTRM);
 
 	//////////////////////////////////////
@@ -303,25 +303,25 @@ void NJFactory<Env>::createControlHotSpot(){
 	RMMCOMP* ccdm_rmmcomp = new RMMCOMP(0,-1);
 	PID* ccdm_pid = new PID(0, 0.1, 0.001, 0.004, STEPTIME);
 
-	ccdm_rmmcomp->connectSource<0>(ccdm_rmmekf);
+	ccdm_rmmcomp->connect_source<0>(ccdm_rmmekf);
 
-	ccdm_rmmekf->connectSource<0>(this->global_->nj_st5);
-	ccdm_rmmekf->connectSource<1>(ccdm_ekf);
+	ccdm_rmmekf->connect_source<0>(this->global_->nj_st5);
+	ccdm_rmmekf->connect_source<1>(ccdm_ekf);
 
-	ccdm_pid->connectSource<0>(ccdm_ekf);
-	ccdm_pid->connectSource<1>(ccdm_ekf);
+	ccdm_pid->connect_source<0>(ccdm_ekf);
+	ccdm_pid->connect_source<1>(ccdm_ekf);
 	
 
-	ccdm_ekf->connectSource<0>(ccdm_q_average);
-	ccdm_ekf->connectSource<1>(this->global_->nj_fog);
+	ccdm_ekf->connect_source<0>(ccdm_q_average);
+	ccdm_ekf->connect_source<1>(this->global_->nj_fog);
 
-	ccdm_q_average->connectSource<0>(this->global_->nj_sttx);
-	ccdm_q_average->connectSource<1>(this->global_->nj_stty);
+	ccdm_q_average->connect_source<0>(this->global_->nj_sttx);
+	ccdm_q_average->connect_source<1>(this->global_->nj_stty);
 
 	//制御トルクはRWへ出力
-	NJ_CONTROLLER_CCDM->setActuator(this->global_->nj_rw, ccdm_pid);
+	NJ_CONTROLLER_CCDM->set_actuator(this->global_->nj_rw, ccdm_pid);
 	//推定された残留磁気モーメントの補償成分は磁気キャンセラへ出力
-	NJ_CONTROLLER_CCDM->setActuator(this->global_->nj_mc, ccdm_rmmcomp);
+	NJ_CONTROLLER_CCDM->set_actuator(this->global_->nj_mc, ccdm_rmmcomp);
 
 	this->global_->nj_ccdm->add_list(NJ_CONTROLLER_CCDM);
 
@@ -333,17 +333,17 @@ void NJFactory<Env>::createControlHotSpot(){
 	PID* mism_pid = new PID(0, 0.1, 0.001, 0.004, STEPTIME);
 	SPINAXIS_CONTROLLER* mism_spincond = new SPINAXIS_CONTROLLER(0);
 
-	mism_pid->connectSource<0>(ccdm_ekf);//QuaternionはジャイロバイアスEKFから取得
-	mism_pid->connectSource<1>(mism_starekf);//角速度は星像EKFから取得．星像取得失敗時にはジャイロバイアスEKFの値がそのまま伝搬される
-	mism_pid->connectSource<2>(mism_spincond);//長期要求に基づいて目標Quaterionを更新
+	mism_pid->connect_source<0>(ccdm_ekf);//QuaternionはジャイロバイアスEKFから取得
+	mism_pid->connect_source<1>(mism_starekf);//角速度は星像EKFから取得．星像取得失敗時にはジャイロバイアスEKFの値がそのまま伝搬される
+	mism_pid->connect_source<2>(mism_spincond);//長期要求に基づいて目標Quaterionを更新
 
-	mism_starekf->connectSource<0>(ccdm_ekf);
-	mism_starekf->connectSource<1>(this->global_->nj_rw);
+	mism_starekf->connect_source<0>(ccdm_ekf);
+	mism_starekf->connect_source<1>(this->global_->nj_rw);
 
 	//制御トルクはRWへ出力
-	NJ_CONTROLLER_MISM->setActuator(this->global_->nj_rw, mism_pid);
+	NJ_CONTROLLER_MISM->set_actuator(this->global_->nj_rw, mism_pid);
 	//RMMは精制御モードと同じ経路でキャンセラへ
-	NJ_CONTROLLER_MISM->setActuator(this->global_->nj_mc, ccdm_rmmcomp);
+	NJ_CONTROLLER_MISM->set_actuator(this->global_->nj_mc, ccdm_rmmcomp);
 
 	//////////////////////////////////////
 	//アンローディングモード用の姿勢制御ブロック
@@ -357,12 +357,12 @@ void NJFactory<Env>::createControlHotSpot(){
 	unloading->add_wheel(this->global_->nj_rw3);
 	unloading->add_wheel(this->global_->nj_rw4);
 	
-	unloading->connectSource<0>(this->global_->nj_gps);
+	unloading->connect_source<0>(this->global_->nj_gps);
 
-	unloading_crossp->connectSource<0>(&unloading->outputport<1,datatype::StaticVector<3>>());
+	unloading_crossp->connect_source<0>(&unloading->outputport<1,datatype::StaticVector<3>>());
 
-	NJ_CONTROLLER_RWUM->setActuator(this->global_->nj_rw, &unloading->outputport<0,datatype::StaticVector<3>>());
-	NJ_CONTROLLER_RWUM->setActuator(this->global_->nj_mtq, unloading_crossp);
+	NJ_CONTROLLER_RWUM->set_actuator(this->global_->nj_rw, &unloading->outputport<0,datatype::StaticVector<3>>());
+	NJ_CONTROLLER_RWUM->set_actuator(this->global_->nj_mtq, unloading_crossp);
 
 	/////////////////////////////////////
 	// RMM推定用の姿勢制御ブロック
@@ -372,11 +372,11 @@ void NJFactory<Env>::createControlHotSpot(){
 	datatype::Time t(1000,0);
 	QUATERNION_RMMESTM* estmrmm_q = new QUATERNION_RMMESTM(0,this->global_->nj_rtc,t);//1000秒ごとに別の面を太陽指向させる
 
-	estmrmm_pid->connectSource<0>(ccdm_ekf);
-	estmrmm_pid->connectSource<1>(ccdm_ekf);
-	estmrmm_pid->connectSource<2>(estmrmm_q);
+	estmrmm_pid->connect_source<0>(ccdm_ekf);
+	estmrmm_pid->connect_source<1>(ccdm_ekf);
+	estmrmm_pid->connect_source<2>(estmrmm_q);
 
-	NJ_CONTROLLER_ESTM_RMM->setActuator(this->global_->nj_rw, estmrmm_pid);
+	NJ_CONTROLLER_ESTM_RMM->set_actuator(this->global_->nj_rw, estmrmm_pid);
 	this->global_->nj_estm_rmm->add_list(NJ_CONTROLLER_ESTM_RMM);
 
 	/////////////////////////////////////
@@ -385,7 +385,7 @@ void NJFactory<Env>::createControlHotSpot(){
 	// 姿勢制御：FOG3軸それぞれ±1e-3rad/s,±1e-2rad/sの計12モード
 	PID* estmfog_pid = new PID(0, 0.1, 0.01, 0.01, STEPTIME);
 
-	NJ_CONTROLLER_ESTM_FOG->setActuator(this->global_->nj_rw, estmfog_pid);
+	NJ_CONTROLLER_ESTM_FOG->set_actuator(this->global_->nj_rw, estmfog_pid);
 	this->global_->nj_estm_fog->add_list(NJ_CONTROLLER_ESTM_FOG);
 
 	/////////////////////////////////////
@@ -394,7 +394,7 @@ void NJFactory<Env>::createControlHotSpot(){
 	// 姿勢制御：MC3軸それぞれ±0.2Am2,±0.4Am2,±0.6Am2の計18モード
 	MC_CONSTANT* estmmc = new MC_CONSTANT(0, this->global_->nj_rtc, t);
 
-	NJ_CONTROLLER_ESTM_MC->setActuator(this->global_->nj_mc, estmmc);
+	NJ_CONTROLLER_ESTM_MC->set_actuator(this->global_->nj_mc, estmmc);
 	this->global_->nj_estm_mc->add_list(NJ_CONTROLLER_ESTM_MC);
 
 	/////////////////////////////////////
@@ -403,7 +403,7 @@ void NJFactory<Env>::createControlHotSpot(){
 	// 姿勢制御：RW4基それぞれ±5e-5Nm,±2.5e-5Nmの計16モード
 	RW_CONSTANT* estmrw = new RW_CONSTANT(0, this->global_->nj_rtc, t);
 
-	//NJ_CONTROLLER_ESTM_RW->setActuator(this->global_->nj_rw1, &estmrw->outputport<0,datatype::StaticVector<3>>());
+	//NJ_CONTROLLER_ESTM_RW->set_actuator(this->global_->nj_rw1, &estmrw->outputport<0,datatype::StaticVector<3>>());
 	this->global_->nj_estm_rw->add_list(NJ_CONTROLLER_ESTM_RW);
 
 	///////////////////////////////////////////////////
@@ -416,22 +416,22 @@ void NJFactory<Env>::createControlHotSpot(){
 }
 
 template<class Env>
-void NJFactory<Env>::createCommandHotSpot(){
+void NJFactory<Env>::create_command(){
 
 }
 
 template<class Env>
-void NJFactory<Env>::createTelemetryHotSpot(){
+void NJFactory<Env>::create_telemetry(){
 	this->global_->nj_telemetrystrategy = new core::strategy::telemetry::SelectingOutput<unsigned int, 1000>
 		(0,this->global_->nj_tmhandler,this->global_->nj_aocsdatapool,this->global_->nj_eventdatapool);
 
 	//ADCの取得値を全チャネルテレメトリに追加
-	this->global_->nj_telemetrystrategy->add_tmlist(new interface::CDHComponentIterator<datatype::Voltage,__NJ__ADC__CHANNELS,Env>(this->global_->nj_adc));
+	this->global_->nj_telemetrystrategy->add_tmlist(new interface::CDHComponentIterator<datatype::Voltage,NJ__ADC__CHANNELS,Env>(this->global_->nj_adc));
 
 }
 
 template<class Env>
-void NJFactory<Env>::createDataUpdateHotSpot(){
+void NJFactory<Env>::create_dataupdates(){
 	// 全モード共通でONの機器は最初にまとめてリストに加える
 	datatype::List<core::devicedriver::IDataUpdatable> defaultUpdateList;
 	defaultUpdateList.add(*this->global_->nj_rtc);
@@ -537,7 +537,7 @@ void NJFactory<Env>::createDataUpdateHotSpot(){
 }
 
 template<class Env>
-void NJFactory<Env>::createSwitchHotSpot(){
+void NJFactory<Env>::create_switches(){
 	// 全モード共通でONの機器は最初にまとめてリストに加える
 	datatype::List<core::devicedriver::ISwitchable> defaultSwitchList;
 	defaultSwitchList.add(*this->global_->nj_rtc);
@@ -643,7 +643,7 @@ void NJFactory<Env>::createSwitchHotSpot(){
 }
 
 template<class Env>
-void NJFactory<Env>::createFunctorHotSpot(){
+void NJFactory<Env>::create_functor(){
 	////////////////////////////////
 	// モード変更関係のファンクタ
 	
@@ -651,7 +651,7 @@ void NJFactory<Env>::createFunctorHotSpot(){
 	this->global_->nj_inim->add_list(
 		new functor::Functor<functor::Is_Under<datatype::StaticVector<3>>,functor::ModeChangeFunc>
 			(
-			new functor::Is_Under<datatype::StaticVector<3>>(this->global_->nj_aocsdatapool,this->global_->nj_gyro->getDataPoolKey(),0.001),
+			new functor::Is_Under<datatype::StaticVector<3>>(this->global_->nj_aocsdatapool,this->global_->nj_gyro->get_datapoolKey(),0.001),
 			new functor::ModeChangeFunc(this->global_->nj_modeman, *this->global_->nj_ctrm)
 			)
 		);
@@ -660,7 +660,7 @@ void NJFactory<Env>::createFunctorHotSpot(){
 	this->global_->nj_ctrm->add_list(
 		new functor::Functor<functor::Is_Over<datatype::StaticVector<3>>,functor::ModeChangeFunc>
 			(
-			new functor::Is_Over<datatype::StaticVector<3>>(this->global_->nj_aocsdatapool,this->global_->nj_gyro->getDataPoolKey(),0.002),
+			new functor::Is_Over<datatype::StaticVector<3>>(this->global_->nj_aocsdatapool,this->global_->nj_gyro->get_datapoolKey(),0.002),
 			new functor::ModeChangeFunc(this->global_->nj_modeman, *this->global_->nj_inim)
 			)
 		);
@@ -669,7 +669,7 @@ void NJFactory<Env>::createFunctorHotSpot(){
 	this->global_->nj_ctrm->add_list(
 		new functor::Functor<functor::Is_Under<datatype::StaticVector<3>>,functor::ModeChangeFunc>
 			(
-			new functor::Is_Under<datatype::StaticVector<3>>(this->global_->nj_aocsdatapool,this->global_->nj_fog->getDataPoolKey(),0.0001),
+			new functor::Is_Under<datatype::StaticVector<3>>(this->global_->nj_aocsdatapool,this->global_->nj_fog->get_datapoolKey(),0.0001),
 			new functor::ModeChangeFunc(this->global_->nj_modeman, *this->global_->nj_ccdm)
 			)
 		);
@@ -678,7 +678,7 @@ void NJFactory<Env>::createFunctorHotSpot(){
 	this->global_->nj_ccdm->add_list(
 		new functor::Functor<functor::Is_Over<datatype::StaticVector<3>>,functor::ModeChangeFunc>
 			(
-			new functor::Is_Over<datatype::StaticVector<3>>(this->global_->nj_aocsdatapool,this->global_->nj_fog->getDataPoolKey(),0.0002),
+			new functor::Is_Over<datatype::StaticVector<3>>(this->global_->nj_aocsdatapool,this->global_->nj_fog->get_datapoolKey(),0.0002),
 			new functor::ModeChangeFunc(this->global_->nj_modeman, *this->global_->nj_ctrm)
 			)
 		);
@@ -687,7 +687,7 @@ void NJFactory<Env>::createFunctorHotSpot(){
 	this->global_->nj_ctrm->add_list(
 		new functor::Functor<functor::Is_Under<datatype::StaticVector<3>>,functor::ModeChangeFunc>
 			(
-			new functor::Is_Under<datatype::StaticVector<3>>(this->global_->nj_aocsdatapool,this->global_->nj_fog->getDataPoolKey(),0.00001),
+			new functor::Is_Under<datatype::StaticVector<3>>(this->global_->nj_aocsdatapool,this->global_->nj_fog->get_datapoolKey(),0.00001),
 			new functor::ModeChangeFunc(this->global_->nj_modeman, *this->global_->nj_ccdm)
 			)
 		);
@@ -696,7 +696,7 @@ void NJFactory<Env>::createFunctorHotSpot(){
 	this->global_->nj_ccdm->add_list(
 		new functor::Functor<functor::Is_Over<datatype::StaticVector<3>>,functor::ModeChangeFunc>
 			(
-			new functor::Is_Over<datatype::StaticVector<3>>(this->global_->nj_aocsdatapool,this->global_->nj_fog->getDataPoolKey(),0.00002),
+			new functor::Is_Over<datatype::StaticVector<3>>(this->global_->nj_aocsdatapool,this->global_->nj_fog->get_datapoolKey(),0.00002),
 			new functor::ModeChangeFunc(this->global_->nj_modeman, *this->global_->nj_ctrm)
 			)
 		);
@@ -705,22 +705,22 @@ void NJFactory<Env>::createFunctorHotSpot(){
 	//RWが1つでも飽和したらアンローディングモードへ
 	functor::IFunctor* rwfunc1 = new functor::Functor<functor::Getter_Is<RW>,functor::ModeChangeFunc>
 		(
-			new functor::Getter_Is<RW>(this->global_->nj_rw1, &RW::isSaturated),
+			new functor::Getter_Is<RW>(this->global_->nj_rw1, &RW::is_saturated),
 			new functor::ModeChangeFunc(this->global_->nj_modeman, *this->global_->nj_ctrm)
 		);
 	functor::IFunctor* rwfunc2 = new functor::Functor<functor::Getter_Is<RW>,functor::ModeChangeFunc>
 		(
-			new functor::Getter_Is<RW>(this->global_->nj_rw2, &RW::isSaturated),
+			new functor::Getter_Is<RW>(this->global_->nj_rw2, &RW::is_saturated),
 			new functor::ModeChangeFunc(this->global_->nj_modeman, *this->global_->nj_ctrm)
 		);
 	functor::IFunctor* rwfunc3 = new functor::Functor<functor::Getter_Is<RW>,functor::ModeChangeFunc>
 		(
-			new functor::Getter_Is<RW>(this->global_->nj_rw3, &RW::isSaturated),
+			new functor::Getter_Is<RW>(this->global_->nj_rw3, &RW::is_saturated),
 			new functor::ModeChangeFunc(this->global_->nj_modeman, *this->global_->nj_ctrm)
 		);
 	functor::IFunctor* rwfunc4 = new functor::Functor<functor::Getter_Is<RW>,functor::ModeChangeFunc>
 		(
-			new functor::Getter_Is<RW>(this->global_->nj_rw4, &RW::isSaturated),
+			new functor::Getter_Is<RW>(this->global_->nj_rw4, &RW::is_saturated),
 			new functor::ModeChangeFunc(this->global_->nj_modeman, *this->global_->nj_ctrm)
 		);
 
@@ -743,12 +743,12 @@ void NJFactory<Env>::createFunctorHotSpot(){
 }
 
 template<class Env>
-void NJFactory<Env>::createAdditionalHotSpot(){
+void NJFactory<Env>::create_additional_hotspot(){
 
 }
 
 template<class Env>
-void NJFactory<Env>::createDataPoolConnection(){
+void NJFactory<Env>::create_datapool(){
 	this->global_->nj_mtqx->connect(global_->nj_aocsdatapool,10,"NJ_MTQ1");
 	this->global_->nj_mtqy->connect(global_->nj_aocsdatapool,10,"NJ_MTQ2");
 	this->global_->nj_mtqz->connect(global_->nj_aocsdatapool,10,"NJ_MTQ3");
@@ -777,7 +777,7 @@ void NJFactory<Env>::createDataPoolConnection(){
 	this->global_->nj_st4->connect(global_->nj_aocsdatapool,10,"NJ_ST4");
 	this->global_->nj_st5->connect(global_->nj_aocsdatapool,10,"NJ_ST5");
 
-	this->global_->nj_gps->connect(global_->nj_aocsdatapool,10,"NJ_GPS");
+	//this->global_->nj_gps->connect(global_->nj_aocsdatapool,10,"NJ_GPS");
 }
 
 

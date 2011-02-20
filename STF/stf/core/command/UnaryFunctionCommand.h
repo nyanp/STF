@@ -51,7 +51,7 @@ public:
 	}
 	virtual void execute(){
 		U response = (*obj_.*f_)(arg_);//trigger functor
-		this->rcv_->sendPacket(response);
+		this->rcv_->send_packet(response);
 	}
 private:
 	T* obj_;

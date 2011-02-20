@@ -13,11 +13,11 @@ namespace core {
 namespace devicedriver {
 namespace clock {
 
-const datatype::Time PRISMDummyClock::getTime() const {
+const datatype::Time PRISMDummyClock::get_time() const {
 	return this->get<0,datatype::Time>();
 }
 
-const datatype::DateTime PRISMDummyClock::getAbsoluteTime() const {
+const datatype::DateTime PRISMDummyClock::get_datetime() const {
 	return this->get<1,datatype::DateTime>();
 }
 
@@ -49,7 +49,7 @@ PRISMDummyClock::~PRISMDummyClock(void)
 
 }
 
-void PRISMDummyClock::doUpdate()
+void PRISMDummyClock::do_update()
 {
 	const_cast<datatype::Time*>(&get<0,datatype::Time>())->add_milliseconds(this->CLOCK);
 	//this->time_.add_milliseconds(this->CLOCK);

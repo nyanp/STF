@@ -13,8 +13,8 @@ namespace interface {
 
 class ITelemetable {
 public:
-    virtual const double* toStream() const = 0;
-	virtual int getStreamLength() const = 0;
+    virtual const double* to_stream() const = 0;
+	virtual int stream_length() const = 0;
     virtual ~ITelemetable() { }
 };
 

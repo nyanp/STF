@@ -26,7 +26,7 @@ public:
 		return new MessageCommand(t,msg_);
 	}
 	virtual void execute(){
-		this->rcv_->sendPacket(msg_);
+		this->rcv_->send_packet(msg_);
 	}
 private:
 	datatype::String msg_;

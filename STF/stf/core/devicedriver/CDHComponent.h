@@ -42,7 +42,7 @@ public:
 	virtual void on(){ is_on_ = true;}
 	virtual void off(){ is_on_ = false;}
 	virtual bool is_on() const{ return is_on_; }
-	virtual void doUpdate() = 0;
+	virtual void do_update() = 0;
 	const T& operator [] (int i) const { assert( i < NUM); -return value_[i]; }
 	T& operator [] (int i) { assert( i < NUM);return value_[i]; }
 	virtual ~CDHComponent(){}

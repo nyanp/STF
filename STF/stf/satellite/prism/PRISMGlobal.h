@@ -114,19 +114,19 @@ template <class Env> class PRISMFactory;
 template <class Env>
 struct PRISMGlobal : public Global<Env>{
 
-	virtual const datatype::Time getGlobalTime(){
-		return this->pr_clock->getTime();
+	virtual const datatype::Time get_global_time(){
+		return this->pr_clock->get_time();
 	}
-	virtual const datatype::DateTime getGlobalDateTime(){
-		return this->pr_clock->getAbsoluteTime();
+	virtual const datatype::DateTime get_global_datetime(){
+		return this->pr_clock->get_datetime();
 	}
-	virtual const datatype::SatelliteModel getSatelliteModel() const{
+	virtual const datatype::SatelliteModel get_satellitemodel() const{
 		return this->prism_body_;
 	}
-	virtual const core::datapool::AocsDataPool* getDataPool() const {
+	virtual const core::datapool::AocsDataPool* get_datapool() const {
 		return this->pr_aocsdatapool;
 	}
-	virtual const core::datapool::EventDataPool* getEventDataPool() const {
+	virtual const core::datapool::EventDataPool* get_eventdatapool() const {
 		return this->pr_eventdatapool;
 	}
 

@@ -16,7 +16,7 @@ namespace rw {
 
 
 template <>
-void RWBase<environment::Simulator>::doUpdate(){
+void RWBase<environment::Simulator>::do_update(){
 	//Šp‰^“®—Êi‰ñ“]”j‚ÌXV
 	this->angular_momentum_ += this->value_.value() * STEPTIME;
 	//

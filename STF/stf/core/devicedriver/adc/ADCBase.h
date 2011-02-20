@@ -21,7 +21,7 @@ template<int NUM, class Env = ENV>
 class ADCBase : public CDHComponent< datatype::Voltage, NUM, Env >  {
 public:
 	ADCBase(int instance_id) :  CDHComponent<datatype::Voltage,NUM,Env>(instance_id,"ADCBase") {}
-	virtual void doUpdate(){}
+	virtual void do_update(){}
 	virtual ~ADCBase(){}
 protected:
 	typename Env::GPIO<NUM> gpio_;
@@ -56,7 +56,7 @@ public:
 	{
 		assert(offset + NUM <= ADCNUM);//ADC‚Ì”ÍˆÍ‚ð‚±‚¦‚È‚¢
 	}
-	virtual void doUpdate(){
+	virtual void do_update(){
 		for(int i = 0; i < NUM; i++){
 			this->value_[i] = convert((*adcsource_)[i + offset_].value());
 		}

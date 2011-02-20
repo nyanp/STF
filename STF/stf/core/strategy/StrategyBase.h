@@ -12,6 +12,7 @@
 #include "../datapool/Datapool.h"
 #include "../devicedriver/clock/ITimeClock.h"
 #include "../../interface/IEnabable.h"
+#include "../../util/loki/TypeManip.h"
 
 namespace stf {
 namespace core {
@@ -21,9 +22,9 @@ class StrategyBase : public RootObject, virtual public interface::IEnabable{
 public:
 	StrategyBase(int instance_id, const datatype::String& strategy_name) : RootObject(instance_id,strategy_name) {}
 	virtual ~StrategyBase(){}
-	template<typename T> void connect(util::Type2Type<T>, int rows, const datatype::String name){ 
-		this->datapool_hold_index_ = Global<ENV>::getDataPool().create(util::Type2Type<T>(),rows,name);
-		datapool_ = &Global<ENV>::getDataPool(); 
+	template<typename T> void connect(Loki::Type2Type<T>, int rows, const datatype::String name){ 
+		this->datapool_hold_index_ = Global<ENV>::get_datapool().create(Loki::Type2Type<T>(),rows,name);
+		datapool_ = &Global<ENV>::get_datapool(); 
 	}
 	virtual void enable(){}
 	virtual void disable(){}

@@ -48,7 +48,7 @@ void DebugLogger::logging(double value, int address)
 
 void DebugLogger::logging(datatype::String value, int address)
 {
-	*this << value.toChar();
+	*this << value.to_char();
 }
 
 ITelemetryStoragable &DebugLogger::operator <<(int value)

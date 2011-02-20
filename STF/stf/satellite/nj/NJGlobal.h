@@ -43,19 +43,19 @@ namespace stf {
 template <class Env>
 struct NJGlobal : public Global<Env>{
 
-	virtual const datatype::Time getGlobalTime(){
-		return this->nj_rtc->getTime();
+	virtual const datatype::Time get_global_time(){
+		return this->nj_rtc->get_time();
 	}
-	virtual const datatype::DateTime getGlobalDateTime(){
-		return this->nj_gps->getAbsoluteTime();
+	virtual const datatype::DateTime get_global_datetime(){
+		return this->nj_gps->get_datetime();
 	}
-	virtual const datatype::SatelliteModel getSatelliteModel() const{
+	virtual const datatype::SatelliteModel get_satellitemodel() const{
 		return this->nj_body_;
 	}
-	virtual const core::datapool::AocsDataPool* getDataPool() const {
+	virtual const core::datapool::AocsDataPool* get_datapool() const {
 		return this->nj_aocsdatapool;
 	}
-	virtual const core::datapool::EventDataPool* getEventDataPool() const {
+	virtual const core::datapool::EventDataPool* get_eventdatapool() const {
 		return this->nj_eventdatapool;
 	}
 

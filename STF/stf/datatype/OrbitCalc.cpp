@@ -25,7 +25,7 @@ namespace datatype {
 
 StaticVector<2> OrbitCalc::getSunDirection2D(const DateTime& time){
 	//制御ハンドブックP.280. 地球中心からの太陽方向ベクトルを求める
-	double T  = (time.getJulius() - 2451545.0) / 36525 ;
+	double T  = (time.get_julius() - 2451545.0) / 36525 ;
 	double M = util::math::DEG2RAD * (357.5256 + 35999.045 * T);
 	double lambda = util::math::DEG2RAD * (282.94 + M + (6892 / 3600) * sin(M) + (72/3600) * sin(2*M) - (0.002652 - (1250.09115 / 3600) * T));
 	double eta = util::math::DEG2RAD * 23.43929111;//平均黄道傾角
@@ -47,7 +47,7 @@ StaticVector<3> OrbitCalc::getEarthDirection3D(const PositionInfo& p){
 
 StaticVector<3> OrbitCalc::getSunDirection3D(const DateTime& time){
 	//制御ハンドブックP.280. 地球中心からの太陽方向ベクトルを求める
-	double T  = (time.getJulius() - 2451545.0) / 36525 ;
+	double T  = (time.get_julius() - 2451545.0) / 36525 ;
 	double M = util::math::DEG2RAD * (357.5256 + 35999.045 * T);
 	double lambda = util::math::DEG2RAD * (282.94 + M + (6892 / 3600) * sin(M) + (72/3600) * sin(2*M) - (0.002652 - (1250.09115 / 3600) * T));
 	double eta = util::math::DEG2RAD * 23.43929111;//平均黄道傾角
@@ -72,9 +72,9 @@ StaticVector<3> OrbitCalc::getSunDirectionInBodyFrame(const DateTime& time, cons
 MagneticField OrbitCalc::getMagneticFieldDirection(const PositionInfo& p, const DateTime& time){
 	double decyear = 0.0;
 
-	sgp4::JdToDecyear(time.getJulius(), &decyear);
+	sgp4::JdToDecyear(time.get_julius(), &decyear);
 
-	double side = sgp4::gstime(time.getJulius());
+	double side = sgp4::gstime(time.get_julius());
 
 	double pos[3];
 	for(int i = 0; i < 3; i++) pos[i] = p.position[i] / 1000;

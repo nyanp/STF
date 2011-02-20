@@ -32,13 +32,13 @@ namespace cmhandler {
 template<class T>
 class NJCommandReceiver: virtual public ICommandReceiver, public RootObject {
 public:
-    virtual void receiveCmd();
-	virtual void sendPacket(const datatype::String& msg);
-	virtual void sendPacket(int msg);
-	virtual void addCmd(command::Command*);
+    virtual void receive_command();
+	virtual void send_packet(const datatype::String& msg);
+	virtual void send_packet(int msg);
+	virtual void add_command(command::Command*);
 	NJCommandReceiver(int instance_id, core::manager::CommandManagerBase* manager, const datatype::String& filename,NJGlobal<T>* global)
 		: RootObject(instance_id,"NJReceiver"), manager_(manager), global_(global){
-			this->ifs_ = new typename T::InputStream(filename.toChar());
+			this->ifs_ = new typename T::InputStream(filename.to_char());
 	}
     ~NJCommandReceiver() { }
 private:
@@ -49,30 +49,30 @@ private:
 
 //外部デバイスからコマンドの受信を行う．
 template<class T>
-void NJCommandReceiver<T>::receiveCmd()
+void NJCommandReceiver<T>::receive_command()
 {
 }
 
 //デバッグ用の特殊化．外部ファイルから1行ずつ読み込み，
-template<> void NJCommandReceiver<environment::Simulator>::receiveCmd();
+template<> void NJCommandReceiver<environment::Simulator>::receive_command();
 
 
 // デバッグ用なので送信機に送る変わりにコンソールに出力する
 template<class T>
-void NJCommandReceiver<T>::sendPacket(const datatype::String& msg)
+void NJCommandReceiver<T>::send_packet(const datatype::String& msg)
 {
-	util::cout << "downlink:" << msg << "at:" << this->clock_->getTime() << util::endl;
+	util::cout << "downlink:" << msg << "at:" << this->clock_->get_time() << util::endl;
 }
 
 // デバッグ用なので送信機に送る変わりにコンソールに出力する
 template<class T>
-void NJCommandReceiver<T>::sendPacket(int msg)
+void NJCommandReceiver<T>::send_packet(int msg)
 {
-	util::cout << "downlink:" << msg << "at:" << this->clock_->getTime() << util::endl;
+	util::cout << "downlink:" << msg << "at:" << this->clock_->get_time() << util::endl;
 }
 
 template<class T>
-void NJCommandReceiver<T>::addCmd(command::Command* cmd)
+void NJCommandReceiver<T>::add_command(command::Command* cmd)
 {
 	this->manager_->addCommand(cmd);
 	cmd->connectReceiver(this);

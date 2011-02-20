@@ -13,13 +13,20 @@ namespace stf {
 namespace datatype {
 
 //! 経過時間を表すクラス．
-/*!  */
+/*! 正の時間（seconds >= 0）のみ対応しているため，コンストラクタに負値を与えたときの挙動は不定 */
 class Time {
 public:
-    Time();
-    Time(int second, double millisecond);
-    Time(const Time &rhs);
-    virtual ~Time();
+	Time() : seconds_(0), milliseconds_(0) {}
+	Time(const Time &rhs) : seconds_(rhs.seconds_), milliseconds_(rhs.milliseconds_) {}
+    Time(int second, double millisecond) : seconds_(second), milliseconds_(millisecond) {
+		assert(second >= 0);
+		while(milliseconds_ >= 1000){
+			seconds_ ++;
+			milliseconds_ -= 1000;  
+		}
+	}
+	~Time(){}
+
     inline void add_seconds(int seconds);
     inline void add_milliseconds(double milliSeconds);
 	inline int seconds() const { return this->seconds_; }

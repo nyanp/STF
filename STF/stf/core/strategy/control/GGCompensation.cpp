@@ -26,10 +26,10 @@ GGCompensation::GGCompensation(int instance_id,
 		devicedriver::InputPort<datatype::StaticVector<3>>* torque_out
 		) : StrategyBase(instance_id, "GGCompensation")
 {
-	this->connectSource<0>(q_source);
-	this->connectSource<1>(position_source);
+	this->connect_source<0>(q_source);
+	this->connect_source<1>(position_source);
 	if(torque_out != 0){
-		torque_out->connectSource_(this);
+		torque_out->connect_source_(this);
 	}
 }
 
@@ -38,15 +38,15 @@ void GGCompensation::do_compute(const datatype::Time& t) {
 	util::cout << "compute: ggcompensation" << util::endl;
 	// 軌道情報と姿勢情報から，機体座標における地球方向ベクトルを算出
 	datatype::StaticVector<3> R = datatype::OrbitCalc::getEarthDirectionInBodyFrame(
-		this->source<1,datatype::PositionInfo>().getValueInBodyFrame(t),
-		this->source<0,datatype::Quaternion>().getValueInBodyFrame(t));
+		this->source<1,datatype::PositionInfo>().get_in_bodyframe(t),
+		this->source<0,datatype::Quaternion>().get_in_bodyframe(t));
 
 	double r = R.norm(2);
 	datatype::StaticVector<3> u = R / r;
 	
 	//TBD
 	datatype::StaticMatrix<3,3> I;
-	//datatype::StaticMatrix<3,3> I = Global<ENV>::getSatelliteModel().getI();
+	//datatype::StaticMatrix<3,3> I = Global<ENV>::get_satellitemodel().getI();
 
 	//重力傾斜トルクを打ち消すようなトルクを出力
 	this->value_b_ = ( 3 * util::math::MU / ( r * r * r ) ) * u % (I * u);

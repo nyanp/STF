@@ -16,7 +16,7 @@ namespace devicedriver {
 template<class T>
 class IAocsDataInput {
 public:
-	virtual T getValueInBodyFrame() = 0;
+	virtual T get_in_bodyframe() = 0;
 	virtual ~IAocsDataInput() { }
 };
 

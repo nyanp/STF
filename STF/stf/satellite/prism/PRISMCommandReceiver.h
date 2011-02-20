@@ -46,13 +46,13 @@ core::command::Command* __prism_adcscmd_analyze<environment::Simulator>(char* cm
 template<class T>
 class PRISMCommandReceiver: virtual public ICommandReceiver, public RootObject {
 public:
-    virtual void receiveCmd();
-	virtual void sendPacket(const datatype::String& msg);
-	virtual void sendPacket(int msg);
-	virtual void addCmd(command::Command*);
+    virtual void receive_command();
+	virtual void send_packet(const datatype::String& msg);
+	virtual void send_packet(int msg);
+	virtual void add_command(command::Command*);
 	PRISMCommandReceiver(int instance_id, core::manager::CommandManagerBase* manager, const datatype::String& filename,PRISMGlobal<T>* global)
 		: RootObject(instance_id,"PRISMReceiver"), manager_(manager), global_(global){
-			this->ifs_ = new typename T::InputStream(filename.toChar());
+			this->ifs_ = new typename T::InputStream(filename.to_char());
 	}
     ~PRISMCommandReceiver() { }
 private:
@@ -64,29 +64,29 @@ private:
 
 //外部デバイスからコマンドの受信を行う．
 template<class T>
-void PRISMCommandReceiver<T>::receiveCmd()
+void PRISMCommandReceiver<T>::receive_command()
 {
 }
 
 //デバッグ用の特殊化．外部ファイルから1行ずつ読み込み，
-template<> void PRISMCommandReceiver<environment::Simulator>::receiveCmd();
+template<> void PRISMCommandReceiver<environment::Simulator>::receive_command();
 
 
 // デバッグ用なので送信機に送る変わりにコンソールに出力する
 template<class T>
-void PRISMCommandReceiver<T>::sendPacket(const datatype::String& msg)
+void PRISMCommandReceiver<T>::send_packet(const datatype::String& msg)
 {
-	util::cout << "downlink:" << msg << "at:" << this->clock_->getTime() << util::endl;
+	util::cout << "downlink:" << msg << "at:" << this->clock_->get_time() << util::endl;
 }
 
 // デバッグ用なので送信機に送る変わりにコンソールに出力する
 template<class T>
-void PRISMCommandReceiver<T>::sendPacket(int msg)
+void PRISMCommandReceiver<T>::send_packet(int msg)
 {
-	util::cout << "downlink:" << msg << "at:" << this->clock_->getTime() << util::endl;
+	util::cout << "downlink:" << msg << "at:" << this->clock_->get_time() << util::endl;
 }
 template<class T>
-void PRISMCommandReceiver<T>::addCmd(command::Command* cmd)
+void PRISMCommandReceiver<T>::add_command(command::Command* cmd)
 {
 	this->manager_->addCommand(cmd);
 	cmd->connectReceiver(this);
@@ -104,18 +104,18 @@ void PRISMCommandReceiver<T>::analyzeCommand_(char* cmd)
 	//コマンド解釈部
 
 	//
-	const datatype::Time t = this->clock_->getTime();
+	const datatype::Time t = this->clock_->get_time();
 	switch(subsystem)
 	{
 	case 'p':
-		this->addCmd(__prism_powercmd_analyze(cmd, params, paramlength,t,this->global_));
+		this->add_command(__prism_powercmd_analyze(cmd, params, paramlength,t,this->global_));
 		break;
 
 	case 'c':
-		this->addCmd(__prism_cdhcmd_analyze(cmd, params, paramlength,t,this->global_));
+		this->add_command(__prism_cdhcmd_analyze(cmd, params, paramlength,t,this->global_));
 		break;
 	case 'a':
-		this->addCmd(__prism_adcscmd_analyze(cmd, params, paramlength,t,this->global_));
+		this->add_command(__prism_adcscmd_analyze(cmd, params, paramlength,t,this->global_));
 		break;
 	default:
 		util::cout << "command parse error" << util::endl;

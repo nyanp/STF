@@ -101,7 +101,7 @@ double OutputAll<T,SCALE>::operator()(){
 
 template<class T, int SCALE>
 void OutputAll<T,SCALE>::write_to_telemetry(){
-	(*this->storage_) << this->clock_->getTime().total_milliseconds();
+	(*this->storage_) << this->clock_->get_time().total_milliseconds();
 	this->datapooliter_.init();
 	while(!datapooliter_.end()){
 		(*this->storage_) << (T)(SCALE * datapooliter_());
@@ -116,10 +116,10 @@ void OutputAll<T,SCALE>::createindex_(const core::datapool::AocsDataPool* pool)
 {
 	(*this->storage_) << "Time(ms)";
 	for(int i = 0; i < pool->rows(); i++){
-		if(pool->isCreated(i)){
-			const double* data = pool->get(i)->toStream();
-			for(int j = 0; j < pool->get(i)->getStreamLength(); j++){
-				(*this->storage_) << pool->getname(i).toChar();
+		if(pool->is_created(i)){
+			const double* data = pool->get(i)->to_stream();
+			for(int j = 0; j < pool->get(i)->stream_length(); j++){
+				(*this->storage_) << pool->getname(i).to_char();
 			}
 		}
 	}

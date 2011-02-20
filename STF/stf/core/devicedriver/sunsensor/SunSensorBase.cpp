@@ -19,15 +19,15 @@ namespace sunsensor {
 //STT本体のQuaternion
 //シミュレータ環境ではSTT座標系での真値を取得する
 template <>
-void SunSensorBase<environment::Simulator>::doUpdate(){
-	this->setValue(inputFilter(this->environment_->getSunDirection(*this)));
+void SunSensorBase<environment::Simulator>::do_update(){
+	this->set_value(filter(this->environment_->getSunDirection(*this)));
 	if(this->datapool_ != 0){
 		datapool_->set<SunSensorBase<environment::Simulator>>(datapool_hold_index_,this->value_);
 	}
 }
 
 template <>
-datatype::StaticVector<2> SunSensorBase<environment::Simulator>::inputFilter(const datatype::StaticVector<2>& value){
+datatype::StaticVector<2> SunSensorBase<environment::Simulator>::filter(const datatype::StaticVector<2>& value){
 	datatype::StaticVector<3> sunvector_true = datatype::TypeConverter::toRectangular(value);
 
 	datatype::EulerAngle angle;

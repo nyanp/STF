@@ -11,20 +11,6 @@
 namespace stf { 
 namespace datatype {
 
-DCM::DCM()
-{
-	this->value_[0][0] = 1.0;
-	this->value_[1][1] = 1.0;
-	this->value_[2][2] = 1.0;
-}
-
-DCM::DCM(const StaticMatrix<3,3> &rhs)
-{
-	for(int i = 0; i < 3; i++)
-		for(int j = 0; j < 3; j++)
-			value_[i][j] = rhs[i][j];
-}
-
 void DCM::normalize()
 {
     double det = (*this)[0][0] * (*this)[1][1] * (*this)[2][2]

@@ -27,8 +27,8 @@ class TAMBase : public AOCSSensor<datatype::MagneticField,datatype::MagneticFiel
 public:
 	TAMBase(int instance_id, const datatype::DCM &angle);
 	virtual ~TAMBase(){}
-	virtual void doUpdate();
-	virtual datatype::MagneticField inputFilter(const datatype::MagneticField& value); 
+	virtual void do_update();
+	virtual datatype::MagneticField filter(const datatype::MagneticField& value); 
 private:
     TAMBase();
 	double err_deg_;
@@ -43,15 +43,15 @@ TAMBase<T>::TAMBase(int instance_id, const datatype::DCM& dcm)
 }
 
 template <class T>
-void TAMBase<T>::doUpdate(){
+void TAMBase<T>::do_update(){
 
 }
 
 //シミュレータ用の特殊化
 template <>
-void TAMBase<environment::Simulator>::doUpdate();
+void TAMBase<environment::Simulator>::do_update();
 template <>
-datatype::MagneticField TAMBase<environment::Simulator>::inputFilter(const datatype::MagneticField& value); 
+datatype::MagneticField TAMBase<environment::Simulator>::filter(const datatype::MagneticField& value); 
 
 } /* End of namespace stf::core::devicedriver::magnetometer */
 } /* End of namespace stf::core::devicedriver */

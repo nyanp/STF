@@ -24,11 +24,11 @@ template<int dim> class StaticVector;
 class Vector : public IAocsData {
 public:
     Vector();
-    Vector(int dim);
+    explicit Vector(int dim);
 	Vector(const Vector &rhs);
     virtual ~Vector();
     void initVector(int dim, double value);
-    int dimension( void ) const { return dimension_; };
+    int dimension() const { return dimension_; };
 	virtual double norm(int n) const;
 	inline double max() const;
 	inline double min() const;
@@ -40,9 +40,8 @@ public:
     Vector &operator-=(const Vector &rhs);
     Vector &operator*=(double rhs);
     Vector &operator/=(double rhs);
-	// virtual method for IAocsData
-	virtual const double* toStream() const{ return value_; }
-	virtual int getStreamLength() const { return dimension_; }
+	virtual const double* to_stream() const{ return value_; }
+	virtual int stream_length() const { return dimension_; }
 	virtual void normalize();
 	virtual void reset(){ for(int i = 0; i < dimension_; i++) this->value_[i] = 0.0; }
 protected:

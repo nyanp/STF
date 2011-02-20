@@ -30,7 +30,7 @@ int strcmp(const char *s1, const char *s2)
 
 
 //デバッグ用の特殊化．外部ファイルから1行ずつ読み込み，
-template<> void PRISMCommandReceiver<environment::Simulator>::receiveCmd(){
+template<> void PRISMCommandReceiver<environment::Simulator>::receive_command(){
 	std::string line;
 
 

@@ -24,9 +24,9 @@ class NoiseBase {
 public:
 	NoiseBase(environment::Simulator* env) : environment_(env) {}
 	virtual ~NoiseBase(){}
-    virtual double getTorque() const = 0;
-    virtual datatype::Vector getTorqueInBodyFrame() const = 0;
-    virtual void setTorque(double value) = 0;
+    virtual double get_torque() const = 0;
+    virtual datatype::Vector get_torque_bodyframe() const = 0;
+    virtual void set_torque(double value) = 0;
  public:
     environment::Simulator *environment_;
 };

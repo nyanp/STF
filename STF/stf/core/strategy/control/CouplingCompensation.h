@@ -37,13 +37,13 @@ public:
 		) : global_(global) 
 	{
 		this->connect<0>(omega_source);
-		if(torque_out != 0) torque_out->connectSource_(this);
+		if(torque_out != 0) torque_out->connect_source_(this);
 	}
 	~CouplingCompensation(){ }
 	virtual void do_compute(const datatype::Time& t){
 		if(t > this->last_update_){
-			datatype::StaticVector<3> omega = this->source<0,datatype::StaticVector<3>>().getValueInBodyFrame(t);
-			const datatype::StaticMatrix<3,3>& I = this->global_->getSatelliteModel().getI();
+			datatype::StaticVector<3> omega = this->source<0,datatype::StaticVector<3>>().get_in_bodyframe(t);
+			const datatype::StaticMatrix<3,3>& I = this->global_->get_satellitemodel().getI();
 			
 			this->value_b_ = - omega % ( I * omega );
 

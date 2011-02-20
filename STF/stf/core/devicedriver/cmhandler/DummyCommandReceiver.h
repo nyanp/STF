@@ -26,10 +26,10 @@ namespace cmhandler {
 //  プル型のコマンド（通信系からの要求をもとに，適切な値を返す）に対しては
 class DummyCommandReceiver: virtual public ICommandReceiver, public RootObject {
 public:
-    virtual void receiveCmd();
-	virtual void sendPacket(const datatype::String& msg);
-	virtual void sendPacket(int msg);
-	virtual void addCmd(command::Command*);
+    virtual void receive_command();
+	virtual void send_packet(const datatype::String& msg);
+	virtual void send_packet(int msg);
+	virtual void add_command(command::Command*);
 	DummyCommandReceiver(int instance_id, core::manager::CommandManagerBase* manager)
 		: RootObject(instance_id,"DummyReceiver"), manager_(manager){}
     ~DummyCommandReceiver() { }

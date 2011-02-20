@@ -245,13 +245,11 @@
     <ClInclude Include="stf\core\devicedriver\CDHComponent.h" />
     <ClInclude Include="stf\core\devicedriver\clock\DummyClock.h" />
     <ClInclude Include="stf\core\datapool\Datapool.h" />
-    <ClInclude Include="stf\core\datapool\DatapoolSettings.h" />
     <ClInclude Include="stf\core\devicedriver\AOCSComponent.h" />
     <ClInclude Include="stf\core\devicedriver\clock\IAbsoluteTimeClock.h" />
     <ClInclude Include="stf\core\devicedriver\clock\ITimeClock.h" />
     <ClInclude Include="stf\core\devicedriver\cmhandler\DummyCommandReceiver.h" />
     <ClInclude Include="stf\core\devicedriver\cmhandler\ICommandReceiver.h" />
-    <ClInclude Include="scube\core\devicedriver\commandhandler\ICommandReceiver.h" />
     <ClInclude Include="stf\core\devicedriver\Composite.h" />
     <ClInclude Include="stf\core\devicedriver\earthsensor\EarthSensor.h" />
     <ClInclude Include="stf\core\devicedriver\earthsensor\EarthSensorBase.h" />
@@ -260,7 +258,6 @@
     <ClInclude Include="stf\core\devicedriver\gyro\Gyro.h" />
     <ClInclude Include="stf\core\devicedriver\gyro\GyroBase.h" />
     <ClInclude Include="stf\core\devicedriver\IAOCSDataInput.h" />
-    <ClInclude Include="stf\core\devicedriver\IDatapoolProducer.h" />
     <ClInclude Include="stf\core\devicedriver\IDataUpdatable.h" />
     <ClInclude Include="stf\core\devicedriver\Includes.h" />
     <ClInclude Include="stf\core\devicedriver\IOPort.h" />
@@ -279,8 +276,6 @@
     <ClInclude Include="stf\core\devicedriver\sunsensor\SunSensor.h" />
     <ClInclude Include="stf\core\devicedriver\sunsensor\SunSensorBase.h" />
     <ClInclude Include="scube\core\devicedriver\telemetryhandler\DummyStorage.h" />
-    <ClInclude Include="scube\core\devicedriver\telemetryhandler\ITelemetable.h" />
-    <ClInclude Include="scube\core\devicedriver\timemanagement\ITimeClock.h" />
     <ClInclude Include="stf\core\devicedriver\tmhandler\debuglogger.h" />
     <ClInclude Include="stf\core\event\commandevent.h" />
     <ClInclude Include="stf\core\event\EventBase.h" />
@@ -310,10 +305,8 @@
     <ClInclude Include="stf\core\mode\Includes.h" />
     <ClInclude Include="stf\core\mode\ModeBase.h" />
     <ClInclude Include="stf\core\mode\ModeHotSpot.h" />
-    <ClInclude Include="scube\core\mode\strategy\control\IControlStrategy.h" />
     <ClInclude Include="scube\core\mode\strategy\control\NoControl.h" />
     <ClInclude Include="scube\core\mode\strategy\input\NoInput.h" />
-    <ClInclude Include="scube\core\mode\strategy\output\IOutputStrategy.h" />
     <ClInclude Include="scube\core\mode\strategy\output\NoOutput.h" />
     <ClInclude Include="scube\core\mode\strategy\StrategyBase.h" />
     <ClInclude Include="stf\core\strategy\control\Bdot.h" />
@@ -417,7 +410,6 @@
     <ClInclude Include="stf\satellite\PRISMFactory.h" />
     <ClInclude Include="stf\satellite\prism\PRISMADC.h" />
     <ClInclude Include="stf\satellite\prism\PRISMCommandReceiver.h" />
-    <ClInclude Include="scube\satellite\prism\PRISMControlBlock - コピー.h" />
     <ClInclude Include="stf\satellite\prism\PRISMControlBlock.h" />
     <ClInclude Include="stf\satellite\prism\PRISMCustomManager.h" />
     <ClInclude Include="stf\satellite\prism\PRISMDummyClock.h" />
@@ -447,7 +439,6 @@
     <ClInclude Include="stf\util\math\RungeKutta.h" />
     <ClInclude Include="stf\util\Null.h" />
     <ClInclude Include="stf\util\Ostream.h" />
-    <ClInclude Include="stf\util\TypeList.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

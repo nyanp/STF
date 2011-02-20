@@ -12,7 +12,7 @@
 #include "../CDHComponent.h"
 #include "../IDataUpdatable.h"
 #include "../../../RootObject.h"
-#include "../../../util/TypeList.h"
+#include "../../../util/loki/Typelist.h"
 
 namespace stf {
 namespace core {
@@ -24,13 +24,13 @@ class DummyClock : public CDHMultiComponent< TYPELIST_2( datatype::Time, datatyp
 public:
 	DummyClock(int instance_id, int year, int month, int date);
 	~DummyClock(void);
-	virtual const datatype::Time getTime() const; 
-	virtual const datatype::DateTime getAbsoluteTime() const;
+	virtual const datatype::Time get_time() const; 
+	virtual const datatype::DateTime get_datetime() const;
 	virtual void set_absolute_time(datatype::DateTime t);
 	virtual void set_absolute_time(int year, int month, int day, int hour, int minute, int second);
 	virtual void set_time(datatype::Time t);
 	virtual void set_time(int sec, int millisec);
-	virtual void doUpdate();
+	virtual void do_update();
 private:
 	DummyClock(const DummyClock& rhs);
 	DummyClock& operator =(const DummyClock& rhs);

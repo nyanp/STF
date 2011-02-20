@@ -19,12 +19,12 @@ WheelUnloading::WheelUnloading(int instance_id,
 		devicedriver::InputPort<datatype::StaticVector<3>>* wheel_out
 		) : StrategyBase(instance_id, "WheelUnloading")
 {
-	this->connectSource<0>(position_source);
+	this->connect_source<0>(position_source);
 	if(torquer_out != 0){
-		torquer_out->connectSource_(&outputport<0,datatype::StaticVector<3>>());
+		torquer_out->connect_source_(&outputport<0,datatype::StaticVector<3>>());
 	}
 	if(wheel_out != 0){
-		wheel_out->connectSource_(&outputport<1,datatype::StaticVector<3>>());
+		wheel_out->connect_source_(&outputport<1,datatype::StaticVector<3>>());
 	}
 }
 

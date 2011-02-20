@@ -21,16 +21,16 @@ namespace strategy {
 namespace control {
 
 struct ControlImpl {
-	virtual void setTorque(const datatype::Time& t) = 0;
+	virtual void set_torque(const datatype::Time& t) = 0;
 };
 
 template<class Actuator>
 struct ControlInputPort : public ControlImpl{
 	devicedriver::OutputPort<typename Actuator::Hold>* holderport_;
 	Actuator* output_;
-	virtual void setTorque(const datatype::Time& t){
+	virtual void set_torque(const datatype::Time& t){
 		if(holderport_ != 0 && output_ != 0)
-		 output_->setValueInBodyFrame(holderport_->getValueInBodyFrame(t));
+		 output_->set_valueInBodyFrame(holderport_->get_in_bodyframe(t));
 	}
 	virtual void connectHolder_(devicedriver::OutputPort<typename Actuator::Hold>* holder) { holderport_ = holder; }
 	virtual void connectActuator_(Actuator* act) { output_ = act; }
@@ -45,20 +45,20 @@ public:
 	ControlBlock(int instance_id,devicedriver::OutputPort<typename T::Hold>* torque_source, T* torque_target)
 		: StrategyBase(instance_id, "ControlBlock")
 	{
-		setActuator<T>(torque_target,torque_source);
+		set_actuator<T>(torque_target,torque_source);
 	}
 
-	virtual void computeTorque(const datatype::Time& t){
+	virtual void compute_torque(const datatype::Time& t){
 		if(this->is_enabled_){
 			datatype::List< ControlImpl >::iterator it = controllers_.begin();
 			while( it != controllers_.end() ){
-				(*it).setTorque(t);
+				(*it).set_torque(t);
 				++it;
 			}
 		}
 	}
 
-	template<class T> void setActuator(T* torque_target, devicedriver::OutputPort<typename T::Target>* torque_source){
+	template<class T> void set_actuator(T* torque_target, devicedriver::OutputPort<typename T::Target>* torque_source){
 		ControlInputPort<T>* tuple = new ControlInputPort<T>;
 		tuple->connectActuator_(torque_target);
 		tuple->connectHolder_(torque_source);

@@ -1,12 +1,10 @@
 /**
  * @file   Scalar.cpp
- * @brief  
+ * @brief  スカラー物理量を表現するクラス．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
  */
-#include <assert.h>
-
 #include "Scalar.h"
 namespace stf { 
 namespace datatype {

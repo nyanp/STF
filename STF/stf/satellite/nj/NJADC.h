@@ -16,53 +16,53 @@ namespace stf {
 namespace core {
 namespace devicedriver {
 
-#define __NJ__ADC__CHANNELS     128
-#define __NJ__VOLTAGE__CHANNELS  32
-#define __NJ__CURRENT__CHANNELS  12
-#define __NJ__TEMP1__CHANNELS     32
-#define __NJ__TEMP2__CHANNELS     32
-#define __NJ__VOLTAGE__OFFSET     0
-#define __NJ__CURRENT__OFFSET    25
-#define __NJ__TEMP1__OFFSET       60
-#define __NJ__TEMP2__OFFSET       96
+#define NJ__ADC__CHANNELS     128
+#define NJ__VOLTAGE__CHANNELS  32
+#define NJ__CURRENT__CHANNELS  12
+#define NJ__TEMP1__CHANNELS     32
+#define NJ__TEMP2__CHANNELS     32
+#define NJ__VOLTAGE__OFFSET     0
+#define NJ__CURRENT__OFFSET    25
+#define NJ__TEMP1__OFFSET       60
+#define NJ__TEMP2__OFFSET       96
 
 template<class Env>
-class NJADC : public ADCBase<__NJ__ADC__CHANNELS, Env>{
+class NJADC : public ADCBase<NJ__ADC__CHANNELS, Env>{
 public:
-	NJADC(int instance_id) : ADCBase<__NJ__ADC__CHANNELS, Env>(instance_id){}
+	NJADC(int instance_id) : ADCBase<NJ__ADC__CHANNELS, Env>(instance_id){}
 
 };
 
 //電流センサ
 template<class Env = ENV>
-class NJCurrentSensor : public MultiSensor<datatype::Current, __NJ__CURRENT__CHANNELS, __NJ__ADC__CHANNELS, Env> {
+class NJCurrentSensor : public MultiSensor<datatype::Current, NJ__CURRENT__CHANNELS, NJ__ADC__CHANNELS, Env> {
 public:
-	NJCurrentSensor(int instance_id, ADCBase<__NJ__ADC__CHANNELS,Env>* adc) 
-		: MultiSensor<datatype::Current, __NJ__CURRENT__CHANNELS, __NJ__ADC__CHANNELS, Env>(instance_id, adc, __NJ__CURRENT__OFFSET){}
+	NJCurrentSensor(int instance_id, ADCBase<NJ__ADC__CHANNELS,Env>* adc) 
+		: MultiSensor<datatype::Current, NJ__CURRENT__CHANNELS, NJ__ADC__CHANNELS, Env>(instance_id, adc, NJ__CURRENT__OFFSET){}
 };
 
 //電圧センサ
 template<class Env = ENV>
-class NJVoltageSensor : public  MultiSensor<datatype::Voltage, __NJ__VOLTAGE__CHANNELS, __NJ__ADC__CHANNELS, Env> {
+class NJVoltageSensor : public  MultiSensor<datatype::Voltage, NJ__VOLTAGE__CHANNELS, NJ__ADC__CHANNELS, Env> {
 public:
-	NJVoltageSensor(int instance_id, ADCBase<__NJ__ADC__CHANNELS,Env>* adc)
-		:  MultiSensor<datatype::Voltage, __NJ__VOLTAGE__CHANNELS, __NJ__ADC__CHANNELS, Env>(instance_id, adc, __NJ__VOLTAGE__OFFSET){}
+	NJVoltageSensor(int instance_id, ADCBase<NJ__ADC__CHANNELS,Env>* adc)
+		:  MultiSensor<datatype::Voltage, NJ__VOLTAGE__CHANNELS, NJ__ADC__CHANNELS, Env>(instance_id, adc, NJ__VOLTAGE__OFFSET){}
 };
 
 //2線式温度計
 template<class Env = ENV>
-class NJCoarseTempSensor : public  MultiSensor<datatype::Temperature, __NJ__TEMP1__CHANNELS, __NJ__ADC__CHANNELS, Env> {
+class NJCoarseTempSensor : public  MultiSensor<datatype::Temperature, NJ__TEMP1__CHANNELS, NJ__ADC__CHANNELS, Env> {
 public:
-	NJCoarseTempSensor(int instance_id, ADCBase<__NJ__ADC__CHANNELS,Env>* adc)
-		:  MultiSensor<datatype::Temperature, __NJ__TEMP1__CHANNELS, __NJ__ADC__CHANNELS, Env>(instance_id, adc,  __NJ__TEMP1__OFFSET){}
+	NJCoarseTempSensor(int instance_id, ADCBase<NJ__ADC__CHANNELS,Env>* adc)
+		:  MultiSensor<datatype::Temperature, NJ__TEMP1__CHANNELS, NJ__ADC__CHANNELS, Env>(instance_id, adc,  NJ__TEMP1__OFFSET){}
 };
 
 //4線式温度計
 template<class Env = ENV>
-class NJFineTempSensor : public  MultiSensor<datatype::Temperature, __NJ__TEMP2__CHANNELS, __NJ__ADC__CHANNELS, Env> {
+class NJFineTempSensor : public  MultiSensor<datatype::Temperature, NJ__TEMP2__CHANNELS, NJ__ADC__CHANNELS, Env> {
 public:
-	NJFineTempSensor(int instance_id, ADCBase<__NJ__ADC__CHANNELS,Env>* adc)
-		:  MultiSensor<datatype::Temperature, __NJ__TEMP2__CHANNELS, __NJ__ADC__CHANNELS, Env>(instance_id, adc,  __NJ__TEMP2__OFFSET){}
+	NJFineTempSensor(int instance_id, ADCBase<NJ__ADC__CHANNELS,Env>* adc)
+		:  MultiSensor<datatype::Temperature, NJ__TEMP2__CHANNELS, NJ__ADC__CHANNELS, Env>(instance_id, adc,  NJ__TEMP2__OFFSET){}
 };
 
 } /* End of namespace stf::core::component */

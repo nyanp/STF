@@ -17,17 +17,17 @@ namespace devicedriver {
 namespace gyro {
 
 template <>
-void GyroBase<environment::Simulator>::doUpdate(){
-	this->setValue(inputFilter(this->environment_->getAngularVelocity(*this)));
+void GyroBase<environment::Simulator>::do_update(){
+	this->set_value(filter(this->environment_->getAngularVelocity(*this)));
 	if(this->datapool_ != 0){
 		datapool_->set<GyroBase<environment::Simulator>>(datapool_hold_index_,this->value_);
 	}
 }
 //
 template <>
-datatype::Scalar GyroBase<environment::Simulator>::inputFilter(const datatype::Scalar& value){
+datatype::Scalar GyroBase<environment::Simulator>::filter(const datatype::Scalar& value){
     for(int i = 0; i < 3; i++){
-		datatype::Scalar noise = util::math::WhiteNoise(this->sigma_,0);
+		datatype::Scalar noise(util::math::WhiteNoise(this->sigma_,0));
 		this->bias_rate_ += util::math::RungeKutta::slope(bias_rate_, -1 / tau_, noise, 0.1);
     }
 

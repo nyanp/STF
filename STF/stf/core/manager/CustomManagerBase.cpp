@@ -8,7 +8,6 @@
 #include "UnitManagerBase.h"
 #include "../devicedriver/IDataUpdatable.h"
 #include "../mode/ModeBase.h"
-#include "../../util/TypeList.h"
 
 namespace stf {
 namespace core {

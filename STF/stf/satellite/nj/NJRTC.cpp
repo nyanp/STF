@@ -13,11 +13,11 @@ namespace core {
 namespace devicedriver {
 namespace clock {
 
-const datatype::Time NJRTC::getTime() const {
+const datatype::Time NJRTC::get_time() const {
 	return this->get<0,datatype::Time>();
 }
 
-const datatype::DateTime NJRTC::getAbsoluteTime() const {
+const datatype::DateTime NJRTC::get_datetime() const {
 	return this->get<1,datatype::DateTime>();
 }
 
@@ -49,7 +49,7 @@ NJRTC::~NJRTC(void)
 
 }
 
-void NJRTC::doUpdate()
+void NJRTC::do_update()
 {
 	const_cast<datatype::Time*>(&get<0,datatype::Time>())->add_milliseconds(this->CLOCK);
 	//this->time_.add_milliseconds(this->CLOCK);

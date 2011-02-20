@@ -13,12 +13,6 @@
 namespace stf { 
 namespace datatype {
 
-EulerAngle::EulerAngle(const StaticVector<3> &rhs)
-{
-	for(int i = 0; i < 3; i++)
-		(*this)[i] = rhs[i];
-}
-
 void EulerAngle::normalize(){
 	for(int i = 0; i < this->dimension(); i++){
 		while(this->value_[i] > util::math::PI)

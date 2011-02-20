@@ -11,7 +11,7 @@
 
 namespace {
 	std::string toString_(const stf::datatype::String& str){
-		std::string s(str.toChar());
+		std::string s(str.to_char());
 		return s;
 	}
 }
@@ -28,7 +28,7 @@ std::ostream &operator << (std::ostream& out_file, const stf::datatype::Scalar& 
 
 // datatype::String
 std::ostream &operator << (std::ostream& out_file, const stf::datatype::String& str){
-	out_file << str.toChar();
+	out_file << str.to_char();
 	return out_file;
 }
 
@@ -44,6 +44,12 @@ std::ostream &operator << (std::ostream& out_file, const stf::datatype::Vector& 
 
 std::ostream &operator << (std::ostream& out_file, const stf::datatype::Time& time){
 	out_file << time.seconds() << ":" << time.milliseconds();
+	return out_file;
+}
+
+// std::ostreamクラスの演算子に対するグローバルな演算子オーバーロード
+std::ostream &operator << (std::ostream& out_file, const stf::datatype::DateTime& time){
+	out_file << time.dates() << "/" << time.hours() << ":" << time.minutes() << ":" << time.seconds();
 	return out_file;
 }
 

@@ -12,7 +12,7 @@
 #include "../../datatype/List.h"
 #include "../event/ModeChangeEvent.h"
 #include "../event/SubjectBase.h"
-#include "../../util/TypeList.h"
+#include "../../util/loki/TypeManip.h"
 
 namespace stf {
 namespace core {
@@ -32,7 +32,7 @@ namespace manager {
 class ControlManagerBase : public ManagerBase, virtual public event::Observer<event::ModeChangeEvent>{
 public:
 	typedef core::strategy::control::IControlStrategy HotSpot;
-	typedef stf::util::Type2Type<HotSpot> SpotType;
+	typedef Loki::Type2Type<HotSpot> SpotType;
 
 	ControlManagerBase(int instance_id) : ManagerBase(instance_id, "ControlManager"), controller_(0) {}
 	virtual ~ControlManagerBase(){};

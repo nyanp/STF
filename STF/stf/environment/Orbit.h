@@ -27,12 +27,12 @@ public:
 	Orbit(double a, double e, double i, double Omega, double omega, int year, int month, int day, int hour = 0, int minutes = 0, int second = 0)
 		: orbit_(a,e,0,i,Omega,omega), starttime_(year,month,day,hour,minutes,second){}
 	~Orbit(){}
-	void setOrbitElement(double a, double e, double i, double Omega, double omega);
-	void setOrbitElement(const datatype::OrbitInfo& orbit);
+	void set_orbitElement(double a, double e, double i, double Omega, double omega);
+	void set_orbitElement(const datatype::OrbitInfo& orbit);
 	void addTime(const datatype::Time& dt);
 	void addSecond(int seconds);
 	void resetDateTime(const datatype::DateTime& time);
-	const datatype::DateTime getTime() const { return this->starttime_ + localtime_; }
+	const datatype::DateTime get_time() const { return this->starttime_ + localtime_; }
 	const datatype::PositionInfo getSatellitePosition() const ;
 	const datatype::OrbitInfo& getSatelliteOrbit() const ;
 	const datatype::StaticVector<2> getSunVector2D() const ;

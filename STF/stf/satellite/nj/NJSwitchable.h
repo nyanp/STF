@@ -24,7 +24,7 @@ public:
 	virtual void on(){ is_on_ = true; }
 	virtual void off(){ is_on_ = false; }
 	virtual bool is_on () const { return is_on_; }
-	virtual void doUpdate(){}
+	virtual void do_update(){}
 private:
 	typename Env::GPIO<Ports> io_;
 	bool is_on_;

@@ -12,6 +12,7 @@
 #include "../../datatype/List.h"
 #include "../event/ModeChangeEvent.h"
 #include "../event/SubjectBase.h"
+#include "../../util/loki/TypeManip.h"
 
 namespace stf {
 namespace core {
@@ -30,7 +31,7 @@ namespace manager {
 class SystemManagerBase : public ManagerBase, virtual public event::Observer<event::ModeChangeEvent> {
 public:	
 	typedef functor::IFunctor HotSpot;
-	typedef stf::util::Type2Type<functor::IFunctor> SpotType;
+	typedef Loki::Type2Type<functor::IFunctor> SpotType;
 
 	SystemManagerBase(int instance_id) : ManagerBase(instance_id, "SystemManager"), func_(0) {}
 	virtual ~SystemManagerBase(){}

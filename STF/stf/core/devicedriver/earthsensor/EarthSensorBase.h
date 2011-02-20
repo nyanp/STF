@@ -27,8 +27,8 @@ class EarthSensorBase : public AOCSSensor<datatype::StaticVector<2>,datatype::St
 public:
 	EarthSensorBase(int instance_id, const datatype::DCM &angle, double err_deg, int sigma = 3);
 	virtual ~EarthSensorBase(){}
-	virtual void doUpdate();
-	virtual datatype::StaticVector<2> inputFilter(const datatype::StaticVector<2>& value); 
+	virtual void do_update();
+	virtual datatype::StaticVector<2> filter(const datatype::StaticVector<2>& value); 
 private:
     EarthSensorBase();
 	double err_deg_;
@@ -43,15 +43,15 @@ EarthSensorBase<T>::EarthSensorBase(int instance_id, const datatype::DCM& dcm, d
 }
 
 template <class T>
-void EarthSensorBase<T>::doUpdate(){
+void EarthSensorBase<T>::do_update(){
 
 }
 
 //シミュレータ用の特殊化
 template <>
-void EarthSensorBase<environment::Simulator>::doUpdate();
+void EarthSensorBase<environment::Simulator>::do_update();
 template <>
-datatype::StaticVector<2> EarthSensorBase<environment::Simulator>::inputFilter(const datatype::StaticVector<2>& value); 
+datatype::StaticVector<2> EarthSensorBase<environment::Simulator>::filter(const datatype::StaticVector<2>& value); 
 
 } /* End of namespace stf::core::devicedriver::earthsensor */
 } /* End of namespace stf::core::devicedriver */

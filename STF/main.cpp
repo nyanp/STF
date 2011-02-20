@@ -206,10 +206,10 @@ int main(void){
 	stf::Global<ENV>* gl2 = en2->create();
 
 	//グローバルオブジェクトの生成
-	//stf::Global<env>& g = stf::Global<env>::getInstance();
+	//stf::Global<env>& g = stf::Global<env>::get_instance();
 
 	//シミュレータの生成
-	stf::environment::Simulator& s = stf::environment::Simulator::getInstance();
+	stf::environment::Simulator& s = stf::environment::Simulator::get_instance();
 	//シミュレーション用の軌道情報
 	datatype::OrbitInfo orbit(7100000, 0.01, 0, 0.5 * util::math::PI, 0, 0);
 	//シミュレータ初期化
@@ -225,7 +225,7 @@ int main(void){
 	//実行タスクの追加
 
 	//そのほかの設定
-	//g.comm->addCmd(new core::command::change_modeCommand(g.getGlobalTime(),g.missionmode,g.modeman));
+	//g.comm->add_command(new core::command::change_modeCommand(g.get_global_time(),g.missionmode,g.modeman));
 	//g.modeman->change_mode(g.safemode);
 
 	///////////////////////////////////////////////

@@ -16,7 +16,7 @@ namespace devicedriver {
 /// 周期的にデータを取得，送信するコンポーネントに対するインターフェース
 class IDataUpdatable {
 public:
-	virtual void doUpdate()  = 0;
+	virtual void do_update()  = 0;
 	virtual ~IDataUpdatable() { }
 };
 

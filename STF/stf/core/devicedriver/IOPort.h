@@ -27,17 +27,17 @@ struct OutputPort {
 		util::cout << "do_compute must be implemented" << util::endl;
 		assert(0);
 	}//純粋仮想関数として宣言したいが，LokiのFieldアクセスは抽象クラスを扱えないので実行時終了．改善の余地あり
-	virtual const T& getValueInBodyFrame() const{ return value_b_;}
-	virtual const T& getValueInBodyFrame(const datatype::Time& t){ do_compute(t); return value_b_; }
-	const datatype::Time& getLastUpdateTime() const{ return last_update_;}
+	virtual const T& get_in_bodyframe() const{ return value_b_;}
+	virtual const T& get_in_bodyframe(const datatype::Time& t){ do_compute(t); return value_b_; }
+	const datatype::Time& get_lastupdate() const{ return last_update_;}
 };
 
 template<class T>
 struct InputPort {
 	InputPort() : prevholder_(0) {}
 	OutputPort<T>* prevholder_;
-	//virtual void setValueInBodyFrame(const T& value){}
-	virtual void connectSource_(OutputPort<T>* outputport) { 
+	//virtual void set_valueInBodyFrame(const T& value){}
+	virtual void connect_source_(OutputPort<T>* outputport) { 
 		prevholder_ = outputport; 
 		prevholder_->nextholder_ = this;//双方向リンクリストの生成
 	}
@@ -48,8 +48,8 @@ class InputPorts : public Loki::GenScatterHierarchy<TList, core::devicedriver::I
 public:
 	// タイプリストのi番目のInputPortにホルダーをセットする
 	template<int i,class T> 
-	void connectSource(T* outputport) {
-		return Loki::Field<i>(*this).connectSource_(outputport); 
+	void connect_source(T* outputport) {
+		return Loki::Field<i>(*this).connect_source_(outputport); 
 	}
 	template<int i,class T>
 	InputPort<T>& inputport() {
@@ -72,7 +72,7 @@ public:
 	// タイプリストのi番目のOutputPortから値を取得する
 	template<int i,class T>
 	const T& get() const{	
-		return Loki::Field<i>(*this).getValueInBodyFrame();
+		return Loki::Field<i>(*this).get_in_bodyframe();
 	}
 	template<int i,class T>
 	OutputPort<T>& outputport() {
@@ -81,7 +81,7 @@ public:
 
 	template<int i>
 	const datatype::Time& getLastOutputtime() {	
-		return Loki::Field<i>(*this).getLastUpdateTime();
+		return Loki::Field<i>(*this).get_lastupdate();
 	}
 	template<int i>
 	void setLastOutputtime(const datatype::Time& time){

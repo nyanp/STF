@@ -39,10 +39,10 @@ public:
 	typedef Evt Hold;//datapool—p
 	SubjectBase() {}
 	~SubjectBase(){}
-	static void addReporter(Reporter<Evt>* obs){
+	static void add_reporter(Reporter<Evt>* obs){
 		reporters_.add(*obs);
 	}
-	static void clearReporter(){
+	static void clear_reporter(){
 		reporters_.clear();
 	}
 	static void add_listener(Observer<Evt>* obs){

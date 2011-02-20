@@ -12,6 +12,7 @@
 #include "../../datatype/List.h"
 #include "../event/ModeChangeEvent.h"
 #include "../event/SubjectBase.h"
+#include "../../util/loki/TypeManip.h"
 
 namespace stf {
 namespace core {
@@ -28,7 +29,7 @@ namespace manager {
 class TelemetryManagerBase : public ManagerBase, virtual public event::Observer<event::ModeChangeEvent> {
 public:	
 	typedef core::strategy::telemetry::ITelemetryStrategy HotSpot;
-	typedef stf::util::Type2Type<core::strategy::telemetry::ITelemetryStrategy> SpotType;
+	typedef Loki::Type2Type<core::strategy::telemetry::ITelemetryStrategy> SpotType;
 
 	TelemetryManagerBase(int instance_id) : ManagerBase(instance_id, "TelemetryManager"), telem_(0) {}
 	virtual ~TelemetryManagerBase(){}

@@ -8,26 +8,18 @@
 #ifndef stf_core_datapool_Datapool_h
 #define stf_core_datapool_Datapool_h
 #include<assert.h>
-#include"DatapoolSettings.h"
-#include"../../datatype/IAocsData.h"
-#include"../../datatype/List.h"
-#include"../../util/Ostream.h"
-#include"../../RootObject.h"
-#include"../../datatype/Time.h"
-#include"../../datatype/StaticVector.h"
-#include"../../datatype/String.h"
-#include"../devicedriver/clock/ITimeClock.h"
-#include "../../util/TypeList.h"
-#include "../../util/Ostream.h"
-#include "../../util/loki/HierarchyGenerators.h"
-#include "../../util/loki/Tuple.h"
+#include "../../datatype/IAocsData.h"
+#include "../../datatype/List.h"
+#include "../../RootObject.h"
+#include "../../datatype/Time.h"
+#include "../../datatype/StaticVector.h"
+#include "../../datatype/String.h"
+#include "../devicedriver/clock/ITimeClock.h"
 #include "../../interface/Iterator.h"
+#include "../../util/loki/TypeManip.h"
 
 namespace stf {
 namespace core {
-namespace event {
-class EventBase;
-}
 namespace datapool {
 
 //リングバッファ型のIAocsData-Timeタプルを格納するクラス．
@@ -36,7 +28,7 @@ class Tuple
 {
 public:
 	template <class T>
-	Tuple(int capacity, util::Type2Type<T>, const datatype::String& name) : capacity_(capacity), index_(0), name_(name){
+	Tuple(int capacity, Loki::Type2Type<T>, const datatype::String& name) : capacity_(capacity), index_(0), name_(name){
 		assert(capacity > 0);
 		this->data_ = new Base*[capacity];
 		for(int i = 0; i < capacity; i++)
@@ -96,7 +88,7 @@ public:
 	DataPoolBase(int instance_id): createdindex_(-1) , RootObject(instance_id, "DataPoolBase"){}
 	~DataPoolBase(void){}
 	const int rows () const{ return this->kMaxDataPoolRows; }
-	bool isCreated(int index) const{ 
+	bool is_created(int index) const{ 
 		assert( index < kMaxDataPoolRows && index >= 0); 
 		if(index <= createdindex_) return true;
 		else return false;
@@ -127,7 +119,7 @@ public:
 	const datatype::String& getname(int index) const;
 	// 値をセット
 	template<class Producer> void set(int index, const typename Producer::Hold& value){
-		table_[index]->set<typename Producer::Hold>(this->clock_->getTime(),value);
+		table_[index]->set<typename Producer::Hold>(this->clock_->get_time(),value);
 	}
 	template<class Producer> typename Producer::Hold& get_at(int index, int rows) const {
 		return table_[index]->get_at<Producer::Hold>(rows);//copy
@@ -136,21 +128,21 @@ public:
 	//IAocsDataをHoldしているRoot配下のクラスであれば何でも取れる
 	template<class Producer> int create(Producer* producer,unsigned short capacity, const datatype::String& name = "unknown"){
 		this->createdindex_++;
-		this->table_[createdindex_] = new Tuple<datatype::IAocsData>(capacity,util::Type2Type<Producer::Hold>(),name);
+		this->table_[createdindex_] = new Tuple<datatype::IAocsData>(capacity,Loki::Type2Type<Producer::Hold>(),name);
 		return createdindex_ ;
 	}
 	//初期化時にのみ使用．動的生成
 	//IAocsDataをHoldしているRoot配下のクラスであれば何でも取れる
-	template<class Datatype> int create(util::Type2Type<Datatype>,unsigned short capacity, const datatype::String& name = "unknown"){
+	template<class Datatype> int create(Loki::Type2Type<Datatype>,unsigned short capacity, const datatype::String& name = "unknown"){
 		this->createdindex_++;
-		this->table_[createdindex_] = new Tuple<datatype::IAocsData>(capacity,util::Type2Type<Datatype>(),name);
+		this->table_[createdindex_] = new Tuple<datatype::IAocsData>(capacity,Loki::Type2Type<Datatype>(),name);
 		return createdindex_ ;
 	}
 	//初期化時にのみ使用．動的生成
 	//IAocsDataをHoldしているRoot配下のクラスであれば何でも取れる
 	template<class Producer> int create(int id,unsigned short capacity, const datatype::String& name = "unknown"){
 		this->createdindex_++;
-		this->table_[createdindex_] = new Tuple<datatype::IAocsData>(capacity,util::Type2Type<Producer::Hold>(),name);
+		this->table_[createdindex_] = new Tuple<datatype::IAocsData>(capacity,Loki::Type2Type<Producer::Hold>(),name);
 		return createdindex_ ;
 	}
 	template<class Producer> void show(int index) const{
@@ -179,7 +171,7 @@ public:
 	const datatype::String& getname(int index) const;
 	// 値をセット
 	template<class Producer> void set(int index, const typename Producer::Hold& value){
-		table_[index]->set<typename Producer::Hold>(this->clock_->getTime(),value);
+		table_[index]->set<typename Producer::Hold>(this->clock_->get_time(),value);
 	}
 
 	template<class Producer> typename Producer::Hold& get_at(int index, int rows) const {
@@ -190,22 +182,22 @@ public:
 	//IAocsDataをHoldしているRoot配下のクラスであれば何でも取れる
 	template<class Producer> int create(Producer* producer,unsigned short capacity, const datatype::String& name = "unknown"){
 		this->createdindex_++;
-		this->table_[createdindex_] = new Tuple<core::event::EventBase>(capacity,util::Type2Type<Producer::Hold>(),name);
+		this->table_[createdindex_] = new Tuple<core::event::EventBase>(capacity,Loki::Type2Type<Producer::Hold>(),name);
 		return createdindex_ ;
 	}
 
 	//初期化時にのみ使用．動的生成
 	//IAocsDataをHoldしているRoot配下のクラスであれば何でも取れる
-	template<class Datatype> int create(util::Type2Type<Datatype>,unsigned short capacity, const datatype::String& name = "unknown"){
+	template<class Datatype> int create(Loki::Type2Type<Datatype>,unsigned short capacity, const datatype::String& name = "unknown"){
 		this->createdindex_++;
-		this->table_[createdindex_] = new Tuple<core::event::EventBase>(capacity,util::Type2Type<Datatype>(),name);
+		this->table_[createdindex_] = new Tuple<core::event::EventBase>(capacity,Loki::Type2Type<Datatype>(),name);
 		return createdindex_ ;
 	}
 	//初期化時にのみ使用．動的生成
 	//IAocsDataをHoldしているRoot配下のクラスであれば何でも取れる
 	template<class Producer> int create(int id,unsigned short capacity, const datatype::String& name = "unknown"){
 		this->createdindex_++;
-		this->table_[createdindex_] = new Tuple<core::event::EventBase>(capacity,util::Type2Type<Producer::Hold>(),name);
+		this->table_[createdindex_] = new Tuple<core::event::EventBase>(capacity,Loki::Type2Type<Producer::Hold>(),name);
 		return createdindex_ ;
 	}
 
@@ -229,7 +221,7 @@ public:
 		focusrow_(rows_);
 	}
 	virtual bool end(){
-		if(pool_->isCreated(rows_)) return false;
+		if(pool_->is_created(rows_)) return false;
 		else return true;
 	}
 	virtual void operator ++() { 
@@ -244,10 +236,10 @@ public:
 	}
 private:
 	void focusrow_(int row){
-		if(!pool_->isCreated(rows_)) return;
+		if(!pool_->is_created(rows_)) return;
 		const datatype::IAocsData* d = pool_->get(row);
-		localstream_ = d->toStream();
-		localstreamsize_ = d->getStreamLength();
+		localstream_ = d->to_stream();
+		localstreamsize_ = d->stream_length();
 		index_ = 0;
 	}
 	const AocsDataPool* pool_;
@@ -269,7 +261,7 @@ public:
 		focusrow_(rows_);
 	}
 	virtual bool end(){
-		if(pool_->isCreated(rows_)) return false;
+		if(pool_->is_created(rows_)) return false;
 		else return true;
 	}
 	virtual void operator ++() { 
@@ -284,7 +276,7 @@ public:
 	}
 private:
 	void focusrow_(int row){
-		if(!pool_->isCreated(rows_)) return;
+		if(!pool_->is_created(rows_)) return;
 		const core::event::EventBase* d = pool_->get(row);
 		//d->
 		index_ = 0;

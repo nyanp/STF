@@ -28,8 +28,8 @@ public:
     GyroBase();
 	GyroBase(int instance_id, const datatype::DCM &angle, double sigma, double tau);
 	~GyroBase();
-	virtual void doUpdate();
-	virtual datatype::Scalar inputFilter(const datatype::Scalar& value); 
+	virtual void do_update();
+	virtual datatype::Scalar filter(const datatype::Scalar& value); 
 private:
     double sigma_;
 	datatype::Scalar bias_rate_; 
@@ -56,14 +56,14 @@ GyroBase<T>::GyroBase(int instance_id, const datatype::DCM &dcm,double sigma, do
 }
 
 template <class T>
-void GyroBase<T>::doUpdate(){
+void GyroBase<T>::do_update(){
 
 }
 
 template <>
-void GyroBase<environment::Simulator>::doUpdate();
+void GyroBase<environment::Simulator>::do_update();
 template <>
-datatype::Scalar GyroBase<environment::Simulator>::inputFilter(const datatype::Scalar& value); 
+datatype::Scalar GyroBase<environment::Simulator>::filter(const datatype::Scalar& value); 
 } /* End of namespace stf::core::devicedriver::gyro */
 } /* End of namespace stf::core::devicedriver */
 } /* End of namespace stf::core */

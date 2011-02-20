@@ -18,8 +18,14 @@ namespace datatype {
 class EulerAngle : public StaticVector<3> {
 public:
 	EulerAngle() {}
-    EulerAngle(const StaticVector<3> &rhs);
+
+    EulerAngle(const StaticVector<3> &rhs){
+		for(int i = 0; i < 3; i++)
+		  (*this)[i] = rhs[i];
+	}
+
 	~EulerAngle(){}
+
 	//! s—ñŽ®‚ð‚P‚É’²®‚·‚é
 	virtual void normalize();
 };

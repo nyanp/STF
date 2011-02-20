@@ -28,7 +28,7 @@ public:
 	}
 	virtual void execute(){
 		U response = (*obj_.*f_)();
-		this->rcv_->sendPacket(response);
+		this->rcv_->send_packet(response);
 	}
 private:
 	Func f_;
@@ -51,7 +51,7 @@ public:
 		Targ response = (*obj_.*f_)();
 		Iterator it(&response);
 		while(!it.end()){
-			this->rcv_->sendPacket((int)(SCALE * it()));
+			this->rcv_->send_packet((int)(SCALE * it()));
 			++it;
 		}
 	}
@@ -72,7 +72,7 @@ public:
 	virtual void execute(){
 		it_->init();
 		while(!it_->end()){
-			this->rcv_->sendPacket((int)(SCALE * (*it_)()));
+			this->rcv_->send_packet((int)(SCALE * (*it_)()));
 			++it_;
 		}
 	}

@@ -20,7 +20,7 @@ public:
 	// 3-SigmaÇ≈1ìxê∏ìx
 	PRISMSunSensor(int instance_id, const datatype::DCM &angle) : SunSensorBase(instance_id,angle,1,3){}
 	~PRISMSunSensor(){}
-	virtual void doUpdate(){}
+	virtual void do_update(){}
 private:
 	PRISMSunSensor(){}
 };

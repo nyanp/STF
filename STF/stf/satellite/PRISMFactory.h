@@ -36,18 +36,18 @@ class PRISMFactory : public SatelliteFactory<Env>{
 public:
 	PRISMFactory(){ this->global_ = new PRISMGlobal<Env>();}
 	virtual ~PRISMFactory(){ delete this->global_; }
-	virtual void createComponent();
-	virtual void createFunctionManager();
-	virtual void createControlHotSpot();
-	virtual void createTelemetryHotSpot();
-	virtual void createCommandHotSpot();
-	virtual void createFunctorHotSpot();
-	virtual void createDataUpdateHotSpot();
-	virtual void createSwitchHotSpot();
-	virtual void createAdditionalHotSpot();
-	virtual void createMode();
-	virtual void createDataPoolConnection();
-	virtual Global<Env>* returnCreatedObject(){
+	virtual void create_component();
+	virtual void create_funcmanager();
+	virtual void create_controller();
+	virtual void create_telemetry();
+	virtual void create_command();
+	virtual void create_functor();
+	virtual void create_dataupdates();
+	virtual void create_switches();
+	virtual void create_additional_hotspot();
+	virtual void create_mode();
+	virtual void create_datapool();
+	virtual Global<Env>* return_created_object(){
 		return this->global_;
 	}
 private:
@@ -55,7 +55,7 @@ private:
 };
 
 template<class Env>
-void PRISMFactory<Env>::createMode(){
+void PRISMFactory<Env>::create_mode(){
 	this->global_->pr_safemode = new core::mode::ModeBase(ID_SAFEMODE,"PRISM_SAFEMODE");
 	this->global_->pr_amode = new core::mode::ModeBase(ID_SAFEMODE,"PRISM_AOCSMODE");
 	this->global_->pr_dmode = new core::mode::ModeBase(ID_SAFEMODE,"PRISM_NOCONTROLMODE");
@@ -67,7 +67,7 @@ void PRISMFactory<Env>::createMode(){
 
 
 template<class Env>
-void PRISMFactory<Env>::createComponent(){
+void PRISMFactory<Env>::create_component(){
 	typedef stf::core::devicedriver::CompositeOutput<devicedriver::mtq::PRISMMTQ<Env>,3> ThreeAxisMTQ;
 	typedef stf::core::devicedriver::CompositeInput<devicedriver::gyro::PRISMGyro<Env>,3> ThreeAxisGyro;
 	typedef stf::core::devicedriver::CompositeInput<devicedriver::sunsensor::PRISMSunSensor<Env>,6> SixAxisSS;
@@ -137,7 +137,7 @@ void PRISMFactory<Env>::createComponent(){
 }
 
 template<class Env>
-void PRISMFactory<Env>::createFunctionManager(){
+void PRISMFactory<Env>::create_funcmanager(){
 	this->global_->pr_modeman = new core::manager::ModeManager(ID_MODEMANAGER);
 	this->global_->pr_conman = new core::manager::ControlManager(ID_CONTROLMANAGER);
 	this->global_->pr_uniman1 = new core::manager::UnitManager(ID_UNITMANAGER);
@@ -152,7 +152,7 @@ void PRISMFactory<Env>::createFunctionManager(){
 }
 
 template<class Env>
-void PRISMFactory<Env>::createControlHotSpot(){
+void PRISMFactory<Env>::create_controller(){
 	typedef core::strategy::control::Combining_5<datatype::StaticVector<3>>     TorqueCombiner;
 	typedef core::strategy::control::Combining_3<datatype::MagneticMoment>      MagCombiner;
 	typedef core::strategy::control::CrossProduct                               CrossProduct;
@@ -198,72 +198,72 @@ void PRISMFactory<Env>::createControlHotSpot(){
 	PRISM_CONTROLLER->setStrategy(STRATEGY::RMMEKF, PRISM_RMMEKF);
 	
 	// 磁気モーメント合成
-	PRISM_MAG_COMBINER->connectSource<0>(PRISM_CROSSPRODUCT);
-	PRISM_MAG_COMBINER->connectSource<1>(PRISM_BDOT);
-	PRISM_MAG_COMBINER->connectSource<2>(PRISM_RMMCOMP);
+	PRISM_MAG_COMBINER->connect_source<0>(PRISM_CROSSPRODUCT);
+	PRISM_MAG_COMBINER->connect_source<1>(PRISM_BDOT);
+	PRISM_MAG_COMBINER->connect_source<2>(PRISM_RMMCOMP);
 
 	// 残留磁気補償
 	// input: RMMEKF -> MagneticMoment
-	PRISM_RMMCOMP->connectSource<0>(PRISM_RMMEKF);
+	PRISM_RMMCOMP->connect_source<0>(PRISM_RMMEKF);
 
 	// B-Dot
 	// input: TAM -> MagneticMoment
-	PRISM_BDOT->connectSource<0>(this->global_->pr_tam);
+	PRISM_BDOT->connect_source<0>(this->global_->pr_tam);
 
 	// Cross-Product
 	// input: TorqueCombiner -> Torque
 	//        TAM            -> MagneticMoment
-	PRISM_CROSSPRODUCT->connectSource<0>(PRISM_TORQUE_COMBINER);
-	PRISM_CROSSPRODUCT->connectSource<1>(this->global_->pr_tam);
+	PRISM_CROSSPRODUCT->connect_source<0>(PRISM_TORQUE_COMBINER);
+	PRISM_CROSSPRODUCT->connect_source<1>(this->global_->pr_tam);
 	
 	// トルク合成
-	PRISM_TORQUE_COMBINER->connectSource<0>(PRISM_DECOUPLING);
-	PRISM_TORQUE_COMBINER->connectSource<1>(PRISM_RATEDUMPING);
-	PRISM_TORQUE_COMBINER->connectSource<2>(PRISM_PID);
-	PRISM_TORQUE_COMBINER->connectSource<3>(PRISM_GGCOMP);
-	PRISM_TORQUE_COMBINER->connectSource<4>(PRISM_PD);
+	PRISM_TORQUE_COMBINER->connect_source<0>(PRISM_DECOUPLING);
+	PRISM_TORQUE_COMBINER->connect_source<1>(PRISM_RATEDUMPING);
+	PRISM_TORQUE_COMBINER->connect_source<2>(PRISM_PID);
+	PRISM_TORQUE_COMBINER->connect_source<3>(PRISM_GGCOMP);
+	PRISM_TORQUE_COMBINER->connect_source<4>(PRISM_PD);
 
 	// Decoupling
 	// input: EKF            -> Omega
-	PRISM_DECOUPLING->connectSource<0>(PRISM_EKF);
+	PRISM_DECOUPLING->connect_source<0>(PRISM_EKF);
 
 	// Rate-Dumping
 	// input: EKF            -> Omega
-	PRISM_RATEDUMPING->connectSource<0>(PRISM_EKF);
+	PRISM_RATEDUMPING->connect_source<0>(PRISM_EKF);
 	
 	// PID/PD(Earth-pointing)
 	// input: EKF                  -> Quaternion
 	//        EKF                  -> Omega
 	//        GPSDummy(TLE Uplink) -> Position
-	PRISM_PID->connectSource<0>(PRISM_EKF);
-	PRISM_PID->connectSource<1>(PRISM_EKF);
-	PRISM_PID->connectSource<2>(this->global_->pr_gpsdummy);
+	PRISM_PID->connect_source<0>(PRISM_EKF);
+	PRISM_PID->connect_source<1>(PRISM_EKF);
+	PRISM_PID->connect_source<2>(this->global_->pr_gpsdummy);
 	
-	PRISM_PD->connectSource<0>(PRISM_EKF);
-	PRISM_PD->connectSource<1>(PRISM_EKF);
-	PRISM_PD->connectSource<2>(this->global_->pr_gpsdummy);
+	PRISM_PD->connect_source<0>(PRISM_EKF);
+	PRISM_PD->connect_source<1>(PRISM_EKF);
+	PRISM_PD->connect_source<2>(this->global_->pr_gpsdummy);
 
 	// Gravity-Gradient Compensation
 	// input: EKF                  -> Quaternion
 	//        GPSDummy(TLE Uplink) -> Position
-	PRISM_GGCOMP->connectSource<0>(PRISM_EKF);
-	PRISM_GGCOMP->connectSource<1>(this->global_->pr_gpsdummy);
+	PRISM_GGCOMP->connect_source<0>(PRISM_EKF);
+	PRISM_GGCOMP->connect_source<1>(this->global_->pr_gpsdummy);
 
 	// Gyro-Bias EKF
 	// input: TRIAD          -> Quaternion
 	//        Gyro           -> Omega
-	PRISM_EKF->connectSource<0>(PRISM_TRIAD);
-	PRISM_EKF->connectSource<1>(this->global_->pr_gyro);
+	PRISM_EKF->connect_source<0>(PRISM_TRIAD);
+	PRISM_EKF->connect_source<1>(this->global_->pr_gyro);
 
 	// TRIAD
 	// input: Sunsensor            -> SunVector(body frame)
 	//        TAM                  -> MagneticField(body frame)
 	//        GPSDummy(TLE Uplink) -> Position
 	//        Clock                -> Time
-	PRISM_TRIAD->connectSource<0>(this->global_->pr_ss);
-	PRISM_TRIAD->connectSource<1>(this->global_->pr_tam);
-	PRISM_TRIAD->connectSource<2>(this->global_->pr_gpsdummy);
-	PRISM_TRIAD->connectSource<3>(this->global_->pr_clock);
+	PRISM_TRIAD->connect_source<0>(this->global_->pr_ss);
+	PRISM_TRIAD->connect_source<1>(this->global_->pr_tam);
+	PRISM_TRIAD->connect_source<2>(this->global_->pr_gpsdummy);
+	PRISM_TRIAD->connect_source<3>(this->global_->pr_clock);
 	
 	///////////////////////////////////////////////////
 	// 制御ブロックへのアクセスが必要な初期化処理
@@ -276,7 +276,7 @@ void PRISMFactory<Env>::createControlHotSpot(){
 	this->global_->pr_aocstmstrategy->add_tmlist(new interface::PRISMSunMagTRIADIterator<1000>(PRISM_TRIAD));
 
 	//　AOCS系コマンド
-	datatype::Time t_init = this->global_->pr_clock->getTime();
+	datatype::Time t_init = this->global_->pr_clock->get_time();
 
 	this->global_->pr_c_aen0 = new command::SimpleMemberFunctionCommand<STRATEGY,void>(t_init,PRISM_CONTROLLER,&STRATEGY::enable);
 
@@ -292,12 +292,12 @@ void PRISMFactory<Env>::createControlHotSpot(){
 }
 
 template<class Env>
-void PRISMFactory<Env>::createCommandHotSpot(){
+void PRISMFactory<Env>::create_command(){
 	typedef core::manager::HeaterControl<Env> Heater;
 	typedef core::devicedriver::clock::PRISMDummyClock Clock;
 	typedef core::strategy::telemetry::PRISMTelemetryStrategy<1000> Telem;
 	typedef core::manager::ModeManager ModeManager;
-	datatype::Time t_init = this->global_->pr_clock->getTime();
+	datatype::Time t_init = this->global_->pr_clock->get_time();
 
 	// 生存確認
 	this->global_->pr_c_alv = new core::command::MessageCommand(t_init,"alive");
@@ -321,10 +321,10 @@ void PRISMFactory<Env>::createCommandHotSpot(){
 
 	// 時刻設定・時刻取得関係
 	this->global_->pr_c_rtg = 
-		new core::command::GetIteratorCommand<Clock,interface::DateTimeIterator,const datatype::DateTime,100>(t_init,this->global_->pr_clock,&Clock::getAbsoluteTime);
+		new core::command::GetIteratorCommand<Clock,interface::DateTimeIterator,const datatype::DateTime,100>(t_init,this->global_->pr_clock,&Clock::get_datetime);
 
 	this->global_->pr_c_tmg = 
-		new core::command::GetIteratorCommand<Clock,interface::TimeIterator,const datatype::Time,100>(t_init,this->global_->pr_clock,&Clock::getTime);
+		new core::command::GetIteratorCommand<Clock,interface::TimeIterator,const datatype::Time,100>(t_init,this->global_->pr_clock,&Clock::get_time);
 
 	this->global_->pr_c_rts = 
 		new core::command::TypeListMemberFunctionCommand<Clock,int,6>
@@ -388,13 +388,13 @@ void PRISMFactory<Env>::createCommandHotSpot(){
 }
 
 template<class Env>
-void PRISMFactory<Env>::createTelemetryHotSpot(){
+void PRISMFactory<Env>::create_telemetry(){
 	this->global_->pr_tmstrategy = new core::strategy::telemetry::PRISMTelemetryStrategy<1000>(0, this->global_->pr_tmhandler,this->global_->pr_aocsdatapool,this->global_->pr_eventdatapool,this->global_->pr_clock);
 	this->global_->pr_aocstmstrategy = new core::strategy::telemetry::PRISMTelemetryStrategy<1000>(0, this->global_->pr_tmhandler,this->global_->pr_aocsdatapool,this->global_->pr_eventdatapool,this->global_->pr_clock);
 }
 
 template<class Env>
-void PRISMFactory<Env>::createDataUpdateHotSpot(){
+void PRISMFactory<Env>::create_dataupdates(){
 	datatype::List<core::devicedriver::IDataUpdatable> defaultUpdateList;
 	defaultUpdateList.add(*this->global_->pr_clock);
 	defaultUpdateList.add(*this->global_->pr_gpsdummy);
@@ -427,7 +427,7 @@ void PRISMFactory<Env>::createDataUpdateHotSpot(){
 }
 
 template<class Env>
-void PRISMFactory<Env>::createSwitchHotSpot(){
+void PRISMFactory<Env>::create_switches(){
 	datatype::List<core::devicedriver::ISwitchable> defaultSwitchList;
 	defaultSwitchList.add(*this->global_->pr_clock);
 	defaultSwitchList.add(*this->global_->pr_gpsdummy);
@@ -460,7 +460,7 @@ void PRISMFactory<Env>::createSwitchHotSpot(){
 }
 
 template<class Env>
-void PRISMFactory<Env>::createFunctorHotSpot(){
+void PRISMFactory<Env>::create_functor(){
 	////////////////////////////////
 	// モード変更関係のファンクタ
 
@@ -468,14 +468,14 @@ void PRISMFactory<Env>::createFunctorHotSpot(){
 	core::functor::IFunctor* timerfunc = new functor::Functor<functor::Getter_Over<datatype::Time,devicedriver::clock::ITimeClock>,core::functor::ModeChangeFunc>
 			(
 				new functor::Getter_Over<datatype::Time,devicedriver::clock::ITimeClock>(
-					this->global_->pr_clock,&devicedriver::clock::ITimeClock::getTime,new datatype::Time(200,0)
+					this->global_->pr_clock,&devicedriver::clock::ITimeClock::get_time,new datatype::Time(200,0)
 					),
 					new functor::ModeChangeFunc(this->global_->pr_modeman,*(this->global_->pr_safemode))
 			);
 	this->global_->pr_resetmode->add_list(timerfunc);
 
 	//EventDataPoolのAnomaryEventが一定数溜まったらSafeModeに移行するファンクタ
-	//core::datapool::AocsDataPool& pool = Global<Env>::getDataPool();
+	//core::datapool::AocsDataPool& pool = Global<Env>::get_datapool();
 
 	//撮影予約時刻に到達したらDPModeに移行するファンクタ
 
@@ -487,12 +487,12 @@ void PRISMFactory<Env>::createFunctorHotSpot(){
 }
 
 template<class Env>
-void PRISMFactory<Env>::createAdditionalHotSpot(){
+void PRISMFactory<Env>::create_additional_hotspot(){
 
 }
 
 template<class Env>
-void PRISMFactory<Env>::createDataPoolConnection(){
+void PRISMFactory<Env>::create_datapool(){
 
 
 	this->global_->pr_mtqx->connect(global_->pr_aocsdatapool,10,"PR_MTQ1");

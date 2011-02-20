@@ -39,15 +39,15 @@ public:
 		devicedriver::OutputPort<T>* target_source, 
 		devicedriver::InputPort<T>* target_out) : sf_(scale_factor), offset_(offset)
 	{
-		 this->connectSource<0>(target_source);
-		 if(target_out != 0) target_out->connectSource_(this);
+		 this->connect_source<0>(target_source);
+		 if(target_out != 0) target_out->connect_source_(this);
 	}
 	~LiniarCorrection(){}
 
 	virtual void do_compute(const datatype::Time& t){
 		if(t > this->last_update_){
 			util::cout << "compute: LiniarCorrection" << util::endl;
-			this->value_b_ =  sf_ * this->source<0,T>().getValueInBodyFrame(t) + offset_;
+			this->value_b_ =  sf_ * this->source<0,T>().get_in_bodyframe(t) + offset_;
 			this->last_update_ = t;
 		}
 	}

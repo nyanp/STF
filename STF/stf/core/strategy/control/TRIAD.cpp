@@ -51,12 +51,12 @@ TRIAD::TRIAD(int instance_id,
 		devicedriver::InputPort<datatype::Quaternion>* q_out
 		) : StrategyBase(instance_id, "TRIAD")
 {
-	this->connectSource<0>(body_vector1);
-	this->connectSource<1>(inertial_vector1);
-	this->connectSource<2>(body_vector2);
-	this->connectSource<3>(inertial_vector2);
+	this->connect_source<0>(body_vector1);
+	this->connect_source<1>(inertial_vector1);
+	this->connect_source<2>(body_vector2);
+	this->connect_source<3>(inertial_vector2);
 	if(q_out != 0){
-		q_out->connectSource_(this);
+		q_out->connect_source_(this);
 	}
 }
 
@@ -64,16 +64,16 @@ void TRIAD::do_compute(const datatype::Time& t) {
 	if(t <= this->last_update_) return; //既に別のブロック経由で更新済みなら再計算しない
 	util::cout << "compute: GenericTRIAD" << util::endl;
 	datatype::StaticVector<3> v1 = datatype::TypeConverter::toRectangular(
-		this->source<0,datatype::StaticVector<2>>().getValueInBodyFrame(t));
+		this->source<0,datatype::StaticVector<2>>().get_in_bodyframe(t));
 
 	datatype::StaticVector<3> v2 = datatype::TypeConverter::toRectangular(
-		this->source<2,datatype::StaticVector<2>>().getValueInBodyFrame(t));
+		this->source<2,datatype::StaticVector<2>>().get_in_bodyframe(t));
 
 	datatype::StaticVector<3> w1 = datatype::TypeConverter::toRectangular(
-		this->source<1,datatype::StaticVector<2>>().getValueInBodyFrame(t));
+		this->source<1,datatype::StaticVector<2>>().get_in_bodyframe(t));
 
 	datatype::StaticVector<3> w2 = datatype::TypeConverter::toRectangular(
-		this->source<3,datatype::StaticVector<2>>().getValueInBodyFrame(t));
+		this->source<3,datatype::StaticVector<2>>().get_in_bodyframe(t));
 
 	this->value_b_ = estimate_(v1, v2, w1, w2);
 	this->last_update_ = t;
@@ -88,12 +88,12 @@ SunEarthTRIAD::SunEarthTRIAD(int instance_id,
 		devicedriver::InputPort<datatype::Quaternion>* q_out
 		) : StrategyBase(instance_id, "TRIAD")
 {
-	this->connectSource<0>(sunvector_source);
-	this->connectSource<1>(earthvector_source);
-	this->connectSource<2>(position_source);
-	this->connectSource<3>(time_source);
+	this->connect_source<0>(sunvector_source);
+	this->connect_source<1>(earthvector_source);
+	this->connect_source<2>(position_source);
+	this->connect_source<3>(time_source);
 	if(q_out != 0){
-		q_out->connectSource_(this);
+		q_out->connect_source_(this);
 	}
 }
 
@@ -101,11 +101,11 @@ void SunEarthTRIAD::do_compute(const datatype::Time& t) {
 	if(t <= this->last_update_) return; //既に別のブロック経由で更新済みなら再計算しない
 	util::cout << "compute: SunEarthTRIAD" << util::endl;
 	//センサから取得した衛星基準座標系における地球，太陽方向
-	datatype::StaticVector<2> w_sun = this->source<0,datatype::StaticVector<2>>().getValueInBodyFrame(t);
-	datatype::StaticVector<2> w_earth = this->source<1,datatype::StaticVector<2>>().getValueInBodyFrame(t);
+	datatype::StaticVector<2> w_sun = this->source<0,datatype::StaticVector<2>>().get_in_bodyframe(t);
+	datatype::StaticVector<2> w_earth = this->source<1,datatype::StaticVector<2>>().get_in_bodyframe(t);
 	//軌道情報をもとに計算された衛星位置における地球，太陽方向
-	datatype::StaticVector<3> v1 = datatype::OrbitCalc::getSunDirection3D(this->source<3,datatype::DateTime>().getValueInBodyFrame());
-	datatype::StaticVector<3> v2 = datatype::OrbitCalc::getEarthDirection3D(this->source<2,datatype::PositionInfo>().getValueInBodyFrame(t));
+	datatype::StaticVector<3> v1 = datatype::OrbitCalc::getSunDirection3D(this->source<3,datatype::DateTime>().get_in_bodyframe());
+	datatype::StaticVector<3> v2 = datatype::OrbitCalc::getEarthDirection3D(this->source<2,datatype::PositionInfo>().get_in_bodyframe(t));
 
 	datatype::StaticVector<3> w1 = datatype::TypeConverter::toRectangular(w_sun);
 	datatype::StaticVector<3> w2 = datatype::TypeConverter::toRectangular(w_earth);
@@ -122,12 +122,12 @@ SunMagTRIAD::SunMagTRIAD(int instance_id,
 		devicedriver::InputPort<datatype::Quaternion>* q_out
 		) : StrategyBase(instance_id, "TRIAD")
 {
-	this->connectSource<0>(sunvector_source);
-	this->connectSource<1>(magvector_source);
-	this->connectSource<2>(position_source);
-	this->connectSource<3>(time_source);
+	this->connect_source<0>(sunvector_source);
+	this->connect_source<1>(magvector_source);
+	this->connect_source<2>(position_source);
+	this->connect_source<3>(time_source);
 	if(q_out != 0){
-		q_out->connectSource_(this);
+		q_out->connect_source_(this);
 	}
 }
 
@@ -135,13 +135,13 @@ void SunMagTRIAD::do_compute(const datatype::Time& t) {
 	if(t <= this->last_update_) return; //既に別のブロック経由で更新済みなら再計算しない
 		util::cout << "compute: SunMagTRIAD" << util::endl;
 	//センサから取得した衛星基準座標系における地球，太陽方向
-	datatype::StaticVector<2> w_sun = this->source<0,datatype::StaticVector<2>>().getValueInBodyFrame(t);
-	datatype::MagneticField w_mag = this->source<1,datatype::MagneticField>().getValueInBodyFrame(t);
+	datatype::StaticVector<2> w_sun = this->source<0,datatype::StaticVector<2>>().get_in_bodyframe(t);
+	datatype::MagneticField w_mag = this->source<1,datatype::MagneticField>().get_in_bodyframe(t);
 	//軌道情報をもとに計算された衛星位置における地球，太陽方向
-	datatype::DateTime time = this->source<3,datatype::DateTime>().getValueInBodyFrame();
+	datatype::DateTime time = this->source<3,datatype::DateTime>().get_in_bodyframe();
 
 	datatype::MagneticField v_mag = 
-		datatype::OrbitCalc::getMagneticFieldDirection(this->source<2,datatype::PositionInfo>().getValueInBodyFrame(t),time);
+		datatype::OrbitCalc::getMagneticFieldDirection(this->source<2,datatype::PositionInfo>().get_in_bodyframe(t),time);
 	datatype::StaticVector<3> v1 = datatype::OrbitCalc::getSunDirection3D(time);
 	datatype::StaticVector<3> w1 = datatype::TypeConverter::toRectangular(w_sun);
 
@@ -157,12 +157,12 @@ SunMagTRIAD2::SunMagTRIAD2(int instance_id,
 		devicedriver::InputPort<datatype::Quaternion>* q_out
 		) : StrategyBase(instance_id, "TRIAD"), clock_(clock)
 {
-	if(sunvector_source != 0) this->connectSource<0>(sunvector_source);
-	if(magvector_source != 0) this->connectSource<1>(magvector_source);
-	if(position_source != 0) this->connectSource<2>(position_source);
+	if(sunvector_source != 0) this->connect_source<0>(sunvector_source);
+	if(magvector_source != 0) this->connect_source<1>(magvector_source);
+	if(position_source != 0) this->connect_source<2>(position_source);
 
 	if(q_out != 0){
-		q_out->connectSource_(this);
+		q_out->connect_source_(this);
 	}
 }
 
@@ -170,13 +170,13 @@ void SunMagTRIAD2::do_compute(const datatype::Time& t) {
 	if(t <= this->last_update_) return; //既に別のブロック経由で更新済みなら再計算しない
 		util::cout << "compute: SunMagTRIAD" << util::endl;
 	//センサから取得した衛星基準座標系における地球，太陽方向
-	datatype::StaticVector<2> w_sun = this->source<0,datatype::StaticVector<2>>().getValueInBodyFrame(t);
-	datatype::MagneticField w_mag = this->source<1,datatype::MagneticField>().getValueInBodyFrame(t);
+	datatype::StaticVector<2> w_sun = this->source<0,datatype::StaticVector<2>>().get_in_bodyframe(t);
+	datatype::MagneticField w_mag = this->source<1,datatype::MagneticField>().get_in_bodyframe(t);
 	//軌道情報をもとに計算された衛星位置における地球，太陽方向
-	datatype::DateTime time = this->clock_->getAbsoluteTime();
+	datatype::DateTime time = this->clock_->get_datetime();
 
 	datatype::MagneticField v_mag = 
-		datatype::OrbitCalc::getMagneticFieldDirection(this->source<2,datatype::PositionInfo>().getValueInBodyFrame(t),time);
+		datatype::OrbitCalc::getMagneticFieldDirection(this->source<2,datatype::PositionInfo>().get_in_bodyframe(t),time);
 	datatype::StaticVector<3> v1 = datatype::OrbitCalc::getSunDirection3D(time);
 	datatype::StaticVector<3> w1 = datatype::TypeConverter::toRectangular(w_sun);
 

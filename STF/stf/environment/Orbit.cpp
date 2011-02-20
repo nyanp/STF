@@ -16,7 +16,7 @@ using namespace stf::datatype;
 namespace stf {
 namespace environment {
 
-void Orbit::setOrbitElement(double a, double e, double i, double Omega, double omega)
+void Orbit::set_orbitElement(double a, double e, double i, double Omega, double omega)
 {
 	this->orbit_.a = a;
 	this->orbit_.e = e;
@@ -27,7 +27,7 @@ void Orbit::setOrbitElement(double a, double e, double i, double Omega, double o
 	this->orbit_.M = this->orbit_.n * this->localtime_.total_seconds();
 }
 
-void Orbit::setOrbitElement(const datatype::OrbitInfo& orbit)
+void Orbit::set_orbitElement(const datatype::OrbitInfo& orbit)
 {
 	this->orbit_ = orbit;
 	updateOrbit_();

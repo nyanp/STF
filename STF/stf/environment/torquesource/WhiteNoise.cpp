@@ -22,13 +22,13 @@ WhiteNoise::WhiteNoise(double sigma, double mu): sigma_(sigma), mu_(mu), NoiseBa
 }
 
 
-double WhiteNoise::getTorque() const 
+double WhiteNoise::get_torque() const 
 {
     return this->sigma_;//TBD:分散を返すのはインターフェースとして正しい？
 }
 
 
-datatype::Vector WhiteNoise::getTorqueInBodyFrame() const 
+datatype::Vector WhiteNoise::get_torque_bodyframe() const 
 {
     datatype::Vector v(3);
     for(int i = 0; i < 3; i++){
@@ -38,7 +38,7 @@ datatype::Vector WhiteNoise::getTorqueInBodyFrame() const
 }
 
 
-void WhiteNoise::setTorque(double value)
+void WhiteNoise::set_torque(double value)
 {
     this->sigma_ = value;
 }

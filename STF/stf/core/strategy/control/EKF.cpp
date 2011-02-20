@@ -31,13 +31,13 @@ EKF::EKF(int instance_id, const EKFParamaters &params,
 R_(3,3),x_(6),bref_(3),Omega_(4,4), StrategyBase(instance_id, "EKF")
 {
     this->params_ = params;//copy
-	this->connectSource<0>(q_source);
-	this->connectSource<1>(omega_source);
+	this->connect_source<0>(q_source);
+	this->connect_source<1>(omega_source);
 	if(q_out != 0){
-		q_out->connectSource_(this);
+		q_out->connect_source_(this);
 	}
 	if(omega_out != 0){
-		omega_out->connectSource_(this);
+		omega_out->connect_source_(this);
 	}
     init();  
 }
@@ -103,11 +103,11 @@ void EKF::do_compute(const datatype::Time& t)
 	//util::cout << "t:" << t << "u:" << this->getLastOutputtime<0>() << "p:" << this->getLastOutputtime<1>() << "stt:" << this->getLastInputTime<0>() << util::endl;
 	util::cout << "compute: EKF" << util::endl;	
 	if(this->getLastOutputtime<0>() < t && this->getLastInputTime<0>() >= this->getLastOutputtime<0>()){
-		update( this->source<0,datatype::Quaternion>().getValueInBodyFrame(t), t );
+		update( this->source<0,datatype::Quaternion>().get_in_bodyframe(t), t );
 		//util::cout << "update:" << util::endl;
 	}
 	//util::cout << "propagate:" << util::endl;
-	propagate( this->source<1,datatype::StaticVector<3>>().getValueInBodyFrame(t), t );
+	propagate( this->source<1,datatype::StaticVector<3>>().get_in_bodyframe(t), t );
 
 }
 

@@ -31,7 +31,7 @@ public:
 	~SingleAxisPID(){}
 	virtual void do_compute(const datatype::Time& t);
 protected:
-    datatype::Scalar computeTorque_(const datatype::Scalar &x);
+    datatype::Scalar compute_torque_(const datatype::Scalar &x);
     double kp_;
     double ki_;
     double kd_;

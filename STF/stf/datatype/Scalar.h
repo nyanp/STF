@@ -1,6 +1,6 @@
 /**
  * @file   Scalar.h
- * @brief  
+ * @brief  スカラー物理量を表現するクラス．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -12,24 +12,23 @@
 #include "IAocsData.h"
 
 namespace stf { 
-namespace util {
-template <class T>class Ostream;
-}
 namespace datatype {
 
-///物理量を表すベクトル表現クラス．
+//! スカラー物理量を表現するクラス．
+/*!  */
 class Scalar : public IAocsData {
 public:
 	Scalar() : value_(0.0){}
 	Scalar(double value) : value_(value) {}
 	Scalar(const Scalar& rhs) : value_(rhs.value_){}
 	Scalar& operator = (const Scalar& rhs) { value_ = rhs.value_; return *this;}
+	Scalar& operator = (double value) { value_ = value; return *this;}
 	~Scalar(){}
 	virtual void reset(){ value_ = 0; }
 	virtual void normalize(){}
 	double value () const { return value_; }
-	virtual const double* toStream() const { return &value_; }
-	virtual int getStreamLength() const { return 1; }
+	virtual const double* to_stream() const { return &value_; }
+	virtual int stream_length() const { return 1; }
 	inline Scalar& operator += (const Scalar& s);
 	inline Scalar& operator -= (const Scalar& s);
 	inline Scalar& operator *= (const Scalar& s);
@@ -52,8 +51,11 @@ private:
 	friend inline Scalar operator * (const Scalar& s,double d);
 	friend inline Scalar operator * (double d,const Scalar& s);
 	friend inline Scalar operator / (const Scalar& s,double d);
-	template<class T>friend class stf::util::Ostream;
 };
+
+//////////////////////////
+//   Member Function    //
+//////////////////////////
 
 Scalar& Scalar::operator += (const Scalar& s){
 	this->value_ += s.value_;
@@ -74,6 +76,11 @@ Scalar& Scalar::operator /= (const Scalar& s){
 	this->value_ += s.value_;
 	return *this;
 }
+
+//////////////////////////////
+//   Non-Member Function    //
+//////////////////////////////
+
 inline Scalar operator - (const Scalar& s){
 	Scalar temp = s;
 	temp.value_ *= -1;
@@ -153,7 +160,6 @@ inline bool operator > (const Scalar& left, const Scalar& right){
 inline bool operator < (const Scalar& left, const Scalar& right){
 	return !(left >= right);
 }
-
 
 } /* End of namespace stf::datatype */
 } /* End of namespace stf */

@@ -27,13 +27,13 @@ public:
 	GPSBase(){}
 	GPSBase(int instance_id);
 	~GPSBase(){}
-	virtual void doUpdate();
-	virtual const datatype::DateTime getAbsoluteTime() const {return t_;}
+	virtual void do_update();
+	virtual const datatype::DateTime get_datetime() const {return t_;}
 	virtual void set_absolute_time(datatype::DateTime t) {t_ = t;}
 	virtual void set_absolute_time(int year, int month, int day, int hour, int minute, int second){
 		t_.init(year,month,day,hour,minute,second);
 	}
-	virtual datatype::PositionInfo inputFilter(const datatype::PositionInfo& value); 
+	virtual datatype::PositionInfo filter(const datatype::PositionInfo& value); 
 protected:
 	datatype::DateTime t_;
 };
@@ -47,14 +47,14 @@ GPSBase<T>::GPSBase(int instance_id)
 }
 
 template <class T>
-void GPSBase<T>::doUpdate(){
+void GPSBase<T>::do_update(){
 
 }
 
 template <>
-void GPSBase<environment::Simulator>::doUpdate();
+void GPSBase<environment::Simulator>::do_update();
 template <>
-datatype::PositionInfo GPSBase<environment::Simulator>::inputFilter(const datatype::PositionInfo& value); 
+datatype::PositionInfo GPSBase<environment::Simulator>::filter(const datatype::PositionInfo& value); 
 } /* End of namespace stf::core::devicedriver::gyro */
 } /* End of namespace stf::core::devicedriver */
 } /* End of namespace stf::core */

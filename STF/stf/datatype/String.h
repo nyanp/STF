@@ -23,7 +23,7 @@ public:
 	String &operator=(const String &);
 	String &operator+=(const String &);
 	inline int length() const{ return this->length_; };
-	inline const char* toChar() const{ return this->value_;}
+	inline const char* to_char() const{ return this->value_;}
 private:
 	char *value_;
 	int length_;

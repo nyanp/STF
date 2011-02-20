@@ -19,46 +19,46 @@ public:
 	SatelliteFactory(){}
 	virtual ~SatelliteFactory(){}
 	Global<Env>* create(){
-		createComponent();
-		createDataPoolConnection();
-		createFunctionManager();
-		createMode();
-	    createCommandHotSpot();
-		createTelemetryHotSpot();
-		createControlHotSpot();
+		create_component();
+		create_datapool();
+		create_funcmanager();
+		create_mode();
+	    create_command();
+		create_telemetry();
+		create_controller();
 
-		createFunctorHotSpot();
-		createDataUpdateHotSpot();
-		createSwitchHotSpot();
-		createAdditionalHotSpot();
+		create_functor();
+		create_dataupdates();
+		create_switches();
+		create_additional_hotspot();
 
-		return returnCreatedObject();
+		return return_created_object();
 	}
 protected:
 	// デバイスドライバを生成するファクトリ
-	virtual void createComponent() = 0;
+	virtual void create_component() = 0;
 	// 機能マネージャを生成するファクトリ
-	virtual void createFunctionManager() = 0;
+	virtual void create_funcmanager() = 0;
 	// モードを生成するファクトリ
-	virtual void createMode() = 0;
+	virtual void create_mode() = 0;
 	// 各モードにおけるControl Strategyを生成するファクトリ
-	virtual void createControlHotSpot() = 0;
+	virtual void create_controller() = 0;
 	// Commandを生成するファクトリ
-	virtual void createCommandHotSpot() = 0;
+	virtual void create_command() = 0;
 	// 各モードにおけるTelemetry Strategyを生成するファクトリ
-	virtual void createTelemetryHotSpot() = 0;
+	virtual void create_telemetry() = 0;
 	// 各モードにおけるFunctor Strategyを生成するファクトリ
-	virtual void createFunctorHotSpot() = 0;
+	virtual void create_functor() = 0;
 	// 各モードにおけるUpdate Strategyを生成するファクトリ
-	virtual void createDataUpdateHotSpot() = 0;
+	virtual void create_dataupdates() = 0;
 	// 各モードにおけるSwitch Strategyを生成するファクトリ
-	virtual void createSwitchHotSpot() = 0;
+	virtual void create_switches() = 0;
 	// 各モードにおけるユーザー定義のStrategyを生成するファクトリ
-	virtual void createAdditionalHotSpot() = 0;
+	virtual void create_additional_hotspot() = 0;
 	// データプールへの接続を生成するファクトリ
-	virtual void createDataPoolConnection() = 0;
+	virtual void create_datapool() = 0;
 	// 生成されたオブジェクトを、Globalのポインタで返却
-	virtual Global<Env>* returnCreatedObject() = 0;
+	virtual Global<Env>* return_created_object() = 0;
 };
 
 } /* End of namespace stf::factory */

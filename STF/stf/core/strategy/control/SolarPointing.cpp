@@ -23,10 +23,10 @@ SolarPointing::SolarPointing(int instance_id, double k,
 		devicedriver::InputPort<datatype::MagneticMoment>* mag_out
 		) : StrategyBase(instance_id, "SolarPointing"), K_(k)
 {
-	this->connectSource<0>(mag_source);
-	this->connectSource<1>(sunvector_source);
+	this->connect_source<0>(mag_source);
+	this->connect_source<1>(sunvector_source);
 	if(mag_out != 0){
-		mag_out->connectSource_(this);
+		mag_out->connect_source_(this);
 	}
 }
 

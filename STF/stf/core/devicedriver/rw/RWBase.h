@@ -28,9 +28,9 @@ public:
     RWBase();
 	RWBase(int instance_id, const datatype::DCM &dcm, double max_torque, double min_torque, double max_angular_momentum);
     virtual ~RWBase();
-	virtual void doUpdate();
-	virtual double getAngularMomentum() { return this->angular_momentum_;}
-	virtual bool isSaturated() const{ if(this->angular_momentum_ >= this->max_angular_momentum_) return true; return false; }//ホイールが飽和していたらtrue
+	virtual void do_update();
+	virtual double angular_momentum() { return this->angular_momentum_;}
+	virtual bool is_saturated() const{ if(this->angular_momentum_ >= this->max_angular_momentum_) return true; return false; }//ホイールが飽和していたらtrue
 private:
     double max_angular_momentum_;
 	double angular_momentum_;//内部およびアンローディング制御ブロックで使用する角運動量．
@@ -55,12 +55,12 @@ RWBase<T>::~RWBase()
 }
 
 template<class T>
-void RWBase<T>::doUpdate(){
+void RWBase<T>::do_update(){
 //	this->datapool_.get< 0, RWBase >();
 }
 
 template <>
-void RWBase<environment::Simulator>::doUpdate();
+void RWBase<environment::Simulator>::do_update();
 
 template<>
 RWBase<environment::Simulator>::RWBase(int instance_id, const datatype::DCM &dcm, double max_torque, double min_torque, double max_angular_momentum);

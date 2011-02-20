@@ -24,8 +24,8 @@ SingleAxisPID::SingleAxisPID(int instance_id, double kp, double ki, double kd, d
 		devicedriver::InputPort<datatype::Scalar>* out)
 	: kp_(kp), kd_(kd), ki_(ki), dt_(dt), target_(target), StrategyBase(instance_id, "SingleAxisPID")
 {
-	this->connectSource<0>(source);
-	out->connectSource_(this);
+	this->connect_source<0>(source);
+	out->connect_source_(this);
 }
 
 void SingleAxisPID::do_compute(const datatype::Time& t)
@@ -33,13 +33,13 @@ void SingleAxisPID::do_compute(const datatype::Time& t)
 	assert(this->prevholder_ != 0);//input sourceが無い
 	if(t > this->last_update_){//既に別のブロック経由で更新済みなら再計算しない
 		util::cout << "compute: SingleAxisPID" << util::endl;
-		this->value_b_ = computeTorque_(this->source<0,datatype::Scalar>().getValueInBodyFrame(t));
+		this->value_b_ = compute_torque_(this->source<0,datatype::Scalar>().get_in_bodyframe(t));
 		this->last_update_ = t;
 	}
 }
 
 
-datatype::Scalar SingleAxisPID::computeTorque_(const datatype::Scalar &x)
+datatype::Scalar SingleAxisPID::compute_torque_(const datatype::Scalar &x)
 {
 	this->dx_total_ += (x - target_) * this->dt_;
 

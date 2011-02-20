@@ -73,7 +73,7 @@ void NJTelemetryHandler<T>::logging(double value, int address)
 template<class T>
 void NJTelemetryHandler<T>::logging(datatype::String value, int address)
 {
-	*this << value.toChar();
+	*this << value.to_char();
 }
 
 template<class T>

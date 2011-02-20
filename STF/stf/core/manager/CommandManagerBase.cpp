@@ -16,7 +16,7 @@ namespace core {
 namespace manager {
 
 void CommandManagerBase::run(){
-	execute_command_(this->clock_->getTime());
+	execute_command_(this->clock_->get_time());
 }
 
 void CommandManagerBase::execute_command_(const datatype::Time& t){

@@ -18,24 +18,24 @@ namespace devicedriver {
 namespace cmhandler {
 
 // デバッグ用なのでコンソールからの入力は無いと考える
-void DummyCommandReceiver::receiveCmd()
+void DummyCommandReceiver::receive_command()
 {
 
 }
 
 // デバッグ用なので送信機に送る変わりにコンソールに出力する
-void DummyCommandReceiver::sendPacket(const datatype::String& msg)
+void DummyCommandReceiver::send_packet(const datatype::String& msg)
 {
-	util::cout << "downlink:" << msg << "at:" << this->clock_->getTime() << util::endl;
+	util::cout << "downlink:" << msg << "at:" << this->clock_->get_time() << util::endl;
 }
 
 // デバッグ用なので送信機に送る変わりにコンソールに出力する
-void DummyCommandReceiver::sendPacket(int msg)
+void DummyCommandReceiver::send_packet(int msg)
 {
-	util::cout << "downlink:" << msg << "at:" << this->clock_->getTime() << util::endl;
+	util::cout << "downlink:" << msg << "at:" << this->clock_->get_time() << util::endl;
 }
 
-void DummyCommandReceiver::addCmd(command::Command* cmd)
+void DummyCommandReceiver::add_command(command::Command* cmd)
 {
 	this->manager_->addCommand(cmd);
 	cmd->connectReceiver(this);

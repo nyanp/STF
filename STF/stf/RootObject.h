@@ -13,9 +13,6 @@
 #include "Macros.h"
 
 namespace stf {
-namespace util {
-template<class T> struct Type2Type;
-}
 namespace datatype {
 class Time;
 class IAocsData;
@@ -41,9 +38,7 @@ public:
 	RootObject(int instance_id, const datatype::String& name);
 	int instance_id() const{ return instance_id_; }
 	virtual ~RootObject(){}
-	//virtual datatype::Time getLastUpdateTime() const;
-	virtual int getDataPoolKey() const;
-	//template<typename T> void connect(util::Type2Type<T>, int rows, const datatype::String name);
+	virtual int get_datapoolKey() const;
 protected:
     int oid_;
 	int instance_id_;

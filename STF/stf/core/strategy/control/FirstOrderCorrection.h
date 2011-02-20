@@ -37,16 +37,16 @@ public:
 		devicedriver::OutputPort<U>* corrector_source, 
 		devicedriver::InputPort<T>* target_out) 
 	{
-		 this->connectSource<0>(target_source);
-		 this->connectSource<1>(corrector_source);
-		 if(target_out != 0) target_out->connectSource_(this);
+		 this->connect_source<0>(target_source);
+		 this->connect_source<1>(corrector_source);
+		 if(target_out != 0) target_out->connect_source_(this);
 	}
 	~FirstOrderCorrection(){}
 
 	virtual void do_compute(const datatype::Time& t){
 		if(t > this->last_update_){
 			util::cout << "compute: FirstOrderCorrection" << util::endl;
-			this->value_b_ =  this->source<0,T>().getValueInBodyFrame(t) * this->source<1,U>().getValueInBodyFrame(t);
+			this->value_b_ =  this->source<0,T>().get_in_bodyframe(t) * this->source<1,U>().get_in_bodyframe(t);
 			this->last_update_ = t;
 		}
 	}

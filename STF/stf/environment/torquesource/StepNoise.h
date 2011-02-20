@@ -28,9 +28,9 @@ public:
     StepNoise(double magnitude, stf::environment::Simulator *env);
     StepNoise(double magnitude, const datatype::Vector &vector, const int &startTimeInSecond, environment::Simulator *env);
     virtual ~StepNoise();
-    virtual double getTorque() const ;
-    virtual void setTorque(double value);
-    virtual datatype::Vector getTorqueInBodyFrame() const ;
+    virtual double get_torque() const ;
+    virtual void set_torque(double value);
+    virtual datatype::Vector get_torque_bodyframe() const ;
 private:
     StepNoise();
     datatype::Vector vector_;

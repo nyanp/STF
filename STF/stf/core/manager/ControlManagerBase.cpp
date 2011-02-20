@@ -20,7 +20,7 @@ void ControlManagerBase::run(){
 		//util::cout << "skip" << util::endl;
 		return;
 	}
-	datatype::Time t = this->clock_->getTime();
+	datatype::Time t = this->clock_->get_time();
 	doControl(t);
 }
 
@@ -32,7 +32,7 @@ void ControlManagerBase::notify(const mode::ModeBase* value){
 void ControlManagerBase::doControl(const datatype::Time& t){
 	datatype::List<HotSpot>::iterator it = this->controller_->begin();
 	while(it != controller_->end()){
-		(*it).computeTorque(t);
+		(*it).compute_torque(t);
 		++it;
 	}
 }

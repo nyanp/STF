@@ -21,10 +21,10 @@ public:
 	AOCSSensor(int instance_id, const datatype::String& name, const datatype::DCM& dcm) : AOCSComponent<T,U,Env>(instance_id,name,dcm){}
 	AOCSSensor(int instance_id, const datatype::String& name) : AOCSComponent<T,U,Env>(instance_id,name){}
 	virtual ~AOCSSensor(){}
-	void setSigma(double ref) { sigma_ = ref; }
+	void set_sigma(double ref) { sigma_ = ref; }
 	// 真値からノイズモデルを加味した観測値を計算する関数．
 	// テンプレートクラス内のメンバ関数は，使用しない限り実体化されないので，フライトコードにオーバーヘッドは無い．
-	virtual U inputFilter(const U& value) = 0; 
+	virtual U filter(const U& value) = 0; 
 protected:
 
 private:

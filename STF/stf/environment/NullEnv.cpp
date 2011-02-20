@@ -10,7 +10,7 @@
 namespace stf {
 namespace environment {
 
-NullEnv& NullEnv::getInstance(){
+NullEnv& NullEnv::get_instance(){
 	static NullEnv instance;
 	return instance;
 }

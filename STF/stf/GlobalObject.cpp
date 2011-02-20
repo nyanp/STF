@@ -14,28 +14,28 @@ namespace stf {
 
 /*
 template<class Env>
-datatype::SatelliteModel& Global<Env>::getSatelliteModel(){
+datatype::SatelliteModel& Global<Env>::get_satellitemodel(){
 	return Global<Env>::g_SatelliteModel;
 }
 
 template<class Env>
-const datatype::Time Global<Env>::getGlobalTime(){
-	return Global<Env>::g_Clock.getTime();
+const datatype::Time Global<Env>::get_global_time(){
+	return Global<Env>::g_Clock.get_time();
 }
 
 template<class Env>
-const datatype::DateTime Global<Env>::getAbsoluteTime(){
-	return Global<Env>::g_Clock.getAbsoluteTime();
+const datatype::DateTime Global<Env>::get_datetime(){
+	return Global<Env>::g_Clock.get_datetime();
 }
 
-template const datatype::Time Global<environment::Simulator>::getGlobalTime();
-//template const datatype::Time Global<environment::NullEnv>::getGlobalTime();
-template const datatype::DateTime Global<environment::Simulator>::getAbsoluteTime();
-//template const datatype::DateTime Global<environment::NullEnv>::getAbsoluteTime();
-template datatype::SatelliteModel& Global<environment::Simulator>::getSatelliteModel();*/
+template const datatype::Time Global<environment::Simulator>::get_global_time();
+//template const datatype::Time Global<environment::NullEnv>::get_global_time();
+template const datatype::DateTime Global<environment::Simulator>::get_datetime();
+//template const datatype::DateTime Global<environment::NullEnv>::get_datetime();
+template datatype::SatelliteModel& Global<environment::Simulator>::get_satellitemodel();*/
 
-//template Global<environment::Simulator>& Global<environment::Simulator>::getInstance();
-//template Global<environment::NullEnv>& Global<environment::NullEnv>::getInstance();
+//template Global<environment::Simulator>& Global<environment::Simulator>::get_instance();
+//template Global<environment::NullEnv>& Global<environment::NullEnv>::get_instance();
 
 
 
@@ -223,15 +223,15 @@ Global<Env>::Global(){
     // output: Torque
 	// input:  EKF -> Quaternion
 	//         EKF -> Omega
-	PRISM_PID->connectSource<0>(PRISM_EKF);
-	PRISM_PID->connectSource<1>(PRISM_EKF);
+	PRISM_PID->connect_source<0>(PRISM_EKF);
+	PRISM_PID->connect_source<1>(PRISM_EKF);
 
 	// EKF 
     // output: Quatenrion,Omega
 	// input: TRIAD -> Quaternion
 	//        Gyro  -> Omega
-	PRISM_EKF->connectSource<0>(PRISM_TRIAD);
-	PRISM_EKF->connectSource<1>(gyro);
+	PRISM_EKF->connect_source<0>(PRISM_TRIAD);
+	PRISM_EKF->connect_source<1>(gyro);
 
 	// TRIAD 
     // output: Quatenrion
@@ -239,40 +239,40 @@ Global<Env>::Global(){
 	//         MagnetoMeter -> MagneticField
 	//         TLEUplink    -> OrbitInfo
 	//         (RTC)        -> DateTime
-	PRISM_TRIAD->connectSource<0>(ss);
-	PRISM_TRIAD->connectSource<1>(tam);
-	PRISM_TRIAD->connectSource<2>(gpsdummy);
-//	PRISM_TRIAD->connectSource<3>(&g_Clock);
+	PRISM_TRIAD->connect_source<0>(ss);
+	PRISM_TRIAD->connect_source<1>(tam);
+	PRISM_TRIAD->connect_source<2>(gpsdummy);
+//	PRISM_TRIAD->connect_source<3>(&g_Clock);
 
 	// Gravity Gradient Compensation
 	// output: Torque
 	// input:  EKF          -> Quaternion
 	//         TLEUplink    -> OrbitInfo
 	//         (InnerModel) -> I
-	PRISM_GGCOMP->connectSource<0>(PRISM_EKF);
-	PRISM_GGCOMP->connectSource<1>(gpsdummy);
+	PRISM_GGCOMP->connect_source<0>(PRISM_EKF);
+	PRISM_GGCOMP->connect_source<1>(gpsdummy);
 
 	// Torque Combiner
 	// output: Torque
 	// input:  PID         -> Torque
-	PRISM_COMBINER->connectSource<0>(PRISM_PID);
-	PRISM_COMBINER->connectSource<1>(PRISM_GGCOMP);
+	PRISM_COMBINER->connect_source<0>(PRISM_PID);
+	PRISM_COMBINER->connect_source<1>(PRISM_GGCOMP);
 
 	// Cross Product
 	// output: Magnetic Moment
 	// input:  MagnetoMeter     -> Magnetic Field
 	//         Torrque Combiner -> Torque
-	PRISM_CROSSPRODUCT->connectSource<0>(PRISM_COMBINER);
-	PRISM_CROSSPRODUCT->connectSource<1>(tam);
+	PRISM_CROSSPRODUCT->connect_source<0>(PRISM_COMBINER);
+	PRISM_CROSSPRODUCT->connect_source<1>(tam);
 
 	//this->nocontrol = new core::strategy::control::NoControl(ID_NOCONTROL);
 	this->outputall = new core::strategy::telemetry::OutputAll(ID_OUTPUTALLTM,g_Logger,&g_DataPool,&g_EventDatapool);
 
-	gpsdummy->doUpdate();
-	tam->doUpdate();
-	ss->doUpdate();
+	gpsdummy->do_update();
+	tam->do_update();
+	ss->do_update();
 	
-	PRISM_CONTROLLER->computeTorque(*(new datatype::Time(1,0)));
+	PRISM_CONTROLLER->compute_torque(*(new datatype::Time(1,0)));
 	//Mode
 	this->safemode = new mode::SafeMode(ID_SAFEMODE);
 	this->missionmode = new mode::MissionMode(ID_MISSIONMODE);
@@ -280,7 +280,7 @@ Global<Env>::Global(){
 
 	//this->func = new functor::Functor<core::functor::Getter_Over<datatype::Time,devicedriver::clock::ITimeClock>,core::functor::change_modeFunc>
 	//(
-	//new core::functor::Getter_Over<datatype::Time,devicedriver::clock::ITimeClock>(&g_Clock,&devicedriver::clock::ITimeClock::getTime,new datatype::Time(10,0)),
+	//new core::functor::Getter_Over<datatype::Time,devicedriver::clock::ITimeClock>(&g_Clock,&devicedriver::clock::ITimeClock::get_time,new datatype::Time(10,0)),
 	//new core::functor::change_modeFunc(*(this->missionmode))
 	//);
 	//ModeHotSpotとなるコンポーネントの初期化が全て終わってから各モードのinitを呼ぶ

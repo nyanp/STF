@@ -24,8 +24,8 @@ public:
 	~StaticVector(){}
 	virtual void normalize();
 	virtual void reset(){ for ( int i = 0; i < dim; i++ ) value_[i] = 0.0; }
-	virtual const double* toStream() const { return value_; }
-	virtual int getStreamLength() const { return dim; }
+	virtual const double* to_stream() const { return value_; }
+	virtual int stream_length() const { return dim; }
 	int dimension( void ) const { return dim; };
 	virtual double norm(int n) const;
 	inline double max() const;

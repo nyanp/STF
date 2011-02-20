@@ -23,10 +23,10 @@ TorqueCombining::TorqueCombining(int instance_id,
 		devicedriver::OutputPort<datatype::StaticVector<3>>* source_3,
 		devicedriver::InputPort<datatype::StaticVector<3>>* torque_out) : StrategyBase(instance_id, "TorqueCombining")
 {
-	this->connectSource<0>(source_1);
-	this->connectSource<1>(source_2);
-	this->connectSource<2>(source_3);
-	torque_out->connectSource_(this);
+	this->connect_source<0>(source_1);
+	this->connect_source<1>(source_2);
+	this->connect_source<2>(source_3);
+	torque_out->connect_source_(this);
 }
 
 
@@ -35,9 +35,9 @@ void TorqueCombining::do_compute(const datatype::Time& t)
 	if(t > this->last_update_){//既に別のブロック経由で更新済みなら再計算しない
 		util::cout << "compute: torqueCombine" << util::endl;
 		this->value_b_.reset();
-		this->value_b_ += this->source<0,datatype::StaticVector<3>>().getValueInBodyFrame(t);
-		this->value_b_ += this->source<1,datatype::StaticVector<3>>().getValueInBodyFrame(t);
-		this->value_b_ += this->source<2,datatype::StaticVector<3>>().getValueInBodyFrame(t);
+		this->value_b_ += this->source<0,datatype::StaticVector<3>>().get_in_bodyframe(t);
+		this->value_b_ += this->source<1,datatype::StaticVector<3>>().get_in_bodyframe(t);
+		this->value_b_ += this->source<2,datatype::StaticVector<3>>().get_in_bodyframe(t);
 		this->last_update_ = t;
 	}
 }

@@ -45,7 +45,7 @@ void SubjectBase<Evt>::notify_observers(const typename Evt::Target& p){
 	for( ; it != observers_.end() ; ++it ){
 		(*it).notify(&p);
 	}
-	//Global<ENV>::getEventDataPool().set<SubjectBase<Evt>>(this->event_.instance_id(),this->event_);
+	//Global<ENV>::get_eventdatapool().set<SubjectBase<Evt>>(this->event_.instance_id(),this->event_);
 }
 
 } /* End of namespace stf::core::event */

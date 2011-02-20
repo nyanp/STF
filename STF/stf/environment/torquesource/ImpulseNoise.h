@@ -28,9 +28,9 @@ public:
     ImpulseNoise(double magnitude, const datatype::Vector &vector, const int &startTimeInSecond, const double &durationInMillisec, environment::Simulator *env);
     ImpulseNoise(double magnitude, environment::Simulator *env);
     virtual ~ImpulseNoise();
-    virtual double getTorque() const ;
-    virtual datatype::Vector getTorqueInBodyFrame() const ;
-    virtual void setTorque(double value);
+    virtual double get_torque() const ;
+    virtual datatype::Vector get_torque_bodyframe() const ;
+    virtual void set_torque(double value);
 private:
     ImpulseNoise();
     datatype::Time starttime_;

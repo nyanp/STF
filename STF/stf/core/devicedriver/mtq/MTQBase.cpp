@@ -16,7 +16,7 @@ namespace mtq {
 
 
 template <>
-void MTQBase<environment::Simulator>::doUpdate(){
+void MTQBase<environment::Simulator>::do_update(){
 	//üŒ`«Œë·‚Ì•t‰Á¨TBD
 	//this->linearity_ * 0.01
 	//DB‚Ö‹L˜^

@@ -27,9 +27,9 @@ PID::PID(int instance_id, double kp, double ki, double kd, double dt, const data
 		devicedriver::InputPort<datatype::StaticVector<3>>* torque_out)
 	: kp_(kp), kd_(kd), ki_(ki), dt_(dt), q_target_(target), StrategyBase(instance_id, "PID")
 {
-	if(q_source != 0) this->connectSource<0>(q_source);
-	if(omega_source != 0) this->connectSource<1>(omega_source);
-	torque_out->connectSource_(this);
+	if(q_source != 0) this->connect_source<0>(q_source);
+	if(omega_source != 0) this->connect_source<1>(omega_source);
+	torque_out->connect_source_(this);
 }
 
 QuaternionPID::QuaternionPID(int instance_id, double kp, double ki, double kd, double dt, const datatype::Quaternion &target)
@@ -56,10 +56,10 @@ EarthPointingPID::EarthPointingPID(int instance_id, double kp, double ki, double
 		devicedriver::InputPort<datatype::StaticVector<3>>* torque_out)
 	: kp_(kp), kd_(kd), ki_(ki), dt_(dt), target_earthvector_(target), StrategyBase(instance_id, "EarthPointingPID")
 {
-	if(q_source != 0) this->connectSource<0>(q_source);
-	if(omega_source != 0) this->connectSource<1>(omega_source);
-	if(position_source != 0) this->connectSource<2>(position_source);
-	torque_out->connectSource_(this);
+	if(q_source != 0) this->connect_source<0>(q_source);
+	if(omega_source != 0) this->connect_source<1>(omega_source);
+	if(position_source != 0) this->connect_source<2>(position_source);
+	torque_out->connect_source_(this);
 }
 
 DynamicPID::DynamicPID(int instance_id, double kp, double ki, double kd, double dt)
@@ -74,10 +74,10 @@ DynamicPID::DynamicPID(int instance_id, double kp, double ki, double kd, double 
 		devicedriver::InputPort<datatype::StaticVector<3>>* torque_out)
 	: kp_(kp), kd_(kd), ki_(ki), dt_(dt), StrategyBase(instance_id, "DynamicPID")
 {
-	if(q_source != 0) this->connectSource<0>(q_source);
-	if(omega_source != 0) this->connectSource<1>(omega_source);
-	if(reference_source != 0) this->connectSource<2>(reference_source);
-	torque_out->connectSource_(this);
+	if(q_source != 0) this->connect_source<0>(q_source);
+	if(omega_source != 0) this->connect_source<1>(omega_source);
+	if(reference_source != 0) this->connect_source<2>(reference_source);
+	torque_out->connect_source_(this);
 }
 
 
@@ -87,12 +87,12 @@ void PID::do_compute(const datatype::Time& t)
 	if(t > this->last_update_){//既に別のブロック経由で更新済みなら再計算しない
 		util::cout << "compute: PID" << util::endl;
 		//Quaternion観測値
-		datatype::Quaternion q = this->source<0,datatype::Quaternion>().getValueInBodyFrame(t);
+		datatype::Quaternion q = this->source<0,datatype::Quaternion>().get_in_bodyframe(t);
 		datatype::EulerAngle e = datatype::TypeConverter::toEulerAngle(q.conjugate() * this->q_target_);
-		datatype::EulerAngle e_diff = this->source<1,datatype::StaticVector<3>>().getValueInBodyFrame(t);
+		datatype::EulerAngle e_diff = this->source<1,datatype::StaticVector<3>>().get_in_bodyframe(t);
 		this->e_total_ += e * this->dt_;
 
-		this->value_b_ = computeTorque_(e,e_diff,e_total_);
+		this->value_b_ = compute_torque_(e,e_diff,e_total_);
 
 		this->e_before_ = e;
 
@@ -100,7 +100,7 @@ void PID::do_compute(const datatype::Time& t)
 	}
 }
 
-datatype::StaticVector<3> PID::computeTorque_(const datatype::EulerAngle& x, const datatype::EulerAngle& x_delta, const datatype::EulerAngle& x_total)
+datatype::StaticVector<3> PID::compute_torque_(const datatype::EulerAngle& x, const datatype::EulerAngle& x_delta, const datatype::EulerAngle& x_total)
 {
 	//オイラー角がZ-Y-X表現なのに対してトルクはX-Y-Zの順．順番に注意
 	datatype::StaticVector<3> output;	
@@ -116,13 +116,13 @@ void QuaternionPID::do_compute(const datatype::Time& t)
 	if(t > this->last_update_){//既に別のブロック経由で更新済みなら再計算しない
 		util::cout << "compute: PID(Quaternion)" << util::endl;
 		//Quaternion観測値
-		datatype::Quaternion q = this->source<0,datatype::Quaternion>().getValueInBodyFrame(t);
+		datatype::Quaternion q = this->source<0,datatype::Quaternion>().get_in_bodyframe(t);
 		datatype::EulerAngle e = datatype::TypeConverter::toEulerAngle(q.conjugate() * this->q_target_);
 		//角速度センサではなくQの差分で微分値を計算
 		datatype::EulerAngle e_diff = (e - this->e_before_) / this->dt_;
 		this->e_total_ += e * this->dt_;
 
-		this->value_b_ = computeTorque_(e,e_diff,e_total_);
+		this->value_b_ = compute_torque_(e,e_diff,e_total_);
 
 		this->e_before_ = e;
 
@@ -136,8 +136,8 @@ void EarthPointingPID::do_compute(const datatype::Time& t)
 	if(t > this->last_update_){//既に別のブロック経由で更新済みなら再計算しない
 		util::cout << "compute: PID(Earth-Pointing)" << util::endl;
 		//Quaternion観測値
-		datatype::Quaternion q = this->source<0,datatype::Quaternion>().getValueInBodyFrame(t);
-		this->earthvector_ = datatype::OrbitCalc::getEarthDirection3D(this->source<2,datatype::PositionInfo>().getValueInBodyFrame(t));
+		datatype::Quaternion q = this->source<0,datatype::Quaternion>().get_in_bodyframe(t);
+		this->earthvector_ = datatype::OrbitCalc::getEarthDirection3D(this->source<2,datatype::PositionInfo>().get_in_bodyframe(t));
 		datatype::StaticVector<3> v = this->earthvector_ - this->target_earthvector_;
 		
 		//角速度センサではなくQの差分で微分値を計算
@@ -160,9 +160,9 @@ void DynamicPID::do_compute(const datatype::Time& t){
 	if(t > this->last_update_){//既に別のブロック経由で更新済みなら再計算しない
 		util::cout << "compute: PID(Dynamic)" << util::endl;
 		//Quaternion観測値
-		datatype::Quaternion q = this->source<0,datatype::Quaternion>().getValueInBodyFrame(t);
+		datatype::Quaternion q = this->source<0,datatype::Quaternion>().get_in_bodyframe(t);
 		//Quaternion目標値
-		datatype::Quaternion q_target = this->source<2,datatype::Quaternion>().getValueInBodyFrame(t);
+		datatype::Quaternion q_target = this->source<2,datatype::Quaternion>().get_in_bodyframe(t);
 		//目標までのオイラー角
 		datatype::EulerAngle e = datatype::TypeConverter::toEulerAngle( q.conjugate() * q_target );
 		

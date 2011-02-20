@@ -30,12 +30,12 @@ ImpulseNoise::~ImpulseNoise()
 {
 }
 
-double ImpulseNoise::getTorque() const 
+double ImpulseNoise::get_torque() const 
 {
     return this->magnitude_;
 }
 
-datatype::Vector ImpulseNoise::getTorqueInBodyFrame() const 
+datatype::Vector ImpulseNoise::get_torque_bodyframe() const 
 {
     if(this->starttime_ <= this->environment_->getTrueTime())
         if(this->starttime_ + this->duration_ > this->environment_->getTrueTime())
@@ -45,7 +45,7 @@ datatype::Vector ImpulseNoise::getTorqueInBodyFrame() const
     return v;
 }
 
-void ImpulseNoise::setTorque(double value)
+void ImpulseNoise::set_torque(double value)
 {
     this->magnitude_ = value;
 }

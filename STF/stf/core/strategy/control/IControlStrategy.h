@@ -19,7 +19,7 @@ namespace control {
 
 class IControlStrategy {
 public:
-    virtual void computeTorque(const datatype::Time& t)  = 0;
+    virtual void compute_torque(const datatype::Time& t)  = 0;
 	//virtual void changeTarget(const datatype::IAocsData& newtarget) = 0;
     virtual ~IControlStrategy() { }
 };

@@ -12,40 +12,6 @@
 namespace stf { 
 namespace datatype {
 
-Quaternion::Quaternion(double q0,double q1, double q2, double q3) //: Vector(4)
-{
-    this->value_[0] = q0;
-    this->value_[1] = q1;
-    this->value_[2] = q2;
-    this->value_[3] = q3;
-}
-
-Quaternion::Quaternion() //: Vector(4)
-{
-	this->value_[0] = 1.0;
-}
-
-Quaternion::Quaternion(const StaticVector<4> &rhs) //: Vector(4)
-{
-	//assert(rhs.dimension() == 4);
-	for(int i = 0; i < 4; i++)
-		(*this)[i] = rhs[i];
-}
-
-Quaternion::Quaternion(const Quaternion &rhs)// : Vector(4)
-{
-	for(int i = 0; i < 4; i++)
-		(*this)[i] = rhs[i];
-}
-
-Quaternion Quaternion::conjugate() const 
-{
-	Quaternion q;
-	q[0] = (*this)[0];  q[1] = -(*this)[1];
-	q[2] = -(*this)[2]; q[3] = -(*this)[3];
-	return q;
-}
-
 void Quaternion::normalize()
 {
 	double norm = util::math::sqrt(value_[0] * value_[0] + value_[1] * value_[1]

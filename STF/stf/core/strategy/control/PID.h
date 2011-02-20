@@ -46,7 +46,7 @@ public:
 	}
 	virtual void do_compute(const datatype::Time& t);
 protected:
-	datatype::StaticVector<3> computeTorque_(const datatype::EulerAngle& x, const datatype::EulerAngle& x_delta, const datatype::EulerAngle& x_total);
+	datatype::StaticVector<3> compute_torque_(const datatype::EulerAngle& x, const datatype::EulerAngle& x_delta, const datatype::EulerAngle& x_total);
     double kp_;
     double ki_;
     double kd_;

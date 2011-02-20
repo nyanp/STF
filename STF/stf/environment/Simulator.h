@@ -50,7 +50,7 @@ public:
 	typedef core::devicedriver::AOCSComponent<datatype::StaticVector<3>,datatype::Scalar,Simulator> TorqueSource;
 	typedef core::devicedriver::AOCSComponent<datatype::MagneticMoment,datatype::Scalar,Simulator> MagneticSource;
 
-	static Simulator& getInstance();
+	static Simulator& get_instance();
 	void init(Global<Simulator>* global, double stepTimeInSecond, double maxTimeInSecond, const datatype::OrbitInfo& orbit, std::ofstream *ostream);
     virtual ~Simulator();
     datatype::StaticVector<3> getAngularVelocity(const core::devicedriver::AOCSComponent<datatype::StaticVector<3>,datatype::StaticVector<3>,Simulator> &component) const ;
@@ -59,7 +59,7 @@ public:
 	datatype::StaticVector<2> getSunDirection(const core::devicedriver::AOCSComponent<datatype::StaticVector<2>,datatype::StaticVector<2>,Simulator> &component) const ;
 	datatype::StaticVector<2> getEarthDirection(const core::devicedriver::AOCSComponent<datatype::StaticVector<2>,datatype::StaticVector<2>,Simulator> &component) const ;
 	datatype::MagneticField getMagneticField(const core::devicedriver::AOCSComponent<datatype::MagneticField,datatype::MagneticField,Simulator> &component) const;
-	datatype::Time getTime(const core::devicedriver::clock::ITimeClock &component) const ;
+	datatype::Time get_time(const core::devicedriver::clock::ITimeClock &component) const ;
 
 	const datatype::Time& getTrueTime() const { return this->true_time_; }
 	const datatype::Quaternion& getTrueQuaternion() const { return this->true_quaternion_; }
