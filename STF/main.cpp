@@ -214,7 +214,7 @@ int main(void){
 	datatype::OrbitInfo orbit(7100000, 0.01, 0, 0.5 * util::math::PI, 0, 0);
 	//シミュレータ初期化
 	s.init(gl, STEPTIME, 100, orbit, new std::ofstream("output.csv"));
-
+	
 	//シミュレータ外乱設定
 	datatype::Vector v(3);
 	v[0] = 0.3;
@@ -225,12 +225,12 @@ int main(void){
 	//実行タスクの追加
 
 	//そのほかの設定
-	//g.comm->add_command(new core::command::change_modeCommand(g.get_global_time(),g.missionmode,g.modeman));
+	//g.comm->add_command(new core::command::modeChangeCommand(g.get_global_time(),g.missionmode,g.modeman));
 	//g.modeman->change_mode(g.safemode);
 
 	///////////////////////////////////////////////
 	// 実行
-	for(int i = 0; i < 2000; i++)
+	for(int i = 0; i < 20; i++)
 		s.runOneCycle();
 
 	return 1;

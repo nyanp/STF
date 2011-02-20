@@ -198,6 +198,15 @@ void NJFactory<Env>::create_funcmanager(){
 	this->global_->nj_cusman = new core::manager::CustomManager(ID_CUSTOMMANAGER);
 	this->global_->nj_sysman = new core::manager::SystemManager(ID_SYSTEMMANAGER);
 	this->global_->nj_commman = new core::manager::CommandManager(ID_COMMANDMANAGER);
+
+	this->global_->managers_.add(*this->global_->nj_modeman);
+	this->global_->managers_.add(*this->global_->nj_conman);
+	this->global_->managers_.add(*this->global_->nj_uniman1);
+	this->global_->managers_.add(*this->global_->nj_uniman2);
+	this->global_->managers_.add(*this->global_->nj_telman);
+	this->global_->managers_.add(*this->global_->nj_cusman);
+	this->global_->managers_.add(*this->global_->nj_sysman);
+	this->global_->managers_.add(*this->global_->nj_commman);
 }
 
 template<class Env>

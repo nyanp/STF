@@ -12,6 +12,7 @@
 #include "../../devicedriver/IOPort.h"
 
 #include "../../../datatype/StaticVector.h"
+#include "../../../datatype/StaticMatrix.h"
 #include "../../../datatype/Quaternion.h"
 
 #include "../../../datatype/Matrix.h"
@@ -52,21 +53,21 @@ protected:
     EKFParamaters params_;
 	datatype::StaticVector<3> omega_;
     datatype::Quaternion q_;
-    datatype::Vector bref_;
+    datatype::StaticVector<3> bref_;
 	//“`”À•p“x(sec)
 	double dt_;
-    datatype::Matrix A_;
-    datatype::Matrix B_;
-    datatype::Matrix G_;
-    datatype::Matrix F_;
-    datatype::Matrix H_;
-    datatype::Matrix P_;
-    datatype::Matrix K_;
-    datatype::Matrix Q_;
-    datatype::Matrix R_;
-    datatype::Vector x_;
-    datatype::Matrix Ht_;
-    datatype::Matrix Omega_;
+    datatype::StaticMatrix<6,6> A_;
+    datatype::StaticMatrix<6,6> B_;
+    datatype::StaticMatrix<6,6> G_;
+    datatype::StaticMatrix<6,6> F_;
+    datatype::StaticMatrix<3,6> H_;
+    datatype::StaticMatrix<6,6> P_;
+    datatype::StaticMatrix<6,3> K_;
+    datatype::StaticMatrix<6,6> Q_;
+    datatype::StaticMatrix<3,3> R_;
+    datatype::StaticVector<6> x_;
+    datatype::StaticMatrix<6,3> Ht_;
+    datatype::StaticMatrix<4,4> Omega_;
     double tau_;
 };
 

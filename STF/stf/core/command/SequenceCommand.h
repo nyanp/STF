@@ -15,6 +15,10 @@ namespace stf {
 namespace core {
 namespace command {
 
+//! 複数個のコマンドをシーケンシャルに実行するコマンド．
+/*! 引数がintの場合，init関数で引数の再設定が可能．
+	@tparam Num 実行するコマンドの数．
+*/
 template<int Num>
 class SequenceCommand : public Command {
 public:
@@ -36,19 +40,18 @@ public:
 		}
 		return true;
 	}
-	void addCommand(Command* command){
+	void add_command(Command* command){
 		index_++;
 		assert(index_ < Num);
 		commands_[index_] = command;
 	}
 	virtual void execute(){
+		assert(index_ >= 0);
 		for(int i = 0; i < index_; i++){
 			commands_[i]->execute();//順番に実行
 		}
 	}
 private:
-    SequenceCommand(const SequenceCommand &rhs);
-    SequenceCommand &operator=(const SequenceCommand &rhs);
 	Command* commands_[Num];
 	int index_;
 };

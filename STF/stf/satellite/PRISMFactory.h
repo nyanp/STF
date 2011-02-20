@@ -149,6 +149,17 @@ void PRISMFactory<Env>::create_funcmanager(){
 	this->global_->pr_commman = new core::manager::CommandManager(ID_COMMANDMANAGER);
 	this->global_->pr_heater = new core::manager::HeaterControl<Env>(this->global_->pr_tempsensor,0,0);
 	this->global_->pr_customman = new core::manager::PRISMCustomManager<Env>(ID_CUSTOMMANAGER,this->global_->pr_heater);
+
+	this->global_->managers_.add(*this->global_->pr_modeman);
+	this->global_->managers_.add(*this->global_->pr_conman);
+	this->global_->managers_.add(*this->global_->pr_uniman1);
+	this->global_->managers_.add(*this->global_->pr_uniman2);
+	this->global_->managers_.add(*this->global_->pr_telman1);
+	this->global_->managers_.add(*this->global_->pr_telman2);
+	this->global_->managers_.add(*this->global_->pr_cusman);
+	this->global_->managers_.add(*this->global_->pr_sysman);
+	this->global_->managers_.add(*this->global_->pr_commman);
+	this->global_->managers_.add(*this->global_->pr_customman);
 }
 
 template<class Env>
@@ -357,10 +368,10 @@ void PRISMFactory<Env>::create_command(){
 	//	new core::command::SwitchCommand();	
 
 	this->global_->pr_c_mds = 
-		new core::command::change_modeCommand(t_init, this->global_->pr_safemode, this->global_->pr_modeman);
+		new core::command::modeChangeCommand(t_init, this->global_->pr_safemode, this->global_->pr_modeman);
 
 	this->global_->pr_c_mdn = 
-		new core::command::change_modeCommand(t_init, this->global_->pr_amode, this->global_->pr_modeman);
+		new core::command::modeChangeCommand(t_init, this->global_->pr_amode, this->global_->pr_modeman);
 
 	this->global_->pr_c_md = 
 		new core::command::GetCommand<ModeManager,const datatype::String&>(t_init, this->global_->pr_modeman, &ModeManager::get_current_modename);

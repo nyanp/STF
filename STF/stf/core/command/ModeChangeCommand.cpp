@@ -13,13 +13,13 @@ namespace stf {
 namespace core {
 namespace command {
 
-void change_modeCommand::execute(){
+void modeChangeCommand::execute(){
 	util::cout << "mode change command!" << util::endl;
 	this->modeman_->change_mode(this->mode_);
 }
 
-Command* change_modeCommand::clone(const datatype::Time& t){
-	change_modeCommand* newcmd = new change_modeCommand(t,mode_,modeman_);
+Command* modeChangeCommand::clone(const datatype::Time& t){
+	modeChangeCommand* newcmd = new modeChangeCommand(t,mode_,modeman_);
 	return newcmd;
 }
 } /* End of namespace stf::core::command */

@@ -15,6 +15,18 @@ namespace stf {
 namespace core {
 namespace command {
 
+//! 1引数のファンクタを起動するコマンド．
+/*! 引数がintの場合，init関数で引数の再設定が可能．
+	@code
+	UnaryFunctorCommand<int> command_prototype(t, functor, 0);
+
+	UnaryFunctorCommand<int>* newcommand = command_prototype.clone();
+	int[] param = { 1 };
+	//引数を1に変更
+	newcommand->init(param, 1);
+	@endcode
+	@tparam T ファンクタ起動時の引数型．
+*/
 template<class T>
 class UnaryFunctorCommand : public Command {
 public:
@@ -26,7 +38,7 @@ public:
 		return new UnaryFunctorCommand<T>(t,func_,arg_);
 	}
 	virtual void execute(){
-		(*func_)(arg_);//trigger functor
+		(*func_)(arg_);
 	}
 private:
 	functor::IUnAryFunctor<T>* func_;
@@ -36,8 +48,12 @@ private:
 template<>
 void UnaryFunctorCommand<int>::init(int* params, int paramsize);
 
-
-// 引数なし，戻り値型Uのメンバ関数を呼び出し，返答をコマンドパケットに送出する
+//! 1引数のメンバ関数を起動するコマンド．
+/*! 戻り値型Uのメンバ関数を呼び出し，返答をコマンドパケットに送出する. 
+	@tparam T   メンバ関数を保持するクラス．
+	@tparam U   メンバ関数の戻り値型．
+	@tparam ARG メンバ関数の引数型．
+*/
 template<class T, class U, class ARG>
 class UnAryMemberFunctionCommand : public Command {
 	typedef U (T::*Func)(ARG);
@@ -50,7 +66,7 @@ public:
 		return new UnAryMemberFunctionCommand<T,U,ARG>(t,obj_,f_,arg_);
 	}
 	virtual void execute(){
-		U response = (*obj_.*f_)(arg_);//trigger functor
+		U response = (*obj_.*f_)(arg_);
 		this->rcv_->send_packet(response);
 	}
 private:
@@ -59,6 +75,11 @@ private:
 	ARG arg_;
 };
 
+//! 1引数のメンバ関数を起動するコマンド．(void特殊化版)
+/*! 戻り値型voidのメンバ関数を呼び出す. 
+	@tparam T   メンバ関数を保持するクラス．
+	@tparam ARG メンバ関数の引数型．
+*/
 template<class T, class ARG>
 class UnAryMemberFunctionCommand<T,void,ARG> : public Command {
 	typedef void (T::*Func)(ARG);
@@ -71,7 +92,7 @@ public:
 		return new UnAryMemberFunctionCommand<T,void,ARG>(t,obj_,f_,arg_);
 	}
 	virtual void execute(){
-		(*obj_.*f_)(arg_);//trigger functor
+		(*obj_.*f_)(arg_);
 	}
 private:
 	T* obj_;

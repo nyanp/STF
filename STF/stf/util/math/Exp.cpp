@@ -13,7 +13,7 @@ namespace math {
 
 
 //行列の指数をn次のマクローリン展開まで計算して返す関数．
-datatype::Matrix exp(datatype::Matrix m,int n){
+datatype::Matrix exp(const datatype::Matrix& m,int n){
     assert(m.rows() == m.cols());//正方行列のみ計算可能
 
     datatype::Matrix result(m.rows(),m.cols());
@@ -41,7 +41,7 @@ datatype::Matrix exp(datatype::Matrix m,int n){
     return result;
 }
 
-datatype::Matrix exp(datatype::Matrix m){
+datatype::Matrix exp(const datatype::Matrix& m){
     return exp(m,4);//第二引数が無い場合はデフォルトで4次まで計算
 }
 

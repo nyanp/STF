@@ -6,15 +6,11 @@
  * @date   2011.02.16
  */
 #include "Simulator.h"
-//#include "core/devicedriver/gyro/Tamagawa_FOG.h"
-//#include "core/strategy/input/EKF.h"
-
 #include "../datatype/EulerAngle.h"
 #include "../datatype/TypeConverter.h"
 #include "../util/math/Rand.h"
 #include "../util/math/RungeKutta.h"
 #include "../datatype/OrbitCalc.h"
-//#include "core/devicedriver/gyro/GyroDriver.h"
 
 namespace stf {
 namespace environment {
@@ -41,34 +37,34 @@ Simulator::~Simulator()
 	this->ofstream_->close();
 }
 
-datatype::MagneticField Simulator::getMagneticField(const core::devicedriver::AOCSComponent<datatype::MagneticField,datatype::MagneticField,Simulator> &component) const
+datatype::MagneticField Simulator::getMagneticField(const Magnetometer& component) const
 {
 	return component.getDCM().inverse() * this->orbit_.getMagneticField();
 }
 
-datatype::StaticVector<3> Simulator::getAngularVelocity(const core::devicedriver::AOCSComponent<datatype::StaticVector<3>,datatype::StaticVector<3>,Simulator> &component) const 
+datatype::StaticVector<3> Simulator::getAngularVelocity(const MultiGyro& component) const 
 {
 	datatype::StaticVector<3> v  = component.getDCM().inverse() * this->true_angular_velocity_;
 	return v;
 }
 
-datatype::Scalar Simulator::getAngularVelocity(const core::devicedriver::AOCSComponent<datatype::StaticVector<3>,datatype::Scalar,Simulator> &component) const 
+datatype::Scalar Simulator::getAngularVelocity(const Gyro& component) const 
 {
 	return datatype::Scalar((component.getDCM().inverse() * this->true_angular_velocity_)[2]);
 }
 
-datatype::Quaternion Simulator::getQuaternion(const core::devicedriver::AOCSComponent<datatype::Quaternion,datatype::Quaternion,Simulator> &component) const 
+datatype::Quaternion Simulator::getQuaternion(const STT& component) const 
 {
 	datatype::Quaternion q = datatype::TypeConverter::toQuaternion(component.getDCM()).conjugate();
 	return  q * this->true_quaternion_;
 }
 
-datatype::StaticVector<2> Simulator::getSunDirection(const core::devicedriver::AOCSComponent<datatype::StaticVector<2>,datatype::StaticVector<2>,Simulator> &component) const 
+datatype::StaticVector<2> Simulator::getSunDirection(const Vectorsensor& component) const 
 {
 	return datatype::TypeConverter::toPolar(component.getDCM().inverse() * datatype::OrbitCalc::getSunDirectionInBodyFrame(this->orbit_.get_time(), this->true_quaternion_));
 }
 
-datatype::StaticVector<2> Simulator::getEarthDirection(const core::devicedriver::AOCSComponent<datatype::StaticVector<2>,datatype::StaticVector<2>,Simulator> &component) const 
+datatype::StaticVector<2> Simulator::getEarthDirection(const Vectorsensor& component) const 
 {
 	return datatype::TypeConverter::toPolar(component.getDCM().inverse() * datatype::OrbitCalc::getEarthDirectionInBodyFrame(this->orbit_.getSatellitePosition(), this->true_quaternion_));
 }
@@ -78,7 +74,7 @@ const datatype::PositionInfo Simulator::getTrueSatellitePosition() const
 	return this->orbit_.getSatellitePosition();
 }
 
-datatype::Time Simulator::get_time(const core::devicedriver::clock::ITimeClock &component) const 
+datatype::Time Simulator::get_time(const Clock& component) const 
 {
     return this->true_time_;
 }
@@ -122,32 +118,33 @@ void Simulator::runOneCycle()
             << this->global_->ekf->bref_[2] << "\n";*/
 	}
 
-	datatype::List<core::manager::ManagerBase>::iterator itr = this->global_->getFunctionManager()->begin();
-	while( itr !=  this->global_->getFunctionManager()->end() ){
-		(*itr).run();
-		++itr;
+	datatype::List<core::manager::ManagerBase>::iterator it_m = global_->getFunctionManager()->begin(), end_m = global_->getFunctionManager()->end();
+	while( it_m !=  end_m ){
+		(*it_m).run();
+		++it_m;
 	}
 
     this->true_torque_.reset();//トルクを一旦リセットし，外部ソースから計算しなおす
-    std::vector<TorqueSource*>::iterator it = this->torque_sources_.begin();
-    while( it != this->torque_sources_.end()){
-		this->true_torque_ += (*it)->get_in_bodyframe();
-        ++it;
+    std::vector<TorqueSource*>::iterator it_t = this->torque_sources_.begin(), end_t = this->torque_sources_.end();
+    while( it_t != end_t ){
+		this->true_torque_ += (*it_t)->get_in_bodyframe();
+        ++it_t;
     }
+
 	this->noise_torque_.reset();
-	std::vector< torquesource::NoiseBase* >::iterator it2 = this->noise_sources_.begin();
-    while( it2 != this->noise_sources_.end()){
-		this->noise_torque_ += (*it2)->get_torque_bodyframe();
-        ++it2;
+	std::vector< torquesource::NoiseBase* >::iterator it_n = this->noise_sources_.begin(), end_n = this->noise_sources_.end();
+    while( it_n != end_n ){
+		this->noise_torque_ += (*it_n)->get_torque_bodyframe();
+        ++it_n;
     }
 
     //次ステップの計算
-    datatype::Vector acc(3);//角加速度
+    double acc[3];//角加速度
 	acc[0] = this->true_torque_[0] + this->noise_torque_[0];
     acc[1] = this->true_torque_[1] + this->noise_torque_[1];
     acc[2] = this->true_torque_[2] + this->noise_torque_[2];//TBD:衛星の質量特性で割る必要
 
-    datatype::Vector omega(3);//角速度ωn+1＝ωn＋at
+    double omega[3];//角速度ωn+1＝ωn＋at
 	omega[0] = this->true_angular_velocity_[0] + acc[0] * this->timestep_.total_seconds();
     omega[1] = this->true_angular_velocity_[1] + acc[1] * this->timestep_.total_seconds();
     omega[2] = this->true_angular_velocity_[2] + acc[2] * this->timestep_.total_seconds();
@@ -163,7 +160,7 @@ void Simulator::runOneCycle()
         if(i > j) Omega_[i][j] = -Omega_[j][i];
 
     this->true_quaternion_ += util::math::RungeKutta::slope(true_quaternion_,0.5 * Omega_,timestep_.total_seconds());
-    this->true_angular_velocity_ = omega;
+    for(int i = 0; i < 3; i++) this->true_angular_velocity_[i] = omega[i];
 	this->step_();
 }
 
@@ -183,7 +180,7 @@ void Simulator::attachMagneticSource(MagneticSource* source)
 }
 
 Simulator::Simulator()
-: Omega_(4,4), orbit_()
+: orbit_()
 {
 	util::math::WhiteNoise_init(0);
 }

@@ -1,6 +1,6 @@
 /**
  * @file   TypeListFunctionCommand.h
- * @brief  複数個の引数を取るメンバ関数を起動するコマンド．
+ * @brief  複数個の引数を取るメンバ関数を起動するコマンド．TypeListを使って纏めたい->TBD
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -15,9 +15,11 @@ namespace stf {
 namespace core {
 namespace command {
 
-// n個のARG型を引数に取るコマンド群．
-// TypeListを使えばきれいにまとめられる筈．TBD
-
+//! N引数のメンバ関数を起動するコマンド．
+/*! @tparam T   メンバ関数を保持するクラス．
+	@tparam ARG 引数の型．
+	@tparam N   引数の数．
+ */
 template<class T, class ARG, int N>
 class TypeListMemberFunctionCommand : public Command {
 	typedef void (T::*Func)(ARG);
@@ -41,6 +43,10 @@ private:
 	ARG arg_;
 };
 
+//! 2引数のメンバ関数を起動するコマンド．
+/*! @tparam T   メンバ関数を保持するクラス．
+	@tparam ARG 引数の型．
+ */
 template<class T, class ARG>
 class TypeListMemberFunctionCommand<T,ARG,2> : public Command {
 	typedef void (T::*Func)(ARG,ARG);
@@ -66,6 +72,10 @@ private:
 	ARG arg2_;
 };
 
+//! 3引数のメンバ関数を起動するコマンド．
+/*! @tparam T   メンバ関数を保持するクラス．
+	@tparam ARG 引数の型．
+ */
 template<class T, class ARG>
 class TypeListMemberFunctionCommand<T,ARG,3> : public Command {
 	typedef void (T::*Func)(ARG,ARG,ARG);
@@ -93,6 +103,10 @@ private:
 	ARG arg3_;
 };
 
+//! 6引数のメンバ関数を起動するコマンド．
+/*! @tparam T   メンバ関数を保持するクラス．
+	@tparam ARG 引数の型．
+ */
 template<class T, class ARG>
 class TypeListMemberFunctionCommand<T,ARG,6> : public Command {
 	typedef void (T::*Func)(ARG,ARG,ARG,ARG,ARG,ARG);

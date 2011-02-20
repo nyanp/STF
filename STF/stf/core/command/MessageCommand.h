@@ -16,6 +16,10 @@ namespace stf {
 namespace core {
 namespace command {
 
+//! 予め決められたメッセージを出力するコマンド．
+/*! コンストラクタで指定したメッセージをそのまま返答する．生存確認や，
+	@tparam Num 実行するコマンドの数．
+*/
 class MessageCommand : public Command {
 public:
 	 MessageCommand(const datatype::Time& t, const datatype::String& msg)

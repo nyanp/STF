@@ -37,7 +37,7 @@ void DummyCommandReceiver::send_packet(int msg)
 
 void DummyCommandReceiver::add_command(command::Command* cmd)
 {
-	this->manager_->addCommand(cmd);
+	this->manager_->add_command(cmd);
 	cmd->connectReceiver(this);
 }
 

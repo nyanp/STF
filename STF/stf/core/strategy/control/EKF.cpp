@@ -15,9 +15,7 @@ namespace core {
 namespace strategy {
 namespace control {
 
-EKF::EKF(int instance_id, const EKFParamaters &params)
-: A_(6,6),B_(6,6),G_(6,6),F_(6,6),H_(3,6),Ht_(6,3),P_(6,6),K_(6,6),Q_(6,6),
-R_(3,3),x_(6),bref_(3),Omega_(4,4), StrategyBase(instance_id, "EKF")
+EKF::EKF(int instance_id, const EKFParamaters &params) : StrategyBase(instance_id, "EKF")
 {	
     this->params_ = params;//copy
     init();   
@@ -26,9 +24,7 @@ R_(3,3),x_(6),bref_(3),Omega_(4,4), StrategyBase(instance_id, "EKF")
 EKF::EKF(int instance_id, const EKFParamaters &params, 
 		devicedriver::OutputPort<datatype::Quaternion>* q_source, OutputPort<datatype::StaticVector<3>>* omega_source,
 		devicedriver::InputPort<datatype::Quaternion>* q_out, InputPort<datatype::StaticVector<3>>* omega_out
-		)
-: A_(6,6),B_(6,6),G_(6,6),F_(6,6),H_(3,6),Ht_(6,3),P_(6,6),K_(6,6),Q_(6,6),
-R_(3,3),x_(6),bref_(3),Omega_(4,4), StrategyBase(instance_id, "EKF")
+		) : StrategyBase(instance_id, "EKF")
 {
     this->params_ = params;//copy
 	this->connect_source<0>(q_source);
@@ -42,9 +38,7 @@ R_(3,3),x_(6),bref_(3),Omega_(4,4), StrategyBase(instance_id, "EKF")
     init();  
 }
 
-EKF::EKF(int instance_id)
-: A_(6,6),B_(6,6),G_(6,6),F_(6,6),H_(3,6),Ht_(6,3),P_(6,6),K_(6,6),Q_(6,6),
-R_(3,3),x_(6),bref_(3),Omega_(4,4), StrategyBase(instance_id, "EKF")
+EKF::EKF(int instance_id) : StrategyBase(instance_id, "EKF")
 {
 	params_.tau = 1000;
 	params_.timestep = 0.1;
@@ -86,7 +80,7 @@ void EKF::init()
     //B
     B_[0][0] = B_[1][1] = B_[2][2] = -0.5;
     B_[3][3] = B_[4][4] = B_[5][5] = 1;
-    //H 計算負荷削減のため，転地行列も持っておく
+    //H 計算負荷削減のため，転置行列も持っておく
     H_[0][0] = H_[1][1] = H_[2][2] = 1;
 	Ht_[0][0] = Ht_[1][1] = Ht_[2][2] = 1;
     //A(時変であるΩ以外を初期化しておく)
@@ -116,11 +110,11 @@ void EKF::update(const datatype::Quaternion &input,const datatype::Time& t)
 {
     q_.normalize();
     //カルマンゲインの計算
-    this->K_ = P_ * H_.trans() * ( H_ * P_ * H_.trans() + R_ ).inverse();
+    this->K_ = P_ * Ht_ * ( H_ * P_ * Ht_ + R_ ).inverse();
     //共分散行列の更新
     P_ = P_ - K_ * H_ * P_;
     //観測量微小量yの計算．観測されたqにモデルから伝搬したqrefの共役を左から掛ける
-    datatype::Vector y(3);
+    datatype::StaticVector<3> y;
     datatype::Quaternion q_tmp = q_.conjugate() * input;
 
     //q_tmp[0](～1)を省略した3要素で状態量を構成

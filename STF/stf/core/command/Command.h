@@ -13,6 +13,7 @@
 #include "../../datatype/Time.h"
 #include "../../datatype/String.h"
 #include "../devicedriver/cmhandler/ICommandReceiver.h"
+#include "../../Macros.h"
 
 namespace stf {
 namespace core {
@@ -32,8 +33,7 @@ protected:
 	datatype::Time time_;
 	devicedriver::cmhandler::ICommandReceiver* rcv_;
 private:
-    Command(const Command &rhs);
-    Command &operator=(const Command &rhs);
+	DISALLOW_COPY_AND_ASSIGN(Command);
 };
 
 } /* End of namespace stf::core::command */

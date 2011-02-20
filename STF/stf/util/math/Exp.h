@@ -10,6 +10,7 @@
 
 #include<assert.h>
 #include"../../datatype/Matrix.h"
+#include"../../datatype/StaticMatrix.h"
 
 namespace stf { 
 namespace util {
@@ -17,9 +18,34 @@ namespace math {
 
 
 //行列の指数をn次のマクローリン展開まで計算して返す関数．
-datatype::Matrix exp(datatype::Matrix m,int n);
+datatype::Matrix exp(const datatype::Matrix& m, int n);
 
-datatype::Matrix exp(datatype::Matrix m);
+datatype::Matrix exp(const datatype::Matrix& m);
+
+template<int rows>
+datatype::StaticMatrix<rows,rows> exp(const datatype::StaticMatrix<rows,rows>& m, int n){
+    datatype::StaticMatrix<rows,rows> result;
+    result.unitize();
+
+    int k = 1;
+    datatype::StaticMatrix<rows,rows> m_n;
+	m_n.unitize();
+	int f = 1;
+
+    while(k < n){
+        //指数関数I+A+A^2/2!+...のk番目の項を計算
+        m_n *= m;
+		f   *= k;       
+        result += m_n / f;
+        k++;
+    }
+    return result;
+}
+
+template<int rows>
+inline datatype::StaticMatrix<rows,rows> exp(const datatype::StaticMatrix<rows,rows>& m){
+	return exp(m,4);
+}
 
 } /* End of namespace stf::util::math */
 } /* End of namespace stf::util */

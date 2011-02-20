@@ -43,7 +43,7 @@ public:
     virtual void run();
 	virtual bool runnable() const { return true; }
 	virtual void notify(const mode::ModeBase* value);
-	void addCommand( command::Command* cmd ){
+	void add_command( command::Command* cmd ){
 		list_index_++;
 		list_index_ %= NUM_OF_LIST;
 		commandList_[list_index_] = cmd;

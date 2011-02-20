@@ -14,7 +14,7 @@ namespace strategy {
 namespace control {
 
 EKFParamaters::EKFParamaters()
-: b0(3),P0(6,6)
+
 {
 
 }

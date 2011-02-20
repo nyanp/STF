@@ -11,7 +11,8 @@
 #include "../../../datatype/Quaternion.h"
 #include "../../../datatype/Matrix.h"
 #include "../../../datatype/Vector.h"
-
+#include "../../../datatype/StaticMatrix.h"
+#include "../../../datatype/StaticVector.h"
 
 namespace stf {
 namespace core {
@@ -22,8 +23,8 @@ struct EKFParamaters {
 public:
     EKFParamaters();
     datatype::Quaternion q0;//q初期値
-    datatype::Vector b0;//b初期値
-    datatype::Matrix P0;//共分散行列初期値
+    datatype::StaticVector<3> b0;//b初期値
+    datatype::StaticMatrix<6,6> P0;//共分散行列初期値
     double w_q;//システムノイズ
 	double w_b;//システムノイズ
     double v;//観測ノイズベクトル

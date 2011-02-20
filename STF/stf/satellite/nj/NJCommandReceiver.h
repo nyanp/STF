@@ -74,7 +74,7 @@ void NJCommandReceiver<T>::send_packet(int msg)
 template<class T>
 void NJCommandReceiver<T>::add_command(command::Command* cmd)
 {
-	this->manager_->addCommand(cmd);
+	this->manager_->add_command(cmd);
 	cmd->connectReceiver(this);
 }
 

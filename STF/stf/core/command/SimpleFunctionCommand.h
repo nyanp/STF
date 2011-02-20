@@ -16,7 +16,9 @@ namespace stf {
 namespace core {
 namespace command {
 
-// 引数なしファンクタを起動する
+//! 引数なしファンクタを起動するコマンド．
+/*! 
+*/
 class SimpleFunctorCommand : public Command {
 public:
 	SimpleFunctorCommand(const datatype::Time& t, functor::IFunctor* func)
@@ -27,13 +29,17 @@ public:
 		return new SimpleFunctorCommand(t,func_);
 	}
 	virtual void execute(){
-		(*func_)();//trigger functor
+		(*func_)();
 	}
 private:
 	functor::IFunctor* func_;
 };
 
-// 引数なし，戻り値型Uのメンバ関数を呼び出し，返答をコマンドパケットに送出する
+//! 引数なし，戻り値型Uのメンバ関数を呼び出し，返答をコマンドパケットに送出する
+/*! 
+	@tparam T メンバ関数を保持するクラス．
+	@tparam U メンバ関数の戻り値型．
+*/ 
 template<class T, class U>
 class SimpleMemberFunctionCommand : public Command {
 	typedef U (T::*Func)(void);
@@ -45,7 +51,7 @@ public:
 		return new SimpleMemberFunctionCommand<T,U>(t,obj_,f_);
 	}
 	virtual void execute(){
-		U response = (*obj_.*f_)();//trigger functor
+		U response = (*obj_.*f_)();
 		this->rcv_->send_packet(U);
 	}
 private:
@@ -53,6 +59,10 @@ private:
 	Func f_;
 };
 
+//! 引数なし，戻り値voidのメンバ関数を呼び出す
+/*! 
+	@tparam T メンバ関数を保持するクラス．
+*/ 
 template<class T>
 class SimpleMemberFunctionCommand<T,void> : public Command {
 	typedef void (T::*Func)(void);
@@ -64,7 +74,7 @@ public:
 		return new SimpleMemberFunctionCommand<T,void>(t,obj_,f_);
 	}
 	virtual void execute(){
-		(*obj_.*f_)();//trigger functor
+		(*obj_.*f_)();
 	}
 private:
 	T* obj_;
