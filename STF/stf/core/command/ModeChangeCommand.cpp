@@ -7,14 +7,12 @@
  */
 #include "ModeChangeCommand.h"
 #include "../manager/ModeManagerBase.h"
-#include "../../util/Ostream.h"
 
 namespace stf {
 namespace core {
 namespace command {
 
 void modeChangeCommand::execute(){
-	util::cout << "mode change command!" << util::endl;
 	this->modeman_->change_mode(this->mode_);
 }
 

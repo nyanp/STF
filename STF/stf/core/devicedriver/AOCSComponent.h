@@ -25,6 +25,7 @@
 #include "../datapool/Datapool.h"
 #include "IOPort.h"
 #include "../../GlobalObject.h"
+#include "../../Macros.h"
 
 namespace stf {
 namespace core {
@@ -86,7 +87,6 @@ private:
 	void copyToLocalFrame_(Loki::Type2Type<datatype::MagneticMoment>,Loki::Type2Type<datatype::MagneticMoment>);
 	void copyToLocalFrame_(Loki::Type2Type<datatype::MagneticMoment>,Loki::Type2Type<datatype::Scalar>);
 	void copyToLocalFrame_(Loki::Type2Type<datatype::PositionInfo>,Loki::Type2Type<datatype::PositionInfo>){ this->value_ = this->value_b_; }
-
 	void copyToBodyFrame_(Loki::Type2Type<datatype::StaticVector<3>>,Loki::Type2Type<datatype::Scalar>);
 	void copyToBodyFrame_(Loki::Type2Type<datatype::StaticVector<3>>,Loki::Type2Type<datatype::StaticVector<3>>);	
 	void copyToBodyFrame_(Loki::Type2Type<datatype::StaticVector<2>>,Loki::Type2Type<datatype::StaticVector<2>>);	
@@ -95,9 +95,8 @@ private:
 	void copyToBodyFrame_(Loki::Type2Type<datatype::MagneticMoment>,Loki::Type2Type<datatype::MagneticMoment>);
 	void copyToBodyFrame_(Loki::Type2Type<datatype::MagneticMoment>,Loki::Type2Type<datatype::Scalar>);
 	void copyToBodyFrame_(Loki::Type2Type<datatype::PositionInfo>,Loki::Type2Type<datatype::PositionInfo>){ this->value_b_ = this->value_; }
-
     AOCSComponent();
-	AOCSComponent(const AOCSComponent<T,U,Env>& rhs);
+	DISALLOW_COPY_AND_ASSIGN_3(AOCSComponent,T,U,Env);
 };
 
 template<class T,class U,class Env>

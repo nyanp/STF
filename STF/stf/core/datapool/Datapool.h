@@ -1,9 +1,12 @@
 /**
  * @file   Datapool.h
- * @brief  STF生成データにタイムタグを付加して格納するデータプール
+ * @brief  STF生成データにタイムタグを付加して格納するデータプール．
+ *         データの配列を保持するTupleと，Tupleの配列を保持するデータプールによって
+ *         テーブル形式のデータ構造を表現する．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
+ * @todo   EventDataPoolの運用，EventDataPoolIteratorの実装
  */
 #ifndef stf_core_datapool_Datapool_h
 #define stf_core_datapool_Datapool_h
@@ -21,8 +24,10 @@
 namespace stf {
 namespace core {
 namespace datapool {
-
-//リングバッファ型のIAocsData-Timeタプルを格納するクラス．
+//! 時刻とデータポインタのペアを一定要素数のリングバッファで保持する．
+/*! データのポインタ配列を保持しており，データ追加時はBase型ではなく，キャストする型を指定する．
+	@tparam Base データの基底型
+*/
 template<class Base>
 class Tuple
 {
@@ -39,23 +44,25 @@ public:
 		delete[] data_;
 		delete[] time_;
 	}
+
 	template <class T>
 	void set(const datatype::Time& time, const T& value){
 		index_ ++;
 		index_ %= capacity_;
 		*(static_cast<T*>(data_[index_])) = value;//copy
 		time_[index_] = time;//copy
-		//T& dd = (static_cast<T*>(data_))[index_];
-		//Base* ddd = &dd;
 		Base* d = data_[index_];
 	}
+
 	template <class T>
 	const T& get(){
 		return *(static_cast<T*>(data_[index_]));
 	}
+
 	const datatype::Time& gettime(){
 		return time_[index_];
 	}
+
 	template <class T>
 	void print(){
 		util::cout << "Index:" << this->index_ << util::endl;
@@ -64,24 +71,32 @@ public:
 			util::cout << time_[i] << "   " <<(static_cast<T*>(data_))[i] << util::endl;
 		}
 	}
+
 	int size() const { return capacity_; }
+
 	int index() const { return index_; }
+
 	const Base* get_data_at(int index) const{ 
 		assert(index < capacity_); 
 
 		return (data_)[index_]; 
 	}
+
 	const datatype::Time& get_time_at(int index) const{ assert(index < capacity_); return time_[index]; }
+
 	const datatype::String& name() const { return name_; }
+
 private:
-	Base** data_;
 	int capacity_;
 	int index_;
+	Base** data_;
 	datatype::String name_;//データベース名，デバッグ用
 	datatype::Time* time_;
-
 };
 
+//! Tupleを複数個保持するデータプールの基底クラス．
+/*! 
+*/
 class DataPoolBase : public RootObject
 {
 public:
@@ -98,8 +113,12 @@ protected:
 	int createdindex_;
 };
 
+//イテレータの前方宣言
 class AocsDataPoolIterator;
 
+//! IAocsDataのデータプール．
+/*! 
+*/
 class AocsDataPool : public DataPoolBase//: public RootObject
 {
 public:
@@ -155,6 +174,9 @@ private:
 	Tuple<datatype::IAocsData>** table_;
 };
 
+//! Eventのデータプール．
+/*! 
+*/
 class EventDataPool : public DataPoolBase//: public RootObject
 {
 public:
@@ -178,23 +200,18 @@ public:
 		return table_[index]->get_at<Producer::Hold>(rows);//copy
 	}
 
-	//初期化時にのみ使用．動的生成
-	//IAocsDataをHoldしているRoot配下のクラスであれば何でも取れる
 	template<class Producer> int create(Producer* producer,unsigned short capacity, const datatype::String& name = "unknown"){
 		this->createdindex_++;
 		this->table_[createdindex_] = new Tuple<core::event::EventBase>(capacity,Loki::Type2Type<Producer::Hold>(),name);
 		return createdindex_ ;
 	}
 
-	//初期化時にのみ使用．動的生成
-	//IAocsDataをHoldしているRoot配下のクラスであれば何でも取れる
 	template<class Datatype> int create(Loki::Type2Type<Datatype>,unsigned short capacity, const datatype::String& name = "unknown"){
 		this->createdindex_++;
 		this->table_[createdindex_] = new Tuple<core::event::EventBase>(capacity,Loki::Type2Type<Datatype>(),name);
 		return createdindex_ ;
 	}
-	//初期化時にのみ使用．動的生成
-	//IAocsDataをHoldしているRoot配下のクラスであれば何でも取れる
+
 	template<class Producer> int create(int id,unsigned short capacity, const datatype::String& name = "unknown"){
 		this->createdindex_++;
 		this->table_[createdindex_] = new Tuple<core::event::EventBase>(capacity,Loki::Type2Type<Producer::Hold>(),name);
@@ -210,7 +227,9 @@ private:
 	Tuple<core::event::EventBase>** table_;
 };
 
-//すべての列の最新データをなめるイテレータ
+//! AocsDataPoolの各列の最新データをなめるイテレータ．
+/*! 
+*/
 class AocsDataPoolIterator : public interface::Iterator {
 public:
 	AocsDataPoolIterator(const AocsDataPool* pool) : pool_(pool), index_(0), rows_(0) {
@@ -249,8 +268,10 @@ private:
 	int rows_;
 };
 
-
-//すべての列の最新データをなめるイテレータ
+//! EventDataPoolの各列の最新データをなめるイテレータ．
+/*! 
+	@todo operator()の実装
+*/
 class EventDataPoolIterator : public interface::Iterator {
 public:
 	EventDataPoolIterator(const EventDataPool* pool) : pool_(pool), index_(0), rows_(0) {
@@ -282,7 +303,6 @@ private:
 		index_ = 0;
 	}
 	const EventDataPool* pool_;
-	//const double* localstream_;
 	int localstreamsize_;
 	int index_;
 	int rows_;

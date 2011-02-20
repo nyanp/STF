@@ -1,6 +1,6 @@
 /**
  * @file   IAbsoluteTimeClock.h
- * @brief  
+ * @brief  DateTime型のカウントが可能であることを示す抽象インターフェース．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -15,7 +15,12 @@ namespace stf {
 namespace core {
 namespace devicedriver {
 namespace clock {
-//絶対時刻を計測可能なコンポーネントに対するインターフェース．
+
+//! DateTime型のカウントが可能であることを示す抽象インターフェース．
+/*! 
+	GPSやRTCのラッパーに使う事ができるインターフェース．
+	IDataUpdatable::doUpdateによって時刻情報を更新することを想定している．
+*/
 class IAbsoluteTimeClock : virtual public IDataUpdatable
 {
 public:
@@ -24,7 +29,6 @@ public:
 	virtual void set_absolute_time(int year, int month, int day, int hour, int minute, int second) = 0;
 	virtual ~IAbsoluteTimeClock(void){}
 };
-
 
 } /* End of namespace stf::core::devicedriver::clock */
 } /* End of namespace stf::core::devicedriver */

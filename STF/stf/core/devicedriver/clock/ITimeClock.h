@@ -1,6 +1,6 @@
 /**
  * @file   ITimeClock.h
- * @brief  
+ * @brief  Time型のカウントが可能であることを示す抽象インターフェース．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -15,7 +15,12 @@ namespace stf {
 namespace core {
 namespace devicedriver {
 namespace clock {
-//相対時刻を計測可能なコンポーネントに対するインターフェース．
+
+//! Time型のカウントが可能であることを示す抽象インターフェース．
+/*! 
+	CPU時刻などのラッパーに使う事ができるインターフェース．
+	IDataUpdatable::doUpdateによって時刻情報を更新することを想定している．
+*/
 class ITimeClock : virtual public IDataUpdatable
 {
 public:

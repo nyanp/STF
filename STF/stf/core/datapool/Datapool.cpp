@@ -1,6 +1,6 @@
 /**
  * @file   Datapool.cpp
- * @brief  
+ * @brief  STF生成データにタイムタグを付加して格納するデータプール．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -22,14 +22,13 @@ const datatype::IAocsData* AocsDataPool::get(int rows) const{
 const datatype::IAocsData* AocsDataPool::get(int rows,int cols) const{
 	return table_[rows]->get_data_at(cols);
 }
-// 最新の値を取る
+
 datatype::Time AocsDataPool::gettime(int index) const{
 	return table_[index]->gettime();//copy
 }
 const datatype::String& AocsDataPool::getname(int index) const{
 	return table_[index]->name();
 }
-
 
 // 指定したインスタンスIDが生成したタプルへのポインタを取得（テレメトリ用）
 Tuple<datatype::IAocsData>* AocsDataPool::get_ptr(int index) {
@@ -47,7 +46,7 @@ const core::event::EventBase* EventDataPool::get(int rows) const{
 const core::event::EventBase* EventDataPool::get(int rows,int cols) const{
 	return table_[rows]->get_data_at(cols);
 }
-// 最新の値を取る
+
 datatype::Time EventDataPool::gettime(int index) const{
 	return table_[index]->gettime();//copy
 }
@@ -55,15 +54,11 @@ const datatype::String& EventDataPool::getname(int index) const{
 	return table_[index]->name();
 }
 
-
 // 指定したインスタンスIDが生成したタプルへのポインタを取得（テレメトリ用）
 Tuple<core::event::EventBase>* EventDataPool::get_ptr(int index) {
 	assert( index < kMaxDataPoolRows );
 	return table_[index];
 }
-
-
-
 
 } /* End of namespace stf::core::datapool */
 } /* End of namespace stf::core */

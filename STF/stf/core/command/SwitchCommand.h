@@ -9,20 +9,25 @@
 #define stf_core_command_SwitchCommand_h
 
 #include "Command.h"
+#include "../devicedriver/ISwitchable.h"
 
 namespace stf {
 namespace core {
-namespace devicedriver {
-class ISwitchable;
-}
 namespace command {
 
+//! 機器のスイッチングを行うコマンド．
+/*! 
+	ISwitchableインターフェースを持ったオブジェクトに対して，onまたはoffを実行．
+ */
 class SwitchCommand : public Command {
 public:
 	SwitchCommand(const datatype::Time& t, devicedriver::ISwitchable* sw, bool on)
 		: Command(t,"SwitchCommand"), sw_(sw), on_(on) {}
 	~SwitchCommand(){}
-	virtual void execute();
+	virtual void execute(){
+		if(on_) this->sw_->on();
+		else    this->sw_->off();
+	}
 private:
     SwitchCommand(const SwitchCommand &rhs);
     SwitchCommand &operator=(const SwitchCommand &rhs);

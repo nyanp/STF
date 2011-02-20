@@ -10,13 +10,16 @@
 
 #include "../CDHComponent.h"
 #include "../../../datatype/Envitonments.h"
+#include "ConvertPolicy.h"
 
 namespace stf {
 namespace core {
 namespace devicedriver {
 
-
-///センサ，アクチュエータの基本クラス．
+//! AD変換器ドライバ．
+/*! 
+	
+*/
 template<int NUM, class Env = ENV>
 class ADCBase : public CDHComponent< datatype::Voltage, NUM, Env >  {
 public:
@@ -24,31 +27,18 @@ public:
 	virtual void do_update(){}
 	virtual ~ADCBase(){}
 protected:
-	typename Env::GPIO<NUM> gpio_;
+	//typename Env::GPIO<NUM> gpio_;
 };
 
-
-class FirstOrderConvert {
-public:
-	void set(double sf, double offset){ scale_factor_ = sf; offset_ = offset; }
-	double convert(double input) { return scale_factor_ * input + offset_; }
-private:
-	double scale_factor_;
-	double offset_;
-};
-
-class SecondOrderConvert {
-public:
-	void set(double a, double b, double c){ a_ = a; b_ = b; c_ = c; }
-	double convert(double input) { return a_ * a_ * input + b_ * input + c_; }
-private:
-	double a_;
-	double b_;
-	double c_;
-};
-
-//ADCのデジタル値を物理値に変換して保持するコンポーネント．変換本体はポリシークラスのconvertが受け持つ．
-//クラスTはdoubleからのimplicitなコンストラクタを持っている必要がある(scalarなど).
+//! ADCのデジタル値を物理値に変換して保持するコンポーネント．
+/*! 
+	変換本体はポリシークラスのconvertが受け持つ．クラスTはdoubleからのimplicitなコンストラクタ，またはdoubleを右辺に取るoperator=を持っている必要がある(Scalar,Voltageなど).
+	@tparam T                保持する物理値の型．
+	@tparam NUM              保持する物理値のチャネル数．
+	@tparam ADCNUM           対象のADCが持つ総チャネル数．
+	@tparam Env              コンポーネントの環境クラス．
+	@tparam ConversionPolicy convert関数の実装を決定する変換ポリシークラス．
+*/
 template<class T, int NUM, int ADCNUM = NUM, class Env = ENV, class ConversionPolicy = FirstOrderConvert>
 class MultiSensor : public CDHComponent< T, NUM, Env >, public ConversionPolicy {
 public:
@@ -66,8 +56,6 @@ private:
 	ADCBase<ADCNUM,Env>* adcsource_;
 	int offset_;
 };
-
-
 
 } /* End of namespace stf::core::component */
 } /* End of namespace stf::core */

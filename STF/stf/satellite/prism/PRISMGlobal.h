@@ -11,7 +11,10 @@
 
 #include "../../core/devicedriver/Includes.h"
 #include "../../core/manager/Includes.h"
-
+#include "../../core/datapool/Datapool.h"
+#include "../../core/mode/ModeBase.h"
+#include "../../core/strategy/control/IControlStrategy.h"
+#include "../../core/strategy/telemetry/ITelemetryStrategy.h"
 #include "../../datatype/SatelliteModel.h"
 
 #include "PRISMADC.h"
@@ -29,82 +32,6 @@
 #include "PRISMIterator.h"
 #include "PRISMTelemetryStrategy.h"
 #include "PRISMControlBlock.h"
-
-namespace stf {
-
-namespace environment{
-class Simulator;
-
-class NullEnv;
-} /* End of namespace stf::environment */
-
-namespace util {
-class Null;
-}
-
-namespace datatype {
-class Time;
-class DateTime;
-class IAocsData;
-class SatelliteModel;
-}
-
-namespace core {
-namespace functor {
-class IFunctor;
-}
-namespace mode {
-class ModeBase;
-} /* End of namespace stf::core::mode */
-namespace event {
-class EventBase;
-} /* End of namespace stf::core::event */
-namespace strategy {
-class StrategyBase;
-namespace telemetry {
-class ITelemetryStrategy;
-} /* End of namespace stf::core::strategy::telemetry */
-namespace control {
-class EKF;
-class IControlStrategy;
-class ControlBlock;
-class PID;
-} /* End of namespace stf::core::strategy::control */
-} /* End of namespace stf::core::strategy */
-namespace manager {
-class ModeManager;
-class UnitManager;
-class ControlManager;
-class TelemetryManager;
-class CustomManager;
-class SystemManager;
-class CommandManager;
-} /* End of namespace stf::core::manager */
-namespace datapool {
-class AocsDataPool;
-class EventDataPool;
-} /* End of namespace stf::core::datapool */
-namespace devicedriver {
-template<class Leaf,int Numbers> class CompositeInput;
-template<class Leaf,int Numbers> class CompositeOutput;
-namespace gps {
-template<class T> class DummyGPS;
-}
-namespace cmhandler {
-class ICommandReceiver;
-}
-namespace tmhandler {
-class ITelemetryStoragable;
-} /* End of namespace stf::core::devicedriver::tmhandler */
-namespace clock {
-class DummyClock;
-class ITimeClock;
-class IAbsoluteTimeClock;
-} /* End of namespace stf::core::devicedriver::clock */
-
-} /* End of namespace stf::core::devicedriver */
-} /* End of namespace stf::core */
-} /* End of namespace stf */
 
 namespace stf {
 namespace factory {

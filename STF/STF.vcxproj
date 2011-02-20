@@ -215,6 +215,8 @@
     <ClCompile Include="stf\satellite\prism\PRISMTelemetryHandler.cpp" />
     <ClCompile Include="stf\satellite\prism\PRISMTelemetryStrategy.cpp" />
     <ClCompile Include="stf\satellite\prism\PRISMTRIAD.cpp" />
+    <ClCompile Include="stf\satellite\SimpleSatelliteFactory.cpp" />
+    <ClCompile Include="stf\satellite\simplesatellite\SSGlobal.cpp" />
     <ClCompile Include="stf\util\math.cpp" />
     <ClCompile Include="stf\datatype\DCM.cpp" />
     <ClCompile Include="stf\datatype\EulerAngle.cpp" />
@@ -240,6 +242,7 @@
     <ClInclude Include="stf\core\command\UnaryFunctionCommand.h" />
     <ClInclude Include="scube\core\datapool\IDatapoolConnector.h" />
     <ClInclude Include="stf\core\devicedriver\adc\ADCBase.h" />
+    <ClInclude Include="stf\core\devicedriver\adc\ConvertPolicy.h" />
     <ClInclude Include="stf\core\devicedriver\AOCSActuator.h" />
     <ClInclude Include="stf\core\devicedriver\AOCSSensor.h" />
     <ClInclude Include="stf\core\devicedriver\CDHComponent.h" />
@@ -424,6 +427,8 @@
     <ClInclude Include="stf\satellite\prism\PRISMTelemetryHandler.h" />
     <ClInclude Include="stf\satellite\prism\PRISMTelemetryStrategy.h" />
     <ClInclude Include="stf\satellite\prism\PRISMTRIAD.h" />
+    <ClInclude Include="stf\satellite\SimpleSatelliteFactory.h" />
+    <ClInclude Include="stf\satellite\simplesatellite\SSGlobal.h" />
     <ClInclude Include="stf\util\math.h" />
     <ClInclude Include="stf\datatype\DCM.h" />
     <ClInclude Include="stf\datatype\EulerAngle.h" />
