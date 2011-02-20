@@ -1,6 +1,6 @@
 /**
  * @file   TypeListFunctionCommand.h
- * @brief  
+ * @brief  複数個の引数を取るメンバ関数を起動するコマンド．
  *
  * @author Taiga Nomi
  * @date   2011.02.16

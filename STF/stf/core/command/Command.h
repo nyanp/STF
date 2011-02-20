@@ -1,6 +1,6 @@
 /**
  * @file   Command.h
- * @brief  
+ * @brief  衛星コマンドの抽象インターフェースと共通の実装．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -16,9 +16,6 @@
 
 namespace stf {
 namespace core {
-namespace devicedriver {
-
-}
 namespace command {
 
 class Command : public RootObject {
@@ -30,13 +27,13 @@ public:
 	virtual void execute() = 0;
 	virtual Command* clone(const datatype::Time& t) = 0;
 	virtual void init(int* params, int paramsize) = 0;
-	virtual bool canExecute(const datatype::Time& t) { if(t >= time_ ) return true; return false; }//デフォルトの実装．時刻以外で判断してもよい
-private:
-    Command(const Command &rhs);
-    Command &operator=(const Command &rhs);
+	virtual bool can_execute(const datatype::Time& t) { if(t >= time_ ) return true; return false; }//デフォルトの実装．時刻以外で判断してもよい
 protected:
 	datatype::Time time_;
 	devicedriver::cmhandler::ICommandReceiver* rcv_;
+private:
+    Command(const Command &rhs);
+    Command &operator=(const Command &rhs);
 };
 
 } /* End of namespace stf::core::command */

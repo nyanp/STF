@@ -1,6 +1,6 @@
 /**
  * @file   SequenceCommand.h
- * @brief  
+ * @brief  複数コマンドをシーケンシャルに実行するコマンド．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -28,11 +28,11 @@ public:
 				delete commands_[i];
 		}
 	}
-	virtual bool canExecute(const datatype::Time& t){
+	virtual bool can_execute(const datatype::Time& t){
 		if(index_ == -1) return false; //コマンドが1つもない
 		if(this->time_ > t) return false; //まだ開始時刻ではない
 		for(int i = 0; i < index_; i++){
-			if(!commands_[i]->canExecute(t)) return false; //すべてのコマンドが実行可能になるまで実行しない
+			if(!commands_[i]->can_execute(t)) return false; //すべてのコマンドが実行可能になるまで実行しない
 		}
 		return true;
 	}

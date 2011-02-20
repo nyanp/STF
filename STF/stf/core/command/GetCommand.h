@@ -1,6 +1,6 @@
 /**
  * @file   GetCommand.h
- * @brief  
+ * @brief  GetterやイテレータによってSTF内部状態を応答するコマンド群．
  *
  * @author Taiga Nomi
  * @date   2011.02.16

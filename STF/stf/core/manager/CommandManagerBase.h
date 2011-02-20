@@ -51,8 +51,8 @@ public:
 		commandList_[list_index_] = cmd;
 	}
 private:
-	void executeCommand_(const datatype::Time& t);
-	void removeCommand_(int i);
+	void execute_command_(const datatype::Time& t);
+	void remove_command_(int i);
 	static const int NUM_OF_LIST = 10;
 	command::Command* commandList_[NUM_OF_LIST];
 	int list_index_;

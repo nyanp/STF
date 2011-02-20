@@ -74,11 +74,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stf\core\command\Command.cpp" />
-    <ClCompile Include="stf\core\command\GainSettingCommand.cpp" />
     <ClCompile Include="stf\core\command\GetCommand.cpp" />
     <ClCompile Include="stf\core\command\MessageCommand.cpp" />
     <ClCompile Include="stf\core\command\ModeChangeCommand.cpp" />
-    <ClCompile Include="stf\core\command\OrbitSettingCommand.cpp" />
     <ClCompile Include="stf\core\command\SequenceCommand.cpp" />
     <ClCompile Include="stf\core\command\SimpleFunctionCommand.cpp" />
     <ClCompile Include="stf\core\command\SwitchCommand.cpp" />
@@ -231,12 +229,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stf\core\command\Command.h" />
-    <ClInclude Include="stf\core\command\GainSettingCommand.h" />
     <ClInclude Include="stf\core\command\GetCommand.h" />
     <ClInclude Include="stf\core\command\Includes.h" />
     <ClInclude Include="stf\core\command\MessageCommand.h" />
     <ClInclude Include="stf\core\command\ModeChangeCommand.h" />
-    <ClInclude Include="stf\core\command\OrbitSettingCommand.h" />
     <ClInclude Include="stf\core\command\SequenceCommand.h" />
     <ClInclude Include="stf\core\command\SimpleFunctionCommand.h" />
     <ClInclude Include="stf\core\command\SwitchCommand.h" />

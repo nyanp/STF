@@ -1,6 +1,6 @@
 /**
  * @file   UnaryFunctionCommand.h
- * @brief  
+ * @brief  １引数のファンクタやメンバ関数を起動するコマンド．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -15,7 +15,6 @@ namespace stf {
 namespace core {
 namespace command {
 
-//1引数ファンク多を起動するコマンド
 template<class T>
 class UnaryFunctorCommand : public Command {
 public:

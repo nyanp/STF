@@ -1,6 +1,6 @@
 /**
  * @file   SwitchCommand.h
- * @brief  
+ * @brief  機器のスイッチングを行うコマンド．
  *
  * @author Taiga Nomi
  * @date   2011.02.16

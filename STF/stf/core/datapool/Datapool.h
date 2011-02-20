@@ -1,6 +1,6 @@
 /**
  * @file   Datapool.h
- * @brief  
+ * @brief  STF生成データにタイムタグを付加して格納するデータプール
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -28,74 +28,7 @@ namespace core {
 namespace event {
 class EventBase;
 }
-namespace devicedriver {
-template<class T,int U> class CompositeInput;
-template<class T,int U> class CompositeOutput;
-namespace mtq{
-template<class T> class MTQ;
-}
-namespace stt{
-template<class T> class STT;
-}
-namespace gyro{
-template<class T> class Gyro;
-}
-}
 namespace datapool {
-
-	
-/*
-template<class T> class Tupl
-{
-public:
-	Tupl() : capacity_(0), index_(-1){}
-	void create(int capacity){
-		capacity_ = capacity;
-		assert(capacity > 0);
-		value_ = new Loki::Tuple<TYPELIST_2(datatype::Time, T)>[capacity];
-	}
-	void set(T value){
-		index_ ++;
-		//Loki::Field<0>(value_[index_]) = t;
-		Loki::Field<1>(value_[index_]) = value;
-	}
-	const T& get(){
-		return Loki::Field<1>(value_[index_]);
-	}
-	~Tupl(){ delete value_; }
-	int capacity_;
-	int index_;
-	Loki::Tuple< TYPELIST_2(datatype::Time, T) >* value_;
-	//T::Hold* value_;
-};
-
-template<class TList>
-class DB : public Loki::GenScatterHierarchy<TList,Tupl>{
-public:
-	template<int i>void create(int capacity){
-		Loki::Field<i>(*this).create(capacity);
-	}
-
-	template<int i,class T> const T& get(){
-		return Loki::Field<i>(*this).get();
-	}
-	template<int i,class T> void set(T value){
-		Loki::Field<i>(*this).set(value);
-	}
-
-};
-*/
-
-/*
-// HotSpot: Datapoolの型指定
-typedef devicedriver::CompositeOutput<devicedriver::mtq::MTQ<ENV>,3> ThreeAxisMTQ;
-typedef devicedriver::CompositeInput<devicedriver::gyro::Gyro<ENV>,3> ThreeAxisGyro;
-typedef devicedriver::CompositeInput<devicedriver::stt::STT<ENV>,2> TwoAxisSTT;
-typedef devicedriver::gyro::Gyro<ENV> Gyro;
-typedef devicedriver::stt::STT<ENV> STT;
-typedef devicedriver::mtq::MTQ<ENV> MTQ;
-typedef Loki::GenScatterHierarchy< TYPELIST_11( STT, STT, TwoAxisSTT, Gyro, Gyro, Gyro, ThreeAxisGyro, MTQ, MTQ, MTQ, ThreeAxisMTQ ) , Tupl> POOL;*/
-
 
 //リングバッファ型のIAocsData-Timeタプルを格納するクラス．
 template<class Base>
@@ -156,90 +89,6 @@ private:
 	datatype::Time* time_;
 
 };
-
-/*
-template<class T>
-class Datapool//: public RootObject
-{
-public:
-	Datapool(int instance_id);
-	~Datapool(void){}
-	// 最新の値を元の型として取る
-	template<class Producer> typename Producer::Hold get(int index) const{
-		return table_[index]->get<Producer::Hold>();//copy
-	}
-	const T* get(int rows) const{
-		return table_[rows]->get_data_at(table_[rows]->index());
-	}
-	const T* get(int rows,int cols) const{
-		return table_[rows]->get_data_at(cols);
-	}
-	// 最新の値を取る
-	datatype::Time gettime(int index) const{
-		return table_[index]->gettime();//copy
-	}
-	const datatype::String& getname(int index) const{
-		return table_[index]->name();
-	}
-	// 値をセット
-	template<class Producer> void set(int index, const typename Producer::Hold& value){
-		table_[index]->set<typename Producer::Hold>(this->clock_->getTime(),value);
-	}
-
-	template<class Producer> typename Producer::Hold& get_at(int index, int rows) const {
-		return table_[index]->get_at<Producer::Hold>(rows);//copy
-	}
-
-	//初期化時にのみ使用．動的生成
-	//IAocsDataをHoldしているRoot配下のクラスであれば何でも取れる
-	template<class Producer> int create(Producer* producer,unsigned short capacity, const datatype::String& name = "unknown"){
-		this->createdindex_++;
-		this->table_[createdindex_] = new Tuple<T>(capacity,util::Type2Type<Producer::Hold>(),name);
-		return createdindex_ ;
-	}
-
-	//初期化時にのみ使用．動的生成
-	//IAocsDataをHoldしているRoot配下のクラスであれば何でも取れる
-	template<class Datatype> int create(util::Type2Type<Datatype>,unsigned short capacity, const datatype::String& name = "unknown"){
-		this->createdindex_++;
-		this->table_[createdindex_] = new Tuple<T>(capacity,util::Type2Type<Datatype>(),name);
-		return createdindex_ ;
-	}
-	//初期化時にのみ使用．動的生成
-	//IAocsDataをHoldしているRoot配下のクラスであれば何でも取れる
-	template<class Producer> int create(int id,unsigned short capacity, const datatype::String& name = "unknown"){
-		this->createdindex_++;
-		this->table_[createdindex_] = new Tuple<T>(capacity,util::Type2Type<Producer::Hold>(),name);
-		return createdindex_ ;
-	}
-
-	template<class Producer> void show(int index) const{
-		table_[index]->print<Producer::Hold>();
-	}
-	// 指定したインスタンスIDが生成したタプルへのポインタを取得（テレメトリ用）
-	Tuple<T>* get_ptr(int index) {
-		assert( index < kMaxDataPoolRows );
-		return table_[index];
-	}
-	const int rows () const{ return this->kMaxDataPoolRows; }
-	bool isCreated(int index) const{ 
-		assert( index < kMaxDataPoolRows && index >= 0); 
-		if(index < createdindex_) return true;
-		else return false;
-	}
-private:
-	Tuple<T>** table_;
-	static const int kMaxDataPoolRows = 255;
-	int createdindex_;
-};
-
-template<class T>
-Datapool<T>::Datapool(int instance_id) : createdindex_(-1) //,RootObject(instance_id, "Datapool")
-{
-	this->table_ = new Tuple<T> *[kMaxDataPoolRows];
-}
-
-*/
 
 class DataPoolBase : public RootObject
 {
@@ -446,47 +295,6 @@ private:
 	int index_;
 	int rows_;
 };
-
-/*
-template<class Class>
-class DataBase_ {
-public:
-	static const Class& get() {
-		assert(iscreated_ && index_ > 0);
-		return data_[index_ - 1];
-	}
-	static const Class& get_at(int index)  {
-		assert(index < poolsize && iscreated_);
-		return data_[index];
-	}	
-	static void set(const Class& value){
-		assert(index_ < poolsize && iscreated_);
-		data_[index_] = value;//copy to database
-		index_++;
-	}
-private:
-	DataBase_() {}
-	~DataBase_(){ delete[] data_;}
-	DataBase_(const DataBase_& rhs){}
-	DataBase_& operator = (const DataBase_& rhs){}
-
-	static void init_(unsigned short capacity){
-		assert(capacity_ == 0);
-		assert(capacity > 0);
-		index_ = 0;
-		capacity_ = size;
-		data_ = new Class[size];
-	}
-	friend class Datapool;
-	static unsigned short capacity_;
-	static unsigned char index_;
-	static Class** data_;
-};
-
-template <class Class> unsigned short DataBase_<Class>::capacity_;
-template <class Class> int DataBase_<Class>::index_;
-template <class Class> Class* DataBase_<Class>::data_;
-*/
 
 } /* End of namespace stf::core::datapool */
 } /* End of namespace stf::core */

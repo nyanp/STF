@@ -1,6 +1,6 @@
 /**
  * @file   MessageCommand.h
- * @brief  
+ * @brief  予め決められたメッセージを出力するコマンド．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
