@@ -57,7 +57,7 @@ datatype::Quaternion QUEST::estimate_(
 	datatype::StaticVector<3> v1, datatype::StaticVector<3> v2, 
 	datatype::StaticVector<3> w1, datatype::StaticVector<3> w2)
 {
-	datatype::Matrix B(3,3);
+	datatype::StaticMatrix<3,3> B;
 	for(int i = 0; i < 3; i++){
 		for(int j = 0; j < 3; j++){
 			B[i][j] = a1_ * w1[i] * v1[j] + a2_ * w2[i] * v2[j];
@@ -66,7 +66,8 @@ datatype::Quaternion QUEST::estimate_(
 		}
 	}
 	double sigma = B.trace();
-	datatype::Matrix S = B + B.trans();
+	datatype::StaticMatrix<3,3> C;
+	datatype::DCM S = B + C;
 	datatype::Matrix I(3,3); I.unitize();
 	double det = S.det();
 

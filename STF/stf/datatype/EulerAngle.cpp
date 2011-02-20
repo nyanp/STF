@@ -1,6 +1,6 @@
 /**
  * @file   EulerAngle.cpp
- * @brief  
+ * @brief  z-y-xオイラー角(rad)．
  *
  * @author Taiga Nomi
  * @date   2011.02.16

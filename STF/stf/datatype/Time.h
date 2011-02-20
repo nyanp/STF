@@ -1,6 +1,6 @@
 /**
  * @file   Time.h
- * @brief  
+ * @brief  経過時間を表すクラス．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -8,31 +8,30 @@
 #ifndef datatype_Time_h
 #define datatype_Time_h
 #include<assert.h>
-#include "../util/Ostream.h"
 
 namespace stf { 
 namespace datatype {
 
+//! 経過時間を表すクラス．
+/*!  */
 class Time {
 public:
     Time();
     Time(int second, double millisecond);
     Time(const Time &rhs);
     virtual ~Time();
-    inline void addSeconds(int seconds);
-    inline void addMilliSeconds(double milliSeconds);
+    inline void add_seconds(int seconds);
+    inline void add_milliseconds(double milliSeconds);
 	inline int seconds() const { return this->seconds_; }
 	inline double milliseconds() const { return this->milliseconds_; }
-    inline double totalMilliseconds() const ;
-    inline double totalSeconds() const;
+    inline double total_milliseconds() const ;
+    inline double total_seconds() const;
     inline void clear();
     inline Time &operator=(const Time &rhs);
     inline Time &operator+=(const Time &rhs);
     inline Time &operator-=(const Time &rhs);
     inline Time &operator/=(int rhs);
     inline Time &operator*=(int rhs);
-    int seconds_;
-    double milliseconds_;
 private:
     friend inline bool operator ==(const Time&,const Time&);
     friend inline bool operator !=(const Time&,const Time&);
@@ -45,8 +44,8 @@ private:
 	friend inline const Time operator *(int,const Time&);
 	friend inline const Time operator *(const Time&,int);
 	friend inline const Time operator /(const Time&,int);
-
-//	friend std::ostream &operator << (std::ostream&, const Time&);
+    int seconds_;
+    double milliseconds_;
 };
 
 ////////////////////////////////
@@ -54,13 +53,13 @@ private:
 ////////////////////////////////
 
 
-inline void Time::addSeconds(int seconds)
+inline void Time::add_seconds(int seconds)
 {
     this->seconds_ += seconds;
     assert(this->seconds_ >= 0);
 }
 
-inline void Time::addMilliSeconds(double milliSeconds)
+inline void Time::add_milliseconds(double milliSeconds)
 {
     this->milliseconds_ += milliSeconds;
     int u = (int)(this->milliseconds_ / 1000);
@@ -69,7 +68,7 @@ inline void Time::addMilliSeconds(double milliSeconds)
     assert(this->seconds_ >= 0);
 }
 
-inline double Time::totalMilliseconds() const 
+inline double Time::total_milliseconds() const 
 {
     return 1000 * this->seconds_ + this->milliseconds_;
 }
@@ -80,7 +79,7 @@ inline void Time::clear()
     this->milliseconds_ = 0.0;
 }
 
-inline double Time::totalSeconds() const 
+inline double Time::total_seconds() const 
 {
     return this->seconds_ + 0.001 * this->milliseconds_;
 }

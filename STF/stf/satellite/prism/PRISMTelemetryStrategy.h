@@ -37,7 +37,7 @@ public:
 	}
 	void set_time(int second){
 		this->start_obc_.clear();
-		this->start_obc_.addSeconds(second);
+		this->start_obc_.add_seconds(second);
 	}
 	void setRTCTime(int year,int month,int date,int hour,int minute,int second){
 		this->start_rtc_.init(year,month,date,hour,minute,second);

@@ -23,42 +23,17 @@ namespace util {
 
 template<class T>
 class Ostream {
+public:
+	Ostream(T& stream): stream_(stream){};
+	template < typename U>
+	Ostream<T>& operator <<(U val){ stream_ << val; return *this; }
+	inline Ostream<T>& operator <<(Ostream<T>&(*f)(Ostream<T>&));//マニピュレータ用
 private:
 	T& stream_;
 	Ostream();
 	Ostream(const Ostream& rhs);//暗黙のコピーを禁止
 	Ostream &operator =(const Ostream& rhs);
-public:
-	Ostream(T& stream): stream_(stream){};
-	//inline Ostream<T>& operator <<(int val);
-	//inline Ostream<T>& operator <<(double val);
-	//inline Ostream<T>& operator <<(const char* val);
-	//inline Ostream<T>& operator <<(const stf::datatype::Vector& val);
-	//inline Ostream<T>& operator <<(const stf::datatype::Matrix& val);
-	template < typename U>
-	Ostream<T>& operator <<(U val){ stream_ << val; return *this; }
-	inline Ostream<T>& operator <<(Ostream<T>&(*f)(Ostream<T>&));//マニピュレータ用
-
 };
-/*
-template<class T>
-inline Ostream<T>& Ostream<T>::operator <<(int val){
-	stream_ << val;
-	return *this;
-}
-
-template<class T>
-inline Ostream<T>& Ostream<T>::operator <<(double val){
-	stream_ << val;
-	return *this;
-}
-
-template<class T>
-inline Ostream<T>& Ostream<T>::operator <<(const char* val){
-	stream_ << val;
-	return *this;
-}
-*/
 
 template<class T>
 inline Ostream<T>& Ostream<T>::operator <<(Ostream<T>&(*f)(Ostream<T>&)){

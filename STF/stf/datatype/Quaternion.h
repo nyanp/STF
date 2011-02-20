@@ -1,6 +1,6 @@
 /**
  * @file   Quaternion.h
- * @brief  
+ * @brief  4元数を表現するクラス．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -11,17 +11,21 @@
 #include "StaticVector.h"
 namespace stf { 
 namespace datatype {
+
+//! 4元数を表現するクラス．q0がcosと定義されている点に注意．
+/*! */
 class Quaternion : public StaticVector<4> {
 public:
     Quaternion();
-    //Quaternion(const Vector &rhs);
     Quaternion(const StaticVector<4> &rhs);
     Quaternion(const Quaternion &rhs);
     Quaternion(double q0,double q1, double q2, double q3);
 	~Quaternion(){}
+	//! 共役を取得する．
     Quaternion conjugate() const;
-	// virtual method for IAocsData
+	//! ノルムを1に調整する．
 	virtual void normalize();
+	//! n-ノルムを取得．
 	virtual double norm(int n) const;
 private:
 	friend inline const Quaternion operator -(const Quaternion&,const Quaternion&);

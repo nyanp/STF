@@ -1,6 +1,6 @@
 /**
  * @file   IAocsData.h
- * @brief  
+ * @brief  AOCS使用系列のデータ共通の抽象インターフェース．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -8,21 +8,18 @@
 #ifndef stf_datatype_IAocsData_h
 #define stf_datatype_IAocsData_h
 
-#include "ITelemetable.h"
+#include "../interface/ITelemetable.h"
 
 namespace stf { 
 namespace datatype {
 
-class Time;
-
-class IAocsData : public ITelemetable{
+//! AOCS使用系列のデータ共通の抽象インターフェース．
+/*! */
+class IAocsData : public interface::ITelemetable{
 public:
 	virtual void normalize() = 0;
 	virtual void reset() = 0;
-	//virtual const int* serialize() const { return 0;}//double型の配列にオブジェクトをシリアライズする．デフォルトの実装は0
     virtual ~IAocsData() { }
-protected:
-
 };
 
 } /* End of namespace stf::datatype */

@@ -46,7 +46,7 @@ datatype::StaticVector<3> RateDumping::computeTorque_(const datatype::StaticVect
 	this->omega_before_ = input;
 	this->omega_total_ += input * this->dt_;
 	datatype::StaticVector<3> v;
-	//::cout << this->clock_->getTime().totalSeconds() << util::endl;
+	//::cout << this->clock_->getTime().total_seconds() << util::endl;
 	//util::cout << input
 	v[0] = - this->kp_ * input[0] - this->kd_ * omage_diff[0] - this->ki_ * this->omega_total_[0];
 	v[1] = - this->kp_ * input[1] - this->kd_ * omage_diff[1] - this->ki_ * this->omega_total_[1];

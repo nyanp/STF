@@ -24,7 +24,7 @@ void Orbit::setOrbitElement(double a, double e, double i, double Omega, double o
 	this->orbit_.Omega = Omega;
 	this->orbit_.omega = omega;
 	this->orbit_.n = sqrt( util::math::MU / (a * a * a) );
-	this->orbit_.M = this->orbit_.n * this->localtime_.totalSeconds();
+	this->orbit_.M = this->orbit_.n * this->localtime_.total_seconds();
 }
 
 void Orbit::setOrbitElement(const datatype::OrbitInfo& orbit)
@@ -35,7 +35,7 @@ void Orbit::setOrbitElement(const datatype::OrbitInfo& orbit)
 
 void Orbit::addSecond(int seconds)
 {
-	this->localtime_.addSeconds(seconds);
+	this->localtime_.add_seconds(seconds);
 	updateOrbit_();
 }
 
@@ -47,7 +47,7 @@ void Orbit::addTime(const Time& t)
 
 void Orbit::updateOrbit_()
 {
-	this->orbit_.M = this->orbit_.n * this->localtime_.totalSeconds();
+	this->orbit_.M = this->orbit_.n * this->localtime_.total_seconds();
 }
 
 const PositionInfo Orbit::getSatellitePosition() const {

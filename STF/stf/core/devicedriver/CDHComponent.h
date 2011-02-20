@@ -11,7 +11,7 @@
 #include <assert.h>
 #include "IDataUpdatable.h"
 #include "ISwitchable.h"
-#include "../../datatype/ITelemetable.h"
+#include "../../interface/ITelemetable.h"
 #include "../../RootObject.h"
 #include "../../datatype/String.h"
 #include "IOPort.h"

@@ -1,6 +1,6 @@
 /**
  * @file   SatelliteModel.h
- * @brief  
+ * @brief  衛星質量特性を表現するクラス．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -9,14 +9,13 @@
 #define stf_datatype_SatelliteModel_h
 
 #include <assert.h>
-
 #include "StaticMatrix.h"
-
 
 namespace stf { 
 namespace datatype {
 
-///
+//! 衛星質量特性を表現するクラス．
+/*! */
 class SatelliteModel {
 public:
 	SatelliteModel(){}
@@ -26,11 +25,9 @@ public:
 	const StaticMatrix<3,3>& getI() const { return I_; }
 	double getM() const { assert(M_ != 0); return M_; }
 private:
-	//const double 
 	StaticMatrix<3,3> I_;//衛星慣性テンソル(kgm)
 	double M_;//質量(kg)
 };
-
 
 } /* End of namespace stf::datatype */
 } /* End of namespace stf */

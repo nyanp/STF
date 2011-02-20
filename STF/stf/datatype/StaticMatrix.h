@@ -1,6 +1,6 @@
 /**
  * @file   StaticMatrix.h
- * @brief  
+ * @brief  テンプレートを用いた行列計算クラス
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -11,22 +11,16 @@
 #include <assert.h>
 #include "Vector.h"
 #include "StaticVector.h"
-#include "IAocsData.h"
-
-namespace stf {
-namespace util {
-template <class T>class Ostream;
-}
-}
 
 namespace stf { 
 namespace datatype {
 
+//! テンプレートを用いた行列計算クラス
+/*!  */
 template<int rows, int cols>
 class StaticMatrix {
- public:
-	 StaticMatrix(){}
-    //StaticMatrix(int rows, int cols);
+public:
+	StaticMatrix(){}
     StaticMatrix(const StaticMatrix<rows,cols> &rhs);
 	~StaticMatrix(){}
     inline const StaticVector<cols> &operator[](int index) const;
@@ -46,25 +40,11 @@ class StaticMatrix {
     StaticMatrix &operator/=(double rhs);
     bool operator==(const StaticMatrix &rhs) const ;
     bool operator!=(const StaticMatrix &rhs) const ;
-	// virtual method for IAocsData
-	virtual void normalize(){}
 	virtual void reset(){ for(int i = 0; i < rows; i++) value_[i].reset(); }
- public:
-    StaticVector<cols> value_[rows];
-
- private:
-	friend inline const StaticMatrix<rows,cols> operator + (const StaticMatrix<rows,cols>&, const StaticMatrix<rows,cols>&);
-	friend inline const StaticMatrix<rows,cols> operator - (const StaticMatrix<rows,cols>&, const StaticMatrix<rows,cols>&);
-	friend inline const StaticMatrix<rows,cols> operator * (const StaticMatrix<rows,cols>&, double);
-	friend inline const StaticMatrix<rows,cols> operator * (double, const StaticMatrix<rows,cols>&);
-	friend inline const StaticMatrix<rows,cols> operator * (const StaticMatrix<rows,cols>&, const StaticMatrix<rows,cols>&);
-	friend inline const StaticMatrix<rows,cols> operator / (const StaticMatrix<rows,cols>&, double);
-	//friend std::ostream &operator << (std::ostream&, const StaticMatrix&);
-	friend inline const Vector operator * (const StaticMatrix<rows,cols>&, const Vector&);
-	//friend inline const StaticVector<rows> operator * (const StaticMatrix<rows,cols>&, const StaticVector<cols>&);
-
+protected:
+	StaticVector<cols> value_[rows];
+private:
     friend class Vector;
-	template<class T>friend class stf::util::Ostream;//TBD:Vectorからiostreamを隠ぺいしつつ，標準出力を実現するための「遠い」フレンドクラス．あまりよくない書き方
 };
 
 ////////////////////////////////
@@ -87,7 +67,7 @@ inline StaticVector<cols> &StaticMatrix<rows,cols>::operator[](int index)
 
 //行列の加算
 template<int rows, int cols>
-inline const StaticMatrix<rows,cols> operator + (const StaticMatrix<rows,cols>& oper1, const StaticMatrix<rows,cols>& oper2){
+const StaticMatrix<rows,cols> operator + (const StaticMatrix<rows,cols>& oper1, const StaticMatrix<rows,cols>& oper2){
 	StaticMatrix<rows,cols> mat = oper1;
 	mat += oper2;
 	return mat;
@@ -109,7 +89,7 @@ inline const StaticMatrix<rows1,cols2> operator * (const StaticMatrix<rows1,cols
 	for(int r = 0;r < rows1; r++)
 	  for(int c = 0;c < cols2; c++)
 		for(int index = 0;index < cols1; index ++)
-			mat.value_[r].value_[c] += oper1.value_[r].value_[index] * oper2.value_[index].value_[c];
+			mat[r][c] += oper1[r][index] * oper2[index][c];
 		  //mat[rows][cols] += oper1[rows][index] * oper2[index][cols];
 	return mat;
 }

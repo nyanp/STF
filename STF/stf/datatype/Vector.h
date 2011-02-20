@@ -1,6 +1,6 @@
 /**
  * @file   Vector.h
- * @brief  
+ * @brief  ベクトル表現クラス．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -19,7 +19,8 @@ namespace datatype {
 template<int rows,int cols> class StaticMatrix;
 template<int dim> class StaticVector;
 
-///物理量を表すベクトル表現クラス．
+//! 可変要素数のベクトル演算を行う．
+/*! メモリの動的確保を行うため，STFではシステム初期化以外のタイミングでの使用が推奨されない．通常はStaticVectorを使うこと */
 class Vector : public IAocsData {
 public:
     Vector();
@@ -67,6 +68,7 @@ private:
 	friend inline Vector operator - (const Vector& s);
 	friend inline Vector operator + (const Vector& s);
 };
+
 ////////////////////////////////
 //  Inline Methods for Vector //
 ////////////////////////////////
@@ -87,7 +89,6 @@ inline double &Vector::operator[](int index) const
 {
 	return this->value_[index];
 }
-
 
 inline double Vector::max() const
 {
@@ -183,8 +184,6 @@ inline bool operator < (const Vector& left, const Vector& right){
 	assert(0);
 	return !(left >= right);
 }
-
-
 
 } /* End of namespace stf::datatype */
 } /* End of namespace stf */

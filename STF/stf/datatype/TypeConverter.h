@@ -1,6 +1,6 @@
 /**
  * @file   TypeConverter.h
- * @brief  
+ * @brief  単位や姿勢表現の相互変換を行うユーティリティ．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -17,8 +17,8 @@
 namespace stf {
 namespace datatype {
 
-///単位や姿勢表現の相互変換を行うユーティリティ．
-///datatypeモジュール間の相互結合を防ぐためにこのクラスにstaticメソッドとして変換式をまとめている.ArgoUMLにinlineを多重定義するバグがあるので今のところすべて関数呼び出し
+//! 単位や姿勢表現の相互変換を行うユーティリティ．
+/*! datatypeモジュール間の相互結合を防ぐためにこのクラスにstaticメソッドとして変換式をまとめている.*/
 class TypeConverter {
 public:
     static Quaternion toQuaternion(const DCM &dcm);
@@ -32,9 +32,6 @@ public:
 	static StaticVector<3> toRectangular(const StaticVector<2> &vec);
 	static OrbitInfo toOrbitInfo(const PositionInfo &pos);
 	static PositionInfo toPositionInfo(const OrbitInfo &orb);
-	//static Geo toGeo(const PositionInfo &pos);
-	//static Geo toGeo(const OrbitInfo &orb);
-	
 };
 
 } /* End of namespace stf::datatype */

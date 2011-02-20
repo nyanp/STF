@@ -101,7 +101,7 @@ double OutputAll<T,SCALE>::operator()(){
 
 template<class T, int SCALE>
 void OutputAll<T,SCALE>::write_to_telemetry(){
-	(*this->storage_) << this->clock_->getTime().totalMilliseconds();
+	(*this->storage_) << this->clock_->getTime().total_milliseconds();
 	this->datapooliter_.init();
 	while(!datapooliter_.end()){
 		(*this->storage_) << (T)(SCALE * datapooliter_());

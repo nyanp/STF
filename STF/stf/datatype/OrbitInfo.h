@@ -1,6 +1,6 @@
 /**
  * @file   OrbitInfo.h
- * @brief  
+ * @brief  軌道情報関係の量を表す
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -14,7 +14,8 @@
 namespace stf { 
 namespace datatype {
 
-//軌道6要素を保持するクラス．サイズ肥大化を避けるため，主要な計算はOrbitImplのstaticなメソッドに投げることで行う
+//! 軌道6要素を保持するクラス．サイズ肥大化を避けるため，主要な計算はOrbitImplのstaticなメソッドに投げることで行う
+/*!  */
 struct OrbitInfo : public IAocsData {
 public:
 	OrbitInfo() {}
@@ -39,6 +40,8 @@ private:
 
 };
 
+//! 衛星座標を緯度経度高度の形式で保持するクラス．
+/*!  */
 struct Geo : public IAocsData {
 	virtual void normalize(){}
 	virtual void reset(){};
@@ -48,6 +51,8 @@ struct Geo : public IAocsData {
 	double altitude;//高度(m)
 };
 
+//! 衛星座標を地心慣性座標系における位置と速度の6次元ベクトルで保持するクラス．
+/*!  */
 struct PositionInfo : public IAocsData {
 public:
 	PositionInfo() {}
@@ -56,8 +61,8 @@ public:
 	virtual void reset(){};
 	virtual const double* toStream() const { return 0; };
 	virtual int getStreamLength() const { return 7; };
-	StaticVector<3> position;//地心慣性座標系における衛星の位置．
-	StaticVector<3> velocity;//
+	StaticVector<3> position;
+	StaticVector<3> velocity;
 private:
 
 };

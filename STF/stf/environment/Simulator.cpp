@@ -25,8 +25,8 @@ void Simulator::init(Global<Simulator>* global, double stepTimeInSecond, double 
 {
 	util::math::WhiteNoise_init(0);
     this->global_ = global;
-    this->timestep_.addMilliSeconds(stepTimeInSecond * 1000);
-    this->max_time_.addMilliSeconds(maxTimeInSecond * 1000);
+    this->timestep_.add_milliseconds(stepTimeInSecond * 1000);
+    this->max_time_.add_milliseconds(maxTimeInSecond * 1000);
 	this->orbit_.setOrbitElement(orbit);
     if(ostream != 0)
         this->ofstream_ = ostream;
@@ -97,7 +97,7 @@ void Simulator::runOneCycle()
 	if(this->ofstream_ != 0){
 		//Logging
 		(*this->ofstream_) 
-			<< this->true_time_.totalSeconds() << ","
+			<< this->true_time_.total_seconds() << ","
 			<< this->true_quaternion_[0] << ","
 			<< this->true_quaternion_[1] << ","
 			<< this->true_quaternion_[2] << ","
@@ -149,9 +149,9 @@ void Simulator::runOneCycle()
     acc[2] = this->true_torque_[2] + this->noise_torque_[2];//TBD:‰q¯‚ÌŽ¿—Ê“Á«‚ÅŠ„‚é•K—v
 
     datatype::Vector omega(3);//Šp‘¬“xƒÖn+1ƒÖn{at
-	omega[0] = this->true_angular_velocity_[0] + acc[0] * this->timestep_.totalSeconds();
-    omega[1] = this->true_angular_velocity_[1] + acc[1] * this->timestep_.totalSeconds();
-    omega[2] = this->true_angular_velocity_[2] + acc[2] * this->timestep_.totalSeconds();
+	omega[0] = this->true_angular_velocity_[0] + acc[0] * this->timestep_.total_seconds();
+    omega[1] = this->true_angular_velocity_[1] + acc[1] * this->timestep_.total_seconds();
+    omega[2] = this->true_angular_velocity_[2] + acc[2] * this->timestep_.total_seconds();
 
     Omega_[0][1] = -omega[0];
     Omega_[0][2] = -omega[1];
@@ -163,7 +163,7 @@ void Simulator::runOneCycle()
       for(int j = 0; j < 4; j++)
         if(i > j) Omega_[i][j] = -Omega_[j][i];
 
-    this->true_quaternion_ += util::math::RungeKutta::slope(true_quaternion_,0.5 * Omega_,timestep_.totalSeconds());
+    this->true_quaternion_ += util::math::RungeKutta::slope(true_quaternion_,0.5 * Omega_,timestep_.total_seconds());
     this->true_angular_velocity_ = omega;
 	this->step_();
 }

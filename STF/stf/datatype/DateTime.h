@@ -1,6 +1,6 @@
 /**
  * @file   DateTime.h
- * @brief  
+ * @brief  ユリウス暦による絶対時刻を保持するクラス．時間間隔などの計算にはTimeを使う．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -13,7 +13,9 @@
 
 namespace stf { 
 namespace datatype {
-//ユリウス暦による絶対時刻を保持するクラス．時間間隔などの計算にはTimeを使う．
+
+//! ユリウス暦による絶対時刻を秒精度で保持する．
+/*! */
 class DateTime {
 public:
     DateTime(): date_(0), hour_(0), minute_(0), second_(0) {}
@@ -25,27 +27,21 @@ public:
     DateTime(const DateTime &rhs);
 	virtual ~DateTime(){}
 
-	void init(int year, int month, int day, int hour, int minute, int second)
-	{
-		this->date_  = 367 * year - (int)(7 * (double)(year + (int)(((double)month + 9) / 12)) / 4) + (int)(275 * (double)month / 9) + day + 1721014;
-		this->hour_ = hour;
-		this->minute_ = minute;
-		this->second_ = second;
-	}
+	inline void init(int year, int month, int day, int hour, int minute, int second);
 
-	inline int seconds() const { return this->second_; }
-    inline void addSeconds(int second);
-    inline int totalSeconds() const;
+	int seconds() const { return this->second_; }
+    inline void add_seconds(int second);
+    inline int total_seconds() const;
 
-	inline int minutes() const { return this->minute_; }
-    inline void addMinutes(int minutes);
+	int minutes() const { return this->minute_; }
+    inline void add_minutes(int minutes);
     inline int totalMinutes() const;
 
-	inline int hours() const { return this->hour_; }
-    inline void addHours(int hours);
+	int hours() const { return this->hour_; }
+    inline void add_hours(int hours);
     inline int totalHours() const;
 
-	inline int dates() const { return this->date_; }
+	int dates() const { return this->date_; }
     inline void addDates(int dates);
 
 	inline double getJulius() const;
@@ -66,45 +62,47 @@ private:
     friend inline bool operator <(const DateTime&,const DateTime&);
     friend inline bool operator >=(const DateTime&,const DateTime&);
     friend inline bool operator <=(const DateTime&,const DateTime&);
-	friend inline const DateTime operator +(const DateTime&,const Time&);
-	friend inline const DateTime operator -(const DateTime&,const Time&);
-//	friend inline const Time operator -(const DateTime&,const DateTime&);
-//	friend std::ostream &operator << (std::ostream&, const DateTime&);
 };
 
-////////////////////////////////
+//////////////////////////////////
 //  Inline Methods for DateTime //
-////////////////////////////////
+//////////////////////////////////
+inline void DateTime::init(int year, int month, int day, int hour, int minute, int second)
+{
+	this->date_  = 367 * year - (int)(7 * (double)(year + (int)(((double)month + 9) / 12)) / 4) + (int)(275 * (double)month / 9) + day + 1721014;
+	this->hour_ = hour;
+	this->minute_ = minute;
+	this->second_ = second;
+}
 
-
-inline void DateTime::addSeconds(int second)
+inline void DateTime::add_seconds(int second)
 {
 	this->second_ += second;
 	while(this->second_ >= 60){
 		this->second_ -= 60;
-		this->addMinutes(1);
+		this->add_minutes(1);
 	}
 	while(this->second_ < 0){
 		this->second_ += 60;
-		this->addMinutes(-1);
+		this->add_minutes(-1);
 	}
 }
 
-inline int DateTime::totalSeconds() const 
+inline int DateTime::total_seconds() const 
 {
     return this->second_ + 60 * this->totalMinutes();
 }
 
-inline void DateTime::addMinutes(int minutes)
+inline void DateTime::add_minutes(int minutes)
 {
 	this->minute_ += minutes;
 	while(this->minute_ >= 60){
 		this->minute_ -= 60;
-		this->addHours(1);
+		this->add_hours(1);
 	}
 	while(this->minute_ < 0){
 		this->minute_ += 60;
-		this->addHours(-1);
+		this->add_hours(-1);
 	}
 }
 
@@ -113,7 +111,7 @@ inline int DateTime::totalMinutes() const
 	return this->minute_ + 60 * this->totalHours();
 }
 
-inline void DateTime::addHours(int hours)
+inline void DateTime::add_hours(int hours)
 {
 	this->hour_ += hours;
 	while(this->hour_ >= 24){
@@ -150,12 +148,12 @@ inline void DateTime::clear()
 }
 
 inline DateTime &DateTime::operator+=(const Time &rhs){
-	this->addSeconds( rhs.seconds() );
+	this->add_seconds( rhs.seconds() );
     return *this;
 }
 
 inline DateTime &DateTime::operator-=(const Time &rhs){
-	this->addSeconds( -rhs.seconds() );
+	this->add_seconds( -rhs.seconds() );
     return *this;
 }
 
@@ -166,6 +164,10 @@ inline DateTime &DateTime::operator=(const DateTime &rhs){
 	this->date_ = rhs.date_;
     return *this;
 }
+
+//////////////////////////
+//  Free Methods        //
+//////////////////////////
 
 inline const DateTime operator + (const DateTime& time1, const Time& time2){
 	DateTime temp = time1;

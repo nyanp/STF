@@ -83,13 +83,10 @@ EulerAngle TypeConverter::toEulerAngle(const DCM &dcm)
 	EulerAngle e;
 	e[1] = asin(-dcm_n[0][2]);
 	if(cos(e[1]) != 0){
-		//e[2] = atan(dcm_n[0][1] / dcm_n[0][0]);
 		e[0] = atan2(dcm_n[0][1], dcm_n[0][0]);
 		e[2] = atan2(dcm_n[1][2], dcm_n[2][2]);
-		//e[0] = atan(dcm_n[1][2] / dcm_n[2][2]);
 	}else {
 		e[2] = 0;
-		//e[2] = -atan(dcm_n[1][0] / dcm_n[2][0]);
 		e[0] = atan2(-dcm_n[1][0], dcm_n[2][0]);
 	}
 	return e;

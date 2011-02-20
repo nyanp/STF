@@ -1,6 +1,6 @@
 /**
  * @file   OrbitCalc.h
- * @brief  
+ * @brief  軌道関係情報を計算するメソッドをstaticメンバとしてまとめたクラス．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -18,23 +18,23 @@ struct PositionInfo;
 class MagneticField;
 class Quaternion;
 
-///軌道情報を元にAOCSに必要な量を計算するstaticメソッド群．
-///呼ばれる度に計算を行うので，計算負荷軽減には呼び出し側でキャッシュを作るなどの工夫が必要
+//! 軌道関係情報を計算するメソッドをstaticメンバとしてまとめたクラス．
+/*!  */
 class OrbitCalc {
 public:
-	//J2000座標系における太陽方向ベクトルを計算．
+	///J2000座標系における太陽方向ベクトルを計算．
     static StaticVector<2> getSunDirection2D(const DateTime& time);
-	//J2000座標系における地球方向ベクトルを計算．
+	///J2000座標系における地球方向ベクトルを計算．
     static StaticVector<2> getEarthDirection2D(const PositionInfo& p);
-	//J2000座標系における太陽方向ベクトルを計算．
+	///J2000座標系における太陽方向ベクトルを計算．
     static StaticVector<3> getSunDirection3D(const DateTime& time);
-	//J2000座標系における地球方向ベクトルを計算．
+	///J2000座標系における地球方向ベクトルを計算．
     static StaticVector<3> getEarthDirection3D(const PositionInfo& p);
-	//衛星座標系における地球方向ベクトルを計算．
+	///衛星座標系における地球方向ベクトルを計算．
 	static StaticVector<3> getEarthDirectionInBodyFrame(const PositionInfo& p, const Quaternion& q);
-	//衛星座標系における太陽方向ベクトルを計算．
+	///衛星座標系における太陽方向ベクトルを計算．
 	static StaticVector<3> getSunDirectionInBodyFrame(const DateTime& time, const Quaternion& q);
-	//IGRFを使用して現在の衛星位置におけるJ2000座標系での磁場を計算．
+	///IGRFを使用して現在の衛星位置におけるJ2000座標系での磁場を計算．
 	static MagneticField getMagneticFieldDirection(const PositionInfo& p, const DateTime& time);
 };
 

@@ -30,6 +30,7 @@ void STTBase<environment::Simulator>::doUpdate(){
 		count_ = 0;
 	}
 }
+
 template <>
 datatype::Quaternion STTBase<environment::Simulator>::inputFilter(const datatype::Quaternion& value){
 	datatype::EulerAngle angle;
@@ -38,24 +39,6 @@ datatype::Quaternion STTBase<environment::Simulator>::inputFilter(const datatype
 	angle[2] = util::math::WhiteNoise(this->err_arcsec_ * util::math::ARCSEC2RAD, 0) / 3;
 	return datatype::TypeConverter::toQuaternion(angle) * value;
 }
-
-/*STTBase::STTBase(const datatype::DCM &angle, interface::IEnvironment *env)
-: set_angle_(angle), core::devicedriver::EnvironmentActor(env)
-{
-}
-
-datatype::Quaternion STTBase::getQuaternion() const 
-{
-    return this->environment_->getQuaternion(*this);
-}
-
-datatype::Quaternion STTBase::getVirtualQuaternion(datatype::Quaternion q_true) const 
-{
-    datatype::Quaternion q = q_true;
-    for(int i = 0; i < 4; i++)
-        q[i] += util::math::WhiteNoise(sigma_,0);//TBD:q‚ÍŒõŽ²‚Ü‚í‚è‚Ì¸“x‚ªˆ«‚¢
-    return q;
-}*/
 
 } /* End of namespace stf::core::devicedriver::stt */
 } /* End of namespace stf::core::devicedriver */

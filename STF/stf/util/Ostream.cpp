@@ -50,10 +50,10 @@ std::ostream &operator << (std::ostream& out_file, const stf::datatype::Time& ti
 // datatype::Matrix
 std::ostream &operator << (std::ostream& out_file, const stf::datatype::Matrix& mat){
 	out_file << "\n";
-	for(int rows = 0;rows < mat.rows_; rows++){
-		for(int cols = 0;cols < mat.cols_; cols++){
+	for(int rows = 0;rows < mat.rows(); rows++){
+		for(int cols = 0;cols < mat.cols(); cols++){
 			out_file.width(11);
-			out_file << mat.value_[rows][cols];
+			out_file << mat[rows][cols];
 		}
 		out_file << "\n";
 	}

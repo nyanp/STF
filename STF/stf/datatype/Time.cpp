@@ -32,11 +32,7 @@ Time::Time(int second, double millisecond)
 Time::~Time()
 {
 }
-// std::ostreamクラスの演算子に対するグローバルな演算子オーバーロード
-std::ostream &operator << (std::ostream& out_file, const Time& time){
-    out_file << time.seconds_ << ":" << time.milliseconds_;
-	return out_file;
-}
+
 
 } /* End of namespace stf::datatype */
 } /* End of namespace stf */

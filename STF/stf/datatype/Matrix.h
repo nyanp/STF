@@ -1,6 +1,6 @@
 /**
  * @file   Matrix.h
- * @brief  
+ * @brief  行列計算を行うクラス．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -22,7 +22,9 @@ template <class T>class Ostream;
 namespace stf { 
 namespace datatype {
 
-class Matrix : public IAocsData{
+//! 可変要素数の行列演算を行う．
+/*! メモリの動的確保を行うため，STFではシステム初期化以外のタイミングでの使用が推奨されない．通常はStaticMatrixを使うこと */
+class Matrix {
  public:
     Matrix();
     Matrix(int rows, int cols);
@@ -44,17 +46,10 @@ class Matrix : public IAocsData{
     Matrix &operator/=(double rhs);
     bool operator==(const Matrix &rhs) const ;
     bool operator!=(const Matrix &rhs) const ;
-	// virtual method for IAocsData
-	virtual const double* toStream() const { assert(0); return 0;}//not implemented
-	virtual int getStreamLength() const { return rows_ * cols_; }
-	virtual void normalize(){}
 	virtual void reset(){ for(int i = 0; i < rows_; i++) value_[i].reset(); }
- public:
-    Vector *value_;
-    int cols_;
-    int rows_;
-
- private:
+	int rows() const { return rows_; }
+	int cols() const { return cols_; }
+private:
 	friend inline const Matrix operator + (const Matrix&, const Matrix&);
 	friend inline const Matrix operator - (const Matrix&, const Matrix&);
 	friend inline const Matrix operator * (const Matrix&, double);
@@ -67,6 +62,9 @@ class Matrix : public IAocsData{
 	friend inline const Vector operator * (const Matrix&, const StaticVector<4>&);
     friend class Vector;
 	template<class T>friend class stf::util::Ostream;//TBD:Vectorからiostreamを隠ぺいしつつ，標準出力を実現するための「遠い」フレンドクラス．あまりよくない書き方
+    Vector *value_;
+    int cols_;
+    int rows_;
 };
 
 ////////////////////////////////

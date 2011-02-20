@@ -294,7 +294,7 @@
     <ClInclude Include="stf\core\functor\Functor.h" />
     <ClInclude Include="stf\core\functor\InputFunctor.h" />
     <ClInclude Include="stf\core\functor\OutputFunctor.h" />
-    <ClInclude Include="stf\core\IEnabable.h" />
+    <ClInclude Include="stf\interface\IEnabable.h" />
     <ClInclude Include="stf\core\manager\CommandManager.h" />
     <ClInclude Include="stf\core\manager\CommandManagerBase.h" />
     <ClInclude Include="stf\core\manager\ControlManager.h" />
@@ -351,7 +351,7 @@
     <ClInclude Include="scube\datatype\Current.h" />
     <ClInclude Include="stf\datatype\DateTime.h" />
     <ClInclude Include="stf\datatype\Envitonments.h" />
-    <ClInclude Include="stf\datatype\ITelemetable.h" />
+    <ClInclude Include="stf\interface\ITelemetable.h" />
     <ClInclude Include="stf\datatype\Magnetic.h" />
     <ClInclude Include="stf\datatype\OrbitCalc.h" />
     <ClInclude Include="stf\datatype\OrbitInfo.h" />

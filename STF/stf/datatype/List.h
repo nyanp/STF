@@ -1,47 +1,11 @@
 /**
  * @file   List.h
- * @brief  
+ * @brief  Simple Template Container
  *
  * @author Taiga Nomi
  * @date   2011.02.16
  */
-/////////////////////////////////
-//  List.h                     //
-//  Simple Template Container  //
-//            Taiga.Noumi      //
-/////////////////////////////////
 
-////
-/* 機能を最小限に絞ったコンテナクラス．
-/* ・assertが有効ならば[]演算子に範囲外チェックが入る
-/* ・データの追加は末尾のみ対応，データの削除は任意位置に対して可能
-/* ・適合する最初の要素を削除するremove,適合する全要素を削除するremoveAllを用意
-/* ・データ参照と追加はO(1)，オブジェクトを引数に取った削除はO(n)
-/* ・イテレータのインターフェースはC++標準コンテナとほぼ同一
-/*
-/*  //sample
-/*  datatype::Quaternion q1(1,0,0,0);
-/*  datatype::Quaternion q2(0,1,0,0);
-/*  datatype::List<datatype::Quaternion> list;
-/*  list.add(q1);
-/*  list.add(q2);
-/*  list.add(q3);
-/*
-/*  //イテレータを使って要素にアクセス
-/*  datatype::List<datatype::Quaternion>::iterator it = list.begin();
-/*  while(it != list.end()){
-/*      std::cout << (*it).conjugate();//*itを使って要素にアクセス
-/*      ++it;                          //後置インクリメントもサポートするが，前置のほうが一時オブジェクトを作らず高速
-/*  }
-/*  for(it = list.begin(); it != list.end(); ++it){
-/*      std::cout << (*it).conjugate();//上と同じことをfor文で
-/*  }
-/*  for(int i = 0; i < list.size(); i++){
-/*      std::cout << list[i].conjugate();//イテレータを使わない場合
-/*  }
-/*
-/*/
-////
 
 #ifndef stf_datatype_List_h
 #define stf_datatype_List_h
@@ -50,23 +14,56 @@
 namespace stf { 
 namespace datatype {
 
+/*! @class List
+	@brief 機能を最小限に絞ったコンテナクラス．
+	・assertが有効ならば[]演算子に範囲外チェックが入る
+	・データの追加は末尾のみ対応，データの削除は任意位置に対して可能
+	・適合する最初の要素を削除するremove,適合する全要素を削除するremoveAllを用意
+	・データ参照と追加はO(1)，オブジェクトを引数に取った削除はO(n)
+	・イテレータのインターフェースはC++標準コンテナとほぼ同一
+
+	@code
+	datatype::Quaternion q1(1,0,0,0);
+	datatype::Quaternion q2(0,1,0,0);
+	datatype::List<datatype::Quaternion> list;
+	list.add(q1);
+	list.add(q2);
+	list.add(q3);
+	
+	//イテレータを使って要素にアクセス
+	datatype::List<datatype::Quaternion>::iterator it = list.begin(), end = list.end();
+
+	while(it != end){
+		std::cout << (*it).conjugate();//*itを使って要素にアクセス
+		++it;                          //後置インクリメントもサポートするが，前置のほうが一時オブジェクトを作らず高速
+	}
+	for(it = list.begin(); it != end; ++it){
+		std::cout << (*it).conjugate();//上と同じことをfor文で
+	}
+	for(int i = 0; i < list.size(); i++){
+		std::cout << list[i].conjugate();//イテレータを使わない場合
+	}
+	@endcode
+*/
 template<class T>
 class List {
 public:
 	explicit List() : size_(0),capacity_(3){ data_ = new T*[capacity_];};
 	~List(){};
-	// inner class
+	/*! @class _iterator
+		@brief Listのイテレータとなる内部クラス
+	*/
 	class _iterator{
 	private:
-		T *point_;//現在の要素
-		const List<T> *list_;//リスト
+		T *point_;
+		const List<T> *list_;
 		int index_;
 	public:
 		_iterator(const _iterator &rhs): point_(rhs.point_), list_(rhs.list_), index_(rhs.index_){};
 		_iterator(): point_(0), list_(0), index_(0) {};
 		_iterator(const List<T>* container, int index=0): point_((*container).data_[index]), list_(container), index_(index) {};
 		~_iterator(){};
-		int index() const { return index_; } //getter
+		int index() const { return index_; }
         T& operator *(){return *point_;}
         bool operator==(const _iterator &rhs){
 			if(point_ == rhs.point_)  //指しているオブジェクトが同一で
@@ -75,23 +72,23 @@ public:
 			return false;
 		}
 		bool operator!=(const _iterator &rhs){return !(*this == rhs);}
-		//前置インクリメント
+		//!前置インクリメント
 		_iterator &operator++(){ 
 			index_++;
 			point_ = list_->data_[index_];
 			return *this;
 		}
-		//後置インクリメント
+		//!後置インクリメント
 		_iterator operator++(int dummy){		
 			return (*this)++;
 		}
-		//前置デクリメント        
+		//!前置デクリメント        
         _iterator &operator--(){
             index--;
             point_ = list_->data_[index_];
             return *this;
         }
-		//後置デクリメント 
+		//!後置デクリメント 
         _iterator &operator--(int dummy){
             return (*this)--;
         }

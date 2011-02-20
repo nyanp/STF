@@ -1,6 +1,6 @@
 /**
  * @file   EulerAngle.h
- * @brief  
+ * @brief  z-y-xオイラー角(rad)．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -10,17 +10,18 @@
 
 #include "StaticVector.h"
 
-
 namespace stf { 
 namespace datatype {
-///z-y-x座標系におけるオイラー角(rad)．ジンバルロックに注意して使用すること．
+
+//! 3-2-1(z-y-x)Euler Angleを表現する．単位rad
+/*! */
 class EulerAngle : public StaticVector<3> {
 public:
-	EulerAngle() {}//: Vector(3) {}
+	EulerAngle() {}
     EulerAngle(const StaticVector<3> &rhs);
 	~EulerAngle(){}
-	// virtual method for IAocsData
-	virtual void normalize();// -180 - 180に調整
+	//! 行列式を１に調整する
+	virtual void normalize();
 };
 
 } /* End of namespace stf::datatype */

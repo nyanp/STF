@@ -9,7 +9,7 @@
 #define stf_core_strategy_control_NJEKF_h
 
 #include "../../core/strategy/control/EKF.h"
-#include "../../datatype/ITelemetable.h"
+#include "../../interface/ITelemetable.h"
 #include "../../interface/Iterator.h"
 #include "../../core/event/SubjectBase.h"
 #include "../../core/event/ModeChangeEvent.h"

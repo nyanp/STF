@@ -32,8 +32,8 @@ void PRISMDummyClock::set_time(datatype::Time t){
 
 void PRISMDummyClock::set_time(int sec, int millisec){
 	this->outputport<0,datatype::Time>().value_b_.clear();
-	this->outputport<0,datatype::Time>().value_b_.addMilliSeconds(millisec);
-	this->outputport<0,datatype::Time>().value_b_.addSeconds(sec);
+	this->outputport<0,datatype::Time>().value_b_.add_milliseconds(millisec);
+	this->outputport<0,datatype::Time>().value_b_.add_seconds(sec);
 }
 
 void PRISMDummyClock::set_absolute_time(datatype::DateTime t){
@@ -51,8 +51,8 @@ PRISMDummyClock::~PRISMDummyClock(void)
 
 void PRISMDummyClock::doUpdate()
 {
-	const_cast<datatype::Time*>(&get<0,datatype::Time>())->addMilliSeconds(this->CLOCK);
-	//this->time_.addMilliSeconds(this->CLOCK);
+	const_cast<datatype::Time*>(&get<0,datatype::Time>())->add_milliseconds(this->CLOCK);
+	//this->time_.add_milliseconds(this->CLOCK);
 }
 
 } /* End of namespace stf::core::devicedriver::clock */

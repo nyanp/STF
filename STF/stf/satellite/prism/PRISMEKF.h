@@ -9,7 +9,6 @@
 #define stf_core_strategy_control_PRISMEKF_h
 
 #include "../../core/strategy/control/EKF.h"
-#include "../../datatype/ITelemetable.h"
 #include "../../interface/Iterator.h"
 
 

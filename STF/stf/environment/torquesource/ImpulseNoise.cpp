@@ -20,7 +20,7 @@ ImpulseNoise::ImpulseNoise(double magnitude, const datatype::Vector &vector, con
 ImpulseNoise::ImpulseNoise(double magnitude, stf::environment::Simulator *env)
 : NoiseBase(env), magnitude_(magnitude)
 {
-	this->duration_.addSeconds(1);
+	this->duration_.add_seconds(1);
     datatype::Vector v(3);
     v[2] = 1;//Z軸まわりの1秒トルクをデフォルトとする．
     this->vector_ = v;

@@ -1,6 +1,6 @@
 /**
  * @file   Iterator.h
- * @brief  
+ * @brief  STFが提供するイテレータとその抽象インターフェース．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -9,12 +9,12 @@
 #define stf_interface_Iterator_h
 
 #include "../datatype/IAocsData.h"
-#include "../datatype/ITelemetable.h"
+#include "ITelemetable.h"
 #include "../datatype/DateTime.h"
 
 namespace stf {
 namespace interface {
-//CPUによる電源のオンオフ制御が可能なコンポーネントに対するインターフェース．
+
 class Iterator {
 public:
     virtual void init()  = 0;
@@ -22,10 +22,7 @@ public:
 	virtual void operator ++() = 0;
 	virtual double operator()() = 0;
 	Iterator(){}
-protected:
-
 };
-
 
 class DataIterator : public Iterator {
 public:

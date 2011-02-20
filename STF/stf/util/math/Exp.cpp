@@ -14,9 +14,9 @@ namespace math {
 
 //行列の指数をn次のマクローリン展開まで計算して返す関数．
 datatype::Matrix exp(datatype::Matrix m,int n){
-    assert(m.rows_ == m.cols_);//正方行列のみ計算可能
+    assert(m.rows() == m.cols());//正方行列のみ計算可能
 
-    datatype::Matrix result(m.rows_,m.cols_);
+    datatype::Matrix result(m.rows(),m.cols());
     result.unitize();
 
     int k = 1;

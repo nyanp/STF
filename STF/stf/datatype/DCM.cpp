@@ -1,37 +1,28 @@
 /**
  * @file   DCM.cpp
- * @brief  
+ * @brief  Z-Y-Xの順で回転させる回転行列（DCM）．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
  */
 #include <assert.h>
-
 #include "DCM.h"
-#include "Matrix.h"
 
 namespace stf { 
 namespace datatype {
 
 DCM::DCM()
-: Matrix(3,3)
 {
 	this->value_[0][0] = 1.0;
 	this->value_[1][1] = 1.0;
 	this->value_[2][2] = 1.0;
 }
 
-DCM::DCM(const Matrix &rhs)
-: Matrix(3,3)
+DCM::DCM(const StaticMatrix<3,3> &rhs)
 {
-	assert(rhs.cols_ == 3 && rhs.rows_ == 3);
-	for(int i = 0; i < rows_; i++)
-		for(int j = 0; j < cols_; j++)
+	for(int i = 0; i < 3; i++)
+		for(int j = 0; j < 3; j++)
 			value_[i][j] = rhs[i][j];
-}
-
-DCM::~DCM()
-{
 }
 
 void DCM::normalize()

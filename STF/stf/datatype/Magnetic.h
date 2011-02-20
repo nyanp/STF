@@ -1,6 +1,6 @@
 /**
  * @file   Magnetic.h
- * @brief  
+ * @brief  磁気関係の物理量を表す
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -11,7 +11,9 @@
 #include "StaticVector.h"
 namespace stf { 
 namespace datatype {
-//磁束密度(T)
+
+//! 3次元磁束密度(T)を表す．
+/*! */
 class MagneticField : public StaticVector<3> {
 public:
 	MagneticField(){}
@@ -23,7 +25,8 @@ public:
 private:
 };
 
-//磁気モーメント(Am2)
+//! 3次元磁気モーメント(Am2)を表す．
+/*! */
 class MagneticMoment : public StaticVector<3> {
 public:
 	MagneticMoment(){}

@@ -94,7 +94,7 @@ double SelectingOutput<T,SCALE>::operator()(){
 
 template<class T, int SCALE>
 void SelectingOutput<T,SCALE>::write_to_telemetry(){
-	(*this->storage_) << this->clock_->getTime().totalMilliseconds();
+	(*this->storage_) << this->clock_->getTime().total_milliseconds();
 	//TBD
 	this->storage_->endl();	
 }
