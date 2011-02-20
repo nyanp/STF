@@ -16,14 +16,19 @@
 
 namespace stf {
 namespace core {
+namespace devicedriver {
+namespace cmhandler {
+class ICommandReceiver;
+} /* End of namespace core::devicedriver::cmhandler */
+} /* End of namespace core::devicedriver */
 namespace command {
 class Command;
-}
+} /* End of namespace core::command */
 namespace strategy {
 namespace control {
 class IControlStrategy;
-}
-}
+} /* End of namespace core::strategy::control */
+} /* End of namespace core::strategy */
 namespace mode {
 class ModeBase;
 } /* End of namespace core::mode */
@@ -48,11 +53,15 @@ public:
 		list_index_ %= NUM_OF_LIST;
 		commandList_[list_index_] = cmd;
 	}
+	void set_receiver(devicedriver::cmhandler::ICommandReceiver* comm_receiver){
+		this->comm_receiver_ = comm_receiver;
+	}
 private:
 	void execute_command_(const datatype::Time& t);
 	void remove_command_(int i);
 	static const int NUM_OF_LIST = 10;
 	command::Command* commandList_[NUM_OF_LIST];
+	devicedriver::cmhandler::ICommandReceiver* comm_receiver_;
 	int list_index_;
 	int crit_list_index_;
 };

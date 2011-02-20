@@ -11,16 +11,28 @@
 #include "../../../datatype/String.h"
 #include "../../../util/Ostream.h"
 #include "../../devicedriver/clock/ITimeClock.h"
+#include <iostream>
 
 namespace stf {
 namespace core {
 namespace devicedriver {
 namespace cmhandler {
 
-// デバッグ用なのでコンソールからの入力は無いと考える
+DummyCommandReceiver::DummyCommandReceiver(int instance_id, core::manager::CommandManagerBase* manager, const std::string &filename)
+	: RootObject(instance_id,"DummyReceiver"), manager_(manager)
+{
+	this->manager_->set_receiver(this);
+
+	if(filename.length() != 0)
+		this->ifs_ = new std::ifstream(filename);
+	else
+		this->ifs_ = 0;
+}
+
 void DummyCommandReceiver::receive_command()
 {
-
+	if(ifs_ == 0) return; // ファイル指定が無ければ何もしない
+	std::getline(*ifs_, last_command_);
 }
 
 // デバッグ用なので送信機に送る変わりにコンソールに出力する

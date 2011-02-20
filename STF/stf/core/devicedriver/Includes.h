@@ -13,7 +13,6 @@
 #include "gyro/Gyro.h"
 #include "sunsensor/SunSensor.h"
 #include "clock/DummyClock.h"
-#include "tmhandler/DummyStorage.h"
 #include "tmhandler/debuglogger.h"
 #include "magnetometer/TAM.h"
 #include "earthsensor/EarthSensor.h"

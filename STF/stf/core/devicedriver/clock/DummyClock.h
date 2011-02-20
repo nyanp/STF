@@ -62,7 +62,7 @@ public:
 	}
 
 	virtual void do_update(){
-		const_cast<datatype::Time*>(&get<0,datatype::Time>())->add_milliseconds(this->CLOCK);
+		const_cast<datatype::Time*>(&get<0,datatype::Time>())->add_milliseconds(CLOCK);
 	}
 };
 
