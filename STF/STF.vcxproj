@@ -73,25 +73,12 @@
     <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="stf\core\command\Command.cpp" />
-    <ClCompile Include="stf\core\command\GetCommand.cpp" />
-    <ClCompile Include="stf\core\command\MessageCommand.cpp" />
     <ClCompile Include="stf\core\command\ModeChangeCommand.cpp" />
-    <ClCompile Include="stf\core\command\SequenceCommand.cpp" />
-    <ClCompile Include="stf\core\command\SimpleFunctionCommand.cpp" />
-    <ClCompile Include="stf\core\command\SwitchCommand.cpp" />
     <ClCompile Include="stf\core\command\TypeListFunctionCommand.cpp" />
     <ClCompile Include="stf\core\command\UnaryFunctionCommand.cpp" />
-    <ClCompile Include="stf\core\devicedriver\adc\ADCBase.cpp" />
-    <ClCompile Include="stf\core\devicedriver\AOCSActuator.cpp" />
-    <ClCompile Include="stf\core\devicedriver\AOCSSensor.cpp" />
-    <ClCompile Include="stf\core\devicedriver\CDHComponent.cpp" />
-    <ClCompile Include="stf\core\devicedriver\clock\DummyClock.cpp" />
     <ClCompile Include="stf\core\datapool\Datapool.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="stf\core\devicedriver\AOCSComponent.cpp" />
     <ClCompile Include="stf\core\devicedriver\cmhandler\DummyCommandReceiver.cpp" />
-    <ClCompile Include="stf\core\devicedriver\Composite.cpp" />
     <ClCompile Include="stf\core\devicedriver\earthsensor\EarthSensor.cpp" />
     <ClCompile Include="stf\core\devicedriver\earthsensor\EarthSensorBase.cpp" />
     <ClCompile Include="stf\core\devicedriver\gps\DummyGPS.cpp" />
@@ -110,7 +97,6 @@
     <ClCompile Include="stf\core\devicedriver\sunsensor\SunSensor.cpp" />
     <ClCompile Include="stf\core\devicedriver\sunsensor\SunSensorBase.cpp" />
     <ClCompile Include="stf\core\event\SubjectBase.cpp" />
-    <ClCompile Include="stf\core\functor\Functor.cpp" />
     <ClCompile Include="stf\core\functor\InputFunctor.cpp" />
     <ClCompile Include="stf\core\functor\OutputFunctor.cpp" />
     <ClCompile Include="stf\core\manager\CommandManager.cpp" />
@@ -128,15 +114,9 @@
     <ClCompile Include="stf\core\manager\TelemetryManagerBase.cpp" />
     <ClCompile Include="stf\core\manager\UnitManager.cpp" />
     <ClCompile Include="stf\core\manager\UnitManagerBase.cpp" />
-    <ClCompile Include="stf\core\mode\ModeBase.cpp" />
     <ClCompile Include="stf\core\strategy\control\Bdot.cpp" />
-    <ClCompile Include="stf\core\strategy\control\Combining.cpp" />
-    <ClCompile Include="stf\core\strategy\control\CouplingCompensation.cpp" />
     <ClCompile Include="stf\core\strategy\control\EKF.cpp" />
-    <ClCompile Include="stf\core\strategy\control\EKFParamaters.cpp" />
-    <ClCompile Include="stf\core\strategy\control\FirstOrderCorrection.cpp" />
     <ClCompile Include="stf\core\strategy\control\GGCompensation.cpp" />
-    <ClCompile Include="stf\core\strategy\control\LiniarCorrection.cpp" />
     <ClCompile Include="stf\core\strategy\control\MagneticMomentToTorque.cpp" />
     <ClCompile Include="stf\core\strategy\control\PID.cpp" />
     <ClCompile Include="stf\core\strategy\control\QUEST.cpp" />
@@ -148,16 +128,8 @@
     <ClCompile Include="stf\core\strategy\control\TorqueCombining.cpp" />
     <ClCompile Include="stf\core\strategy\control\TRIAD.cpp" />
     <ClCompile Include="stf\core\strategy\control\WheelUnloading.cpp" />
-    <ClCompile Include="stf\core\strategy\telemetry\OutputAll.cpp" />
-    <ClCompile Include="stf\core\strategy\telemetry\SelectingOutput.cpp" />
-    <ClCompile Include="stf\datatype\DateTime.cpp" />
     <ClCompile Include="stf\datatype\Magnetic.cpp" />
     <ClCompile Include="stf\datatype\OrbitCalc.cpp" />
-    <ClCompile Include="stf\datatype\OrbitInfo.cpp" />
-    <ClCompile Include="stf\datatype\SatelliteModel.cpp" />
-    <ClCompile Include="stf\datatype\Scalar.cpp" />
-    <ClCompile Include="stf\datatype\StaticMatrix.cpp" />
-    <ClCompile Include="stf\datatype\Time.cpp" />
     <ClCompile Include="stf\core\devicedriver\tmhandler\DebugLogger.cpp" />
     <ClCompile Include="stf\environment\IODriverBase.cpp" />
     <ClCompile Include="stf\environment\models\igrf.cpp" />
