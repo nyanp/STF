@@ -40,8 +40,8 @@ public:
 	~Bdot(){}
 	virtual void do_compute(const datatype::Time& t);
 protected:
-	double k_;//gain of B-dot, including time
-	datatype::MagneticField mag_before_;
+	double k_; //!< gain of B-dot, including time
+	datatype::MagneticField mag_before_; //!< 1サイクル前の磁場．
 };
 
 

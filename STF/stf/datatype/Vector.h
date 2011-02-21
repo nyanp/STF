@@ -16,9 +16,6 @@ namespace util {
 template <class T>class Ostream;
 }
 namespace datatype {
-template<int rows,int cols> class StaticMatrix;
-template<int dim> class StaticVector;
-
 //! 可変要素数のベクトル演算を行う．
 /*! メモリの動的確保を行うため，STFではシステム初期化以外のタイミングでの使用が推奨されない．通常はStaticVectorを使うこと */
 class Vector : public IAocsData {
@@ -59,7 +56,6 @@ private:
 	friend inline const Vector operator %(const Vector&,const Vector&);
 	friend inline const Vector operator /(const Vector&,double);
 	friend inline const Vector operator * (const Matrix&, const Vector&); 
-	friend inline const Vector operator * (const Matrix&, const StaticVector<3>&); 
 	friend inline bool operator >= (const Vector& left, const Vector& right);
 	friend inline bool operator <= (const Vector& left, const Vector& right);
 	friend inline bool operator > (const Vector& left, const Vector& right);

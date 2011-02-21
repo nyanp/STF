@@ -166,8 +166,8 @@ PositionInfo TypeConverter::toPositionInfo(const OrbitInfo &o)
 	for(int i = 0; i < 5; i++){
 		E = E - ( E - o.e * sin(E) - o.M) / ( 1 - o.e * cos(o.e) );
 	}
-	Matrix m1(2,2);
-	Matrix m2(3,2);
+	StaticMatrix<2,2> m1;
+	StaticMatrix<3,2> m2;
 
 	m1[0][0] = cos(o.omega); m1[0][1] = -sin(o.omega);
 	m1[1][0] = sin(o.omega); m1[1][1] = cos(o.omega);
@@ -176,10 +176,10 @@ PositionInfo TypeConverter::toPositionInfo(const OrbitInfo &o)
 	m2[1][0] = sin(o.Omega); m2[1][1] = cos(o.Omega) * cos(o.i);
 	m2[2][0] = 0           ; m2[2][1] = sin(o.i);
 
-	Vector v(2);
+	StaticVector<2> v;
 	v[0] = o.a * (cos(E) - o.e);
 	v[1] = o.a * sin(E) * sqrt(1 - o.e * o.e);
-	Vector v2(2);
+	StaticVector<2> v2;
 	v2[0] = -sin(E);
 	v2[1] = cos(E) * sqrt(1 - o.e * o.e);
 

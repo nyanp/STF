@@ -25,13 +25,6 @@ MagneticField::MagneticField(const StaticVector<3> &rhs)
 		(*this)[i] = rhs[i];
 }
 
-MagneticField::MagneticField(const Vector &rhs)
-{
-	assert(rhs.dimension() == 3);
-	for(int i = 0; i < 3; i++)
-		(*this)[i] = rhs[i];
-}
-
 MagneticField::MagneticField(const MagneticField &rhs)
 {
 	for(int i = 0; i < 3; i++)
@@ -47,13 +40,6 @@ MagneticMoment::MagneticMoment(double m0,double m1, double m2)
 
 MagneticMoment::MagneticMoment(const StaticVector<3> &rhs)
 {
-	for(int i = 0; i < 3; i++)
-		(*this)[i] = rhs[i];
-}
-
-MagneticMoment::MagneticMoment(const Vector &rhs)
-{
-	assert(rhs.dimension() == 3);
 	for(int i = 0; i < 3; i++)
 		(*this)[i] = rhs[i];
 }

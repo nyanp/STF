@@ -89,8 +89,8 @@ private:
 	int capacity_;
 	int index_;
 	Base** data_;
-	datatype::String name_;//データベース名，デバッグ用
-	datatype::Time* time_;
+	datatype::String name_; //!< データベース名，デバッグ用
+	datatype::Time* time_; //!< data_と対応する時刻の配列
 };
 
 //! Tupleを複数個保持するデータプールの基底クラス．
@@ -123,25 +123,34 @@ class AocsDataPool : public DataPoolBase//: public RootObject
 public:
 	AocsDataPool(int instance_id);
 	~AocsDataPool(void){}
+
 	// 最新の値を元の型として取る
 	template<class Producer> typename Producer::Hold get(int index) const{
 		return table_[index]->get<Producer::Hold>();//copy
 	}
+
 	const datatype::IAocsData* get(int rows) const;
+
 	const datatype::IAocsData* get(int rows,int cols) const;
+
 	template<class T>const T& get(int rows){
 		return this->table_[rows]->get<T>();
 	}
+
 	// 最新の値を取る
 	datatype::Time gettime(int index) const;
+
 	const datatype::String& getname(int index) const;
+
 	// 値をセット
 	template<class Producer> void set(int index, const typename Producer::Hold& value){
 		table_[index]->set<typename Producer::Hold>(this->clock_->get_time(),value);
 	}
+
 	template<class Producer> typename Producer::Hold& get_at(int index, int rows) const {
 		return table_[index]->get_at<Producer::Hold>(rows);//copy
 	}
+
 	//初期化時にのみ使用．動的生成
 	//IAocsDataをHoldしているRoot配下のクラスであれば何でも取れる
 	template<class Producer> int create(Producer* producer,unsigned short capacity, const datatype::String& name = "unknown"){
@@ -149,6 +158,7 @@ public:
 		this->table_[createdindex_] = new Tuple<datatype::IAocsData>(capacity,Loki::Type2Type<Producer::Hold>(),name);
 		return createdindex_ ;
 	}
+
 	//初期化時にのみ使用．動的生成
 	//IAocsDataをHoldしているRoot配下のクラスであれば何でも取れる
 	template<class Datatype> int create(Loki::Type2Type<Datatype>,unsigned short capacity, const datatype::String& name = "unknown"){
@@ -156,6 +166,7 @@ public:
 		this->table_[createdindex_] = new Tuple<datatype::IAocsData>(capacity,Loki::Type2Type<Datatype>(),name);
 		return createdindex_ ;
 	}
+
 	//初期化時にのみ使用．動的生成
 	//IAocsDataをHoldしているRoot配下のクラスであれば何でも取れる
 	template<class Producer> int create(int id,unsigned short capacity, const datatype::String& name = "unknown"){
@@ -163,13 +174,15 @@ public:
 		this->table_[createdindex_] = new Tuple<datatype::IAocsData>(capacity,Loki::Type2Type<Producer::Hold>(),name);
 		return createdindex_ ;
 	}
+
 	template<class Producer> void show(int index) const{
 		table_[index]->print<Producer::Hold>();
 	}
+
 	// 指定したインスタンスIDが生成したタプルへのポインタを取得（テレメトリ用）
 	Tuple<datatype::IAocsData>* get_ptr(int index) ;
+
 private:
-	//template<class T, int i> friend class AocsDataPoolIterator;
 	Tuple<datatype::IAocsData>** table_;
 };
 
@@ -181,15 +194,21 @@ class EventDataPool : public DataPoolBase//: public RootObject
 public:
 	EventDataPool(int instance_id);
 	~EventDataPool(void){}
+
 	// 最新の値を元の型として取る
 	template<class Producer> typename Producer::Hold get(int index) const{
 		return table_[index]->get<Producer::Hold>();//copy
 	}
+
 	const core::event::EventBase* get(int rows) const;
+
 	const core::event::EventBase* get(int rows,int cols) const;
+
 	// 最新の値を取る
 	datatype::Time gettime(int index) const;
+
 	const datatype::String& getname(int index) const;
+
 	// 値をセット
 	template<class Producer> void set(int index, const typename Producer::Hold& value){
 		table_[index]->set<typename Producer::Hold>(this->clock_->get_time(),value);
@@ -220,6 +239,7 @@ public:
 	template<class Producer> void show(int index) const{
 		table_[index]->print<Producer::Hold>();
 	}
+
 	// 指定したインスタンスIDが生成したタプルへのポインタを取得（テレメトリ用）
 	Tuple<core::event::EventBase>* get_ptr(int index) ;
 private:

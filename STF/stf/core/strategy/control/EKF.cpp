@@ -97,16 +97,16 @@ void EKF::do_compute(const datatype::Time& t)
 	//util::cout << "t:" << t << "u:" << this->getLastOutputtime<0>() << "p:" << this->getLastOutputtime<1>() << "stt:" << this->getLastInputTime<0>() << util::endl;
 	util::cout << "compute: EKF" << util::endl;	
 	if(this->getLastOutputtime<0>() < t && this->getLastInputTime<0>() >= this->getLastOutputtime<0>()){
-		update( this->source<0,datatype::Quaternion>().get_in_bodyframe(t), t );
+		update_( this->source<0,datatype::Quaternion>().get_in_bodyframe(t), t );
 		//util::cout << "update:" << util::endl;
 	}
 	//util::cout << "propagate:" << util::endl;
-	propagate( this->source<1,datatype::StaticVector<3>>().get_in_bodyframe(t), t );
+	propagate_( this->source<1,datatype::StaticVector<3>>().get_in_bodyframe(t), t );
 
 }
 
 
-void EKF::update(const datatype::Quaternion &input,const datatype::Time& t)
+void EKF::update_(const datatype::Quaternion &input,const datatype::Time& t)
 {
     q_.normalize();
     //カルマンゲインの計算
@@ -144,7 +144,7 @@ void EKF::update(const datatype::Quaternion &input,const datatype::Time& t)
 }
 
 
-void EKF::propagate(const datatype::StaticVector<3>& omega,const datatype::Time& t)
+void EKF::propagate_(const datatype::StaticVector<3>& omega,const datatype::Time& t)
 {
     //現時点での推定角速度でΩ，Aを更新
     this->omega_[0] = omega[0] - this->bref_[0] ;//- this->x_[3];

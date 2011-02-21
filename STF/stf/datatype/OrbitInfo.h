@@ -22,12 +22,12 @@ struct OrbitInfo {
 	{
 		n = sqrt( util::math::MU / (a * a * a) ); 
 	}
-	double a;//長半径(m)
-	double e;//離心率
-	double M;//平均近点離角
-	double i;//軌道傾斜角(rad)
-	double Omega;//昇交点赤経(rad)
-	double omega;//近地点引数
+	double a; //!< 長半径(m)
+	double e; //!< 離心率
+	double M; //!< 平均近点離角
+	double i; //!< 軌道傾斜角(rad)
+	double Omega;//!< 昇交点赤経(rad)
+	double omega;//!< 近地点引数
 	double n;
 };
 
@@ -35,17 +35,17 @@ struct OrbitInfo {
 /*!  */
 struct Geo  {
 	Geo() : latitude(0), longitude(0), altitude(0) {}
-	double latitude;//緯度(rad)
-	double longitude;//経度(rad)
-	double altitude;//高度(m)
+	double latitude; //!< 緯度(rad)
+	double longitude;//!< 経度(rad)
+	double altitude; //!< 高度(m)
 };
 
 //! 衛星座標を地心慣性座標系における位置と速度の6次元ベクトルで保持するクラス．
 /*!  */
 struct PositionInfo  {
 	PositionInfo() {}
-	StaticVector<3> position;
-	StaticVector<3> velocity;
+	StaticVector<3> position; //!< 地球中心からの位置(m)
+	StaticVector<3> velocity; //!< 速度ベクトル(m/s)
 };
 
 } /* End of namespace stf::datatype */

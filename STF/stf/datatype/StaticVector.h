@@ -9,7 +9,6 @@
 #define stf_datatype_StaticVector_h
 #include "assert.h"
 #include "IAocsData.h"
-#include "Vector.h"
 #include "../util/math.h"
 
 namespace stf { 
@@ -22,7 +21,6 @@ class StaticVector : public IAocsData {
 public:
 	StaticVector(){ for ( int i = 0; i < dim; i++ ) value_[i] = 0.0; }
 	StaticVector(const StaticVector<dim>& rhs);
-	StaticVector(const Vector& rhs);
 	~StaticVector(){}
 	virtual void normalize();
 	virtual void reset(){ for ( int i = 0; i < dim; i++ ) value_[i] = 0.0; }
@@ -35,7 +33,6 @@ public:
     inline const double &operator[](int index) const ;
     inline double &operator[](int index) ;
     inline StaticVector<dim> &operator=(const StaticVector<dim> &rhs);
-    inline StaticVector<dim> &operator=(const Vector &rhs);
     bool operator==(const StaticVector<dim> &rhs) const ;
     bool operator!=(const StaticVector<dim> &rhs) const ;
     inline StaticVector<dim> &operator+=(const StaticVector<dim> &rhs);
@@ -44,21 +41,11 @@ public:
     inline StaticVector<dim> &operator/=(double rhs);
 protected:
 	double value_[dim];
-private:
-	friend inline const Matrix operator * (const Matrix&, const Matrix&);
 };
 
 template<int dim>
 StaticVector<dim>::StaticVector(const StaticVector<dim> &rhs)
 {
-	for(int i = 0; i < dim; i++)
-		this->value_[i] = rhs[i];
-}
-
-template<int dim>
-StaticVector<dim>::StaticVector(const Vector &rhs)
-{
-	assert(rhs.dimension() == dim);
 	for(int i = 0; i < dim; i++)
 		this->value_[i] = rhs[i];
 }
@@ -89,15 +76,6 @@ double StaticVector<dim>::norm(int n) const
 template<int dim>
 StaticVector<dim> &StaticVector<dim>::operator=(const StaticVector<dim> &rhs)
 {
-	for(int i = 0; i < dim; i++)
-		this->value_[i] = rhs[i];
-	return *this;
-}
-
-template<int dim>
-StaticVector<dim> &StaticVector<dim>::operator=(const Vector &rhs)
-{
-	assert(dim == rhs.dimension());
 	for(int i = 0; i < dim; i++)
 		this->value_[i] = rhs[i];
 	return *this;

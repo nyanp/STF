@@ -18,7 +18,6 @@ class MagneticField : public StaticVector<3> {
 public:
 	MagneticField(){}
     MagneticField(const StaticVector<3> &rhs);
-    MagneticField(const Vector &rhs);
     MagneticField(const MagneticField &rhs);
     MagneticField(double m0,double m1, double m2);
 	~MagneticField(){}
@@ -31,7 +30,6 @@ class MagneticMoment : public StaticVector<3> {
 public:
 	MagneticMoment(){}
     MagneticMoment(const StaticVector<3> &rhs);
-    MagneticMoment(const Vector &rhs);
     MagneticMoment(const MagneticMoment &rhs);
     MagneticMoment(double m0,double m1, double m2);
 	~MagneticMoment(){}

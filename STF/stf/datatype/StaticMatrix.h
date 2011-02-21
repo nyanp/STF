@@ -9,7 +9,6 @@
 #define stf_datatype_StaticMatrix_h
 
 #include <assert.h>
-#include "Vector.h"
 #include "StaticVector.h"
 
 namespace stf { 
@@ -43,13 +42,11 @@ public:
 	virtual void reset(){ for(int i = 0; i < rows; i++) value_[i].reset(); }
 protected:
 	StaticVector<cols> value_[rows];
-private:
-    friend class Vector;
 };
 
-////////////////////////////////
+//////////////////////////////////////
 //  Inline Methods for StaticMatrix //
-////////////////////////////////
+//////////////////////////////////////
 
 template<int rows, int cols>
 inline const StaticVector<cols> &StaticMatrix<rows,cols>::operator[](int index) const
@@ -127,19 +124,10 @@ inline const StaticVector<rows> operator * (const StaticMatrix<rows,cols>& mat, 
 	return temp;
 }
 
-template<int rows, int cols>
-inline const Vector operator * (const StaticMatrix<rows,cols>& mat, const Vector& vec){
 
-	Vector temp(rows);
-	for(int i = 0; i < rows; i++)
-		for(int index = 0; index < cols; index ++)
-			temp[i] += mat[i][index] * vec[index];
-	return temp;	
-}
-
-///////////////////////////////////
-// Member Function
-
+//////////////////////
+// Member Function  //
+//////////////////////
 
 template<int rows, int cols>
 StaticMatrix<rows,cols>::StaticMatrix(const StaticMatrix<rows,cols> &rhs)
@@ -194,7 +182,6 @@ double StaticMatrix<rows,cols>::trace() const
 template<int rows, int cols>
 StaticMatrix<cols,rows> StaticMatrix<rows,cols>::trans() const 
 {
-	//assert(rows == cols);
 	StaticMatrix<cols,rows> temp;
 	for(int i = 0; i < rows; i++)
 		for(int j = 0; j < cols; j++)

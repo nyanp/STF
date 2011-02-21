@@ -24,6 +24,7 @@ namespace stt {
 //! スターセンサの基底クラス．
 /*! 
 	@tparam T コンポーネントの環境クラス．
+	@todo count_をどうにかする
 */
 template <class T>
 class STTBase : public AOCSSensor<datatype::Quaternion,datatype::Quaternion,T>{
@@ -35,13 +36,10 @@ public:
 	virtual datatype::Quaternion filter(const datatype::Quaternion& value); 
 private:
     STTBase();
-    //datatype::Quaternion q_;
 	datatype::Quaternion q_set_angle_;
 	double err_arcsec_;
 	int sigma_;
 	int count_;//TBD
-    //datatype::Vector qerror_[ 4];
-    //double sigma_;
 };
 
 

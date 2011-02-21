@@ -44,7 +44,7 @@ public:
 	~GGCompensation(){}
 	virtual void do_compute(const datatype::Time& t);
 protected:
-	datatype::SatelliteModel sat_;
+	datatype::SatelliteModel sat_; //!< 衛星質量特性情報．
 };
 
 

@@ -223,7 +223,7 @@ int main(void){
 	s.init(gl, STEPTIME, 100, orbit, new std::ofstream("output.csv"));
 	
 	//シミュレータ外乱設定
-	datatype::Vector v(3);
+	datatype::StaticVector<3> v;
 	v[0] = 0.3;
 	v[1] = -0.2;
 	s.attachNoiseSource(new environment::torquesource::ImpulseNoise(3,v,0,3000,&s));
