@@ -1,6 +1,6 @@
 /**
  * @file   Bdot.cpp
- * @brief  
+ * @brief  B-Dot則を計算する制御ブロック．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -14,7 +14,6 @@ namespace core {
 namespace strategy {
 namespace control {
 
-
 Bdot::Bdot(int instance_id,double k, 
 		devicedriver::OutputPort<datatype::MagneticField>* mag_source,
 		devicedriver::InputPort<datatype::MagneticMoment>* torque_out
@@ -27,7 +26,7 @@ Bdot::Bdot(int instance_id,double k,
 }
 
 void Bdot::do_compute(const datatype::Time& t) {
-	if(t <= this->last_update_) return; //���ɕʂ̃u���b�N�o�R�ōX�V�ς݂Ȃ�Čv�Z���Ȃ�
+	if(t <= this->last_update_) return; //既に別のブロック経由で更新済みなら再計算しない
 	util::cout << "compute: bdot" << util::endl;
 	this->source<0,datatype::MagneticField>().get_in_bodyframe(t);
 

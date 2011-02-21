@@ -1,6 +1,6 @@
 /**
  * @file   CDHComponent.h
- * @brief  AD•ÏŠ·Ší‚â‰·“xŒv‚È‚ÇC•¡”‚ÌƒZƒ“ƒT‚ğˆêŠ‡‚µ‚Äæ‚èˆµ‚¤ƒRƒ“ƒ|[ƒlƒ“ƒg‚ÌŠî’êƒNƒ‰ƒXD
+ * @brief  ADå¤‰æ›å™¨ã‚„æ¸©åº¦è¨ˆãªã©ï¼Œè¤‡æ•°ã®ã‚»ãƒ³ã‚µã‚’ä¸€æ‹¬ã—ã¦å–ã‚Šæ‰±ã†ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆã®åŸºåº•ã‚¯ãƒ©ã‚¹ï¼
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -26,11 +26,11 @@ template<class T, int NUM, class Env> class CDHComponentIterator;
 namespace core {
 namespace devicedriver {
 
-//! AD•ÏŠ·Ší‚â‰·“xŒv‚È‚ÇC•¡”‚ÌƒZƒ“ƒT‚ğˆêŠ‡‚µ‚Äæ‚èˆµ‚¤ƒRƒ“ƒ|[ƒlƒ“ƒg‚ÌŠî’êƒNƒ‰ƒXD
+//! ADå¤‰æ›å™¨ã‚„æ¸©åº¦è¨ˆãªã©ï¼Œè¤‡æ•°ã®ã‚»ãƒ³ã‚µã‚’ä¸€æ‹¬ã—ã¦å–ã‚Šæ‰±ã†ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆã®åŸºåº•ã‚¯ãƒ©ã‚¹ï¼
 /*! 
-	@tparam T   ‘ª’è‚µ‚Ä‚¢‚é•¨——Ê‚ğ•\‚·Œ^D
-	@tparam NUM ŠÏ‘ªƒ`ƒƒƒlƒ‹”D
-	@tparam Env ƒRƒ“ƒ|[ƒlƒ“ƒg‚ÌŠÂ‹«ƒNƒ‰ƒXD
+	@tparam T   æ¸¬å®šã—ã¦ã„ã‚‹ç‰©ç†é‡ã‚’è¡¨ã™å‹ï¼
+	@tparam NUM è¦³æ¸¬ãƒãƒ£ãƒãƒ«æ•°ï¼
+	@tparam Env ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆã®ç’°å¢ƒã‚¯ãƒ©ã‚¹ï¼
 */
 template<class T, int NUM, class Env = ENV>
 class CDHComponent : public RootObject, virtual public IDataUpdatable, virtual public ISwitchable {
@@ -55,10 +55,10 @@ private:
     CDHComponent();
 };
 
-//! “dˆ³‚Æ“d—¬‚È‚ÇCˆÙ‚È‚é•¨——Ê‚ğ•¡‡“I‚Éæ‚èˆµ‚¤ƒRƒ“ƒ|[ƒlƒ“ƒg‚ÌŠî’êƒNƒ‰ƒXD
+//! é›»åœ§ã¨é›»æµãªã©ï¼Œç•°ãªã‚‹ç‰©ç†é‡ã‚’è¤‡åˆçš„ã«å–ã‚Šæ‰±ã†ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆã®åŸºåº•ã‚¯ãƒ©ã‚¹ï¼
 /*! 
-	@tparam TList   ‘ª’è‚µ‚Ä‚¢‚é•¨——Ê‚ğ•\‚·Œ^DLoki‚ÌTypelist‚ğ—^‚¦‚é
-	@tparam Env     ƒRƒ“ƒ|[ƒlƒ“ƒg‚ÌŠÂ‹«ƒNƒ‰ƒXD
+	@tparam TList   æ¸¬å®šã—ã¦ã„ã‚‹ç‰©ç†é‡ã‚’è¡¨ã™å‹ï¼Lokiã®Typelistã‚’ä¸ãˆã‚‹
+	@tparam Env     ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆã®ç’°å¢ƒã‚¯ãƒ©ã‚¹ï¼
 */
 template<class TList, class Env = ENV>
 class CDHMultiComponent : public RootObject, public OutputPorts< TList >, virtual public IDataUpdatable, virtual public ISwitchable {
@@ -76,11 +76,11 @@ protected:
 
 namespace interface {
 
-//! scalarŒ^‚È‚Ç,value()‚Ådouble‚ğæ‚ê‚éŒ^‚ÌCDHComponent‚É‘Î‚µ‚Äg‚¦‚éƒCƒeƒŒ[ƒ^
+//! scalarå‹ãªã©,value()ã§doubleã‚’å–ã‚Œã‚‹å‹ã®CDHComponentã«å¯¾ã—ã¦ä½¿ãˆã‚‹ã‚¤ãƒ†ãƒ¬ãƒ¼ã‚¿
 /*! 
-	@tparam T   ‘ÎÛCDHComponent‚ª‘ª’è‚µ‚Ä‚¢‚é•¨——Ê‚ğ•\‚·Œ^D
-	@tparam NUM ‘ÎÛCDHComponent‚ÌŠÏ‘ªƒ`ƒƒƒlƒ‹”D
-	@tparam Env ƒRƒ“ƒ|[ƒlƒ“ƒg‚ÌŠÂ‹«ƒNƒ‰ƒXD
+	@tparam T   å¯¾è±¡CDHComponentãŒæ¸¬å®šã—ã¦ã„ã‚‹ç‰©ç†é‡ã‚’è¡¨ã™å‹ï¼
+	@tparam NUM å¯¾è±¡CDHComponentã®è¦³æ¸¬ãƒãƒ£ãƒãƒ«æ•°ï¼
+	@tparam Env ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆã®ç’°å¢ƒã‚¯ãƒ©ã‚¹ï¼
 */
 template<class T, int NUM, class Env>
 class CDHComponentIterator : public Iterator {

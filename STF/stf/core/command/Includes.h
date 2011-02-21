@@ -1,12 +1,12 @@
 /**
  * @file   Includes.h
- * @brief  ƒRƒ}ƒ“ƒhŠÖŒW‚ÌˆêŠ‡ƒCƒ“ƒNƒ‹[ƒhD
+ * @brief  ã‚³ãƒãƒ³ãƒ‰é–¢ä¿‚ã®ä¸€æ‹¬ã‚¤ãƒ³ã‚¯ãƒ«ãƒ¼ãƒ‰ï¼
  *
  * @author Taiga Nomi
  * @date   2011.02.16
  */
-#ifndef core_command_Includes_h
-#define core_command_Includes_h
+#ifndef stf_core_command_Includes_h
+#define stf_core_command_Includes_h
 
 #include "GetCommand.h"
 #include "MessageCommand.h"
@@ -17,4 +17,4 @@
 #include "TypeListFunctionCommand.h"
 #include "UnaryFunctionCommand.h"
 
-#endif // core_component_Actuator_h
+#endif // stf_core_devicedriver_Actuator_h

@@ -24,11 +24,11 @@ namespace stf {
 namespace datatype {
 
 StaticVector<2> OrbitCalc::getSunDirection2D(const DateTime& time){
-	//§Œäƒnƒ“ƒhƒuƒbƒNP.280. ’n‹…’†S‚©‚ç‚Ì‘¾—z•ûŒüƒxƒNƒgƒ‹‚ğ‹‚ß‚é
+	//åˆ¶å¾¡ãƒãƒ³ãƒ‰ãƒ–ãƒƒã‚¯P.280. åœ°çƒä¸­å¿ƒã‹ã‚‰ã®å¤ªé™½æ–¹å‘ãƒ™ã‚¯ãƒˆãƒ«ã‚’æ±‚ã‚ã‚‹
 	double T  = (time.get_julius() - 2451545.0) / 36525 ;
 	double M = util::math::DEG2RAD * (357.5256 + 35999.045 * T);
 	double lambda = util::math::DEG2RAD * (282.94 + M + (6892 / 3600) * sin(M) + (72/3600) * sin(2*M) - (0.002652 - (1250.09115 / 3600) * T));
-	double eta = util::math::DEG2RAD * 23.43929111;//•½‹Ï‰©“¹ŒXŠp
+	double eta = util::math::DEG2RAD * 23.43929111;//å¹³å‡é»„é“å‚¾è§’
 	StaticVector<3> v;
 	v[0] = cos(lambda);
 	v[1] = sin(lambda) * cos(eta);
@@ -46,11 +46,11 @@ StaticVector<3> OrbitCalc::getEarthDirection3D(const PositionInfo& p){
 }
 
 StaticVector<3> OrbitCalc::getSunDirection3D(const DateTime& time){
-	//§Œäƒnƒ“ƒhƒuƒbƒNP.280. ’n‹…’†S‚©‚ç‚Ì‘¾—z•ûŒüƒxƒNƒgƒ‹‚ğ‹‚ß‚é
+	//åˆ¶å¾¡ãƒãƒ³ãƒ‰ãƒ–ãƒƒã‚¯P.280. åœ°çƒä¸­å¿ƒã‹ã‚‰ã®å¤ªé™½æ–¹å‘ãƒ™ã‚¯ãƒˆãƒ«ã‚’æ±‚ã‚ã‚‹
 	double T  = (time.get_julius() - 2451545.0) / 36525 ;
 	double M = util::math::DEG2RAD * (357.5256 + 35999.045 * T);
 	double lambda = util::math::DEG2RAD * (282.94 + M + (6892 / 3600) * sin(M) + (72/3600) * sin(2*M) - (0.002652 - (1250.09115 / 3600) * T));
-	double eta = util::math::DEG2RAD * 23.43929111;//•½‹Ï‰©“¹ŒXŠp
+	double eta = util::math::DEG2RAD * 23.43929111;//å¹³å‡é»„é“å‚¾è§’
 	StaticVector<3> v;
 	v[0] = cos(lambda);
 	v[1] = sin(lambda) * cos(eta);
@@ -58,12 +58,12 @@ StaticVector<3> OrbitCalc::getSunDirection3D(const DateTime& time){
 	return v;
 }
 
-//‰q¯À•WŒn‚É‚¨‚¯‚é’n‹…•ûŒüƒxƒNƒgƒ‹‚ğŒvZD
+//è¡›æ˜Ÿåº§æ¨™ç³»ã«ãŠã‘ã‚‹åœ°çƒæ–¹å‘ãƒ™ã‚¯ãƒˆãƒ«ã‚’è¨ˆç®—ï¼
 StaticVector<3> OrbitCalc::getEarthDirectionInBodyFrame(const PositionInfo& p, const Quaternion& q){
 	return - (datatype::TypeConverter::toDCM(q) * p.position) ;
 }
 
-//‰q¯À•WŒn‚É‚¨‚¯‚é‘¾—z•ûŒüƒxƒNƒgƒ‹‚ğŒvZD
+//è¡›æ˜Ÿåº§æ¨™ç³»ã«ãŠã‘ã‚‹å¤ªé™½æ–¹å‘ãƒ™ã‚¯ãƒˆãƒ«ã‚’è¨ˆç®—ï¼
 StaticVector<3> OrbitCalc::getSunDirectionInBodyFrame(const DateTime& time, const Quaternion& q){
 	return datatype::TypeConverter::toDCM(q) * getSunDirection3D(time);
 }

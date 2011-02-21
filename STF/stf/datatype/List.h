@@ -15,12 +15,12 @@ namespace stf {
 namespace datatype {
 
 /*! @class List
-	@brief ‹@”\‚ğÅ¬ŒÀ‚Éi‚Á‚½ƒRƒ“ƒeƒiƒNƒ‰ƒXD
-	Eassert‚ª—LŒø‚È‚ç‚Î[]‰‰Zq‚É”ÍˆÍŠOƒ`ƒFƒbƒN‚ª“ü‚é
-	Eƒf[ƒ^‚Ì’Ç‰Á‚Í––”ö‚Ì‚İ‘Î‰Cƒf[ƒ^‚Ìíœ‚Í”CˆÓˆÊ’u‚É‘Î‚µ‚Ä‰Â”\
-	E“K‡‚·‚éÅ‰‚Ì—v‘f‚ğíœ‚·‚éremove,“K‡‚·‚é‘S—v‘f‚ğíœ‚·‚éremove_all‚ğ—pˆÓ
-	Eƒf[ƒ^QÆ‚Æ’Ç‰Á‚ÍO(1)CƒIƒuƒWƒFƒNƒg‚ğˆø”‚Éæ‚Á‚½íœ‚ÍO(n)
-	EƒCƒeƒŒ[ƒ^‚ÌƒCƒ“ƒ^[ƒtƒF[ƒX‚ÍC++•W€ƒRƒ“ƒeƒi‚Æ‚Ù‚Ú“¯ˆê
+	@brief æ©Ÿèƒ½ã‚’æœ€å°é™ã«çµã£ãŸã‚³ãƒ³ãƒ†ãƒŠã‚¯ãƒ©ã‚¹ï¼
+	ãƒ»assertãŒæœ‰åŠ¹ãªã‚‰ã°[]æ¼”ç®—å­ã«ç¯„å›²å¤–ãƒã‚§ãƒƒã‚¯ãŒå…¥ã‚‹
+	ãƒ»ãƒ‡ãƒ¼ã‚¿ã®è¿½åŠ ã¯æœ«å°¾ã®ã¿å¯¾å¿œï¼Œãƒ‡ãƒ¼ã‚¿ã®å‰Šé™¤ã¯ä»»æ„ä½ç½®ã«å¯¾ã—ã¦å¯èƒ½
+	ãƒ»é©åˆã™ã‚‹æœ€åˆã®è¦ç´ ã‚’å‰Šé™¤ã™ã‚‹remove,é©åˆã™ã‚‹å…¨è¦ç´ ã‚’å‰Šé™¤ã™ã‚‹remove_allã‚’ç”¨æ„
+	ãƒ»ãƒ‡ãƒ¼ã‚¿å‚ç…§ã¨è¿½åŠ ã¯O(1)ï¼Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’å¼•æ•°ã«å–ã£ãŸå‰Šé™¤ã¯O(n)
+	ãƒ»ã‚¤ãƒ†ãƒ¬ãƒ¼ã‚¿ã®ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ãƒ¼ã‚¹ã¯C++æ¨™æº–ã‚³ãƒ³ãƒ†ãƒŠã¨ã»ã¼åŒä¸€
 
 	@code
 	datatype::Quaternion q1(1,0,0,0);
@@ -30,18 +30,18 @@ namespace datatype {
 	list.add(q2);
 	list.add(q3);
 	
-	//ƒCƒeƒŒ[ƒ^‚ğg‚Á‚Ä—v‘f‚ÉƒAƒNƒZƒX
+	//ã‚¤ãƒ†ãƒ¬ãƒ¼ã‚¿ã‚’ä½¿ã£ã¦è¦ç´ ã«ã‚¢ã‚¯ã‚»ã‚¹
 	datatype::List<datatype::Quaternion>::iterator it = list.begin(), end = list.end();
 
 	while(it != end){
-		std::cout << (*it).conjugate();//*it‚ğg‚Á‚Ä—v‘f‚ÉƒAƒNƒZƒX
-		++it;                          //Œã’uƒCƒ“ƒNƒŠƒƒ“ƒg‚àƒTƒ|[ƒg‚·‚é‚ªC‘O’u‚Ì‚Ù‚¤‚ªˆêƒIƒuƒWƒFƒNƒg‚ğì‚ç‚¸‚‘¬
+		std::cout << (*it).conjugate();//*itã‚’ä½¿ã£ã¦è¦ç´ ã«ã‚¢ã‚¯ã‚»ã‚¹
+		++it;                          //å¾Œç½®ã‚¤ãƒ³ã‚¯ãƒªãƒ¡ãƒ³ãƒˆã‚‚ã‚µãƒãƒ¼ãƒˆã™ã‚‹ãŒï¼Œå‰ç½®ã®ã»ã†ãŒä¸€æ™‚ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ä½œã‚‰ãšé«˜é€Ÿ
 	}
 	for(it = list.begin(); it != end; ++it){
-		std::cout << (*it).conjugate();//ã‚Æ“¯‚¶‚±‚Æ‚ğfor•¶‚Å
+		std::cout << (*it).conjugate();//ä¸Šã¨åŒã˜ã“ã¨ã‚’foræ–‡ã§
 	}
 	for(int i = 0; i < list.size(); i++){
-		std::cout << list[i].conjugate();//ƒCƒeƒŒ[ƒ^‚ğg‚í‚È‚¢ê‡
+		std::cout << list[i].conjugate();//ã‚¤ãƒ†ãƒ¬ãƒ¼ã‚¿ã‚’ä½¿ã‚ãªã„å ´åˆ
 	}
 	@endcode
 */
@@ -51,7 +51,7 @@ public:
 	explicit List() : size_(0),capacity_(3){ data_ = new T*[capacity_];};
 	~List(){};
 	/*! @class _iterator
-		@brief List‚ÌƒCƒeƒŒ[ƒ^‚Æ‚È‚é“à•”ƒNƒ‰ƒX
+		@brief Listã®ã‚¤ãƒ†ãƒ¬ãƒ¼ã‚¿ã¨ãªã‚‹å†…éƒ¨ã‚¯ãƒ©ã‚¹
 	*/
 	class _iterator{
 	private:
@@ -66,29 +66,29 @@ public:
 		int index() const { return index_; }
         T& operator *(){return *point_;}
         bool operator==(const _iterator &rhs){
-			if(point_ == rhs.point_)  //w‚µ‚Ä‚¢‚éƒIƒuƒWƒFƒNƒg‚ª“¯ˆê‚Å
-              if(index_ == rhs.index_)//ƒCƒ“ƒfƒbƒNƒX‚àˆê‚Ìê‡
+			if(point_ == rhs.point_)  //æŒ‡ã—ã¦ã„ã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãŒåŒä¸€ã§
+              if(index_ == rhs.index_)//ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã‚‚ä¸€ç·’ã®å ´åˆ
                 return true;
 			return false;
 		}
 		bool operator!=(const _iterator &rhs){return !(*this == rhs);}
-		//!‘O’uƒCƒ“ƒNƒŠƒƒ“ƒg
+		//!å‰ç½®ã‚¤ãƒ³ã‚¯ãƒªãƒ¡ãƒ³ãƒˆ
 		_iterator &operator++(){ 
 			index_++;
 			point_ = list_->data_[index_];
 			return *this;
 		}
-		//!Œã’uƒCƒ“ƒNƒŠƒƒ“ƒg
+		//!å¾Œç½®ã‚¤ãƒ³ã‚¯ãƒªãƒ¡ãƒ³ãƒˆ
 		_iterator operator++(int dummy){		
 			return (*this)++;
 		}
-		//!‘O’uƒfƒNƒŠƒƒ“ƒg        
+		//!å‰ç½®ãƒ‡ã‚¯ãƒªãƒ¡ãƒ³ãƒˆ        
         _iterator &operator--(){
             index--;
             point_ = list_->data_[index_];
             return *this;
         }
-		//!Œã’uƒfƒNƒŠƒƒ“ƒg 
+		//!å¾Œç½®ãƒ‡ã‚¯ãƒªãƒ¡ãƒ³ãƒˆ 
         _iterator &operator--(int dummy){
             return (*this)--;
         }
@@ -109,22 +109,22 @@ public:
 	}
 	void add(T& data){
         size_++;
-        //í‚É1ŒÂˆÈã‚Ì‹ó‚«ƒXƒƒbƒg‚ªo—ˆ‚é‚æ‚¤‚Écapacity_‚ğŠm•Û‚·‚é
+        //å¸¸ã«1å€‹ä»¥ä¸Šã®ç©ºãã‚¹ãƒ­ãƒƒãƒˆãŒå‡ºæ¥ã‚‹ã‚ˆã†ã«capacity_ã‚’ç¢ºä¿ã™ã‚‹
 		if(size_ < capacity_){
 			data_[size_-1] = &data;
-            data_[size_] = 0;//ÅŒã‚Ìƒ|ƒCƒ“ƒ^‚ğNULL‚Å–„‚ß‚é
+            data_[size_] = 0;//æœ€å¾Œã®ãƒã‚¤ãƒ³ã‚¿ã‚’NULLã§åŸ‹ã‚ã‚‹
 		}else{
 			T** tempdata = new T*[2 * capacity_];
 			for(int i = 0; i < capacity_; i++)
-				tempdata[i] = data_[i];//ƒ|ƒCƒ“ƒ^‚ğƒRƒs[
+				tempdata[i] = data_[i];//ãƒã‚¤ãƒ³ã‚¿ã‚’ã‚³ãƒ”ãƒ¼
 			delete [] data_;
 			data_ = tempdata;
 			data_[size_-1] = &data;
-            data_[size_] = 0;//ÅŒã‚Ìƒ|ƒCƒ“ƒ^‚ğNULL‚Å–„‚ß‚é
+            data_[size_] = 0;//æœ€å¾Œã®ãƒã‚¤ãƒ³ã‚¿ã‚’NULLã§åŸ‹ã‚ã‚‹
 			capacity_ *= 2;
 		}
 	}
-    void push_back(T& data){//std::vector‚ÆŒİŠ·«‚ğ‚½‚¹‚é‚½‚ß‚ÌŠÖ”
+    void push_back(T& data){//std::vectorã¨äº’æ›æ€§ã‚’æŒãŸã›ã‚‹ãŸã‚ã®é–¢æ•°
         add(data);
     }
     void remove(T& data){
@@ -144,13 +144,13 @@ public:
           else i++;
         }
     }
-	List(const List<T>& rhs){}//ƒRƒs[ƒRƒ“ƒXƒgƒ‰ƒNƒ^CÀs‚³‚ê‚È‚¢
+	List(const List<T>& rhs){}//ã‚³ãƒ”ãƒ¼ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ï¼Œå®Ÿè¡Œã•ã‚Œãªã„
 private:
 	T** data_;
-	int capacity_;//Œ»İŠm•Û‚³‚ê‚Ä‚¢‚é”z—ñƒTƒCƒY
-	int size_;//g—p‚³‚ê‚Ä‚¢‚é”z—ñƒTƒCƒY
-    T& operator =(const List<T>& rhs){}//ƒRƒs[CÀs‚³‚ê‚È‚¢
-    //i”Ô–Ú‚Ì—v‘f‚ğíœ
+	int capacity_;//ç¾åœ¨ç¢ºä¿ã•ã‚Œã¦ã„ã‚‹é…åˆ—ã‚µã‚¤ã‚º
+	int size_;//ä½¿ç”¨ã•ã‚Œã¦ã„ã‚‹é…åˆ—ã‚µã‚¤ã‚º
+    T& operator =(const List<T>& rhs){}//ã‚³ãƒ”ãƒ¼ï¼Œå®Ÿè¡Œã•ã‚Œãªã„
+    //iç•ªç›®ã®è¦ç´ ã‚’å‰Šé™¤
     void removeat_(int index){
         assert(size_ != 0);
         size_ --;
@@ -161,10 +161,10 @@ private:
             capacity_ /= 2;
 			T** tempdata = new T*[capacity_];
 			for(int i = 0; i < size_; i++)
-			  tempdata[i] = data_[i];//ƒ|ƒCƒ“ƒ^‚ğƒRƒs[
+			  tempdata[i] = data_[i];//ãƒã‚¤ãƒ³ã‚¿ã‚’ã‚³ãƒ”ãƒ¼
 			delete [] data_;
 			data_ = tempdata;
-            data_[size_] = 0;//ÅŒã‚Ìƒ|ƒCƒ“ƒ^‚ğNULL‚Å–„‚ß‚é
+            data_[size_] = 0;//æœ€å¾Œã®ãƒã‚¤ãƒ³ã‚¿ã‚’NULLã§åŸ‹ã‚ã‚‹
         }
     }
 };

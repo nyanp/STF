@@ -1,6 +1,6 @@
 /**
  * @file   Iterator.h
- * @brief  STF���񋟂���C�e���[�^�Ƃ��̒��ۃC���^�[�t�F�[�X�D
+ * @brief  STFが提供するイテレータとその抽象インターフェース．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -15,6 +15,20 @@
 namespace stf {
 namespace interface {
 
+//! イテレータの抽象インターフェース．
+/*! 
+	STFの内部オブジェクト用に用意されるイテレータ群の共通インターフェース．
+	すべて片方向のinput iteratorで，かつ返す値はdouble型に限定されている．
+	使い方は以下のとおり．
+	@code
+	Object* obj = new Object();//走査対象
+	Iterator it(obj);
+	while(!it.end()){
+		std::cout << (*it)() << ",";
+		++it;
+	}
+	@endcode
+*/
 class Iterator {
 public:
     virtual void init()  = 0;
@@ -24,6 +38,8 @@ public:
 	Iterator(){}
 };
 
+//! IAocsDataの各要素を取得する入力イテレータ．
+/*! */
 class DataIterator : public Iterator {
 public:
 	DataIterator(const datatype::IAocsData* data): index_(0) {
@@ -40,6 +56,8 @@ private:
 	int size_;
 };
 
+//! 秒，ミリ秒の順で時刻を取得する入力イテレータ．
+/*! */
 class TimeIterator : public Iterator {
 public:
 	TimeIterator(const datatype::Time* t): index_(0), t_(t) {}
@@ -57,6 +75,8 @@ private:
 	static const int SIZE = 2;
 };
 
+//! 日，時間，分，秒の順でDateTimeを取得する入力イテレータ．
+/*! */
 class DateTimeIterator : public Iterator {
 public:
 	DateTimeIterator(const datatype::DateTime* t): index_(0), t_(t) {}

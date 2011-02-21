@@ -22,9 +22,9 @@ namespace core {
 namespace devicedriver {
 namespace gyro {
 
-//! ƒWƒƒƒCƒƒZƒ“ƒT‚ÌŠî’êƒNƒ‰ƒXD
+//! ã‚¸ãƒ£ã‚¤ãƒ­ã‚»ãƒ³ã‚µã®åŸºåº•ã‚¯ãƒ©ã‚¹ï¼
 /*! 
-	@tparam T ƒRƒ“ƒ|[ƒlƒ“ƒg‚ÌŠÂ‹«ƒNƒ‰ƒXD
+	@tparam T ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆã®ç’°å¢ƒã‚¯ãƒ©ã‚¹ï¼
 */
 template <class T>
 class GyroBase : public AOCSSensor<datatype::StaticVector<3>, datatype::Scalar, T>{
@@ -35,11 +35,11 @@ public:
 	virtual void do_update();
 	virtual datatype::Scalar filter(const datatype::Scalar& value); 
 private:
-	//! ƒoƒCƒAƒX•ªU
+	//! ãƒã‚¤ã‚¢ã‚¹åˆ†æ•£
     double sigma_;
-	//! ƒoƒCƒAƒXƒŒ[ƒg‚Ì^’l
+	//! ãƒã‚¤ã‚¢ã‚¹ãƒ¬ãƒ¼ãƒˆã®çœŸå€¤
 	datatype::Scalar bias_rate_; 
-    //! ECRV‚Ì’è”
+    //! ECRVã®æ™‚å®šæ•°
     double tau_;
 };
 

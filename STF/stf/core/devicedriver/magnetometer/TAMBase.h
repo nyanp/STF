@@ -1,6 +1,6 @@
 /**
  * @file   TAMBase.h
- * @brief  3²¥‹CƒZƒ“ƒT‚ÌŠî’êƒNƒ‰ƒXD
+ * @brief  3è»¸ç£æ°—ã‚»ãƒ³ã‚µã®åŸºåº•ã‚¯ãƒ©ã‚¹ï¼
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -21,9 +21,9 @@ namespace devicedriver {
 namespace magnetometer {
 
 
-//! 3²¥‹CƒZƒ“ƒT‚ÌŠî’êƒNƒ‰ƒXD
+//! 3è»¸ç£æ°—ã‚»ãƒ³ã‚µã®åŸºåº•ã‚¯ãƒ©ã‚¹ï¼
 /*! 
-	@tparam T ƒRƒ“ƒ|[ƒlƒ“ƒg‚ÌŠÂ‹«ƒNƒ‰ƒXD
+	@tparam T ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆã®ç’°å¢ƒã‚¯ãƒ©ã‚¹ï¼
 */
 template <class T>
 class TAMBase : public AOCSSensor<datatype::MagneticField,datatype::MagneticField,T>{
@@ -50,7 +50,7 @@ void TAMBase<T>::do_update(){
 
 }
 
-//ƒVƒ~ƒ…ƒŒ[ƒ^—p‚Ì“Áê‰»
+//ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚¿ç”¨ã®ç‰¹æ®ŠåŒ–
 template <>
 void TAMBase<environment::Simulator>::do_update();
 template <>

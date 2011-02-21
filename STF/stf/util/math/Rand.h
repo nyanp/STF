@@ -1,8 +1,8 @@
 /**
  * @file   Rand.h
- * @brief  
- *
- * @author Taiga Nomi
+ * @brief  メルセンヌツイスタで乱数計算を行うライブラリ．
+ *         
+ * @author Takuji Nishimura and Makoto Matsumoto
  * @date   2011.02.16
  */
 #ifndef util_math_Rand_h
@@ -53,7 +53,7 @@ inline double Noise(){
 
 inline double WhiteNoise(double sigma, double mu){
     const double PI = 3.14159265358979323846;
-    //Box-Muller transform�Ő��K�����𐶐�
+    //Box-Muller transformで正規乱数を生成
     double u1 = 0.0;
     while(-log(u1) >= (DBL_MAX / 2)){
         u1 = (double)rand() / RAND_MAX;
@@ -68,7 +68,7 @@ inline void WhiteNoise_init(unsigned long i){
 
 inline double WhiteNoise2(double sigma, double mu){
     const double PI = 3.14159265358979323846;
-    //Box-Muller transform�Ő��K�����𐶐�
+    //Box-Muller transformで正規乱数を生成
     double u1 = mt::genrand_real3() ;
     double u2 = mt::genrand_real3() ;
     return sigma * sqrt( -2 * log(u1) ) * cos(2.0 * PI * u2) + mu;

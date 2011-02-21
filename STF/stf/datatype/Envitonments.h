@@ -1,6 +1,6 @@
 /**
  * @file   Envitonments.h
- * @brief  ‰ñ˜Hã‚Ì•¨——Ê‚ğ•\‚·ƒNƒ‰ƒXŒQD
+ * @brief  å›è·¯ä¸Šã®ç‰©ç†é‡ã‚’è¡¨ã™ã‚¯ãƒ©ã‚¹ç¾¤ï¼
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -14,7 +14,7 @@
 namespace stf { 
 namespace datatype {
 
-//! “d—¬‚ğ•\‚·ƒNƒ‰ƒXD
+//! é›»æµã‚’è¡¨ã™ã‚¯ãƒ©ã‚¹ï¼
 /*! */
 class Current : public Scalar {
 public:
@@ -27,7 +27,7 @@ public:
 private:
 };
 
-//! “dˆ³‚ğ•\‚·ƒNƒ‰ƒXD
+//! é›»åœ§ã‚’è¡¨ã™ã‚¯ãƒ©ã‚¹ï¼
 /*! */
 class Voltage : public Scalar {
 public:
@@ -40,7 +40,7 @@ public:
 private:
 };
 
-//! ‰·“x‚ğ•\‚·ƒNƒ‰ƒXD
+//! æ¸©åº¦ã‚’è¡¨ã™ã‚¯ãƒ©ã‚¹ï¼
 /*! */
 class Temperature : public Scalar {
 public:

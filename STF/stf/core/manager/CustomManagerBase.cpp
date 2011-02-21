@@ -1,6 +1,6 @@
 /**
  * @file   CustomManagerBase.cpp
- * @brief  
+ * @brief  カスタムコードの実行を行う機能マネージャ基底クラス．
  *
  * @author Taiga Nomi
  * @date   2011.02.16

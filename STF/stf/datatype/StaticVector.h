@@ -1,6 +1,6 @@
 /**
  * @file   StaticVector.h
- * @brief  
+ * @brief  ãƒ†ãƒ³ãƒ—ãƒ¬ãƒ¼ãƒˆã‚’ç”¨ã„ãŸå›ºå®šè¦ç´ æ•°ã®ãƒ™ã‚¯ãƒˆãƒ«è¨ˆç®—ã‚¯ãƒ©ã‚¹
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -15,6 +15,8 @@
 namespace stf { 
 namespace datatype {
 
+//! ãƒ†ãƒ³ãƒ—ãƒ¬ãƒ¼ãƒˆã‚’ç”¨ã„ãŸå›ºå®šè¦ç´ æ•°ã®ãƒ™ã‚¯ãƒˆãƒ«è¨ˆç®—ã‚¯ãƒ©ã‚¹
+/*!  */
 template<int dim>
 class StaticVector : public IAocsData {
 public:
@@ -64,14 +66,14 @@ StaticVector<dim>::StaticVector(const Vector &rhs)
 template<int dim>
 void StaticVector<dim>::normalize()
 {
-//’P‚È‚é•¨——Ê‚ÌƒZƒbƒg‚È‚Ì‚Åˆê”Ê“I‚Ènormalize‚ÍÀ‘•‚Å‚«‚È‚¢
-//ƒmƒ‹ƒ€‚ÅŠ„‚é‚æ‚¤‚È‘€ì‚ÍƒTƒuƒNƒ‰ƒX‚ÅÀ‘•‚·‚é‚±‚Æ
+//å˜ãªã‚‹ç‰©ç†é‡ã®ã‚»ãƒƒãƒˆãªã®ã§ä¸€èˆ¬çš„ãªnormalizeã¯å®Ÿè£…ã§ããªã„
+//ãƒãƒ«ãƒ ã§å‰²ã‚‹ã‚ˆã†ãªæ“ä½œã¯ã‚µãƒ–ã‚¯ãƒ©ã‚¹ã§å®Ÿè£…ã™ã‚‹ã“ã¨
 }
 
 template<int dim>
 double StaticVector<dim>::norm(int n) const
 {
-	assert((n == 1) || (n == 2));//ŒvZ•‰‰×‚Ì–â‘è‚©‚ç¡‚Í1C2Ÿ‚Ìƒmƒ‹ƒ€‚µ‚©‚Æ‚ç‚È‚¢
+	assert((n == 1) || (n == 2));//è¨ˆç®—è² è·ã®å•é¡Œã‹ã‚‰ä»Šã¯1ï¼Œ2æ¬¡ã®ãƒãƒ«ãƒ ã—ã‹ã¨ã‚‰ãªã„
 	double value = 0.0;
 	if(n == 1){
 		for(int i = 0; i < dim; i++)
@@ -209,7 +211,7 @@ inline const StaticVector<dim> operator - (const StaticVector<dim>& vec1, const 
 	return temp;
 }
 
-// ƒxƒNƒgƒ‹‚Ì“àÏ
+// ãƒ™ã‚¯ãƒˆãƒ«ã®å†…ç©
 template<int dim>
 inline const double operator * (const StaticVector<dim>& vec1, const StaticVector<dim>& vec2){
 	double value = 0.0;
@@ -218,14 +220,14 @@ inline const double operator * (const StaticVector<dim>& vec1, const StaticVecto
 	return value;
 }
 
-// ƒxƒNƒgƒ‹‚ğ‰E‚©‚ç’è””{
+// ãƒ™ã‚¯ãƒˆãƒ«ã‚’å³ã‹ã‚‰å®šæ•°å€
 template<int dim>
 inline const StaticVector<dim> operator * (const StaticVector<dim>& vec, double factor){
 	StaticVector<dim> temp = vec;
 	return temp *= factor;
 }
 
-// ƒxƒNƒgƒ‹‚ğ¶‚©‚ç’è””{
+// ãƒ™ã‚¯ãƒˆãƒ«ã‚’å·¦ã‹ã‚‰å®šæ•°å€
 template<int dim>
 inline const StaticVector<dim> operator * (double factor, const StaticVector<dim>& vec){
 	return vec * factor;
@@ -243,7 +245,7 @@ inline double operator %(const StaticVector<2>& vec1,const StaticVector<2>& vec2
 	return vec1[0] * vec2[1] - vec1[1] * vec2[0];
 }
 
-// ƒxƒNƒgƒ‹‚ğ’è”‚ÅœZ
+// ãƒ™ã‚¯ãƒˆãƒ«ã‚’å®šæ•°ã§é™¤ç®—
 template<int dim>
 inline const StaticVector<dim> operator / (const StaticVector<dim>& vec, double factor){
 	StaticVector<dim> temp = vec;

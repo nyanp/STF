@@ -1,6 +1,6 @@
 /**
  * @file   GetCommand.h
- * @brief  Getter‚âƒCƒeƒŒ[ƒ^‚É‚æ‚Á‚ÄSTF“à•”ó‘Ô‚ğ‰“š‚·‚éƒRƒ}ƒ“ƒhŒQD
+ * @brief  Getterã‚„ã‚¤ãƒ†ãƒ¬ãƒ¼ã‚¿ã«ã‚ˆã£ã¦STFå†…éƒ¨çŠ¶æ…‹ã‚’å¿œç­”ã™ã‚‹ã‚³ãƒãƒ³ãƒ‰ç¾¤ï¼
  *
  * @author Taiga Nomi
  * @date   2011.02.16

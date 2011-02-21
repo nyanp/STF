@@ -1,6 +1,6 @@
 /**
  * @file   UnitManagerBase.h
- * @brief  
+ * @brief  機器の定期データ取得・更新を行う機能マネージャ基底クラス．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -21,6 +21,11 @@ class IDataUpdatable;
 }
 namespace manager {
 
+//! 機器の定期データ取得・更新を行う機能マネージャ基底クラス．
+/*! 
+	ユーザーはこのクラスを書き換えることが許可されない．
+	機能マネージャの振る舞いをカスタマイズしたい場合，派生クラス側で仮想関数を実装する（Generation-Gapパターン）．
+*/
 class UnitManagerBase : public ManagerBase, virtual public event::Observer<event::ModeChangeEvent>
 {
 public:

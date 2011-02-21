@@ -1,6 +1,6 @@
 /**
  * @file   IAocsData.h
- * @brief  AOCSg—pŒn—ñ‚Ìƒf[ƒ^‹¤’Ê‚Ì’ŠÛƒCƒ“ƒ^[ƒtƒF[ƒXD
+ * @brief  AOCSä½¿ç”¨ç³»åˆ—ã®ãƒ‡ãƒ¼ã‚¿å…±é€šã®æŠ½è±¡ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ãƒ¼ã‚¹ï¼
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -13,7 +13,7 @@
 namespace stf { 
 namespace datatype {
 
-//! AOCSg—pŒn—ñ‚Ìƒf[ƒ^‹¤’Ê‚Ì’ŠÛƒCƒ“ƒ^[ƒtƒF[ƒXD
+//! AOCSä½¿ç”¨ç³»åˆ—ã®ãƒ‡ãƒ¼ã‚¿å…±é€šã®æŠ½è±¡ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ãƒ¼ã‚¹ï¼
 /*! */
 class IAocsData : public interface::ITelemetable{
 public:

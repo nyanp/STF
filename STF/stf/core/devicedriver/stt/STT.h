@@ -18,7 +18,7 @@ namespace stt {
 template <class T>
 class STT : public STTBase<T>{
 public:  
-	//10arcsecê∏ìx(3-Sigma)ÇÃSTTÅD
+	//10arcsecÁ≤æÂ∫¶(3-Sigma)„ÅÆSTTÔºé
 	STT(int instance_id, const datatype::DCM &angle) : STTBase(instance_id, angle,10){}
 	~STT(){}
 private:

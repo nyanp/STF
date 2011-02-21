@@ -1,9 +1,10 @@
 /**
  * @file   QUEST.h
- * @brief  
+ * @brief  Quaternion Estimatorã«ã‚ˆã‚‹å§¿å‹¢æ±ºå®šã‚’è¡Œã†åˆ¶å¾¡ãƒ–ãƒ­ãƒƒã‚¯ï¼æœªå®Ÿè£…ï¼
  *
  * @author Taiga Nomi
  * @date   2011.02.16
+ * @todo   ãƒ­ã‚¸ãƒƒã‚¯ã®å®Ÿè£…
  */
 #ifndef stf_core_strategy_control_QUEST_h
 #define stf_core_strategy_control_QUEST_h
@@ -23,9 +24,11 @@ namespace core {
 namespace strategy {
 namespace control {
 
-
-//Quaternion Estimator
-//‘¾—z•ûŒü-’n‹…•ûŒü‚Ì2-Input‚Ìê‡‚ÌQUEST‚Æ‚µ‚ÄCŒÅ—L’lŒvZ‚ğŠÈ—ª‰»‚µ‚Ä‚¢‚é
+//! Quaternion Estimatorã«ã‚ˆã‚‹å§¿å‹¢æ±ºå®šã‚’è¡Œã†åˆ¶å¾¡ãƒ–ãƒ­ãƒƒã‚¯ï¼åœ°çƒï¼Œå¤ªé™½ã‚»ãƒ³ã‚µã®çµ„ã¿åˆã‚ã›ã«é™å®šï¼æœªå®Ÿè£…ï¼
+/*! 
+	å…¥åŠ›:å¤ªé™½æ–¹å‘ï¼Œåœ°çƒæ–¹å‘ï¼Œè»Œé“æƒ…å ±ï¼Œæ™‚åˆ»æƒ…å ±
+	å‡ºåŠ›:3è»¸ãƒˆãƒ«ã‚¯
+*/
 class QUEST
 	: virtual public StrategyBase, 
 	public devicedriver::InputPorts< TYPELIST_4( datatype::StaticVector<2>, datatype::StaticVector<2>, datatype::PositionInfo, datatype::DateTime ) >,
@@ -47,8 +50,8 @@ protected:
 	void init_();
 	datatype::Quaternion estimate_(datatype::StaticVector<3> v1, datatype::StaticVector<3> v2, 
 		datatype::StaticVector<3> w1, datatype::StaticVector<3> w2);
-	double sigma_sun_;//‘¾—z•ûŒüƒxƒNƒgƒ‹‚ÌŠÏ‘ª•ªU
-	double sigma_earth_;//’n‹…•ûŒüƒxƒNƒgƒ‹‚ÌŠÏ‘ª•ªU
+	double sigma_sun_;//å¤ªé™½æ–¹å‘ãƒ™ã‚¯ãƒˆãƒ«ã®è¦³æ¸¬åˆ†æ•£
+	double sigma_earth_;//åœ°çƒæ–¹å‘ãƒ™ã‚¯ãƒˆãƒ«ã®è¦³æ¸¬åˆ†æ•£
 	double a1_;
 	double a2_;
 };

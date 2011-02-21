@@ -1,6 +1,6 @@
 /**
  * @file   String.cpp
- * @brief  
+ * @brief  std::stringã®ç°¡ç•¥ç‰ˆã‚¯ãƒ©ã‚¹ï¼
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -18,7 +18,7 @@ int strlen(const char* s){
   return ss - s;
 }
 
-//•¶š—ñƒRƒs[ŠÖ”Ds1,s2‚ÌƒAƒhƒŒƒX‚ªd•¡‚µ‚Ä‚¢‚½ê‡‚Ì“®ì‚Í–¢’è‹`D
+//æ–‡å­—åˆ—ã‚³ãƒ”ãƒ¼é–¢æ•°ï¼s1,s2ã®ã‚¢ãƒ‰ãƒ¬ã‚¹ãŒé‡è¤‡ã—ã¦ã„ãŸå ´åˆã®å‹•ä½œã¯æœªå®šç¾©ï¼
 char *strcpy(char * s1, const char * s2)
 {
   for (register char *ss = s1; (*ss = *s2) != '\0'; ss++, s2++)
@@ -100,7 +100,7 @@ String &String::operator+=(const String &s){
 
 String &String::operator=(const String &rhs){
    if (this == &rhs)
-        return *this;   // string = string ‚Ìê‡
+        return *this;   // string = string ã®å ´åˆ
 
     delete [] value_;
 

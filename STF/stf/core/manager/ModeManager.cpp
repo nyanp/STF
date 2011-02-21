@@ -1,6 +1,6 @@
 /**
  * @file   ModeManager.cpp
- * @brief  
+ * @brief  モードの管理を行う機能マネージャ．
  *
  * @author Taiga Nomi
  * @date   2011.02.16

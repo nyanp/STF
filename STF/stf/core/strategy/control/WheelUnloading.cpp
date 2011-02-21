@@ -1,11 +1,12 @@
 /**
  * @file   WheelUnloading.cpp
- * @brief  
+ * @brief  RWのアンローディングをMTQを使用して行うための制御ブロック．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
  */
 #include "WheelUnloading.h"
+#include "../../../util/Ostream.h"
 
 namespace stf {
 namespace core {
@@ -29,7 +30,7 @@ WheelUnloading::WheelUnloading(int instance_id,
 }
 
 void WheelUnloading::do_compute(const datatype::Time& t) {
-	//if(t <= this->last_update_) return; //���ɕʂ̃u���b�N�o�R�ōX�V�ς݂Ȃ�Čv�Z���Ȃ�
+	//if(t <= this->last_update_) return; //既に別のブロック経由で更新済みなら再計算しない
 	util::cout << "compute: Wheel Unloading" << util::endl;
 	//this->last_update_ = t;
 }

@@ -1,6 +1,6 @@
 /**
  * @file   Ostream.cpp
- * @brief  
+ * @brief  æ¨™æº–å‡ºåŠ›ã®ãƒ©ãƒƒãƒ‘ï¼
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -47,7 +47,7 @@ std::ostream &operator << (std::ostream& out_file, const stf::datatype::Time& ti
 	return out_file;
 }
 
-// std::ostreamƒNƒ‰ƒX‚Ì‰‰Zq‚É‘Î‚·‚éƒOƒ[ƒoƒ‹‚È‰‰ZqƒI[ƒo[ƒ[ƒh
+// std::ostreamã‚¯ãƒ©ã‚¹ã®æ¼”ç®—å­ã«å¯¾ã™ã‚‹ã‚°ãƒ­ãƒ¼ãƒãƒ«ãªæ¼”ç®—å­ã‚ªãƒ¼ãƒãƒ¼ãƒ­ãƒ¼ãƒ‰
 std::ostream &operator << (std::ostream& out_file, const stf::datatype::DateTime& time){
 	out_file << time.dates() << "/" << time.hours() << ":" << time.minutes() << ":" << time.seconds();
 	return out_file;

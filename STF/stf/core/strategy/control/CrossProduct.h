@@ -1,6 +1,6 @@
 /**
  * @file   CrossProduct.h
- * @brief  
+ * @brief  クロスプロダクト則を用いて要求出力トルクを磁気モーメントに変換する制御ブロック．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -19,11 +19,13 @@ namespace core {
 namespace strategy {
 namespace control {
 
-
-//�N���X�v���_�N�g����p���ėv���o�̓g���N�����C���[�����g�ɕϊ�����D
-//�v���g���N�����ƒn����x�N�g������������Ƃ��ɋ쓮���Ȃ��Ə���傫���D
-//����:3���g���N(T), �q�����W�n����(B)
-//�o��:3�����C���[�����g(M)
+//! クロスプロダクト則を用いて要求出力トルクを磁気モーメントに変換する制御ブロック．
+/*! 
+	クロスプロダクトの特性上，要求トルク方向と地磁場ベクトルが直交するときに駆動しないと誤差が大きい．
+	また，この制御ブロックでは要求トルク方向と磁場ベクトルが近いときの対処を特に行っていない．
+	入力:3軸トルク(T), 衛星座標系磁場(B)
+	出力:3軸磁気モーメント(M)
+*/
 class CrossProduct
 	: virtual public StrategyBase, 
 	public devicedriver::InputPorts< TYPELIST_2( datatype::StaticVector<3>, datatype::MagneticField ) >,

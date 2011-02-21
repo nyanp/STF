@@ -1,13 +1,12 @@
 /**
  * @file   OutputFunctor.cpp
- * @brief  
+ * @brief  出力ファンクタ群．STFではFunctorのコンストラクタに渡して使用される
  *
  * @author Taiga Nomi
  * @date   2011.02.16
  */
 #include "OutputFunctor.h"
 #include "../manager/ModeManager.h"
-#include "../mode/Includes.h"
 #include "../../util/Ostream.h"
 
 namespace stf {
@@ -15,7 +14,7 @@ namespace core {
 namespace functor {
 
 void MSG::operator()() const {
-	util::cout << "output functor" << util::endl;
+	util::cout << this->msg_ << util::endl;
 };
 
 

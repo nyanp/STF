@@ -30,8 +30,8 @@ SingleAxisPID::SingleAxisPID(int instance_id, double kp, double ki, double kd, d
 
 void SingleAxisPID::do_compute(const datatype::Time& t)
 {
-	assert(this->prevholder_ != 0);//input source‚ª–³‚¢
-	if(t > this->last_update_){//Šù‚É•Ê‚ÌƒuƒƒbƒNŒo—R‚ÅXVÏ‚İ‚È‚çÄŒvZ‚µ‚È‚¢
+	assert(this->prevholder_ != 0);//input sourceãŒç„¡ã„
+	if(t > this->last_update_){//æ—¢ã«åˆ¥ã®ãƒ–ãƒ­ãƒƒã‚¯çµŒç”±ã§æ›´æ–°æ¸ˆã¿ãªã‚‰å†è¨ˆç®—ã—ãªã„
 		util::cout << "compute: SingleAxisPID" << util::endl;
 		this->value_b_ = compute_torque_(this->source<0,datatype::Scalar>().get_in_bodyframe(t));
 		this->last_update_ = t;
@@ -43,7 +43,7 @@ datatype::Scalar SingleAxisPID::compute_torque_(const datatype::Scalar &x)
 {
 	this->dx_total_ += (x - target_) * this->dt_;
 
-	//ƒIƒCƒ‰[Šp‚ªZ-Y-X•\Œ»‚È‚Ì‚É‘Î‚µ‚Äƒgƒ‹ƒN‚ÍX-Y-Z‚Ì‡D‡”Ô‚É’ˆÓ
+	//ã‚ªã‚¤ãƒ©ãƒ¼è§’ãŒZ-Y-Xè¡¨ç¾ãªã®ã«å¯¾ã—ã¦ãƒˆãƒ«ã‚¯ã¯X-Y-Zã®é †ï¼é †ç•ªã«æ³¨æ„
 	datatype::Scalar output;	
 	output = this->kp_ * (x - target_)
 		      + this->kp_ * ( x - x_old_) / this->dt_ 

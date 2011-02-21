@@ -1,6 +1,6 @@
 /**
  * @file   ITelemetable.h
- * @brief  �e�����g���𐶐��\�ȃI�u�W�F�N�g�ɑ΂���C���^�[�t�F�[�X�D
+ * @brief  テレメトリを生成可能なオブジェクトに対するインターフェース．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -11,6 +11,8 @@
 namespace stf {
 namespace interface {
 
+//! テレメトリを生成可能なオブジェクトに対するインターフェース．
+/*! */
 class ITelemetable {
 public:
     virtual const double* to_stream() const = 0;

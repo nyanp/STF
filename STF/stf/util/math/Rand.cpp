@@ -1,8 +1,8 @@
 /**
  * @file   Rand.cpp
- * @brief  
+ * @brief  メルセンヌツイスタで乱数計算を行うライブラリ．
  *
- * @author Taiga Nomi
+ * @author Takuji Nishimura and Makoto Matsumoto
  * @date   2011.02.16
  */
 #include<cmath>

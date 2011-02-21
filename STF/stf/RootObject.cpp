@@ -1,6 +1,6 @@
 /**
  * @file   RootObject.cpp
- * @brief  
+ * @brief  数値型を除いた全クラスの基本となるクラス．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -23,22 +23,8 @@ RootObject::RootObject(int instance_id, const datatype::String& name) : instance
 	oid_ = RootObject::last_oid_++;
 }
 
-/*datatype::Time RootObject::get_lastupdate() const {
-	datatype::Time t;
-	if(this->datapool_ == 0){
-		return t;
-	}else {
-		return this->datapool_->gettime(datapool_hold_index_);
-	}
-}*/
 int RootObject::get_datapoolKey() const { 
 	return this->datapool_hold_index_; 
 }
 
-/*
-	template<typename T> void RootObject::connect(Loki::Type2Type<T>, int rows, const datatype::String name){ 
-	this->datapool_hold_index_ = Global<ENV>::get_datapool().create(Loki::Type2Type<T>(),rows,name);
-	datapool_ = &Global<ENV>::get_datapool(); }*/
-
-//template<> void RootObject::connect<datatype::Quaternion>(Loki::Type2Type<datatype::Quaternion>, int rows, const datatype::String name);
 } /* End of namespace stf */

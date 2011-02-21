@@ -1,6 +1,6 @@
 /**
  * @file   SequenceCommand.h
- * @brief  •¡”ƒRƒ}ƒ“ƒh‚ğƒV[ƒPƒ“ƒVƒƒƒ‹‚ÉÀs‚·‚éƒRƒ}ƒ“ƒhD
+ * @brief  è¤‡æ•°ã‚³ãƒãƒ³ãƒ‰ã‚’ã‚·ãƒ¼ã‚±ãƒ³ã‚·ãƒ£ãƒ«ã«å®Ÿè¡Œã™ã‚‹ã‚³ãƒãƒ³ãƒ‰ï¼
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -15,9 +15,9 @@ namespace stf {
 namespace core {
 namespace command {
 
-//! •¡”ŒÂ‚ÌƒRƒ}ƒ“ƒh‚ğƒV[ƒPƒ“ƒVƒƒƒ‹‚ÉÀs‚·‚éƒRƒ}ƒ“ƒhD
-/*! ˆø”‚ªint‚Ìê‡CinitŠÖ”‚Åˆø”‚ÌÄİ’è‚ª‰Â”\D
-	@tparam Num Às‚·‚éƒRƒ}ƒ“ƒh‚Ì”D
+//! è¤‡æ•°å€‹ã®ã‚³ãƒãƒ³ãƒ‰ã‚’ã‚·ãƒ¼ã‚±ãƒ³ã‚·ãƒ£ãƒ«ã«å®Ÿè¡Œã™ã‚‹ã‚³ãƒãƒ³ãƒ‰ï¼
+/*! å¼•æ•°ãŒintã®å ´åˆï¼Œinité–¢æ•°ã§å¼•æ•°ã®å†è¨­å®šãŒå¯èƒ½ï¼
+	@tparam Num å®Ÿè¡Œã™ã‚‹ã‚³ãƒãƒ³ãƒ‰ã®æ•°ï¼
 */
 template<int Num>
 class SequenceCommand : public Command {
@@ -33,10 +33,10 @@ public:
 		}
 	}
 	virtual bool can_execute(const datatype::Time& t){
-		if(index_ == -1) return false; //ƒRƒ}ƒ“ƒh‚ª1‚Â‚à‚È‚¢
-		if(this->time_ > t) return false; //‚Ü‚¾ŠJn‚Å‚Í‚È‚¢
+		if(index_ == -1) return false; //ã‚³ãƒãƒ³ãƒ‰ãŒ1ã¤ã‚‚ãªã„
+		if(this->time_ > t) return false; //ã¾ã é–‹å§‹æ™‚åˆ»ã§ã¯ãªã„
 		for(int i = 0; i < index_; i++){
-			if(!commands_[i]->can_execute(t)) return false; //‚·‚×‚Ä‚ÌƒRƒ}ƒ“ƒh‚ªÀs‰Â”\‚É‚È‚é‚Ü‚ÅÀs‚µ‚È‚¢
+			if(!commands_[i]->can_execute(t)) return false; //ã™ã¹ã¦ã®ã‚³ãƒãƒ³ãƒ‰ãŒå®Ÿè¡Œå¯èƒ½ã«ãªã‚‹ã¾ã§å®Ÿè¡Œã—ãªã„
 		}
 		return true;
 	}
@@ -48,7 +48,7 @@ public:
 	virtual void execute(){
 		assert(index_ >= 0);
 		for(int i = 0; i < index_; i++){
-			commands_[i]->execute();//‡”Ô‚ÉÀs
+			commands_[i]->execute();//é †ç•ªã«å®Ÿè¡Œ
 		}
 	}
 private:

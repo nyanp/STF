@@ -1,6 +1,6 @@
 /**
  * @file   ModeManagerBase.cpp
- * @brief  
+ * @brief  モードの管理を行う機能マネージャ基底クラス．
  *
  * @author Taiga Nomi
  * @date   2011.02.16

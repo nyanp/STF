@@ -1,6 +1,6 @@
 /**
  * @file   QUEST.cpp
- * @brief  
+ * @brief  Quaternion Estimatorã«ã‚ˆã‚‹å§¿å‹¢æ±ºå®šã‚’è¡Œã†åˆ¶å¾¡ãƒ–ãƒ­ãƒƒã‚¯ï¼æœªå®Ÿè£…ï¼
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -37,12 +37,12 @@ QUEST::QUEST(int instance_id, double sigma_sun, double sigma_earth,
 }
 
 void QUEST::do_compute(const datatype::Time& t) {
-	if(t <= this->last_update_) return; //Šù‚É•Ê‚ÌƒuƒƒbƒNŒo—R‚ÅXVÏ‚İ‚È‚çÄŒvZ‚µ‚È‚¢
+	if(t <= this->last_update_) return; //æ—¢ã«åˆ¥ã®ãƒ–ãƒ­ãƒƒã‚¯çµŒç”±ã§æ›´æ–°æ¸ˆã¿ãªã‚‰å†è¨ˆç®—ã—ãªã„
 		util::cout << "compute: QUEST" << util::endl;
-	//ƒZƒ“ƒT‚©‚çæ“¾‚µ‚½‰q¯Šî€À•WŒn‚É‚¨‚¯‚é’n‹…C‘¾—z•ûŒü
+	//ã‚»ãƒ³ã‚µã‹ã‚‰å–å¾—ã—ãŸè¡›æ˜ŸåŸºæº–åº§æ¨™ç³»ã«ãŠã‘ã‚‹åœ°çƒï¼Œå¤ªé™½æ–¹å‘
 	datatype::StaticVector<2> w_sun = this->source<0,datatype::StaticVector<2>>().get_in_bodyframe(t);
 	datatype::StaticVector<2> w_earth = this->source<1,datatype::StaticVector<2>>().get_in_bodyframe(t);
-	//‹O“¹î•ñ‚ğ‚à‚Æ‚ÉŒvZ‚³‚ê‚½‰q¯ˆÊ’u‚É‚¨‚¯‚é’n‹…C‘¾—z•ûŒü
+	//è»Œé“æƒ…å ±ã‚’ã‚‚ã¨ã«è¨ˆç®—ã•ã‚ŒãŸè¡›æ˜Ÿä½ç½®ã«ãŠã‘ã‚‹åœ°çƒï¼Œå¤ªé™½æ–¹å‘
 	datatype::StaticVector<3> v1 = datatype::OrbitCalc::getSunDirection3D(this->source<3,datatype::DateTime>().get_in_bodyframe());
 	datatype::StaticVector<3> v2 = datatype::OrbitCalc::getEarthDirection3D(this->source<2,datatype::PositionInfo>().get_in_bodyframe(t));
 	datatype::StaticVector<3> w1 = datatype::TypeConverter::toRectangular(w_sun);
@@ -78,7 +78,7 @@ datatype::Quaternion QUEST::estimate_(
 
 void QUEST::init_()
 {
-	//d‚İ‚Ã‚¯‚ÌŒvZ
+	//é‡ã¿ã¥ã‘ã®è¨ˆç®—
 	double sigma1 = 1 / ( sigma_sun_ * sigma_sun_ );
 	double sigma2 = 1 / ( sigma_earth_ * sigma_earth_ );
 	this->a1_ =  sigma1 / ( sigma1 + sigma2 );

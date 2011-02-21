@@ -17,7 +17,7 @@ namespace core {
 namespace devicedriver {
 namespace gps {
 
-// TLE‚ÌƒAƒbƒvƒŠƒ“ƒN‚Å‹O“¹î•ñ‚ğ•Û‚·‚éGPSƒ_ƒ~[D
+// TLEã®ã‚¢ãƒƒãƒ—ãƒªãƒ³ã‚¯ã§è»Œé“æƒ…å ±ã‚’ä¿æŒã™ã‚‹GPSãƒ€ãƒŸãƒ¼ï¼
 template<class T>
 class DummyGPS : public GPSBase<T> {
 public:
@@ -25,7 +25,7 @@ public:
 	//Sigma =0.02, tau(ECRV)=1000sec
 	DummyGPS(int instance_id) : GPSBase(instance_id){}
 	void set_orbit(const datatype::OrbitInfo& orbit){
-		this->set_value(datatype::TypeConverter::toPositionInfo(orbit));//‹O“¹—v‘f‚ğ‰q¯‚Ì6ŸŒ³ó‘Ô—Ê‚É•ÏŠ·
+		this->set_value(datatype::TypeConverter::toPositionInfo(orbit));//è»Œé“è¦ç´ ã‚’è¡›æ˜Ÿã®6æ¬¡å…ƒçŠ¶æ…‹é‡ã«å¤‰æ›
 	}
 	~DummyGPS(){}
 private:

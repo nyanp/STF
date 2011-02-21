@@ -1,6 +1,6 @@
 /**
  * @file   RWBase.h
- * @brief  ƒŠƒAƒNƒVƒ‡ƒ“ƒzƒC[ƒ‹‚ÌŠî’êƒNƒ‰ƒXD
+ * @brief  ãƒªã‚¢ã‚¯ã‚·ãƒ§ãƒ³ãƒ›ã‚¤ãƒ¼ãƒ«ã®åŸºåº•ã‚¯ãƒ©ã‚¹ï¼
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -22,9 +22,9 @@ namespace core {
 namespace devicedriver {
 namespace rw {
 
-//! ƒŠƒAƒNƒVƒ‡ƒ“ƒzƒC[ƒ‹‚ÌŠî’êƒNƒ‰ƒXD
+//! ãƒªã‚¢ã‚¯ã‚·ãƒ§ãƒ³ãƒ›ã‚¤ãƒ¼ãƒ«ã®åŸºåº•ã‚¯ãƒ©ã‚¹ï¼
 /*! 
-	@tparam T ƒRƒ“ƒ|[ƒlƒ“ƒg‚ÌŠÂ‹«ƒNƒ‰ƒXD
+	@tparam T ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆã®ç’°å¢ƒã‚¯ãƒ©ã‚¹ï¼
 */
 template<class T>
 class RWBase : public AOCSActuator<datatype::StaticVector<3>, datatype::Scalar, T>{
@@ -34,10 +34,10 @@ public:
     virtual ~RWBase();
 	virtual void do_update();
 	virtual double angular_momentum() { return this->angular_momentum_;}
-	virtual bool is_saturated() const{ if(this->angular_momentum_ >= this->max_angular_momentum_) return true; return false; }//ƒzƒC[ƒ‹‚ª–O˜a‚µ‚Ä‚¢‚½‚çtrue
+	virtual bool is_saturated() const{ if(this->angular_momentum_ >= this->max_angular_momentum_) return true; return false; }//ãƒ›ã‚¤ãƒ¼ãƒ«ãŒé£½å’Œã—ã¦ã„ãŸã‚‰true
 private:
     double max_angular_momentum_;
-	double angular_momentum_;//“à•”‚¨‚æ‚ÑƒAƒ“ƒ[ƒfƒBƒ“ƒO§ŒäƒuƒƒbƒN‚Åg—p‚·‚éŠp‰^“®—ÊD
+	double angular_momentum_;//å†…éƒ¨ãŠã‚ˆã³ã‚¢ãƒ³ãƒ­ãƒ¼ãƒ‡ã‚£ãƒ³ã‚°åˆ¶å¾¡ãƒ–ãƒ­ãƒƒã‚¯ã§ä½¿ç”¨ã™ã‚‹è§’é‹å‹•é‡ï¼
 };
 
 template<class T>

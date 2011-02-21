@@ -1,6 +1,6 @@
 /**
  * @file   OrbitCalc.h
- * @brief  ‹O“¹ŠÖŒWî•ñ‚ğŒvZ‚·‚éƒƒ\ƒbƒh‚ğstaticƒƒ“ƒo‚Æ‚µ‚Ä‚Ü‚Æ‚ß‚½ƒNƒ‰ƒXD
+ * @brief  è»Œé“é–¢ä¿‚æƒ…å ±ã‚’è¨ˆç®—ã™ã‚‹ãƒ¡ã‚½ãƒƒãƒ‰ã‚’staticãƒ¡ãƒ³ãƒã¨ã—ã¦ã¾ã¨ã‚ãŸã‚¯ãƒ©ã‚¹ï¼
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -18,23 +18,23 @@ struct PositionInfo;
 class MagneticField;
 class Quaternion;
 
-//! ‹O“¹ŠÖŒWî•ñ‚ğŒvZ‚·‚éƒƒ\ƒbƒh‚ğstaticƒƒ“ƒo‚Æ‚µ‚Ä‚Ü‚Æ‚ß‚½ƒNƒ‰ƒXD
+//! è»Œé“é–¢ä¿‚æƒ…å ±ã‚’è¨ˆç®—ã™ã‚‹ãƒ¡ã‚½ãƒƒãƒ‰ã‚’staticãƒ¡ãƒ³ãƒã¨ã—ã¦ã¾ã¨ã‚ãŸã‚¯ãƒ©ã‚¹ï¼
 /*!  */
 class OrbitCalc {
 public:
-	///J2000À•WŒn‚É‚¨‚¯‚é‘¾—z•ûŒüƒxƒNƒgƒ‹‚ğŒvZD
+	///J2000åº§æ¨™ç³»ã«ãŠã‘ã‚‹å¤ªé™½æ–¹å‘ãƒ™ã‚¯ãƒˆãƒ«ã‚’è¨ˆç®—ï¼
     static StaticVector<2> getSunDirection2D(const DateTime& time);
-	///J2000À•WŒn‚É‚¨‚¯‚é’n‹…•ûŒüƒxƒNƒgƒ‹‚ğŒvZD
+	///J2000åº§æ¨™ç³»ã«ãŠã‘ã‚‹åœ°çƒæ–¹å‘ãƒ™ã‚¯ãƒˆãƒ«ã‚’è¨ˆç®—ï¼
     static StaticVector<2> getEarthDirection2D(const PositionInfo& p);
-	///J2000À•WŒn‚É‚¨‚¯‚é‘¾—z•ûŒüƒxƒNƒgƒ‹‚ğŒvZD
+	///J2000åº§æ¨™ç³»ã«ãŠã‘ã‚‹å¤ªé™½æ–¹å‘ãƒ™ã‚¯ãƒˆãƒ«ã‚’è¨ˆç®—ï¼
     static StaticVector<3> getSunDirection3D(const DateTime& time);
-	///J2000À•WŒn‚É‚¨‚¯‚é’n‹…•ûŒüƒxƒNƒgƒ‹‚ğŒvZD
+	///J2000åº§æ¨™ç³»ã«ãŠã‘ã‚‹åœ°çƒæ–¹å‘ãƒ™ã‚¯ãƒˆãƒ«ã‚’è¨ˆç®—ï¼
     static StaticVector<3> getEarthDirection3D(const PositionInfo& p);
-	///‰q¯À•WŒn‚É‚¨‚¯‚é’n‹…•ûŒüƒxƒNƒgƒ‹‚ğŒvZD
+	///è¡›æ˜Ÿåº§æ¨™ç³»ã«ãŠã‘ã‚‹åœ°çƒæ–¹å‘ãƒ™ã‚¯ãƒˆãƒ«ã‚’è¨ˆç®—ï¼
 	static StaticVector<3> getEarthDirectionInBodyFrame(const PositionInfo& p, const Quaternion& q);
-	///‰q¯À•WŒn‚É‚¨‚¯‚é‘¾—z•ûŒüƒxƒNƒgƒ‹‚ğŒvZD
+	///è¡›æ˜Ÿåº§æ¨™ç³»ã«ãŠã‘ã‚‹å¤ªé™½æ–¹å‘ãƒ™ã‚¯ãƒˆãƒ«ã‚’è¨ˆç®—ï¼
 	static StaticVector<3> getSunDirectionInBodyFrame(const DateTime& time, const Quaternion& q);
-	///IGRF‚ğg—p‚µ‚ÄŒ»İ‚Ì‰q¯ˆÊ’u‚É‚¨‚¯‚éJ2000À•WŒn‚Å‚Ì¥ê‚ğŒvZD
+	///IGRFã‚’ä½¿ç”¨ã—ã¦ç¾åœ¨ã®è¡›æ˜Ÿä½ç½®ã«ãŠã‘ã‚‹J2000åº§æ¨™ç³»ã§ã®ç£å ´ã‚’è¨ˆç®—ï¼
 	static MagneticField getMagneticFieldDirection(const PositionInfo& p, const DateTime& time);
 };
 

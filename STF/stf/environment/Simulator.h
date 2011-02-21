@@ -1,6 +1,6 @@
 /**
  * @file   Simulator.h
- * @brief  
+ * @brief  ソフトウェアシミュレータ環境クラス．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -37,6 +37,30 @@ class ITimeMeasure;
 namespace stf {
 namespace environment {
 
+//! ソフトウェアシミュレータ環境クラス．
+/*! 
+	IOドライバレベルのエミュレーションは行わず，センサやアクチュエータとのデータ交換は
+	各センサ，アクチュエータ型のSimulatorに特殊化したdo_update関数によって行われる．
+
+	@code
+	//シミュレータの生成
+	stf::environment::Simulator& s = stf::environment::Simulator::get_instance();
+
+	//グローバルオブジェクトの生成
+	stf::factory::SatelliteFactory<ENV>* en = new stf::factory::PRISMFactory<ENV>();
+	stf::Global<ENV>* gl = en->create();
+
+	//シミュレーション用の軌道情報
+	datatype::OrbitInfo orbit(7100000, 0.01, 0, 0.5 * util::math::PI, 0, 0);
+
+	//シミュレータ初期化
+	s.init(gl, 100, 100, orbit, new std::ofstream("output.csv"));
+
+	//2000ステップ実行
+	for(int i = 0; i < 2000; i++)
+		s.runOneCycle();
+	@endcode
+ */
 class Simulator {
 public:
 	//Environmental Class

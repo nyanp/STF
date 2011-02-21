@@ -1,6 +1,6 @@
 /**
  * @file   SubjectBase.h
- * @brief  
+ * @brief  Observerパターンの構成テンプレートクラス群．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -15,6 +15,12 @@ namespace stf {
 namespace core {
 namespace event {
 
+//! イベントオブザーバ．
+/*! 
+	通常のObserverパターンと異なり，コンストラクタでSubjectクラスに登録されるので，
+	イベントオブザーバとしたいクラスは，このクラスを継承してnotifyを実装し，インスタンス化するだけでよい．
+	@tparam Evt 観測するイベント．
+*/
 template <class Evt>
 class Observer {
 public:
@@ -24,19 +30,34 @@ public:
 private:
 };
 
+//! イベントレポータ．
+/*! 
+	check関数によって，イベントのSubjectにイベント発生を報告する．
+	@tparam Evt 観測するイベント．
+*/
 template <class Evt>
 class Reporter {
 public:
 	Reporter(){}
 	~Reporter(){}
+	//! イベントの発生を監視する．
+	/*!
+		@retval イベントの優先度．0だとイベント発生なし．0以上の値だと，そのイベントの優先度を示す．
+	*/
 	virtual int check(typename Evt::Target* value) = 0;
 private:	
 };
 
+//! イベントSubject．
+/*! 
+	observerパターンにおいて，各observerに通知する責任を負う．オブザーバがstaticなリストとして定義されているので，
+	基本的に単一のイベントに対するsubjectは複数有ってはならない．
+	@tparam Evt 観測するイベント．
+*/
 template <class Evt>
 class SubjectBase {
 public:
-	typedef Evt Hold;//datapool�p
+	typedef Evt Hold;//datapool用
 	SubjectBase() {}
 	~SubjectBase(){}
 	static void add_reporter(Reporter<Evt>* obs){

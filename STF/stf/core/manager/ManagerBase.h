@@ -1,6 +1,6 @@
 /**
  * @file   ManagerBase.h
- * @brief  
+ * @brief  機能マネージャの基底クラス．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -20,6 +20,8 @@ class ModeBase;
 
 namespace manager {
 
+//! 機能マネージャの基底クラス．
+/*! */
 class ManagerBase : public RootObject {
 public:
 	ManagerBase(int instance_id, const datatype::String& name) : mode_(0), RootObject(instance_id, name) {}

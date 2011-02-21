@@ -1,6 +1,6 @@
 /**
  * @file   UnitManager.cpp
- * @brief  
+ * @brief  機器の定期データ取得・更新を行う機能マネージャ．
  *
  * @author Taiga Nomi
  * @date   2011.02.16

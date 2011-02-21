@@ -1,6 +1,6 @@
 /**
  * @file   StepNoise.h
- * @brief  
+ * @brief  ステップノイズを発生させるトルク源．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -23,6 +23,8 @@ namespace stf {
 namespace environment {
 namespace torquesource {
 
+//! ステップノイズを発生させるトルク源．
+/*! */
 class StepNoise : virtual public NoiseBase {
 public:
     StepNoise(double magnitude, stf::environment::Simulator *env);

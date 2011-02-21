@@ -17,16 +17,16 @@ namespace mtq {
 
 template <>
 void MTQBase<environment::Simulator>::do_update(){
-	//üŒ`«Œë·‚Ì•t‰Á¨TBD
+	//ç·šå½¢æ€§èª¤å·®ã®ä»˜åŠ â†’TBD
 	//this->linearity_ * 0.01
-	//DB‚Ö‹L˜^
+	//DBã¸è¨˜éŒ²
 	if(this->datapool_ != 0){
 		datapool_->set<MTQBase<environment::Simulator>>(this->datapool_hold_index_,this->value_);
 	}
 }
 
-// ƒVƒ~ƒ…ƒŒ[ƒ^—p‚Ì“Áê‰»”ÅƒRƒ“ƒXƒgƒ‰ƒNƒ^D
-// ƒgƒ‹ƒNƒ\[ƒX‚Æ‚µ‚ÄƒVƒ~ƒ…ƒŒ[ƒ^‚É©“®“I‚É“o˜^
+// ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚¿ç”¨ã®ç‰¹æ®ŠåŒ–ç‰ˆã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ï¼
+// ãƒˆãƒ«ã‚¯ã‚½ãƒ¼ã‚¹ã¨ã—ã¦ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚¿ã«è‡ªå‹•çš„ã«ç™»éŒ²
 template<>
 MTQBase<environment::Simulator>::MTQBase(int instance_id, const datatype::DCM &dcm, double max_torque, double min_torque, double linearity) 
 	: AOCSActuator<datatype::MagneticMoment, datatype::Scalar, environment::Simulator>(instance_id, "MTQ", dcm), linearity_(linearity)

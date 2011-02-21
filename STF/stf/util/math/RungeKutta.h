@@ -1,6 +1,6 @@
 /**
  * @file   RungeKutta.h
- * @brief  
+ * @brief  4æ¬¡ã®ãƒ«ãƒ³ã‚²ã‚¯ãƒƒã‚¿è¨ˆç®—ã‚’è¡Œã†é–¢æ•°ç¾¤
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -13,12 +13,9 @@
 namespace stf { 
 namespace util {
 namespace math {
-/** 
- *  ŒÃ“T“I‚È4Ÿ‚Ìƒ‹ƒ“ƒQƒNƒbƒ^D
-*/
 namespace RungeKutta {
 
-//y' = f(t,y)Œ^‚Ì”÷•ª•û’ö®
+//! y' = f(t,y)å‹ã®å¾®åˆ†æ–¹ç¨‹å¼
 template <class T> inline T slope(T yn, T(*df)(double,T), double tn, double dt){
     T k1 = df(tn, yn);
     T k2 = df(tn + 0.5 * dt, yn + 0.5 * dt * k1);
@@ -28,7 +25,7 @@ template <class T> inline T slope(T yn, T(*df)(double,T), double tn, double dt){
     return dt * (k1 + 2 * k2 + 2 * k3 + k4) / 6;
 }
 
-// y' = Ay + BŒ^‚Ì”÷•ª•û’ö®
+//! y' = Ay + Bå‹ã®å¾®åˆ†æ–¹ç¨‹å¼
 template <class T,class A> inline T slope(T yn, A A, T B, double dt){
     T k1 = A * yn + B;
     T k2 = A * (yn + 0.5 * dt * k1) + B;
@@ -37,7 +34,7 @@ template <class T,class A> inline T slope(T yn, A A, T B, double dt){
     return dt * (k1 + 2 * k2 + 2 * k3 + k4) / 6;
 }
 
-// y' = AyŒ^‚Ì”÷•ª•û’ö®
+//! y' = Ayå‹ã®å¾®åˆ†æ–¹ç¨‹å¼
 template <class T,class A> inline T slope(T yn, A A, double dt){
     T k1 = A * yn;
     T k2 = A * (yn + 0.5 * dt * k1);

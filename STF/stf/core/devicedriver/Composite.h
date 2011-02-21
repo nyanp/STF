@@ -1,14 +1,14 @@
 /**
  * @file   Composite.h
- * @brief  AOCSComponent‚ÌW‡‘Ì‚ğ•\Œ»‚·‚éƒNƒ‰ƒXŒQD
- *         CompositeƒfƒUƒCƒ“ƒpƒ^[ƒ“‚ğg‚¢C’P‘Ì‚ÌAOCSComponent‚Æ“¯“™‚Ìˆµ‚¢‚ª‚Å‚«‚éD
- *         •K—v‚È•¨——Ê‚ğƒRƒ“ƒ|[ƒlƒ“ƒg’P“Æ‚ÌƒCƒ“ƒ^[ƒtƒF[ƒX‚Å“¾‚ç‚ê‚È‚¢ê‡
- *        i²‚²‚Æ‚É’ÊMŒn“‚ªˆá‚¤ƒAƒNƒ`ƒ…ƒG[ƒ^‚âC•¡”²‚ÌŠÏ‘ª’l‚ğ‘g‚İ‡‚í‚¹‚é‘O’ñ‚ÌƒZƒ“ƒT‚È‚Çj‚Ég‚¤D
+ * @brief  AOCSComponentã®é›†åˆä½“ã‚’è¡¨ç¾ã™ã‚‹ã‚¯ãƒ©ã‚¹ç¾¤ï¼
+ *         Compositeãƒ‡ã‚¶ã‚¤ãƒ³ãƒ‘ã‚¿ãƒ¼ãƒ³ã‚’ä½¿ã„ï¼Œå˜ä½“ã®AOCSComponentã¨åŒç­‰ã®æ‰±ã„ãŒã§ãã‚‹ï¼
+ *         å¿…è¦ãªç‰©ç†é‡ã‚’ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆå˜ç‹¬ã®ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ãƒ¼ã‚¹ã§å¾—ã‚‰ã‚Œãªã„å ´åˆ
+ *        ï¼ˆè»¸ã”ã¨ã«é€šä¿¡ç³»çµ±ãŒé•ã†ã‚¢ã‚¯ãƒãƒ¥ã‚¨ãƒ¼ã‚¿ã‚„ï¼Œè¤‡æ•°è»¸ã®è¦³æ¸¬å€¤ã‚’çµ„ã¿åˆã‚ã›ã‚‹å‰æã®ã‚»ãƒ³ã‚µãªã©ï¼‰ã«ä½¿ã†ï¼
  * @author Taiga Nomi
  * @date   2011.02.16
  */
-#ifndef core_component_Composite_h
-#define core_component_Composite_h
+#ifndef stf_core_devicedriver_Composite_h
+#define stf_core_devicedriver_Composite_h
 #include <assert.h>
 #include "AOCSComponent.h"
 #include "AOCSActuator.h"
@@ -24,10 +24,10 @@ namespace core {
 namespace devicedriver {
 
 
-//! AOCSSensor‚ÌW‡‘Ì‚ğ•\‚·ƒNƒ‰ƒXD
+//! AOCSSensorã®é›†åˆä½“ã‚’è¡¨ã™ã‚¯ãƒ©ã‚¹ï¼
 /*! 
-	@tparam Leaf    W–ñ‚·‚éAOCSSensor‚ÌŒ^D
-	@tparam Numbers W–ñƒ`ƒƒƒlƒ‹”D
+	@tparam Leaf    é›†ç´„ã™ã‚‹AOCSSensorã®å‹ï¼
+	@tparam Numbers é›†ç´„ãƒãƒ£ãƒãƒ«æ•°ï¼
 */
 template<class Leaf,int Numbers>
 class CompositeInput : public AOCSSensor<typename Leaf::Target> {
@@ -39,7 +39,7 @@ public:
 	virtual ~CompositeInput(){}
 	virtual void do_update();
 	virtual void aggregate();
-	virtual typename Leaf::Target filter(const typename Leaf::Target& value){ return value; }//composite‚ÍƒtƒBƒ‹ƒ^‚ğ‚»‚Ì‚Ü‚Ü•Ô‚·
+	virtual typename Leaf::Target filter(const typename Leaf::Target& value){ return value; }//compositeã¯ãƒ•ã‚£ãƒ«ã‚¿ã‚’ãã®ã¾ã¾è¿”ã™
 	void appendChild(Leaf* c);
 protected:
 private:
@@ -47,10 +47,10 @@ private:
 	unsigned char index_;//max 255 childs
 };
 
-//! AOCSActuator‚ÌW‡‘Ì‚ğ•\‚·ƒNƒ‰ƒXD
+//! AOCSActuatorã®é›†åˆä½“ã‚’è¡¨ã™ã‚¯ãƒ©ã‚¹ï¼
 /*! 
-	@tparam Leaf    W–ñ‚·‚éAOCSActuator‚ÌŒ^D
-	@tparam Numbers W–ñƒ`ƒƒƒlƒ‹”D
+	@tparam Leaf    é›†ç´„ã™ã‚‹AOCSActuatorã®å‹ï¼
+	@tparam Numbers é›†ç´„ãƒãƒ£ãƒãƒ«æ•°ï¼
 */
 template<class Leaf,int Numbers>
 class CompositeOutput : public AOCSActuator<typename Leaf::Target> {
@@ -58,17 +58,17 @@ public:
 	CompositeOutput(int instance_id, const datatype::DCM& dcm) : AOCSActuator<typename Leaf::Target>(instance_id,"Composite",dcm), index_(0)
 	{
 		for(int i = 0; i < Numbers; i++) childs_[index_] = 0;
-		output_mat_.unitize(); //ƒfƒtƒHƒ‹ƒg‚Åƒgƒ‹ƒN•ª”zs—ñ‚Í’PˆÊs—ñ
+		output_mat_.unitize(); //ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã§ãƒˆãƒ«ã‚¯åˆ†é…è¡Œåˆ—ã¯å˜ä½è¡Œåˆ—
 	}
 	virtual ~CompositeOutput(){}
 	virtual void do_update();
 	virtual void distribute();
-	virtual void matrixset();//‹^—‹ts—ñ‚ğ—p‚¢‚Äƒgƒ‹ƒN•ª”zs—ñ‚ğ¶¬
+	virtual void matrixset();//ç–‘ä¼¼é€†è¡Œåˆ—ã‚’ç”¨ã„ã¦ãƒˆãƒ«ã‚¯åˆ†é…è¡Œåˆ—ã‚’ç”Ÿæˆ
 	void appendChild(Leaf* c);
 protected:
 private:
 	Leaf* childs_[Numbers];
-	datatype::StaticMatrix<Numbers,3> output_mat_;//ƒgƒ‹ƒN•ª”zs—ñ
+	datatype::StaticMatrix<Numbers,3> output_mat_;//ãƒˆãƒ«ã‚¯åˆ†é…è¡Œåˆ—
 	unsigned char index_;//max 255 childs
 };
 
@@ -84,13 +84,13 @@ void CompositeOutput<Leaf,Numbers>::appendChild(Leaf* c){
 	assert(index_ < Numbers);
 	childs_[index_] = c;
 	index_++;
-	if(index_ == Numbers){//q‚ªo‚»‚ë‚Á‚½
+	if(index_ == Numbers){//å­ãŒå‡ºãã‚ã£ãŸ
 		this->matrixset();
 	}
 }
 
-//Input:e‚©‚çq‚ÖÄ‹A“I‚ÉUpdate‚ğÀs‚·‚éD
-// ÀƒZƒ“ƒT‚©‚ç’l‚ğæ“¾¨ŠeƒZƒ“ƒTƒIƒuƒWƒFƒNƒg‚ªƒ[ƒJƒ‹‚É•Û‚µ‚½’l‚ğComposite‚ÉW–ñ¨BodyÀ•WŒn‚Å‚Ì’l‚Æ‚µ‚ÄDB‚É“o˜^
+//Input:è¦ªã‹ã‚‰å­ã¸å†å¸°çš„ã«Updateã‚’å®Ÿè¡Œã™ã‚‹ï¼
+// å®Ÿã‚»ãƒ³ã‚µã‹ã‚‰å€¤ã‚’å–å¾—â†’å„ã‚»ãƒ³ã‚µã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãŒãƒ­ãƒ¼ã‚«ãƒ«ã«ä¿æŒã—ãŸå€¤ã‚’Compositeã«é›†ç´„â†’Bodyåº§æ¨™ç³»ã§ã®å€¤ã¨ã—ã¦DBã«ç™»éŒ²
 template <class Leaf,int Numbers>
 void CompositeInput<Leaf,Numbers>::do_update(){
 	for(unsigned char i = 0; i < Numbers; ++i){
@@ -103,30 +103,30 @@ void CompositeInput<Leaf,Numbers>::do_update(){
 	}
 }
 
-//ƒŠ[ƒtƒRƒ“ƒ|[ƒlƒ“ƒg‚ªæ“¾‚µ‚½’l‚ğ‡¬‚·‚éƒƒ\ƒbƒhD
-//•K—v‚É‰‚¶‚Ä•”•ª“Áê‰»‚ğg‚¢C•¨——Ê‚ÆƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚É‘Î‚µ‚Ä“KØ‚È‡¬‚ğs‚¤
+//ãƒªãƒ¼ãƒ•ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆãŒå–å¾—ã—ãŸå€¤ã‚’åˆæˆã™ã‚‹ãƒ¡ã‚½ãƒƒãƒ‰ï¼
+//å¿…è¦ã«å¿œã˜ã¦éƒ¨åˆ†ç‰¹æ®ŠåŒ–ã‚’ä½¿ã„ï¼Œç‰©ç†é‡ã¨ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã«å¯¾ã—ã¦é©åˆ‡ãªåˆæˆã‚’è¡Œã†
 template <class Leaf,int Numbers>
 void CompositeInput<Leaf,Numbers>::aggregate(){
 	typename Leaf::Target v;
 	int updatedsensors = 0;
 	for(unsigned char i = 0; i < Numbers; ++i){
 		if(childs_[i] != 0){
-			if(childs_[i]->get_lastupdate() > this->get_lastupdate()){//ŒÃ‚¢‚à‚Ì‚ÍƒXƒLƒbƒvH
-				v += childs_[i]->get_in_bodyframe();//’Pƒ‰ÁZ‚Å‡¬‚Å‚«‚éH
+			if(childs_[i]->get_lastupdate() > this->get_lastupdate()){//å¤ã„ã‚‚ã®ã¯ã‚¹ã‚­ãƒƒãƒ—ï¼Ÿ
+				v += childs_[i]->get_in_bodyframe();//å˜ç´”åŠ ç®—ã§åˆæˆã§ãã‚‹ï¼Ÿ
 				updatedsensors ++;
 			}
 		}
 	}
-	if(updatedsensors == 0){//q‹Ÿ‚ªXV‚µ‚Ä‚¢‚È‚¢‚Ì‚Å©•ª‚à‰½‚à‚µ‚È‚¢
+	if(updatedsensors == 0){//å­ä¾›ãŒæ›´æ–°ã—ã¦ã„ãªã„ã®ã§è‡ªåˆ†ã‚‚ä½•ã‚‚ã—ãªã„
 		return;
 	}
-	v.normalize();//•¨——Ê‚ğ³‹K‰»
+	v.normalize();//ç‰©ç†é‡ã‚’æ­£è¦åŒ–
 	this->set_valueInBodyFrame(v);
 }
 
 
-//Output:e‚©‚çq‚ÖÄ‹A“I‚ÉUpdate‚ğÀs‚·‚éD
-// BodyÀ•WŒn‚Å‚Ìw—ß’l‚ğDB‚©‚ç“Ç‚İ‚İ¨ŠeƒZƒ“ƒT‚Öƒgƒ‹ƒN‚ğ•ª”z¨ŠeƒZƒ“ƒTƒIƒuƒWƒFƒNƒg‚ªƒ[ƒJƒ‹‚É•Û‚µ‚½’l‚ğÀƒAƒNƒ`ƒ…ƒG[ƒ^‚É‘—M
+//Output:è¦ªã‹ã‚‰å­ã¸å†å¸°çš„ã«Updateã‚’å®Ÿè¡Œã™ã‚‹ï¼
+// Bodyåº§æ¨™ç³»ã§ã®æŒ‡ä»¤å€¤ã‚’DBã‹ã‚‰èª­ã¿è¾¼ã¿â†’å„ã‚»ãƒ³ã‚µã¸ãƒˆãƒ«ã‚¯ã‚’åˆ†é…â†’å„ã‚»ãƒ³ã‚µã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãŒãƒ­ãƒ¼ã‚«ãƒ«ã«ä¿æŒã—ãŸå€¤ã‚’å®Ÿã‚¢ã‚¯ãƒãƒ¥ã‚¨ãƒ¼ã‚¿ã«é€ä¿¡
 template <class Leaf,int Numbers>
 void CompositeOutput<Leaf,Numbers>::do_update(){
 	if(this->datapool_ != 0){
@@ -139,8 +139,8 @@ void CompositeOutput<Leaf,Numbers>::do_update(){
 	}
 }
 
-//ƒŠ[ƒtƒRƒ“ƒ|[ƒlƒ“ƒg‚Éo—Íiƒgƒ‹ƒN“™j‚ğ•ª”z‚·‚éƒƒ\ƒbƒhD
-//•K—v‚É‰‚¶‚Ä•”•ª“Áê‰»‚ğg‚¢C•¨——Ê‚ÆƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚É‘Î‚µ‚Ä“KØ‚È•ª”z‚ğs‚¤
+//ãƒªãƒ¼ãƒ•ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆã«å‡ºåŠ›ï¼ˆãƒˆãƒ«ã‚¯ç­‰ï¼‰ã‚’åˆ†é…ã™ã‚‹ãƒ¡ã‚½ãƒƒãƒ‰ï¼
+//å¿…è¦ã«å¿œã˜ã¦éƒ¨åˆ†ç‰¹æ®ŠåŒ–ã‚’ä½¿ã„ï¼Œç‰©ç†é‡ã¨ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã«å¯¾ã—ã¦é©åˆ‡ãªåˆ†é…ã‚’è¡Œã†
 template <class Leaf,int Numbers>
 void CompositeOutput<Leaf,Numbers>::distribute(){
 	//util::cout << value_;
@@ -152,8 +152,8 @@ void CompositeOutput<Leaf,Numbers>::distribute(){
 
 }
 
-//qƒRƒ“ƒ|[ƒlƒ“ƒg‚ªZ²‚Ü‚í‚è‚Ìƒgƒ‹ƒN‚ğo‚·‚Æ‰¼’è‚µ‚ÄC
-//‹^—‹ts—ñ‚ÅƒGƒlƒ‹ƒM[Å¬‚Ìƒgƒ‹ƒN•ª”zs—ñ‚ğŒvZD
+//å­ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆãŒZè»¸ã¾ã‚ã‚Šã®ãƒˆãƒ«ã‚¯ã‚’å‡ºã™ã¨ä»®å®šã—ã¦ï¼Œ
+//ç–‘ä¼¼é€†è¡Œåˆ—ã§ã‚¨ãƒãƒ«ã‚®ãƒ¼æœ€å°ã®ãƒˆãƒ«ã‚¯åˆ†é…è¡Œåˆ—ã‚’è¨ˆç®—ï¼
 template <class Leaf,int Numbers>
 void CompositeOutput<Leaf,Numbers>::matrixset(){
 	datatype::StaticMatrix<3,Numbers> m;
@@ -170,4 +170,4 @@ void CompositeOutput<Leaf,Numbers>::matrixset(){
 } /* End of namespace stf::core */
 } /* End of namespace stf */
 
-#endif // core_component_Composite_h
+#endif // stf_core_devicedriver_Composite_h

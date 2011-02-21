@@ -1,6 +1,6 @@
 /**
  * @file   StepNoise.cpp
- * @brief  
+ * @brief  ステップノイズを発生させるトルク源．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -15,7 +15,7 @@ namespace torquesource {
 StepNoise::StepNoise(double magnitude, stf::environment::Simulator *env)
 : magnitude_(magnitude), NoiseBase(env)
 {
-    vector_[0] = 1;//�f�t�H���g��X���܂��̃g���N
+    vector_[0] = 1;//デフォルトはX軸まわりのトルク
 }
 
 StepNoise::StepNoise(double magnitude, const datatype::StaticVector<3> &vector, const int &startTimeInSecond, stf::environment::Simulator *env)

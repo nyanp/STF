@@ -1,6 +1,6 @@
 /**
  * @file   IDataUpdatable.h
- * @brief  
+ * @brief  å‘¨æœŸçš„ã«ãƒ‡ãƒ¼ã‚¿ã‚’å–å¾—ï¼Œé€ä¿¡ã™ã‚‹ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆã«å¯¾ã™ã‚‹æŠ½è±¡ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ãƒ¼ã‚¹ï¼
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -12,8 +12,8 @@
 namespace stf {
 namespace core {
 namespace devicedriver {
-
-/// üŠú“I‚Éƒf[ƒ^‚ğæ“¾C‘—M‚·‚éƒRƒ“ƒ|[ƒlƒ“ƒg‚É‘Î‚·‚éƒCƒ“ƒ^[ƒtƒF[ƒX
+//! å‘¨æœŸçš„ã«ãƒ‡ãƒ¼ã‚¿ã‚’å–å¾—ï¼Œé€ä¿¡ã™ã‚‹ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆã«å¯¾ã™ã‚‹ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ãƒ¼ã‚¹
+/*! */
 class IDataUpdatable {
 public:
 	virtual void do_update()  = 0;

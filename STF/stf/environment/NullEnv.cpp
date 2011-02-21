@@ -1,6 +1,6 @@
 /**
  * @file   NullEnv.cpp
- * @brief  
+ * @brief  空の環境クラス．
  *
  * @author Taiga Nomi
  * @date   2011.02.16

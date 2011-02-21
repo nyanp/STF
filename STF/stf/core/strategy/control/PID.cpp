@@ -1,6 +1,6 @@
 /**
  * @file   PID.cpp
- * @brief  
+ * @brief  PIDåˆ¶å¾¡ã‚’è¡Œã†åˆ¶å¾¡ãƒ–ãƒ­ãƒƒã‚¯ç¾¤ï¼
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -83,10 +83,10 @@ DynamicPID::DynamicPID(int instance_id, double kp, double ki, double kd, double 
 
 void PID::do_compute(const datatype::Time& t)
 {
-	//assert(this->;//input source‚ª–³‚¢
-	if(t > this->last_update_){//Šù‚É•Ê‚ÌƒuƒƒbƒNŒo—R‚ÅXVÏ‚İ‚È‚çÄŒvZ‚µ‚È‚¢
+	//assert(this->;//input sourceãŒç„¡ã„
+	if(t > this->last_update_){//æ—¢ã«åˆ¥ã®ãƒ–ãƒ­ãƒƒã‚¯çµŒç”±ã§æ›´æ–°æ¸ˆã¿ãªã‚‰å†è¨ˆç®—ã—ãªã„
 		util::cout << "compute: PID" << util::endl;
-		//QuaternionŠÏ‘ª’l
+		//Quaternionè¦³æ¸¬å€¤
 		datatype::Quaternion q = this->source<0,datatype::Quaternion>().get_in_bodyframe(t);
 		datatype::EulerAngle e = datatype::TypeConverter::toEulerAngle(q.conjugate() * this->q_target_);
 		datatype::EulerAngle e_diff = this->source<1,datatype::StaticVector<3>>().get_in_bodyframe(t);
@@ -102,7 +102,7 @@ void PID::do_compute(const datatype::Time& t)
 
 datatype::StaticVector<3> PID::compute_torque_(const datatype::EulerAngle& x, const datatype::EulerAngle& x_delta, const datatype::EulerAngle& x_total)
 {
-	//ƒIƒCƒ‰[Šp‚ªZ-Y-X•\Œ»‚È‚Ì‚É‘Î‚µ‚Äƒgƒ‹ƒN‚ÍX-Y-Z‚Ì‡D‡”Ô‚É’ˆÓ
+	//ã‚ªã‚¤ãƒ©ãƒ¼è§’ãŒZ-Y-Xè¡¨ç¾ãªã®ã«å¯¾ã—ã¦ãƒˆãƒ«ã‚¯ã¯X-Y-Zã®é †ï¼é †ç•ªã«æ³¨æ„
 	datatype::StaticVector<3> output;	
 	output[2] = this->kp_ * x[0] + this->kd_ * x_delta[0] + this->ki_ * x_total[0];
 	output[1] = this->kp_ * x[1] + this->kd_ * x_delta[1] + this->ki_ * x_total[1];
@@ -112,13 +112,13 @@ datatype::StaticVector<3> PID::compute_torque_(const datatype::EulerAngle& x, co
 
 void QuaternionPID::do_compute(const datatype::Time& t)
 {
-//	assert(this->prevholder_ != 0);//input source‚ª–³‚¢
-	if(t > this->last_update_){//Šù‚É•Ê‚ÌƒuƒƒbƒNŒo—R‚ÅXVÏ‚İ‚È‚çÄŒvZ‚µ‚È‚¢
+//	assert(this->prevholder_ != 0);//input sourceãŒç„¡ã„
+	if(t > this->last_update_){//æ—¢ã«åˆ¥ã®ãƒ–ãƒ­ãƒƒã‚¯çµŒç”±ã§æ›´æ–°æ¸ˆã¿ãªã‚‰å†è¨ˆç®—ã—ãªã„
 		util::cout << "compute: PID(Quaternion)" << util::endl;
-		//QuaternionŠÏ‘ª’l
+		//Quaternionè¦³æ¸¬å€¤
 		datatype::Quaternion q = this->source<0,datatype::Quaternion>().get_in_bodyframe(t);
 		datatype::EulerAngle e = datatype::TypeConverter::toEulerAngle(q.conjugate() * this->q_target_);
-		//Šp‘¬“xƒZƒ“ƒT‚Å‚Í‚È‚­Q‚Ì·•ª‚Å”÷•ª’l‚ğŒvZ
+		//è§’é€Ÿåº¦ã‚»ãƒ³ã‚µã§ã¯ãªãQã®å·®åˆ†ã§å¾®åˆ†å€¤ã‚’è¨ˆç®—
 		datatype::EulerAngle e_diff = (e - this->e_before_) / this->dt_;
 		this->e_total_ += e * this->dt_;
 
@@ -132,15 +132,15 @@ void QuaternionPID::do_compute(const datatype::Time& t)
 
 void EarthPointingPID::do_compute(const datatype::Time& t)
 {
-//	assert(this->prevholder_ != 0);//input source‚ª–³‚¢
-	if(t > this->last_update_){//Šù‚É•Ê‚ÌƒuƒƒbƒNŒo—R‚ÅXVÏ‚İ‚È‚çÄŒvZ‚µ‚È‚¢
+//	assert(this->prevholder_ != 0);//input sourceãŒç„¡ã„
+	if(t > this->last_update_){//æ—¢ã«åˆ¥ã®ãƒ–ãƒ­ãƒƒã‚¯çµŒç”±ã§æ›´æ–°æ¸ˆã¿ãªã‚‰å†è¨ˆç®—ã—ãªã„
 		util::cout << "compute: PID(Earth-Pointing)" << util::endl;
-		//QuaternionŠÏ‘ª’l
+		//Quaternionè¦³æ¸¬å€¤
 		datatype::Quaternion q = this->source<0,datatype::Quaternion>().get_in_bodyframe(t);
 		this->earthvector_ = datatype::OrbitCalc::getEarthDirection3D(this->source<2,datatype::PositionInfo>().get_in_bodyframe(t));
 		datatype::StaticVector<3> v = this->earthvector_ - this->target_earthvector_;
 		
-		//Šp‘¬“xƒZƒ“ƒT‚Å‚Í‚È‚­Q‚Ì·•ª‚Å”÷•ª’l‚ğŒvZ
+		//è§’é€Ÿåº¦ã‚»ãƒ³ã‚µã§ã¯ãªãQã®å·®åˆ†ã§å¾®åˆ†å€¤ã‚’è¨ˆç®—
 		datatype::EulerAngle e_diff = (v - this->e_before_) / this->dt_;
 		this->e_total_ += v * this->dt_;
 
@@ -156,17 +156,17 @@ void EarthPointingPID::do_compute(const datatype::Time& t)
 
 
 void DynamicPID::do_compute(const datatype::Time& t){
-//	assert(this->prevholder_ != 0);//input source‚ª–³‚¢
-	if(t > this->last_update_){//Šù‚É•Ê‚ÌƒuƒƒbƒNŒo—R‚ÅXVÏ‚İ‚È‚çÄŒvZ‚µ‚È‚¢
+//	assert(this->prevholder_ != 0);//input sourceãŒç„¡ã„
+	if(t > this->last_update_){//æ—¢ã«åˆ¥ã®ãƒ–ãƒ­ãƒƒã‚¯çµŒç”±ã§æ›´æ–°æ¸ˆã¿ãªã‚‰å†è¨ˆç®—ã—ãªã„
 		util::cout << "compute: PID(Dynamic)" << util::endl;
-		//QuaternionŠÏ‘ª’l
+		//Quaternionè¦³æ¸¬å€¤
 		datatype::Quaternion q = this->source<0,datatype::Quaternion>().get_in_bodyframe(t);
-		//Quaternion–Ú•W’l
+		//Quaternionç›®æ¨™å€¤
 		datatype::Quaternion q_target = this->source<2,datatype::Quaternion>().get_in_bodyframe(t);
-		//–Ú•W‚Ü‚Å‚ÌƒIƒCƒ‰[Šp
+		//ç›®æ¨™ã¾ã§ã®ã‚ªã‚¤ãƒ©ãƒ¼è§’
 		datatype::EulerAngle e = datatype::TypeConverter::toEulerAngle( q.conjugate() * q_target );
 		
-		//Šp‘¬“xƒZƒ“ƒT‚Å‚Í‚È‚­Q‚Ì·•ª‚Å”÷•ª’l‚ğŒvZ
+		//è§’é€Ÿåº¦ã‚»ãƒ³ã‚µã§ã¯ãªãQã®å·®åˆ†ã§å¾®åˆ†å€¤ã‚’è¨ˆç®—
 		datatype::EulerAngle e_diff = (e - this->e_before_) / this->dt_;
 		this->e_total_ += e * this->dt_;
 

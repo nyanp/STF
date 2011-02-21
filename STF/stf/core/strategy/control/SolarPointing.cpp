@@ -1,6 +1,6 @@
 /**
  * @file   SolarPointing.cpp
- * @brief  
+ * @brief  MTQで太陽指向制御を行うための制御ブロック．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -31,7 +31,7 @@ SolarPointing::SolarPointing(int instance_id, double k,
 }
 
 void SolarPointing::do_compute(const datatype::Time& t) {
-	if(t <= this->last_update_) return; //���ɕʂ̃u���b�N�o�R�ōX�V�ς݂Ȃ�Čv�Z���Ȃ�
+	if(t <= this->last_update_) return; //既に別のブロック経由で更新済みなら再計算しない
 	util::cout << "compute: solar pointing" << util::endl;
 	datatype::MagneticField b = this->source<0,datatype::MagneticField>().value_b_;
 	datatype::StaticVector<3> s = datatype::TypeConverter::toRectangular(this->source<1,datatype::StaticVector<2>>().value_b_);

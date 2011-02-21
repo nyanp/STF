@@ -1,6 +1,6 @@
 /**
  * @file   GGCompensation.cpp
- * @brief  
+ * @brief  é‡åŠ›å‚¾æ–œãƒˆãƒ«ã‚¯ã‚’è¨ˆç®—ã—ï¼Œé€†ç¬¦å·ã®ãƒˆãƒ«ã‚¯ã‚’å‡ºåŠ›ã™ã‚‹åˆ¶å¾¡ãƒ–ãƒ­ãƒƒã‚¯ï¼
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -21,6 +21,7 @@ namespace control {
 
 
 GGCompensation::GGCompensation(int instance_id, 
+		const datatype::SatelliteModel& sat,
 		devicedriver::OutputPort<datatype::Quaternion>* q_source,
 		devicedriver::OutputPort<datatype::PositionInfo>* position_source,
 		devicedriver::InputPort<datatype::StaticVector<3>>* torque_out
@@ -34,22 +35,18 @@ GGCompensation::GGCompensation(int instance_id,
 }
 
 void GGCompensation::do_compute(const datatype::Time& t) {
-	if(t <= this->last_update_) return; //Šù‚É•Ê‚ÌƒuƒƒbƒNŒo—R‚ÅXVÏ‚İ‚È‚çÄŒvZ‚µ‚È‚¢
+	if(t <= this->last_update_) return; //æ—¢ã«åˆ¥ã®ãƒ–ãƒ­ãƒƒã‚¯çµŒç”±ã§æ›´æ–°æ¸ˆã¿ãªã‚‰å†è¨ˆç®—ã—ãªã„
 	util::cout << "compute: ggcompensation" << util::endl;
-	// ‹O“¹î•ñ‚Æp¨î•ñ‚©‚çC‹@‘ÌÀ•W‚É‚¨‚¯‚é’n‹…•ûŒüƒxƒNƒgƒ‹‚ğZo
+	// è»Œé“æƒ…å ±ã¨å§¿å‹¢æƒ…å ±ã‹ã‚‰ï¼Œæ©Ÿä½“åº§æ¨™ã«ãŠã‘ã‚‹åœ°çƒæ–¹å‘ãƒ™ã‚¯ãƒˆãƒ«ã‚’ç®—å‡º
 	datatype::StaticVector<3> R = datatype::OrbitCalc::getEarthDirectionInBodyFrame(
 		this->source<1,datatype::PositionInfo>().get_in_bodyframe(t),
 		this->source<0,datatype::Quaternion>().get_in_bodyframe(t));
 
 	double r = R.norm(2);
 	datatype::StaticVector<3> u = R / r;
-	
-	//TBD
-	datatype::StaticMatrix<3,3> I;
-	//datatype::StaticMatrix<3,3> I = Global<ENV>::get_satellitemodel().getI();
 
-	//d—ÍŒXÎƒgƒ‹ƒN‚ğ‘Å‚¿Á‚·‚æ‚¤‚Èƒgƒ‹ƒN‚ğo—Í
-	this->value_b_ = ( 3 * util::math::MU / ( r * r * r ) ) * u % (I * u);
+	//é‡åŠ›å‚¾æ–œãƒˆãƒ«ã‚¯ã‚’æ‰“ã¡æ¶ˆã™ã‚ˆã†ãªãƒˆãƒ«ã‚¯ã‚’å‡ºåŠ›
+	this->value_b_ = ( 3 * util::math::MU / ( r * r * r ) ) * u % (sat_.getI() * u);
 
 	this->last_update_ = t;
 }

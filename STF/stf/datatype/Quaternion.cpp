@@ -1,6 +1,6 @@
 /**
  * @file   Quaternion.cpp
- * @brief  
+ * @brief  4å…ƒæ•°ã‚’è¡¨ç¾ã™ã‚‹ã‚¯ãƒ©ã‚¹ï¼
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -22,7 +22,7 @@ void Quaternion::normalize()
 
 double Quaternion::norm(int n) const 
 {
-	assert((n == 1) || (n == 2));//ŒvZ•‰‰×‚Ì–â‘è‚©‚ç¡‚Í1C2Ÿ‚Ìƒmƒ‹ƒ€‚µ‚©‚Æ‚ç‚È‚¢
+	assert((n == 1) || (n == 2));//è¨ˆç®—è² è·ã®å•é¡Œã‹ã‚‰ä»Šã¯1ï¼Œ2æ¬¡ã®ãƒãƒ«ãƒ ã—ã‹ã¨ã‚‰ãªã„
 	double value = 0.0;
 	if(n == 1){
 		for(int i = 0; i < 4; i++)

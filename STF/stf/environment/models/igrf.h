@@ -1,6 +1,6 @@
 /**
  * @file   igrf.h
- * @brief  
+ * @brief  NJHILSから持ってきたIGRF計算モジュールを，igrf名前空間でラップして使用．
  *
  * @author Taiga Nomi
  * @date   2011.02.16

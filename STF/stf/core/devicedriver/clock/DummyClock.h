@@ -1,6 +1,6 @@
 /**
  * @file   DummyClock.h
- * @brief  ƒ_ƒ~[‚ÌŒvZ‚ğs‚¤ƒRƒ“ƒ|[ƒlƒ“ƒgƒhƒ‰ƒCƒoD
+ * @brief  ãƒ€ãƒŸãƒ¼ã®æ™‚åˆ»è¨ˆç®—ã‚’è¡Œã†ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆãƒ‰ãƒ©ã‚¤ãƒï¼
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -19,9 +19,9 @@ namespace core {
 namespace devicedriver {
 namespace clock {
 
-//! ƒ_ƒ~[‚ÌŒvZ‚ğs‚¤ƒRƒ“ƒ|[ƒlƒ“ƒgƒhƒ‰ƒCƒoD
+//! ãƒ€ãƒŸãƒ¼ã®æ™‚åˆ»è¨ˆç®—ã‚’è¡Œã†ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆãƒ‰ãƒ©ã‚¤ãƒï¼
 /*! 
-	IDataUpdatable::doUpdate‚ªŒÄ‚Ño‚³‚ê‚é‚½‚Ñ‚ÉCCLOCKƒ~ƒŠ•b‚¾“à•”‚ªi‚ŞD
+	IDataUpdatable::doUpdateãŒå‘¼ã³å‡ºã•ã‚Œã‚‹ãŸã³ã«ï¼ŒCLOCKãƒŸãƒªç§’ã å†…éƒ¨æ™‚åˆ»ãŒé€²ã‚€ï¼
 */
 template<int CLOCK = 100>
 class DummyClock : public CDHMultiComponent< TYPELIST_2( datatype::Time, datatype::DateTime ) >, virtual public ITimeClock, virtual public IAbsoluteTimeClock
@@ -30,7 +30,7 @@ public:
 	DummyClock(int instance_id, int year, int month, int date): CDHMultiComponent< TYPELIST_2( datatype::Time, datatype::DateTime )>(instance_id, "DummyClock")
 	{
 		const_cast<datatype::DateTime*>(&get<1,datatype::DateTime>())->init(year,month,date,0,0,0);
-		this->clock_ = this;//staticƒ|ƒCƒ“ƒ^‚ÉŠ„‚è“–‚Ä
+		this->clock_ = this;//staticãƒã‚¤ãƒ³ã‚¿ã«å‰²ã‚Šå½“ã¦
 	}
 
 	~DummyClock(void){}

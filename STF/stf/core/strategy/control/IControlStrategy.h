@@ -1,13 +1,12 @@
 /**
  * @file   IControlStrategy.h
- * @brief  
+ * @brief  制御ブロックの抽象インターフェース．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
  */
 #ifndef stf_core_strategy_control_IControlStorategy_h
 #define stf_core_strategy_control_IControlStorategy_h
-#include "../../../datatype/IAocsData.h"
 
 namespace stf {
 namespace datatype {
@@ -17,10 +16,11 @@ namespace core {
 namespace strategy {
 namespace control {
 
+//! 制御ブロックの抽象インターフェース．
+/*! */
 class IControlStrategy {
 public:
     virtual void compute_torque(const datatype::Time& t)  = 0;
-	//virtual void changeTarget(const datatype::IAocsData& newtarget) = 0;
     virtual ~IControlStrategy() { }
 };
 

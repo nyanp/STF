@@ -17,7 +17,7 @@ namespace sunsensor {
 template <class T>
 class SunSensor : public SunSensorBase<T>{
 public:  
-	// 3-SigmaÇ≈1ìxê∏ìx
+	// 3-Sigma„Åß1Â∫¶Á≤æÂ∫¶
 	SunSensor(int instance_id, const datatype::DCM &angle) : SunSensorBase(instance_id,angle,1,3){}
 	~SunSensor(){}
 private:

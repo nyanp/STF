@@ -1,6 +1,6 @@
 /**
  * @file   StrategyBase.h
- * @brief  
+ * @brief  ストラテジの共通基底クラス．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -18,16 +18,16 @@ namespace stf {
 namespace core {
 namespace strategy {
 
+//! ストラテジの共通基底クラス．
+/*! */
 class StrategyBase : public RootObject, virtual public interface::IEnabable{
 public:
 	StrategyBase(int instance_id, const datatype::String& strategy_name) : RootObject(instance_id,strategy_name) {}
 	virtual ~StrategyBase(){}
-	template<typename T> void connect(Loki::Type2Type<T>, int rows, const datatype::String name){ 
-		this->datapool_hold_index_ = Global<ENV>::get_datapool().create(Loki::Type2Type<T>(),rows,name);
-		datapool_ = &Global<ENV>::get_datapool(); 
-	}
-	virtual void enable(){}
-	virtual void disable(){}
+	//! ストラテジの有効化．
+	virtual void enable(){ is_enabled_ = true; }
+	//! ストラテジの無効化．
+	virtual void disable(){ is_enabled_ = false; }
 	virtual bool is_enable () const{ return this->is_enabled_; }
 protected:
 	bool is_enabled_;

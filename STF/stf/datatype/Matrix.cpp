@@ -18,7 +18,7 @@ Matrix::Matrix()
 Matrix::Matrix(int rows, int cols)
 {
 	this->rows_ = rows;
-	this->cols_ = cols;//ArgoUML‚Ì§–ñ‚ª‚È‚¯‚ê‚Î‰Šú‰»Žq‚Å‚â‚é‚Ù‚¤‚ª’áƒRƒXƒg
+	this->cols_ = cols;//ArgoUMLã®åˆ¶ç´„ãŒãªã‘ã‚Œã°åˆæœŸåŒ–å­ã§ã‚„ã‚‹ã»ã†ãŒä½Žã‚³ã‚¹ãƒˆ
 	this->value_  = new Vector[rows];
 	for(int i = 0; i < rows; i++)
 		this->value_[i].initVector(cols,0.0);
@@ -54,7 +54,7 @@ Matrix &Matrix::unitize()
 double Matrix::det() const 
 {
 	assert(cols_ == rows_);
-	assert(cols_ <= 3);//‚Æ‚è‚ ‚¦‚¸3ŽŸ‚Ü‚Å’è‹`
+	assert(cols_ <= 3);//ã¨ã‚Šã‚ãˆãš3æ¬¡ã¾ã§å®šç¾©
 
 	if(cols_ == 2){
 		return value_[0][0] * value_[1][1] - value_[0][1] * value_[1][0];
@@ -102,7 +102,7 @@ Matrix Matrix::inverse() const
 
 	Matrix tempmat(rows_,cols_);
 	for(int i = 0; i < rows_; i++) tempmat[i][i] = 1.0;
-	Matrix m = *this;//•›ì—p‚ð¶‚¶‚È‚¢‚æ‚¤‚ÉŒ»ƒCƒ“ƒXƒ^ƒ“ƒX‚ÌƒRƒs[‚ÅŒvŽZ
+	Matrix m = *this;//å‰¯ä½œç”¨ã‚’ç”Ÿã˜ãªã„ã‚ˆã†ã«ç¾ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã®ã‚³ãƒ”ãƒ¼ã§è¨ˆç®—
 
 	for (k = 0; k < rows_; k++)
 	{
@@ -148,7 +148,7 @@ int Matrix::pivot(Matrix &m, int row) const
 
 Matrix &Matrix::operator=(const Matrix &rhs)
 {
-	if(this == &rhs) return *this;//Ž©ŒÈŽQÆ‚É‚æ‚éƒƒ‚ƒŠƒŠ[ƒN‚ð–h‚®
+	if(this == &rhs) return *this;//è‡ªå·±å‚ç…§ã«ã‚ˆã‚‹ãƒ¡ãƒ¢ãƒªãƒªãƒ¼ã‚¯ã‚’é˜²ã
 	if(rows_ == rhs.rows_ && cols_ == rhs.cols_){
 		for(int i = 0; i < rows_; i++)
 		  for(int j = 0; j < cols_ ; j++)

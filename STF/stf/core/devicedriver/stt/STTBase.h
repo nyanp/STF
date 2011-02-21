@@ -1,6 +1,6 @@
 /**
  * @file   STTBase.h
- * @brief  ƒXƒ^[ƒZƒ“ƒT‚ÌŠî’êƒNƒ‰ƒXD
+ * @brief  ã‚¹ã‚¿ãƒ¼ã‚»ãƒ³ã‚µã®åŸºåº•ã‚¯ãƒ©ã‚¹ï¼
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -21,9 +21,9 @@ namespace core {
 namespace devicedriver {
 namespace stt {
 
-//! ƒXƒ^[ƒZƒ“ƒT‚ÌŠî’êƒNƒ‰ƒXD
+//! ã‚¹ã‚¿ãƒ¼ã‚»ãƒ³ã‚µã®åŸºåº•ã‚¯ãƒ©ã‚¹ï¼
 /*! 
-	@tparam T ƒRƒ“ƒ|[ƒlƒ“ƒg‚ÌŠÂ‹«ƒNƒ‰ƒXD
+	@tparam T ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆã®ç’°å¢ƒã‚¯ãƒ©ã‚¹ï¼
 */
 template <class T>
 class STTBase : public AOCSSensor<datatype::Quaternion,datatype::Quaternion,T>{
@@ -67,14 +67,14 @@ void STTBase<T>::do_update(){
 
 }
 
-// DCM‚ÅŒvZ‚¹‚¸‚ÉQuaternion‚ÅŒvZ‚·‚é‚½‚ß‚ÉƒI[ƒo[ƒ‰ƒCƒh
+// DCMã§è¨ˆç®—ã›ãšã«Quaternionã§è¨ˆç®—ã™ã‚‹ãŸã‚ã«ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰
 template <class T>
 const datatype::Quaternion& STTBase<T>::get_in_bodyframe(){
 	this->value_b_ = q_set_angle_ * value_;
 	return this->value_b_;
 }
 
-//STT–{‘Ì‚ÌQuaternion
+//STTæœ¬ä½“ã®Quaternion
 template <>
 void STTBase<environment::Simulator>::do_update();
 template <>

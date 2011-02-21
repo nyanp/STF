@@ -1,6 +1,6 @@
 /**
  * @file   Quaternion.h
- * @brief  4Œ³”‚ğ•\Œ»‚·‚éƒNƒ‰ƒXD
+ * @brief  4å…ƒæ•°ã‚’è¡¨ç¾ã™ã‚‹ã‚¯ãƒ©ã‚¹ï¼
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -12,7 +12,7 @@
 namespace stf { 
 namespace datatype {
 
-//! 4Œ³”‚ğ•\Œ»‚·‚éƒNƒ‰ƒXDq0‚ªcos‚Æ’è‹`‚³‚ê‚Ä‚¢‚é“_‚É’ˆÓD
+//! 4å…ƒæ•°ã‚’è¡¨ç¾ã™ã‚‹ã‚¯ãƒ©ã‚¹ï¼q0ãŒcosã¨å®šç¾©ã•ã‚Œã¦ã„ã‚‹ç‚¹ã«æ³¨æ„ï¼
 /*! */
 class Quaternion : public StaticVector<4> {
 public:
@@ -33,16 +33,16 @@ public:
 	}
 	~Quaternion(){}
 
-	//! ‹¤–ğ‚ğæ“¾‚·‚éD
+	//! å…±å½¹ã‚’å–å¾—ã™ã‚‹ï¼
 	Quaternion conjugate() const { return Quaternion(-value_[0],value_[1],value_[2],value_[3]); }
-	//! ƒmƒ‹ƒ€‚ğ1‚É’²®‚·‚éD
+	//! ãƒãƒ«ãƒ ã‚’1ã«èª¿æ•´ã™ã‚‹ï¼
 	virtual void normalize();
-	//! n-ƒmƒ‹ƒ€‚ğæ“¾D
+	//! n-ãƒãƒ«ãƒ ã‚’å–å¾—ï¼
 	virtual double norm(int n) const;
 private:
 };
 
-//! Quaternion‚ÌŒ¸ZD
+//! Quaternionã®æ¸›ç®—ï¼
 inline const Quaternion operator - (const Quaternion& vec1, const Quaternion& vec2){
 	Quaternion temp = vec1;
 	if(vec1[0] * vec2[0] < 0){
@@ -55,7 +55,7 @@ inline const Quaternion operator - (const Quaternion& vec1, const Quaternion& ve
 	return temp;
 }
 
-//! Quaternion‚ÌÏD
+//! Quaternionã®ç©ï¼
 inline Quaternion operator * (const Quaternion& q1, const Quaternion& q2){
 	Quaternion q;
 	q[0] = q1[0] * q2[0] - q1[1] * q2[1] - q1[2] * q2[2] - q1[3] * q2[3];

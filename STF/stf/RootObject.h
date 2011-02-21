@@ -1,6 +1,6 @@
 /**
  * @file   RootObject.h
- * @brief  
+ * @brief  数値型を除いた全クラスの基本となるクラス．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -31,8 +31,12 @@ class AocsDataPool;
 class EventDataPool;
 }
 }
-// ���l�^���������S�N���X�̊�{�ƂȂ�N���X�D
-// string�^�Ŗ��O��ێ����Ă��邪�C�ŏI�I�ɂ̓T�C�Y�̖��ʂȂ̂ō폜�H
+
+//! 数値型を除いた全クラスの基本となるクラス．
+/*! 
+	オブジェクトの生成は基本的に初期化時のみを想定しており，暗黙のコピーを禁止している．
+	string型で名前を保持しているが，最終的にはサイズの無駄なので削除したい．
+*/
 class RootObject {
 public:
 	RootObject(int instance_id, const datatype::String& name);
@@ -45,7 +49,7 @@ protected:
 	datatype::String name_;
     static int last_oid_;
 	static core::devicedriver::clock::ITimeClock* clock_;
-	//�ϑ��l���i�[�����f�[�^�x�[�X�C���f�b�N�X�D
+	//観測値が格納されるデータベースインデックス．
 	int datapool_hold_index_;
 	core::datapool::AocsDataPool* datapool_;
 private:

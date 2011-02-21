@@ -1,6 +1,6 @@
 /**
  * @file   debuglogger.h
- * @brief  ƒeƒŒƒƒnƒ“ƒhƒ‰‚ÌƒfƒoƒbƒO—pƒNƒ‰ƒXD
+ * @brief  ãƒ†ãƒ¬ãƒ¡ãƒãƒ³ãƒ‰ãƒ©ã®ãƒ‡ãƒãƒƒã‚°ç”¨ã‚¯ãƒ©ã‚¹ï¼Ž
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -19,10 +19,10 @@ namespace core {
 namespace devicedriver {
 namespace tmhandler {
 
-//! ƒeƒŒƒƒnƒ“ƒhƒ‰‚ÌƒfƒoƒbƒO—pƒNƒ‰ƒXD
+//! ãƒ†ãƒ¬ãƒ¡ãƒãƒ³ãƒ‰ãƒ©ã®ãƒ‡ãƒãƒƒã‚°ç”¨ã‚¯ãƒ©ã‚¹ï¼Ž
 /*! 
-	ƒeƒŒƒƒgƒŠ‚ð‹¤—LƒXƒgƒŒ[ƒW‚É•Û‘¶‚µ‚½‚èC‘—M‹@‚É‘—o‚·‚é‘ã‚í‚è‚É
-	Žw’è‚³‚ê‚½ƒtƒ@ƒCƒ‹‚Ö‘‚«o‚·ƒfƒoƒbƒO—p‚ÌƒeƒŒƒƒgƒŠƒnƒ“ƒhƒ‰D
+	ãƒ†ãƒ¬ãƒ¡ãƒˆãƒªã‚’å…±æœ‰ã‚¹ãƒˆãƒ¬ãƒ¼ã‚¸ã«ä¿å­˜ã—ãŸã‚Šï¼Œé€ä¿¡æ©Ÿã«é€å‡ºã™ã‚‹ä»£ã‚ã‚Šã«
+	æŒ‡å®šã•ã‚ŒãŸãƒ•ã‚¡ã‚¤ãƒ«ã¸æ›¸ãå‡ºã™ãƒ‡ãƒãƒƒã‚°ç”¨ã®ãƒ†ãƒ¬ãƒ¡ãƒˆãƒªãƒãƒ³ãƒ‰ãƒ©ï¼Ž
 */
 class DebugLogger : virtual public ITelemetryStoragable{
 public:

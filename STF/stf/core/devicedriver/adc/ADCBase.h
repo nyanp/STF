@@ -16,10 +16,10 @@ namespace stf {
 namespace core {
 namespace devicedriver {
 
-//! AD•ÏŠ·Šíƒhƒ‰ƒCƒoD
+//! ADå¤‰æ›å™¨ãƒ‰ãƒ©ã‚¤ãƒï¼
 /*! 
-	@tparam NUM AD•ÏŠ·‘ÎÛ‚Ìƒ`ƒƒƒlƒ‹”D
-	@tparam Env ƒRƒ“ƒ|[ƒlƒ“ƒg‚ÌŠÂ‹«ƒNƒ‰ƒXD
+	@tparam NUM ADå¤‰æ›å¯¾è±¡ã®ãƒãƒ£ãƒãƒ«æ•°ï¼
+	@tparam Env ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆã®ç’°å¢ƒã‚¯ãƒ©ã‚¹ï¼
 */
 template<int NUM, class Env = ENV>
 class ADCBase : public CDHComponent< datatype::Voltage, NUM, Env >  {
@@ -31,21 +31,21 @@ protected:
 	//typename Env::GPIO<NUM> gpio_;
 };
 
-//! ADC‚ÌƒfƒWƒ^ƒ‹’l‚ğ•¨—’l‚É•ÏŠ·‚µ‚Ä•Û‚·‚éƒRƒ“ƒ|[ƒlƒ“ƒgD
+//! ADCã®ãƒ‡ã‚¸ã‚¿ãƒ«å€¤ã‚’ç‰©ç†å€¤ã«å¤‰æ›ã—ã¦ä¿æŒã™ã‚‹ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆï¼
 /*! 
-	•ÏŠ·–{‘Ì‚Íƒ|ƒŠƒV[ƒNƒ‰ƒX‚Ìconvert‚ªó‚¯‚ÂDƒNƒ‰ƒXT‚Ídouble‚©‚ç‚Ìimplicit‚ÈƒRƒ“ƒXƒgƒ‰ƒNƒ^C‚Ü‚½‚Ídouble‚ğ‰E•Ó‚Éæ‚éoperator=‚ğ‚Á‚Ä‚¢‚é•K—v‚ª‚ ‚é(Scalar,Voltage‚È‚Ç).
-	@tparam T                •Û‚·‚é•¨—’l‚ÌŒ^D
-	@tparam NUM              •Û‚·‚é•¨—’l‚Ìƒ`ƒƒƒlƒ‹”D
-	@tparam ADCNUM           ‘ÎÛ‚ÌADC‚ª‚Â‘ƒ`ƒƒƒlƒ‹”D
-	@tparam Env              ƒRƒ“ƒ|[ƒlƒ“ƒg‚ÌŠÂ‹«ƒNƒ‰ƒXD
-	@tparam ConversionPolicy convertŠÖ”‚ÌÀ‘•‚ğŒˆ’è‚·‚é•ÏŠ·ƒ|ƒŠƒV[ƒNƒ‰ƒXD
+	å¤‰æ›æœ¬ä½“ã¯ãƒãƒªã‚·ãƒ¼ã‚¯ãƒ©ã‚¹ã®convertãŒå—ã‘æŒã¤ï¼ã‚¯ãƒ©ã‚¹Tã¯doubleã‹ã‚‰ã®implicitãªã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ï¼Œã¾ãŸã¯doubleã‚’å³è¾ºã«å–ã‚‹operator=ã‚’æŒã£ã¦ã„ã‚‹å¿…è¦ãŒã‚ã‚‹(Scalar,Voltageãªã©).
+	@tparam T                ä¿æŒã™ã‚‹ç‰©ç†å€¤ã®å‹ï¼
+	@tparam NUM              ä¿æŒã™ã‚‹ç‰©ç†å€¤ã®ãƒãƒ£ãƒãƒ«æ•°ï¼
+	@tparam ADCNUM           å¯¾è±¡ã®ADCãŒæŒã¤ç·ãƒãƒ£ãƒãƒ«æ•°ï¼
+	@tparam Env              ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆã®ç’°å¢ƒã‚¯ãƒ©ã‚¹ï¼
+	@tparam ConversionPolicy converté–¢æ•°ã®å®Ÿè£…ã‚’æ±ºå®šã™ã‚‹å¤‰æ›ãƒãƒªã‚·ãƒ¼ã‚¯ãƒ©ã‚¹ï¼
 */
 template<class T, int NUM, int ADCNUM = NUM, class Env = ENV, class ConversionPolicy = FirstOrderConvert>
 class MultiSensor : public CDHComponent< T, NUM, Env >, public ConversionPolicy {
 public:
 	MultiSensor(int instance_id, ADCBase<ADCNUM,Env>* adc, int offset) : adcsource_(adc), offset_(offset), CDHComponent< T, NUM, Env >(instance_id,"TempSensor")
 	{
-		assert(offset + NUM <= ADCNUM);//ADC‚Ì”ÍˆÍ‚ğ‚±‚¦‚È‚¢
+		assert(offset + NUM <= ADCNUM);//ADCã®ç¯„å›²ã‚’ã“ãˆãªã„
 	}
 	virtual void do_update(){
 		for(int i = 0; i < NUM; i++){

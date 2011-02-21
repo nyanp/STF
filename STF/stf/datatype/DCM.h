@@ -1,6 +1,6 @@
 /**
  * @file   DCM.h
- * @brief  Z-Y-X‚Ì‡‚Å‰ñ“]‚³‚¹‚é‰ñ“]s—ñiDCMjD
+ * @brief  Z-Y-Xã®é †ã§å›è»¢ã•ã›ã‚‹å›è»¢è¡Œåˆ—ï¼ˆDCMï¼‰ï¼
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -13,7 +13,7 @@
 namespace stf { 
 namespace datatype {
 
-//! Z-Y-X‚Ì‡‚Å‰ñ“]‚³‚¹‚é‰ñ“]s—ñiDCMjD
+//! Z-Y-Xã®é †ã§å›è»¢ã•ã›ã‚‹å›è»¢è¡Œåˆ—ï¼ˆDCMï¼‰ï¼
 /*! */
 class DCM : public StaticMatrix<3,3> {
 public:
@@ -42,7 +42,7 @@ public:
 	}
 
 	~DCM(){}
-	//! ’l‚ğ-pi`pi‚É’²®‚·‚é
+	//! å€¤ã‚’-piï½piã«èª¿æ•´ã™ã‚‹
 	virtual void normalize();
 };
 

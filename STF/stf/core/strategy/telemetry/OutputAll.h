@@ -1,12 +1,13 @@
 /**
  * @file   OutputAll.h
- * @brief  
+ * @brief  データプールの内容を全て出力するテレメトリ生成ストラテジ．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
  */
 #ifndef stf_core_strategy_telemetry_OutputAll_h
 #define stf_core_strategy_telemetry_OutputAll_h
+
 #include "ITelemetryStrategy.h"
 #include "../../../GlobalObject.h"
 #include "../StrategyBase.h"
@@ -14,9 +15,7 @@
 #include "../../event/EventBase.h"
 #include "../../devicedriver/tmhandler/ITelemetryStoragable.h"
 #include "../../../interface/Iterator.h"
-#include "../../../util/Ostream.h"
 #include "../../../datatype/IAocsData.h"
-#include "../../devicedriver/clock/DummyClock.h"
 #include "../../../datatype/List.h"
 #include "../../../interface/Iterator.h"
 
@@ -25,7 +24,17 @@ namespace core {
 namespace strategy {
 namespace telemetry {
 
-template<class T, int SCALE>
+//! データプールの内容を全て出力するテレメトリ生成ストラテジ．
+/*! 
+	@tparam T     出力時にキャストする型．
+	@tparam SCALE キャスト前に掛ける係数．
+
+	@code 
+	OutputAll<unsigned short, 100> output;//データプールから取ったdouble値を100倍し，unsigned shortにキャストしてからストレージに渡す
+	OutputAll output;//データプールの値をそのままストレージに渡す
+	@endcode
+*/
+template<class T = double, int SCALE = 1>
 class OutputAll : public StrategyBase,  virtual public ITelemetryStrategy, virtual public interface::Iterator{
 public:
 	OutputAll(int instance_id,devicedriver::tmhandler::ITelemetryStoragable* storage,
@@ -73,7 +82,7 @@ bool OutputAll<T,SCALE>::end(){
 		if(!(*it).end()) return false;
 		++it;
 	}
-	return true;//���ׂẴC�e���[�^�������������Ă����Ƃ�����true
+	return true;//すべてのイテレータが走査完了していたときだけtrue
 }
 
 template<class T, int SCALE>

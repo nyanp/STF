@@ -1,6 +1,6 @@
 /**
  * @file   ImpulseNoise.cpp
- * @brief  
+ * @brief  ã‚¤ãƒ³ãƒ‘ãƒ«ã‚¹ãƒã‚¤ã‚ºã‚’ç™ºç”Ÿã•ã›ã‚‹ãƒˆãƒ«ã‚¯æºï¼
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -22,7 +22,7 @@ ImpulseNoise::ImpulseNoise(double magnitude, stf::environment::Simulator *env)
 {
 	this->duration_.add_seconds(1);
     datatype::Vector v(3);
-    v[2] = 1;//Z²‚Ü‚í‚è‚Ì1•bƒgƒ‹ƒN‚ğƒfƒtƒHƒ‹ƒg‚Æ‚·‚éD
+    v[2] = 1;//Zè»¸ã¾ã‚ã‚Šã®1ç§’ãƒˆãƒ«ã‚¯ã‚’ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã¨ã™ã‚‹ï¼
     this->vector_ = v;
 }
 
@@ -39,7 +39,7 @@ datatype::StaticVector<3> ImpulseNoise::get_torque_bodyframe() const
 {
     if(this->starttime_ <= this->environment_->getTrueTime())
         if(this->starttime_ + this->duration_ > this->environment_->getTrueTime())
-            return this->magnitude_ * this->vector_;//ŒvZŠÔ‚İ‚ªƒCƒ“ƒpƒ‹ƒX‚æ‚è\•ª×‚©‚­‚È‚¢‚Æ•s³Šm
+            return this->magnitude_ * this->vector_;//è¨ˆç®—æ™‚é–“åˆ»ã¿ãŒã‚¤ãƒ³ãƒ‘ãƒ«ã‚¹ã‚ˆã‚Šååˆ†ç´°ã‹ããªã„ã¨ä¸æ­£ç¢º
 
     datatype::StaticVector<3> v;
     return v;

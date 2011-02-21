@@ -1,6 +1,6 @@
 /**
  * @file   LiniarCorrection.h
- * @brief  
+ * @brief  TをaT+bに変換して出力する制御ブロック
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -8,23 +8,19 @@
 #ifndef stf_core_strategy_control_LiniarCorrection_h
 #define stf_core_strategy_control_LiniarCorrection_h
 #include <assert.h>
-#include "IControlStrategy.h"
-#include "../../devicedriver/IOPort.h"
-#include "../../manager/ControlManager.h"
 #include "../StrategyBase.h"
-
+#include "../../devicedriver/IOPort.h"
 #include "../../../util/Ostream.h"
-
-#include "../../../datatype/StaticVector.h"
-#include "../../../datatype/Quaternion.h"
-#include "../../../datatype/EulerAngle.h"
 
 namespace stf {
 namespace core {
 namespace strategy {
 namespace control {
 
-// T��aT+b�ɕϊ����ďo�͂��鐧��u���b�N
+//! TをaT+bに変換して出力する制御ブロック．
+/*! 
+	@tparam T 変換対象の物理量．operator + (const T&,const T&)　および operator * (double,const T&)が実装されている必要がある
+*/
 template<class T>
 class LiniarCorrection : public devicedriver::InputPorts< TYPELIST_1(T) >, 
 		public devicedriver::OutputPorts < TYPELIST_1(T) > ,
@@ -54,11 +50,7 @@ public:
 private:
 	double sf_;
 	T offset_;
-
 };
-
-
-
 
 } /* End of namespace stf::core::mode::strategy::control */
 } /* End of namespace stf::core::mode::strategy */

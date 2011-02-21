@@ -1,6 +1,6 @@
 /**
  * @file   Orbit.h
- * @brief  
+ * @brief  軌道計算を行う，sgp4のラッパークラス．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -20,6 +20,8 @@
 namespace stf {
 namespace environment {
 
+//! 軌道計算を行う，sgp4のラッパークラス．
+/*! */
 class Orbit {
 public:
 	Orbit()

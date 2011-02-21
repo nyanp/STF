@@ -1,6 +1,6 @@
 /**
  * @file   Includes.h
- * @brief  
+ * @brief  制御ブロックの一括インクルード用ファイル．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -18,7 +18,6 @@
 #include "QUEST.h"
 #include "RateDumping.h"
 #include "SingleAxisPID.h"
-#include "TorqueCombining.h"
 #include "CrossProduct.h"
 #include "GGCompensation.h"
 #include "SolarPointing.h"

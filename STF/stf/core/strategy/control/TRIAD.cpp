@@ -1,6 +1,6 @@
 /**
  * @file   TRIAD.cpp
- * @brief  
+ * @brief  TRIADå‰‡ã§å§¿å‹¢æ±ºå®šã‚’è¡Œã†åˆ¶å¾¡ãƒ–ãƒ­ãƒƒã‚¯ç¾¤ï¼
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -17,13 +17,12 @@ namespace core {
 namespace strategy {
 namespace control {
 
-//TRIAD‹¤’Ê‚ÌŒvZ‚ğ–³–¼–¼‘O‹óŠÔ‚É“Z‚ß‚éD
+//TRIADå…±é€šã®è¨ˆç®—ã‚’ç„¡ååå‰ç©ºé–“ã«çºã‚ã‚‹ï¼
 namespace {
 datatype::Quaternion estimate_(
 	datatype::StaticVector<3> v1, datatype::StaticVector<3> v2, 
 	datatype::StaticVector<3> w1, datatype::StaticVector<3> w2)
 {
-	//util::cout << v1 << "," << v2 << "," << w1 << "," << w2 << util::endl;
 	datatype::StaticVector<3> r1 = v1;
 	datatype::StaticVector<3> s1 = w1;
 	datatype::StaticVector<3> r2 = (r1 % v2) / (r1 % v2).norm(2);
@@ -38,7 +37,6 @@ datatype::Quaternion estimate_(
 			dcm[i][j] = s1[i] * r1[j] + s2[i] * r2[j] + s3[i] * r3[j];
 		}
 	}
-	//util::cout << dcm;
 	return datatype::TypeConverter::toQuaternion(dcm);
 }
 }
@@ -61,7 +59,7 @@ TRIAD::TRIAD(int instance_id,
 }
 
 void TRIAD::do_compute(const datatype::Time& t) {
-	if(t <= this->last_update_) return; //Šù‚É•Ê‚ÌƒuƒƒbƒNŒo—R‚ÅXVÏ‚İ‚È‚çÄŒvZ‚µ‚È‚¢
+	if(t <= this->last_update_) return; //æ—¢ã«åˆ¥ã®ãƒ–ãƒ­ãƒƒã‚¯çµŒç”±ã§æ›´æ–°æ¸ˆã¿ãªã‚‰å†è¨ˆç®—ã—ãªã„
 	util::cout << "compute: GenericTRIAD" << util::endl;
 	datatype::StaticVector<3> v1 = datatype::TypeConverter::toRectangular(
 		this->source<0,datatype::StaticVector<2>>().get_in_bodyframe(t));
@@ -98,12 +96,12 @@ SunEarthTRIAD::SunEarthTRIAD(int instance_id,
 }
 
 void SunEarthTRIAD::do_compute(const datatype::Time& t) {
-	if(t <= this->last_update_) return; //Šù‚É•Ê‚ÌƒuƒƒbƒNŒo—R‚ÅXVÏ‚İ‚È‚çÄŒvZ‚µ‚È‚¢
+	if(t <= this->last_update_) return; //æ—¢ã«åˆ¥ã®ãƒ–ãƒ­ãƒƒã‚¯çµŒç”±ã§æ›´æ–°æ¸ˆã¿ãªã‚‰å†è¨ˆç®—ã—ãªã„
 	util::cout << "compute: SunEarthTRIAD" << util::endl;
-	//ƒZƒ“ƒT‚©‚çæ“¾‚µ‚½‰q¯Šî€À•WŒn‚É‚¨‚¯‚é’n‹…C‘¾—z•ûŒü
+	//ã‚»ãƒ³ã‚µã‹ã‚‰å–å¾—ã—ãŸè¡›æ˜ŸåŸºæº–åº§æ¨™ç³»ã«ãŠã‘ã‚‹åœ°çƒï¼Œå¤ªé™½æ–¹å‘
 	datatype::StaticVector<2> w_sun = this->source<0,datatype::StaticVector<2>>().get_in_bodyframe(t);
 	datatype::StaticVector<2> w_earth = this->source<1,datatype::StaticVector<2>>().get_in_bodyframe(t);
-	//‹O“¹î•ñ‚ğ‚à‚Æ‚ÉŒvZ‚³‚ê‚½‰q¯ˆÊ’u‚É‚¨‚¯‚é’n‹…C‘¾—z•ûŒü
+	//è»Œé“æƒ…å ±ã‚’ã‚‚ã¨ã«è¨ˆç®—ã•ã‚ŒãŸè¡›æ˜Ÿä½ç½®ã«ãŠã‘ã‚‹åœ°çƒï¼Œå¤ªé™½æ–¹å‘
 	datatype::StaticVector<3> v1 = datatype::OrbitCalc::getSunDirection3D(this->source<3,datatype::DateTime>().get_in_bodyframe());
 	datatype::StaticVector<3> v2 = datatype::OrbitCalc::getEarthDirection3D(this->source<2,datatype::PositionInfo>().get_in_bodyframe(t));
 
@@ -132,12 +130,12 @@ SunMagTRIAD::SunMagTRIAD(int instance_id,
 }
 
 void SunMagTRIAD::do_compute(const datatype::Time& t) {
-	if(t <= this->last_update_) return; //Šù‚É•Ê‚ÌƒuƒƒbƒNŒo—R‚ÅXVÏ‚İ‚È‚çÄŒvZ‚µ‚È‚¢
+	if(t <= this->last_update_) return; //æ—¢ã«åˆ¥ã®ãƒ–ãƒ­ãƒƒã‚¯çµŒç”±ã§æ›´æ–°æ¸ˆã¿ãªã‚‰å†è¨ˆç®—ã—ãªã„
 		util::cout << "compute: SunMagTRIAD" << util::endl;
-	//ƒZƒ“ƒT‚©‚çæ“¾‚µ‚½‰q¯Šî€À•WŒn‚É‚¨‚¯‚é’n‹…C‘¾—z•ûŒü
+	//ã‚»ãƒ³ã‚µã‹ã‚‰å–å¾—ã—ãŸè¡›æ˜ŸåŸºæº–åº§æ¨™ç³»ã«ãŠã‘ã‚‹åœ°çƒï¼Œå¤ªé™½æ–¹å‘
 	datatype::StaticVector<2> w_sun = this->source<0,datatype::StaticVector<2>>().get_in_bodyframe(t);
 	datatype::MagneticField w_mag = this->source<1,datatype::MagneticField>().get_in_bodyframe(t);
-	//‹O“¹î•ñ‚ğ‚à‚Æ‚ÉŒvZ‚³‚ê‚½‰q¯ˆÊ’u‚É‚¨‚¯‚é’n‹…C‘¾—z•ûŒü
+	//è»Œé“æƒ…å ±ã‚’ã‚‚ã¨ã«è¨ˆç®—ã•ã‚ŒãŸè¡›æ˜Ÿä½ç½®ã«ãŠã‘ã‚‹åœ°çƒï¼Œå¤ªé™½æ–¹å‘
 	datatype::DateTime time = this->source<3,datatype::DateTime>().get_in_bodyframe();
 
 	datatype::MagneticField v_mag = 
@@ -167,12 +165,12 @@ SunMagTRIAD2::SunMagTRIAD2(int instance_id,
 }
 
 void SunMagTRIAD2::do_compute(const datatype::Time& t) {
-	if(t <= this->last_update_) return; //Šù‚É•Ê‚ÌƒuƒƒbƒNŒo—R‚ÅXVÏ‚İ‚È‚çÄŒvZ‚µ‚È‚¢
+	if(t <= this->last_update_) return; //æ—¢ã«åˆ¥ã®ãƒ–ãƒ­ãƒƒã‚¯çµŒç”±ã§æ›´æ–°æ¸ˆã¿ãªã‚‰å†è¨ˆç®—ã—ãªã„
 		util::cout << "compute: SunMagTRIAD" << util::endl;
-	//ƒZƒ“ƒT‚©‚çæ“¾‚µ‚½‰q¯Šî€À•WŒn‚É‚¨‚¯‚é’n‹…C‘¾—z•ûŒü
+	//ã‚»ãƒ³ã‚µã‹ã‚‰å–å¾—ã—ãŸè¡›æ˜ŸåŸºæº–åº§æ¨™ç³»ã«ãŠã‘ã‚‹åœ°çƒï¼Œå¤ªé™½æ–¹å‘
 	datatype::StaticVector<2> w_sun = this->source<0,datatype::StaticVector<2>>().get_in_bodyframe(t);
 	datatype::MagneticField w_mag = this->source<1,datatype::MagneticField>().get_in_bodyframe(t);
-	//‹O“¹î•ñ‚ğ‚à‚Æ‚ÉŒvZ‚³‚ê‚½‰q¯ˆÊ’u‚É‚¨‚¯‚é’n‹…C‘¾—z•ûŒü
+	//è»Œé“æƒ…å ±ã‚’ã‚‚ã¨ã«è¨ˆç®—ã•ã‚ŒãŸè¡›æ˜Ÿä½ç½®ã«ãŠã‘ã‚‹åœ°çƒï¼Œå¤ªé™½æ–¹å‘
 	datatype::DateTime time = this->clock_->get_datetime();
 
 	datatype::MagneticField v_mag = 

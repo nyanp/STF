@@ -1,6 +1,6 @@
 /**
  * @file   Matrix.h
- * @brief  s—ñŒvZ‚ğs‚¤ƒNƒ‰ƒXD
+ * @brief  å¯å¤‰è¦ç´ æ•°ã®è¡Œåˆ—è¨ˆç®—ã‚’è¡Œã†ã‚¯ãƒ©ã‚¹ï¼STFã§ã¯StaticMatrixãŒæ¨å¥¨ã•ã‚Œã‚‹ï¼
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -22,8 +22,8 @@ template <class T>class Ostream;
 namespace stf { 
 namespace datatype {
 
-//! ‰Â•Ï—v‘f”‚Ìs—ñ‰‰Z‚ğs‚¤D
-/*! ƒƒ‚ƒŠ‚Ì“®“IŠm•Û‚ğs‚¤‚½‚ßCSTF‚Å‚ÍƒVƒXƒeƒ€‰Šú‰»ˆÈŠO‚Ìƒ^ƒCƒ~ƒ“ƒO‚Å‚Ìg—p‚ª„§‚³‚ê‚È‚¢D’Êí‚ÍStaticMatrix‚ğg‚¤‚±‚Æ */
+//! å¯å¤‰è¦ç´ æ•°ã®è¡Œåˆ—è¨ˆç®—ã‚’è¡Œã†ã‚¯ãƒ©ã‚¹ï¼STFã§ã¯StaticMatrixãŒæ¨å¥¨ã•ã‚Œã‚‹ï¼
+/*! ãƒ¡ãƒ¢ãƒªã®å‹•çš„ç¢ºä¿ã‚’è¡Œã†ãŸã‚ï¼ŒSTFã§ã¯ã‚·ã‚¹ãƒ†ãƒ åˆæœŸåŒ–ä»¥å¤–ã®ã‚¿ã‚¤ãƒŸãƒ³ã‚°ã§ã®ä½¿ç”¨ãŒæ¨å¥¨ã•ã‚Œãªã„ï¼é€šå¸¸ã¯StaticMatrixã‚’ä½¿ã†ã“ã¨ */
 class Matrix {
  public:
     Matrix();
@@ -37,7 +37,7 @@ class Matrix {
     bool isSquare();
     int pivot(Matrix &m, int row) const ;
 	double trace() const ;//Trace
-	double det() const ; //s—ñ®
+	double det() const ; //è¡Œåˆ—å¼
     Matrix &operator=(const Matrix &rhs);
     Matrix &operator+=(const Matrix &rhs);
     Matrix &operator-=(const Matrix &rhs);
@@ -61,7 +61,7 @@ private:
 	friend inline const Vector operator * (const Matrix&, const StaticVector<3>&);
 	friend inline const Vector operator * (const Matrix&, const StaticVector<4>&);
     friend class Vector;
-	template<class T>friend class stf::util::Ostream;//TBD:Vector‚©‚çiostream‚ğ‰B‚Ø‚¢‚µ‚Â‚ÂC•W€o—Í‚ğÀŒ»‚·‚é‚½‚ß‚Ìu‰“‚¢vƒtƒŒƒ“ƒhƒNƒ‰ƒXD‚ ‚Ü‚è‚æ‚­‚È‚¢‘‚«•û
+	template<class T>friend class stf::util::Ostream;//TBD:Vectorã‹ã‚‰iostreamã‚’éš ãºã„ã—ã¤ã¤ï¼Œæ¨™æº–å‡ºåŠ›ã‚’å®Ÿç¾ã™ã‚‹ãŸã‚ã®ã€Œé ã„ã€ãƒ•ãƒ¬ãƒ³ãƒ‰ã‚¯ãƒ©ã‚¹ï¼ã‚ã¾ã‚Šã‚ˆããªã„æ›¸ãæ–¹
     Vector *value_;
     int cols_;
     int rows_;
@@ -77,7 +77,7 @@ inline Vector &Matrix::operator[](int index) const
 	return value_[index];
 }
 
-//s—ñ‚Ì‰ÁZ
+//è¡Œåˆ—ã®åŠ ç®—
 inline const Matrix operator + (const Matrix& oper1, const Matrix& oper2){
 	assert(oper1.rows_ == oper2.rows_ && oper1.cols_ == oper2.cols_);
 	Matrix mat = oper1;
@@ -85,7 +85,7 @@ inline const Matrix operator + (const Matrix& oper1, const Matrix& oper2){
 	return mat;
 }
 
-//s—ñ‚ÌŒ¸Z
+//è¡Œåˆ—ã®æ¸›ç®—
 inline const Matrix operator - (const Matrix& oper1, const Matrix& oper2){
 	assert(oper1.rows_ == oper2.rows_ && oper1.cols_ == oper2.cols_);
 	Matrix mat = oper1;
@@ -93,7 +93,7 @@ inline const Matrix operator - (const Matrix& oper1, const Matrix& oper2){
 	return mat;		
 }
 
-//s—ñ‚ÌÏZ
+//è¡Œåˆ—ã®ç©ç®—
 inline const Matrix operator * (const Matrix& oper1, const Matrix& oper2){
 	assert(oper1.cols_ == oper2.rows_);
 	Matrix mat(oper1.rows_,oper2.cols_);
@@ -105,26 +105,26 @@ inline const Matrix operator * (const Matrix& oper1, const Matrix& oper2){
 	return mat;
 }
 
-//s—ñ‚ğ‰E‚©‚ç’è””{
+//è¡Œåˆ—ã‚’å³ã‹ã‚‰å®šæ•°å€
 inline const Matrix operator * (const Matrix& oper, double factor){
 	Matrix mat = oper;
 	mat *= factor;
 	return mat;
 }
 
-//s—ñ‚ğ¶‚©‚ç’è””{
+//è¡Œåˆ—ã‚’å·¦ã‹ã‚‰å®šæ•°å€
 inline const Matrix operator * (double factor, const Matrix& oper){
 	return oper * factor;
 }
 
-//s—ñ‚ÆƒxƒNƒgƒ‹‚ÌÏ
+//è¡Œåˆ—ã¨ãƒ™ã‚¯ãƒˆãƒ«ã®ç©
 inline const Matrix operator / (const Matrix& oper, double factor){
 	Matrix mat = oper;
 	mat /= factor;
 	return mat;
 }
 
-//s—ñ‚ÆƒxƒNƒgƒ‹‚ÌÏ
+//è¡Œåˆ—ã¨ãƒ™ã‚¯ãƒˆãƒ«ã®ç©
 inline const Vector operator * (const Matrix& mat, const Vector& vec){
 	assert(mat.cols_ == vec.dimension_);
 	Vector temp(mat.rows_);

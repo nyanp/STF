@@ -1,6 +1,6 @@
 /**
  * @file   StaticMatrix.h
- * @brief  ƒeƒ“ƒvƒŒ[ƒg‚ğ—p‚¢‚½s—ñŒvZƒNƒ‰ƒX
+ * @brief  ãƒ†ãƒ³ãƒ—ãƒ¬ãƒ¼ãƒˆã‚’ç”¨ã„ãŸå›ºå®šè¦ç´ æ•°ã®è¡Œåˆ—è¨ˆç®—ã‚¯ãƒ©ã‚¹
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -15,7 +15,7 @@
 namespace stf { 
 namespace datatype {
 
-//! ƒeƒ“ƒvƒŒ[ƒg‚ğ—p‚¢‚½s—ñŒvZƒNƒ‰ƒX
+//! ãƒ†ãƒ³ãƒ—ãƒ¬ãƒ¼ãƒˆã‚’ç”¨ã„ãŸå›ºå®šè¦ç´ æ•°ã®è¡Œåˆ—è¨ˆç®—ã‚¯ãƒ©ã‚¹
 /*!  */
 template<int rows, int cols>
 class StaticMatrix {
@@ -31,7 +31,7 @@ public:
     bool isSquare();
     int pivot(StaticMatrix &m, int row) const ;
 	double trace() const ;//Trace
-	double det() const ; //s—ñ®
+	double det() const ; //è¡Œåˆ—å¼
     StaticMatrix &operator=(const StaticMatrix &rhs);
     StaticMatrix &operator+=(const StaticMatrix &rhs);
     StaticMatrix &operator-=(const StaticMatrix &rhs);
@@ -65,7 +65,7 @@ inline StaticVector<cols> &StaticMatrix<rows,cols>::operator[](int index)
 	return value_[index];
 }
 
-//s—ñ‚Ì‰ÁZ
+//è¡Œåˆ—ã®åŠ ç®—
 template<int rows, int cols>
 const StaticMatrix<rows,cols> operator + (const StaticMatrix<rows,cols>& oper1, const StaticMatrix<rows,cols>& oper2){
 	StaticMatrix<rows,cols> mat = oper1;
@@ -73,7 +73,7 @@ const StaticMatrix<rows,cols> operator + (const StaticMatrix<rows,cols>& oper1, 
 	return mat;
 }
 
-//s—ñ‚ÌŒ¸Z
+//è¡Œåˆ—ã®æ¸›ç®—
 template<int rows, int cols>
 inline const StaticMatrix<rows,cols> operator - (const StaticMatrix<rows,cols>& oper1, const StaticMatrix<rows,cols>& oper2){
 	StaticMatrix<rows,cols> mat = oper1;
@@ -81,7 +81,7 @@ inline const StaticMatrix<rows,cols> operator - (const StaticMatrix<rows,cols>& 
 	return mat;		
 }
 
-//s—ñ‚ÌÏZ
+//è¡Œåˆ—ã®ç©ç®—
 template<int rows1, int cols1, int cols2>
 inline const StaticMatrix<rows1,cols2> operator * (const StaticMatrix<rows1,cols1>& oper1, const StaticMatrix<cols1,cols2>& oper2){
 	StaticMatrix<rows1,cols2> mat;
@@ -94,7 +94,7 @@ inline const StaticMatrix<rows1,cols2> operator * (const StaticMatrix<rows1,cols
 	return mat;
 }
 
-//s—ñ‚ğ‰E‚©‚ç’è””{
+//è¡Œåˆ—ã‚’å³ã‹ã‚‰å®šæ•°å€
 template<int rows, int cols>
 inline const StaticMatrix<rows,cols> operator * (const StaticMatrix<rows,cols>& oper, double factor){
 	StaticMatrix<rows,cols> mat = oper;
@@ -102,13 +102,13 @@ inline const StaticMatrix<rows,cols> operator * (const StaticMatrix<rows,cols>& 
 	return mat;
 }
 
-//s—ñ‚ğ¶‚©‚ç’è””{
+//è¡Œåˆ—ã‚’å·¦ã‹ã‚‰å®šæ•°å€
 template<int rows, int cols>
 inline const StaticMatrix<rows,cols> operator * (double factor, const StaticMatrix<rows,cols>& oper){
 	return oper * factor;
 }
 
-//s—ñ‚Ì’è”œZ
+//è¡Œåˆ—ã®å®šæ•°é™¤ç®—
 template<int rows, int cols>
 inline const StaticMatrix<rows,cols> operator / (const StaticMatrix<rows,cols>& oper, double factor){
 	StaticMatrix<rows,cols> mat = oper;
@@ -116,7 +116,7 @@ inline const StaticMatrix<rows,cols> operator / (const StaticMatrix<rows,cols>& 
 	return mat;
 }
 
-//s—ñ‚ÆƒxƒNƒgƒ‹‚ÌÏ
+//è¡Œåˆ—ã¨ãƒ™ã‚¯ãƒˆãƒ«ã®ç©
 template<int rows, int cols>
 inline const StaticVector<rows> operator * (const StaticMatrix<rows,cols>& mat, const StaticVector<cols>& vec){
 	StaticVector<rows> temp;
@@ -163,7 +163,7 @@ template<int rows, int cols>
 double StaticMatrix<rows,cols>::det() const 
 {
 	assert(cols == rows);
-	assert(cols <= 3);//‚Æ‚è‚ ‚¦‚¸3Ÿ‚Ü‚Å’è‹`
+	assert(cols <= 3);//ã¨ã‚Šã‚ãˆãš3æ¬¡ã¾ã§å®šç¾©
 
 	if(cols == 2){
 		return value_[0][0] * value_[1][1] - value_[0][1] * value_[1][0];
@@ -212,7 +212,7 @@ StaticMatrix<rows,cols> StaticMatrix<rows,cols>::inverse() const
 
 	StaticMatrix<rows,cols> tempmat;
 	for(int i = 0; i < rows; i++) tempmat[i][i] = 1.0;
-	StaticMatrix<rows,cols> m = *this;//•›ì—p‚ğ¶‚¶‚È‚¢‚æ‚¤‚ÉŒ»ƒCƒ“ƒXƒ^ƒ“ƒX‚ÌƒRƒs[‚ÅŒvZ
+	StaticMatrix<rows,cols> m = *this;//å‰¯ä½œç”¨ã‚’ç”Ÿã˜ãªã„ã‚ˆã†ã«ç¾ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã®ã‚³ãƒ”ãƒ¼ã§è¨ˆç®—
 
 	for (k = 0; k < rows; k++)
 	{
@@ -261,7 +261,7 @@ int StaticMatrix<rows,cols>::pivot(StaticMatrix &m, int row) const
 template<int rows, int cols>
 StaticMatrix<rows,cols> &StaticMatrix<rows,cols>::operator=(const StaticMatrix<rows,cols> &rhs)
 {
-	if(this == &rhs) return *this;//©ŒÈQÆ‚É‚æ‚éƒƒ‚ƒŠƒŠ[ƒN‚ğ–h‚®
+	if(this == &rhs) return *this;//è‡ªå·±å‚ç…§ã«ã‚ˆã‚‹ãƒ¡ãƒ¢ãƒªãƒªãƒ¼ã‚¯ã‚’é˜²ã
 
 		for(int r = 0; r < rows; r++) 
 		  for(int c = 0; c < cols; c++)

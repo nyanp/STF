@@ -1,6 +1,6 @@
 /**
  * @file   GPSBase.h
- * @brief  GPSƒZƒ“ƒT‚ÌŠî’êƒNƒ‰ƒX
+ * @brief  GPSã‚»ãƒ³ã‚µã®åŸºåº•ã‚¯ãƒ©ã‚¹
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -21,9 +21,9 @@ namespace core {
 namespace devicedriver {
 namespace gps {
 
-//! GPSƒZƒ“ƒT‚ÌŠî’êƒNƒ‰ƒXD
+//! GPSã‚»ãƒ³ã‚µã®åŸºåº•ã‚¯ãƒ©ã‚¹ï¼
 /*! 
-	@tparam T ƒRƒ“ƒ|[ƒlƒ“ƒg‚ÌŠÂ‹«ƒNƒ‰ƒXD
+	@tparam T ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆã®ç’°å¢ƒã‚¯ãƒ©ã‚¹ï¼
 */
 template <class T>
 class GPSBase : public AOCSSensor<datatype::PositionInfo, datatype::PositionInfo, T>, virtual public clock::IAbsoluteTimeClock{

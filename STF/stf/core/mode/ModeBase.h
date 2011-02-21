@@ -1,6 +1,6 @@
 /**
  * @file   ModeBase.h
- * @brief  
+ * @brief  モードの基底クラス．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -16,6 +16,11 @@ namespace stf {
 namespace core {
 namespace mode {
 
+//! モードの基底クラス．
+/*! 
+	基本的にモードの多様性はインスタンスレベルで表現するため，
+	ModeBaseを直接インスタンス化したのち，addlistでアルゴリズム定義を付け加える．
+*/
 class ModeBase : public RootObject , virtual public StrategyHolder{
 public:
 	ModeBase(int instance_id, const datatype::String& name) : RootObject(instance_id, name){};

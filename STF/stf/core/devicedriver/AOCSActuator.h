@@ -1,6 +1,6 @@
 /**
  * @file   AOCSActuator.h
- * @brief  ƒAƒNƒ`ƒ…ƒG[ƒ^‚ÌŠî’êƒNƒ‰ƒXD
+ * @brief  ã‚¢ã‚¯ãƒãƒ¥ã‚¨ãƒ¼ã‚¿ã®åŸºåº•ã‚¯ãƒ©ã‚¹ï¼
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -15,11 +15,11 @@ namespace stf {
 namespace core {
 namespace devicedriver {
 
-//! ƒAƒNƒ`ƒ…ƒG[ƒ^‚ÌŠî’êƒNƒ‰ƒXD
+//! ã‚¢ã‚¯ãƒãƒ¥ã‚¨ãƒ¼ã‚¿ã®åŸºåº•ã‚¯ãƒ©ã‚¹ï¼
 /*! 
-	@tparam T   ƒAƒNƒ`ƒ…ƒG[ƒ^‚ªo—Í‚·‚é•¨——ÊD
-	@tparam U   ƒAƒNƒ`ƒ…ƒG[ƒ^‚ªo—Í‚·‚éŸŒ³‚Å‚Ì•¨——ÊD3²ƒAƒNƒ`ƒ…ƒG[ƒ^‚È‚çT‚Æˆê’vC1²‚È‚çScalarD
-	@tparam Env ƒRƒ“ƒ|[ƒlƒ“ƒg‚ÌŠÂ‹«ƒNƒ‰ƒXD
+	@tparam T   ã‚¢ã‚¯ãƒãƒ¥ã‚¨ãƒ¼ã‚¿ãŒå‡ºåŠ›ã™ã‚‹ç‰©ç†é‡ï¼
+	@tparam U   ã‚¢ã‚¯ãƒãƒ¥ã‚¨ãƒ¼ã‚¿ãŒå‡ºåŠ›ã™ã‚‹æ¬¡å…ƒã§ã®ç‰©ç†é‡ï¼3è»¸ã‚¢ã‚¯ãƒãƒ¥ã‚¨ãƒ¼ã‚¿ãªã‚‰Tã¨ä¸€è‡´ï¼Œ1è»¸ãªã‚‰Scalarï¼
+	@tparam Env ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆã®ç’°å¢ƒã‚¯ãƒ©ã‚¹ï¼
 */
 template<class T,class U = T,class Env = ENV>
 class AOCSActuator : public AOCSComponent<T,U,Env>, public InputPorts< TYPELIST_1(U) > {
@@ -28,7 +28,7 @@ public:
 	virtual ~AOCSActuator(){}
 	void setMaxOutput(const U& ref) { max_output_ = ref; }
     virtual void set_torque(U value) {
-		if(value > this->max_output_) this->set_value(this->max_output_);//ƒTƒ`‚é
+		if(value > this->max_output_) this->set_value(this->max_output_);//ã‚µãƒã‚‹
 		else if(value < this->min_output_) this->set_value(this->min_output_);
 		else 
 			 this->set_value(value);

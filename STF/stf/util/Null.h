@@ -1,6 +1,6 @@
 /**
  * @file   Null.h
- * @brief  
+ * @brief  空クラス．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -10,7 +10,11 @@
 
 namespace stf {
 namespace util {
-	class Null{};
+
+//! 空クラス．
+/*! */
+class Null{};
+
 } /* End of namespace stf::util */
 } /* End of namespace stf */
 

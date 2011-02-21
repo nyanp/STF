@@ -1,10 +1,10 @@
 /**
  * @file   GlobalObject.h
- * @brief  RTOS‚Æ‚ÌƒCƒ“ƒ^[ƒtƒF[ƒX‚Æ‚È‚éC‰q¯ƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚ª¶¬‚·‚éƒIƒuƒWƒFƒNƒgŒQ‚ÌŠî’êƒNƒ‰ƒXD
+ * @brief  RTOSã¨ã®ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ãƒ¼ã‚¹ã¨ãªã‚‹ï¼Œè¡›æ˜Ÿã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ãŒç”Ÿæˆã™ã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆç¾¤ã®åŸºåº•ã‚¯ãƒ©ã‚¹ï¼
  *
  * @author Taiga Nomi
  * @date   2011.02.16
- * @todo   Singleton Pattern‚Ì“K—p
+ * @todo   Singleton Patternã®é©ç”¨
  */
 #ifndef stf_GlobalObject_h
 #define stf_GlobalObject_h
@@ -32,20 +32,24 @@ namespace stf {
 
 using namespace core;
 
+//! RTOSã¨ã®ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ãƒ¼ã‚¹ã¨ãªã‚‹ï¼Œè¡›æ˜Ÿã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ãŒç”Ÿæˆã™ã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆç¾¤ã®åŸºåº•ã‚¯ãƒ©ã‚¹ï¼
+/*! 
+	@tparam Env ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã®ç’°å¢ƒã‚¯ãƒ©ã‚¹ï¼
+*/
 template<class Env>
 class Global{
 public:
-	//static Global<Env>& get_instance();//Environment‚²‚Æ‚É’Pˆê‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚Ì‚İ‚ğ¶¬
+	//static Global<Env>& get_instance();//Environmentã”ã¨ã«å˜ä¸€ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã®ã¿ã‚’ç”Ÿæˆ
 	virtual const core::datapool::AocsDataPool* get_datapool() const = 0;
 	virtual const core::datapool::EventDataPool* get_eventdatapool() const = 0;
 
-	virtual const datatype::Time get_global_time() = 0;//‰q¯‚ÌOBC‚ğæ“¾
-	virtual const datatype::DateTime get_global_datetime() = 0;//‰q¯‚ÌRTC‚ğæ“¾
-	virtual const datatype::SatelliteModel get_satellitemodel() const = 0;//‰q¯‚Ì¿—Ê“Á«ƒ‚ƒfƒ‹‚ğæ“¾
+	virtual const datatype::Time get_global_time() = 0;//è¡›æ˜Ÿã®OBCæ™‚åˆ»ã‚’å–å¾—
+	virtual const datatype::DateTime get_global_datetime() = 0;//è¡›æ˜Ÿã®RTCæ™‚åˆ»ã‚’å–å¾—
+	virtual const datatype::SatelliteModel get_satellitemodel() const = 0;//è¡›æ˜Ÿã®è³ªé‡ç‰¹æ€§ãƒ¢ãƒ‡ãƒ«ã‚’å–å¾—
 	virtual datatype::List<core::manager::ManagerBase>* getFunctionManager() {return &(this->managers_);}
 
-	virtual ~Global(){}//ƒfƒXƒgƒ‰ƒNƒ^
-	Global(){}//ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ğ‹Ö~iƒVƒ“ƒOƒ‹ƒgƒ“ƒpƒ^[ƒ“j
+	virtual ~Global(){}//ãƒ‡ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
+	Global(){}//ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã‚’ç¦æ­¢ï¼ˆã‚·ãƒ³ã‚°ãƒ«ãƒˆãƒ³ãƒ‘ã‚¿ãƒ¼ãƒ³ï¼‰
 	Global(const Global<Env>&);
 	void operator=(const Global<Env>&);
 	datatype::List<core::manager::ManagerBase> managers_;

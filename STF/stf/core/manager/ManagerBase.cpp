@@ -1,6 +1,6 @@
 /**
  * @file   ManagerBase.cpp
- * @brief  
+ * @brief  機能マネージャの基底クラス．
  *
  * @author Taiga Nomi
  * @date   2011.02.16

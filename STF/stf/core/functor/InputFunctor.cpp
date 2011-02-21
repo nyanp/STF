@@ -1,13 +1,11 @@
 /**
  * @file   InputFunctor.cpp
- * @brief  
+ * @brief  入力ファンクタ群．STFではFunctorのコンストラクタに渡して使用される
  *
  * @author Taiga Nomi
  * @date   2011.02.16
  */
 #include "InputFunctor.h"
-#include "../manager/ModeManager.h"
-#include "../mode/ModeBase.h"
 
 namespace stf {
 namespace core {

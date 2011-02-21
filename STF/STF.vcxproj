@@ -46,6 +46,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <AdditionalIncludeDirectories>C:\Program Files\boost\boost_1_44;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4819</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -125,13 +126,11 @@
     <ClCompile Include="stf\core\strategy\control\SingleAxisPID.cpp" />
     <ClCompile Include="stf\core\strategy\control\SolarPointing.cpp" />
     <ClCompile Include="stf\core\strategy\control\CrossProduct.cpp" />
-    <ClCompile Include="stf\core\strategy\control\TorqueCombining.cpp" />
     <ClCompile Include="stf\core\strategy\control\TRIAD.cpp" />
     <ClCompile Include="stf\core\strategy\control\WheelUnloading.cpp" />
     <ClCompile Include="stf\datatype\Magnetic.cpp" />
     <ClCompile Include="stf\datatype\OrbitCalc.cpp" />
     <ClCompile Include="stf\core\devicedriver\tmhandler\DebugLogger.cpp" />
-    <ClCompile Include="stf\environment\IODriverBase.cpp" />
     <ClCompile Include="stf\environment\models\igrf.cpp" />
     <ClCompile Include="stf\environment\NullEnv.cpp" />
     <ClCompile Include="stf\environment\Orbit.cpp" />
@@ -140,14 +139,11 @@
     <ClCompile Include="stf\environment\sgp4\sgp4ext.cpp" />
     <ClCompile Include="stf\environment\sgp4\sgp4io.cpp" />
     <ClCompile Include="stf\environment\sgp4\sgp4unit.cpp" />
-    <ClCompile Include="stf\environment\SH.cpp" />
     <ClCompile Include="stf\environment\Simulator.cpp" />
     <ClCompile Include="stf\environment\torquesource\ImpulseNoise.cpp" />
     <ClCompile Include="stf\environment\torquesource\StepNoise.cpp" />
     <ClCompile Include="stf\environment\torquesource\WhiteNoise.cpp" />
     <ClCompile Include="stf\environment\virtex\IPCoreLibrary\BRAM.cpp" />
-    <ClCompile Include="stf\factory\SatelliteFactory.cpp" />
-    <ClCompile Include="stf\GlobalObject.cpp" />
     <ClCompile Include="stf\RootObject.cpp" />
     <ClCompile Include="stf\satellite\NJFactory.cpp" />
     <ClCompile Include="stf\satellite\nj\NJADC.cpp" />
@@ -276,7 +272,6 @@
     <ClInclude Include="stf\core\manager\TelemetryManagerBase.h" />
     <ClInclude Include="stf\core\manager\UnitManager.h" />
     <ClInclude Include="stf\core\manager\UnitManagerBase.h" />
-    <ClInclude Include="stf\core\mode\Includes.h" />
     <ClInclude Include="stf\core\mode\ModeBase.h" />
     <ClInclude Include="stf\core\mode\ModeHotSpot.h" />
     <ClInclude Include="scube\core\mode\strategy\control\NoControl.h" />
@@ -303,7 +298,6 @@
     <ClInclude Include="stf\core\strategy\control\SingleAxisPID.h" />
     <ClInclude Include="stf\core\strategy\control\SolarPointing.h" />
     <ClInclude Include="stf\core\strategy\control\CrossProduct.h" />
-    <ClInclude Include="stf\core\strategy\control\TorqueCombining.h" />
     <ClInclude Include="stf\core\strategy\control\TRIAD.h" />
     <ClInclude Include="stf\core\strategy\control\WheelUnloading.h" />
     <ClInclude Include="stf\core\strategy\StrategyBase.h" />

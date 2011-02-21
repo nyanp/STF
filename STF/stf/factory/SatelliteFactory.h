@@ -1,6 +1,6 @@
 /**
  * @file   SatelliteFactory.h
- * @brief  
+ * @brief  è¡›æ˜Ÿãƒ•ã‚¡ã‚¯ãƒˆãƒªã®åŸºåº•ã‚¯ãƒ©ã‚¹ï¼
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -13,6 +13,12 @@
 namespace stf {
 namespace factory {
 
+//! è¡›æ˜Ÿãƒ•ã‚¡ã‚¯ãƒˆãƒªã®åŸºåº•ã‚¯ãƒ©ã‚¹ï¼
+/*! 
+	Factory Methodãƒ‘ã‚¿ãƒ¼ãƒ³ã«ã‚ˆã‚‹è¡›æ˜Ÿã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆç¾¤ã®ç”Ÿæˆã‚’è¡Œã†ã‚¯ãƒ©ã‚¹ã®æŠ½è±¡ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ãƒ¼ã‚¹ï¼
+	createãƒ¡ã‚½ãƒƒãƒ‰ã®ã¿å®Ÿè£…ãŒæ—¢å®šã•ã‚Œã¦ãŠã‚Šï¼ŒåˆæœŸåŒ–ã®é †åºãŒæ±ºã¾ã£ã¦ã„ã‚‹ï¼ˆTemplate Methodï¼‰ï¼
+	@tparam Env ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆã®ç’°å¢ƒã‚¯ãƒ©ã‚¹ï¼
+*/
 template<class Env>
 class SatelliteFactory {
 public:
@@ -35,29 +41,29 @@ public:
 		return return_created_object();
 	}
 protected:
-	// ƒfƒoƒCƒXƒhƒ‰ƒCƒo‚ğ¶¬‚·‚éƒtƒ@ƒNƒgƒŠ
+	//! ãƒ‡ãƒã‚¤ã‚¹ãƒ‰ãƒ©ã‚¤ãƒã‚’ç”Ÿæˆã™ã‚‹ãƒ•ã‚¡ã‚¯ãƒˆãƒª
 	virtual void create_component() = 0;
-	// ‹@”\ƒ}ƒl[ƒWƒƒ‚ğ¶¬‚·‚éƒtƒ@ƒNƒgƒŠ
+	//! æ©Ÿèƒ½ãƒãƒãƒ¼ã‚¸ãƒ£ã‚’ç”Ÿæˆã™ã‚‹ãƒ•ã‚¡ã‚¯ãƒˆãƒª
 	virtual void create_funcmanager() = 0;
-	// ƒ‚[ƒh‚ğ¶¬‚·‚éƒtƒ@ƒNƒgƒŠ
+	//! ãƒ¢ãƒ¼ãƒ‰ã‚’ç”Ÿæˆã™ã‚‹ãƒ•ã‚¡ã‚¯ãƒˆãƒª
 	virtual void create_mode() = 0;
-	// Šeƒ‚[ƒh‚É‚¨‚¯‚éControl Strategy‚ğ¶¬‚·‚éƒtƒ@ƒNƒgƒŠ
+	//! å„ãƒ¢ãƒ¼ãƒ‰ã«ãŠã‘ã‚‹Control Strategyã‚’ç”Ÿæˆã™ã‚‹ãƒ•ã‚¡ã‚¯ãƒˆãƒª
 	virtual void create_controller() = 0;
-	// Command‚ğ¶¬‚·‚éƒtƒ@ƒNƒgƒŠ
+	//! Commandã‚’ç”Ÿæˆã™ã‚‹ãƒ•ã‚¡ã‚¯ãƒˆãƒª
 	virtual void create_command() = 0;
-	// Šeƒ‚[ƒh‚É‚¨‚¯‚éTelemetry Strategy‚ğ¶¬‚·‚éƒtƒ@ƒNƒgƒŠ
+	//! å„ãƒ¢ãƒ¼ãƒ‰ã«ãŠã‘ã‚‹Telemetry Strategyã‚’ç”Ÿæˆã™ã‚‹ãƒ•ã‚¡ã‚¯ãƒˆãƒª
 	virtual void create_telemetry() = 0;
-	// Šeƒ‚[ƒh‚É‚¨‚¯‚éFunctor Strategy‚ğ¶¬‚·‚éƒtƒ@ƒNƒgƒŠ
+	//! å„ãƒ¢ãƒ¼ãƒ‰ã«ãŠã‘ã‚‹Functor Strategyã‚’ç”Ÿæˆã™ã‚‹ãƒ•ã‚¡ã‚¯ãƒˆãƒª
 	virtual void create_functor() = 0;
-	// Šeƒ‚[ƒh‚É‚¨‚¯‚éUpdate Strategy‚ğ¶¬‚·‚éƒtƒ@ƒNƒgƒŠ
+	//! å„ãƒ¢ãƒ¼ãƒ‰ã«ãŠã‘ã‚‹Update Strategyã‚’ç”Ÿæˆã™ã‚‹ãƒ•ã‚¡ã‚¯ãƒˆãƒª
 	virtual void create_dataupdates() = 0;
-	// Šeƒ‚[ƒh‚É‚¨‚¯‚éSwitch Strategy‚ğ¶¬‚·‚éƒtƒ@ƒNƒgƒŠ
+	//! å„ãƒ¢ãƒ¼ãƒ‰ã«ãŠã‘ã‚‹Switch Strategyã‚’ç”Ÿæˆã™ã‚‹ãƒ•ã‚¡ã‚¯ãƒˆãƒª
 	virtual void create_switches() = 0;
-	// Šeƒ‚[ƒh‚É‚¨‚¯‚éƒ†[ƒU[’è‹`‚ÌStrategy‚ğ¶¬‚·‚éƒtƒ@ƒNƒgƒŠ
+	//! å„ãƒ¢ãƒ¼ãƒ‰ã«ãŠã‘ã‚‹ãƒ¦ãƒ¼ã‚¶ãƒ¼å®šç¾©ã®Strategyã‚’ç”Ÿæˆã™ã‚‹ãƒ•ã‚¡ã‚¯ãƒˆãƒª
 	virtual void create_additional_hotspot() = 0;
-	// ƒf[ƒ^ƒv[ƒ‹‚Ö‚ÌÚ‘±‚ğ¶¬‚·‚éƒtƒ@ƒNƒgƒŠ
+	//! ãƒ‡ãƒ¼ã‚¿ãƒ—ãƒ¼ãƒ«ã¸ã®æ¥ç¶šã‚’ç”Ÿæˆã™ã‚‹ãƒ•ã‚¡ã‚¯ãƒˆãƒª
 	virtual void create_datapool() = 0;
-	// ¶¬‚³‚ê‚½ƒIƒuƒWƒFƒNƒg‚ğAGlobal‚Ìƒ|ƒCƒ“ƒ^‚Å•Ô‹p
+	//! ç”Ÿæˆã•ã‚ŒãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ã€Globalã®ãƒã‚¤ãƒ³ã‚¿ã§è¿”å´
 	virtual Global<Env>* return_created_object() = 0;
 };
 

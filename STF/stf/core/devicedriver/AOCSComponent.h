@@ -34,17 +34,17 @@ template<class T> class Datapool;
 }
 namespace devicedriver {
 
-//! ƒZƒ“ƒT‚¨‚æ‚ÑƒAƒNƒ`ƒ…ƒG[ƒ^‚ÌŠî’êƒNƒ‰ƒXD
+//! ã‚»ãƒ³ã‚µãŠã‚ˆã³ã‚¢ã‚¯ãƒãƒ¥ã‚¨ãƒ¼ã‚¿ã®åŸºåº•ã‚¯ãƒ©ã‚¹ï¼
 /*! 
-	@tparam T   ‘ª’è‚µ‚Ä‚¢‚é•¨——Ê‚ğ•\‚·Œ^DTarget‚Étypedef‚³‚ê‚é
-	@tparam U   ‰ÂŠÏ‘ªŸŒ³‚Ì—Ê‚ğ•\‚·Œ^D‘S²Š´“x‚ğ‚Á‚½ƒRƒ“ƒ|[ƒlƒ“ƒg‚Ìê‡‚ÍT=UDHold‚Étypedef‚³‚ê‚é
-	@tparam Env ƒRƒ“ƒ|[ƒlƒ“ƒg‚ÌŠÂ‹«ƒNƒ‰ƒXD
+	@tparam T   æ¸¬å®šã—ã¦ã„ã‚‹ç‰©ç†é‡ã‚’è¡¨ã™å‹ï¼Targetã«typedefã•ã‚Œã‚‹
+	@tparam U   å¯è¦³æ¸¬æ¬¡å…ƒã®é‡ã‚’è¡¨ã™å‹ï¼å…¨è»¸æ„Ÿåº¦ã‚’æŒã£ãŸã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆã®å ´åˆã¯T=Uï¼Holdã«typedefã•ã‚Œã‚‹
+	@tparam Env ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆã®ç’°å¢ƒã‚¯ãƒ©ã‚¹ï¼
 */
 template<class T,class U = T,class Env = ENV>
 class AOCSComponent : public RootObject, virtual public IDataUpdatable, virtual public ISwitchable, public OutputPorts< TYPELIST_1(T) > {
 public:
-	typedef T Target;//‘ª’è‚µ‚Ä‚¢‚é•¨——Ê‚ğ•\‚·Œ^D
-	typedef U Hold;//‰ÂŠÏ‘ªŸŒ³‚Ì—Ê‚ğ•\‚·Œ^D‘S²Š´“x‚ğ‚Á‚½ƒRƒ“ƒ|[ƒlƒ“ƒg‚Ìê‡‚ÍT=U
+	typedef T Target;//æ¸¬å®šã—ã¦ã„ã‚‹ç‰©ç†é‡ã‚’è¡¨ã™å‹ï¼
+	typedef U Hold;//å¯è¦³æ¸¬æ¬¡å…ƒã®é‡ã‚’è¡¨ã™å‹ï¼å…¨è»¸æ„Ÿåº¦ã‚’æŒã£ãŸã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆã®å ´åˆã¯T=U
 	AOCSComponent(int instance_id, const datatype::String& name, const datatype::DCM& dcm);
 	AOCSComponent(int instance_id, const datatype::String& name);
 	void connect(core::datapool::AocsDataPool* pool,int rows, const datatype::String name){ 
@@ -74,8 +74,8 @@ protected:
 	bool is_on_;
 	U value_;
 	Env* environment_;
-	//! ƒRƒ“ƒ|[ƒlƒ“ƒgÀ•WŒn‚©‚ç‹@‘ÌÀ•WŒn‚Ö‚ÌDCMD
-	/*! ŒvZ•‰‰×‚Ì“s‡‚©‚çC’Êí‚Ìæ‚è•t‚¯s—ñ‚Ì‹ts—ñ‚Æ‚È‚Á‚Ä‚¢‚éDvalue_b_ = set_angle_ * value_ */
+	//! ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆåº§æ¨™ç³»ã‹ã‚‰æ©Ÿä½“åº§æ¨™ç³»ã¸ã®DCMï¼
+	/*! è¨ˆç®—è² è·ã®éƒ½åˆã‹ã‚‰ï¼Œé€šå¸¸ã®å–ã‚Šä»˜ã‘è¡Œåˆ—ã®é€†è¡Œåˆ—ã¨ãªã£ã¦ã„ã‚‹ï¼value_b_ = set_angle_ * value_ */
     datatype::DCM set_angle_;
 
 private:
@@ -147,7 +147,7 @@ void AOCSComponent<T,U,Env>::copyToBodyFrame_(Loki::Type2Type<datatype::Magnetic
 
 template<class T,class U,class Env>
 void AOCSComponent<T,U,Env>::copyToBodyFrame_(Loki::Type2Type<datatype::StaticVector<2>>,Loki::Type2Type<datatype::StaticVector<2>>){
-	//ˆê’U’¼ŒğÀ•WŒn‚É–ß‚µ‚Ä‚©‚ç‹ÉÀ•WŒn‚ÉÄ•ÏŠ·
+	//ä¸€æ—¦ç›´äº¤åº§æ¨™ç³»ã«æˆ»ã—ã¦ã‹ã‚‰æ¥µåº§æ¨™ç³»ã«å†å¤‰æ›
 	this->value_b_ = datatype::TypeConverter::toPolar(this->set_angle_ * datatype::TypeConverter::toRectangular(this->value_));
 }
 
@@ -184,7 +184,7 @@ void AOCSComponent<T,U,Env>::copyToLocalFrame_(Loki::Type2Type<datatype::Magneti
 
 template<class T,class U,class Env>
 void AOCSComponent<T,U,Env>::copyToLocalFrame_(Loki::Type2Type<datatype::StaticVector<2>>,Loki::Type2Type<datatype::StaticVector<2>>){
-	//ˆê’U’¼ŒğÀ•WŒn‚É–ß‚µ‚Ä‚©‚ç‹ÉÀ•WŒn‚ÉÄ•ÏŠ·
+	//ä¸€æ—¦ç›´äº¤åº§æ¨™ç³»ã«æˆ»ã—ã¦ã‹ã‚‰æ¥µåº§æ¨™ç³»ã«å†å¤‰æ›
 	this->value_ = datatype::TypeConverter::toPolar(this->set_angle_.inverse() * datatype::TypeConverter::toRectangular(this->value_b_));
 }
 

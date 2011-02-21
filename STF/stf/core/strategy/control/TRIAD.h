@@ -1,6 +1,6 @@
 /**
  * @file   TRIAD.h
- * @brief  
+ * @brief  TRIAD則で姿勢決定を行う制御ブロック群．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -25,8 +25,11 @@ namespace core {
 namespace strategy {
 namespace control {
 
-
-//Body���W�Ɗ������W�̃x�N�g����2�����͂��Cquaternion���o�͂���ėp��TRIAD�u���b�N�D
+//! Body座標と慣性座標のベクトルを2個ずつ入力し，quaternionを出力する汎用のTRIADブロック．
+/*!
+	入力:ベクトル1（機体座標系），ベクトル1（慣性座標系），ベクトル2（機体座標系），ベクトル2（慣性座標系）
+	出力:姿勢推定値
+*/
 class TRIAD
 	: virtual public StrategyBase, 
 	public devicedriver::InputPorts< TYPELIST_4( datatype::StaticVector<2>, datatype::StaticVector<2>, datatype::StaticVector<2>, datatype::StaticVector<2> ) >,
@@ -46,7 +49,11 @@ public:
 protected:
 };
 
-//�O�����ƒn���C���z�����x�N�g������quaternion���o�͂���TRIAD�u���b�N�D
+//! 軌道情報と地球，太陽方向ベクトルからquaternionを出力するTRIADブロック．
+/*!
+	入力:太陽方向（機体座標系），地球方向（機体座標系），軌道情報，時刻情報
+	出力:姿勢推定値
+*/
 class SunEarthTRIAD
 	: virtual public StrategyBase, 
 	public devicedriver::InputPorts< TYPELIST_4( datatype::StaticVector<2>, datatype::StaticVector<2>, datatype::PositionInfo, datatype::DateTime ) >,
@@ -66,7 +73,11 @@ public:
 protected:
 };
 
-//�O�����Ǝ���C���z�����x�N�g������quaternion���o�͂���TRIAD�u���b�N�D
+//! 軌道情報と磁場，太陽方向ベクトルからquaternionを出力するTRIADブロック．
+/*!
+	入力:太陽方向（機体座標系），磁場（機体座標系），軌道情報，時刻情報
+	出力:姿勢推定値
+*/
 class SunMagTRIAD
 	: virtual public StrategyBase, 
 	public devicedriver::InputPorts< TYPELIST_4( datatype::StaticVector<2>, datatype::MagneticField, datatype::PositionInfo, datatype::DateTime ) >,
@@ -86,7 +97,12 @@ public:
 protected:
 };
 
-//�O�����Ǝ���C���z�����x�N�g������quaternion���o�͂���TRIAD�u���b�N�D
+//! 軌道情報と磁場，太陽方向ベクトルからquaternionを出力するTRIADブロック．
+/*!
+	SunMagTRIADと異なり，時刻情報はポートではなくIAbsoluteTimeClockインターフェースを持ったオブジェクトを受け取ることで得る．
+	入力:太陽方向（機体座標系），磁場（機体座標系），軌道情報
+	出力:姿勢推定値
+*/
 class SunMagTRIAD2
 	: virtual public StrategyBase, 
 	public devicedriver::InputPorts< TYPELIST_3( datatype::StaticVector<2>, datatype::MagneticField, datatype::PositionInfo ) >,

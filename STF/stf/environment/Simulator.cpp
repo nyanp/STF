@@ -1,6 +1,6 @@
 /**
  * @file   Simulator.cpp
- * @brief  
+ * @brief  ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚¿ç’°å¢ƒã‚¯ãƒ©ã‚¹ï¼
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -124,7 +124,7 @@ void Simulator::runOneCycle()
 		++it_m;
 	}
 
-    this->true_torque_.reset();//ƒgƒ‹ƒN‚ğˆê’UƒŠƒZƒbƒg‚µCŠO•”ƒ\[ƒX‚©‚çŒvZ‚µ‚È‚¨‚·
+    this->true_torque_.reset();//ãƒˆãƒ«ã‚¯ã‚’ä¸€æ—¦ãƒªã‚»ãƒƒãƒˆã—ï¼Œå¤–éƒ¨ã‚½ãƒ¼ã‚¹ã‹ã‚‰è¨ˆç®—ã—ãªãŠã™
     std::vector<TorqueSource*>::iterator it_t = this->torque_sources_.begin(), end_t = this->torque_sources_.end();
     while( it_t != end_t ){
 		this->true_torque_ += (*it_t)->get_in_bodyframe();
@@ -138,13 +138,13 @@ void Simulator::runOneCycle()
         ++it_n;
     }
 
-    //ŸƒXƒeƒbƒv‚ÌŒvZ
-    double acc[3];//Šp‰Á‘¬“x
+    //æ¬¡ã‚¹ãƒ†ãƒƒãƒ—ã®è¨ˆç®—
+    double acc[3];//è§’åŠ é€Ÿåº¦
 	acc[0] = this->true_torque_[0] + this->noise_torque_[0];
     acc[1] = this->true_torque_[1] + this->noise_torque_[1];
-    acc[2] = this->true_torque_[2] + this->noise_torque_[2];//TBD:‰q¯‚Ì¿—Ê“Á«‚ÅŠ„‚é•K—v
+    acc[2] = this->true_torque_[2] + this->noise_torque_[2];//TBD:è¡›æ˜Ÿã®è³ªé‡ç‰¹æ€§ã§å‰²ã‚‹å¿…è¦
 
-    double omega[3];//Šp‘¬“xƒÖn+1ƒÖn{at
+    double omega[3];//è§’é€Ÿåº¦Ï‰n+1ï¼Ï‰nï¼‹at
 	omega[0] = this->true_angular_velocity_[0] + acc[0] * this->timestep_.total_seconds();
     omega[1] = this->true_angular_velocity_[1] + acc[1] * this->timestep_.total_seconds();
     omega[2] = this->true_angular_velocity_[2] + acc[2] * this->timestep_.total_seconds();

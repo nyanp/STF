@@ -1,6 +1,6 @@
 /**
  * @file   PID.h
- * @brief  
+ * @brief  PIDåˆ¶å¾¡ã‚’è¡Œã†åˆ¶å¾¡ãƒ–ãƒ­ãƒƒã‚¯ç¾¤ï¼
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -8,7 +8,6 @@
 #ifndef stf_core_strategy_control_PID_h
 #define stf_core_strategy_control_PID_h
 #include <assert.h>
-#include "IControlStrategy.h"
 #include "../../devicedriver/IOPort.h"
 #include "../../manager/ControlManager.h"
 #include "../StrategyBase.h"
@@ -27,7 +26,11 @@ namespace core {
 namespace strategy {
 namespace control {
 
-// Quaternion‚ÆŠp‘¬“x‚©‚çƒtƒB[ƒhƒoƒbƒN§Œä‚ğs‚¤3²PID§ŒäŠíD–Ú•WQuaternion‚ÍŠµ«Œn‚É‘Î‚µ‚ÄŒÅ’è
+//! Quaternionã¨è§’é€Ÿåº¦ã‹ã‚‰ãƒ•ã‚£ãƒ¼ãƒ‰ãƒãƒƒã‚¯åˆ¶å¾¡ã‚’è¡Œã†3è»¸PIDåˆ¶å¾¡ãƒ–ãƒ­ãƒƒã‚¯ï¼ç›®æ¨™Quaternionã¯æ…£æ€§ç³»ã«å¯¾ã—ã¦å›ºå®š
+/*! 
+	å…¥åŠ›:å§¿å‹¢æƒ…å ±ï¼Œè§’é€Ÿåº¦
+	å‡ºåŠ›:3è»¸ãƒˆãƒ«ã‚¯
+*/
 class PID : public devicedriver::InputPorts< TYPELIST_2(datatype::Quaternion, datatype::StaticVector<3>) >, 
 		public devicedriver::OutputPorts < TYPELIST_1(datatype::StaticVector<3>) > ,
 		public StrategyBase
@@ -51,15 +54,19 @@ protected:
     double ki_;
     double kd_;
 	double dt_;
-    //–Ú•Wquaternion.
+    //ç›®æ¨™quaternion.
     datatype::Quaternion q_target_;
-    //1ƒXƒeƒbƒv‘O‚ÌƒIƒCƒ‰[ŠpŒë·(”÷•ª§Œä‚Ég—p)
+    //1ã‚¹ãƒ†ãƒƒãƒ—å‰ã®ã‚ªã‚¤ãƒ©ãƒ¼è§’èª¤å·®(å¾®åˆ†åˆ¶å¾¡ã«ä½¿ç”¨)
     datatype::EulerAngle e_before_;
-    //p¨Šp‚ÌŒë·Ï•ª’liÏ•ª§Œä‚Ég—pjD
+    //å§¿å‹¢è§’ã®èª¤å·®ç©åˆ†å€¤ï¼ˆç©åˆ†åˆ¶å¾¡ã«ä½¿ç”¨ï¼‰ï¼
     datatype::EulerAngle e_total_;
 };
 
-// Quaternion‚©‚çƒtƒB[ƒhƒoƒbƒN§Œä‚ğs‚¤3²PID§ŒäŠí.
+//! Quaternionã ã‘ã‹ã‚‰ãƒ•ã‚£ãƒ¼ãƒ‰ãƒãƒƒã‚¯åˆ¶å¾¡ã‚’è¡Œã†3è»¸PIDåˆ¶å¾¡ãƒ–ãƒ­ãƒƒã‚¯ï¼ç›®æ¨™Quaternionã¯æ…£æ€§ç³»ã«å¯¾ã—ã¦å›ºå®šï¼è§’é€Ÿåº¦ã¯Quaternionã®å·®ã‹ã‚‰ç®—å‡º
+/*! 
+	å…¥åŠ›:å§¿å‹¢æƒ…å ±
+	å‡ºåŠ›:3è»¸ãƒˆãƒ«ã‚¯
+*/
 class QuaternionPID : public PID
 {
 public:
@@ -72,7 +79,12 @@ public:
 private:
 };
 
-// ’n‹…wŒü‚Ìƒ|ƒCƒ“ƒeƒBƒ“ƒO§Œä‚ğs‚¤3²PID§ŒäŠí.
+//! åœ°çƒæŒ‡å‘ã®ãƒã‚¤ãƒ³ãƒ†ã‚£ãƒ³ã‚°åˆ¶å¾¡ã‚’è¡Œã†3è»¸PIDåˆ¶å¾¡ãƒ–ãƒ­ãƒƒã‚¯ï¼
+/*! 
+	è¡›æ˜Ÿã®ã©ã®é¢ã‚’åœ°çƒã«æŒ‡å‘ã™ã‚‹ã‹ã¯ï¼Œã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã§ä¸ãˆã‚‰ã‚Œã‚‹ï¼
+	å…¥åŠ›:å§¿å‹¢æƒ…å ±ï¼Œè§’é€Ÿåº¦ï¼Œè»Œé“æƒ…å ±
+	å‡ºåŠ›:3è»¸ãƒˆãƒ«ã‚¯
+*/
 class EarthPointingPID : public devicedriver::InputPorts< TYPELIST_3(datatype::Quaternion, datatype::StaticVector<3>, datatype::PositionInfo) >, 
 		public devicedriver::OutputPorts < TYPELIST_1(datatype::StaticVector<3>) > ,
 		public StrategyBase
@@ -97,17 +109,22 @@ protected:
     double ki_;
     double kd_;
 	double dt_;
-	//Šú‘ÒÀ•WŒn‚É‚¨‚¯‚é–Ú•W‚Ì’n‹…•ûŒüƒxƒNƒgƒ‹B
+	//æœŸå¾…åº§æ¨™ç³»ã«ãŠã‘ã‚‹ç›®æ¨™ã®åœ°çƒæ–¹å‘ãƒ™ã‚¯ãƒˆãƒ«ã€‚
 	datatype::StaticVector<3> target_earthvector_;
-	//Œ»İ‚Ì’n‹…•ûŒüƒxƒNƒgƒ‹D
+	//ç¾åœ¨ã®åœ°çƒæ–¹å‘ãƒ™ã‚¯ãƒˆãƒ«ï¼
 	datatype::StaticVector<3> earthvector_;
-    //1ƒXƒeƒbƒv‘O‚ÌƒIƒCƒ‰[ŠpŒë·(”÷•ª§Œä‚Ég—p)
+    //1ã‚¹ãƒ†ãƒƒãƒ—å‰ã®ã‚ªã‚¤ãƒ©ãƒ¼è§’èª¤å·®(å¾®åˆ†åˆ¶å¾¡ã«ä½¿ç”¨)
     datatype::EulerAngle e_before_;
-    //p¨Šp‚ÌŒë·Ï•ª’liÏ•ª§Œä‚Ég—pjD
+    //å§¿å‹¢è§’ã®èª¤å·®ç©åˆ†å€¤ï¼ˆç©åˆ†åˆ¶å¾¡ã«ä½¿ç”¨ï¼‰ï¼
     datatype::EulerAngle e_total_;
 };
 
-// –Ú•WQuaternion‚ğŠO•”‚©‚ç’€Ÿ“ü—Í‚·‚éPIDƒRƒ“ƒgƒ[ƒ‰D
+//! ç›®æ¨™Quaternionã‚’å¤–éƒ¨ã‹ã‚‰é€æ¬¡å…¥åŠ›ã™ã‚‹PIDåˆ¶å¾¡ãƒ–ãƒ­ãƒƒã‚¯ï¼
+/*! 
+	æ…£æ€§åº§æ¨™ç³»ã§ã®ç›®æ¨™ãŒæ™‚å¤‰ã§ã‚ã‚‹å ´åˆï¼ˆåœ°ä¸Šã®ç‰¹å®šåœ°ç‚¹ã¸ã®ãƒã‚¤ãƒ³ãƒ†ã‚£ãƒ³ã‚°ãªã©ï¼‰ã«ä½¿ç”¨ã™ã‚‹PIDï¼
+	å…¥åŠ›:å§¿å‹¢æƒ…å ±ï¼Œè§’é€Ÿåº¦ï¼Œç›®æ¨™å§¿å‹¢æƒ…å ±
+	å‡ºåŠ›:3è»¸ãƒˆãƒ«ã‚¯
+*/
 class DynamicPID : public devicedriver::InputPorts< TYPELIST_3(datatype::Quaternion, datatype::StaticVector<3>, datatype::Quaternion) >, 
 		public devicedriver::OutputPorts < TYPELIST_1(datatype::StaticVector<3>) > ,
 		public StrategyBase
@@ -132,9 +149,9 @@ protected:
     double ki_;
     double kd_;
 	double dt_;
-    //1ƒXƒeƒbƒv‘O‚ÌƒIƒCƒ‰[ŠpŒë·(”÷•ª§Œä‚Ég—p)
+    //1ã‚¹ãƒ†ãƒƒãƒ—å‰ã®ã‚ªã‚¤ãƒ©ãƒ¼è§’èª¤å·®(å¾®åˆ†åˆ¶å¾¡ã«ä½¿ç”¨)
     datatype::EulerAngle e_before_;
-    //p¨Šp‚ÌŒë·Ï•ª’liÏ•ª§Œä‚Ég—pjD
+    //å§¿å‹¢è§’ã®èª¤å·®ç©åˆ†å€¤ï¼ˆç©åˆ†åˆ¶å¾¡ã«ä½¿ç”¨ï¼‰ï¼
     datatype::EulerAngle e_total_;
 };
 

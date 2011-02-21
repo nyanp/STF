@@ -1,6 +1,6 @@
 /**
  * @file   Exp.cpp
- * @brief  
+ * @brief  è¡Œåˆ—ã®æŒ‡æ•°é–¢æ•°ã‚’è¨ˆç®—ã™ã‚‹é–¢æ•°ï¼
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -12,9 +12,9 @@ namespace util {
 namespace math {
 
 
-//s—ñ‚Ìw”‚ğnŸ‚Ìƒ}ƒNƒ[ƒŠƒ““WŠJ‚Ü‚ÅŒvZ‚µ‚Ä•Ô‚·ŠÖ”D
+//è¡Œåˆ—ã®æŒ‡æ•°ã‚’næ¬¡ã®ãƒã‚¯ãƒ­ãƒ¼ãƒªãƒ³å±•é–‹ã¾ã§è¨ˆç®—ã—ã¦è¿”ã™é–¢æ•°ï¼
 datatype::Matrix exp(const datatype::Matrix& m,int n){
-    assert(m.rows() == m.cols());//³•ûs—ñ‚Ì‚İŒvZ‰Â”\
+    assert(m.rows() == m.cols());//æ­£æ–¹è¡Œåˆ—ã®ã¿è¨ˆç®—å¯èƒ½
 
     datatype::Matrix result(m.rows(),m.cols());
     result.unitize();
@@ -23,7 +23,7 @@ datatype::Matrix exp(const datatype::Matrix& m,int n){
     datatype::Matrix m_n = m;
 
     while(k < n){
-        //w”ŠÖ”I+A+A^2/2!+...‚Ìk”Ô–Ú‚Ì€‚ğŒvZ
+        //æŒ‡æ•°é–¢æ•°I+A+A^2/2!+...ã®kç•ªç›®ã®é …ã‚’è¨ˆç®—
         int i = k - 1;
         int f = k;//k!
 
@@ -42,7 +42,7 @@ datatype::Matrix exp(const datatype::Matrix& m,int n){
 }
 
 datatype::Matrix exp(const datatype::Matrix& m){
-    return exp(m,4);//‘æ“ñˆø”‚ª–³‚¢ê‡‚ÍƒfƒtƒHƒ‹ƒg‚Å4Ÿ‚Ü‚ÅŒvZ
+    return exp(m,4);//ç¬¬äºŒå¼•æ•°ãŒç„¡ã„å ´åˆã¯ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã§4æ¬¡ã¾ã§è¨ˆç®—
 }
 
 

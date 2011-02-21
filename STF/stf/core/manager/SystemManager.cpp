@@ -1,6 +1,6 @@
 /**
  * @file   SystemManager.cpp
- * @brief  
+ * @brief  条件判定や異常対応を行う機能マネージャ．
  *
  * @author Taiga Nomi
  * @date   2011.02.16

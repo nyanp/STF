@@ -1,6 +1,6 @@
 /**
  * @file   ControlManager.h
- * @brief  
+ * @brief  制御ブロックの実行を行う機能マネージャ．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -22,6 +22,13 @@ class IControlStrategy;
 
 namespace manager {
 
+//! 制御ブロックの実行を行う機能マネージャ．
+/*! 
+	Generation-GapパターンによってBaseから派生しており，デフォルトでは実装を持たない．
+	そのため，フレームワークからインスタンス化されると，仮想関数の機構によってBaseのインスタンスと殆ど同様に振る舞う．
+	ユーザーはBaseクラスの実装を変更する代わりに，この派生クラス側で必要に応じて仮想関数を宣言し，
+	機能マネージャの振る舞いをカスタマイズすることができる．
+*/
 class ControlManager : public ControlManagerBase {
 public:
 	ControlManager(int instance_id) : ControlManagerBase(instance_id) {}

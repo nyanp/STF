@@ -1,6 +1,6 @@
 /**
  * @file   Magnetic.h
- * @brief  ¥‹CŠÖŒW‚Ì•¨——Ê‚ğ•\‚·
+ * @brief  ç£æ°—é–¢ä¿‚ã®ç‰©ç†é‡ã‚’è¡¨ã™
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -12,7 +12,7 @@
 namespace stf { 
 namespace datatype {
 
-//! 3ŸŒ³¥‘©–§“x(T)‚ğ•\‚·D
+//! 3æ¬¡å…ƒç£æŸå¯†åº¦(T)ã‚’è¡¨ã™ï¼
 /*! */
 class MagneticField : public StaticVector<3> {
 public:
@@ -25,7 +25,7 @@ public:
 private:
 };
 
-//! 3ŸŒ³¥‹Cƒ‚[ƒƒ“ƒg(Am2)‚ğ•\‚·D
+//! 3æ¬¡å…ƒç£æ°—ãƒ¢ãƒ¼ãƒ¡ãƒ³ãƒˆ(Am2)ã‚’è¡¨ã™ï¼
 /*! */
 class MagneticMoment : public StaticVector<3> {
 public:

@@ -1,6 +1,6 @@
 /**
  * @file   OrbitInfo.h
- * @brief  ‹O“¹î•ñŠÖŒW‚Ì—Ê‚ğ•\‚·
+ * @brief  è»Œé“æƒ…å ±é–¢ä¿‚ã®é‡ã‚’è¡¨ã™
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -13,7 +13,7 @@
 namespace stf { 
 namespace datatype {
 
-//! ‹O“¹6—v‘f‚ğ•Û‚·‚éƒNƒ‰ƒXDƒTƒCƒY”ì‘å‰»‚ğ”ğ‚¯‚é‚½‚ßCå—v‚ÈŒvZ‚ÍOrbitImpl‚Ìstatic‚Èƒƒ\ƒbƒh‚É“Š‚°‚é‚±‚Æ‚Ås‚¤
+//! è»Œé“6è¦ç´ ã‚’ä¿æŒã™ã‚‹ã‚¯ãƒ©ã‚¹ï¼ã‚µã‚¤ã‚ºè‚¥å¤§åŒ–ã‚’é¿ã‘ã‚‹ãŸã‚ï¼Œä¸»è¦ãªè¨ˆç®—ã¯OrbitImplã®staticãªãƒ¡ã‚½ãƒƒãƒ‰ã«æŠ•ã’ã‚‹ã“ã¨ã§è¡Œã†
 /*!  */
 struct OrbitInfo {
 	OrbitInfo() : a(0), e(0), M(0), i(0), Omega(0), omega(0), n(0) {}
@@ -22,25 +22,25 @@ struct OrbitInfo {
 	{
 		n = sqrt( util::math::MU / (a * a * a) ); 
 	}
-	double a;//’·”¼Œa(m)
-	double e;//—£S—¦
-	double M;//•½‹Ï‹ß“_—£Šp
-	double i;//‹O“¹ŒXÎŠp(rad)
-	double Omega;//¸Œğ“_ÔŒo(rad)
-	double omega;//‹ß’n“_ˆø”
+	double a;//é•·åŠå¾„(m)
+	double e;//é›¢å¿ƒç‡
+	double M;//å¹³å‡è¿‘ç‚¹é›¢è§’
+	double i;//è»Œé“å‚¾æ–œè§’(rad)
+	double Omega;//æ˜‡äº¤ç‚¹èµ¤çµŒ(rad)
+	double omega;//è¿‘åœ°ç‚¹å¼•æ•°
 	double n;
 };
 
-//! ‰q¯À•W‚ğˆÜ“xŒo“x‚“x‚ÌŒ`®‚Å•Û‚·‚éƒNƒ‰ƒXD
+//! è¡›æ˜Ÿåº§æ¨™ã‚’ç·¯åº¦çµŒåº¦é«˜åº¦ã®å½¢å¼ã§ä¿æŒã™ã‚‹ã‚¯ãƒ©ã‚¹ï¼
 /*!  */
 struct Geo  {
 	Geo() : latitude(0), longitude(0), altitude(0) {}
-	double latitude;//ˆÜ“x(rad)
-	double longitude;//Œo“x(rad)
-	double altitude;//‚“x(m)
+	double latitude;//ç·¯åº¦(rad)
+	double longitude;//çµŒåº¦(rad)
+	double altitude;//é«˜åº¦(m)
 };
 
-//! ‰q¯À•W‚ğ’nSŠµ«À•WŒn‚É‚¨‚¯‚éˆÊ’u‚Æ‘¬“x‚Ì6ŸŒ³ƒxƒNƒgƒ‹‚Å•Û‚·‚éƒNƒ‰ƒXD
+//! è¡›æ˜Ÿåº§æ¨™ã‚’åœ°å¿ƒæ…£æ€§åº§æ¨™ç³»ã«ãŠã‘ã‚‹ä½ç½®ã¨é€Ÿåº¦ã®6æ¬¡å…ƒãƒ™ã‚¯ãƒˆãƒ«ã§ä¿æŒã™ã‚‹ã‚¯ãƒ©ã‚¹ï¼
 /*!  */
 struct PositionInfo  {
 	PositionInfo() {}

@@ -1,6 +1,6 @@
 /**
  * @file   CommandEvent.h
- * @brief  
+ * @brief  コマンド実行イベント．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -18,7 +18,9 @@ namespace manager {
 class CommandManagerBase;
 }
 namespace event {
-	//for test
+
+//! コマンド実行イベント．
+/*! */
 class CommandEvent : public EventBase{
 public:
 	typedef manager::CommandManagerBase SubjectClass; 

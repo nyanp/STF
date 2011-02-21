@@ -1,8 +1,8 @@
 /**
  * @file   iodefine.h
- * @brief  
+ * @brief  SH7145FのIOレジスタ定義．
  *
- * @author Taiga Nomi
+ * @author Renesas
  * @date   2011.02.16
  */
 /***********************************************************************/

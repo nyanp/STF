@@ -19,7 +19,7 @@ namespace earthsensor {
 template <class T>
 class EarthSensor : public EarthSensorBase<T>{
 public:  
-	// 3-Sigma‚Å1“x¸“x
+	// 3-Sigmaã§1åº¦ç²¾åº¦
 	EarthSensor(int instance_id, const datatype::DCM &angle) : EarthSensorBase(instance_id,angle,1,3){}
 	~EarthSensor(){}
 private:

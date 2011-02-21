@@ -1,6 +1,6 @@
 /**
  * @file   SelectingOutput.h
- * @brief  
+ * @brief  指定したイテレータをテレメトリとして整形するテレメトリ生成ストラテジ．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -14,7 +14,6 @@
 #include "../../event/EventBase.h"
 #include "../../devicedriver/tmhandler/ITelemetryStoragable.h"
 #include "../../../interface/Iterator.h"
-#include "../../../util/Ostream.h"
 #include "../../../datatype/IAocsData.h"
 #include "../../devicedriver/clock/DummyClock.h"
 #include "../../../datatype/List.h"
@@ -25,6 +24,16 @@ namespace core {
 namespace strategy {
 namespace telemetry {
 
+//! 指定したイテレータをテレメトリとして整形するテレメトリ生成ストラテジ．
+/*! 
+	@tparam T     出力時にキャストする型．
+	@tparam SCALE キャスト前に掛ける係数．
+
+	@code 
+	SelectingOutput<unsigned short, 100> output;//データプールから取ったdouble値を100倍し，unsigned shortにキャストしてからストレージに渡す
+	SelectingOutput output;//データプールの値をそのままストレージに渡す
+	@endcode
+*/
 template<class T, int SCALE>
 class SelectingOutput : public StrategyBase,  virtual public ITelemetryStrategy, virtual public interface::Iterator{
 public:
@@ -39,7 +48,7 @@ public:
 	~SelectingOutput(){}
 	virtual void write_to_telemetry();
 	virtual void add_tmlist(interface::Iterator* tm){ this->tmlist_.add(*tm);}
-	//���������ɂ̂݌ĂԂ��Ƃ��ł���
+	//初期化時にのみ呼ぶことができる
 	void set_tmlist_by_datapoolrows(int index){
 		interface::DataIterator* it = new interface::DataIterator(this->pool_->get(index));
 		this->tmlist_.add(*it);
@@ -76,7 +85,7 @@ bool SelectingOutput<T,SCALE>::end(){
 		if(!(*it).end()) return false;
 		++it;
 	}
-	return true;//���ׂẴC�e���[�^�������������Ă����Ƃ�����true
+	return true;//すべてのイテレータが走査完了していたときだけtrue
 }
 
 template<class T, int SCALE>

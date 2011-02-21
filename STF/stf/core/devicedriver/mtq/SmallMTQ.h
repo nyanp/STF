@@ -19,7 +19,7 @@ template<class T>
 class SmallMTQ : public MTQBase<T> {
 public:
 	~SmallMTQ(){}
-	//50mNmo—ÍCüŒ`«Œë·1“
+	//50mNmå‡ºåŠ›ï¼Œç·šå½¢æ€§èª¤å·®1ï¼…
 	SmallMTQ(int instance_id, const datatype::DCM &angle) : MTQBase(instance_id, angle, 0.05, 1){}
 private:
 	SmallMTQ(){}

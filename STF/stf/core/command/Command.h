@@ -1,6 +1,6 @@
 /**
  * @file   Command.h
- * @brief  ‰q¯ƒRƒ}ƒ“ƒh‚Ì’ŠÛƒCƒ“ƒ^[ƒtƒF[ƒX‚Æ‹¤’Ê‚ÌÀ‘•D
+ * @brief  è¡›æ˜Ÿã‚³ãƒãƒ³ãƒ‰ã®æŠ½è±¡ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ãƒ¼ã‚¹ã¨å…±é€šã®å®Ÿè£…ï¼
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -28,7 +28,7 @@ public:
 	virtual void execute() = 0;
 	virtual Command* clone(const datatype::Time& t) = 0;
 	virtual void init(int* params, int paramsize) = 0;
-	virtual bool can_execute(const datatype::Time& t) { if(t >= time_ ) return true; return false; }//ƒfƒtƒHƒ‹ƒg‚ÌÀ‘•DˆÈŠO‚Å”»’f‚µ‚Ä‚à‚æ‚¢
+	virtual bool can_execute(const datatype::Time& t) { if(t >= time_ ) return true; return false; }//ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®å®Ÿè£…ï¼æ™‚åˆ»ä»¥å¤–ã§åˆ¤æ–­ã—ã¦ã‚‚ã‚ˆã„
 protected:
 	datatype::Time time_;
 	devicedriver::cmhandler::ICommandReceiver* rcv_;

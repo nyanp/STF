@@ -1,6 +1,6 @@
 /**
  * @file   math.cpp
- * @brief  
+ * @brief  数学系関数のラッパと算術定数の定義．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -31,12 +31,6 @@ namespace math {
 		return cos(s);
 	}
 
-	double Align(double s, double align){
-		if(abs(s) < align){
-			return 0;
-		}
-		return s;
-	}
 }
 }
 }

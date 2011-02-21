@@ -1,6 +1,6 @@
 /**
  * @file   EarthSensorBase.cpp
- * @brief  地球センサの基底クラス
+ * @brief  蝨ｰ逅�繧ｻ繝ｳ繧ｵ縺ｮ蝓ｺ蠎輔け繝ｩ繧ｹ
  *
  * @author Taiga Nomi
  * @date   2011.02.16

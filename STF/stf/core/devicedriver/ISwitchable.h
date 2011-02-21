@@ -1,6 +1,6 @@
 /**
  * @file   ISwitchable.h
- * @brief  
+ * @brief  CPUによる電源のオンオフ制御が可能なコンポーネントに対するインターフェース．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -11,7 +11,9 @@
 namespace stf {
 namespace core {
 namespace devicedriver {
-//CPU�ɂ��d���̃I���I�t���䂪�\�ȃR���|�[�l���g�ɑ΂���C���^�[�t�F�[�X�D
+
+//! 電源のオンオフ制御が可能なコンポーネントに対するインターフェース．
+/*! */	
 class ISwitchable {
 public:
     virtual void on()  = 0;

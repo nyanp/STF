@@ -1,22 +1,21 @@
 /**
  * @file   EventBase.h
- * @brief  
+ * @brief  å…¨ã‚¤ãƒ™ãƒ³ãƒˆã®åŸºåº•ã‚¯ãƒ©ã‚¹ï¼
  *
  * @author Taiga Nomi
  * @date   2011.02.16
  */
 #ifndef stf_core_event_EventBase_h
 #define stf_core_event_EventBase_h
-#include <iostream>
+
 #include "../../datatype/String.h"
-#include "../../datatype/Time.h"
 
 namespace stf {
 namespace core {
 namespace event {
-//‘SƒCƒxƒ“ƒg‚ÌŠî’êƒNƒ‰ƒXD
-// T: ƒCƒxƒ“ƒg•Ï”D
-// Holder: ƒCƒxƒ“ƒg‚ÌSubject‚Æ‚È‚éƒNƒ‰ƒXD‹@”\ƒ}ƒl[ƒWƒƒ‚È‚ÇƒVƒ“ƒOƒ‹ƒgƒ“‚Å‚È‚¯‚ê‚Î‚È‚ç‚È‚¢
+
+//! å…¨ã‚¤ãƒ™ãƒ³ãƒˆã®åŸºåº•ã‚¯ãƒ©ã‚¹ï¼
+/*! */
 class EventBase {
 public:
 	//typedef U SubjectClass; 
@@ -31,7 +30,6 @@ public:
 	virtual const datatype::String& name() const{ return name_; }
 private:
 	datatype::String name_;
-	//datatype::Time time_;
 };
 
 } /* End of namespace stf::core::event */

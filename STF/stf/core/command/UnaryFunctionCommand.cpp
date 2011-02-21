@@ -1,6 +1,6 @@
 /**
  * @file   UnaryFunctionCommand.cpp
- * @brief  ‚Pˆø”‚Ìƒtƒ@ƒ“ƒNƒ^‚âƒƒ“ƒoŠÖ”‚ğ‹N“®‚·‚éƒRƒ}ƒ“ƒhD
+ * @brief  ï¼‘å¼•æ•°ã®ãƒ•ã‚¡ãƒ³ã‚¯ã‚¿ã‚„ãƒ¡ãƒ³ãƒé–¢æ•°ã‚’èµ·å‹•ã™ã‚‹ã‚³ãƒãƒ³ãƒ‰ï¼
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -11,7 +11,7 @@ namespace stf {
 namespace core {
 namespace command {
 
-//! ƒRƒ}ƒ“ƒhˆø”‚ğparams‚Ì‘æˆê—v‘f‚É’u‚«Š·‚¦‚éD
+//! ã‚³ãƒãƒ³ãƒ‰å¼•æ•°ã‚’paramsã®ç¬¬ä¸€è¦ç´ ã«ç½®ãæ›ãˆã‚‹ï¼
 template<>
 void UnaryFunctorCommand<int>::init(int* params, int paramsize){
 	if(paramsize >= 1)

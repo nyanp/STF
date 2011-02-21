@@ -1,6 +1,6 @@
 /**
  * @file   SwitchCommand.h
- * @brief  ‹@Ší‚ÌƒXƒCƒbƒ`ƒ“ƒO‚ğs‚¤ƒRƒ}ƒ“ƒhD
+ * @brief  æ©Ÿå™¨ã®ã‚¹ã‚¤ãƒƒãƒãƒ³ã‚°ã‚’è¡Œã†ã‚³ãƒãƒ³ãƒ‰ï¼
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -15,9 +15,9 @@ namespace stf {
 namespace core {
 namespace command {
 
-//! ‹@Ší‚ÌƒXƒCƒbƒ`ƒ“ƒO‚ğs‚¤ƒRƒ}ƒ“ƒhD
+//! æ©Ÿå™¨ã®ã‚¹ã‚¤ãƒƒãƒãƒ³ã‚°ã‚’è¡Œã†ã‚³ãƒãƒ³ãƒ‰ï¼
 /*! 
-	ISwitchableƒCƒ“ƒ^[ƒtƒF[ƒX‚ğ‚Á‚½ƒIƒuƒWƒFƒNƒg‚É‘Î‚µ‚ÄCon‚Ü‚½‚Íoff‚ğÀsD
+	ISwitchableã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ãƒ¼ã‚¹ã‚’æŒã£ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«å¯¾ã—ã¦ï¼Œonã¾ãŸã¯offã‚’å®Ÿè¡Œï¼
  */
 class SwitchCommand : public Command {
 public:

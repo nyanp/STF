@@ -1,12 +1,12 @@
 /**
  * @file   Datapool.h
- * @brief  STF¶¬ƒf[ƒ^‚Éƒ^ƒCƒ€ƒ^ƒO‚ğ•t‰Á‚µ‚ÄŠi”[‚·‚éƒf[ƒ^ƒv[ƒ‹D
- *         ƒf[ƒ^‚Ì”z—ñ‚ğ•Û‚·‚éTuple‚ÆCTuple‚Ì”z—ñ‚ğ•Û‚·‚éƒf[ƒ^ƒv[ƒ‹‚É‚æ‚Á‚Ä
- *         ƒe[ƒuƒ‹Œ`®‚Ìƒf[ƒ^\‘¢‚ğ•\Œ»‚·‚éD
+ * @brief  STFç”Ÿæˆãƒ‡ãƒ¼ã‚¿ã«ã‚¿ã‚¤ãƒ ã‚¿ã‚°ã‚’ä»˜åŠ ã—ã¦æ ¼ç´ã™ã‚‹ãƒ‡ãƒ¼ã‚¿ãƒ—ãƒ¼ãƒ«ï¼
+ *         ãƒ‡ãƒ¼ã‚¿ã®é…åˆ—ã‚’ä¿æŒã™ã‚‹Tupleã¨ï¼ŒTupleã®é…åˆ—ã‚’ä¿æŒã™ã‚‹ãƒ‡ãƒ¼ã‚¿ãƒ—ãƒ¼ãƒ«ã«ã‚ˆã£ã¦
+ *         ãƒ†ãƒ¼ãƒ–ãƒ«å½¢å¼ã®ãƒ‡ãƒ¼ã‚¿æ§‹é€ ã‚’è¡¨ç¾ã™ã‚‹ï¼
  *
  * @author Taiga Nomi
  * @date   2011.02.16
- * @todo   EventDataPool‚Ì‰^—pCEventDataPoolIterator‚ÌÀ‘•
+ * @todo   EventDataPoolã®é‹ç”¨ï¼ŒEventDataPoolIteratorã®å®Ÿè£…
  */
 #ifndef stf_core_datapool_Datapool_h
 #define stf_core_datapool_Datapool_h
@@ -24,9 +24,9 @@
 namespace stf {
 namespace core {
 namespace datapool {
-//! ‚Æƒf[ƒ^ƒ|ƒCƒ“ƒ^‚ÌƒyƒA‚ğˆê’è—v‘f”‚ÌƒŠƒ“ƒOƒoƒbƒtƒ@‚Å•Û‚·‚éD
-/*! ƒf[ƒ^‚Ìƒ|ƒCƒ“ƒ^”z—ñ‚ğ•Û‚µ‚Ä‚¨‚èCƒf[ƒ^’Ç‰Á‚ÍBaseŒ^‚Å‚Í‚È‚­CƒLƒƒƒXƒg‚·‚éŒ^‚ğw’è‚·‚éD
-	@tparam Base ƒf[ƒ^‚ÌŠî’êŒ^
+//! æ™‚åˆ»ã¨ãƒ‡ãƒ¼ã‚¿ãƒã‚¤ãƒ³ã‚¿ã®ãƒšã‚¢ã‚’ä¸€å®šè¦ç´ æ•°ã®ãƒªãƒ³ã‚°ãƒãƒƒãƒ•ã‚¡ã§ä¿æŒã™ã‚‹ï¼
+/*! ãƒ‡ãƒ¼ã‚¿ã®ãƒã‚¤ãƒ³ã‚¿é…åˆ—ã‚’ä¿æŒã—ã¦ãŠã‚Šï¼Œãƒ‡ãƒ¼ã‚¿è¿½åŠ æ™‚ã¯Baseå‹ã§ã¯ãªãï¼Œã‚­ãƒ£ã‚¹ãƒˆã™ã‚‹å‹ã‚’æŒ‡å®šã™ã‚‹ï¼
+	@tparam Base ãƒ‡ãƒ¼ã‚¿ã®åŸºåº•å‹
 */
 template<class Base>
 class Tuple
@@ -90,11 +90,11 @@ private:
 	int capacity_;
 	int index_;
 	Base** data_;
-	datatype::String name_;//ƒf[ƒ^ƒx[ƒX–¼CƒfƒoƒbƒO—p
+	datatype::String name_;//ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹åï¼Œãƒ‡ãƒãƒƒã‚°ç”¨
 	datatype::Time* time_;
 };
 
-//! Tuple‚ğ•¡”ŒÂ•Û‚·‚éƒf[ƒ^ƒv[ƒ‹‚ÌŠî’êƒNƒ‰ƒXD
+//! Tupleã‚’è¤‡æ•°å€‹ä¿æŒã™ã‚‹ãƒ‡ãƒ¼ã‚¿ãƒ—ãƒ¼ãƒ«ã®åŸºåº•ã‚¯ãƒ©ã‚¹ï¼
 /*! 
 */
 class DataPoolBase : public RootObject
@@ -113,10 +113,10 @@ protected:
 	int createdindex_;
 };
 
-//ƒCƒeƒŒ[ƒ^‚Ì‘O•ûéŒ¾
+//ã‚¤ãƒ†ãƒ¬ãƒ¼ã‚¿ã®å‰æ–¹å®£è¨€
 class AocsDataPoolIterator;
 
-//! IAocsData‚Ìƒf[ƒ^ƒv[ƒ‹D
+//! IAocsDataã®ãƒ‡ãƒ¼ã‚¿ãƒ—ãƒ¼ãƒ«ï¼
 /*! 
 */
 class AocsDataPool : public DataPoolBase//: public RootObject
@@ -124,7 +124,7 @@ class AocsDataPool : public DataPoolBase//: public RootObject
 public:
 	AocsDataPool(int instance_id);
 	~AocsDataPool(void){}
-	// ÅV‚Ì’l‚ğŒ³‚ÌŒ^‚Æ‚µ‚Äæ‚é
+	// æœ€æ–°ã®å€¤ã‚’å…ƒã®å‹ã¨ã—ã¦å–ã‚‹
 	template<class Producer> typename Producer::Hold get(int index) const{
 		return table_[index]->get<Producer::Hold>();//copy
 	}
@@ -133,32 +133,32 @@ public:
 	template<class T>const T& get(int rows){
 		return this->table_[rows]->get<T>();
 	}
-	// ÅV‚Ì’l‚ğæ‚é
+	// æœ€æ–°ã®å€¤ã‚’å–ã‚‹
 	datatype::Time gettime(int index) const;
 	const datatype::String& getname(int index) const;
-	// ’l‚ğƒZƒbƒg
+	// å€¤ã‚’ã‚»ãƒƒãƒˆ
 	template<class Producer> void set(int index, const typename Producer::Hold& value){
 		table_[index]->set<typename Producer::Hold>(this->clock_->get_time(),value);
 	}
 	template<class Producer> typename Producer::Hold& get_at(int index, int rows) const {
 		return table_[index]->get_at<Producer::Hold>(rows);//copy
 	}
-	//‰Šú‰»‚É‚Ì‚İg—pD“®“I¶¬
-	//IAocsData‚ğHold‚µ‚Ä‚¢‚éRoot”z‰º‚ÌƒNƒ‰ƒX‚Å‚ ‚ê‚Î‰½‚Å‚àæ‚ê‚é
+	//åˆæœŸåŒ–æ™‚ã«ã®ã¿ä½¿ç”¨ï¼å‹•çš„ç”Ÿæˆ
+	//IAocsDataã‚’Holdã—ã¦ã„ã‚‹Rooté…ä¸‹ã®ã‚¯ãƒ©ã‚¹ã§ã‚ã‚Œã°ä½•ã§ã‚‚å–ã‚Œã‚‹
 	template<class Producer> int create(Producer* producer,unsigned short capacity, const datatype::String& name = "unknown"){
 		this->createdindex_++;
 		this->table_[createdindex_] = new Tuple<datatype::IAocsData>(capacity,Loki::Type2Type<Producer::Hold>(),name);
 		return createdindex_ ;
 	}
-	//‰Šú‰»‚É‚Ì‚İg—pD“®“I¶¬
-	//IAocsData‚ğHold‚µ‚Ä‚¢‚éRoot”z‰º‚ÌƒNƒ‰ƒX‚Å‚ ‚ê‚Î‰½‚Å‚àæ‚ê‚é
+	//åˆæœŸåŒ–æ™‚ã«ã®ã¿ä½¿ç”¨ï¼å‹•çš„ç”Ÿæˆ
+	//IAocsDataã‚’Holdã—ã¦ã„ã‚‹Rooté…ä¸‹ã®ã‚¯ãƒ©ã‚¹ã§ã‚ã‚Œã°ä½•ã§ã‚‚å–ã‚Œã‚‹
 	template<class Datatype> int create(Loki::Type2Type<Datatype>,unsigned short capacity, const datatype::String& name = "unknown"){
 		this->createdindex_++;
 		this->table_[createdindex_] = new Tuple<datatype::IAocsData>(capacity,Loki::Type2Type<Datatype>(),name);
 		return createdindex_ ;
 	}
-	//‰Šú‰»‚É‚Ì‚İg—pD“®“I¶¬
-	//IAocsData‚ğHold‚µ‚Ä‚¢‚éRoot”z‰º‚ÌƒNƒ‰ƒX‚Å‚ ‚ê‚Î‰½‚Å‚àæ‚ê‚é
+	//åˆæœŸåŒ–æ™‚ã«ã®ã¿ä½¿ç”¨ï¼å‹•çš„ç”Ÿæˆ
+	//IAocsDataã‚’Holdã—ã¦ã„ã‚‹Rooté…ä¸‹ã®ã‚¯ãƒ©ã‚¹ã§ã‚ã‚Œã°ä½•ã§ã‚‚å–ã‚Œã‚‹
 	template<class Producer> int create(int id,unsigned short capacity, const datatype::String& name = "unknown"){
 		this->createdindex_++;
 		this->table_[createdindex_] = new Tuple<datatype::IAocsData>(capacity,Loki::Type2Type<Producer::Hold>(),name);
@@ -167,14 +167,14 @@ public:
 	template<class Producer> void show(int index) const{
 		table_[index]->print<Producer::Hold>();
 	}
-	// w’è‚µ‚½ƒCƒ“ƒXƒ^ƒ“ƒXID‚ª¶¬‚µ‚½ƒ^ƒvƒ‹‚Ö‚Ìƒ|ƒCƒ“ƒ^‚ğæ“¾iƒeƒŒƒƒgƒŠ—pj
+	// æŒ‡å®šã—ãŸã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹IDãŒç”Ÿæˆã—ãŸã‚¿ãƒ—ãƒ«ã¸ã®ãƒã‚¤ãƒ³ã‚¿ã‚’å–å¾—ï¼ˆãƒ†ãƒ¬ãƒ¡ãƒˆãƒªç”¨ï¼‰
 	Tuple<datatype::IAocsData>* get_ptr(int index) ;
 private:
 	//template<class T, int i> friend class AocsDataPoolIterator;
 	Tuple<datatype::IAocsData>** table_;
 };
 
-//! Event‚Ìƒf[ƒ^ƒv[ƒ‹D
+//! Eventã®ãƒ‡ãƒ¼ã‚¿ãƒ—ãƒ¼ãƒ«ï¼
 /*! 
 */
 class EventDataPool : public DataPoolBase//: public RootObject
@@ -182,16 +182,16 @@ class EventDataPool : public DataPoolBase//: public RootObject
 public:
 	EventDataPool(int instance_id);
 	~EventDataPool(void){}
-	// ÅV‚Ì’l‚ğŒ³‚ÌŒ^‚Æ‚µ‚Äæ‚é
+	// æœ€æ–°ã®å€¤ã‚’å…ƒã®å‹ã¨ã—ã¦å–ã‚‹
 	template<class Producer> typename Producer::Hold get(int index) const{
 		return table_[index]->get<Producer::Hold>();//copy
 	}
 	const core::event::EventBase* get(int rows) const;
 	const core::event::EventBase* get(int rows,int cols) const;
-	// ÅV‚Ì’l‚ğæ‚é
+	// æœ€æ–°ã®å€¤ã‚’å–ã‚‹
 	datatype::Time gettime(int index) const;
 	const datatype::String& getname(int index) const;
-	// ’l‚ğƒZƒbƒg
+	// å€¤ã‚’ã‚»ãƒƒãƒˆ
 	template<class Producer> void set(int index, const typename Producer::Hold& value){
 		table_[index]->set<typename Producer::Hold>(this->clock_->get_time(),value);
 	}
@@ -221,13 +221,13 @@ public:
 	template<class Producer> void show(int index) const{
 		table_[index]->print<Producer::Hold>();
 	}
-	// w’è‚µ‚½ƒCƒ“ƒXƒ^ƒ“ƒXID‚ª¶¬‚µ‚½ƒ^ƒvƒ‹‚Ö‚Ìƒ|ƒCƒ“ƒ^‚ğæ“¾iƒeƒŒƒƒgƒŠ—pj
+	// æŒ‡å®šã—ãŸã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹IDãŒç”Ÿæˆã—ãŸã‚¿ãƒ—ãƒ«ã¸ã®ãƒã‚¤ãƒ³ã‚¿ã‚’å–å¾—ï¼ˆãƒ†ãƒ¬ãƒ¡ãƒˆãƒªç”¨ï¼‰
 	Tuple<core::event::EventBase>* get_ptr(int index) ;
 private:
 	Tuple<core::event::EventBase>** table_;
 };
 
-//! AocsDataPool‚ÌŠe—ñ‚ÌÅVƒf[ƒ^‚ğ‚È‚ß‚éƒCƒeƒŒ[ƒ^D
+//! AocsDataPoolã®å„åˆ—ã®æœ€æ–°ãƒ‡ãƒ¼ã‚¿ã‚’ãªã‚ã‚‹ã‚¤ãƒ†ãƒ¬ãƒ¼ã‚¿ï¼
 /*! 
 */
 class AocsDataPoolIterator : public interface::Iterator {
@@ -245,7 +245,7 @@ public:
 	}
 	virtual void operator ++() { 
 		index_ ++;
-		if(index_ >= localstreamsize_){//Ÿ‚Ì—ñ‚Ö
+		if(index_ >= localstreamsize_){//æ¬¡ã®åˆ—ã¸
 			rows_++;
 			focusrow_(rows_);
 		}
@@ -268,9 +268,9 @@ private:
 	int rows_;
 };
 
-//! EventDataPool‚ÌŠe—ñ‚ÌÅVƒf[ƒ^‚ğ‚È‚ß‚éƒCƒeƒŒ[ƒ^D
+//! EventDataPoolã®å„åˆ—ã®æœ€æ–°ãƒ‡ãƒ¼ã‚¿ã‚’ãªã‚ã‚‹ã‚¤ãƒ†ãƒ¬ãƒ¼ã‚¿ï¼
 /*! 
-	@todo operator()‚ÌÀ‘•
+	@todo operator()ã®å®Ÿè£…
 */
 class EventDataPoolIterator : public interface::Iterator {
 public:
@@ -287,7 +287,7 @@ public:
 	}
 	virtual void operator ++() { 
 		index_ ++;
-		if(index_ >= localstreamsize_){//Ÿ‚Ì—ñ‚Ö
+		if(index_ >= localstreamsize_){//æ¬¡ã®åˆ—ã¸
 			rows_++;
 			focusrow_(rows_);
 		}

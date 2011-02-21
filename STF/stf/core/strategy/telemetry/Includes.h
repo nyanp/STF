@@ -1,6 +1,6 @@
 /**
  * @file   Includes.h
- * @brief  
+ * @brief  テレメトリアルゴリズムの一括インクルード用ファイル．
  *
  * @author Taiga Nomi
  * @date   2011.02.16

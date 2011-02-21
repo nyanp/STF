@@ -1,6 +1,6 @@
 /**
  * @file   Macros.h
- * @brief  STF�S�̂Ŏg�p����ȒP�ȃ}�N���֐����L�q����D
+ * @brief  STF全体で使用する簡単なマクロ関数を記述する．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -9,8 +9,8 @@
 #define Macros_h
 
 
-// �R�s�[�R���X�g���N�^��=���Z�q�֐��𖳌��ɂ���}�N��
-// ����̓N���X�� private: �錾�̒��Ŏg���ׂ����B
+// コピーコンストラクタと=演算子関数を無効にするマクロ
+// これはクラスの private: 宣言の中で使うべきだ。
 // from: google C++ coding styles
 #define DISALLOW_COPY_AND_ASSIGN(TypeName) \
   TypeName(const TypeName&);               \

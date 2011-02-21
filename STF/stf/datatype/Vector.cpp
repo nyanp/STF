@@ -1,6 +1,6 @@
 /**
  * @file   Vector.cpp
- * @brief  
+ * @brief  可変要素数のベクトル演算を行うクラス．STFではStaticVectorが推奨される
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -23,13 +23,13 @@ Vector::Vector(int dim)
 
 void Vector::normalize()
 {
-//�P�Ȃ镨���ʂ̃Z�b�g�Ȃ̂ň�ʓI��normalize�͎����ł��Ȃ�
-//�m�����Ŋ���悤�ȑ���̓T�u�N���X�Ŏ������邱��
+//単なる物理量のセットなので一般的なnormalizeは実装できない
+//ノルムで割るような操作はサブクラスで実装すること
 }
 
 double Vector::norm(int n) const
 {
-	assert((n == 1) || (n == 2));//�v�Z���ׂ̖�肩�獡��1�C2���̃m���������Ƃ�Ȃ�
+	assert((n == 1) || (n == 2));//計算負荷の問題から今は1，2次のノルムしかとらない
 	double value = 0.0;
 	if(n == 1){
 		for(int i = 0; i < this->dimension_; i++)
@@ -71,7 +71,7 @@ void Vector::initVector(int dim, double value)
     assert(dim > 0);
 	this->value_ = new double[dim];
 	this->dimension_ = dim;
-	assert(this->value_ != 0);//���������m�ۂł��Ȃ��Ƃ���value_==0�ƂȂ��ďI��
+	assert(this->value_ != 0);//メモリが確保できないときにvalue_==0となって終了
 	for(int i = 0; i < dim; i++)
 		this->value_[i] = value;
 }

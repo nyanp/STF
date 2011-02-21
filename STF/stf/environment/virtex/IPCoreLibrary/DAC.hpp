@@ -1,10 +1,3 @@
-/**
- * @file   DAC.hpp
- * @brief  
- *
- * @author Taiga Nomi
- * @date   2011.02.16
- */
 /*!
   \file   DAC.hpp
   \author TAKISAWA, Jun'ichi.

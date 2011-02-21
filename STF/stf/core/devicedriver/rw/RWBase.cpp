@@ -17,7 +17,7 @@ namespace rw {
 
 template <>
 void RWBase<environment::Simulator>::do_update(){
-	//Šp‰^“®—Êi‰ñ“]”j‚ÌXV
+	//è§’é‹å‹•é‡ï¼ˆå›è»¢æ•°ï¼‰ã®æ›´æ–°
 	this->angular_momentum_ += this->value_.value() * STEPTIME;
 	//
 	if(this->datapool_ != 0){
@@ -25,8 +25,8 @@ void RWBase<environment::Simulator>::do_update(){
 	}
 }
 
-// ƒVƒ~ƒ…ƒŒ[ƒ^—p‚Ì“Áê‰»”ÅƒRƒ“ƒXƒgƒ‰ƒNƒ^D
-// ƒgƒ‹ƒNƒ\[ƒX‚Æ‚µ‚ÄƒVƒ~ƒ…ƒŒ[ƒ^‚É©“®“I‚É“o˜^
+// ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚¿ç”¨ã®ç‰¹æ®ŠåŒ–ç‰ˆã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ï¼
+// ãƒˆãƒ«ã‚¯ã‚½ãƒ¼ã‚¹ã¨ã—ã¦ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚¿ã«è‡ªå‹•çš„ã«ç™»éŒ²
 template<>
 RWBase<environment::Simulator>::RWBase(int instance_id, const datatype::DCM &dcm, double max_torque, double min_torque, double max_angular_momentum) : 
 AOCSActuator<datatype::StaticVector<3>, datatype::Scalar, environment::Simulator>(instance_id, "RW", dcm), max_angular_momentum_(max_angular_momentum)

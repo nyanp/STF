@@ -1,6 +1,6 @@
 /**
  * @file   EKFParamaters.h
- * @brief  
+ * @brief  ã‚¸ãƒ£ã‚¤ãƒ­ãƒã‚¤ã‚¢ã‚¹EKFã®åˆæœŸå€¤ã‚’è¨­å®šã™ã‚‹æ§‹é€ ä½“ï¼
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -9,8 +9,6 @@
 #define aocs_core_strategy_control_EKFParamaters_h
 
 #include "../../../datatype/Quaternion.h"
-#include "../../../datatype/Matrix.h"
-#include "../../../datatype/Vector.h"
 #include "../../../datatype/StaticMatrix.h"
 #include "../../../datatype/StaticVector.h"
 
@@ -19,19 +17,22 @@ namespace core {
 namespace strategy {
 namespace control {
 
+//! ã‚¸ãƒ£ã‚¤ãƒ­ãƒã‚¤ã‚¢ã‚¹EKFã®åˆæœŸå€¤ã‚’è¨­å®šã™ã‚‹æ§‹é€ ä½“ï¼
+/*! 
+*/
 struct EKFParamaters {
 public:
 	EKFParamaters(){}
-    datatype::Quaternion q0;//q‰Šú’l
-    datatype::StaticVector<3> b0;//b‰Šú’l
-    datatype::StaticMatrix<6,6> P0;//‹¤•ªUs—ñ‰Šú’l
-    double w_q;//ƒVƒXƒeƒ€ƒmƒCƒY
-	double w_b;//ƒVƒXƒeƒ€ƒmƒCƒY
-    double v;//ŠÏ‘ªƒmƒCƒYƒxƒNƒgƒ‹
-    double timestep;//“`”ÀŠÔ‚İ•(sec)
-    double tau;//ƒoƒCƒAƒXƒŒ[ƒgƒ‰ƒ“ƒ_ƒ€ƒmƒCƒY‚Ì’è”(non-zero)
-	double MinimunGain;//ƒJƒ‹ƒ}ƒ“ƒQƒCƒ“K‚Ì‘ÎŠp¬•ª‚Éİ’è‚³‚ê‚éÅ¬’lD0‚Ìê‡‚ÍÅ¬’l‚ğİ’è‚µ‚È‚¢’Êí‚ÌKF
-	bool calcSensorGap;//ƒZƒ“ƒTo—Í’x‰„‚Ìˆ—
+    datatype::Quaternion q0;//! qåˆæœŸå€¤
+    datatype::StaticVector<3> b0;//! båˆæœŸå€¤
+    datatype::StaticMatrix<6,6> P0;//! å…±åˆ†æ•£è¡Œåˆ—åˆæœŸå€¤
+    double w_q;//! ã‚·ã‚¹ãƒ†ãƒ ãƒã‚¤ã‚º
+	double w_b;//! ã‚·ã‚¹ãƒ†ãƒ ãƒã‚¤ã‚º
+    double v;//! è¦³æ¸¬ãƒã‚¤ã‚ºãƒ™ã‚¯ãƒˆãƒ«
+    double timestep;//! ä¼æ¬æ™‚é–“åˆ»ã¿å¹…(sec)
+    double tau;//! ãƒã‚¤ã‚¢ã‚¹ãƒ¬ãƒ¼ãƒˆãƒ©ãƒ³ãƒ€ãƒ ãƒã‚¤ã‚ºã®æ™‚å®šæ•°(non-zero)
+	double MinimunGain;//! ã‚«ãƒ«ãƒãƒ³ã‚²ã‚¤ãƒ³Kã®å¯¾è§’æˆåˆ†ã«è¨­å®šã•ã‚Œã‚‹æœ€å°å€¤ï¼0ã®å ´åˆã¯æœ€å°å€¤ã‚’è¨­å®šã—ãªã„é€šå¸¸ã®KF
+	bool calcSensorGap;//! ã‚»ãƒ³ã‚µå‡ºåŠ›é…å»¶ã®å‡¦ç†
 	~EKFParamaters(){}
 };
 

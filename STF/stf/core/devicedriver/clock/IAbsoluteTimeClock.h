@@ -1,6 +1,6 @@
 /**
  * @file   IAbsoluteTimeClock.h
- * @brief  DateTimeŒ^‚ÌƒJƒEƒ“ƒg‚ª‰Â”\‚Å‚ ‚é‚±‚Æ‚ğ¦‚·’ŠÛƒCƒ“ƒ^[ƒtƒF[ƒXD
+ * @brief  DateTimeå‹ã®ã‚«ã‚¦ãƒ³ãƒˆãŒå¯èƒ½ã§ã‚ã‚‹ã“ã¨ã‚’ç¤ºã™æŠ½è±¡ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ãƒ¼ã‚¹ï¼
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -16,10 +16,10 @@ namespace core {
 namespace devicedriver {
 namespace clock {
 
-//! DateTimeŒ^‚ÌƒJƒEƒ“ƒg‚ª‰Â”\‚Å‚ ‚é‚±‚Æ‚ğ¦‚·’ŠÛƒCƒ“ƒ^[ƒtƒF[ƒXD
+//! DateTimeå‹ã®ã‚«ã‚¦ãƒ³ãƒˆãŒå¯èƒ½ã§ã‚ã‚‹ã“ã¨ã‚’ç¤ºã™æŠ½è±¡ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ãƒ¼ã‚¹ï¼
 /*! 
-	GPS‚âRTC‚Ìƒ‰ƒbƒp[‚Ég‚¤–‚ª‚Å‚«‚éƒCƒ“ƒ^[ƒtƒF[ƒXD
-	IDataUpdatable::doUpdate‚É‚æ‚Á‚Äî•ñ‚ğXV‚·‚é‚±‚Æ‚ğ‘z’è‚µ‚Ä‚¢‚éD
+	GPSã‚„RTCã®ãƒ©ãƒƒãƒ‘ãƒ¼ã«ä½¿ã†äº‹ãŒã§ãã‚‹ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ãƒ¼ã‚¹ï¼
+	IDataUpdatable::doUpdateã«ã‚ˆã£ã¦æ™‚åˆ»æƒ…å ±ã‚’æ›´æ–°ã™ã‚‹ã“ã¨ã‚’æƒ³å®šã—ã¦ã„ã‚‹ï¼
 */
 class IAbsoluteTimeClock : virtual public IDataUpdatable
 {

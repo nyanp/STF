@@ -1,6 +1,6 @@
 /**
  * @file   ControlManagerBase.h
- * @brief  
+ * @brief  制御ブロックの実行を行う機能マネージャ基底クラス．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -29,6 +29,11 @@ class ModeBase;
 namespace core {
 namespace manager {
 
+//! 制御ブロックの実行を行う機能マネージャ基底クラス．
+/*! 
+	ユーザーはこのクラスを書き換えることが許可されない．
+	機能マネージャの振る舞いをカスタマイズしたい場合，派生クラス側で仮想関数を実装する（Generation-Gapパターン）．
+*/
 class ControlManagerBase : public ManagerBase, virtual public event::Observer<event::ModeChangeEvent>{
 public:
 	typedef core::strategy::control::IControlStrategy HotSpot;

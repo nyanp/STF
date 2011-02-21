@@ -31,17 +31,17 @@ DummyCommandReceiver::DummyCommandReceiver(int instance_id, core::manager::Comma
 
 void DummyCommandReceiver::receive_command()
 {
-	if(ifs_ == 0) return; // ƒtƒ@ƒCƒ‹w’è‚ª–³‚¯‚ê‚Î‰½‚à‚µ‚È‚¢
+	if(ifs_ == 0) return; // ãƒ•ã‚¡ã‚¤ãƒ«æŒ‡å®šãŒç„¡ã‘ã‚Œã°ä½•ã‚‚ã—ãªã„
 	std::getline(*ifs_, last_command_);
 }
 
-// ƒfƒoƒbƒO—p‚È‚Ì‚Å‘—M‹@‚É‘—‚é•Ï‚í‚è‚ÉƒRƒ“ƒ\[ƒ‹‚Éo—Í‚·‚é
+// ãƒ‡ãƒãƒƒã‚°ç”¨ãªã®ã§é€ä¿¡æ©Ÿã«é€ã‚‹å¤‰ã‚ã‚Šã«ã‚³ãƒ³ã‚½ãƒ¼ãƒ«ã«å‡ºåŠ›ã™ã‚‹
 void DummyCommandReceiver::send_packet(const datatype::String& msg)
 {
 	util::cout << "downlink:" << msg << "at:" << this->clock_->get_time() << util::endl;
 }
 
-// ƒfƒoƒbƒO—p‚È‚Ì‚Å‘—M‹@‚É‘—‚é•Ï‚í‚è‚ÉƒRƒ“ƒ\[ƒ‹‚Éo—Í‚·‚é
+// ãƒ‡ãƒãƒƒã‚°ç”¨ãªã®ã§é€ä¿¡æ©Ÿã«é€ã‚‹å¤‰ã‚ã‚Šã«ã‚³ãƒ³ã‚½ãƒ¼ãƒ«ã«å‡ºåŠ›ã™ã‚‹
 void DummyCommandReceiver::send_packet(int msg)
 {
 	util::cout << "downlink:" << msg << "at:" << this->clock_->get_time() << util::endl;

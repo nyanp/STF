@@ -1,6 +1,6 @@
 /**
  * @file   WhiteNoise.h
- * @brief  
+ * @brief  ホワイトノイズを発生させるトルク源．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -21,6 +21,8 @@ namespace stf {
 namespace environment {
 namespace torquesource {
 
+//! ホワイトノイズを発生させるトルク源．
+/*! */
 class WhiteNoise : virtual public NoiseBase {
 public:
     virtual ~WhiteNoise();

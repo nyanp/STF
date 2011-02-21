@@ -1,6 +1,6 @@
 /**
  * @file   ITelemetryStrategy.h
- * @brief  
+ * @brief  テレメトリ生成ストラテジの抽象インターフェース．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -19,7 +19,8 @@ namespace core {
 namespace strategy {
 namespace telemetry {
 
-
+//! テレメトリ生成ストラテジの抽象インターフェース．
+/*! */
 class ITelemetryStrategy{
 public:
 	virtual void write_to_telemetry() = 0;

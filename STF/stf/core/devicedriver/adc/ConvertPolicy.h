@@ -1,14 +1,14 @@
 /**
  * @file   ConvertPolicy.h
- * @brief  ����double�l����ʂ�double�l�ւ̕ϊ��Ɏg�p����|���V�[�N���X�D
- *         AD�ϊ��l���畨���l�ւ̕ϊ��K���Ȃǂ��C�e���v���[�g�����ɂ���ĊO������^���邽�߂ɗp����D
+ * @brief  あるdouble値から別のdouble値への変換に使用するポリシークラス．
+ *         AD変換値から物理値への変換規則などを，テンプレート引数によって外部から与えるために用いる．
  * @code
  *  template<class ConvertPolicy, int NumOfIO>
  *	class ADConverter : public ConvertPolicy{
  *  public:
  *    void do_update(){
  *        for(int i = 0; i < NumOfIO; i++) 
- *            ad_voltage_[i] = convert(ad_digital_[i]);//convert��ConvertPolicy����������
+ *            ad_voltage_[i] = convert(ad_digital_[i]);//convertはConvertPolicyが実装する
  *    }
  *  private:
  *    unsigned short ad_digital_[NumOfIO];
@@ -25,7 +25,7 @@ namespace stf {
 namespace core {
 namespace devicedriver {
 
-//! 1���֐��ɂ��ϊ����s���|���V�[�N���X
+//! 1次関数による変換を行うポリシークラス
 /*! 
 	y = sf * x + offset;
 */
@@ -38,7 +38,7 @@ private:
 	double offset_;
 };
 
-//! 2���֐��ɂ��ϊ����s���|���V�[�N���X
+//! 2次関数による変換を行うポリシークラス
 /*! 
 	y = a * x^2 + b * x + c;
 */
@@ -52,7 +52,7 @@ private:
 	double c_;
 };
 
-//! 3���֐��ɂ��ϊ����s���|���V�[�N���X
+//! 3次関数による変換を行うポリシークラス
 /*! 
 	y = a * x^3 + b * x^2 + c * x + d;
 */

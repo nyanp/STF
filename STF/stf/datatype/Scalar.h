@@ -1,6 +1,6 @@
 /**
  * @file   Scalar.h
- * @brief  ƒXƒJƒ‰[•¨——Ê‚ğ•\Œ»‚·‚éƒNƒ‰ƒXD
+ * @brief  ã‚¹ã‚«ãƒ©ãƒ¼ç‰©ç†é‡ã‚’è¡¨ç¾ã™ã‚‹ã‚¯ãƒ©ã‚¹ï¼
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -14,7 +14,7 @@
 namespace stf { 
 namespace datatype {
 
-//! ƒXƒJƒ‰[•¨——Ê‚ğ•\Œ»‚·‚éƒNƒ‰ƒXD
+//! ã‚¹ã‚«ãƒ©ãƒ¼ç‰©ç†é‡ã‚’è¡¨ç¾ã™ã‚‹ã‚¯ãƒ©ã‚¹ï¼
 /*!  */
 class Scalar : public IAocsData {
 public:

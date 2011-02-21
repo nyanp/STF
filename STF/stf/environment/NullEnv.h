@@ -1,6 +1,6 @@
 /**
  * @file   NullEnv.h
- * @brief  
+ * @brief  空の環境クラス．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -11,6 +11,8 @@
 namespace stf {
 namespace environment {
 
+//! 空の環境クラス．
+/*! */
 class NullEnv {
 	typedef NullEnv OutputStream;
 	typedef NullEnv InputStream;

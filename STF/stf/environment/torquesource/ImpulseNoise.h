@@ -1,6 +1,6 @@
 /**
  * @file   ImpulseNoise.h
- * @brief  
+ * @brief  インパルスノイズを発生させるトルク源．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -23,6 +23,8 @@ namespace stf {
 namespace environment {
 namespace torquesource {
 
+//! インパルスノイズを発生させるトルク源．
+/*! */
 class ImpulseNoise : virtual public NoiseBase {
 public:
     ImpulseNoise(double magnitude, const datatype::StaticVector<3> &vector, const int &startTimeInSecond, const double &durationInMillisec, environment::Simulator *env);

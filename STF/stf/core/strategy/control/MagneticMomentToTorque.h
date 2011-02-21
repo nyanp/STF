@@ -1,6 +1,6 @@
 /**
  * @file   MagneticMomentToTorque.h
- * @brief  
+ * @brief  ç£æ°—ãƒ¢ãƒ¼ãƒ¡ãƒ³ãƒˆã‚’ãƒˆãƒ«ã‚¯ã«å¤‰æ›ã™ã‚‹åˆ¶å¾¡ãƒ–ãƒ­ãƒƒã‚¯ï¼
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -10,7 +10,6 @@
 
 #include "../StrategyBase.h"
 #include "../../../datatype/StaticVector.h"
-#include "../../../datatype/List.h"
 #include "../../../datatype/Magnetic.h"
 #include "../../devicedriver/IOPort.h"
 
@@ -19,10 +18,12 @@ namespace core {
 namespace strategy {
 namespace control {
 
-
-//¥‹Cƒ‚[ƒƒ“ƒg‚ğƒgƒ‹ƒN‚É•ÏŠ·‚·‚é§ŒäƒuƒƒbƒND
-//“ü—Í:‰q¯À•WŒn‚É‚¨‚¯‚é¥‹Cƒ‚[ƒƒ“ƒgC‰q¯o—Í¥‹Cƒ‚[ƒƒ“ƒg
-//o—Í:3²ƒgƒ‹ƒN
+//! ç£æ°—ãƒ¢ãƒ¼ãƒ¡ãƒ³ãƒˆã‚’ãƒˆãƒ«ã‚¯ã«å¤‰æ›ã™ã‚‹åˆ¶å¾¡ãƒ–ãƒ­ãƒƒã‚¯ï¼
+/*! 
+	T = M * Bã«ã‚ˆã£ã¦ç£æ°—ãƒ¢ãƒ¼ãƒ¡ãƒ³ãƒˆãŒç™ºç”Ÿã™ã‚‹ã§ã‚ã‚ã†ãƒˆãƒ«ã‚¯ã‚’å‡ºåŠ›ã™ã‚‹ï¼
+	å…¥åŠ›:è¡›æ˜Ÿåº§æ¨™ç³»ã«ãŠã‘ã‚‹ç£æ°—ãƒ¢ãƒ¼ãƒ¡ãƒ³ãƒˆï¼Œè¡›æ˜Ÿå‡ºåŠ›ç£æ°—ãƒ¢ãƒ¼ãƒ¡ãƒ³ãƒˆ
+	å‡ºåŠ›:3è»¸ãƒˆãƒ«ã‚¯
+*/
 class MagneticMomentToTorque
 	: virtual public StrategyBase, 
 	public devicedriver::InputPorts< TYPELIST_2( datatype::MagneticMoment, datatype::MagneticMoment ) >,

@@ -1,9 +1,10 @@
 /**
  * @file   Combining.h
- * @brief  
+ * @brief  任意の物理量を単純加算で合成する制御ブロック群．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
+ * @todo   TypeListで纏められるか検討
  */
 #ifndef stf_core_strategy_control_Combining_h
 #define stf_core_strategy_control_Combining_h
@@ -17,8 +18,10 @@ namespace core {
 namespace strategy {
 namespace control {
 
-//�C�ӂ̕����ʂ�P�����Z�ō������鐧��u���b�N�Q�D�Ȃ񂩃L�����D
-
+//! 2つの物理量を加算して1つに纏める制御ブロック．
+/*! 
+	@tparam T 合成する物理量．reset()および operator += が実装されている必要がある
+*/
 template<class T>
 class Combining_2 : public devicedriver::InputPorts< TYPELIST_2(T, T) >, 
 		public devicedriver::OutputPorts < TYPELIST_1(T) > ,
@@ -36,7 +39,7 @@ public:
 	}
 	~Combining_2(){}
 	virtual void do_compute(const datatype::Time& t){
-		if(t > this->last_update_){//���ɕʂ̃u���b�N�o�R�ōX�V�ς݂Ȃ�Čv�Z���Ȃ�
+		if(t > this->last_update_){//既に別のブロック経由で更新済みなら再計算しない
 			util::cout << "compute: combining-2" << util::endl;
 			this->value_b_.reset();
 			this->value_b_ += this->source<0,T>().get_in_bodyframe(t);
@@ -48,6 +51,10 @@ private:
 
 };
 
+//! 3つの物理量を加算して1つに纏める制御ブロック．
+/*! 
+	@tparam T 合成する物理量．reset()および operator += が実装されている必要がある
+*/
 template<class T>
 class Combining_3 : public devicedriver::InputPorts< TYPELIST_3(T, T, T) >, 
 		public devicedriver::OutputPorts < TYPELIST_1(T) > ,
@@ -67,7 +74,7 @@ public:
 	}
 	~Combining_3(){}
 	virtual void do_compute(const datatype::Time& t){
-		if(t > this->last_update_){//���ɕʂ̃u���b�N�o�R�ōX�V�ς݂Ȃ�Čv�Z���Ȃ�
+		if(t > this->last_update_){//既に別のブロック経由で更新済みなら再計算しない
 			this->value_b_.reset();
 			this->value_b_ += this->source<0,T>().get_in_bodyframe(t);
 			this->value_b_ += this->source<1,T>().get_in_bodyframe(t);
@@ -79,6 +86,10 @@ private:
 
 };
 
+//! 4つの物理量を加算して1つに纏める制御ブロック．
+/*! 
+	@tparam T 合成する物理量．reset()および operator += が実装されている必要がある
+*/
 template<class T>
 class Combining_4 : public devicedriver::InputPorts< TYPELIST_4(T, T, T, T) >, 
 		public devicedriver::OutputPorts < TYPELIST_1(T) > ,
@@ -100,7 +111,7 @@ public:
 	}
 	~Combining_4(){}
 	virtual void do_compute(const datatype::Time& t){
-		if(t > this->last_update_){//���ɕʂ̃u���b�N�o�R�ōX�V�ς݂Ȃ�Čv�Z���Ȃ�
+		if(t > this->last_update_){//既に別のブロック経由で更新済みなら再計算しない
 			this->value_b_.reset();
 			this->value_b_ += this->source<0,T>().get_in_bodyframe(t);
 			this->value_b_ += this->source<1,T>().get_in_bodyframe(t);
@@ -112,6 +123,10 @@ public:
 private:
 };
 
+//! 5つの物理量を加算して1つに纏める制御ブロック．
+/*! 
+	@tparam T 合成する物理量．reset()および operator += が実装されている必要がある
+*/
 template<class T>
 class Combining_5 : public devicedriver::InputPorts< TYPELIST_5(T, T, T, T, T) >, 
 		public devicedriver::OutputPorts < TYPELIST_1(T) > ,
@@ -135,7 +150,7 @@ public:
 	}
 	~Combining_5(){}
 	virtual void do_compute(const datatype::Time& t){
-		if(t > this->last_update_){//���ɕʂ̃u���b�N�o�R�ōX�V�ς݂Ȃ�Čv�Z���Ȃ�
+		if(t > this->last_update_){//既に別のブロック経由で更新済みなら再計算しない
 			this->value_b_.reset();
 			this->value_b_ += this->source<0,T>().get_in_bodyframe(t);
 			this->value_b_ += this->source<1,T>().get_in_bodyframe(t);
@@ -148,6 +163,10 @@ public:
 private:
 };
 
+//! 6つの物理量を加算して1つに纏める制御ブロック．
+/*! 
+	@tparam T 合成する物理量．reset()および operator += が実装されている必要がある
+*/
 template<class T>
 class Combining_6 : public devicedriver::InputPorts< TYPELIST_6(T, T, T, T, T, T) >, 
 		public devicedriver::OutputPorts < TYPELIST_1(T) > ,
@@ -173,7 +192,7 @@ public:
 	}
 	~Combining_6(){}
 	virtual void do_compute(const datatype::Time& t){
-		if(t > this->last_update_){//���ɕʂ̃u���b�N�o�R�ōX�V�ς݂Ȃ�Čv�Z���Ȃ�
+		if(t > this->last_update_){//既に別のブロック経由で更新済みなら再計算しない
 			this->value_b_.reset();
 			this->value_b_ += this->source<0,T>().get_in_bodyframe(t);
 			this->value_b_ += this->source<1,T>().get_in_bodyframe(t);

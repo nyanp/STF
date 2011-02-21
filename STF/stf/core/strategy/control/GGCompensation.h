@@ -1,6 +1,6 @@
 /**
  * @file   GGCompensation.h
- * @brief  
+ * @brief  重力傾斜トルクを計算し，逆符号のトルクを出力する制御ブロック．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -12,6 +12,7 @@
 #include "../../../datatype/StaticVector.h"
 #include "../../../datatype/Quaternion.h"
 #include "../../../datatype/OrbitInfo.h"
+#include "../../../datatype/SatelliteModel.h"
 #include "../../devicedriver/IOPort.h"
 
 namespace stf {
@@ -22,8 +23,11 @@ namespace core {
 namespace strategy {
 namespace control {
 
-
-//�d�͌X�΃g���N���v�Z���C�t�����̃g���N���o�͂���GG�⏞����u���b�N�D
+//! 重力傾斜トルクを計算し，逆符号のトルクを出力する制御ブロック．
+/*! 
+	入力:衛星姿勢，軌道情報．
+	出力:3軸トルク．
+*/
 class GGCompensation
 	: virtual public StrategyBase, 
 	public devicedriver::InputPorts< TYPELIST_2( datatype::Quaternion, datatype::PositionInfo ) >,
@@ -32,6 +36,7 @@ class GGCompensation
 public:
 	GGCompensation(int instance_id) : StrategyBase(instance_id, "GGCompensation"){}
 	GGCompensation(int instance_id, 
+		const datatype::SatelliteModel& sat,
 		devicedriver::OutputPort<datatype::Quaternion>* q_source,
 		devicedriver::OutputPort<datatype::PositionInfo>* position_source,
 		devicedriver::InputPort<datatype::StaticVector<3>>* torque_out = 0
@@ -39,6 +44,7 @@ public:
 	~GGCompensation(){}
 	virtual void do_compute(const datatype::Time& t);
 protected:
+	datatype::SatelliteModel sat_;
 };
 
 

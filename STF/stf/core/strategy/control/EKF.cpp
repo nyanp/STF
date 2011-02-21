@@ -1,6 +1,6 @@
 /**
  * @file   EKF.cpp
- * @brief  
+ * @brief  ã‚¸ãƒ£ã‚¤ãƒ­ãƒã‚¤ã‚¢ã‚¹æ¨å®šã‚’è¡Œã†æ‹¡å¼µã‚«ãƒ«ãƒãƒ³ãƒ•ã‚£ãƒ«ã‚¿åˆ¶å¾¡ãƒ–ãƒ­ãƒƒã‚¯ï¼
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -61,7 +61,7 @@ void EKF::init(const EKFParamaters &params)
 
 void EKF::init()
 {
-	//‘S‚Ä‚Ì’l‚ğ‰Šú‰»‚·‚éDƒRƒ“ƒXƒgƒ‰ƒNƒ^‚©‚çŒÄ‚Ô‚Ù‚©C‘åƒ}ƒjƒ…[ƒoŒã‚âƒZƒ“ƒTˆÙí‚ÌƒŠƒZƒbƒg‚É‚àg‚¦‚é
+	//å…¨ã¦ã®å€¤ã‚’åˆæœŸåŒ–ã™ã‚‹ï¼ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã‹ã‚‰å‘¼ã¶ã»ã‹ï¼Œå¤§ãƒãƒ‹ãƒ¥ãƒ¼ãƒå¾Œã‚„ã‚»ãƒ³ã‚µç•°å¸¸æ™‚ã®ãƒªã‚»ãƒƒãƒˆã«ã‚‚ä½¿ãˆã‚‹
     assert(tau_ != 0);
 
     this->P_ = params_.P0;
@@ -69,21 +69,21 @@ void EKF::init()
     this->bref_ = params_.b0;
     this->dt_ = params_.timestep;
     this->tau_ = params_.tau;
-    //w,v‚©‚çQ,R‚ğ¶¬
+    //w,vã‹ã‚‰Q,Rã‚’ç”Ÿæˆ
     for(int i = 0; i < 3; i++)
 	{
         Q_[i][i] = params_.w_q * params_.w_q;
 		Q_[i+3][i+3] = params_.w_b * params_.w_b;
         R_[i][i] = params_.v * params_.v;
 	}
-    //ŒÅ’è’l‚Ìs—ñ‚â‰Šú’l‚ª•K—v‚Ès—ñ‚É’l‚ğ‘ã“ü
+    //å›ºå®šå€¤ã®è¡Œåˆ—ã‚„åˆæœŸå€¤ãŒå¿…è¦ãªè¡Œåˆ—ã«å€¤ã‚’ä»£å…¥
     //B
     B_[0][0] = B_[1][1] = B_[2][2] = -0.5;
     B_[3][3] = B_[4][4] = B_[5][5] = 1;
-    //H ŒvZ•‰‰×íŒ¸‚Ì‚½‚ßC“]’us—ñ‚à‚Á‚Ä‚¨‚­
+    //H è¨ˆç®—è² è·å‰Šæ¸›ã®ãŸã‚ï¼Œè»¢ç½®è¡Œåˆ—ã‚‚æŒã£ã¦ãŠã
     H_[0][0] = H_[1][1] = H_[2][2] = 1;
 	Ht_[0][0] = Ht_[1][1] = Ht_[2][2] = 1;
-    //A(•Ï‚Å‚ ‚éƒ¶ˆÈŠO‚ğ‰Šú‰»‚µ‚Ä‚¨‚­)
+    //A(æ™‚å¤‰ã§ã‚ã‚‹Î©ä»¥å¤–ã‚’åˆæœŸåŒ–ã—ã¦ãŠã)
     A_[0][3] = A_[1][4] = A_[2][5] = -0.5;
     A_[3][3] = A_[4][4] = A_[5][5] = -1 / this->tau_;
     //F
@@ -93,7 +93,7 @@ void EKF::init()
 
 void EKF::do_compute(const datatype::Time& t)
 {
-	if(this->getLastOutputtime<1>() >= t) return; //“`”ÀÏ‚İ‚È‚Ì‚Å‰½‚à‚µ‚È‚¢
+	if(this->getLastOutputtime<1>() >= t) return; //ä¼æ¬æ¸ˆã¿ãªã®ã§ä½•ã‚‚ã—ãªã„
 	//util::cout << "t:" << t << "u:" << this->getLastOutputtime<0>() << "p:" << this->getLastOutputtime<1>() << "stt:" << this->getLastInputTime<0>() << util::endl;
 	util::cout << "compute: EKF" << util::endl;	
 	if(this->getLastOutputtime<0>() < t && this->getLastInputTime<0>() >= this->getLastOutputtime<0>()){
@@ -109,21 +109,21 @@ void EKF::do_compute(const datatype::Time& t)
 void EKF::update(const datatype::Quaternion &input,const datatype::Time& t)
 {
     q_.normalize();
-    //ƒJƒ‹ƒ}ƒ“ƒQƒCƒ“‚ÌŒvZ
+    //ã‚«ãƒ«ãƒãƒ³ã‚²ã‚¤ãƒ³ã®è¨ˆç®—
     this->K_ = P_ * Ht_ * ( H_ * P_ * Ht_ + R_ ).inverse();
-    //‹¤•ªUs—ñ‚ÌXV
+    //å…±åˆ†æ•£è¡Œåˆ—ã®æ›´æ–°
     P_ = P_ - K_ * H_ * P_;
-    //ŠÏ‘ª—Ê”÷¬—Êy‚ÌŒvZDŠÏ‘ª‚³‚ê‚½q‚Éƒ‚ƒfƒ‹‚©‚ç“`”À‚µ‚½qref‚Ì‹¤–ğ‚ğ¶‚©‚çŠ|‚¯‚é
+    //è¦³æ¸¬é‡å¾®å°é‡yã®è¨ˆç®—ï¼è¦³æ¸¬ã•ã‚ŒãŸqã«ãƒ¢ãƒ‡ãƒ«ã‹ã‚‰ä¼æ¬ã—ãŸqrefã®å…±å½¹ã‚’å·¦ã‹ã‚‰æ›ã‘ã‚‹
     datatype::StaticVector<3> y;
     datatype::Quaternion q_tmp = q_.conjugate() * input;
 
-    //q_tmp[0](`1)‚ğÈ—ª‚µ‚½3—v‘f‚Åó‘Ô—Ê‚ğ\¬
+    //q_tmp[0](ï½1)ã‚’çœç•¥ã—ãŸ3è¦ç´ ã§çŠ¶æ…‹é‡ã‚’æ§‹æˆ
     y[0] = q_tmp[1];
     y[1] = q_tmp[2];
     y[2] = q_tmp[3];
-    //x‚Ì„’è’l‚ğXV
+    //xã®æ¨å®šå€¤ã‚’æ›´æ–°
     x_ = K_ * y;
-    //Šî€ó‘Ô—Ê‚ÌXV
+    //åŸºæº–çŠ¶æ…‹é‡ã®æ›´æ–°
     datatype::Quaternion q_update;
     q_update[0] = 1 - x_[0] * x_[0] - x_[1] * x_[1] - x_[2] * x_[2];
     q_update[1] = x_[0];
@@ -132,7 +132,7 @@ void EKF::update(const datatype::Quaternion &input,const datatype::Time& t)
     q_update.normalize();
 
     q_ = q_ * q_update;
-    q_.normalize();//XV‚Ìƒ^ƒCƒ~ƒ“ƒO‚Å³‹K‰»‚à‚µ‚Ä‚¨‚­(TBD)
+    q_.normalize();//æ›´æ–°ã®ã‚¿ã‚¤ãƒŸãƒ³ã‚°ã§æ­£è¦åŒ–ã‚‚ã—ã¦ãŠã(TBD)
 
     bref_[0] += x_[3];
     bref_[1] += x_[4];
@@ -146,13 +146,13 @@ void EKF::update(const datatype::Quaternion &input,const datatype::Time& t)
 
 void EKF::propagate(const datatype::StaticVector<3>& omega,const datatype::Time& t)
 {
-    //Œ»“_‚Å‚Ì„’èŠp‘¬“x‚Åƒ¶CA‚ğXV
+    //ç¾æ™‚ç‚¹ã§ã®æ¨å®šè§’é€Ÿåº¦ã§Î©ï¼ŒAã‚’æ›´æ–°
     this->omega_[0] = omega[0] - this->bref_[0] ;//- this->x_[3];
     this->omega_[1] = omega[1] - this->bref_[1] ;//- this->x_[4];
     this->omega_[2] = omega[2] - this->bref_[2] ;//- this->x_[5];
 
-    //ó‘Ô•Ï”‚Ì“`”À
-    //ƒtƒ@ƒCƒ‹ƒXƒR[ƒv‚Ìstatic•Ï”Omega‚ğŒ»İ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚ÅXV
+    //çŠ¶æ…‹å¤‰æ•°ã®ä¼æ¬
+    //ãƒ•ã‚¡ã‚¤ãƒ«ã‚¹ã‚³ãƒ¼ãƒ—ã®staticå¤‰æ•°Omegaã‚’ç¾åœ¨ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã§æ›´æ–°
     Omega_[0][1] = -this->omega_[0];
     Omega_[0][2] = -this->omega_[1];
     Omega_[0][3] = -this->omega_[2];
@@ -163,21 +163,21 @@ void EKF::propagate(const datatype::StaticVector<3>& omega,const datatype::Time&
       for(int j = 0; j < 4; j++)
         if(i > j) Omega_[i][j] = -Omega_[j][i];
 
-    //A,F,G‚ÌXV
+    //A,F,Gã®æ›´æ–°
     A_[0][1] =  this->omega_[2];
     A_[0][2] = -this->omega_[1];
     A_[1][0] = -this->omega_[2];
     A_[1][2] =  this->omega_[0];
     A_[2][0] =  this->omega_[1];
     A_[2][1] = -this->omega_[0];
-    F_ = util::math::exp(A_ * dt_,3);//TBD:exp‚Ìƒ}ƒNƒ[ƒŠƒ““WŠJ‚ğ3Ÿ‚Ü‚Åæ‚éDt>1‚Ì‚Æ‚«‚Í‘e‚¢‹ß—‚É‚È‚Á‚Ä‚µ‚Ü‚¤
-    G_ = B_ * dt_ + 0.5 * A_ * B_ * dt_ * dt_;//exp(A(t-tau))‚ğ3Ÿ‚Ü‚Å“WŠJ‚µ‚ÄÏ•ª
+    F_ = util::math::exp(A_ * dt_,3);//TBD:expã®ãƒã‚¯ãƒ­ãƒ¼ãƒªãƒ³å±•é–‹ã‚’3æ¬¡ã¾ã§å–ã‚‹ï¼t>1ã®ã¨ãã¯ç²—ã„è¿‘ä¼¼ã«ãªã£ã¦ã—ã¾ã†
+    G_ = B_ * dt_ + 0.5 * A_ * B_ * dt_ * dt_;//exp(A(t-tau))ã‚’3æ¬¡ã¾ã§å±•é–‹ã—ã¦ç©åˆ†
 
-    //RK‚Åq,b‚ÌŠî€’l‚ğ“`”À(”÷¬ó‘Ô—Ê‚Í“`”À‚µ‚È‚¢)
+    //RKã§q,bã®åŸºæº–å€¤ã‚’ä¼æ¬(å¾®å°çŠ¶æ…‹é‡ã¯ä¼æ¬ã—ãªã„)
     this->q_ += util::math::RungeKutta::slope(q_,0.5 * Omega_,dt_);
     this->bref_ += util::math::RungeKutta::slope(bref_,-1 / tau_,dt_);
 
-    //‹¤•ªUs—ñ‚Ì“`”À
+    //å…±åˆ†æ•£è¡Œåˆ—ã®ä¼æ¬
     this->P_ = F_ * P_ * F_.trans() + G_ * Q_ * G_.trans();
 
 	this->outputport<0,datatype::Quaternion>().value_b_ = this->q_;
@@ -188,7 +188,7 @@ void EKF::propagate(const datatype::StaticVector<3>& omega,const datatype::Time&
 
 void EKF::reset()
 {
-	//Œë·‹¤•ªUs—ñ‚Ì‚İ‰Šú‰»‚·‚é
+	//èª¤å·®å…±åˆ†æ•£è¡Œåˆ—ã®ã¿åˆæœŸåŒ–ã™ã‚‹
 	this->P_ = this->params_.P0; 
 }
 

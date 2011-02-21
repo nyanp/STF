@@ -1,6 +1,6 @@
 /**
  * @file   MTQBase.h
- * @brief  ¥‹Cƒgƒ‹ƒJ‚ÌŠî’êƒNƒ‰ƒXD
+ * @brief  ç£æ°—ãƒˆãƒ«ã‚«ã®åŸºåº•ã‚¯ãƒ©ã‚¹ï¼
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -23,9 +23,9 @@ namespace core {
 namespace devicedriver {
 namespace mtq {
 
-//! ¥‹Cƒgƒ‹ƒJ‚ÌŠî’êƒNƒ‰ƒXD
+//! ç£æ°—ãƒˆãƒ«ã‚«ã®åŸºåº•ã‚¯ãƒ©ã‚¹ï¼
 /*! 
-	@tparam T ƒRƒ“ƒ|[ƒlƒ“ƒg‚ÌŠÂ‹«ƒNƒ‰ƒXD
+	@tparam T ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆã®ç’°å¢ƒã‚¯ãƒ©ã‚¹ï¼
 */
 template<class T>
 class MTQBase : public AOCSActuator<datatype::MagneticMoment, datatype::Scalar, T> {

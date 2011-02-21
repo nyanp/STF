@@ -1,6 +1,6 @@
 /**
  * @file   igrf.cpp
- * @brief  
+ * @brief  NJHILSã‹ã‚‰æŒã£ã¦ããŸIGRFè¨ˆç®—ãƒ¢ã‚¸ãƒ¥ãƒ¼ãƒ«ã‚’ï¼Œigrfåå‰ç©ºé–“ã§ãƒ©ãƒƒãƒ—ã—ã¦ä½¿ç”¨ï¼
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -61,8 +61,8 @@ namespace igrf {
 
 double testglobal[3];
 
-#pragma warning( disable: 4996 )	//fopen‚È‚Ç‰ñ”ğ
-#pragma warning( disable: 4305 )	//double->float‰ñ”ğ
+#pragma warning( disable: 4996 )	//fopenãªã©å›é¿
+#pragma warning( disable: 4305 )	//double->floatå›é¿
 
 /*--------------------*/
 /*   Basic Routines   */
@@ -192,7 +192,7 @@ void mfldc(double athe, double alon, double ar,
     fcalc(); *ax=x; *ay=y; *az=z; *af=f;
 }
 
-//’nSÀ•W‚©‚ç‘ª’nÀ•W‚É•ÏŠ·
+//åœ°å¿ƒåº§æ¨™ã‹ã‚‰æ¸¬åœ°åº§æ¨™ã«å¤‰æ›
 void gcomp(double *axg, double *ayg, double *azg)
 {   double bthc, rc, rs, rep2, tlat, tlat2, rlatp, rmc, rmc2, rmc3, ffp, ff;
     double cga, sga, xg, zg;
@@ -226,8 +226,8 @@ void gcomp(double *axg, double *ayg, double *azg)
 #define MxCOL   50
 #define LLINE   (MxCOL*9 + 10)
 
-//GIGRF‚ÌŒvZiG,D,P-GRF‚Ì‹æ•Ê‚È‚­ŒvZj
-//WGS84ƒ‚ƒfƒ‹‚ÅŒvZ
+//GIGRFã®è¨ˆç®—ï¼ˆG,D,P-GRFã®åŒºåˆ¥ãªãè¨ˆç®—ï¼‰
+//WGS84ãƒ¢ãƒ‡ãƒ«ã§è¨ˆç®—
 void gigrf(int gen, double year)
 {   int maxod, i, n, m, l, k, ncol, nlin;
     double y1, y2, yr1, yr2;
@@ -307,7 +307,7 @@ void igrfc(double fido, double fkeido, double hght, double *tf)
 
 
 
-//¥‹C—v‘f‚É•ÏŠ·
+//ç£æ°—è¦ç´ ã«å¤‰æ›
 void igrfm(double fm[6])
 {   double gx, gy, gz, h, dip, dec;
     gcomp(&gx, &gy, &gz);
@@ -681,7 +681,7 @@ int main(void)
 	for(j=0;j<10;j++){
 		temp = 2009+0.1*j;
 		gigrf(10,temp);
-		igrfc(38,135,650000,&f);	//Execute‚Í‚±‚Ì’†‚ÉŠÜ‚Ş
+		igrfc(38,135,650000,&f);	//Executeã¯ã“ã®ä¸­ã«å«ã‚€
 		igrfm(fm);
 		printf("%lf\n",temp);
 		for(i=0;i<6;i++){
@@ -692,7 +692,7 @@ int main(void)
 }
 */
 
-//’n¥‹C—v‘fi’nS•\Œ»j‚ğECIÀ•W‚Ö
+//åœ°ç£æ°—è¦ç´ ï¼ˆåœ°å¿ƒè¡¨ç¾ï¼‰ã‚’ECIåº§æ¨™ã¸
 int TransMagaxisToECI(const double* mag, double* pos, double lonrad, double thetarad, double gmst)
 {
 	RotationY(mag,pos,180*DEG2RAD-thetarad);
@@ -702,8 +702,8 @@ int TransMagaxisToECI(const double* mag, double* pos, double lonrad, double thet
 	return 0;
 }
 
-//IGRF‚ÌŒvZ‚ğÀs‚·‚éƒƒCƒ“ƒ‹[ƒ`ƒ“
-//Output	:	mag[3]	ECIÀ•W‚Å‚Ì¥ŠE‚Ì’l[nT]
+//IGRFã®è¨ˆç®—ã‚’å®Ÿè¡Œã™ã‚‹ãƒ¡ã‚¤ãƒ³ãƒ«ãƒ¼ãƒãƒ³
+//Output	:	mag[3]	ECIåº§æ¨™ã§ã®ç£ç•Œã®å€¤[nT]
 void IgrfCalc(double decyear, double latrad, double lonrad, double alt, double side, double* mag)
 {
 	static bool first_flg = true;
@@ -711,13 +711,13 @@ void IgrfCalc(double decyear, double latrad, double lonrad, double alt, double s
 	double f;
 
 	if(first_flg==true) {
-		gigrf(10,decyear);	//ƒtƒ@ƒCƒ‹“Ç‚İ‚İ
+		gigrf(10,decyear);	//ãƒ•ã‚¡ã‚¤ãƒ«èª­ã¿è¾¼ã¿
 		first_flg = false;
 	}
-	tyear(decyear);			//Às”N‚Ìİ’è
-	igrfc(latrad*RAD2DEG,lonrad*RAD2DEG,alt*1000,&f);	//ÀsˆÊ’u‚Ìİ’è&Execute‚Í‚±‚Ì’†‚ÉŠÜ‚Ş
+	tyear(decyear);			//å®Ÿè¡Œå¹´ã®è¨­å®š
+	igrfc(latrad*RAD2DEG,lonrad*RAD2DEG,alt*1000,&f);	//å®Ÿè¡Œä½ç½®ã®è¨­å®š&Executeã¯ã“ã®ä¸­ã«å«ã‚€
 
-	mag[0] = x;	//x,y,z‚Íigrf.cppƒOƒ[ƒoƒ‹•Ï”
+	mag[0] = x;	//x,y,zã¯igrf.cppã‚°ãƒ­ãƒ¼ãƒãƒ«å¤‰æ•°
 	mag[1] = y;
 	mag[2] = z;
 	double thetarad = acos(cth); //[0<=theta<=pi?]

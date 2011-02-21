@@ -1,6 +1,6 @@
 /**
  * @file   EulerAngle.h
- * @brief  z-y-xƒIƒCƒ‰[Šp(rad)D
+ * @brief  z-y-xã‚ªã‚¤ãƒ©ãƒ¼è§’(rad)ï¼
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -13,7 +13,7 @@
 namespace stf { 
 namespace datatype {
 
-//! 3-2-1(z-y-x)Euler Angle‚ğ•\Œ»‚·‚éD’PˆÊrad
+//! 3-2-1(z-y-x)Euler Angleã‚’è¡¨ç¾ã™ã‚‹ï¼å˜ä½rad
 /*! */
 class EulerAngle : public StaticVector<3> {
 public:
@@ -26,7 +26,7 @@ public:
 
 	~EulerAngle(){}
 
-	//! s—ñ®‚ğ‚P‚É’²®‚·‚é
+	//! è¡Œåˆ—å¼ã‚’ï¼‘ã«èª¿æ•´ã™ã‚‹
 	virtual void normalize();
 };
 

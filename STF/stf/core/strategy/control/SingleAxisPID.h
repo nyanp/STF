@@ -1,6 +1,6 @@
 /**
  * @file   SingleAxisPID.h
- * @brief  
+ * @brief  Scalarã‚’ç›®æ¨™å€¤ã«è¿‘ã¥ã‘ã‚‹å˜ç´”ãª1æ¬¡å…ƒPIDåˆ¶å¾¡ãƒ–ãƒ­ãƒƒã‚¯ï¼
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -18,7 +18,11 @@ namespace core {
 namespace strategy {
 namespace control {
 
-//Scalar‚ğ–Ú•W’l‚É‹ß‚Ã‚¯‚é’Pƒ‚È1ŸŒ³PIDƒRƒ“ƒgƒ[ƒ‰
+//! Scalarã‚’ç›®æ¨™å€¤ã«è¿‘ã¥ã‘ã‚‹å˜ç´”ãª1æ¬¡å…ƒPIDåˆ¶å¾¡ãƒ–ãƒ­ãƒƒã‚¯ï¼
+/*! 
+	å…¥åŠ›:ã‚¹ã‚«ãƒ©ãƒ¼
+	å‡ºåŠ›:ã‚¹ã‚«ãƒ©ãƒ¼
+*/
 class SingleAxisPID : public devicedriver::InputPorts< TYPELIST_1(datatype::Scalar) >, 
 	public devicedriver::OutputPorts < TYPELIST_1(datatype::Scalar) > ,
 		public StrategyBase
@@ -36,11 +40,11 @@ protected:
     double ki_;
     double kd_;
 	double dt_;
-    //–Ú•Wquaternion.
+    //! ç›®æ¨™quaternion.
     datatype::Scalar target_;
-    //1ƒXƒeƒbƒv‘O‚ÌƒIƒCƒ‰[ŠpŒë·(”÷•ª§Œä‚Ég—p)
+    //! 1ã‚¹ãƒ†ãƒƒãƒ—å‰ã®ã‚ªã‚¤ãƒ©ãƒ¼è§’èª¤å·®(å¾®åˆ†åˆ¶å¾¡ã«ä½¿ç”¨)
     datatype::Scalar x_old_;
-    //p¨Šp‚ÌŒë·Ï•ª’liÏ•ª§Œä‚Ég—pjD
+    //! å§¿å‹¢è§’ã®èª¤å·®ç©åˆ†å€¤ï¼ˆç©åˆ†åˆ¶å¾¡ã«ä½¿ç”¨ï¼‰ï¼
     datatype::Scalar dx_total_;
 };
 

@@ -1,6 +1,6 @@
 /**
  * @file   EKF.h
- * @brief  
+ * @brief  ジャイロバイアス推定を行う拡張カルマンフィルタ制御ブロック．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -15,9 +15,6 @@
 #include "../../../datatype/StaticMatrix.h"
 #include "../../../datatype/Quaternion.h"
 
-#include "../../../datatype/Matrix.h"
-#include "../../../datatype/Vector.h"
-
 #include "EKFParamaters.h"
 
 namespace stf {
@@ -31,6 +28,12 @@ template<class T,class U,class Env> class AOCSComponent;
 namespace strategy {
 namespace control {
 
+//! ジャイロバイアス推定を行う拡張カルマンフィルタ制御ブロック．
+/*! 
+	カルマンフィルタの初期パラメータは，EKFParamatersによって纏めて与える．
+	入力:姿勢情報, 角速度
+	出力:姿勢情報，角速度（推定値）
+*/
 class EKF : public StrategyBase,
 	public devicedriver::InputPorts< TYPELIST_2( datatype::Quaternion, datatype::StaticVector<3> ) >,
 	public devicedriver::OutputPorts< TYPELIST_2( datatype::Quaternion, datatype::StaticVector<3> ) >
@@ -48,13 +51,13 @@ public:
     virtual void update(const datatype::Quaternion &input,const datatype::Time& t);
     virtual void propagate(const datatype::StaticVector<3>& omega,const datatype::Time& t);
 	virtual void reset();
-	virtual void do_compute(const datatype::Time& t);//�`���C�X�V����
+	virtual void do_compute(const datatype::Time& t);//伝搬，更新処理
 protected:
     EKFParamaters params_;
 	datatype::StaticVector<3> omega_;
     datatype::Quaternion q_;
     datatype::StaticVector<3> bref_;
-	//�`���p�x(sec)
+	//伝搬頻度(sec)
 	double dt_;
     datatype::StaticMatrix<6,6> A_;
     datatype::StaticMatrix<6,6> B_;

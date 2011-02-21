@@ -1,6 +1,6 @@
 /**
  * @file   ITimeClock.h
- * @brief  Time�^�̃J�E���g���\�ł��邱�Ƃ��������ۃC���^�[�t�F�[�X�D
+ * @brief  Time型のカウントが可能であることを示す抽象インターフェース．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -16,10 +16,10 @@ namespace core {
 namespace devicedriver {
 namespace clock {
 
-//! Time�^�̃J�E���g���\�ł��邱�Ƃ��������ۃC���^�[�t�F�[�X�D
+//! Time型のカウントが可能であることを示す抽象インターフェース．
 /*! 
-	CPU�����Ȃǂ̃��b�p�[�Ɏg�������ł���C���^�[�t�F�[�X�D
-	IDataUpdatable::doUpdate�ɂ���Ď��������X�V���邱�Ƃ�z�肵�Ă���D
+	CPU時刻などのラッパーに使う事ができるインターフェース．
+	IDataUpdatable::doUpdateによって時刻情報を更新することを想定している．
 */
 class ITimeClock : virtual public IDataUpdatable
 {

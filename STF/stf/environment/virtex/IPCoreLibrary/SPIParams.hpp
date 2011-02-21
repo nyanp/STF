@@ -1,10 +1,3 @@
-/**
- * @file   SPIParams.hpp
- * @brief  
- *
- * @author Taiga Nomi
- * @date   2011.02.16
- */
 /*!
   \file   SPIParams.hpp
   \author TAKISAWA Jun'ichi

@@ -1,6 +1,6 @@
 /**
  * @file   AOCSSensor.h
- * @brief  ƒZƒ“ƒT‚ÌŠî’êƒNƒ‰ƒXD
+ * @brief  ã‚»ãƒ³ã‚µã®åŸºåº•ã‚¯ãƒ©ã‚¹ï¼
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -14,11 +14,11 @@ namespace stf {
 namespace core {
 namespace devicedriver {
 
-//! ƒZƒ“ƒT‚ÌŠî’êƒNƒ‰ƒXD
+//! ã‚»ãƒ³ã‚µã®åŸºåº•ã‚¯ãƒ©ã‚¹ï¼
 /*! 
-	@tparam T   ƒZƒ“ƒT‚ª“ü—Í‚·‚é•¨——ÊD
-	@tparam U   ƒZƒ“ƒT‚ª“ü—Í‚·‚éŸŒ³‚Å‚Ì•¨——ÊD3²ƒZƒ“ƒT‚È‚çT‚Æˆê’vC1²‚È‚çScalarD
-	@tparam Env ƒRƒ“ƒ|[ƒlƒ“ƒg‚ÌŠÂ‹«ƒNƒ‰ƒXD
+	@tparam T   ã‚»ãƒ³ã‚µãŒå…¥åŠ›ã™ã‚‹ç‰©ç†é‡ï¼
+	@tparam U   ã‚»ãƒ³ã‚µãŒå…¥åŠ›ã™ã‚‹æ¬¡å…ƒã§ã®ç‰©ç†é‡ï¼3è»¸ã‚»ãƒ³ã‚µãªã‚‰Tã¨ä¸€è‡´ï¼Œ1è»¸ãªã‚‰Scalarï¼
+	@tparam Env ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆã®ç’°å¢ƒã‚¯ãƒ©ã‚¹ï¼
 */
 template<class T,class U = T,class Env = ENV>
 class AOCSSensor : public AOCSComponent<T,U,Env> {
@@ -27,8 +27,8 @@ public:
 	AOCSSensor(int instance_id, const datatype::String& name) : AOCSComponent<T,U,Env>(instance_id,name){}
 	virtual ~AOCSSensor(){}
 	void set_sigma(double ref) { sigma_ = ref; }
-	//! ^’l‚©‚çƒmƒCƒYƒ‚ƒfƒ‹‚ğ‰Á–¡‚µ‚½ŠÏ‘ª’l‚ğŒvZ‚·‚éŠÖ”D
-	/*! ƒeƒ“ƒvƒŒ[ƒgƒNƒ‰ƒX“à‚Ìƒƒ“ƒoŠÖ”‚ÍCg—p‚µ‚È‚¢ŒÀ‚èÀ‘Ì‰»‚³‚ê‚È‚¢‚Ì‚ÅCƒtƒ‰ƒCƒgƒR[ƒh‚ÉƒI[ƒo[ƒwƒbƒh‚Í–³‚¢D */
+	//! çœŸå€¤ã‹ã‚‰ãƒã‚¤ã‚ºãƒ¢ãƒ‡ãƒ«ã‚’åŠ å‘³ã—ãŸè¦³æ¸¬å€¤ã‚’è¨ˆç®—ã™ã‚‹é–¢æ•°ï¼
+	/*! ãƒ†ãƒ³ãƒ—ãƒ¬ãƒ¼ãƒˆã‚¯ãƒ©ã‚¹å†…ã®ãƒ¡ãƒ³ãƒé–¢æ•°ã¯ï¼Œä½¿ç”¨ã—ãªã„é™ã‚Šå®Ÿä½“åŒ–ã•ã‚Œãªã„ã®ã§ï¼Œãƒ•ãƒ©ã‚¤ãƒˆã‚³ãƒ¼ãƒ‰ã«ã‚ªãƒ¼ãƒãƒ¼ãƒ˜ãƒƒãƒ‰ã¯ç„¡ã„ï¼ */
 	virtual U filter(const U& value) = 0; 
 protected:
 

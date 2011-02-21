@@ -1,6 +1,6 @@
 /**
  * @file   Vector.h
- * @brief  ƒxƒNƒgƒ‹•\Œ»ƒNƒ‰ƒXD
+ * @brief  å¯å¤‰è¦ç´ æ•°ã®ãƒ™ã‚¯ãƒˆãƒ«æ¼”ç®—ã‚’è¡Œã†ã‚¯ãƒ©ã‚¹ï¼STFã§ã¯StaticVectorãŒæ¨å¥¨ã•ã‚Œã‚‹
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -19,8 +19,8 @@ namespace datatype {
 template<int rows,int cols> class StaticMatrix;
 template<int dim> class StaticVector;
 
-//! ‰Â•Ï—v‘f”‚ÌƒxƒNƒgƒ‹‰‰Z‚ğs‚¤D
-/*! ƒƒ‚ƒŠ‚Ì“®“IŠm•Û‚ğs‚¤‚½‚ßCSTF‚Å‚ÍƒVƒXƒeƒ€‰Šú‰»ˆÈŠO‚Ìƒ^ƒCƒ~ƒ“ƒO‚Å‚Ìg—p‚ª„§‚³‚ê‚È‚¢D’Êí‚ÍStaticVector‚ğg‚¤‚±‚Æ */
+//! å¯å¤‰è¦ç´ æ•°ã®ãƒ™ã‚¯ãƒˆãƒ«æ¼”ç®—ã‚’è¡Œã†ï¼
+/*! ãƒ¡ãƒ¢ãƒªã®å‹•çš„ç¢ºä¿ã‚’è¡Œã†ãŸã‚ï¼ŒSTFã§ã¯ã‚·ã‚¹ãƒ†ãƒ åˆæœŸåŒ–ä»¥å¤–ã®ã‚¿ã‚¤ãƒŸãƒ³ã‚°ã§ã®ä½¿ç”¨ãŒæ¨å¥¨ã•ã‚Œãªã„ï¼é€šå¸¸ã¯StaticVectorã‚’ä½¿ã†ã“ã¨ */
 class Vector : public IAocsData {
 public:
     Vector();
@@ -119,7 +119,7 @@ inline const Vector operator - (const Vector& vec1, const Vector& vec2){
 	return temp;
 }
 
-// ƒxƒNƒgƒ‹‚Ì“àÏ
+// ãƒ™ã‚¯ãƒˆãƒ«ã®å†…ç©
 inline const double operator * (const Vector& vec1, const Vector& vec2){
 	assert(vec1.dimension_ == vec2.dimension_);
 	double value = 0.0;
@@ -128,18 +128,18 @@ inline const double operator * (const Vector& vec1, const Vector& vec2){
 	return value;
 }
 
-// ƒxƒNƒgƒ‹‚ğ‰E‚©‚ç’è””{
+// ãƒ™ã‚¯ãƒˆãƒ«ã‚’å³ã‹ã‚‰å®šæ•°å€
 inline const Vector operator * (const Vector& vec, double factor){
 	Vector temp = vec;
 	return temp *= factor;
 }
 
-// ƒxƒNƒgƒ‹‚ğ¶‚©‚ç’è””{
+// ãƒ™ã‚¯ãƒˆãƒ«ã‚’å·¦ã‹ã‚‰å®šæ•°å€
 inline const Vector operator * (double factor, const Vector& vec){
 	return vec * factor;
 }
 
-// ƒxƒNƒgƒ‹‚ÌŠOÏD2‚Ü‚½‚Í3ŸŒ³ƒxƒNƒgƒ‹‚Ìê‡‚Ì‚İ—LŒø
+// ãƒ™ã‚¯ãƒˆãƒ«ã®å¤–ç©ï¼2ã¾ãŸã¯3æ¬¡å…ƒãƒ™ã‚¯ãƒˆãƒ«ã®å ´åˆã®ã¿æœ‰åŠ¹
 inline const Vector operator %(const Vector& vec1,const Vector& vec2){
 	assert(vec1.dimension_ == vec2.dimension_);
 	assert(vec1.dimension_ == 2 || vec1.dimension_ == 3);
@@ -156,7 +156,7 @@ inline const Vector operator %(const Vector& vec1,const Vector& vec2){
 	}
 }
 
-// ƒxƒNƒgƒ‹‚ğ’è”‚ÅœZ
+// ãƒ™ã‚¯ãƒˆãƒ«ã‚’å®šæ•°ã§é™¤ç®—
 inline const Vector operator / (const Vector& vec, double factor){
 	Vector temp = vec;
 	return temp /= factor;

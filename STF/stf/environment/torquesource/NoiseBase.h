@@ -1,6 +1,6 @@
 /**
  * @file   NoiseBase.h
- * @brief  
+ * @brief  ノイズ源クラスの抽象インターフェース．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -20,6 +20,8 @@ namespace stf {
 namespace environment {
 namespace torquesource {
 
+//! ノイズ源クラスの抽象インターフェース．
+/*! */
 class NoiseBase {
 public:
 	NoiseBase(environment::Simulator* env) : environment_(env) {}

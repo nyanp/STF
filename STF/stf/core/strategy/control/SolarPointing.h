@@ -1,6 +1,6 @@
 /**
  * @file   SolarPointing.h
- * @brief  
+ * @brief  MTQã§å¤ªé™½æŒ‡å‘åˆ¶å¾¡ã‚’è¡Œã†ãŸã‚ã®åˆ¶å¾¡ãƒ–ãƒ­ãƒƒã‚¯ï¼
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -10,10 +10,7 @@
 
 #include "../StrategyBase.h"
 #include "../../../datatype/StaticVector.h"
-#include "../../../datatype/Quaternion.h"
-#include "../../../datatype/List.h"
-#include "../../../datatype/OrbitInfo.h"
-#include "../../devicedriver/rw/RWBase.h"
+#include "../../../datatype/Magnetic.h"
 #include "../../devicedriver/IOPort.h"
 
 namespace stf {
@@ -21,11 +18,12 @@ namespace core {
 namespace strategy {
 namespace control {
 
-
-//MTQ‚Å‘¾—zwŒü§Œä‚ğs‚¤‚½‚ß‚Ì§ŒäƒuƒƒbƒND
-//Œ´—‚Í§Œäƒnƒ“ƒhƒuƒbƒN9.3.3.3€QÆD
-//“ü—Í:‰q¯ü•Ó¥êC‘¾—z•ûŒüƒxƒNƒgƒ‹
-//o—Í:MTQo—Í¥‹Cƒ‚[ƒƒ“ƒg
+//! MTQã§å¤ªé™½æŒ‡å‘åˆ¶å¾¡ã‚’è¡Œã†ãŸã‚ã®åˆ¶å¾¡ãƒ–ãƒ­ãƒƒã‚¯ï¼
+/*!
+	åŸç†ã¯åˆ¶å¾¡ãƒãƒ³ãƒ‰ãƒ–ãƒƒã‚¯9.3.3.3é …å‚ç…§ï¼
+	å…¥åŠ›:è¡›æ˜Ÿå‘¨è¾ºç£å ´ï¼Œå¤ªé™½æ–¹å‘ãƒ™ã‚¯ãƒˆãƒ«
+	å‡ºåŠ›:MTQå‡ºåŠ›ç£æ°—ãƒ¢ãƒ¼ãƒ¡ãƒ³ãƒˆ
+*/
 class SolarPointing
 	: virtual public StrategyBase, 
 	public devicedriver::InputPorts< TYPELIST_2( datatype::MagneticField, datatype::StaticVector<2> ) >,

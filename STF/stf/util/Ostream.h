@@ -1,6 +1,12 @@
 /**
  * @file   Ostream.h
- * @brief  
+ * @brief  標準出力のラッパ．
+ *
+ * coutの定義を変えることで，出力を一括で切ることができる．
+ * @code
+ * //Ostream<NoOutput> cout; //uncomment this line to disable console output
+ * Ostream<std::ostream> cout; //comment this line to disable console output
+ * @endcode
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -22,17 +28,21 @@
 namespace stf { 
 namespace util {
 
+//! 標準出力のラッパ．
+/*! 
+	@tparam T 出力を転送するストリームクラス．
+*/
 template<class T>
 class Ostream {
 public:
 	Ostream(T& stream): stream_(stream){};
 	template < typename U>
 	Ostream<T>& operator <<(U val){ stream_ << val; return *this; }
-	inline Ostream<T>& operator <<(Ostream<T>&(*f)(Ostream<T>&));//�}�j�s�����[�^�p
+	inline Ostream<T>& operator <<(Ostream<T>&(*f)(Ostream<T>&));//マニピュレータ用
 private:
 	T& stream_;
 	Ostream();
-	Ostream(const Ostream& rhs);//�Öق̃R�s�[���֎~
+	Ostream(const Ostream& rhs);//暗黙のコピーを禁止
 	Ostream &operator =(const Ostream& rhs);
 };
 

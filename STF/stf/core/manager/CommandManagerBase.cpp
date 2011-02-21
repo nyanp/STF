@@ -1,6 +1,6 @@
 /**
  * @file   CommandManagerBase.cpp
- * @brief  
+ * @brief  ã‚³ãƒžãƒ³ãƒ‰ã®å‡¦ç†ã‚’è¡Œã†æ©Ÿèƒ½ãƒžãƒãƒ¼ã‚¸ãƒ£åŸºåº•ã‚¯ãƒ©ã‚¹ï¼Ž
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -20,8 +20,8 @@ void CommandManagerBase::run(){
 }
 
 void CommandManagerBase::execute_command_(const datatype::Time& t){
-	//ŽÀ‘•‚ÍƒŠƒ“ƒOƒoƒbƒtƒ@‚¾‚ªCŽÀ‘•‚µ‚â‚·‚¢‚Ì‚ÅƒRƒ}ƒ“ƒh‚ÌŠm”F‡˜‚Í”z—ñ‚ÌŒã‚ë‚©‚ç
-	//ŽÀs‡˜‚É§–ñ‚Ì‚ ‚éƒRƒ}ƒ“ƒh‚Íƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“‚Æ‚µ‚ÄŽÀ‘•‚·‚é‚Ì‚Å–â‘è‚Í–³‚¢‚Í‚¸
+	//å®Ÿè£…ã¯ãƒªãƒ³ã‚°ãƒãƒƒãƒ•ã‚¡ã ãŒï¼Œå®Ÿè£…ã—ã‚„ã™ã„ã®ã§ã‚³ãƒžãƒ³ãƒ‰ã®ç¢ºèªé †åºã¯é…åˆ—ã®å¾Œã‚ã‹ã‚‰
+	//å®Ÿè¡Œé †åºã«åˆ¶ç´„ã®ã‚ã‚‹ã‚³ãƒžãƒ³ãƒ‰ã¯ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³ã¨ã—ã¦å®Ÿè£…ã™ã‚‹ã®ã§å•é¡Œã¯ç„¡ã„ã¯ãš
 	for(int i = NUM_OF_LIST - 1 ; i >= 0 ; i--){
 		if(this->commandList_[i] == 0) continue;
 		if(this->commandList_[i]->can_execute(t)){

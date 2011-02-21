@@ -1,12 +1,13 @@
 /**
  * @file   RateDumping.cpp
- * @brief  
+ * @brief  レートダンピング則による3軸独立のトルク計算を行う制御ブロック．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
  */
 #include "RateDumping.h"
 #include "../../../datatype/Time.h"
+#include "../../../util/Ostream.h"
 
 namespace stf {
 namespace core {
@@ -30,8 +31,8 @@ RateDumping::RateDumping(int instance_id, double kp, double ki, double kd, doubl
 
 void RateDumping::do_compute(const datatype::Time& t)
 {
-	assert(this->prevholder_ != 0);//input source������
-	if(t > this->last_update_){//���ɕʂ̃u���b�N�o�R�ōX�V�ς݂Ȃ�Čv�Z���Ȃ�
+	assert(this->prevholder_ != 0);//input sourceが無い
+	if(t > this->last_update_){//既に別のブロック経由で更新済みなら再計算しない
 		util::cout << "compute: RateDumping" << util::endl;
 		this->value_b_ = compute_torque_(this->source<0,datatype::StaticVector<3>>().get_in_bodyframe(t));
 		this->last_update_ = t;

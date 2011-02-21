@@ -1,6 +1,6 @@
 /**
  * @file   SimpleFunctionCommand.h
- * @brief  ˆø”‚È‚µ‚Ìƒtƒ@ƒ“ƒNƒ^‚âƒƒ“ƒoŠÖ”‚ğ‹N“®‚·‚éƒRƒ}ƒ“ƒhD
+ * @brief  å¼•æ•°ãªã—ã®ãƒ•ã‚¡ãƒ³ã‚¯ã‚¿ã‚„ãƒ¡ãƒ³ãƒé–¢æ•°ã‚’èµ·å‹•ã™ã‚‹ã‚³ãƒãƒ³ãƒ‰ï¼
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -16,7 +16,7 @@ namespace stf {
 namespace core {
 namespace command {
 
-//! ˆø”‚È‚µƒtƒ@ƒ“ƒNƒ^‚ğ‹N“®‚·‚éƒRƒ}ƒ“ƒhD
+//! å¼•æ•°ãªã—ãƒ•ã‚¡ãƒ³ã‚¯ã‚¿ã‚’èµ·å‹•ã™ã‚‹ã‚³ãƒãƒ³ãƒ‰ï¼
 /*! 
 */
 class SimpleFunctorCommand : public Command {
@@ -35,10 +35,10 @@ private:
 	functor::IFunctor* func_;
 };
 
-//! ˆø”‚È‚µC–ß‚è’lŒ^U‚Ìƒƒ“ƒoŠÖ”‚ğŒÄ‚Ño‚µC•Ô“š‚ğƒRƒ}ƒ“ƒhƒpƒPƒbƒg‚É‘—o‚·‚é
+//! å¼•æ•°ãªã—ï¼Œæˆ»ã‚Šå€¤å‹Uã®ãƒ¡ãƒ³ãƒé–¢æ•°ã‚’å‘¼ã³å‡ºã—ï¼Œè¿”ç­”ã‚’ã‚³ãƒãƒ³ãƒ‰ãƒ‘ã‚±ãƒƒãƒˆã«é€å‡ºã™ã‚‹
 /*! 
-	@tparam T ƒƒ“ƒoŠÖ”‚ğ•Û‚·‚éƒNƒ‰ƒXD
-	@tparam U ƒƒ“ƒoŠÖ”‚Ì–ß‚è’lŒ^D
+	@tparam T ãƒ¡ãƒ³ãƒé–¢æ•°ã‚’ä¿æŒã™ã‚‹ã‚¯ãƒ©ã‚¹ï¼
+	@tparam U ãƒ¡ãƒ³ãƒé–¢æ•°ã®æˆ»ã‚Šå€¤å‹ï¼
 */ 
 template<class T, class U>
 class SimpleMemberFunctionCommand : public Command {
@@ -59,9 +59,9 @@ private:
 	Func f_;
 };
 
-//! ˆø”‚È‚µC–ß‚è’lvoid‚Ìƒƒ“ƒoŠÖ”‚ğŒÄ‚Ño‚·
+//! å¼•æ•°ãªã—ï¼Œæˆ»ã‚Šå€¤voidã®ãƒ¡ãƒ³ãƒé–¢æ•°ã‚’å‘¼ã³å‡ºã™
 /*! 
-	@tparam T ƒƒ“ƒoŠÖ”‚ğ•Û‚·‚éƒNƒ‰ƒXD
+	@tparam T ãƒ¡ãƒ³ãƒé–¢æ•°ã‚’ä¿æŒã™ã‚‹ã‚¯ãƒ©ã‚¹ï¼
 */ 
 template<class T>
 class SimpleMemberFunctionCommand<T,void> : public Command {

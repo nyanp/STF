@@ -1,6 +1,6 @@
 /**
  * @file   EarthSensorBase.h
- * @brief  ’n‹…ƒZƒ“ƒT‚ÌŠî’êƒNƒ‰ƒX
+ * @brief  åœ°çƒã‚»ãƒ³ã‚µã®åŸºåº•ã‚¯ãƒ©ã‚¹
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -21,9 +21,9 @@ namespace core {
 namespace devicedriver {
 namespace earthsensor {
 
-//! ’n‹…ƒZƒ“ƒT‚ÌŠî’êƒNƒ‰ƒXD
+//! åœ°çƒã‚»ãƒ³ã‚µã®åŸºåº•ã‚¯ãƒ©ã‚¹ï¼
 /*! 
-	@tparam T ƒRƒ“ƒ|[ƒlƒ“ƒg‚ÌŠÂ‹«ƒNƒ‰ƒXD
+	@tparam T ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆã®ç’°å¢ƒã‚¯ãƒ©ã‚¹ï¼
 */
 template <class T>
 class EarthSensorBase : public AOCSSensor<datatype::StaticVector<2>,datatype::StaticVector<2>,T>{
@@ -50,7 +50,7 @@ void EarthSensorBase<T>::do_update(){
 
 }
 
-//ƒVƒ~ƒ…ƒŒ[ƒ^—p‚Ì“Áê‰»
+//ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚¿ç”¨ã®ç‰¹æ®ŠåŒ–
 template <>
 void EarthSensorBase<environment::Simulator>::do_update();
 template <>

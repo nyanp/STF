@@ -1,6 +1,6 @@
 /**
  * @file   CustomManagerBase.h
- * @brief  
+ * @brief  カスタムコードの実行を行う機能マネージャ基底クラス．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -14,6 +14,11 @@ namespace stf {
 namespace core {
 namespace manager {
 
+//! カスタムコードの実行を行う機能マネージャ基底クラス．
+/*! 
+	ユーザーはこのクラスを書き換えることが許可されない．
+	機能マネージャの振る舞いをカスタマイズしたい場合，派生クラス側で仮想関数を実装する（Generation-Gapパターン）．
+*/
 class CustomManagerBase : public ManagerBase
 {
 public:

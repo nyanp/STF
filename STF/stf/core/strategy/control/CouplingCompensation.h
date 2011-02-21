@@ -1,6 +1,6 @@
 /**
  * @file   CouplingCompensation.h
- * @brief  
+ * @brief  3軸独立に制御則を適用した際に生じるカップリング項Iωを，フィードフォワードに打ち消すために使う制御ブロック．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -19,10 +19,11 @@ namespace core {
 namespace strategy {
 namespace control {
 
-
-//3���Ɨ��ɐ��䑥��K�p�����ۂɐ�����J�b�v�����O��I�ւ��A�t�B�[�h�t�H���[�h�őł��������߂Ɏg������u���b�N�B
-//����:3���p���x
-//�o��:3���g���N
+//! 3軸独立に制御則を適用した際に生じるクロスカップリング項Iωを，フィードフォワードに打ち消すために使う制御ブロック．
+/*! 
+	入力:3軸角速度
+	出力:3軸トルク
+*/
 template<class Env>
 class CouplingCompensation
 	: virtual public StrategyBase, 

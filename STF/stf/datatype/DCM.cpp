@@ -1,6 +1,6 @@
 /**
  * @file   DCM.cpp
- * @brief  Z-Y-X‚Ì‡‚Å‰ñ“]‚³‚¹‚é‰ñ“]s—ñiDCMjD
+ * @brief  Z-Y-Xã®é †ã§å›è»¢ã•ã›ã‚‹å›è»¢è¡Œåˆ—ï¼ˆDCMï¼‰ï¼
  *
  * @author Taiga Nomi
  * @date   2011.02.16

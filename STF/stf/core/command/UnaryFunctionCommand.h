@@ -1,6 +1,6 @@
 /**
  * @file   UnaryFunctionCommand.h
- * @brief  ‚Pˆø”‚Ìƒtƒ@ƒ“ƒNƒ^‚âƒƒ“ƒoŠÖ”‚ğ‹N“®‚·‚éƒRƒ}ƒ“ƒhD
+ * @brief  ï¼‘å¼•æ•°ã®ãƒ•ã‚¡ãƒ³ã‚¯ã‚¿ã‚„ãƒ¡ãƒ³ãƒé–¢æ•°ã‚’èµ·å‹•ã™ã‚‹ã‚³ãƒãƒ³ãƒ‰ï¼
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -15,17 +15,17 @@ namespace stf {
 namespace core {
 namespace command {
 
-//! 1ˆø”‚Ìƒtƒ@ƒ“ƒNƒ^‚ğ‹N“®‚·‚éƒRƒ}ƒ“ƒhD
-/*! ˆø”‚ªint‚Ìê‡CinitŠÖ”‚Åˆø”‚ÌÄİ’è‚ª‰Â”\D
+//! 1å¼•æ•°ã®ãƒ•ã‚¡ãƒ³ã‚¯ã‚¿ã‚’èµ·å‹•ã™ã‚‹ã‚³ãƒãƒ³ãƒ‰ï¼
+/*! å¼•æ•°ãŒintã®å ´åˆï¼Œinité–¢æ•°ã§å¼•æ•°ã®å†è¨­å®šãŒå¯èƒ½ï¼
 	@code
 	UnaryFunctorCommand<int> command_prototype(t, functor, 0);
 
 	UnaryFunctorCommand<int>* newcommand = command_prototype.clone();
 	int[] param = { 1 };
-	//ˆø”‚ğ1‚É•ÏX
+	//å¼•æ•°ã‚’1ã«å¤‰æ›´
 	newcommand->init(param, 1);
 	@endcode
-	@tparam T ƒtƒ@ƒ“ƒNƒ^‹N“®‚Ìˆø”Œ^D
+	@tparam T ãƒ•ã‚¡ãƒ³ã‚¯ã‚¿èµ·å‹•æ™‚ã®å¼•æ•°å‹ï¼
 */
 template<class T>
 class UnaryFunctorCommand : public Command {
@@ -48,11 +48,11 @@ private:
 template<>
 void UnaryFunctorCommand<int>::init(int* params, int paramsize);
 
-//! 1ˆø”‚Ìƒƒ“ƒoŠÖ”‚ğ‹N“®‚·‚éƒRƒ}ƒ“ƒhD
-/*! –ß‚è’lŒ^U‚Ìƒƒ“ƒoŠÖ”‚ğŒÄ‚Ño‚µC•Ô“š‚ğƒRƒ}ƒ“ƒhƒpƒPƒbƒg‚É‘—o‚·‚é. 
-	@tparam T   ƒƒ“ƒoŠÖ”‚ğ•Û‚·‚éƒNƒ‰ƒXD
-	@tparam U   ƒƒ“ƒoŠÖ”‚Ì–ß‚è’lŒ^D
-	@tparam ARG ƒƒ“ƒoŠÖ”‚Ìˆø”Œ^D
+//! 1å¼•æ•°ã®ãƒ¡ãƒ³ãƒé–¢æ•°ã‚’èµ·å‹•ã™ã‚‹ã‚³ãƒãƒ³ãƒ‰ï¼
+/*! æˆ»ã‚Šå€¤å‹Uã®ãƒ¡ãƒ³ãƒé–¢æ•°ã‚’å‘¼ã³å‡ºã—ï¼Œè¿”ç­”ã‚’ã‚³ãƒãƒ³ãƒ‰ãƒ‘ã‚±ãƒƒãƒˆã«é€å‡ºã™ã‚‹. 
+	@tparam T   ãƒ¡ãƒ³ãƒé–¢æ•°ã‚’ä¿æŒã™ã‚‹ã‚¯ãƒ©ã‚¹ï¼
+	@tparam U   ãƒ¡ãƒ³ãƒé–¢æ•°ã®æˆ»ã‚Šå€¤å‹ï¼
+	@tparam ARG ãƒ¡ãƒ³ãƒé–¢æ•°ã®å¼•æ•°å‹ï¼
 */
 template<class T, class U, class ARG>
 class UnAryMemberFunctionCommand : public Command {
@@ -75,10 +75,10 @@ private:
 	ARG arg_;
 };
 
-//! 1ˆø”‚Ìƒƒ“ƒoŠÖ”‚ğ‹N“®‚·‚éƒRƒ}ƒ“ƒhD(void“Áê‰»”Å)
-/*! –ß‚è’lŒ^void‚Ìƒƒ“ƒoŠÖ”‚ğŒÄ‚Ño‚·. 
-	@tparam T   ƒƒ“ƒoŠÖ”‚ğ•Û‚·‚éƒNƒ‰ƒXD
-	@tparam ARG ƒƒ“ƒoŠÖ”‚Ìˆø”Œ^D
+//! 1å¼•æ•°ã®ãƒ¡ãƒ³ãƒé–¢æ•°ã‚’èµ·å‹•ã™ã‚‹ã‚³ãƒãƒ³ãƒ‰ï¼(voidç‰¹æ®ŠåŒ–ç‰ˆ)
+/*! æˆ»ã‚Šå€¤å‹voidã®ãƒ¡ãƒ³ãƒé–¢æ•°ã‚’å‘¼ã³å‡ºã™. 
+	@tparam T   ãƒ¡ãƒ³ãƒé–¢æ•°ã‚’ä¿æŒã™ã‚‹ã‚¯ãƒ©ã‚¹ï¼
+	@tparam ARG ãƒ¡ãƒ³ãƒé–¢æ•°ã®å¼•æ•°å‹ï¼
 */
 template<class T, class ARG>
 class UnAryMemberFunctionCommand<T,void,ARG> : public Command {

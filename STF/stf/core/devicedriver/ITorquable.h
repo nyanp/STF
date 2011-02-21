@@ -1,34 +1,28 @@
 /**
  * @file   ITorquable.h
- * @brief  
+ * @brief トルクを出力するコンポーネントに対するインターフェース
  *
  * @author Taiga Nomi
  * @date   2011.02.16
  */
-#ifndef interface_ITorquable_h
-#define interface_ITorquable_h
-
-#include "../../datatype/Vector.h"
-#include "../../datatype/StaticVector.h"
+#ifndef stf_core_devicedriver_ITorquable_h
+#define stf_core_devicedriver_ITorquable_h
 
 namespace stf {
 namespace core {
 namespace devicedriver {
 
+//! トルクを出力するコンポーネントに対するインターフェース
+/*! */
 class ITorquable {
 public:
-	///
-    //virtual double get_torque() const  = 0;
-	///�@�V�����g���N�̎w�ߒl���Z�b�g���܂��D�f�o�C�X�ւ̑��M��do_update�ɂ���Ď��s����܂�
+	//!　新しいトルクの指令値をセットします．デバイスへの送信はdo_updateによって実行されます
     virtual void set_torque(double value)  = 0;
-
-	///
-    //virtual datatype::Vector get_torque_bodyframe() const  = 0;
     virtual ~ITorquable() { }
 };
 
-} /* End of namespace stf::core::component */
+} /* End of namespace stf::core::devicedriver */
 } /* End of namespace stf::core */
 } /* End of namespace stf */
 
-#endif // interface_ITorquable_h
+#endif // stf_core_devicedriver_ITorquable_h

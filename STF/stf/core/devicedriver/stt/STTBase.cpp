@@ -17,8 +17,8 @@ namespace core {
 namespace devicedriver {
 namespace stt {
 
-//STT–{‘Ì‚ÌQuaternion
-//ƒVƒ~ƒ…ƒŒ[ƒ^ŠÂ‹«‚Å‚ÍSTTÀ•WŒn‚Å‚Ì^’l‚ğæ“¾‚·‚é
+//STTæœ¬ä½“ã®Quaternion
+//ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚¿ç’°å¢ƒã§ã¯STTåº§æ¨™ç³»ã§ã®çœŸå€¤ã‚’å–å¾—ã™ã‚‹
 template <>
 void STTBase<environment::Simulator>::do_update(){
 	count_++;

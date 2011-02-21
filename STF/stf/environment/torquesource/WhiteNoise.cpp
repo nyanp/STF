@@ -1,6 +1,6 @@
 /**
  * @file   WhiteNoise.cpp
- * @brief  
+ * @brief  ホワイトノイズを発生させるトルク源．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -24,7 +24,7 @@ WhiteNoise::WhiteNoise(double sigma, double mu): sigma_(sigma), mu_(mu), NoiseBa
 
 double WhiteNoise::get_torque() const 
 {
-    return this->sigma_;//TBD:���U��Ԃ��̂̓C���^�[�t�F�[�X�Ƃ��Đ������H
+    return this->sigma_;//TBD:分散を返すのはインターフェースとして正しい？
 }
 
 

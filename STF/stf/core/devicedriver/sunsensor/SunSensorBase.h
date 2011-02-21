@@ -1,6 +1,6 @@
 /**
  * @file   SunSensorBase.h
- * @brief  ‘¾—zƒZƒ“ƒT‚ÌŠî’êƒNƒ‰ƒXD
+ * @brief  å¤ªé™½ã‚»ãƒ³ã‚µã®åŸºåº•ã‚¯ãƒ©ã‚¹ï¼
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -21,9 +21,9 @@ namespace core {
 namespace devicedriver {
 namespace sunsensor {
 
-//! ‘¾—zƒZƒ“ƒT‚ÌŠî’êƒNƒ‰ƒXD
+//! å¤ªé™½ã‚»ãƒ³ã‚µã®åŸºåº•ã‚¯ãƒ©ã‚¹ï¼
 /*! 
-	@tparam T ƒRƒ“ƒ|[ƒlƒ“ƒg‚ÌŠÂ‹«ƒNƒ‰ƒXD
+	@tparam T ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆã®ç’°å¢ƒã‚¯ãƒ©ã‚¹ï¼
 */
 template <class T>
 class SunSensorBase : public AOCSSensor<datatype::StaticVector<2>,datatype::StaticVector<2>,T>{
@@ -50,7 +50,7 @@ void SunSensorBase<T>::do_update(){
 
 }
 
-//ƒVƒ~ƒ…ƒŒ[ƒ^—p‚Ì“Áê‰»
+//ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚¿ç”¨ã®ç‰¹æ®ŠåŒ–
 template <>
 void SunSensorBase<environment::Simulator>::do_update();
 template <>

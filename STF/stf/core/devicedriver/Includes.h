@@ -1,12 +1,12 @@
 /**
  * @file   Includes.h
- * @brief  
+ * @brief  デバイスドライバの一括インクルード用ファイル．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
  */
-#ifndef core_component_Includes_h
-#define core_component_Includes_h
+#ifndef stf_core_devicedriver_Includes_h
+#define stf_core_devicedriver_Includes_h
 
 #include "stt/STT.h"
 #include "mtq/MTQ.h"
@@ -24,4 +24,4 @@
 #include "ISwitchable.h"
 #include "adc/ADCBase.h"
 
-#endif // core_component_Actuator_h
+#endif // stf_core_devicedriver_Actuator_h

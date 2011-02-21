@@ -1,10 +1,3 @@
-/**
- * @file   SPI.hpp
- * @brief  
- *
- * @author Taiga Nomi
- * @date   2011.02.16
- */
 /*!
   \file   SPI.hpp
   \author TAKISAWA Jun'ichi

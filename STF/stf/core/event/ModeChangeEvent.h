@@ -1,6 +1,6 @@
 /**
  * @file   ModeChangeEvent.h
- * @brief  
+ * @brief  モード変更イベント．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -22,6 +22,8 @@ class ModeBase;
 
 namespace event {
 
+//! モード変更イベント．
+/*! */
 class ModeChangeEvent : public EventBase{
 public:
 	typedef manager::ModeManagerBase SubjectClass; 

@@ -1,6 +1,6 @@
 /**
  * @file   ModeChangeCommand.h
- * @brief  ���[�h�ύX���s���R�}���h�D
+ * @brief  モード変更を行うコマンド．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -20,11 +20,11 @@ class ModeManagerBase;
 }
 namespace command {
 
-//! ���[�h�ύX���s���R�}���h
+//! モード変更を行うコマンド
 /*! 
-	�f�t�H���g�ł�init�ɂ��ύX��R�}���h�̍Đݒ�͍s���Ȃ��D
-	���[�h�ύX�R�}���h�̃C���X�^���X�́C�ʏ�A�v���P�[�V�����Œ�`����郂�[�h�̐��������������K�v������D
-	�P��̃C���X�^���X�����clone�őS�Ẵ��[�h�ւ̕ύX����������̂ł���΁Cint*�^����Mode�C���X�^���X�ւ̃}�b�s���O�����[�U�[����������K�v������
+	デフォルトではinitによる変更先コマンドの再設定は行われない．
+	モード変更コマンドのインスタンスは，通常アプリケーションで定義されるモードの数だけ実装される必要がある．
+	単一のインスタンスからのcloneで全てのモードへの変更を実装するのであれば，int*型からModeインスタンスへのマッピングをユーザーが実装する必要がある
 */ 
 class modeChangeCommand : public Command {
 public:

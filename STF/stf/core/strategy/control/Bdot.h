@@ -1,6 +1,6 @@
 /**
  * @file   Bdot.h
- * @brief  
+ * @brief  B-Dotå‰‡ã‚’è¨ˆç®—ã™ã‚‹åˆ¶å¾¡ãƒ–ãƒ­ãƒƒã‚¯ï¼
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -20,11 +20,12 @@ namespace core {
 namespace strategy {
 namespace control {
 
-///B-Dot‘¥‚ğŒvZ‚·‚é§ŒäƒuƒƒbƒND
-//“ü—Í:‰q¯À•WŒn‚Å‚Ì3²¥êD
-//o—Í:3²o—Í¥‹Cƒ‚[ƒƒ“ƒgD
-//ƒpƒ‰ƒ[ƒ^:
-//    k:ƒQƒCƒ“D
+
+//! B-Dotå‰‡ã‚’è¨ˆç®—ã™ã‚‹åˆ¶å¾¡ãƒ–ãƒ­ãƒƒã‚¯ï¼
+/*! 
+	å…¥åŠ›:è¡›æ˜Ÿåº§æ¨™ç³»ã§ã®3è»¸ç£å ´ï¼
+	å‡ºåŠ›:3è»¸å‡ºåŠ›ç£æ°—ãƒ¢ãƒ¼ãƒ¡ãƒ³ãƒˆï¼
+*/
 class Bdot
 	: virtual public StrategyBase, 
 	public devicedriver::InputPorts< TYPELIST_1( datatype::MagneticField ) >,

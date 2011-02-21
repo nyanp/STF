@@ -1,9 +1,10 @@
 /**
  * @file   InstanceID.h
- * @brief  
+ * @brief  インスタンスIDの定義を行うマクロ群．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
+ * @todo   インスタンスID以外の定数を分離する
  */
 #ifndef InstanceID_h
 #define InstanceID_h

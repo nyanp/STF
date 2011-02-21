@@ -1,6 +1,6 @@
 /**
  * @file   FirstOrderCorrection.h
- * @brief  
+ * @brief  TをT*Uに変換して出力する制御ブロック．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -8,23 +8,20 @@
 #ifndef stf_core_strategy_control_FirstOrderCorrection_h
 #define stf_core_strategy_control_FirstOrderCorrection_h
 #include <assert.h>
-#include "IControlStrategy.h"
 #include "../../devicedriver/IOPort.h"
-#include "../../manager/ControlManager.h"
 #include "../StrategyBase.h"
-
 #include "../../../util/Ostream.h"
-
-#include "../../../datatype/StaticVector.h"
-#include "../../../datatype/Quaternion.h"
-#include "../../../datatype/EulerAngle.h"
 
 namespace stf {
 namespace core {
 namespace strategy {
 namespace control {
 
-// T��T*U�ɕϊ����ďo�͂��鐧��u���b�N
+//! TをT*Uに変換して出力する制御ブロック．
+/*! 
+	@tparam T 補正対象の物理量．
+	@tparam U 補正に使用する物理量．operator * (const T&, const U&)が定義されている必要がある．
+*/
 template<class T,class U>
 class FirstOrderCorrection : public devicedriver::InputPorts< TYPELIST_2(T, U) >, 
 		public devicedriver::OutputPorts < TYPELIST_1(T) > ,

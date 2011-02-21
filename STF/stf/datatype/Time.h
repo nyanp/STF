@@ -1,6 +1,6 @@
 /**
  * @file   Time.h
- * @brief  Œo‰ßŽžŠÔ‚ð•\‚·ƒNƒ‰ƒXD
+ * @brief  çµŒéŽæ™‚é–“ã‚’è¡¨ã™ã‚¯ãƒ©ã‚¹ï¼Ž
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -12,8 +12,8 @@
 namespace stf { 
 namespace datatype {
 
-//! Œo‰ßŽžŠÔ‚ð•\‚·ƒNƒ‰ƒXD
-/*! ³‚ÌŽžŠÔiseconds >= 0j‚Ì‚Ý‘Î‰ž‚µ‚Ä‚¢‚é‚½‚ßCƒRƒ“ƒXƒgƒ‰ƒNƒ^‚É•‰’l‚ð—^‚¦‚½‚Æ‚«‚Ì‹““®‚Í•s’è */
+//! çµŒéŽæ™‚é–“ã‚’è¡¨ã™ã‚¯ãƒ©ã‚¹ï¼Ž
+/*! æ­£ã®æ™‚é–“ï¼ˆseconds >= 0ï¼‰ã®ã¿å¯¾å¿œã—ã¦ã„ã‚‹ãŸã‚ï¼Œã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã«è² å€¤ã‚’ä¸ŽãˆãŸã¨ãã®æŒ™å‹•ã¯ä¸å®š */
 class Time {
 public:
 	Time() : seconds_(0), milliseconds_(0) {}
@@ -93,7 +93,7 @@ inline double Time::total_seconds() const
 
 inline Time &Time::operator+=(const Time &rhs){
     this->milliseconds_ += rhs.milliseconds_;
-    if(this->milliseconds_ > 1000.0){//Œ…ã‚ª‚è
+    if(this->milliseconds_ > 1000.0){//æ¡ä¸ŠãŒã‚Š
         this->seconds_ ++;
         this->milliseconds_ -= 1000;
     }else if(this->milliseconds_ < 0.0){
@@ -107,7 +107,7 @@ inline Time &Time::operator+=(const Time &rhs){
 
 inline Time &Time::operator-=(const Time &rhs){
     this->milliseconds_ -= rhs.milliseconds_;
-    if(this->milliseconds_ > 1000.0){//Œ…ã‚ª‚è
+    if(this->milliseconds_ > 1000.0){//æ¡ä¸ŠãŒã‚Š
         this->seconds_ ++;
         this->milliseconds_ -= 1000;
     }else if(this->milliseconds_ < 0.0){

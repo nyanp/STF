@@ -1,6 +1,6 @@
 /**
  * @file   UnitManagerBase.cpp
- * @brief  
+ * @brief  æ©Ÿå™¨ã®å®šæœŸãƒ‡ãƒ¼ã‚¿å–å¾—ãƒ»æ›´æ–°ã‚’è¡Œã†æ©Ÿèƒ½ãƒãƒãƒ¼ã‚¸ãƒ£åŸºåº•ã‚¯ãƒ©ã‚¹ï¼
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -30,7 +30,7 @@ void UnitManagerBase::run()
 	}
 	datatype::List<HotSpot>::iterator it = unit_list_->begin();
 	while(it != unit_list_->end()){
-		//‚±‚±‚ÉgetTelemetryLength‚ğ—p‚¢‚ÄƒXƒgƒŠ[ƒ€’·‚³‚ğ•]‰¿‚·‚éƒR[ƒh‚ª•K—vDTBD
+		//ã“ã“ã«getTelemetryLengthã‚’ç”¨ã„ã¦ã‚¹ãƒˆãƒªãƒ¼ãƒ é•·ã•ã‚’è©•ä¾¡ã™ã‚‹ã‚³ãƒ¼ãƒ‰ãŒå¿…è¦ï¼TBD
 		(*it).do_update();
 		++it;
 	}      

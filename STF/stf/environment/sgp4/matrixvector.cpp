@@ -1,8 +1,8 @@
 /**
  * @file   matrixvector.cpp
- * @brief  
+ * @brief  NJHILSから持ってきた軌道計算関係モジュールを，sgp4名前空間でラップして使用．
  *
- * @author Taiga Nomi
+ * @author 
  * @date   2011.02.16
  */
 

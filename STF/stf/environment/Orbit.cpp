@@ -1,6 +1,6 @@
 /**
  * @file   Orbit.cpp
- * @brief  
+ * @brief  è»Œé“è¨ˆç®—ã‚’è¡Œã†ï¼Œsgp4ã®ãƒ©ãƒƒãƒ‘ãƒ¼ã‚¯ãƒ©ã‚¹ï¼
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -75,7 +75,7 @@ const StaticVector<3> Orbit::getEarthVector3D() const {
 }
 
 const MagneticField Orbit::getMagneticField() const {
-	//ŠO•”‚Ìigrf.h‚ğg‚Á‚Ä¥êŒvZDŠO•”ƒtƒ@ƒCƒ‹igrf10.coef‚ª–³‚¢‚ÆƒvƒƒOƒ‰ƒ€‚ª’â~‚·‚é‚Ì‚Å’ˆÓD
+	//å¤–éƒ¨ã®igrf.hã‚’ä½¿ã£ã¦ç£å ´è¨ˆç®—ï¼å¤–éƒ¨ãƒ•ã‚¡ã‚¤ãƒ«igrf10.coefãŒç„¡ã„ã¨ãƒ—ãƒ­ã‚°ãƒ©ãƒ ãŒåœæ­¢ã™ã‚‹ã®ã§æ³¨æ„ï¼
 	return OrbitCalc::getMagneticFieldDirection(this->getSatellitePosition(),this->starttime_ + this->localtime_);
 }
 

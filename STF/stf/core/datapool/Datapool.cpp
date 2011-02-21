@@ -1,6 +1,6 @@
 /**
  * @file   Datapool.cpp
- * @brief  STF¶¬ƒf[ƒ^‚Éƒ^ƒCƒ€ƒ^ƒO‚ð•t‰Á‚µ‚ÄŠi”[‚·‚éƒf[ƒ^ƒv[ƒ‹D
+ * @brief  STFç”Ÿæˆãƒ‡ãƒ¼ã‚¿ã«ã‚¿ã‚¤ãƒ ã‚¿ã‚°ã‚’ä»˜åŠ ã—ã¦æ ¼ç´ã™ã‚‹ãƒ‡ãƒ¼ã‚¿ãƒ—ãƒ¼ãƒ«ï¼Ž
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -30,7 +30,7 @@ const datatype::String& AocsDataPool::getname(int index) const{
 	return table_[index]->name();
 }
 
-// Žw’è‚µ‚½ƒCƒ“ƒXƒ^ƒ“ƒXID‚ª¶¬‚µ‚½ƒ^ƒvƒ‹‚Ö‚Ìƒ|ƒCƒ“ƒ^‚ðŽæ“¾iƒeƒŒƒƒgƒŠ—pj
+// æŒ‡å®šã—ãŸã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹IDãŒç”Ÿæˆã—ãŸã‚¿ãƒ—ãƒ«ã¸ã®ãƒã‚¤ãƒ³ã‚¿ã‚’å–å¾—ï¼ˆãƒ†ãƒ¬ãƒ¡ãƒˆãƒªç”¨ï¼‰
 Tuple<datatype::IAocsData>* AocsDataPool::get_ptr(int index) {
 	assert( index < kMaxDataPoolRows );
 	return table_[index];
@@ -54,7 +54,7 @@ const datatype::String& EventDataPool::getname(int index) const{
 	return table_[index]->name();
 }
 
-// Žw’è‚µ‚½ƒCƒ“ƒXƒ^ƒ“ƒXID‚ª¶¬‚µ‚½ƒ^ƒvƒ‹‚Ö‚Ìƒ|ƒCƒ“ƒ^‚ðŽæ“¾iƒeƒŒƒƒgƒŠ—pj
+// æŒ‡å®šã—ãŸã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹IDãŒç”Ÿæˆã—ãŸã‚¿ãƒ—ãƒ«ã¸ã®ãƒã‚¤ãƒ³ã‚¿ã‚’å–å¾—ï¼ˆãƒ†ãƒ¬ãƒ¡ãƒˆãƒªç”¨ï¼‰
 Tuple<core::event::EventBase>* EventDataPool::get_ptr(int index) {
 	assert( index < kMaxDataPoolRows );
 	return table_[index];

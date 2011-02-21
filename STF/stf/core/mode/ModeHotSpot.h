@@ -1,6 +1,6 @@
 /**
  * @file   ModeHotSpot.h
- * @brief  
+ * @brief  モード固有のアルゴリズムをタイプリスト形式で纏めるインターフェース．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -12,8 +12,6 @@
 #include "../../datatype/List.h"
 #include "../../util/loki/HierarchyGenerators.h"
 #include "../../util/loki/TypeManip.h"
-
-//using namespace stf::core::devicedriver;
 
 namespace stf {
 namespace core {
@@ -37,6 +35,10 @@ class ControlBlock;
 namespace mode {
 class ModeBase;
 
+//! モードに依存したアルゴリズムを保持するクラス．
+/*! 
+	@params T リスト化されるアルゴリズムの型．
+*/
 template<class T> class HotSpotList {
 public:
 	HotSpotList(){}
@@ -52,7 +54,10 @@ public:
 
 
 
-//ToDo: add/get��field�w���p���g���Ă܂Ƃ߂�
+//! モードに依存したアルゴリズムを纏め，インターフェースを提供するクラス．
+/*! 
+	@todo add_list, getlistをFieldヘルパでまとめる．ユーザから任意個のHotSpotを追加で与えられるようなパラメータを用意する
+*/
 struct StrategyHolder : 
 	public Loki::GenScatterHierarchy<
 	TYPELIST_5(devicedriver::ISwitchable,

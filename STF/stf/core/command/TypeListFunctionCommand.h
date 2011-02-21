@@ -1,6 +1,6 @@
 /**
  * @file   TypeListFunctionCommand.h
- * @brief  •¡”ŒÂ‚Ìˆø”‚ğæ‚éƒƒ“ƒoŠÖ”‚ğ‹N“®‚·‚éƒRƒ}ƒ“ƒhDTypeList‚ğg‚Á‚Ä“Z‚ß‚½‚¢->TBD
+ * @brief  è¤‡æ•°å€‹ã®å¼•æ•°ã‚’å–ã‚‹ãƒ¡ãƒ³ãƒé–¢æ•°ã‚’èµ·å‹•ã™ã‚‹ã‚³ãƒãƒ³ãƒ‰ï¼TypeListã‚’ä½¿ã£ã¦çºã‚ãŸã„->TBD
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -15,10 +15,10 @@ namespace stf {
 namespace core {
 namespace command {
 
-//! Nˆø”‚Ìƒƒ“ƒoŠÖ”‚ğ‹N“®‚·‚éƒRƒ}ƒ“ƒhD
-/*! @tparam T   ƒƒ“ƒoŠÖ”‚ğ•Û‚·‚éƒNƒ‰ƒXD
-	@tparam ARG ˆø”‚ÌŒ^D
-	@tparam N   ˆø”‚Ì”D
+//! Nå¼•æ•°ã®ãƒ¡ãƒ³ãƒé–¢æ•°ã‚’èµ·å‹•ã™ã‚‹ã‚³ãƒãƒ³ãƒ‰ï¼
+/*! @tparam T   ãƒ¡ãƒ³ãƒé–¢æ•°ã‚’ä¿æŒã™ã‚‹ã‚¯ãƒ©ã‚¹ï¼
+	@tparam ARG å¼•æ•°ã®å‹ï¼
+	@tparam N   å¼•æ•°ã®æ•°ï¼
  */
 template<class T, class ARG, int N>
 class TypeListMemberFunctionCommand : public Command {
@@ -43,9 +43,9 @@ private:
 	ARG arg_;
 };
 
-//! 2ˆø”‚Ìƒƒ“ƒoŠÖ”‚ğ‹N“®‚·‚éƒRƒ}ƒ“ƒhD
-/*! @tparam T   ƒƒ“ƒoŠÖ”‚ğ•Û‚·‚éƒNƒ‰ƒXD
-	@tparam ARG ˆø”‚ÌŒ^D
+//! 2å¼•æ•°ã®ãƒ¡ãƒ³ãƒé–¢æ•°ã‚’èµ·å‹•ã™ã‚‹ã‚³ãƒãƒ³ãƒ‰ï¼
+/*! @tparam T   ãƒ¡ãƒ³ãƒé–¢æ•°ã‚’ä¿æŒã™ã‚‹ã‚¯ãƒ©ã‚¹ï¼
+	@tparam ARG å¼•æ•°ã®å‹ï¼
  */
 template<class T, class ARG>
 class TypeListMemberFunctionCommand<T,ARG,2> : public Command {
@@ -72,9 +72,9 @@ private:
 	ARG arg2_;
 };
 
-//! 3ˆø”‚Ìƒƒ“ƒoŠÖ”‚ğ‹N“®‚·‚éƒRƒ}ƒ“ƒhD
-/*! @tparam T   ƒƒ“ƒoŠÖ”‚ğ•Û‚·‚éƒNƒ‰ƒXD
-	@tparam ARG ˆø”‚ÌŒ^D
+//! 3å¼•æ•°ã®ãƒ¡ãƒ³ãƒé–¢æ•°ã‚’èµ·å‹•ã™ã‚‹ã‚³ãƒãƒ³ãƒ‰ï¼
+/*! @tparam T   ãƒ¡ãƒ³ãƒé–¢æ•°ã‚’ä¿æŒã™ã‚‹ã‚¯ãƒ©ã‚¹ï¼
+	@tparam ARG å¼•æ•°ã®å‹ï¼
  */
 template<class T, class ARG>
 class TypeListMemberFunctionCommand<T,ARG,3> : public Command {
@@ -103,9 +103,9 @@ private:
 	ARG arg3_;
 };
 
-//! 6ˆø”‚Ìƒƒ“ƒoŠÖ”‚ğ‹N“®‚·‚éƒRƒ}ƒ“ƒhD
-/*! @tparam T   ƒƒ“ƒoŠÖ”‚ğ•Û‚·‚éƒNƒ‰ƒXD
-	@tparam ARG ˆø”‚ÌŒ^D
+//! 6å¼•æ•°ã®ãƒ¡ãƒ³ãƒé–¢æ•°ã‚’èµ·å‹•ã™ã‚‹ã‚³ãƒãƒ³ãƒ‰ï¼
+/*! @tparam T   ãƒ¡ãƒ³ãƒé–¢æ•°ã‚’ä¿æŒã™ã‚‹ã‚¯ãƒ©ã‚¹ï¼
+	@tparam ARG å¼•æ•°ã®å‹ï¼
  */
 template<class T, class ARG>
 class TypeListMemberFunctionCommand<T,ARG,6> : public Command {

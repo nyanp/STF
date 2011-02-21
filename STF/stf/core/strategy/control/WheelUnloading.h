@@ -1,6 +1,6 @@
 /**
  * @file   WheelUnloading.h
- * @brief  
+ * @brief  RWのアンローディングをMTQを使用して行うための制御ブロック．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -21,12 +21,14 @@ namespace core {
 namespace strategy {
 namespace control {
 
+//! RWのアンローディングをMTQを使用して行うための制御ブロック．
+/*!
+	出力可能なトルク方向を計算するために軌道情報を必要とするほか，
+	ポートとは別に角運動量を参照するために対象ホイールを直接接続する必要がある．
 
-//RW�̃A�����[�f�B���O��MTQ���g�p���čs�����߂̐���u���b�N�D
-//�o�͉\�ȃg���N�������v�Z���邽�߂ɋO������K�v�Ƃ���ق��C
-//�|�[�g�Ƃ͕ʂɊp�^���ʂ��Q�Ƃ��邽�߂ɑΏۃz�C�[���𒼐ڐڑ�����K�v������D
-//����:�O�����|�[�g
-//�o��:RW�o�̓g���N�CMTQ�o�̓g���N
+	入力:軌道情報
+	出力:RW出力トルク，MTQ出力トルク
+*/
 class WheelUnloading
 	: virtual public StrategyBase, 
 	public devicedriver::InputPorts< TYPELIST_1( datatype::PositionInfo ) >,
