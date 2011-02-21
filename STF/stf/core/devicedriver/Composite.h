@@ -1,7 +1,9 @@
 /**
  * @file   Composite.h
- * @brief  
- *
+ * @brief  AOCSComponentの集合体を表現するクラス群．
+ *         Compositeデザインパターンを使い，単体のAOCSComponentと同等の扱いができる．
+ *         必要な物理量をコンポーネント単独のインターフェースで得られない場合
+ *        （軸ごとに通信系統が違うアクチュエータや，複数軸の観測値を組み合わせる前提のセンサなど）に使う．
  * @author Taiga Nomi
  * @date   2011.02.16
  */
@@ -20,13 +22,13 @@
 namespace stf {
 namespace core {
 namespace devicedriver {
-//
-// Composite
-//  AOCSComponentの集合体を表すクラス．
-//  Compositeデザインパターンを使い，単体のAOCSComponentと同等の扱いができる．
-//  必要な物理量をコンポーネント単独のインターフェースで得られない場合
-// （軸ごとに通信系統が違うアクチュエータや，複数軸の観測値を組み合わせる前提のセンサなど）に使う．
 
+
+//! AOCSSensorの集合体を表すクラス．
+/*! 
+	@tparam Leaf    集約するAOCSSensorの型．
+	@tparam Numbers 集約チャネル数．
+*/
 template<class Leaf,int Numbers>
 class CompositeInput : public AOCSSensor<typename Leaf::Target> {
 public:
@@ -45,6 +47,11 @@ private:
 	unsigned char index_;//max 255 childs
 };
 
+//! AOCSActuatorの集合体を表すクラス．
+/*! 
+	@tparam Leaf    集約するAOCSActuatorの型．
+	@tparam Numbers 集約チャネル数．
+*/
 template<class Leaf,int Numbers>
 class CompositeOutput : public AOCSActuator<typename Leaf::Target> {
 public:

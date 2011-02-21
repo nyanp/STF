@@ -14,6 +14,8 @@ namespace stf {
 namespace core {
 namespace devicedriver {
 namespace earthsensor {
+
+
 template <class T>
 class EarthSensor : public EarthSensorBase<T>{
 public:  

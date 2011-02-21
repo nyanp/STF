@@ -1,6 +1,6 @@
 /**
  * @file   MTQBase.h
- * @brief  
+ * @brief  磁気トルカの基底クラス．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -23,6 +23,10 @@ namespace core {
 namespace devicedriver {
 namespace mtq {
 
+//! 磁気トルカの基底クラス．
+/*! 
+	@tparam T コンポーネントの環境クラス．
+*/
 template<class T>
 class MTQBase : public AOCSActuator<datatype::MagneticMoment, datatype::Scalar, T> {
 public:

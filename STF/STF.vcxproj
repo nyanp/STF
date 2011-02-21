@@ -232,7 +232,6 @@
     <ClInclude Include="stf\core\devicedriver\gps\GPSBase.h" />
     <ClInclude Include="stf\core\devicedriver\gyro\Gyro.h" />
     <ClInclude Include="stf\core\devicedriver\gyro\GyroBase.h" />
-    <ClInclude Include="stf\core\devicedriver\IAOCSDataInput.h" />
     <ClInclude Include="stf\core\devicedriver\IDataUpdatable.h" />
     <ClInclude Include="stf\core\devicedriver\Includes.h" />
     <ClInclude Include="stf\core\devicedriver\IOPort.h" />

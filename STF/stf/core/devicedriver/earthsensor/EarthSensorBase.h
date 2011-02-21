@@ -1,6 +1,6 @@
 /**
  * @file   EarthSensorBase.h
- * @brief  
+ * @brief  地球センサの基底クラス
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -21,7 +21,10 @@ namespace core {
 namespace devicedriver {
 namespace earthsensor {
 
-
+//! 地球センサの基底クラス．
+/*! 
+	@tparam T コンポーネントの環境クラス．
+*/
 template <class T>
 class EarthSensorBase : public AOCSSensor<datatype::StaticVector<2>,datatype::StaticVector<2>,T>{
 public:

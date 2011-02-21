@@ -1,6 +1,6 @@
 /**
  * @file   STTBase.h
- * @brief  
+ * @brief  スターセンサの基底クラス．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -20,6 +20,11 @@ class Simulator;
 namespace core {
 namespace devicedriver {
 namespace stt {
+
+//! スターセンサの基底クラス．
+/*! 
+	@tparam T コンポーネントの環境クラス．
+*/
 template <class T>
 class STTBase : public AOCSSensor<datatype::Quaternion,datatype::Quaternion,T>{
 public:

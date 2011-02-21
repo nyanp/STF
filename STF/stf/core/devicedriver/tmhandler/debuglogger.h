@@ -1,6 +1,6 @@
 /**
  * @file   debuglogger.h
- * @brief  
+ * @brief  テレメハンドラのデバッグ用クラス．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -19,6 +19,11 @@ namespace core {
 namespace devicedriver {
 namespace tmhandler {
 
+//! テレメハンドラのデバッグ用クラス．
+/*! 
+	テレメトリを共有ストレージに保存したり，送信機に送出する代わりに
+	指定されたファイルへ書き出すデバッグ用のテレメトリハンドラ．
+*/
 class DebugLogger : virtual public ITelemetryStoragable{
 public:
     DebugLogger(const std::string &filename, bool console_out);

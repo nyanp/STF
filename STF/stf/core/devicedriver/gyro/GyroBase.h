@@ -22,6 +22,10 @@ namespace core {
 namespace devicedriver {
 namespace gyro {
 
+//! ジャイロセンサの基底クラス．
+/*! 
+	@tparam T コンポーネントの環境クラス．
+*/
 template <class T>
 class GyroBase : public AOCSSensor<datatype::StaticVector<3>, datatype::Scalar, T>{
 public:
@@ -31,9 +35,11 @@ public:
 	virtual void do_update();
 	virtual datatype::Scalar filter(const datatype::Scalar& value); 
 private:
+	//! バイアス分散
     double sigma_;
+	//! バイアスレートの真値
 	datatype::Scalar bias_rate_; 
-    //ECRVの時定数
+    //! ECRVの時定数
     double tau_;
 };
 

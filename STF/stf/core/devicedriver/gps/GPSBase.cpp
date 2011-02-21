@@ -6,7 +6,6 @@
  * @date   2011.02.16
  */
 #include "GPSBase.h"
-#include "../../datapool/Datapool.h"
 #include "../../../environment/Simulator.h"
 #include "../../../util/math.h"
 

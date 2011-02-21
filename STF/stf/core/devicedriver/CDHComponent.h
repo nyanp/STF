@@ -1,6 +1,6 @@
 /**
  * @file   CDHComponent.h
- * @brief  
+ * @brief  AD変換器や温度計など，複数のセンサを一括して取り扱うコンポーネントの基底クラス．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -26,15 +26,16 @@ template<class T, int NUM, class Env> class CDHComponentIterator;
 namespace core {
 namespace devicedriver {
 
-
-///センサ，アクチュエータの基本クラス．
+//! AD変換器や温度計など，複数のセンサを一括して取り扱うコンポーネントの基底クラス．
+/*! 
+	@tparam T   測定している物理量を表す型．
+	@tparam NUM 観測チャネル数．
+	@tparam Env コンポーネントの環境クラス．
+*/
 template<class T, int NUM, class Env = ENV>
 class CDHComponent : public RootObject, virtual public IDataUpdatable, virtual public ISwitchable {
 public:
-	//typedef T Target;//測定している物理量を表す型．
-	//typedef T Hold;//可観測次元の量を表す型．全軸感度を持ったコンポーネントの場合はT=U
 	CDHComponent(int instance_id, const datatype::String& name) : RootObject(instance_id, name) {}
-
 	void connect(core::datapool::AocsDataPool* pool,int rows, const datatype::String name){ 
 		this->datapool_hold_index_ = pool->create(this,rows,name);
 		datapool_ = pool; 
@@ -54,7 +55,11 @@ private:
     CDHComponent();
 };
 
-
+//! 電圧と電流など，異なる物理量を複合的に取り扱うコンポーネントの基底クラス．
+/*! 
+	@tparam TList   測定している物理量を表す型．LokiのTypelistを与える
+	@tparam Env     コンポーネントの環境クラス．
+*/
 template<class TList, class Env = ENV>
 class CDHMultiComponent : public RootObject, public OutputPorts< TList >, virtual public IDataUpdatable, virtual public ISwitchable {
 public:
@@ -68,9 +73,15 @@ protected:
 
 } /* End of namespace stf::core::component */
 } /* End of namespace stf::core */
+
 namespace interface {
-	
-//scalar型など,value()でdoubleを取れる型のCDHComponentに対して使えるイテレータ
+
+//! scalar型など,value()でdoubleを取れる型のCDHComponentに対して使えるイテレータ
+/*! 
+	@tparam T   対象CDHComponentが測定している物理量を表す型．
+	@tparam NUM 対象CDHComponentの観測チャネル数．
+	@tparam Env コンポーネントの環境クラス．
+*/
 template<class T, int NUM, class Env>
 class CDHComponentIterator : public Iterator {
 public:

@@ -1,6 +1,6 @@
 /**
  * @file   GPSBase.h
- * @brief  
+ * @brief  GPSセンサの基底クラス
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -21,11 +21,14 @@ namespace core {
 namespace devicedriver {
 namespace gps {
 
+//! GPSセンサの基底クラス．
+/*! 
+	@tparam T コンポーネントの環境クラス．
+*/
 template <class T>
 class GPSBase : public AOCSSensor<datatype::PositionInfo, datatype::PositionInfo, T>, virtual public clock::IAbsoluteTimeClock{
 public:
-	GPSBase(){}
-	GPSBase(int instance_id);
+	GPSBase(int instance_id): AOCSSensor<datatype::PositionInfo, datatype::PositionInfo, T>(instance_id, "GPS"){}
 	~GPSBase(){}
 	virtual void do_update();
 	virtual const datatype::DateTime get_datetime() const {return t_;}
@@ -38,13 +41,6 @@ protected:
 	datatype::DateTime t_;
 };
 
-
-template <class T>
-GPSBase<T>::GPSBase(int instance_id)
-	: AOCSSensor<datatype::PositionInfo, datatype::PositionInfo, T>(instance_id, "GPS")
-{
-
-}
 
 template <class T>
 void GPSBase<T>::do_update(){

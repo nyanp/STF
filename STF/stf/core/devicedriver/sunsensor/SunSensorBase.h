@@ -1,6 +1,6 @@
 /**
  * @file   SunSensorBase.h
- * @brief  
+ * @brief  太陽センサの基底クラス．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -21,7 +21,10 @@ namespace core {
 namespace devicedriver {
 namespace sunsensor {
 
-
+//! 太陽センサの基底クラス．
+/*! 
+	@tparam T コンポーネントの環境クラス．
+*/
 template <class T>
 class SunSensorBase : public AOCSSensor<datatype::StaticVector<2>,datatype::StaticVector<2>,T>{
 public:

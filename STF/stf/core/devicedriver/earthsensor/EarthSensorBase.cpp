@@ -1,6 +1,6 @@
 /**
  * @file   EarthSensorBase.cpp
- * @brief  
+ * @brief  地球センサの基底クラス
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -16,8 +16,7 @@ namespace core {
 namespace devicedriver {
 namespace earthsensor {
 
-//STT本体のQuaternion
-//シミュレータ環境ではSTT座標系での真値を取得する
+
 template <>
 void EarthSensorBase<environment::Simulator>::do_update(){
 	this->set_value(filter(this->environment_->getEarthDirection(*this)));

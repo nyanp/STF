@@ -28,7 +28,9 @@ template<class Env>
 class PRISMADC : public ADCBase<PRISM__ADC__CHANNELS, Env>{
 public:
 	PRISMADC(int instance_id) : ADCBase<PRISM__ADC__CHANNELS, Env>(instance_id){}
-
+	virtual void do_update(){
+		//TBD
+	}
 };
 
 template<class Env = ENV>

@@ -1,6 +1,6 @@
 /**
  * @file   TAMBase.h
- * @brief  
+ * @brief  3軸磁気センサの基底クラス．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -21,7 +21,10 @@ namespace devicedriver {
 namespace magnetometer {
 
 
-//3軸出力の磁気センサ．
+//! 3軸磁気センサの基底クラス．
+/*! 
+	@tparam T コンポーネントの環境クラス．
+*/
 template <class T>
 class TAMBase : public AOCSSensor<datatype::MagneticField,datatype::MagneticField,T>{
 public:

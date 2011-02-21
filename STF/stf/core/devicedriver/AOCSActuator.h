@@ -1,6 +1,6 @@
 /**
  * @file   AOCSActuator.h
- * @brief  
+ * @brief  アクチュエータの基底クラス．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -15,7 +15,12 @@ namespace stf {
 namespace core {
 namespace devicedriver {
 
-///アクチュエータの基本クラス．
+//! アクチュエータの基底クラス．
+/*! 
+	@tparam T   アクチュエータが出力する物理量．
+	@tparam U   アクチュエータが出力する次元での物理量．3軸アクチュエータならTと一致，1軸ならScalar．
+	@tparam Env コンポーネントの環境クラス．
+*/
 template<class T,class U = T,class Env = ENV>
 class AOCSActuator : public AOCSComponent<T,U,Env>, public InputPorts< TYPELIST_1(U) > {
 public:

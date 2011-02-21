@@ -34,8 +34,12 @@ template<class T> class Datapool;
 }
 namespace devicedriver {
 
-
-///センサ，アクチュエータの基本クラス．
+//! センサおよびアクチュエータの基底クラス．
+/*! 
+	@tparam T   測定している物理量を表す型．Targetにtypedefされる
+	@tparam U   可観測次元の量を表す型．全軸感度を持ったコンポーネントの場合はT=U．Holdにtypedefされる
+	@tparam Env コンポーネントの環境クラス．
+*/
 template<class T,class U = T,class Env = ENV>
 class AOCSComponent : public RootObject, virtual public IDataUpdatable, virtual public ISwitchable, public OutputPorts< TYPELIST_1(T) > {
 public:
@@ -48,7 +52,6 @@ public:
 		datapool_ = pool; 
 	}
 	const datatype::DCM& getDCM() const{ return set_angle_; }
-
 
 	virtual void on(){ is_on_ = true;}
 	virtual void off(){ is_on_ = false;}
@@ -70,12 +73,9 @@ public:
 protected:
 	bool is_on_;
 	U value_;
-	//U value_max_;//正常範囲内での最大値．
-	//T value_b_;
 	Env* environment_;
-    ///アライメント補正を考慮するかどうか．高精度の場合のみtrue
-    //bool use_alignment_;
-	//コンポーネント座標系から機体座標系へのDCM．
+	//! コンポーネント座標系から機体座標系へのDCM．
+	/*! 計算負荷の都合から，通常の取り付け行列の逆行列となっている．value_b_ = set_angle_ * value_ */
     datatype::DCM set_angle_;
 
 private:

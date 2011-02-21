@@ -30,7 +30,9 @@ template<class Env>
 class NJADC : public ADCBase<NJ__ADC__CHANNELS, Env>{
 public:
 	NJADC(int instance_id) : ADCBase<NJ__ADC__CHANNELS, Env>(instance_id){}
-
+	virtual void do_update(){
+		//TBD
+	}
 };
 
 //“d—¬ƒZƒ“ƒT

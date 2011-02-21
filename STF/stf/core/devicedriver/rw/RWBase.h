@@ -1,6 +1,6 @@
 /**
  * @file   RWBase.h
- * @brief  
+ * @brief  リアクションホイールの基底クラス．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -22,6 +22,10 @@ namespace core {
 namespace devicedriver {
 namespace rw {
 
+//! リアクションホイールの基底クラス．
+/*! 
+	@tparam T コンポーネントの環境クラス．
+*/
 template<class T>
 class RWBase : public AOCSActuator<datatype::StaticVector<3>, datatype::Scalar, T>{
 public:

@@ -18,13 +18,14 @@ namespace devicedriver {
 
 //! AD変換器ドライバ．
 /*! 
-	
+	@tparam NUM AD変換対象のチャネル数．
+	@tparam Env コンポーネントの環境クラス．
 */
 template<int NUM, class Env = ENV>
 class ADCBase : public CDHComponent< datatype::Voltage, NUM, Env >  {
 public:
 	ADCBase(int instance_id) :  CDHComponent<datatype::Voltage,NUM,Env>(instance_id,"ADCBase") {}
-	virtual void do_update(){}
+	//virtual void do_update(){}
 	virtual ~ADCBase(){}
 protected:
 	//typename Env::GPIO<NUM> gpio_;
