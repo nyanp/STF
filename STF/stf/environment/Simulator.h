@@ -64,6 +64,7 @@ namespace environment {
 class Simulator {
 public:
 	//Environmental Class
+	//! シミュレータ環境用のGPIOドライバ．使用しないので空クラスとして定義
 	template<int i>class GPIO : public GPIOBase<i> {};
 	typedef SPIBase SPI;
 	typedef UARTBase UART;

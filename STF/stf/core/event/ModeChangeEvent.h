@@ -8,7 +8,6 @@
 #ifndef stf_core_event_ModeChangeEvent_h
 #define stf_core_event_ModeChangeEvent_h
 #include "EventBase.h"
-#include "../../datatype/Time.h"
 #include "../../InstanceID.h"
 
 namespace stf {

@@ -9,10 +9,12 @@
 #define stf_core_mode_ModeBase_h
 
 #include "../../RootObject.h"
-#include "../../datatype/String.h"
 #include "ModeHotSpot.h"
 
 namespace stf {
+namespace datatype {
+class String;
+}
 namespace core {
 namespace mode {
 

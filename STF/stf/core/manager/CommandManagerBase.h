@@ -9,7 +9,6 @@
 #define core_manager_CommandManagerBase_h
 #include <assert.h>
 #include "ManagerBase.h"
-#include "../../datatype/List.h"
 #include "../event/ModeChangeEvent.h"
 #include "../event/SubjectBase.h"
 #include "../../util/loki/TypeManip.h"

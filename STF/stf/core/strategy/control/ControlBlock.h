@@ -54,7 +54,7 @@ private:
 		Actuator* output_;
 		virtual void set_torque(const datatype::Time& t){
 			if(holderport_ != 0 && output_ != 0)
-			 output_->set_valueInBodyFrame(holderport_->get_in_bodyframe(t));
+			 output_->set_in_bodyframe(holderport_->get_in_bodyframe(t));
 		}
 		virtual void connectHolder_(devicedriver::OutputPort<typename Actuator::Hold>* holder) { holderport_ = holder; }
 		virtual void connectActuator_(Actuator* act) { output_ = act; }

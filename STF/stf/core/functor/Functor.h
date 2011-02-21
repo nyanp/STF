@@ -7,14 +7,9 @@
  */
 #ifndef stf_core_functor_Functor_h
 #define stf_core_functor_Functor_h
-#include "../../util/Ostream.h"
-#include "../../RootObject.h"
-#include "../../datatype/String.h"
-#include "../datapool/Datapool.h"
-#include "../../GlobalObject.h"
+
 #include "InputFunctor.h"
 #include "OutputFunctor.h"
-
 
 namespace stf {
 namespace core {

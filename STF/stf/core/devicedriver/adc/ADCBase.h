@@ -8,16 +8,18 @@
 #ifndef stf_core_devicedriver_ADCBase_h
 #define stf_core_devicedriver_ADCBase_h
 
+#include <assert.h>
 #include "../CDHComponent.h"
-#include "../../../datatype/Envitonments.h"
 #include "ConvertPolicy.h"
+#include "../../../datatype/Envitonments.h"
 
 namespace stf {
 namespace core {
 namespace devicedriver {
 
-//! AD変換器ドライバ．
+//! AD変換器ドライバの抽象クラス．
 /*! 
+	アプリケーションに応じて，これを継承したAD変換器クラスで適切なdo_updateを実装することで実体化が可能になる．
 	@tparam NUM AD変換対象のチャネル数．
 	@tparam Env コンポーネントの環境クラス．
 */
@@ -25,10 +27,8 @@ template<int NUM, class Env = ENV>
 class ADCBase : public CDHComponent< datatype::Voltage, NUM, Env >  {
 public:
 	ADCBase(int instance_id) :  CDHComponent<datatype::Voltage,NUM,Env>(instance_id,"ADCBase") {}
-	//virtual void do_update(){}
 	virtual ~ADCBase(){}
 protected:
-	//typename Env::GPIO<NUM> gpio_;
 };
 
 //! ADCのデジタル値を物理値に変換して保持するコンポーネント．

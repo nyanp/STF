@@ -44,17 +44,9 @@ public:
     virtual void run();
 	virtual bool runnable() const { return true; }
 	virtual void notify(const mode::ModeBase* value);
- protected:
-
+protected:
     virtual void doControl(const datatype::Time&);
-
- public:
-	 const datatype::List<HotSpot>* controller_;
-	// datatype::List< interface::ISensorStrategy* > input_strategies_;
-    //std::vector< interface::IActuatorStrategy* > output_strategies_;
-    //std::vector< interface::IAttitudeSensorDriver* > attitude_sensors_;
-    //std::vector< interface::ITorqueDriver* > actuators_;
-    //std::vector< interface::IAngularVelocityDriver* > angularvelocity_sensors_;
+	const datatype::List<HotSpot>* controller_;
 };
 
 

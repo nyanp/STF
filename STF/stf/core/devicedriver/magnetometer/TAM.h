@@ -1,6 +1,6 @@
 /**
  * @file   TAM.h
- * @brief  
+ * @brief  ソフトウェアシミュレーションレベルで動作する磁気センサドライバ．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -14,6 +14,11 @@ namespace stf {
 namespace core {
 namespace devicedriver {
 namespace magnetometer {
+
+//! ソフトウェアシミュレーションレベルで動作する磁気センサドライバ．
+/*! 
+	@tparam T コンポーネントの環境クラス．
+*/
 template <class T>
 class TAM : public TAMBase<T>{
 public:  

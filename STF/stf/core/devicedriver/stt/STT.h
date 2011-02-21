@@ -1,6 +1,6 @@
 /**
  * @file   STT.h
- * @brief  
+ * @brief  ソフトウェアシミュレーションレベルで動作するスターセンサドライバ．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -15,6 +15,10 @@ namespace core {
 namespace devicedriver {
 namespace stt {
 
+//! ソフトウェアシミュレーションレベルで動作するスターセンサドライバ．
+/*! 
+	@tparam T コンポーネントの環境クラス．
+*/
 template <class T>
 class STT : public STTBase<T>{
 public:  

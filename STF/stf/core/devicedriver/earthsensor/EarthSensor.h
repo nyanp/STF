@@ -1,6 +1,6 @@
 /**
  * @file   EarthSensor.h
- * @brief  
+ * @brief  ソフトウェアシミュレーションレベルで動作する地球センサドライバ．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -15,7 +15,10 @@ namespace core {
 namespace devicedriver {
 namespace earthsensor {
 
-
+//! ソフトウェアシミュレーションレベルで動作する地球センサドライバ．
+/*! 
+	@tparam T コンポーネントの環境クラス．
+*/
 template <class T>
 class EarthSensor : public EarthSensorBase<T>{
 public:  

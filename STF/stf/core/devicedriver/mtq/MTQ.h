@@ -1,6 +1,6 @@
 /**
  * @file   MTQ.h
- * @brief  
+ * @brief  ソフトウェアシミュレーションレベルで動作する磁気トルカドライバ．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -15,6 +15,10 @@ namespace core {
 namespace devicedriver {
 namespace mtq {
 
+//! ソフトウェアシミュレーションレベルで動作する磁気トルカドライバ．
+/*! 
+	@tparam T コンポーネントの環境クラス．
+*/
 template<class T>
 class MTQ : public MTQBase<T> {
 public:

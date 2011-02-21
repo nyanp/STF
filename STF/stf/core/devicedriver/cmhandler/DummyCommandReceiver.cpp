@@ -6,12 +6,13 @@
  * @date   2011.02.16
  */
 #include "DummyCommandReceiver.h"
+#include <iostream>
 #include "../../command/Command.h"
 #include "../../manager/CommandManagerBase.h"
 #include "../../../datatype/String.h"
 #include "../../../util/Ostream.h"
 #include "../../devicedriver/clock/ITimeClock.h"
-#include <iostream>
+
 
 namespace stf {
 namespace core {

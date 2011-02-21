@@ -1,6 +1,6 @@
 /**
  * @file   ITelemetryStoragable.h
- * @brief  
+ * @brief  テレメトリデータのストレージに対する抽象インターフェース．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -15,6 +15,8 @@ namespace core {
 namespace devicedriver {
 namespace tmhandler {
 
+//! テレメトリデータのストレージに対する抽象インターフェース．
+/*! */
 class ITelemetryStoragable {
 public:
     virtual void logging(int value, int address)  = 0;

@@ -41,11 +41,8 @@ public:
     virtual void run();
 	virtual bool runnable() const { return true; };
 	virtual void notify(const mode::ModeBase* value);
-    //interface::ITelemetryStoragable *storage_;
 protected:
 	const datatype::List<HotSpot>* telem_;
-    //std::vector< interface::ITelemetable* > telem_list_;
-	//datatype::List<>
 };
 
 } /* End of namespace stf::core::manager */

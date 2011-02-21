@@ -1,6 +1,6 @@
 /**
  * @file   SunSensor.h
- * @brief  
+ * @brief  ソフトウェアシミュレーションレベルで動作する太陽センサドライバ．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -14,6 +14,11 @@ namespace stf {
 namespace core {
 namespace devicedriver {
 namespace sunsensor {
+
+//! ソフトウェアシミュレーションレベルで動作する太陽センサドライバ．
+/*! 
+	@tparam T コンポーネントの環境クラス．
+*/
 template <class T>
 class SunSensor : public SunSensorBase<T>{
 public:  

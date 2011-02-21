@@ -10,13 +10,9 @@
 #ifndef stf_core_devicedriver_Composite_h
 #define stf_core_devicedriver_Composite_h
 #include <assert.h>
-#include "AOCSComponent.h"
 #include "AOCSActuator.h"
 #include "AOCSSensor.h"
 #include "../../datatype/StaticMatrix.h"
-#include "../../datatype/List.h"
-#include "../../datatype/Quaternion.h"
-#include "../../util/Ostream.h"
 #include "../datapool/Datapool.h"
 
 namespace stf {
@@ -121,7 +117,7 @@ void CompositeInput<Leaf,Numbers>::aggregate(){
 		return;
 	}
 	v.normalize();//物理量を正規化
-	this->set_valueInBodyFrame(v);
+	this->set_in_bodyframe(v);
 }
 
 
@@ -143,8 +139,6 @@ void CompositeOutput<Leaf,Numbers>::do_update(){
 //必要に応じて部分特殊化を使い，物理量とアプリケーションに対して適切な分配を行う
 template <class Leaf,int Numbers>
 void CompositeOutput<Leaf,Numbers>::distribute(){
-	//util::cout << value_;
-	//util::cout << output_mat_;
 	datatype::StaticVector<Numbers> v = this->output_mat_ * this->value_;
 	for(int i = 0; i < Numbers; i++){
 		childs_[i]->set_torque(v[i]);

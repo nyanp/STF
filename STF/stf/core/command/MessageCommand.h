@@ -9,8 +9,8 @@
 #define stf_core_command_UnaryFunctorCommand_h
 
 #include "Command.h"
-#include "../functor/Functor.h"
 #include "../../datatype/String.h"
+#include "../devicedriver/cmhandler/ICommandReceiver.h"
 
 namespace stf {
 namespace core {

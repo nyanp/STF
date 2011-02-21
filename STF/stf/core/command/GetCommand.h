@@ -10,11 +10,17 @@
 
 #include "Command.h"
 #include "../../interface/Iterator.h"
+#include "../devicedriver/cmhandler/ICommandReceiver.h"
 
 namespace stf {
 namespace core {
 namespace command {
 
+//! 引数無しのメンバ関数を起動し，戻り値をパケット送出するコマンド．
+/*! 
+	@tparam T メンバ関数を保持するクラス．
+	@tparam U メンバ関数の戻り値型．ICommandReceiver::send_packetに引き渡せる必要がある
+*/
 template<class T, class U>
 class GetCommand : public Command {
 	typedef U (T::*Func)(void) const;
@@ -36,7 +42,14 @@ private:
 
 };
 
-template<class T, class Iterator, class Targ, int SCALE>
+//! イテレータを取得するメンバ関数を起動し，得られたイテレータを使って内部状態をパケットに送出するコマンド．
+/*! 
+	@tparam T        メンバ関数を保持するクラス．
+	@tparam Iterator Tのイテレータクラス．
+	@tparam Targ     メンバ関数の戻り値型．
+	@tparam SCALE    イテレータの値に掛ける倍数．
+*/
+template<class T, class Iterator, class Targ, int SCALE = 1>
 class GetIteratorCommand : public Command {
 	typedef Targ (T::*Func)(void) const;
 public:
@@ -60,6 +73,10 @@ private:
 	T* obj_;
 };
 
+//! コンストラクタで引き渡したイテレータを使い，オブジェクトの内部状態をパケットに送出するコマンド．
+/*! 
+	@tparam SCALE    イテレータの値に掛ける倍数．
+*/
 template<int SCALE>
 class IteratorStreamCommand : public Command {
 public:

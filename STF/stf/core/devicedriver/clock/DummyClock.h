@@ -7,11 +7,10 @@
  */
 #ifndef stf_core_devicedriver_clock_DummyClock_h
 #define stf_core_devicedriver_clock_DummyClock_h
+
 #include "ITimeClock.h"
 #include "IAbsoluteTimeClock.h"
 #include "../CDHComponent.h"
-#include "../IDataUpdatable.h"
-#include "../../../RootObject.h"
 #include "../../../util/loki/Typelist.h"
 
 namespace stf {

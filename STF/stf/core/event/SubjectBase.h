@@ -7,9 +7,8 @@
  */
 #ifndef stf_core_event_Subject_h
 #define stf_core_event_Subject_h
-#include <iostream>
+
 #include "../../datatype/List.h"
-#include <vector>
 
 namespace stf {
 namespace core {

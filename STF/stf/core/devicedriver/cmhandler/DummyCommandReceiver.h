@@ -12,7 +12,6 @@
 #include <string>
 #include "ICommandReceiver.h"
 #include "../../../RootObject.h"
-#include "../../../datatype/List.h"
 
 namespace stf {
 namespace core {

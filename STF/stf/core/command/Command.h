@@ -9,16 +9,23 @@
 #define stf_core_command_Command_h
 
 #include "../../RootObject.h"
-#include "../../util/Ostream.h"
-#include "../../datatype/Time.h"
-#include "../../datatype/String.h"
-#include "../devicedriver/cmhandler/ICommandReceiver.h"
 #include "../../Macros.h"
+#include "../../datatype/Time.h"
 
 namespace stf {
+namespace datatype {
+class String;
+}
 namespace core {
+namespace devicedriver {
+namespace cmhandler {
+class ICommandReceiver;
+}
+}
 namespace command {
 
+//! 衛星コマンドの抽象インターフェースと共通の実装を行う基底クラス．
+/*! */
 class Command : public RootObject {
 public:
 	Command(const datatype::Time& t, const datatype::String& name) : RootObject(0, name), rcv_(0),time_(t) {}

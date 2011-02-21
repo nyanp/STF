@@ -22,6 +22,10 @@ class SHIstream;
 //! Renesas SH7145プロセッサ用の環境クラス．
 /*! */
 struct SH7145 {
+	//! Renesas SHプロセッサ用のGPIOクラス．未実装．
+	/*! 
+		@todo 実装を行う
+	*/
 	template<int i>class GPIO : public GPIOBase<i> {};
 	typedef SHSPI SPI;
 	typedef SHUART UART;

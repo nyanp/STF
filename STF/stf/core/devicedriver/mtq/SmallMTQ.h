@@ -1,6 +1,6 @@
 /**
  * @file   SmallMTQ.h
- * @brief  
+ * @brief  ソフトウェアシミュレーションレベルで動作する小規模磁気トルカドライバ．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -15,6 +15,10 @@ namespace core {
 namespace devicedriver {
 namespace mtq {
 
+//! ソフトウェアシミュレーションレベルで動作する小規模磁気トルカドライバ．
+/*! 
+	@tparam T コンポーネントの環境クラス．
+*/
 template<class T>
 class SmallMTQ : public MTQBase<T> {
 public:

@@ -11,11 +11,10 @@
 #ifndef stf_core_datapool_Datapool_h
 #define stf_core_datapool_Datapool_h
 #include<assert.h>
+#include "../../RootObject.h"
 #include "../../datatype/IAocsData.h"
 #include "../../datatype/List.h"
-#include "../../RootObject.h"
 #include "../../datatype/Time.h"
-#include "../../datatype/StaticVector.h"
 #include "../../datatype/String.h"
 #include "../devicedriver/clock/ITimeClock.h"
 #include "../../interface/Iterator.h"

@@ -232,7 +232,6 @@
     <ClInclude Include="stf\core\devicedriver\Includes.h" />
     <ClInclude Include="stf\core\devicedriver\IOPort.h" />
     <ClInclude Include="stf\core\devicedriver\ISwitchable.h" />
-    <ClInclude Include="stf\core\devicedriver\ITorquable.h" />
     <ClInclude Include="stf\core\devicedriver\magnetometer\TAM.h" />
     <ClInclude Include="stf\core\devicedriver\magnetometer\TAMBase.h" />
     <ClInclude Include="scube\core\devicedriver\magnetometer\SunSensor.h" />

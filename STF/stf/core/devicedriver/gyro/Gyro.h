@@ -1,6 +1,6 @@
 /**
  * @file   Gyro.h
- * @brief  
+ * @brief  ソフトウェアシミュレーションレベルで動作するジャイロセンサドライバ．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -15,6 +15,10 @@ namespace core {
 namespace devicedriver {
 namespace gyro {
 
+//! ソフトウェアシミュレーションレベルで動作するジャイロセンサドライバ．
+/*! 
+	@tparam T コンポーネントの環境クラス．
+*/
 template<class T>
 class Gyro : public GyroBase<T> {
 public:

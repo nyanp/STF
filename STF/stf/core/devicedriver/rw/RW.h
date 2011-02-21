@@ -1,6 +1,6 @@
 /**
  * @file   RW.h
- * @brief  
+ * @brief  ソフトウェアシミュレーションレベルで動作するRWドライバ．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -15,6 +15,10 @@ namespace core {
 namespace devicedriver {
 namespace rw {
 
+//! ソフトウェアシミュレーションレベルで動作するRWドライバ．
+/*! 
+	@tparam T コンポーネントの環境クラス．
+*/
 template<class T>
 class RW : public RWBase<T> {
 public:

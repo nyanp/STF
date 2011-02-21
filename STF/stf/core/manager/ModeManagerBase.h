@@ -50,8 +50,6 @@ public:
 protected:
     const core::mode::ModeBase *current_mode_;
 	const datatype::List<HotSpot>* component_;
-public:
-    //std::vector< core::mode::Mode* > modeman;
 };
 
 } /* End of namespace stf::core::manager */

@@ -8,18 +8,17 @@
 
 #ifndef stf_core_devicedriver_CDHComponent_h
 #define stf_core_devicedriver_CDHComponent_h
-#include <assert.h>
+
+#include "IOPort.h"
 #include "IDataUpdatable.h"
 #include "ISwitchable.h"
-#include "../../interface/ITelemetable.h"
 #include "../../RootObject.h"
-#include "../../datatype/String.h"
-#include "IOPort.h"
-#include "../../GlobalObject.h"
-#include "../datapool/Datapool.h"
 #include "../../interface/Iterator.h"
 
 namespace stf {
+namespace datatype {
+class String;
+}
 namespace interface {
 template<class T, int NUM, class Env> class CDHComponentIterator;
 }

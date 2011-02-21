@@ -9,7 +9,6 @@
 #define stf_core_devicedriver_AOCSActuator_h
 
 #include "AOCSComponent.h"
-#include "../../util/Ostream.h"
 
 namespace stf {
 namespace core {

@@ -4,17 +4,17 @@
  *
  * @author Taiga Nomi
  * @date   2011.02.16
+ * @todo   copyToBodyFrame_の特殊化を洗練させる
  */
 
 #ifndef stf_core_devicedriver_AOCSComponent_h
 #define stf_core_devicedriver_AOCSComponent_h
 
 #include "IDataUpdatable.h"
-
 #include "ISwitchable.h"
+#include "IOPort.h"
 #include "../../RootObject.h"
 #include "../../datatype/DCM.h"
-#include "../../datatype/Vector.h"
 #include "../../datatype/Magnetic.h"
 #include "../../datatype/Scalar.h"
 #include "../../datatype/String.h"
@@ -22,8 +22,9 @@
 #include "../../datatype/OrbitInfo.h"
 #include "../../datatype/Quaternion.h"
 #include "../../datatype/TypeConverter.h"
+#include "../../datatype/StaticVector.h"
 #include "../datapool/Datapool.h"
-#include "IOPort.h"
+
 #include "../../GlobalObject.h"
 #include "../../Macros.h"
 
@@ -61,13 +62,13 @@ public:
 		copyToBodyFrame_(Loki::Type2Type<Target>(),Loki::Type2Type<Hold>());
 		this->last_update_ = this->clock_->get_time();
 	}
-	virtual void set_valueInBodyFrame(const T& value){ 
+	virtual void set_in_bodyframe(const T& value){ 
 		value_b_ = value; 	
 		copyToLocalFrame_(Loki::Type2Type<Target>(),Loki::Type2Type<Hold>());
 		this->last_update_ = this->clock_->get_time(); 	
 	}
-	virtual const U& getValue() const{ return value_; }
-	virtual const T& get_in_bodyframe(){ return value_b_;}//getValue(Loki::Type2Type<Target>(),Loki::Type2Type<Hold>());}
+	virtual const U& get_value() const{ return value_; }
+	virtual const T& get_in_bodyframe(){ return value_b_;}//get_value(Loki::Type2Type<Target>(),Loki::Type2Type<Hold>());}
 	virtual void do_compute(const datatype::Time& t){}
 	virtual ~AOCSComponent(){}
 protected:

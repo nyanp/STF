@@ -7,11 +7,10 @@
  */
 #ifndef stf_core_functor_InputFunctor_h
 #define stf_core_functor_InputFunctor_h
-#include "../../util/Ostream.h"
+
+#include "../../Macros.h"
 #include "../../RootObject.h"
 #include "../datapool/Datapool.h"
-#include "../../GlobalObject.h"
-#include "../../Macros.h"
 
 namespace stf {
 namespace core {
@@ -102,7 +101,7 @@ public:
 		@param datapool_hold_index データ判定に使用するデータプールの列番号．
 		@param ref                 判定に使用する基準値．
 		@param distance            判定の境界条件となるノルム値．
-		@@aram norm                計算に使用するノルムの次元．
+		@param norm                計算に使用するノルムの次元．
 	*/
 	Is_Near(DB* holder,int datapool_hold_index, const typename T::Hold* ref, double distance, int norm) 
 		: holder_(holder), value_(ref), datapool_hold_index_(datapool_hold_index), distance_(distance), norm_(norm){

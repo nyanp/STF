@@ -8,8 +8,8 @@
 #ifndef stf_core_command_TypeListFunctionCommand_h
 #define stf_core_command_TypeListFunctionCommand_h
 
-#include "Command.h"
 #include <assert.h>
+#include "Command.h"
 
 namespace stf {
 namespace core {

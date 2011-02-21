@@ -8,7 +8,6 @@
 #include "SubjectBase.h"
 #include "ModeChangeEvent.h"
 #include "../manager/ModeManagerBase.h"
-#include "../../GlobalObject.h"
 #include "../datapool/Datapool.h"
 
 namespace stf {
