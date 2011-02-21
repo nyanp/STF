@@ -103,6 +103,74 @@ private:
 	ARG arg3_;
 };
 
+//! 4引数のメンバ関数を起動するコマンド．
+/*! @tparam T   メンバ関数を保持するクラス．
+	@tparam ARG 引数の型．
+ */
+template<class T, class ARG>
+class TypeListMemberFunctionCommand<T,ARG,4> : public Command {
+	typedef void (T::*Func)(ARG,ARG,ARG,ARG);
+public:
+	TypeListMemberFunctionCommand(const datatype::Time& t, T* obj, Func f, ARG arg1, ARG arg2, ARG arg3, ARG arg4)
+		: Command(t,"TypeListMemberFuncCommand"), obj_(obj), f_(f), arg1_(arg1), arg2_(arg2), arg3_(arg3), arg4_(arg4) {}
+	~TypeListMemberFunctionCommand(){}
+	virtual void init(int* params, int paramsize){
+		assert(paramsize >= 4);
+		arg1_ = params[0];
+		arg2_ = params[1];
+		arg3_ = params[2];
+		arg4_ = params[3];
+	}
+	virtual Command* clone(const datatype::Time& t){
+		return new TypeListMemberFunctionCommand<T,ARG,4>(t,obj_,f_,arg1_,arg2_,arg3_,arg4_);
+	}
+	virtual void execute(){
+		(*obj_.*f_)(arg1_, arg2_, arg3_,arg4_);//trigger functor
+	}
+private:
+	T* obj_;
+	Func f_;
+	ARG arg1_;
+	ARG arg2_;
+	ARG arg3_;
+	ARG arg4_;
+};
+
+//! 5引数のメンバ関数を起動するコマンド．
+/*! @tparam T   メンバ関数を保持するクラス．
+	@tparam ARG 引数の型．
+ */
+template<class T, class ARG>
+class TypeListMemberFunctionCommand<T,ARG,5> : public Command {
+	typedef void (T::*Func)(ARG,ARG,ARG,ARG,ARG);
+public:
+	TypeListMemberFunctionCommand(const datatype::Time& t, T* obj, Func f, ARG arg1, ARG arg2, ARG arg3, ARG arg4, ARG arg5)
+		: Command(t,"TypeListMemberFuncCommand"), obj_(obj), f_(f), arg1_(arg1), arg2_(arg2), arg3_(arg3), arg4_(arg4), arg5_(arg5) {}
+	~TypeListMemberFunctionCommand(){}
+	virtual void init(int* params, int paramsize){
+		assert(paramsize >= 5);
+		arg1_ = params[0];
+		arg2_ = params[1];
+		arg3_ = params[2];
+		arg4_ = params[3];
+		arg5_ = params[4];
+	}
+	virtual Command* clone(const datatype::Time& t){
+		return new TypeListMemberFunctionCommand<T,ARG,5>(t,obj_,f_,arg1_,arg2_,arg3_,arg4_,arg5_);
+	}
+	virtual void execute(){
+		(*obj_.*f_)(arg1_, arg2_, arg3_,arg4_,arg5_);//trigger functor
+	}
+private:
+	T* obj_;
+	Func f_;
+	ARG arg1_;
+	ARG arg2_;
+	ARG arg3_;
+	ARG arg4_;
+	ARG arg5_;
+};
+
 //! 6引数のメンバ関数を起動するコマンド．
 /*! @tparam T   メンバ関数を保持するクラス．
 	@tparam ARG 引数の型．
