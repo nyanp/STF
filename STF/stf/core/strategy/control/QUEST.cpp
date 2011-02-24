@@ -38,7 +38,7 @@ QUEST::QUEST(int instance_id, double sigma_sun, double sigma_earth,
 
 void QUEST::do_compute(const datatype::Time& t) {
 	if(t <= this->last_update_) return; //既に別のブロック経由で更新済みなら再計算しない
-		util::cout << "compute: QUEST" << util::endl;
+	//util::cout << "compute: QUEST" << util::endl;
 	//センサから取得した衛星基準座標系における地球，太陽方向
 	datatype::StaticVector<2> w_sun = this->source<0,datatype::StaticVector<2>>().get_in_bodyframe(t);
 	datatype::StaticVector<2> w_earth = this->source<1,datatype::StaticVector<2>>().get_in_bodyframe(t);

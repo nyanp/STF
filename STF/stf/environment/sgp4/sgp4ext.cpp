@@ -1,14 +1,14 @@
 /**
  * @file   sgp4ext.cpp
- * @brief  NJHILS‚©‚ç‚Á‚Ä‚«‚½‹O“¹ŒvZŠÖŒWƒ‚ƒWƒ…[ƒ‹‚ğCsgp4–¼‘O‹óŠÔ‚Åƒ‰ƒbƒv‚µ‚Äg—pD
+ * @brief  NJHILSã‹ã‚‰æŒã£ã¦ããŸè»Œé“è¨ˆç®—é–¢ä¿‚ãƒ¢ã‚¸ãƒ¥ãƒ¼ãƒ«ã‚’ï¼Œsgp4åå‰ç©ºé–“ã§ãƒ©ãƒƒãƒ—ã—ã¦ä½¿ç”¨ï¼
  *
  * @author david vallado
  * @date   2011.02.16
  */
 /*     ----------------------------------------------------------------
 *
-*							ŒvZƒ‹[ƒ`ƒ“
-*							”®ŒvZ‚Æ—ïŒvZ
+*							è¨ˆç®—ãƒ«ãƒ¼ãƒãƒ³
+*							æ•°å¼è¨ˆç®—ã¨æš¦è¨ˆç®—
 *                               sgp4ext.cpp
 *
 *    this file contains extra routines needed for the main test program for sgp4.
@@ -41,8 +41,8 @@
 
 namespace sgp4 {
 
-//À•W•ÏŠ·—p
-//‰ñ“]ŠÖ”x²ü‚è[rad]
+//åº§æ¨™å¤‰æ›ç”¨
+//å›è»¢é–¢æ•°xè»¸å‘¨ã‚Š[rad]
 int RotationX(const double* bfr, double* aft, double theta)
 {
 	double temp[3];
@@ -58,8 +58,8 @@ int RotationX(const double* bfr, double* aft, double theta)
 	return 0;
 }
 
-//À•W•ÏŠ·—p
-//‰ñ“]ŠÖ”Y²ü‚è[rad]
+//åº§æ¨™å¤‰æ›ç”¨
+//å›è»¢é–¢æ•°Yè»¸å‘¨ã‚Š[rad]
 int RotationY(const double* bfr, double* aft, double theta)
 {
 	double temp[3];
@@ -75,8 +75,8 @@ int RotationY(const double* bfr, double* aft, double theta)
 	return 0;
 }
 
-//À•W•ÏŠ·—p
-//‰ñ“]ŠÖ”Z²ü‚è[rad]
+//åº§æ¨™å¤‰æ›ç”¨
+//å›è»¢é–¢æ•°Zè»¸å‘¨ã‚Š[rad]
 int RotationZ(const double* bfr, double* aft, double theta)
 {
 	double temp[3];
@@ -92,7 +92,7 @@ int RotationZ(const double* bfr, double* aft, double theta)
 	return 0;
 }
 
-//À•W•ÏŠ·—p
+//åº§æ¨™å¤‰æ›ç”¨
 double AcTan(double sinx, double cosx)
 {
 	/* Four-quadrant arctan function */
@@ -120,7 +120,7 @@ double AcTan(double sinx, double cosx)
 	}
 }
 
-//À•W•ÏŠ·—p
+//åº§æ¨™å¤‰æ›ç”¨
 double FMod2p(double x)
 {
 	/* Returns mod 2PI of argument */
@@ -230,7 +230,7 @@ void    cross
 *                           function dot
 *
 *  this function finds the dot product of two vectors.
-*	“àÏŒvZ
+*	å†…ç©è¨ˆç®—
 *
 *  author        : david vallado                  719-573-2600    1 mar 2001
 *
@@ -343,10 +343,10 @@ double  asinh
 *
 *  this function solves keplers equation when the true anomaly is known.
 *    the mean and eccentric, parabolic, or hyperbolic anomaly is also found.
-*    the parabolic limit at 168Eis arbitrary. the hyperbolic anomaly is also
+*    the parabolic limit at 168ãƒ»is arbitrary. the hyperbolic anomaly is also
 *    limited. the hyperbolic sine is used because it's not double valued.
-*	^‹ß“_—£Šp‚ª‚í‚©‚Á‚Ä‚¢‚é‚Æ‚«‚ÉƒPƒvƒ‰[•û’ö®‚ğ‰ğ‚­B
-*	•½‹Ï‹ß“_ŠpA—£S—¦A‘o‹ÈüA‘È‰~ƒAƒmƒ}ƒŠ[‚à‚í‚©‚éB
+*	çœŸè¿‘ç‚¹é›¢è§’ãŒã‚ã‹ã£ã¦ã„ã‚‹ã¨ãã«ã‚±ãƒ—ãƒ©ãƒ¼æ–¹ç¨‹å¼ã‚’è§£ãã€‚
+*	å¹³å‡è¿‘ç‚¹è§’ã€é›¢å¿ƒç‡ã€åŒæ›²ç·šã€æ¥•å††ã‚¢ãƒãƒãƒªãƒ¼ã‚‚ã‚ã‹ã‚‹ã€‚
 *
 *  author        : david vallado                  719-573-2600   27 may 2002
 *
@@ -358,8 +358,8 @@ double  asinh
 *    nu          - true anomaly                   -2pi to 2pi rad
 *
 *  outputs       :
-*    e0          - eccentric anomaly              0.0  to 2pi rad       153.02 E
-*    m           - mean anomaly                   0.0  to 2pi rad       151.7425 E
+*    e0          - eccentric anomaly              0.0  to 2pi rad       153.02 ãƒ»
+*    m           - mean anomaly                   0.0  to 2pi rad       151.7425 ãƒ»
 *
 *  locals        :
 *    e1          - eccentric anomaly, next value  rad
@@ -437,7 +437,7 @@ void newtonnu
 *
 *  this function finds the classical orbital elements given the geocentric
 *    equatorial position and velocity vectors.
-*  ‚±‚ÌŠÖ”‚Å‚Í’nS‚ÌˆÊ’u‚Æ‘¬“xƒxƒNƒgƒ‹‚©‚çŒÃ“T“I‚È‹O“¹—v‘f‚ğ‹‚ß‚éB
+*  ã“ã®é–¢æ•°ã§ã¯åœ°å¿ƒã®ä½ç½®ã¨é€Ÿåº¦ãƒ™ã‚¯ãƒˆãƒ«ã‹ã‚‰å¤å…¸çš„ãªè»Œé“è¦ç´ ã‚’æ±‚ã‚ã‚‹ã€‚
 *
 *  author        : david vallado                  719-573-2600   21 jun 2002
 *
@@ -450,7 +450,7 @@ void newtonnu
 *  inputs          description                    range / units
 *    r           - ijk position vector            km
 *    v           - ijk velocity vector            km / s
-*    mu          - gravitational parameter        km3 / s2		//’nSd—Í’è”
+*    mu          - gravitational parameter        km3 / s2		//åœ°å¿ƒé‡åŠ›å®šæ•°
 *
 *  outputs       :
 *    p           - semilatus rectum               km
@@ -461,13 +461,13 @@ void newtonnu
 *    argp        - argument of perigee            0.0  to 2pi rad
 *    nu          - true anomaly                   0.0  to 2pi rad
 *    m           - mean anomaly                   0.0  to 2pi rad
-*    arglat      - argument of latitude      (ci) 0.0  to 2pi rad	//ˆÜ“x
-*    truelon     - true longitude            (ce) 0.0  to 2pi rad	//^‚ÌŒo“x
-*    lonper      - longitude of periapsis    (ee) 0.0  to 2pi rad	//‹ß’n“_‚Å‚ÌŒo“xH
+*    arglat      - argument of latitude      (ci) 0.0  to 2pi rad	//ç·¯åº¦
+*    truelon     - true longitude            (ce) 0.0  to 2pi rad	//çœŸã®çµŒåº¦
+*    lonper      - longitude of periapsis    (ee) 0.0  to 2pi rad	//è¿‘åœ°ç‚¹ã§ã®çµŒåº¦ï¼Ÿ
 *
 *  locals        :
 *    hbar        - angular momentum h vector      km2 / s
-*    ebar        - eccentricity     e vector			//—£S—¦‚ÌƒxƒNƒgƒ‹H
+*    ebar        - eccentricity     e vector			//é›¢å¿ƒç‡ã®ãƒ™ã‚¯ãƒˆãƒ«ï¼Ÿ
 *    nbar        - line of nodes    n vector
 *    c1          - v**2 - u/r
 *    rdotv       - r dot v
@@ -592,7 +592,7 @@ void rv2coe
              nu= undefined;
 
          // ----  find argument of latitude - circular inclined -----
-		 //ˆÜ“x‚ÌŒvZi‰~‚Ì/ŒXÎ–Ê‚Ì)
+		 //ç·¯åº¦ã®è¨ˆç®—ï¼ˆå††ã®/å‚¾æ–œé¢ã®)
          if ( strcmp(typeorbit,"ci") == 0 )
            {
              arglat = angle( nbar,r );
@@ -619,12 +619,12 @@ void rv2coe
              lonper= undefined;
 
          // -------- find true longitude - circular equatorial ------
-		 //^‚ÌŒo“x‚ÌŒvZ(‰~‚Ì/Ô“¹‚Ì)
+		 //çœŸã®çµŒåº¦ã®è¨ˆç®—(å††ã®/èµ¤é“ã®)
          if  (( magr>small ) && ( strcmp(typeorbit,"ce") == 0 ))
            {
              temp= r[0]/magr;
              if ( fabs(temp) > 1.0  )
-                 temp= sgn(temp);	//sgn()‚Í•„†ŠÖ”
+                 temp= sgn(temp);	//sgn()ã¯ç¬¦å·é–¢æ•°
              truelon= acos( temp );
              if ( r[1] < 0.0  )
                  truelon= twopi - truelon;
@@ -659,7 +659,7 @@ void rv2coe
 *
 *                           procedure jday
 *
-*	¼—ï‚Ì—ï(UT)‚©‚çƒ†ƒŠƒA“ú‚ğŒvZ
+*	è¥¿æš¦ã®æš¦(UT)ã‹ã‚‰ãƒ¦ãƒªã‚¢æ—¥ã‚’è¨ˆç®—
 *
 *  this procedure finds the julian date given the year, month, day, and time.
 *    the julian date is defined by each elapsed day since noon, jan 1, 4713 bc.
@@ -708,7 +708,7 @@ void    jday
 *
 *                           procedure days2mdhms
 *
-*	‚»‚Ìw”Nx‚É‚¨‚¯‚éƒ†ƒŠƒA“ú‚©‚çA¼—ï‚Ì—ï‚É•ÏŠ·
+*	ãã®ã€å¹´ã€ã«ãŠã‘ã‚‹ãƒ¦ãƒªã‚¢æ—¥ã‹ã‚‰ã€è¥¿æš¦ã®æš¦ã«å¤‰æ›
 *
 *  this procedure converts the day of the year, days, to the equivalent month
 *    day, hour, minute and second.
@@ -780,7 +780,7 @@ void    days2mdhms
 *
 *                           procedure invjday
 *
-*	ƒ†ƒŠƒA“ú‚©‚ç¼—ï‚Ì—ï‚É•ÏŠ·
+*	ãƒ¦ãƒªã‚¢æ—¥ã‹ã‚‰è¥¿æš¦ã®æš¦ã«å¤‰æ›
 *
 *  this procedure finds the year, month, day, hour, minute and second
 *  given the julian date. tu can be ut1, tdt, tdb, etc.
@@ -851,7 +851,7 @@ void    invjday
    }  // end invjday
 
 
-//ƒ†ƒŠƒEƒX“ú‚©‚çDecimalYear(year‚Ì¬”“_•\‹L)‚ÌŒvZ
+//ãƒ¦ãƒªã‚¦ã‚¹æ—¥ã‹ã‚‰DecimalYear(yearã®å°æ•°ç‚¹è¡¨è¨˜)ã®è¨ˆç®—
 void JdToDecyear
         (
           double jd,

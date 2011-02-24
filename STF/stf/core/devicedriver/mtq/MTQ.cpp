@@ -1,6 +1,6 @@
 /**
  * @file   MTQ.cpp
- * @brief  
+ * @brief  ソフトウェアシミュレーションレベルで動作する磁気トルカドライバ．
  *
  * @author Taiga Nomi
  * @date   2011.02.16

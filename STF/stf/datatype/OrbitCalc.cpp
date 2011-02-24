@@ -1,6 +1,6 @@
 /**
  * @file   OrbitCalc.cpp
- * @brief  
+ * @brief  軌道関係情報を計算するメソッドをstaticメンバとしてまとめたクラス．
  *
  * @author Taiga Nomi
  * @date   2011.02.16

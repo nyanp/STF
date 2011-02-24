@@ -95,7 +95,7 @@ void EKF::do_compute(const datatype::Time& t)
 {
 	if(this->getLastOutputtime<1>() >= t) return; //伝搬済みなので何もしない
 	//util::cout << "t:" << t << "u:" << this->getLastOutputtime<0>() << "p:" << this->getLastOutputtime<1>() << "stt:" << this->getLastInputTime<0>() << util::endl;
-	util::cout << "compute: EKF" << util::endl;	
+	//util::cout << "compute: EKF" << util::endl;	
 	if(this->getLastOutputtime<0>() < t && this->getLastInputTime<0>() >= this->getLastOutputtime<0>()){
 		update_( this->source<0,datatype::Quaternion>().get_in_bodyframe(t), t );
 		//util::cout << "update:" << util::endl;

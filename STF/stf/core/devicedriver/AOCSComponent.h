@@ -1,6 +1,6 @@
 /**
  * @file   AOCSComponent.h
- * @brief  
+ * @brief  センサおよびアクチュエータの基底クラス．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -25,7 +25,7 @@
 #include "../../datatype/StaticVector.h"
 #include "../datapool/Datapool.h"
 
-#include "../../GlobalObject.h"
+//#include "../../GlobalObject.h"
 #include "../../Macros.h"
 
 namespace stf {

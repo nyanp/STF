@@ -6,10 +6,7 @@
  * @date   2011.02.16
  */
 #include "GGCompensation.h"
-#include "../../../datatype/DateTime.h"
-#include "../../../datatype/DCM.h"
 #include "../../../datatype/OrbitCalc.h"
-#include "../../../datatype/TypeConverter.h"
 #include "../../../datatype/SatelliteModel.h"
 #include "../../../GlobalObject.h"
 #include "../../../datatype/StaticMatrix.h"
@@ -36,7 +33,7 @@ GGCompensation::GGCompensation(int instance_id,
 
 void GGCompensation::do_compute(const datatype::Time& t) {
 	if(t <= this->last_update_) return; //既に別のブロック経由で更新済みなら再計算しない
-	util::cout << "compute: ggcompensation" << util::endl;
+	//util::cout << "compute: ggcompensation" << util::endl;
 	// 軌道情報と姿勢情報から，機体座標における地球方向ベクトルを算出
 	datatype::StaticVector<3> R = datatype::OrbitCalc::getEarthDirectionInBodyFrame(
 		this->source<1,datatype::PositionInfo>().get_in_bodyframe(t),

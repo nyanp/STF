@@ -1,6 +1,6 @@
 /**
  * @file   DebugLogger.cpp
- * @brief  
+ * @brief  テレメハンドラのデバッグ用クラス．
  *
  * @author Taiga Nomi
  * @date   2011.02.16

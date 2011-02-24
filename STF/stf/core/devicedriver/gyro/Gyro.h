@@ -1,6 +1,6 @@
 /**
  * @file   Gyro.h
- * @brief  ƒ\ƒtƒgƒEƒFƒAƒVƒ~ƒ…ƒŒ[ƒVƒ‡ƒ“ƒŒƒxƒ‹‚Å“®ì‚·‚éƒWƒƒƒCƒƒZƒ“ƒTƒhƒ‰ƒCƒoD
+ * @brief  ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ãƒ¬ãƒ™ãƒ«ã§å‹•ä½œã™ã‚‹ã‚¸ãƒ£ã‚¤ãƒ­ã‚»ãƒ³ã‚µãƒ‰ãƒ©ã‚¤ãƒï¼Ž
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -15,9 +15,9 @@ namespace core {
 namespace devicedriver {
 namespace gyro {
 
-//! ƒ\ƒtƒgƒEƒFƒAƒVƒ~ƒ…ƒŒ[ƒVƒ‡ƒ“ƒŒƒxƒ‹‚Å“®ì‚·‚éƒWƒƒƒCƒƒZƒ“ƒTƒhƒ‰ƒCƒoD
+//! ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ãƒ¬ãƒ™ãƒ«ã§å‹•ä½œã™ã‚‹ã‚¸ãƒ£ã‚¤ãƒ­ã‚»ãƒ³ã‚µãƒ‰ãƒ©ã‚¤ãƒï¼Ž
 /*! 
-	@tparam T ƒRƒ“ƒ|[ƒlƒ“ƒg‚ÌŠÂ‹«ƒNƒ‰ƒXD
+	@tparam T ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆã®ç’°å¢ƒã‚¯ãƒ©ã‚¹ï¼Ž
 */
 template<class T>
 class Gyro : public GyroBase<T> {

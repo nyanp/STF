@@ -1,6 +1,6 @@
 /**
  * @file   sgp4unit.cpp
- * @brief  NJHILS‚©‚ç‚Á‚Ä‚«‚½‹O“¹ŒvZŠÖŒWƒ‚ƒWƒ…[ƒ‹‚ğCsgp4–¼‘O‹óŠÔ‚Åƒ‰ƒbƒv‚µ‚Äg—pD
+ * @brief  NJHILSã‹ã‚‰æŒã£ã¦ããŸè»Œé“è¨ˆç®—é–¢ä¿‚ãƒ¢ã‚¸ãƒ¥ãƒ¼ãƒ«ã‚’ï¼Œsgp4åå‰ç©ºé–“ã§ãƒ©ãƒƒãƒ—ã—ã¦ä½¿ç”¨ï¼
  *
  * @author david vallado
  * @date   2011.02.16
@@ -45,7 +45,7 @@
 *                           original baseline
 *       ----------------------------------------------------------------      */
 
-#pragma warning ( disable : 4996 )		//fopenƒGƒ‰[‰ñ”ğ
+#pragma warning ( disable : 4996 )		//fopenã‚¨ãƒ©ãƒ¼å›é¿
 
 #include "sgp4unit.h"
 #include <iostream>
@@ -1143,7 +1143,7 @@ static void dspace
 *
 *                           procedure initl
 *
-*	SGP4ƒvƒƒpƒQ[ƒ^[‚Ì‰Šú‰»1
+*	SGP4ãƒ—ãƒ­ãƒ‘ã‚²ãƒ¼ã‚¿ãƒ¼ã®åˆæœŸåŒ–1
 *
 *  this procedure initializes the spg4 propagator. all the initialization is
 *    consolidated here instead of having multiple loops inside other routines.
@@ -1267,7 +1267,7 @@ static void initl
 *
 *                             procedure sgp4init
 *
-*	SGP4‚Ì‰Šú‰»
+*	SGP4ã®åˆæœŸåŒ–
 *
 *  this procedure initializes variables for sgp4.
 *
@@ -1410,7 +1410,7 @@ int sgp4init
      // it is possible to streamline the sgp4init call by deleting the "x"
      // variables, but the user would need to set the satrec.* values first. we
      // include the additional assignments in case twoline2rv is not used.
-	 //TLE‚ğg‚í‚È‚¢‚Å‚U—v‘f‚ğ‘ã“ü‚·‚é‚Æ‚«—pH
+	 //TLEã‚’ä½¿ã‚ãªã„ã§ï¼–è¦ç´ ã‚’ä»£å…¥ã™ã‚‹ã¨ãç”¨ï¼Ÿ
      satrec.bstar   = xbstar;
      satrec.ecco    = xecco;
      satrec.argpo   = xargpo;
@@ -1609,9 +1609,9 @@ int sgp4init
 *
 *                             procedure sgp4
 *
-*	SGP4‚ÌŒvZ
-*	AIAA-2006‚ÉŠî‚Ã‚¢‚Ä‚¨‚èA‚±‚Ìƒo[ƒWƒ‡ƒ“‚Å‚ÍSGP4‚ÆSDP4‚ğ•¹‚¹‚Ä‘‚¢‚Ä‚¢‚éB
-*	‹O“¹üŠú‚ª225sec‚æ‚è’·‚¢‚©’Z‚¢‚©‚ÅDEEPSPACE‚©‚Ç‚¤‚©ğŒ•ªŠò‚µ‚Ä‚¢‚é(satrec.method)
+*	SGP4ã®è¨ˆç®—
+*	AIAA-2006ã«åŸºã¥ã„ã¦ãŠã‚Šã€ã“ã®ãƒãƒ¼ã‚¸ãƒ§ãƒ³ã§ã¯SGP4ã¨SDP4ã‚’ä½µã›ã¦æ›¸ã„ã¦ã„ã‚‹ã€‚
+*	è»Œé“å‘¨æœŸãŒ225secã‚ˆã‚Šé•·ã„ã‹çŸ­ã„ã‹ã§DEEPSPACEã‹ã©ã†ã‹æ¡ä»¶åˆ†å²ã—ã¦ã„ã‚‹(satrec.method)
 *
 *  this procedure is the sgp4 prediction model from space command. this is an
 *    updated and combined version of sgp4 and sdp4, which were originally
@@ -1623,7 +1623,7 @@ int sgp4init
 *
 *  inputs        :
 *    satrec	 - initialised structure from sgp4init() call.
-*    tsince	 - time eince epoch (minutes)	Œ³Šú‚©‚ç‚ÌŒo‰ßŠÔ
+*    tsince	 - time eince epoch (minutes)	å…ƒæœŸã‹ã‚‰ã®çµŒéæ™‚é–“
 *
 *  outputs       :
 *    r           - position vector                     km
@@ -1731,7 +1731,7 @@ int sgp4
      satrec.error = 0;
 
      /* ------- update for secular gravity and atmospheric drag ----- */
-	 //‰i‘±“I‚Èd—Í‚Æ‘å‹C’ïR‚ÌƒAƒbƒvƒf[ƒg
+	 //æ°¸ç¶šçš„ãªé‡åŠ›ã¨å¤§æ°—æŠµæŠ—ã®ã‚¢ãƒƒãƒ—ãƒ‡ãƒ¼ãƒˆ
      xmdf    = satrec.mo + satrec.mdot * satrec.t;
      argpdf  = satrec.argpo + satrec.argpdot * satrec.t;
      nodedf  = satrec.nodeo + satrec.nodedot * satrec.t;
@@ -1872,7 +1872,7 @@ int sgp4
      xl   = mp + argpp + nodep + temp * satrec.xlcof * axnl;
 
      /* --------------------- solve kepler's equation --------------- */
-	 //ƒPƒvƒ‰[•û’ö®‚ğ‰ğ‚­
+	 //ã‚±ãƒ—ãƒ©ãƒ¼æ–¹ç¨‹å¼ã‚’è§£ã
      u    = fmod(xl - nodep, twopi);
      eo1  = u;
      tem5 = 9999.9;
@@ -1960,7 +1960,7 @@ int sgp4
        }  // if pl > 0
 
      // sgp4fix for decaying satellites
-     if (mrt < 1.0)		//’n‹…‚ÉŒƒ“Ë‚µ‚Ä”j‰óH
+     if (mrt < 1.0)		//åœ°çƒã«æ¿€çªã—ã¦ç ´å£Šï¼Ÿ
        {
 //         printf("# decay condition %11.6f \n",mrt);
          satrec.error = 6;
@@ -1976,7 +1976,7 @@ int sgp4
 *
 *                           function gstime
 *
-*	ƒ†ƒŠƒEƒX“ú‚©‚çAƒOƒŠƒjƒbƒW•½‹ÏP¯‚ÌŒvZ
+*	ãƒ¦ãƒªã‚¦ã‚¹æ—¥ã‹ã‚‰ã€ã‚°ãƒªãƒ‹ãƒƒã‚¸å¹³å‡æ’æ˜Ÿæ™‚ã®è¨ˆç®—
 *
 *  this function finds the greenwich sidereal time.
 *
@@ -2019,13 +2019,13 @@ double  gstime
          temp += twopi;
 
 /*
-//debug—p
+//debugç”¨
 	int temp1,temp2;
 	double temp3;
 	temp1 = (int)(temp*180/pi/15);
 	temp2 = (int)((temp*180/pi/15-temp1)*60);
 	temp3 = (((temp*180/pi/15-temp1)*60)-temp2)*60;
-	std::cout << "ƒOƒŠƒjƒbƒW•½‹ÏP¯gstime " << temp1 << "h" << temp2 <<  "m" << temp3 << "s" << std::endl;
+	std::cout << "ã‚°ãƒªãƒ‹ãƒƒã‚¸å¹³å‡æ’æ˜Ÿæ™‚gstime " << temp1 << "h" << temp2 <<  "m" << temp3 << "s" << std::endl;
 */
 
 	return temp;
@@ -2035,7 +2035,7 @@ double  gstime
 *
 *                           function getgravconst
 *
-*	’n‹…‚ÌG•½‚Ìî•ñi’è”’lj
+*	åœ°çƒã®æ‰å¹³ã®æƒ…å ±ï¼ˆå®šæ•°å€¤ï¼‰
 *
 *  this function gets constants for the propagator. note that mu is identified to
 *    facilitiate comparisons with newer models. the common useage is wgs72.

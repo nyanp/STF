@@ -1,6 +1,6 @@
 /**
  * @file   sgp4unit.h
- * @brief  NJHILS‚©‚çŽ‚Á‚Ä‚«‚½‹O“¹ŒvŽZŠÖŒWƒ‚ƒWƒ…[ƒ‹‚ðCsgp4–¼‘O‹óŠÔ‚Åƒ‰ƒbƒv‚µ‚ÄŽg—pD
+ * @brief  NJHILSã‹ã‚‰æŒã£ã¦ããŸè»Œé“è¨ˆç®—é–¢ä¿‚ãƒ¢ã‚¸ãƒ¥ãƒ¼ãƒ«ã‚’ï¼Œsgp4åå‰ç©ºé–“ã§ãƒ©ãƒƒãƒ—ã—ã¦ä½¿ç”¨ï¼Ž
  *
  * @author david vallado
  * @date   2011.02.16

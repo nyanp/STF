@@ -10,6 +10,8 @@
 #include "sgp4/sgp4unit.h"
 #include "sgp4/orbitutil.h"
 #include "models/igrf.h"
+#include "../util/math.h"
+#include "../datatype/TypeConverter.h"
 
 using namespace stf::datatype;
 

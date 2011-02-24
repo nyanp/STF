@@ -1,6 +1,6 @@
 /**
  * @file   orbitutil.h
- * @brief  NJHILS‚©‚ç‚Á‚Ä‚«‚½‹O“¹ŒvZŠÖŒWƒ‚ƒWƒ…[ƒ‹‚ğCsgp4–¼‘O‹óŠÔ‚Åƒ‰ƒbƒv‚µ‚Äg—pD
+ * @brief  NJHILSã‹ã‚‰æŒã£ã¦ããŸè»Œé“è¨ˆç®—é–¢ä¿‚ãƒ¢ã‚¸ãƒ¥ãƒ¼ãƒ«ã‚’ï¼Œsgp4åå‰ç©ºé–“ã§ãƒ©ãƒƒãƒ—ã—ã¦ä½¿ç”¨ï¼
  *
  * @author david vallado
  * @date   2011.02.16
@@ -25,6 +25,6 @@ bool SatEclipsed(double *pos, double *sol);
 int InitOrbit(double* jdepoch, char* tle1, char* tle2);
 int OrbitMain(double stoptime,double* mag);
 
-//int test();		//‚à‚Æ‚à‚Æ‚ÌƒƒCƒ“ŠÖ”
+//int test();		//ã‚‚ã¨ã‚‚ã¨ã®ãƒ¡ã‚¤ãƒ³é–¢æ•°
 }
 #endif //__orbit_H__

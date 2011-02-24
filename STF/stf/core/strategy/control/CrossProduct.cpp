@@ -32,7 +32,7 @@ CrossProduct::CrossProduct(int instance_id,
 
 void CrossProduct::do_compute(const datatype::Time& t) {
 	if(t <= this->last_update_) return; //既に別のブロック経由で更新済みなら再計算しない
-	util::cout << "compute: crossproduct" << util::endl;	
+	//util::cout << "compute: crossproduct" << util::endl;	
 	// M = B * T / |B|2
 	datatype::MagneticField B = this->source<1,datatype::MagneticField>().get_in_bodyframe(t);
 	datatype::StaticVector<3> T = this->source<0,datatype::StaticVector<3>>().get_in_bodyframe(t);

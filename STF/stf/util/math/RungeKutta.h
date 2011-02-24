@@ -8,8 +8,6 @@
 #ifndef util_math_RungeKutta_h
 #define util_math_RungeKutta_h
 
-#include "../../datatype/Vector.h"
-
 namespace stf { 
 namespace util {
 namespace math {

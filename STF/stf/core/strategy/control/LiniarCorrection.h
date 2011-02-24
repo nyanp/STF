@@ -10,7 +10,6 @@
 #include <assert.h>
 #include "../StrategyBase.h"
 #include "../../devicedriver/IOPort.h"
-#include "../../../util/Ostream.h"
 
 namespace stf {
 namespace core {
@@ -42,7 +41,7 @@ public:
 
 	virtual void do_compute(const datatype::Time& t){
 		if(t > this->last_update_){
-			util::cout << "compute: LiniarCorrection" << util::endl;
+			//util::cout << "compute: LiniarCorrection" << util::endl;
 			this->value_b_ =  sf_ * this->source<0,T>().get_in_bodyframe(t) + offset_;
 			this->last_update_ = t;
 		}

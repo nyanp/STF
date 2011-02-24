@@ -8,12 +8,10 @@
 #ifndef stf_core_devicedriver_mtq_MTQBase_h
 #define stf_core_devicedriver_mtq_MTQBase_h
 
-#include "../../../datatype/DCM.h"
+
+#include "../AOCSActuator.h"
 #include "../../../datatype/Scalar.h"
 #include "../../../datatype/Magnetic.h"
-#include "../AOCSActuator.h"
-#include "../../../util/Ostream.h"
-#include "../../../util/math.h"
 
 namespace stf {
 namespace environment {

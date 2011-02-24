@@ -1,6 +1,6 @@
 /**
  * @file   EarthSensor.cpp
- * @brief  
+ * @brief  ソフトウェアシミュレーションレベルで動作する地球センサドライバ．
  *
  * @author Taiga Nomi
  * @date   2011.02.16

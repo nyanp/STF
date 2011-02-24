@@ -1,6 +1,6 @@
 /**
  * @file   SubjectBase.cpp
- * @brief  
+ * @brief  Observerパターンの構成テンプレートクラス群．
  *
  * @author Taiga Nomi
  * @date   2011.02.16

@@ -1,6 +1,6 @@
 /**
  * @file   RW.cpp
- * @brief  
+ * @brief  ソフトウェアシミュレーションレベルで動作するRWドライバ．
  *
  * @author Taiga Nomi
  * @date   2011.02.16

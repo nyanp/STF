@@ -1,6 +1,6 @@
 /**
  * @file   RW.h
- * @brief  ƒ\ƒtƒgƒEƒFƒAƒVƒ~ƒ…ƒŒ[ƒVƒ‡ƒ“ƒŒƒxƒ‹‚Å“®ì‚·‚éRWƒhƒ‰ƒCƒoD
+ * @brief  ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ãƒ¬ãƒ™ãƒ«ã§å‹•ä½œã™ã‚‹RWãƒ‰ãƒ©ã‚¤ãƒï¼
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -15,9 +15,9 @@ namespace core {
 namespace devicedriver {
 namespace rw {
 
-//! ƒ\ƒtƒgƒEƒFƒAƒVƒ~ƒ…ƒŒ[ƒVƒ‡ƒ“ƒŒƒxƒ‹‚Å“®ì‚·‚éRWƒhƒ‰ƒCƒoD
+//! ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ãƒ¬ãƒ™ãƒ«ã§å‹•ä½œã™ã‚‹RWãƒ‰ãƒ©ã‚¤ãƒï¼
 /*! 
-	@tparam T ƒRƒ“ƒ|[ƒlƒ“ƒg‚ÌŠÂ‹«ƒNƒ‰ƒXD
+	@tparam T ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆã®ç’°å¢ƒã‚¯ãƒ©ã‚¹ï¼
 */
 template<class T>
 class RW : public RWBase<T> {

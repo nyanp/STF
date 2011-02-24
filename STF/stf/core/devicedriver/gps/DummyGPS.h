@@ -1,6 +1,6 @@
 /**
  * @file   DummyGPS.h
- * @brief  
+ * @brief  TLEのアップリンクで軌道情報を保持するGPSダミー．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -17,7 +17,10 @@ namespace core {
 namespace devicedriver {
 namespace gps {
 
-// TLEのアップリンクで軌道情報を保持するGPSダミー．
+//! TLEのアップリンクで軌道情報を保持するGPSダミー．
+/*! 
+	@tparam T コンポーネントの環境クラス．
+*/
 template<class T>
 class DummyGPS : public GPSBase<T> {
 public:

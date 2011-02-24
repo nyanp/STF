@@ -45,7 +45,7 @@ public:
     //virtual void propagate(const datatype::StaticVector<3>& omega,const datatype::Time& t);
 	//virtual void reset();
 	virtual void do_compute(const datatype::Time& t){
-		util::cout << "compute: RMMEKF(not implemented)" << util::endl;
+		//util::cout << "compute: RMMEKF(not implemented)" << util::endl;
 	}//伝搬，更新処理
 };
 

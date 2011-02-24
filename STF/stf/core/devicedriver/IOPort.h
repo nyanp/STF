@@ -10,7 +10,6 @@
 
 #include "../../util/loki/HierarchyGenerators.h"
 #include "../../datatype/Time.h"
-#include "../../util/Ostream.h"
 
 namespace stf {
 namespace core {
@@ -30,7 +29,7 @@ struct OutputPort {
 	 *  派生クラス側での未実装をコンパイル時でなく，実行時に検出する仕様としている．
 	 */
 	virtual void do_compute(const datatype::Time& t){
-		util::cout << "do_compute must be implemented" << util::endl;
+		//util::cout << "do_compute must be implemented" << util::endl;
 		assert(0);
 	}
 	virtual const T& get_in_bodyframe() const{ return value_b_;}

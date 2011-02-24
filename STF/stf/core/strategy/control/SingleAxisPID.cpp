@@ -1,6 +1,6 @@
 /**
  * @file   SingleAxisPID.cpp
- * @brief  
+ * @brief  Scalarを目標値に近づける単純な1次元PID制御ブロック．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -32,7 +32,7 @@ void SingleAxisPID::do_compute(const datatype::Time& t)
 {
 	assert(this->prevholder_ != 0);//input sourceが無い
 	if(t > this->last_update_){//既に別のブロック経由で更新済みなら再計算しない
-		util::cout << "compute: SingleAxisPID" << util::endl;
+		//util::cout << "compute: SingleAxisPID" << util::endl;
 		this->value_b_ = compute_torque_(this->source<0,datatype::Scalar>().get_in_bodyframe(t));
 		this->last_update_ = t;
 	}

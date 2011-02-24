@@ -1,6 +1,6 @@
 /**
  * @file   STT.cpp
- * @brief  
+ * @brief  ソフトウェアシミュレーションレベルで動作するスターセンサドライバ．
  *
  * @author Taiga Nomi
  * @date   2011.02.16

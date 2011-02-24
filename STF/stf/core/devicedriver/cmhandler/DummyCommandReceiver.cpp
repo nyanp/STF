@@ -1,6 +1,6 @@
 /**
  * @file   DummyCommandReceiver.cpp
- * @brief  
+ * @brief  コマンドレシーバのデバッグ用クラス．外部テキストファイルからコマンドを読み込む
  *
  * @author Taiga Nomi
  * @date   2011.02.16

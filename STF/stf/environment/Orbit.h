@@ -10,11 +10,8 @@
 
 #include "../datatype/OrbitInfo.h"
 #include "../datatype/OrbitCalc.h"
-#include "../datatype/TypeConverter.h"
 #include "../datatype/DateTime.h"
 #include "../datatype/Magnetic.h"
-#include "../util/math.h"
-#include "../util/Ostream.h"
 #include "../InstanceID.h"
 
 namespace stf {

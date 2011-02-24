@@ -1,15 +1,13 @@
 /**
  * @file   TAMBase.cpp
- * @brief  
+ * @brief  3軸磁気センサの基底クラス．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
  */
 #include "TAMBase.h"
-#include "../../../datatype/TypeConverter.h"
 #include "../../../environment/Simulator.h"
 #include "../../datapool/Datapool.h"
-#include "../../../util/math.h"
 
 namespace stf {
 namespace core {
@@ -21,7 +19,6 @@ namespace magnetometer {
 template <>
 void TAMBase<environment::Simulator>::do_update(){
 	this->set_value(filter(this->environment_->getMagneticField(*this)));
-	util::cout << this->value_b_;
 	if(this->datapool_ != 0){
 		datapool_->set<TAMBase<environment::Simulator>>(datapool_hold_index_,this->value_);
 	}

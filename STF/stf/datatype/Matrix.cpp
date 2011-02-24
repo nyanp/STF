@@ -1,6 +1,6 @@
 /**
  * @file   Matrix.cpp
- * @brief  
+ * @brief  可変要素数の行列計算を行うクラス．STFではStaticMatrixが推奨される．
  *
  * @author Taiga Nomi
  * @date   2011.02.16

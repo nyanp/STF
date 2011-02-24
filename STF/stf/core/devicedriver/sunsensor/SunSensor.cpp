@@ -1,6 +1,6 @@
 /**
  * @file   SunSensor.cpp
- * @brief  
+ * @brief  ソフトウェアシミュレーションレベルで動作する太陽センサドライバ．
  *
  * @author Taiga Nomi
  * @date   2011.02.16

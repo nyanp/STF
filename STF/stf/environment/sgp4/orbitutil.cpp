@@ -1,6 +1,6 @@
 /**
  * @file   orbitutil.cpp
- * @brief  NJHILS‚©‚ç‚Á‚Ä‚«‚½‹O“¹ŒvZŠÖŒWƒ‚ƒWƒ…[ƒ‹‚ğCsgp4–¼‘O‹óŠÔ‚Åƒ‰ƒbƒv‚µ‚Äg—pD
+ * @brief  NJHILSã‹ã‚‰æŒã£ã¦ããŸè»Œé“è¨ˆç®—é–¢ä¿‚ãƒ¢ã‚¸ãƒ¥ãƒ¼ãƒ«ã‚’ï¼Œsgp4åå‰ç©ºé–“ã§ãƒ©ãƒƒãƒ—ã—ã¦ä½¿ç”¨ï¼
  *
  * @author david vallado
  * @date   2011.02.16
@@ -8,7 +8,7 @@
 /* ---------------------------------------------------------------------
 *
 *                              orbit.cpp
-*						‹O“¹ŒvZƒvƒƒOƒ‰ƒ€ƒƒCƒ“
+*						è»Œé“è¨ˆç®—ãƒ—ãƒ­ã‚°ãƒ©ãƒ ãƒ¡ã‚¤ãƒ³
 *
 *  this program tests the sgp4 propagator. an stk ephemeris file is generated
 *  along with the test output. the code for this is left justified for easy
@@ -40,7 +40,7 @@
 *       ----------------------------------------------------------------      */
 
 
-#pragma warning ( disable : 4996 )		//fopenƒGƒ‰[‰ñ”ğ
+#pragma warning ( disable : 4996 )		//fopenã‚¨ãƒ©ãƒ¼å›é¿
 
 #include <stdio.h>
 #include <math.h>
@@ -57,20 +57,19 @@
 #include "sgp4ext.h"
 #include "sgp4unit.h"
 #include "sgp4io.h"
-//‚Æ‚è‚ ‚¦‚¸
+//ã¨ã‚Šã‚ãˆãš
 #include "../models/igrf.h"
-#include "matrixvector.h"
 
 #define PI			3.14159265358979323846
 #define PIO2		1.57079632679489656		/* Pi/2 */
 #define X3PIO2		4.71238898038468967		/* 3*Pi/2 */
 #define TWOPI		6.28318530717958623		/* 2*Pi  */
-//#define XKMPER		6.378137E3			/* WGS 84 Earth radius km */	//GRM-80(WGS84)‘È‰~‘Ì
-//#define F			3.35281066474748E-3	/* Flattening factor */				//G•½—¦WGS84
-#define XKMPER		6.378135E3			/* WGS 72 Earth radius km */		//’n‹…”¼ŒaWGS72‘È‰~‘Ì
-#define F			(1.0/298.26)			/* Flattening factor */			//G•½—¦WGS72
-#define RSUN		6.960E5					//‘¾—z”¼Œa[km]
-#define AU			1.49597870691E8			//“V•¶’PˆÊ
+//#define XKMPER		6.378137E3			/* WGS 84 Earth radius km */	//GRM-80(WGS84)æ¥•å††ä½“
+//#define F			3.35281066474748E-3	/* Flattening factor */				//æ‰å¹³ç‡WGS84
+#define XKMPER		6.378135E3			/* WGS 72 Earth radius km */		//åœ°çƒåŠå¾„WGS72æ¥•å††ä½“
+#define F			(1.0/298.26)			/* Flattening factor */			//æ‰å¹³ç‡WGS72
+#define RSUN		6.960E5					//å¤ªé™½åŠå¾„[km]
+#define AU			1.49597870691E8			//å¤©æ–‡å˜ä½
 #define DEG2RAD		0.017453292519943295769	// PI/180
 #define RAD2DEG		(180/PI)
 
@@ -80,24 +79,24 @@ namespace sgp4 {
 static gravconsttype whichconst;
 static elsetrec satrec;
 
-//extern const int DEBUG;	//‰æ–Ê•\¦
+//extern const int DEBUG;	//ç”»é¢è¡¨ç¤º
 
 //extern double global_poseci[3];
 //extern double global_solpos[3];
 //extern double global_veleci[3];
 
-//ƒOƒŠƒjƒbƒW•½‹ÏP¯‚ğŒvZ(sgp4io.h‚É‘‚¢‚Ä‚ ‚égstime‚Ì•â•)
+//ã‚°ãƒªãƒ‹ãƒƒã‚¸å¹³å‡æ’æ˜Ÿæ™‚ã‚’è¨ˆç®—(sgp4io.hã«æ›¸ã„ã¦ã‚ã‚‹gstimeã®è£œåŠ©)
 double SiderealTime(double jd) {
-	double K    = jd - 2415020.0;	//‚P‚X‚O‚O”N‚PŒ‚O“ú³Œß‚©‚ç‚ÌŒo‰ß“ú”
+	double K    = jd - 2415020.0;	//ï¼‘ï¼™ï¼ï¼å¹´ï¼‘æœˆï¼æ—¥æ­£åˆã‹ã‚‰ã®çµŒéæ—¥æ•°
 	double Tu   = K/36525.0;
-	double gmst = 6+(38.0/60.0)+(45.836/3600.0) + 8640184.542*Tu/3600 + 0.0929*pow(Tu,2)/3600;	//‚±‚±‚Å‚ÍŠÔ’PˆÊ
+	double gmst = 6+(38.0/60.0)+(45.836/3600.0) + 8640184.542*Tu/3600 + 0.0929*pow(Tu,2)/3600;	//ã“ã“ã§ã¯æ™‚é–“å˜ä½
 	while(gmst>24){gmst-=24;}
-	gmst *= 15;	//‚±‚±‚Ådeg’PˆÊ‚É•ÏŠ·
+	gmst *= 15;	//ã“ã“ã§degå˜ä½ã«å¤‰æ›
 
 	return gmst * DEG2RAD;
 }
 
-//GŒnŒoˆÜ“x‚“x‚©‚çGŒn’¼ŒğÀ•W‚Ö[test:TransGAxis‚Æ“¯‚¶Œ‹‰Ê]
+//Gç³»çµŒç·¯åº¦é«˜åº¦ã‹ã‚‰Gç³»ç›´äº¤åº§æ¨™ã¸[test:TransGAxisã¨åŒã˜çµæœ]
 //Reference:http://www.toyama-cmt.ac.jp/~mkawai/lecture/radionav/tfcoordinate/transform.html
 int TransGeoToGAxis(double lon, double lat, double alt, double* pos)
 {
@@ -116,7 +115,7 @@ int TransGeoToGAxis(double lon, double lat, double alt, double* pos)
 	return 0;
 }
 
-//’nSÔ“¹’¼ŒğÀ•W(ECI)‚ğGŒn’¼ŒğÀ•WŒn‚Ö
+//åœ°å¿ƒèµ¤é“ç›´äº¤åº§æ¨™(ECI)ã‚’Gç³»ç›´äº¤åº§æ¨™ç³»ã¸
 int TransGAxis(double* pos,double gmst,double* gpos)
 {
 	double cgmst = cos(gmst);
@@ -129,7 +128,7 @@ int TransGAxis(double* pos,double gmst,double* gpos)
 	return 0;
 }
 
-//ECI‚©‚ç’nSGŒnÀ•W‚ÌŒoˆÜ“xƒpƒ‰ƒ[ƒ^‚É•ÏŠ·
+//ECIã‹ã‚‰åœ°å¿ƒGç³»åº§æ¨™ã®çµŒç·¯åº¦ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã«å¤‰æ›
 //Reference:Predct
 void TransECIToGeo(double gmst, double *pos, double *lon, double* lat, double* alt)
 {
@@ -145,7 +144,7 @@ void TransECIToGeo(double gmst, double *pos, double *lon, double* lat, double* a
 	double theta;
 
 	theta=AcTan(pos[1],pos[0]); /* radians */
-	*lon=FMod2p(theta-gmst); /* radians */	//“ŒŒo‚ª³H
+	*lon=FMod2p(theta-gmst); /* radians */	//æ±çµŒãŒæ­£ï¼Ÿ
 	r=sqrt(pos[0]*pos[0]+pos[1]*pos[1]);
 	e2=F*(2-F);
 	*lat=AcTan(pos[2],r); /* radians */
@@ -158,7 +157,7 @@ void TransECIToGeo(double gmst, double *pos, double *lon, double* lat, double* a
 
 	} while (fabs(*lat-phi)>=1E-10);
 
-	*alt=r/cos(*lat)-XKMPER*c; /* kilometers */	//‘È‰~‘Ì‚‚³
+	*alt=r/cos(*lat)-XKMPER*c; /* kilometers */	//æ¥•å††ä½“é«˜ã•
 
 	if (*lat>PIO2)
 		*lat-=TWOPI;
@@ -166,12 +165,12 @@ void TransECIToGeo(double gmst, double *pos, double *lon, double* lat, double* a
 
 
 
-//‘¾—zˆÊ’u‚ÌŒvZ(ECIÀ•W)
+//å¤ªé™½ä½ç½®ã®è¨ˆç®—(ECIåº§æ¨™)
 //Reference:http://abacus.nmsu.edu/nmsu_ece_95_002_.pdf
 //Reference:http://www.dustymars.net/Mephemeris.htm
 //Reference:Predct
-//¦ET‚ÆUT‚ÌŒë·‚ğ–³‹‚µ‚½‚ª–â‘è‚È‚¢‚©H
-//Output:solar_vector[3]	[km]‚Å•Ô‚·
+//â€»ETã¨UTã®èª¤å·®ã‚’ç„¡è¦–ã—ãŸãŒå•é¡Œãªã„ã‹ï¼Ÿ
+//Output:solar_vector[3]	[km]ã§è¿”ã™
 void CalculateSolarPosition(double jd, double *solar_vector)
 {
 	double l,m,c,theta,epsi,t,r,nu,e;
@@ -195,9 +194,9 @@ void CalculateSolarPosition(double jd, double *solar_vector)
 
 }
 
-//I”»’è
-//I‚È‚ç1‚ğ•Ô‹pB‚»‚¤‚Å‚È‚¯‚ê‚Î0‚ğ•Ô‹p
-//å‰e‚Ì‚İ”»’è
+//è•åˆ¤å®š
+//è•ãªã‚‰1ã‚’è¿”å´ã€‚ãã†ã§ãªã‘ã‚Œã°0ã‚’è¿”å´
+//ä¸»å½±ã®ã¿åˆ¤å®š
 //(argument depth) 
 //Reference:Predct
 bool SatEclipsed(double *pos, double *sol)
@@ -240,7 +239,7 @@ bool SatEclipsed(double *pos, double *sol)
 
 int InitOrbit(double* jdepoch, char* tle1, char* tle2)
 {
-	//‘ª’nŒn‚ÍWGS72‚ğg—pyb’èz
+	//æ¸¬åœ°ç³»ã¯WGS72ã‚’ä½¿ç”¨ã€æš«å®šã€‘
 	whichconst = wgs72;
 	char typerun='c', typeinput=0;
 	double startmfe, stopmfe, deltamin;
@@ -266,7 +265,7 @@ int InitOrbit(double* jdepoch, char* tle1, char* tle2)
 
 }
 
-//ˆø”‚ÍƒNƒ‰ƒX‰»‚Ü‚Å‚ÌŒq‚¬
+//å¼•æ•°ã¯ã‚¯ãƒ©ã‚¹åŒ–ã¾ã§ã®ç¹‹ã
 int OrbitMain(double stoptime, double* mag)
 {	
 
@@ -275,42 +274,42 @@ int OrbitMain(double stoptime, double* mag)
 	double ro[3];
 	double vo[3];
 
-	//SGP4ŒvZ
+	//SGP4è¨ˆç®—
 	sgp4 (whichconst, satrec,  stoptime, ro,  vo);
 
 
-	//SGP4ƒGƒ‰[•\¦
+	//SGP4ã‚¨ãƒ©ãƒ¼è¡¨ç¤º
 	if (satrec.error > 0)printf("# *** error: time:= %f *** code = %3d\n",satrec.t, satrec.error);
 
-	//•\¦‰Šú‰»
-	cout.setf(ios::floatfield,ios::fixed);		//w”•\¦
+	//è¡¨ç¤ºåˆæœŸåŒ–
+	cout.setf(ios::floatfield,ios::fixed);		//æŒ‡æ•°è¡¨ç¤º
 	cout.setf(ios::showbase|ios::showpoint);
 	cout.precision(4);
 
-	//ŒvZŒ»İ
+	//è¨ˆç®—ç¾åœ¨æ™‚åˆ»
 //	cout << "stoptime = " << stoptime;
 
-	//ƒ†ƒŠƒEƒX“úŒvZ
+	//ãƒ¦ãƒªã‚¦ã‚¹æ—¥è¨ˆç®—
 	double jd = satrec.jdsatepoch + stoptime/1440.0;
 	int  year; int mon; int day; int hr; int min;
 	double sec;
 	invjday( jd, year,mon,day,hr,min, sec );
 //	cout << " " << year << "/" << mon << "/" << day << " " << hr << ":" << min << ":" << sec << endl;
-	//DecimalYear‚ÌŒvZ(forIGRF)
+	//DecimalYearã®è¨ˆç®—(forIGRF)
 	double decyear;
 	JdToDecyear(jd,&decyear);
 //	cout << "DecimalYear = " << decyear << "\n";
 
 
-	//ƒOƒŠƒjƒbƒW•½‹ÏP¯ŒvZ
+	//ã‚°ãƒªãƒ‹ãƒƒã‚¸å¹³å‡æ’æ˜Ÿæ™‚è¨ˆç®—
 	double side = gstime(jd);	//rad
 
 
 	//double gpos[3];
 	//double test[3];
-	//TransGAxis(ro,side,gpos);	//GŒn‚É•ÏŠ·
+	//TransGAxis(ro,side,gpos);	//Gç³»ã«å¤‰æ›
 	//TransECIToGeo(0,gpos,&test[0],&test[1],&test[2]);
-	//cout << "test‚“x" << test[2] << " ˆÜ“x" << test[1]*RAD2DEG << " Œo“x" << test[0]*RAD2DEG << endl;
+	//cout << "testé«˜åº¦" << test[2] << " ç·¯åº¦" << test[1]*RAD2DEG << " çµŒåº¦" << test[0]*RAD2DEG << endl;
 
 /*
 	for(int i=0;i<3;i++) {
@@ -319,13 +318,13 @@ int OrbitMain(double stoptime, double* mag)
 	}
 	cout << endl;
 */
-	//ˆÜ“xŒo“x‚Ì•\¦
+	//ç·¯åº¦çµŒåº¦ã®è¡¨ç¤º
 	double lon,lat,alt;
 
 	TransECIToGeo(side, ro, &lon, &lat, &alt);
-//	cout << "‚“x" << alt << " ˆÜ“x" << lat*RAD2DEG << " Œo“x" << lon*RAD2DEG << endl;
+//	cout << "é«˜åº¦" << alt << " ç·¯åº¦" << lat*RAD2DEG << " çµŒåº¦" << lon*RAD2DEG << endl;
 
-	//IGRFŒvZ
+	//IGRFè¨ˆç®—
 	igrf::IgrfCalc(decyear,lat,lon,alt,side,mag);
 
 
@@ -341,37 +340,37 @@ int OrbitMain(double stoptime, double* mag)
 	cout << "\n";
 	*/
 
-	//6—v‘f‚Ì•\¦
+	//6è¦ç´ ã®è¡¨ç¤º
 	double tumin, mu, radiusearthkm, xke, j2, j3, j4, j3oj2;
 	getgravconst( whichconst, tumin, mu, radiusearthkm, xke, j2, j3, j4, j3oj2 );
 	rv2coe(ro, vo, mu, p, a, ecc, incl, node, argp, nu, m, arglat, truelon, lonper );
-//	printf(" a %10.6f e %8.6f i %10.5f ƒ¶ %10.5f ƒÖ %10.5f n %10.5f m %10.5f\n",a, ecc, incl*RAD2DEG, node*RAD2DEG, argp*RAD2DEG, nu*RAD2DEG, m*RAD2DEG);
+//	printf(" a %10.6f e %8.6f i %10.5f Î© %10.5f Ï‰ %10.5f n %10.5f m %10.5f\n",a, ecc, incl*RAD2DEG, node*RAD2DEG, argp*RAD2DEG, nu*RAD2DEG, m*RAD2DEG);
 	
-	//‘¾—zˆÊ’u‚Ì•\¦
+	//å¤ªé™½ä½ç½®ã®è¡¨ç¤º
 	double sol_pos[3];
 	CalculateSolarPosition(jd, sol_pos);
 	bool shoku;
 	shoku = (bool)SatEclipsed(ro, sol_pos);
 
-	//CopyVec(sol_pos,global_solpos,3);	//ÀŒ±—p
+	//CopyVec(sol_pos,global_solpos,3);	//å®Ÿé¨“ç”¨
 //	cout << "SUN(x,y,z)";
 //	for(int i=0;i<3;i++) {
 //		cout << sol_pos[i];
 //		cout << " ";
 //	}
 //	cout << "\n";
-//	cout << "IH" << shoku;
+//	cout << "è•ï¼Ÿ" << shoku;
 //	cout << endl;
 
 
 	return 0;
 }
 
-//ˆÈ‰ºŠÖ”‚ÌˆâY
+//ä»¥ä¸‹é–¢æ•°ã®éºç”£
 
 /*
 
-int test()		//‚à‚Æ‚à‚Æ‚ÌƒƒCƒ“ŠÖ”
+int test()		//ã‚‚ã¨ã‚‚ã¨ã®ãƒ¡ã‚¤ãƒ³é–¢æ•°
 {
 	char str[2];
 	char infilename[15];
@@ -615,7 +614,7 @@ void CalculateSolarPosition(double jd, double *solar_vector)
 
 
 /*
-//’¼ŒğÀ•W‚ğ‹ÉÀ•W(‹…À•W)‚Ö(‘È‰~‹ß—‚È‚µ)[•s—v]
+//ç›´äº¤åº§æ¨™ã‚’æ¥µåº§æ¨™(çƒåº§æ¨™)ã¸(æ¥•å††è¿‘ä¼¼ãªã—)[ä¸è¦]
 int TransPolarAxis(double* pos,double* pol)
 {
 	double mag;

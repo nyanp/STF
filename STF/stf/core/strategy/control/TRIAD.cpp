@@ -60,7 +60,7 @@ TRIAD::TRIAD(int instance_id,
 
 void TRIAD::do_compute(const datatype::Time& t) {
 	if(t <= this->last_update_) return; //既に別のブロック経由で更新済みなら再計算しない
-	util::cout << "compute: GenericTRIAD" << util::endl;
+	//util::cout << "compute: GenericTRIAD" << util::endl;
 	datatype::StaticVector<3> v1 = datatype::TypeConverter::toRectangular(
 		this->source<0,datatype::StaticVector<2>>().get_in_bodyframe(t));
 
@@ -97,7 +97,7 @@ SunEarthTRIAD::SunEarthTRIAD(int instance_id,
 
 void SunEarthTRIAD::do_compute(const datatype::Time& t) {
 	if(t <= this->last_update_) return; //既に別のブロック経由で更新済みなら再計算しない
-	util::cout << "compute: SunEarthTRIAD" << util::endl;
+	//util::cout << "compute: SunEarthTRIAD" << util::endl;
 	//センサから取得した衛星基準座標系における地球，太陽方向
 	datatype::StaticVector<2> w_sun = this->source<0,datatype::StaticVector<2>>().get_in_bodyframe(t);
 	datatype::StaticVector<2> w_earth = this->source<1,datatype::StaticVector<2>>().get_in_bodyframe(t);
@@ -131,7 +131,7 @@ SunMagTRIAD::SunMagTRIAD(int instance_id,
 
 void SunMagTRIAD::do_compute(const datatype::Time& t) {
 	if(t <= this->last_update_) return; //既に別のブロック経由で更新済みなら再計算しない
-		util::cout << "compute: SunMagTRIAD" << util::endl;
+	//util::cout << "compute: SunMagTRIAD" << util::endl;
 	//センサから取得した衛星基準座標系における地球，太陽方向
 	datatype::StaticVector<2> w_sun = this->source<0,datatype::StaticVector<2>>().get_in_bodyframe(t);
 	datatype::MagneticField w_mag = this->source<1,datatype::MagneticField>().get_in_bodyframe(t);
@@ -166,7 +166,7 @@ SunMagTRIAD2::SunMagTRIAD2(int instance_id,
 
 void SunMagTRIAD2::do_compute(const datatype::Time& t) {
 	if(t <= this->last_update_) return; //既に別のブロック経由で更新済みなら再計算しない
-		util::cout << "compute: SunMagTRIAD" << util::endl;
+	//util::cout << "compute: SunMagTRIAD" << util::endl;
 	//センサから取得した衛星基準座標系における地球，太陽方向
 	datatype::StaticVector<2> w_sun = this->source<0,datatype::StaticVector<2>>().get_in_bodyframe(t);
 	datatype::MagneticField w_mag = this->source<1,datatype::MagneticField>().get_in_bodyframe(t);

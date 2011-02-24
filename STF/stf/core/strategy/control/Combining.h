@@ -11,7 +11,6 @@
 #include <assert.h>
 #include "../../devicedriver/IOPort.h"
 #include "../StrategyBase.h"
-#include "../../../util/Ostream.h"
 
 namespace stf {
 namespace core {
@@ -40,7 +39,7 @@ public:
 	~Combining_2(){}
 	virtual void do_compute(const datatype::Time& t){
 		if(t > this->last_update_){//既に別のブロック経由で更新済みなら再計算しない
-			util::cout << "compute: combining-2" << util::endl;
+			//util::cout << "compute: combining-2" << util::endl;
 			this->value_b_.reset();
 			this->value_b_ += this->source<0,T>().get_in_bodyframe(t);
 			this->value_b_ += this->source<1,T>().get_in_bodyframe(t);

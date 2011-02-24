@@ -6,12 +6,7 @@
  * @date   2011.02.16
  */
 #include "RootObject.h"
-#include "GlobalObject.h"
-#include "util/Ostream.h"
 #include "core/devicedriver/clock/ITimeClock.h"
-#include "datatype/IAocsData.h"
-#include "core/datapool/Datapool.h"
-#include "InstanceID.h"
 
 namespace stf {
 

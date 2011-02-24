@@ -1,6 +1,6 @@
 /**
  * @file   Gyro.cpp
- * @brief  
+ * @brief  ソフトウェアシミュレーションレベルで動作するジャイロセンサドライバ．
  *
  * @author Taiga Nomi
  * @date   2011.02.16

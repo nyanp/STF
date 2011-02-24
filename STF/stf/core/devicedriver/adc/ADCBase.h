@@ -1,6 +1,6 @@
 /**
  * @file   ADCBase.h
- * @brief  
+ * @brief  AD変換器ドライバの抽象クラス．
  *
  * @author Taiga Nomi
  * @date   2011.02.16

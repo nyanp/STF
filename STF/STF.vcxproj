@@ -134,7 +134,6 @@
     <ClCompile Include="stf\environment\models\igrf.cpp" />
     <ClCompile Include="stf\environment\NullEnv.cpp" />
     <ClCompile Include="stf\environment\Orbit.cpp" />
-    <ClCompile Include="stf\environment\sgp4\matrixvector.cpp" />
     <ClCompile Include="stf\environment\sgp4\orbitutil.cpp" />
     <ClCompile Include="stf\environment\sgp4\sgp4ext.cpp" />
     <ClCompile Include="stf\environment\sgp4\sgp4io.cpp" />
@@ -321,7 +320,6 @@
     <ClInclude Include="stf\environment\models\igrf.h" />
     <ClInclude Include="stf\environment\NullEnv.h" />
     <ClInclude Include="stf\environment\Orbit.h" />
-    <ClInclude Include="stf\environment\sgp4\matrixvector.h" />
     <ClInclude Include="scube\environment\sgp4\orbit.h" />
     <ClInclude Include="stf\environment\sgp4\orbitutil.h" />
     <ClInclude Include="stf\environment\sgp4\sgp4ext.h" />

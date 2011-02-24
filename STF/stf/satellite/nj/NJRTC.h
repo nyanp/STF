@@ -7,7 +7,9 @@
  */
 #ifndef stf_core_devicedriver_clock_NJRTC_h
 #define stf_core_devicedriver_clock_NJRTC_h
-#include "../../core/devicedriver/Includes.h"
+#include "../../core/devicedriver/CDHComponent.h"
+#include "../../core/devicedriver/clock/ITimeClock.h"
+#include "../../core/devicedriver/clock/IAbsoluteTimeClock.h"
 #include "../../RootObject.h"
 #include "../../util/loki/Typelist.h"
 

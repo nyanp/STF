@@ -8,10 +8,8 @@
 #ifndef stf_core_devicedriver_earthsensor_EarthSensorBase_h
 #define stf_core_devicedriver_earthsensor_EarthSensorBase_h
 
-#include "../../../datatype/DCM.h"
-#include "../../../datatype/Quaternion.h"
-#include "../../../datatype/Vector.h"
 #include "../AOCSSensor.h"
+#include "../../../datatype/StaticVector.h"
 
 namespace stf {
 namespace environment {

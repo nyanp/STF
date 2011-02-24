@@ -1,12 +1,12 @@
 /**
  * @file   sgp4io.cpp
- * @brief  NJHILS‚©‚ç‚Á‚Ä‚«‚½‹O“¹ŒvZŠÖŒWƒ‚ƒWƒ…[ƒ‹‚ğCsgp4–¼‘O‹óŠÔ‚Åƒ‰ƒbƒv‚µ‚Äg—pD
+ * @brief  NJHILSã‹ã‚‰æŒã£ã¦ããŸè»Œé“è¨ˆç®—é–¢ä¿‚ãƒ¢ã‚¸ãƒ¥ãƒ¼ãƒ«ã‚’ï¼Œsgp4åå‰ç©ºé–“ã§ãƒ©ãƒƒãƒ—ã—ã¦ä½¿ç”¨ï¼
  *
  * @author david vallado
  * @date   2011.02.16
  */
 /*     ----------------------------------------------------------------
-*						TLE“Ç‚İ‚İ—pƒtƒ@ƒCƒ‹
+*						TLEèª­ã¿è¾¼ã¿ç”¨ãƒ•ã‚¡ã‚¤ãƒ«
 *
 *                               sgp4io.cpp
 *
@@ -35,7 +35,7 @@
 #include "sgp4unit.h"   // for sgp4init and getgravconst
 #include "sgp4io.h"
 
-#pragma warning ( disable : 4996 )		//fopenƒGƒ‰[‰ñ”ğ
+#pragma warning ( disable : 4996 )		//fopenã‚¨ãƒ©ãƒ¼å›é¿
 
 #define pi 3.14159265358979323846
 
@@ -152,13 +152,13 @@ void twoline2rv
                        &cardnumb,&satrec.satnum, &satrec.inclo,
                        &satrec.nodeo,&satrec.ecco, &satrec.argpo, &satrec.mo, &satrec.no,
                        & revnum, &startmfe, &stopmfe, &deltamin );
-		//incl ‹O“¹ŒXÎŠp
-		//node ¸Œğ“_ÔŒo
-		//ecc —£S—¦
-		//argp ‹ß’n“_ˆø”
-		//m •½‹Ï‹ß“_Šp(Mean Anomaly)
-		//n •½‹Ï‰^“®
-		//revnum Œ³Šú‚É‚¨‚¯‚é’ÊZü‰ñ”
+		//incl è»Œé“å‚¾æ–œè§’
+		//node æ˜‡äº¤ç‚¹èµ¤çµŒ
+		//ecc é›¢å¿ƒç‡
+		//argp è¿‘åœ°ç‚¹å¼•æ•°
+		//m å¹³å‡è¿‘ç‚¹è§’(Mean Anomaly)
+		//n å¹³å‡é‹å‹•
+		//revnum å…ƒæœŸã«ãŠã‘ã‚‹é€šç®—å‘¨å›æ•°
          }
          else  // simply run -1 day to +1 day or user input times
          {
