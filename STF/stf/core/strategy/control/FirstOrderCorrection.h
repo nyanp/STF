@@ -44,7 +44,7 @@ public:
 		if(t > this->last_update_){
 			util::Trace trace(util::Trace::kControlBlock,name_);
 
-			this->value_b_ =  this->source<0,T>().get_value(t) * this->source<1,U>().get_value(t);
+			this->value_ =  this->source<0,T>().get_value(t) * this->source<1,U>().get_value(t);
 			this->last_update_ = t;
 		}
 	}

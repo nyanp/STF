@@ -35,12 +35,12 @@ void SolarPointing::do_compute(const datatype::Time& t) {
 	if(t <= this->last_update_) return; //既に別のブロック経由で更新済みなら再計算しない
 	util::Trace trace(util::Trace::kControlBlock,name_);
 
-	datatype::MagneticField b = this->source<0,datatype::MagneticField>().value_b_;
-	datatype::StaticVector<3> s = datatype::TypeConverter::toRectangular(this->source<1,datatype::StaticVector<2>>().value_b_);
+	datatype::MagneticField b = this->source<0,datatype::MagneticField>().get_value(t);
+	datatype::StaticVector<3> s = datatype::TypeConverter::toRectangular(this->source<1,datatype::StaticVector<2>>().get_value(t));
 
-	this->value_b_[0] = 0;
-	this->value_b_[1] = 0;
-	this->value_b_[2] = (- s[0] * b[1] + s[1] * b[0]) * K_;
+	this->value_[0] = 0;
+	this->value_[1] = 0;
+	this->value_[2] = (- s[0] * b[1] + s[1] * b[0]) * K_;
 
 	this->last_update_ = t;
 }

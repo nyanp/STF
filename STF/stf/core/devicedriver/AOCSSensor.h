@@ -9,6 +9,7 @@
 #define stf_core_devicedriver_AOCSSensor_h
 
 #include "AOCSComponent.h"
+#include "IOPort.h"
 
 namespace stf {
 namespace core {

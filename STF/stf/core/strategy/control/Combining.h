@@ -51,11 +51,11 @@ public:
 		if(t > this->last_update_){//既に別のブロック経由で更新済みなら再計算しない
 			util::Trace trace(util::Trace::kControlBlock,name_);
 
-			this->value_b_.reset();
-			if(this->input_isconnected<0>()) this->value_b_ += this->source<0,T>().get_value(t);
-			if(this->input_isconnected<1>()) this->value_b_ += this->source<1,T>().get_value(t);
+			this->value_.reset();
+			if(this->input_isconnected<0>()) this->value_ += this->source<0,T>().get_value(t);
+			if(this->input_isconnected<1>()) this->value_ += this->source<1,T>().get_value(t);
 
-			trace.debug(value_b_);
+			trace.debug(value_);
 
 			this->last_update_ = t;
 		}
@@ -98,12 +98,12 @@ public:
 		if(t > this->last_update_){//既に別のブロック経由で更新済みなら再計算しない
 			util::Trace trace(util::Trace::kControlBlock,name_);
 
-			this->value_b_.reset();
-			if(this->input_isconnected<0>()) this->value_b_ += this->source<0,T>().get_value(t);
-			if(this->input_isconnected<1>()) this->value_b_ += this->source<1,T>().get_value(t);
-			if(this->input_isconnected<2>()) this->value_b_ += this->source<2,T>().get_value(t);
+			this->value_.reset();
+			if(this->input_isconnected<0>()) this->value_ += this->source<0,T>().get_value(t);
+			if(this->input_isconnected<1>()) this->value_ += this->source<1,T>().get_value(t);
+			if(this->input_isconnected<2>()) this->value_ += this->source<2,T>().get_value(t);
 
-			trace.debug(value_b_);
+			trace.debug(value_);
 
 			this->last_update_ = t;
 		}
@@ -148,13 +148,13 @@ public:
 		if(t > this->last_update_){//既に別のブロック経由で更新済みなら再計算しない
 			util::Trace trace(util::Trace::kControlBlock,name_);
 
-			this->value_b_.reset();
-			if(this->input_isconnected<0>()) this->value_b_ += this->source<0,T>().get_value(t);
-			if(this->input_isconnected<1>()) this->value_b_ += this->source<1,T>().get_value(t);
-			if(this->input_isconnected<2>()) this->value_b_ += this->source<2,T>().get_value(t);
-			if(this->input_isconnected<3>()) this->value_b_ += this->source<3,T>().get_value(t);
+			this->value_.reset();
+			if(this->input_isconnected<0>()) this->value_ += this->source<0,T>().get_value(t);
+			if(this->input_isconnected<1>()) this->value_ += this->source<1,T>().get_value(t);
+			if(this->input_isconnected<2>()) this->value_ += this->source<2,T>().get_value(t);
+			if(this->input_isconnected<3>()) this->value_ += this->source<3,T>().get_value(t);
 
-			trace.debug(value_b_);
+			trace.debug(value_);
 
 			this->last_update_ = t;
 		}
@@ -201,14 +201,14 @@ public:
 		if(t > this->last_update_){//既に別のブロック経由で更新済みなら再計算しない
 			util::Trace trace(util::Trace::kControlBlock,name_);
 
-			this->value_b_.reset();
-			if(this->input_isconnected<0>()) this->value_b_ += this->source<0,T>().get_value(t);
-			if(this->input_isconnected<1>()) this->value_b_ += this->source<1,T>().get_value(t);
-			if(this->input_isconnected<2>()) this->value_b_ += this->source<2,T>().get_value(t);
-			if(this->input_isconnected<3>()) this->value_b_ += this->source<3,T>().get_value(t);
-			if(this->input_isconnected<4>()) this->value_b_ += this->source<4,T>().get_value(t);
+			this->value_.reset();
+			if(this->input_isconnected<0>()) this->value_ += this->source<0,T>().get_value(t);
+			if(this->input_isconnected<1>()) this->value_ += this->source<1,T>().get_value(t);
+			if(this->input_isconnected<2>()) this->value_ += this->source<2,T>().get_value(t);
+			if(this->input_isconnected<3>()) this->value_ += this->source<3,T>().get_value(t);
+			if(this->input_isconnected<4>()) this->value_ += this->source<4,T>().get_value(t);
 
-			trace.debug(value_b_);
+			trace.debug(value_);
 
 			this->last_update_ = t;
 		}
@@ -257,15 +257,15 @@ public:
 		if(t > this->last_update_){//既に別のブロック経由で更新済みなら再計算しない
 			util::Trace trace(util::Trace::kControlBlock,name_);
 
-			this->value_b_.reset();
-			if(this->input_isconnected<0>()) this->value_b_ += this->source<0,T>().get_value(t);
-			if(this->input_isconnected<1>()) this->value_b_ += this->source<1,T>().get_value(t);
-			if(this->input_isconnected<2>()) this->value_b_ += this->source<2,T>().get_value(t);
-			if(this->input_isconnected<3>()) this->value_b_ += this->source<3,T>().get_value(t);
-			if(this->input_isconnected<4>()) this->value_b_ += this->source<4,T>().get_value(t);
-			if(this->input_isconnected<5>()) this->value_b_ += this->source<5,T>().get_value(t);
+			this->value_.reset();
+			if(this->input_isconnected<0>()) this->value_ += this->source<0,T>().get_value(t);
+			if(this->input_isconnected<1>()) this->value_ += this->source<1,T>().get_value(t);
+			if(this->input_isconnected<2>()) this->value_ += this->source<2,T>().get_value(t);
+			if(this->input_isconnected<3>()) this->value_ += this->source<3,T>().get_value(t);
+			if(this->input_isconnected<4>()) this->value_ += this->source<4,T>().get_value(t);
+			if(this->input_isconnected<5>()) this->value_ += this->source<5,T>().get_value(t);
 
-			trace.debug(value_b_);
+			trace.debug(value_);
 
 			this->last_update_ = t;
 		}

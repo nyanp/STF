@@ -27,21 +27,21 @@ PRISMDummyClock::PRISMDummyClock(int instance_id, int year, int month, int date)
 	this->clock_ = this;//staticƒ|ƒCƒ“ƒ^‚ÉŠ„‚è“–‚Ä
 }
 void PRISMDummyClock::set_time(datatype::Time t){
-	this->outputport<0,datatype::Time>().value_b_ = t;
+	this->outputport<0,datatype::Time>().value_ = t;
 }
 
 void PRISMDummyClock::set_time(int sec, int millisec){
-	this->outputport<0,datatype::Time>().value_b_.clear();
-	this->outputport<0,datatype::Time>().value_b_.add_milliseconds(millisec);
-	this->outputport<0,datatype::Time>().value_b_.add_seconds(sec);
+	this->outputport<0,datatype::Time>().value_.clear();
+	this->outputport<0,datatype::Time>().value_.add_milliseconds(millisec);
+	this->outputport<0,datatype::Time>().value_.add_seconds(sec);
 }
 
 void PRISMDummyClock::set_absolute_time(datatype::DateTime t){
-	this->outputport<1,datatype::DateTime>().value_b_ = t;
+	this->outputport<1,datatype::DateTime>().value_ = t;
 }
 
 void PRISMDummyClock::set_absolute_time(int year, int month, int day, int hour, int minute, int second){
-	this->outputport<1,datatype::DateTime>().value_b_.init(year,month,day,hour,minute,second);
+	this->outputport<1,datatype::DateTime>().value_.init(year,month,day,hour,minute,second);
 }
 
 PRISMDummyClock::~PRISMDummyClock(void)

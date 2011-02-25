@@ -75,7 +75,7 @@ void TRIAD::do_compute(const datatype::Time& t) {
 	datatype::StaticVector<3> w2 = datatype::TypeConverter::toRectangular(
 		this->source<3,datatype::StaticVector<2>>().get_value(t));
 
-	this->value_b_ = estimate_(v1, v2, w1, w2);
+	this->value_ = estimate_(v1, v2, w1, w2);
 	this->last_update_ = t;
 }
 
@@ -112,7 +112,7 @@ void SunEarthTRIAD::do_compute(const datatype::Time& t) {
 	datatype::StaticVector<3> w1 = datatype::TypeConverter::toRectangular(w_sun);
 	datatype::StaticVector<3> w2 = datatype::TypeConverter::toRectangular(w_earth);
 
-	this->value_b_ = estimate_(v1, v2, w1, w2);
+	this->value_ = estimate_(v1, v2, w1, w2);
 	this->last_update_ = t;
 }
 
@@ -149,7 +149,7 @@ void SunMagTRIAD::do_compute(const datatype::Time& t) {
 	datatype::StaticVector<3> v1 = datatype::OrbitCalc::getSunDirection3D(time);
 	datatype::StaticVector<3> w1 = datatype::TypeConverter::toRectangular(w_sun);
 
-	this->value_b_ = estimate_(v1, v_mag, w1, w_mag);
+	this->value_ = estimate_(v1, v_mag, w1, w_mag);
 	this->last_update_ = t;
 }
 
@@ -185,7 +185,7 @@ void SunMagTRIAD2::do_compute(const datatype::Time& t) {
 	datatype::StaticVector<3> v1 = datatype::OrbitCalc::getSunDirection3D(time);
 	datatype::StaticVector<3> w1 = datatype::TypeConverter::toRectangular(w_sun);
 
-	this->value_b_ = estimate_(v1, v_mag, w1, w_mag);
+	this->value_ = estimate_(v1, v_mag, w1, w_mag);
 	this->last_update_ = t;
 }
 

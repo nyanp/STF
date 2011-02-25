@@ -31,10 +31,10 @@ void Bdot::do_compute(const datatype::Time& t) {
 	this->source<0,datatype::MagneticField>().get_value(t);
 
 	for(int i = 0; i < 3; i++){
-		this->value_b_[i] = - this->k_ * (this->source<0,datatype::MagneticField>().value_b_[i] - this->mag_before_[i]);
+		this->value_[i] = - this->k_ * (this->source<0,datatype::MagneticField>().value_[i] - this->mag_before_[i]);
 	}
-	trace.debug(value_b_);
-	this->mag_before_ = this->source<0,datatype::MagneticField>().value_b_;
+	trace.debug(value_);
+	this->mag_before_ = this->source<0,datatype::MagneticField>().value_;
 
 	this->last_update_ = t;
 }

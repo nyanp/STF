@@ -126,7 +126,7 @@ void CompositeInput<Leaf,Numbers>::aggregate(){
 template <class Leaf,int Numbers>
 void CompositeOutput<Leaf,Numbers>::do_update(){
 	if(this->datapool_ != 0){
-		this->datapool_->set<CompositeOutput<Leaf,Numbers>>(datapool_hold_index_,this->value_b_);//
+		this->datapool_->set<CompositeOutput<Leaf,Numbers>>(datapool_hold_index_,this->value_);//
 	}
 	distribute();
 	for(unsigned char i = 0; i < Numbers; ++i){

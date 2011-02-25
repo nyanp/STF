@@ -51,7 +51,7 @@ void QUEST::do_compute(const datatype::Time& t) {
 	datatype::StaticVector<3> w1 = datatype::TypeConverter::toRectangular(w_sun);
 	datatype::StaticVector<3> w2 = datatype::TypeConverter::toRectangular(w_earth);
 
-	this->value_b_ = estimate_(v1, v2, w1, w2);
+	this->value_ = estimate_(v1, v2, w1, w2);
 	this->last_update_ = t;
 }
 

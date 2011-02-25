@@ -73,7 +73,7 @@ void QuaternionForRMMEstimation::do_compute(const datatype::Time& t){
 			index_ = 0;
 			break;
 		}	
-		this->value_b_ = datatype::TypeConverter::toQuaternion( dcm * sundcm );
+		this->value_ = datatype::TypeConverter::toQuaternion( dcm * sundcm );
 
 		if(t > this->before_ + this->timespan_){
 			index_ ++;
@@ -111,19 +111,19 @@ void MCConstantOutput::do_compute(const datatype::Time& t){
 		default:
 			index_ = 0;
 			axis_++;
-			this->value_b_.reset();
+			this->value_.reset();
 			break;
 		}
 
 		switch(this->axis_){
 		case 0:
-			this->value_b_[0] = output;
+			this->value_[0] = output;
 			break;
 		case 1:
-			this->value_b_[1] = output;
+			this->value_[1] = output;
 			break;
 		case 2:
-			this->value_b_[2] = output;
+			this->value_[2] = output;
 			break;
 		default:
 			axis_ = 0;

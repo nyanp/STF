@@ -42,7 +42,7 @@ namespace devicedriver {
 	@tparam Env コンポーネントの環境クラス．
 */
 template<class T,class U = T,class Env = ENV>
-class AOCSComponent : public RootObject, virtual public IDataUpdatable, virtual public ISwitchable, public OutputPorts< TYPELIST_1(T) > {
+class AOCSComponent : public RootObject, virtual public IDataUpdatable, virtual public ISwitchable, public OutputPorts< TYPELIST_1(U) > {
 public:
 	typedef T Target;//測定している物理量を表す型．
 	typedef U Hold;//可観測次元の量を表す型．全軸感度を持ったコンポーネントの場合はT=U
@@ -73,7 +73,7 @@ public:
 	virtual ~AOCSComponent(){}
 protected:
 	bool is_on_;
-	U value_;
+	T value_b_;
 	Env* environment_;
 	//! コンポーネント座標系から機体座標系へのDCM．
 	/*! 計算負荷の都合から，通常の取り付け行列の逆行列となっている．value_b_ = set_angle_ * value_ */

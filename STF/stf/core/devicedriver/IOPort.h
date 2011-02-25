@@ -37,18 +37,18 @@ struct OutputPort {
 	}
 
 	//! データの取得を行う関数．
-	virtual const T& get_value(const datatype::Time& t){ do_compute(t); return value_b_; }
+	virtual const T& get_value(const datatype::Time& t){ do_compute(t); return value_; }
 
 	//! データの最終更新時刻を取得する関数．
 	const datatype::Time& get_lastupdate() const{ return last_update_;}
 
 	//! 機体座標系における取得値
-	T value_b_;
+	T value_;
 
 	//! 接続された入力ポート
 	InputPort<T>* nextholder_;
 
-	//! value_b_の最終更新時刻
+	//! value_の最終更新時刻
 	datatype::Time last_update_;
 };
 
@@ -123,7 +123,7 @@ public:
 	//! i番目の出力ポートから現在の値を伝搬無しで取得する．
 	template<int i,class T>
 	const T& get() const{	
-		return Loki::Field<i>(*this).value_b_;
+		return Loki::Field<i>(*this).value_;
 	}
 
 	//! i番目の出力ポートを取得する．

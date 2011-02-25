@@ -92,7 +92,7 @@ void PID::do_compute(const datatype::Time& t)
 		datatype::EulerAngle e_diff = this->source<1,datatype::StaticVector<3>>().get_value(t);
 		this->e_total_ += e * this->dt_;
 
-		this->value_b_ = compute_torque_(e,e_diff,e_total_);
+		this->value_ = compute_torque_(e,e_diff,e_total_);
 
 		this->e_before_ = e;
 
@@ -122,7 +122,7 @@ void QuaternionPID::do_compute(const datatype::Time& t)
 		datatype::EulerAngle e_diff = (e - this->e_before_) / this->dt_;
 		this->e_total_ += e * this->dt_;
 
-		this->value_b_ = compute_torque_(e,e_diff,e_total_);
+		this->value_ = compute_torque_(e,e_diff,e_total_);
 
 		this->e_before_ = e;
 
@@ -144,9 +144,9 @@ void EarthPointingPID::do_compute(const datatype::Time& t)
 		datatype::EulerAngle e_diff = (v - this->e_before_) / this->dt_;
 		this->e_total_ += v * this->dt_;
 
-		this->value_b_[2] = this->kp_ * v[0] + this->kd_ * e_diff[0] + this->ki_ * e_total_[0];
-		this->value_b_[1] = this->kp_ * v[1] + this->kd_ * e_diff[1] + this->ki_ * e_total_[1];
-		this->value_b_[0] = this->kp_ * v[2] + this->kd_ * e_diff[2] + this->ki_ * e_total_[2];
+		this->value_[2] = this->kp_ * v[0] + this->kd_ * e_diff[0] + this->ki_ * e_total_[0];
+		this->value_[1] = this->kp_ * v[1] + this->kd_ * e_diff[1] + this->ki_ * e_total_[1];
+		this->value_[0] = this->kp_ * v[2] + this->kd_ * e_diff[2] + this->ki_ * e_total_[2];
 
 		this->e_before_ = v;
 
@@ -170,9 +170,9 @@ void DynamicPID::do_compute(const datatype::Time& t){
 		datatype::EulerAngle e_diff = (e - this->e_before_) / this->dt_;
 		this->e_total_ += e * this->dt_;
 
-		this->value_b_[2] = this->kp_ * e[0] + this->kd_ * e_diff[0] + this->ki_ * e_total_[0];
-		this->value_b_[1] = this->kp_ * e[1] + this->kd_ * e_diff[1] + this->ki_ * e_total_[1];
-		this->value_b_[0] = this->kp_ * e[2] + this->kd_ * e_diff[2] + this->ki_ * e_total_[2];
+		this->value_[2] = this->kp_ * e[0] + this->kd_ * e_diff[0] + this->ki_ * e_total_[0];
+		this->value_[1] = this->kp_ * e[1] + this->kd_ * e_diff[1] + this->ki_ * e_total_[1];
+		this->value_[0] = this->kp_ * e[2] + this->kd_ * e_diff[2] + this->ki_ * e_total_[2];
 
 		this->e_before_ = e;
 

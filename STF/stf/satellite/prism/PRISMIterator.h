@@ -50,7 +50,7 @@ class PRISMRMMEKFIterator : public PRISMIteratorBase<SCALE,3,core::strategy::con
 public:
 	PRISMRMMEKFIterator(const core::strategy::control::PRISMRMMEKF* data): PRISMIteratorBase<SCALE,3,core::strategy::control::PRISMRMMEKF>(data) {}
 	virtual double operator()() {		
-		return data_->value_b_[index_];
+		return data_->value_[index_];
 	}
 private:
 };
@@ -61,7 +61,7 @@ class PRISMSunMagTRIADIterator : public PRISMIteratorBase<SCALE,4,core::strategy
 public:
 	PRISMSunMagTRIADIterator(const core::strategy::control::PRISMSunMagTRIAD* data): PRISMIteratorBase<SCALE,4,core::strategy::control::PRISMSunMagTRIAD>(data) {}
 	virtual double operator()() {
-		return data_->value_b_[index_];
+		return data_->value_[index_];
 	}
 private:
 };

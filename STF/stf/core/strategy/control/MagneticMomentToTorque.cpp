@@ -33,7 +33,7 @@ void MagneticMomentToTorque::do_compute(const datatype::Time& t) {
 	util::Trace trace(util::Trace::kControlBlock,name_);
 
 	// T = M * B
-	this->value_b_ = 
+	this->value_ = 
 		this->source<1,datatype::MagneticMoment>().get_value(t) % 
 		this->source<0,datatype::MagneticMoment>().get_value(t);
 

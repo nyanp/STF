@@ -47,7 +47,7 @@ class NJRMMEKFIterator : public NJIteratorBase<SCALE,3,core::strategy::control::
 public:
 	NJRMMEKFIterator(const core::strategy::control::NJRMMEKF* data): NJIteratorBase<SCALE,3,core::strategy::control::NJRMMEKF>(data) {}
 	virtual double operator()() {		
-		return data_->value_b_[index_];
+		return data_->value_[index_];
 	}
 private:
 };
@@ -58,7 +58,7 @@ class NJSunMagTRIADIterator : public NJIteratorBase<SCALE,4,core::strategy::cont
 public:
 	NJSunMagTRIADIterator(const core::strategy::control::NJSunMagTRIAD* data): NJIteratorBase<SCALE,4,core::strategy::control::NJSunMagTRIAD>(data) {}
 	virtual double operator()() {
-		return data_->value_b_[index_];
+		return data_->value_[index_];
 	}
 private:
 };

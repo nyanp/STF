@@ -46,7 +46,7 @@ void GGCompensation::do_compute(const datatype::Time& t) {
 	datatype::StaticVector<3> u = R / r;
 
 	//重力傾斜トルクを打ち消すようなトルクを出力
-	this->value_b_ = ( 3 * util::math::MU / ( r * r * r ) ) * u % (sat_.getI() * u);
+	this->value_ = ( 3 * util::math::MU / ( r * r * r ) ) * u % (sat_.getI() * u);
 
 	this->last_update_ = t;
 }

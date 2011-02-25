@@ -34,7 +34,7 @@ void RateDumping::do_compute(const datatype::Time& t)
 	if(t > this->last_update_){//既に別のブロック経由で更新済みなら再計算しない
 		util::Trace trace(util::Trace::kControlBlock,name_);
 
-		this->value_b_ = compute_torque_(this->source<0,datatype::StaticVector<3>>().get_value(t));
+		this->value_ = compute_torque_(this->source<0,datatype::StaticVector<3>>().get_value(t));
 		this->last_update_ = t;
 	}
 }

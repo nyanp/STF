@@ -140,7 +140,7 @@ void EKF::update_(const datatype::Quaternion &input,const datatype::Time& t)
     bref_[1] += x_[4];
     bref_[2] += x_[5];
 
-	this->outputport<0,datatype::Quaternion>().value_b_ = this->q_;
+	this->outputport<0,datatype::Quaternion>().value_ = this->q_;
 	//this->setLastOutputtime<0>(t);
 	this->setLastOutputtime<0>(t);
 }
@@ -182,8 +182,8 @@ void EKF::propagate_(const datatype::StaticVector<3>& omega,const datatype::Time
     //共分散行列の伝搬
     this->P_ = F_ * P_ * F_.trans() + G_ * Q_ * G_.trans();
 
-	this->outputport<0,datatype::Quaternion>().value_b_ = this->q_;
-	this->outputport<1,datatype::StaticVector<3>>().value_b_ = this->omega_;
+	this->outputport<0,datatype::Quaternion>().value_ = this->q_;
+	this->outputport<1,datatype::StaticVector<3>>().value_ = this->omega_;
 	this->setLastOutputtime<1>(t);
 }
 
