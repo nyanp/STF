@@ -33,6 +33,10 @@ public:
 	inline Scalar& operator -= (const Scalar& s);
 	inline Scalar& operator *= (const Scalar& s);
 	inline Scalar& operator /= (const Scalar& s);
+	inline Scalar& operator += (double s);
+	inline Scalar& operator -= (double s);
+	inline Scalar& operator *= (double s);
+	inline Scalar& operator /= (double s);
 protected:
 	double value_;
 private:
@@ -63,17 +67,37 @@ Scalar& Scalar::operator += (const Scalar& s){
 }
 
 Scalar& Scalar::operator -= (const Scalar& s){
-	this->value_ += s.value_;
+	this->value_ -= s.value_;
 	return *this;
 }
 
 Scalar& Scalar::operator *= (const Scalar& s){
-	this->value_ += s.value_;
+	this->value_ *= s.value_;
 	return *this;
 }
 
 Scalar& Scalar::operator /= (const Scalar& s){
-	this->value_ += s.value_;
+	this->value_ /= s.value_;
+	return *this;
+}
+
+Scalar& Scalar::operator += (double s){
+	this->value_ += s;
+	return *this;
+}
+
+Scalar& Scalar::operator -= (double s){
+	this->value_ -= s;
+	return *this;
+}
+
+Scalar& Scalar::operator *= (double s){
+	this->value_ *= s;
+	return *this;
+}
+
+Scalar& Scalar::operator /= (double s){
+	this->value_ /= s;
 	return *this;
 }
 

@@ -27,8 +27,8 @@ void GyroBase<environment::Simulator>::do_update(){
 template <>
 datatype::Scalar GyroBase<environment::Simulator>::filter(const datatype::Scalar& value){
     for(int i = 0; i < 3; i++){
-		datatype::Scalar noise(util::math::WhiteNoise(this->sigma_,0));
-		this->bias_rate_ += util::math::RungeKutta::slope(bias_rate_, -1 / tau_, noise, 0.1);
+		double noise = util::math::WhiteNoise(this->sigma_,0);
+		this->bias_rate_ += util::math::RungeKutta::slope(bias_rate_.value(), -1 / tau_, noise, 0.1);
     }
 
 	return value + bias_rate_;

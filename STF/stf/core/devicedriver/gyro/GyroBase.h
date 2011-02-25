@@ -29,9 +29,9 @@ namespace gyro {
 template <class T>
 class GyroBase : public AOCSSensor<datatype::StaticVector<3>, datatype::Scalar, T>{
 public:
-    GyroBase();
+	GyroBase(){}
 	GyroBase(int instance_id, const datatype::DCM &angle, double sigma, double tau);
-	~GyroBase();
+	~GyroBase(){}
 	virtual void do_update();
 	virtual datatype::Scalar filter(const datatype::Scalar& value); 
 private:
@@ -42,17 +42,6 @@ private:
     //! ECRVの時定数
     double tau_;
 };
-
-template <class T>
-GyroBase<T>::GyroBase()
-{
-}
-
-template <class T>
-GyroBase<T>::~GyroBase()
-{
-}
-
 
 template <class T>
 GyroBase<T>::GyroBase(int instance_id, const datatype::DCM &dcm,double sigma, double tau)
