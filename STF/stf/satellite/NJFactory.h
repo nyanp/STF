@@ -46,6 +46,7 @@ public:
 	virtual void create_additional_hotspot();
 	virtual void create_mode();
 	virtual void create_datapool();
+	virtual void satellite_initialize(){}
 	virtual Global<Env>* return_created_object(){
 		return this->global_;
 	}

@@ -40,12 +40,23 @@ template<class Env>
 class Global{
 public:
 	//static Global<Env>& get_instance();//Environmentごとに単一のインスタンスのみを生成
+
+	//! Aocsデータプールのハンドラを取得．
 	virtual const core::datapool::AocsDataPool* get_datapool() const = 0;
+
+	//! Eventデータプールのハンドラを取得．
 	virtual const core::datapool::EventDataPool* get_eventdatapool() const = 0;
 
-	virtual const datatype::Time get_global_time() = 0;//衛星のOBC時刻を取得
-	virtual const datatype::DateTime get_global_datetime() = 0;//衛星のRTC時刻を取得
-	virtual const datatype::SatelliteModel get_satellitemodel() const = 0;//衛星の質量特性モデルを取得
+	//! 衛星のOBC時刻を取得
+	virtual const datatype::Time get_global_time() = 0;
+
+	//! 衛星のRTC時刻を取得
+	virtual const datatype::DateTime get_global_datetime() = 0;
+
+	//! 衛星の質量特性モデルを取得
+	virtual const datatype::SatelliteModel get_satellitemodel() const = 0;
+
+	//! 衛星の機能マネージャをリスト形式で取得
 	virtual datatype::List<core::manager::ManagerBase>* getFunctionManager() {return &(this->managers_);}
 
 	virtual ~Global(){}//デストラクタ

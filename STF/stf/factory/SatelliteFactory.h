@@ -38,6 +38,8 @@ public:
 		create_switches();
 		create_additional_hotspot();
 
+		satellite_initialize();
+
 		return return_created_object();
 	}
 protected:
@@ -63,6 +65,8 @@ protected:
 	virtual void create_additional_hotspot() = 0;
 	//! データプールへの接続を生成するファクトリ
 	virtual void create_datapool() = 0;
+	//! 最初のモード指定など，衛星固有の初期化処理を実行．
+	virtual void satellite_initialize() = 0;
 	//! 生成されたオブジェクトを、Globalのポインタで返却
 	virtual Global<Env>* return_created_object() = 0;
 };

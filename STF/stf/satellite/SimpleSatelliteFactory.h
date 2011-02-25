@@ -47,6 +47,7 @@ public:
 	virtual void create_additional_hotspot();
 	virtual void create_mode();
 	virtual void create_datapool();
+	virtual void satellite_initialize();
 	virtual Global<Env>* return_created_object(){
 		return this->global_;
 	}
@@ -181,6 +182,11 @@ void SimpleSatelliteFactory<Env>::create_datapool(){
 	this->global_->ss_rw3->connect(global_->ss_aocsdatapool,10,"SS_RW3");
 	this->global_->ss_rw4->connect(global_->ss_aocsdatapool,10,"SS_RW4");
 	this->global_->ss_rw->connect(global_->ss_aocsdatapool,10,"SS_RW");
+}
+
+template<class Env>
+void SimpleSatelliteFactory<Env>::satellite_initialize(){
+	this->global_->ss_modemanager->change_mode(this->global_->ss_safemode);
 }
 
 
