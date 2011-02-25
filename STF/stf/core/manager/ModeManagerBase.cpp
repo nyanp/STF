@@ -24,7 +24,7 @@ void ModeManagerBase::change_mode(const core::mode::ModeBase *mode)
 }
 
 void ModeManagerBase::notify(const mode::ModeBase* value){
-	this->component_ = value->getlist(SpotType());
+	this->component_ = value->get_list(SpotType());
 }
 
 void ModeManagerBase::run()

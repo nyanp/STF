@@ -26,7 +26,7 @@ void ControlManagerBase::run(){
 }
 
 void ControlManagerBase::notify(const mode::ModeBase* value){
-	this->controller_ = value->getlist(SpotType());
+	this->controller_ = value->get_list(SpotType());
 }
 
 void ControlManagerBase::doControl(const datatype::Time& t){

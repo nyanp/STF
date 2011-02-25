@@ -56,7 +56,7 @@ public:
 
 //! モードに依存したアルゴリズムを纏め，インターフェースを提供するクラス．
 /*! 
-	@todo add_list, getlistをFieldヘルパでまとめる．ユーザから任意個のHotSpotを追加で与えられるようなパラメータを用意する
+	@todo add_list, get_listをFieldヘルパでまとめる．ユーザから任意個のHotSpotを追加で与えられるようなパラメータを用意する
 */
 struct StrategyHolder : 
 	public Loki::GenScatterHierarchy<
@@ -82,19 +82,19 @@ struct StrategyHolder :
 		(static_cast<HotSpotList<stf::core::strategy::telemetry::ITelemetryStrategy>& >(*this).add_list_(*value));
 	}
 
-	virtual const datatype::List<devicedriver::ISwitchable>* getlist(Loki::Type2Type<devicedriver::ISwitchable>) const{
+	virtual const datatype::List<devicedriver::ISwitchable>* get_list(Loki::Type2Type<devicedriver::ISwitchable>) const{
 		return &(static_cast<const HotSpotList<stf::core::devicedriver::ISwitchable>& >(*this).value_);
 	}
-	virtual const datatype::List<devicedriver::IDataUpdatable>* getlist(Loki::Type2Type<devicedriver::IDataUpdatable>) const{
+	virtual const datatype::List<devicedriver::IDataUpdatable>* get_list(Loki::Type2Type<devicedriver::IDataUpdatable>) const{
 		return &(static_cast<const HotSpotList<stf::core::devicedriver::IDataUpdatable>& >(*this).value_);
 	}
-	virtual const datatype::List<stf::core::functor::IFunctor>* getlist(Loki::Type2Type<functor::IFunctor>) const{
+	virtual const datatype::List<stf::core::functor::IFunctor>* get_list(Loki::Type2Type<functor::IFunctor>) const{
 		return &(static_cast<const HotSpotList<functor::IFunctor>& >(*this).value_);
 	}
-	virtual const datatype::List<stf::core::strategy::telemetry::ITelemetryStrategy>* getlist(Loki::Type2Type<stf::core::strategy::telemetry::ITelemetryStrategy>) const{
+	virtual const datatype::List<stf::core::strategy::telemetry::ITelemetryStrategy>* get_list(Loki::Type2Type<stf::core::strategy::telemetry::ITelemetryStrategy>) const{
 		return &(static_cast<const HotSpotList<stf::core::strategy::telemetry::ITelemetryStrategy>& >(*this).value_);
 	}
-	virtual const datatype::List<stf::core::strategy::control::IControlStrategy>* getlist(Loki::Type2Type<stf::core::strategy::control::IControlStrategy>) const{
+	virtual const datatype::List<stf::core::strategy::control::IControlStrategy>* get_list(Loki::Type2Type<stf::core::strategy::control::IControlStrategy>) const{
 		return &(static_cast<const HotSpotList<stf::core::strategy::control::IControlStrategy>& >(*this).value_);
 	}
 };

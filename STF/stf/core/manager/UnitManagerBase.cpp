@@ -17,7 +17,7 @@ namespace manager {
 
 void UnitManagerBase::notify(const mode::ModeBase* newmode)
 {
-	this->unit_list_ = newmode->getlist(SpotType());
+	this->unit_list_ = newmode->get_list(SpotType());
 }
 
 void UnitManagerBase::run()

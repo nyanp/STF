@@ -15,7 +15,7 @@ namespace core {
 namespace manager {
 
 void TelemetryManagerBase::notify(const mode::ModeBase* value){
-	this->telem_ = value->getlist(SpotType());
+	this->telem_ = value->get_list(SpotType());
 }
 
 void TelemetryManagerBase::run()

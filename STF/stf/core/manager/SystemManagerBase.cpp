@@ -17,8 +17,8 @@ namespace manager {
 
 void SystemManagerBase::notify(const mode::ModeBase* value){
 	util::cout << "system list change!" << util::endl;
-	this->func_ = value->getlist(SpotType());
-	//this->func_ = value->getlist(SpotType());
+	this->func_ = value->get_list(SpotType());
+	//this->func_ = value->get_list(SpotType());
 }
 
 void SystemManagerBase::run()

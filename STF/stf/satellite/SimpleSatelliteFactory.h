@@ -123,6 +123,17 @@ void SimpleSatelliteFactory<Env>::create_funcmanager(){
 
 template<class Env>
 void SimpleSatelliteFactory<Env>::create_controller(){
+	typedef strategy::control::RateDumping RateDumping;
+	typedef strategy::control::ControlBlock ControlBlock;
+
+	RateDumping* rd = new RateDumping(0, 0.2, 0.0, 0.5, STEPTIME);
+	ControlBlock* cb = new ControlBlock(0, rd, this->global_->ss_rw);
+
+	rd->connect_source<0>(this->global_->ss_gyro);
+
+	this->global_->ss_controlstrategy = cb;
+
+	this->global_->ss_missionmode->add_list(global_->ss_controlstrategy);
 
 }
 
