@@ -9,15 +9,16 @@
 #include "../mode/ModeBase.h"
 #include "../../util/Ostream.h"
 #include "../strategy/control/ControlBlock.h"
+#include "../../util/Trace.h"
 
 namespace stf {
 namespace core {
 namespace manager {
 
 void ControlManagerBase::run(){
- 	//util::cout<<"Conman run:\n";   
+	util::Trace trace(util::Trace::kManager,"run ControlManager"); 
 	if(this->controller_ == 0){
-		//util::cout << "skip" << util::endl;
+		trace.debug("skip");
 		return;
 	}
 	datatype::Time t = this->clock_->get_time();
@@ -25,7 +26,6 @@ void ControlManagerBase::run(){
 }
 
 void ControlManagerBase::notify(const mode::ModeBase* value){
-	util::cout <<  "strategychange:" << util::endl;
 	this->controller_ = value->getlist(SpotType());
 }
 

@@ -41,12 +41,13 @@ class RootObject {
 public:
 	RootObject(int instance_id, const datatype::String& name);
 	int instance_id() const{ return instance_id_; }
+	const datatype::String& name() const { return name_; }
 	virtual ~RootObject(){}
 	virtual int get_datapoolKey() const;
 protected:
     int oid_;
 	int instance_id_;
-	datatype::String name_;
+	const datatype::String name_;
     static int last_oid_;
 	static core::devicedriver::clock::ITimeClock* clock_;
 	//観測値が格納されるデータベースインデックス．

@@ -4,6 +4,7 @@
  *
  * @author Taiga Nomi
  * @date   2011.02.16
+ * @todo   C³ORíœ
  */
 #include "UnaryFunctionCommand.h"
 

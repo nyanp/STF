@@ -6,8 +6,14 @@
  * @date   2011.02.16
  */
 #include "Ostream.h"
-#include"../datatype/String.h"
 #include"../util/math.h"
+#include"../datatype/String.h"
+#include"../datatype/Vector.h"
+#include"../datatype/Matrix.h"
+#include"../datatype/Scalar.h"
+#include"../datatype/Time.h"
+#include"../datatype/DateTime.h"
+#include"../datatype/OrbitInfo.h"
 
 namespace {
 	std::string toString_(const stf::datatype::String& str){
@@ -90,9 +96,9 @@ std::ostream &operator << (std::ostream& out_file, const stf::datatype::Position
 namespace stf { 
 namespace util {
 NoOutput none;
-std::fstream log("log.txt");
+std::ofstream log("log.csv");
 Ostream<std::ostream> cout(std::cout);
-Ostream<std::fstream> clog(log);
+Ostream<std::ofstream> clog(log);
 //Ostream<NoOutput> cout(none);
 } /* End of namespace stf::util */
 } /* End of namespace stf */

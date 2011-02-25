@@ -10,6 +10,7 @@
 #include <assert.h>
 #include "Command.h"
 #include "../../datatype/Time.h"
+#include "../../util/Trace.h"
 
 namespace stf {
 namespace core {
@@ -47,6 +48,7 @@ public:
 	}
 	virtual void execute(){
 		assert(index_ >= 0);
+		util::Trace trace(util::Trace::kCommand,name_);
 		for(int i = 0; i < index_; i++){
 			commands_[i]->execute();//順番に実行
 		}

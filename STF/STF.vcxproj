@@ -144,7 +144,6 @@
     <ClCompile Include="stf\environment\torquesource\WhiteNoise.cpp" />
     <ClCompile Include="stf\environment\virtex\IPCoreLibrary\BRAM.cpp" />
     <ClCompile Include="stf\RootObject.cpp" />
-    <ClCompile Include="stf\satellite\NJFactory.cpp" />
     <ClCompile Include="stf\satellite\nj\NJADC.cpp" />
     <ClCompile Include="stf\satellite\nj\NJCoarseTAM.cpp" />
     <ClCompile Include="stf\satellite\nj\NJCommandReceiver.cpp" />
@@ -152,7 +151,6 @@
     <ClCompile Include="stf\satellite\nj\NJEKF.cpp" />
     <ClCompile Include="stf\satellite\nj\NJFineTAM.cpp" />
     <ClCompile Include="stf\satellite\nj\NJFOG.cpp" />
-    <ClCompile Include="stf\satellite\nj\NJGlobal.cpp" />
     <ClCompile Include="stf\satellite\nj\NJGPS.cpp" />
     <ClCompile Include="stf\satellite\nj\NJGyro.cpp" />
     <ClCompile Include="stf\satellite\nj\NJMC.cpp" />
@@ -166,14 +164,12 @@
     <ClCompile Include="stf\satellite\nj\NJSwitchable.cpp" />
     <ClCompile Include="stf\satellite\nj\NJTelemetryHandler.cpp" />
     <ClCompile Include="stf\satellite\nj\NJTRIAD.cpp" />
-    <ClCompile Include="stf\satellite\PRISMFactory.cpp" />
     <ClCompile Include="stf\satellite\prism\PRISMADC.cpp" />
     <ClCompile Include="stf\satellite\prism\PRISMCommandReceiver.cpp" />
     <ClCompile Include="stf\satellite\prism\PRISMControlBlock.cpp" />
     <ClCompile Include="stf\satellite\prism\PRISMCustomManager.cpp" />
     <ClCompile Include="stf\satellite\prism\PRISMDummyClock.cpp" />
     <ClCompile Include="stf\satellite\prism\PRISMEKF.cpp" />
-    <ClCompile Include="stf\satellite\prism\PRISMGlobal.cpp" />
     <ClCompile Include="stf\satellite\prism\PRISMGyro.cpp" />
     <ClCompile Include="stf\satellite\prism\PRISMMTQ.cpp" />
     <ClCompile Include="stf\satellite\prism\PRISMRMMEKF.cpp" />
@@ -182,8 +178,6 @@
     <ClCompile Include="stf\satellite\prism\PRISMTelemetryHandler.cpp" />
     <ClCompile Include="stf\satellite\prism\PRISMTelemetryStrategy.cpp" />
     <ClCompile Include="stf\satellite\prism\PRISMTRIAD.cpp" />
-    <ClCompile Include="stf\satellite\SimpleSatelliteFactory.cpp" />
-    <ClCompile Include="stf\satellite\simplesatellite\SSGlobal.cpp" />
     <ClCompile Include="stf\util\math.cpp" />
     <ClCompile Include="stf\datatype\DCM.cpp" />
     <ClCompile Include="stf\datatype\EulerAngle.cpp" />
@@ -195,6 +189,7 @@
     <ClCompile Include="stf\util\math\Exp.cpp" />
     <ClCompile Include="stf\util\math\Rand.cpp" />
     <ClCompile Include="stf\util\Ostream.cpp" />
+    <ClCompile Include="stf\util\Trace.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stf\core\command\Command.h" />
@@ -406,6 +401,7 @@
     <ClInclude Include="stf\util\math\RungeKutta.h" />
     <ClInclude Include="stf\util\Null.h" />
     <ClInclude Include="stf\util\Ostream.h" />
+    <ClInclude Include="stf\util\Trace.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

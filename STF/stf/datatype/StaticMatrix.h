@@ -34,7 +34,7 @@ public:
     StaticMatrix &operator=(const StaticMatrix &rhs);
     StaticMatrix &operator+=(const StaticMatrix &rhs);
     StaticMatrix &operator-=(const StaticMatrix &rhs);
-    StaticMatrix &operator*=(const StaticMatrix &rhs);
+    StaticMatrix &operator*=(const StaticMatrix<cols,cols> &rhs);
     StaticMatrix &operator*=(double rhs);
     StaticMatrix &operator/=(double rhs);
     bool operator==(const StaticMatrix &rhs) const ;
@@ -275,10 +275,16 @@ StaticMatrix<rows,cols> &StaticMatrix<rows,cols>::operator-=(const StaticMatrix<
 }
 
 template<int rows, int cols>
-StaticMatrix<rows,cols> &StaticMatrix<rows,cols>::operator*=(const StaticMatrix<rows,cols> &rhs)
+StaticMatrix<rows,cols> &StaticMatrix<rows,cols>::operator*=(const StaticMatrix<cols,cols> &rhs)
 {
-	StaticMatrix tempmat = *this * rhs;
-	*this = tempmat;
+	StaticMatrix<rows,cols> mat;
+
+	for(int r = 0;r < rows; r++)
+	  for(int c = 0;c < cols; c++)
+		for(int index = 0;index < cols; index ++)
+			mat[r][c] += value_[r][index] * rhs[index][c];
+
+	*this = mat;
 	return *this;
 }
 

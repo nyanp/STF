@@ -11,6 +11,7 @@
 #include "Command.h"
 #include "../../interface/Iterator.h"
 #include "../devicedriver/cmhandler/ICommandReceiver.h"
+#include "../../util/Trace.h"
 
 namespace stf {
 namespace core {
@@ -33,13 +34,13 @@ public:
 		return new GetCommand(t,obj_,f_);
 	}
 	virtual void execute(){
+		util::Trace trace(util::Trace::kCommand,name_);
 		U response = (*obj_.*f_)();
 		this->rcv_->send_packet(response);
 	}
 private:
 	Func f_;
 	T* obj_;
-
 };
 
 //! イテレータを取得するメンバ関数を起動し，得られたイテレータを使って内部状態をパケットに送出するコマンド．
@@ -61,6 +62,7 @@ public:
 		return new GetIteratorCommand<T,Iterator,Targ,SCALE>(t,obj_,f_);
 	}
 	virtual void execute(){
+		util::Trace trace(util::Trace::kCommand,name_);
 		Targ response = (*obj_.*f_)();
 		Iterator it(&response);
 		while(!it.end()){

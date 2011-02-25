@@ -37,7 +37,7 @@ class ModeBase;
 
 //! モードに依存したアルゴリズムを保持するクラス．
 /*! 
-	@params T リスト化されるアルゴリズムの型．
+	@tparam T リスト化されるアルゴリズムの型．
 */
 template<class T> class HotSpotList {
 public:

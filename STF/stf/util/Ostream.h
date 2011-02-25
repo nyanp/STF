@@ -15,17 +15,21 @@
 #define util_Ostream_h
 #include<iostream>
 #include<fstream>
-#include"../datatype/String.h"
-#include"../datatype/Vector.h"
-#include"../datatype/Matrix.h"
-#include"../datatype/Scalar.h"
-#include"../datatype/Time.h"
-#include"../datatype/DateTime.h"
-#include"../datatype/OrbitInfo.h"
 #include"../datatype/StaticVector.h"
 #include"../datatype/StaticMatrix.h"
 
 namespace stf { 
+namespace datatype {
+class String;
+class Vector;
+class Matrix;
+class Scalar;
+class Time;
+class DateTime;
+struct OrbitInfo;
+struct PositionInfo;
+}
+
 namespace util {
 
 //! 標準出力のラッパ．
@@ -67,7 +71,7 @@ private:
 
 //extern Ostream<NoOutput> cout;
 extern Ostream<std::ostream> cout;
-extern Ostream<std::fstream> clog;
+extern Ostream<std::ofstream> clog;
 
 } /* End of namespace stf::util */
 } /* End of namespace stf */

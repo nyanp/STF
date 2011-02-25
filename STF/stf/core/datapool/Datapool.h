@@ -19,6 +19,7 @@
 #include "../devicedriver/clock/ITimeClock.h"
 #include "../../interface/Iterator.h"
 #include "../../util/loki/TypeManip.h"
+#include "../../util/Trace.h"
 
 namespace stf {
 namespace core {
@@ -46,6 +47,7 @@ public:
 
 	template <class T>
 	void set(const datatype::Time& time, const T& value){
+		util::Trace trace(util::Trace::kDataPool,"set Tuple");
 		index_ ++;
 		index_ %= capacity_;
 		*(static_cast<T*>(data_[index_])) = value;//copy

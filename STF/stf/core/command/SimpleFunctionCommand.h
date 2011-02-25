@@ -11,6 +11,7 @@
 #include "Command.h"
 #include "../functor/Functor.h"
 #include "../devicedriver/cmhandler/ICommandReceiver.h"
+#include "../../util/Trace.h"
 
 namespace stf {
 namespace core {
@@ -29,6 +30,7 @@ public:
 		return new SimpleFunctorCommand(t,func_);
 	}
 	virtual void execute(){
+		util::Trace trace(util::Trace::kCommand,name_);
 		(*func_)();
 	}
 private:
@@ -51,6 +53,7 @@ public:
 		return new SimpleMemberFunctionCommand<T,U>(t,obj_,f_);
 	}
 	virtual void execute(){
+		util::Trace trace(util::Trace::kCommand,name_);
 		U response = (*obj_.*f_)();
 		this->rcv_->send_packet(U);
 	}

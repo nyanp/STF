@@ -11,6 +11,7 @@
 #include "Command.h"
 #include "../../datatype/String.h"
 #include "../devicedriver/cmhandler/ICommandReceiver.h"
+#include "../../util/Trace.h"
 
 namespace stf {
 namespace core {
@@ -30,6 +31,7 @@ public:
 		return new MessageCommand(t,msg_);
 	}
 	virtual void execute(){
+		util::Trace trace(util::Trace::kCommand,name_);
 		this->rcv_->send_packet(msg_);
 	}
 private:

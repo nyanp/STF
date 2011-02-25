@@ -10,6 +10,7 @@
 #include "../../GlobalObject.h"
 #include "../../core/manager/Includes.h"
 #include "../../core/devicedriver/Includes.h"
+#include "../../core/mode/ModeBase.h"
 #include "../../datatype/SatelliteModel.h"
 
 
@@ -37,11 +38,46 @@ struct SSGlobal : public Global<Env>{
 		return this->ss_eventdatapool;
 	}
 
+	// Satellite Body
+	datatype::SatelliteModel ss_body_;
+
+	// DataPool
 	datapool::AocsDataPool* ss_aocsdatapool;
 	datapool::EventDataPool* ss_eventdatapool;
 
-	devicedriver::clock::DummyClock* ss_clock;
-	datatype::SatelliteModel ss_body_;
+	// Mode
+	mode::ModeBase* ss_safemode;
+	mode::ModeBase* ss_missionmode;
+
+	//Clock
+	devicedriver::clock::DummyClock<100>* ss_clock;
+
+	//Manager
+	manager::ModeManager* ss_modemanager;
+	manager::ControlManager* ss_controlmanager;
+	manager::TelemetryManager* ss_telemetrymanager;
+	manager::CommandManager* ss_commandmanager;
+	manager::UnitManager* ss_unitmanager;
+	manager::SystemManager* ss_systemmanager;
+
+	//Gyro
+	typedef devicedriver::gyro::Gyro<Env> Gyro;
+	typedef devicedriver::CompositeInput<Gyro, 3> ThreeAxisGyro;
+
+	Gyro* ss_gyrox;
+	Gyro* ss_gyroy;
+	Gyro* ss_gyroz;
+	ThreeAxisGyro* ss_gyro;
+
+	//Reaction Wheel
+	typedef devicedriver::rw::RW<Env> RW;
+	typedef devicedriver::CompositeOutput<RW, 4> SkewRW;
+
+	RW* ss_rw1;
+	RW* ss_rw2;
+	RW* ss_rw3;
+	RW* ss_rw4;
+	SkewRW* ss_rw;
 };
 
 } /* End of namespace stf */

@@ -6,10 +6,10 @@
  * @date   2011.02.16
  */
 #include "CommandManagerBase.h"
-#include "../../util/Ostream.h"
 #include "../../datatype/Time.h"
 #include "../command/Command.h"
 #include "../devicedriver/clock/ITimeClock.h"
+#include "../../util/Trace.h"
 
 namespace stf {
 namespace core {
@@ -20,11 +20,13 @@ void CommandManagerBase::run(){
 }
 
 void CommandManagerBase::execute_command_(const datatype::Time& t){
+	util::Trace trace(util::Trace::kManager,"run CommandManager");
 	//実装はリングバッファだが，実装しやすいのでコマンドの確認順序は配列の後ろから
 	//実行順序に制約のあるコマンドはトランザクションとして実装するので問題は無いはず
 	for(int i = NUM_OF_LIST - 1 ; i >= 0 ; i--){
 		if(this->commandList_[i] == 0) continue;
 		if(this->commandList_[i]->can_execute(t)){
+			trace.debug(commandList_[i]->name().to_char());
 			this->commandList_[i]->execute();
 			remove_command_(i);
 		}
@@ -40,7 +42,7 @@ void CommandManagerBase::remove_command_(int index){
 }
 
 void CommandManagerBase::notify(const mode::ModeBase* value){
-	util::cout <<  "strategychange:" << util::endl;
+	//util::Trace trace(util::Trace::kManager,"strategychange CommandManager");
 }
 
 } /* End of namespace stf::core::manager */

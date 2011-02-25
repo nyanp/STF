@@ -10,6 +10,7 @@
 
 #include <assert.h>
 #include "Command.h"
+#include "../../util/Trace.h"
 
 namespace stf {
 namespace core {
@@ -35,6 +36,7 @@ public:
 		return new TypeListMemberFunctionCommand<T,ARG,N>(t,obj_,f_,arg_);
 	}
 	virtual void execute(){
+		util::Trace trace(util::Trace::kCommand,name_);
 		(*obj_.*f_)(arg_);//trigger functor
 	}
 private:

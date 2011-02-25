@@ -35,11 +35,7 @@ Quaternion TypeConverter::toQuaternion(const DCM &dcm)
 	return q;
 }
 
-Quaternion TypeConverter::toQuaternion(const EulerAngle &euler_angle)
-{
-	//いったんDCMを経由してからQuaternionになおす
-	return TypeConverter::toQuaternion(TypeConverter::toDCM(euler_angle));
-}
+
 
 DCM TypeConverter::toDCM(const Quaternion &q)
 {
@@ -92,11 +88,6 @@ EulerAngle TypeConverter::toEulerAngle(const DCM &dcm)
 	return e;
 }
 
-EulerAngle TypeConverter::toEulerAngle(const Quaternion &q)
-{
-	//いったんDCMを介してからオイラー角に変換
-	return TypeConverter::toEulerAngle(TypeConverter::toDCM(q));
-}
 
 DCM TypeConverter::toDCM(double z_deg, double y_deg, double x_deg)
 {

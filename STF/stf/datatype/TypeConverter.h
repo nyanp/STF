@@ -34,6 +34,17 @@ public:
 	static PositionInfo toPositionInfo(const OrbitInfo &orb);
 };
 
+//! QuaternionからZ-Y-Xオイラー角への変換．一旦DCMを経由する
+inline EulerAngle TypeConverter::toEulerAngle(const Quaternion &q){
+	return TypeConverter::toEulerAngle(TypeConverter::toDCM(q));
+}
+
+//! Z-Y-Xオイラー角からQuaternionへの変換．一旦DCMを経由する
+inline Quaternion TypeConverter::toQuaternion(const EulerAngle &euler_angle)
+{
+	return TypeConverter::toQuaternion(TypeConverter::toDCM(euler_angle));
+}
+
 } /* End of namespace stf::datatype */
 } /* End of namespace stf */
 

@@ -30,6 +30,10 @@ private:
 	friend bool operator == (const String&, const String&);
 	friend String operator + (const String&,const String&);
 };
+
+bool operator == (const String &s1, const String &s2);
+String operator + (const String &s1,const String &s2);
+
 } /* End of namespace stf::datatype */
 } /* End of namespace stf */
 

@@ -7,7 +7,8 @@
  */
 #include "ModeManagerBase.h"
 #include "../mode/ModeBase.h"
-#include "../../util/Ostream.h"
+#include "../../util/Trace.h"
+
 
 namespace stf {
 namespace core {
@@ -16,7 +17,8 @@ namespace manager {
 // Oberver
 void ModeManagerBase::change_mode(const core::mode::ModeBase *mode)
 {
-	util::cout << "change_mode:" << "->" << mode->name() << util::endl;
+	util::Trace trace(util::Trace::kManager, "modeChange ModeManager");
+	trace.debug(mode->name());
 	current_mode_ = mode;
 	this->notify_observers(*mode);
 }
@@ -27,7 +29,7 @@ void ModeManagerBase::notify(const mode::ModeBase* value){
 
 void ModeManagerBase::run()
 {
- 	//util::cout<<"Modeman run:\n";   
+	util::Trace trace(util::Trace::kManager, "run ModeManager");
 	this->check();
 }
 

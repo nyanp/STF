@@ -10,6 +10,7 @@
 
 #include "Command.h"
 #include "../devicedriver/ISwitchable.h"
+#include "../../util/Trace.h"
 
 namespace stf {
 namespace core {
@@ -25,6 +26,7 @@ public:
 		: Command(t,"SwitchCommand"), sw_(sw), on_(on) {}
 	~SwitchCommand(){}
 	virtual void execute(){
+		util::Trace trace(util::Trace::kCommand,name_);
 		if(on_) this->sw_->on();
 		else    this->sw_->off();
 	}

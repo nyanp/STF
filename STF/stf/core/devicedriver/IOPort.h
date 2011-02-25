@@ -23,6 +23,9 @@ template<class T> struct InputPort;
 */	
 template<class T>
 struct OutputPort {
+	//! コンストラクタ．ポートのポインタを初期化
+	OutputPort() : nextholder_(0) {}
+
 	//! get_in_bodyframe関数から呼び出される，データの更新を行う関数．
 	/*! OutputPortを継承した具象クラスは各々の更新ルーチンを実装しなければならない．本来ならこれは純粋仮想関数としておくべきだが，
 	 *  OutputPortsが使用するLokiのFieldヘルパは抽象クラスを扱えない．そのため，ここではassert(0)を実行する関数を実装し，
@@ -33,12 +36,18 @@ struct OutputPort {
 		assert(0);
 	}
 	virtual const T& get_in_bodyframe() const{ return value_b_;}
+
+	//! データの取得を行う関数．
 	virtual const T& get_in_bodyframe(const datatype::Time& t){ do_compute(t); return value_b_; }
+
 	const datatype::Time& get_lastupdate() const{ return last_update_;}
+
 	//! 機体座標系における取得値
 	T value_b_;
+
 	//! 接続された入力ポート
 	InputPort<T>* nextholder_;
+
 	//! value_b_の最終更新時刻
 	datatype::Time last_update_;
 };
@@ -49,12 +58,15 @@ struct OutputPort {
 */	
 template<class T>
 struct InputPort {
+	//! コンストラクタ．ポートのポインタを初期化．
 	InputPort() : prevholder_(0) {}
+
 	//! 双方向のリンクリストを形成することで，出力ポートとの接続を確立する．
 	virtual void connect_source_(OutputPort<T>* outputport) { 
 		prevholder_ = outputport; 
 		prevholder_->nextholder_ = this;
 	}
+
 	//! 接続された出力ポート
 	OutputPort<T>* prevholder_;
 };
@@ -88,6 +100,13 @@ public:
 	template<int i>
 	const datatype::Time& getLastInputTime() {
 		return Loki::Field<i>(*this).prevholder_->last_update_;
+	}
+
+	//! i番目の入力ポートに出力ポートが接続しているかを取得．
+	template<int i>
+	bool input_isconnected() {
+		if(Loki::Field<i>(*this).prevholder_ == 0) return false;
+		else return true;
 	}
 };
 
@@ -123,6 +142,13 @@ public:
 	template<int i>
 	void setLastOutputtime(const datatype::Time& time){
 		Loki::Field<i>(*this).last_update_ = time;
+	}
+
+	//! i番目の出力ポートに入力ポートが接続しているかを取得．
+	template<int i>
+	bool output_isconnected() {
+		if(Loki::Field<i>(*this).nextholder_ == 0) return false;
+		else return true;
 	}
 };
 

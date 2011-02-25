@@ -22,6 +22,7 @@
 #include "stf/core/command/ModeChangeCommand.h"
 
 #include "stf/util/math.h"
+#include "stf/util/Trace.h"
 #include "stf/core/datapool/Datapool.h"
 #include "stf/core/devicedriver/Includes.h"
 #include "stf/datatype/IAocsData.h"
@@ -38,6 +39,7 @@
 #include "stf/core/devicedriver/IOPort.h"
 #include "stf/satellite/PRISMFactory.h"
 #include "stf/satellite/NJFactory.h"
+#include "stf/satellite/SimpleSatelliteFactory.h"
 #include "stf/util/math/Exp.h"
 
 #include "stf/environment/sh/iodefine.h"
@@ -132,14 +134,7 @@ public:
 };
 
 int main(void){
-	util::cout << sizeof(double) << util::endl;
-	util::cout << sizeof(datatype::Scalar) << util::endl;
-	util::cout << sizeof(datatype::StaticVector<1>) << util::endl;
-	util::cout << sizeof(datatype::StaticVector<2>) << util::endl;
-	util::cout << sizeof(datatype::StaticMatrix<3,3>) << util::endl;
-	util::cout << sizeof(datatype::StaticMatrix<6,6>) << util::endl;
-	util::cout << sizeof(datatype::StaticMatrix<4,4>) << util::endl;
-	util::cout << sizeof(environment::Simulator) << util::endl;
+
 
 	datatype::StaticMatrix<2,2> mat2;
 	mat2[0][0] = 0.3;
@@ -148,6 +143,13 @@ int main(void){
 
 	util::cout << util::math::exp(mat2,4);
 
+	util::Trace::enable(util::Trace::kManager);
+	util::Trace::enable(util::Trace::kControlBlock);
+	util::Trace::enable(util::Trace::kCommand);
+	util::Trace::enable(util::Trace::kEvent);
+	util::Trace::enable(util::Trace::kDataPool);
+
+	util::Trace tr(util::Trace::kManager,"man");
 
 	typedef devicedriver::CompositeOutput<devicedriver::mtq::MTQ<ENV>,3> ThreeAxisMTQ;
 	typedef devicedriver::CompositeOutput<devicedriver::rw::RW<ENV>,4> SkewRW;
@@ -197,21 +199,14 @@ int main(void){
 	std::cout << Conversion<int,double>::exists << std::endl;
 	std::cout << Conversion<char*,double>::exists << std::endl;
 
-	//Clock clk;
-
-	std::vector<STT*> sttlist;
-	sttlist.push_back(new STT(0,datatype::TypeConverter::toDCM(0,0,0)));
-	std::vector<STT*>::iterator it = sttlist.begin();
-
-	//util::cout << mat * v2;
-	//stf::Global<env>* gl = new stf::NJGlobal<ENV>();
-
 	stf::factory::SatelliteFactory<ENV>* en = new stf::factory::PRISMFactory<ENV>();
 	stf::Global<ENV>* gl = en->create();
 
 	stf::factory::SatelliteFactory<ENV>* en2 = new stf::factory::NJFactory<ENV>();
 	stf::Global<ENV>* gl2 = en2->create();
 
+	stf::factory::SatelliteFactory<ENV>* en3 = new stf::factory::SimpleSatelliteFactory<ENV>();
+	stf::Global<ENV>* gl3 = en3->create();
 	//グローバルオブジェクトの生成
 	//stf::Global<env>& g = stf::Global<env>::get_instance();
 
@@ -220,7 +215,7 @@ int main(void){
 	//シミュレーション用の軌道情報
 	datatype::OrbitInfo orbit(7100000, 0.01, 0, 0.5 * util::math::PI, 0, 0);
 	//シミュレータ初期化
-	s.init(gl, STEPTIME, 100, orbit, new std::ofstream("output.csv"));
+	s.init(gl3, STEPTIME, 100, orbit, new std::ofstream("output.csv"));
 	
 	//シミュレータ外乱設定
 	datatype::StaticVector<3> v;
@@ -237,7 +232,7 @@ int main(void){
 
 	///////////////////////////////////////////////
 	// 実行
-	for(int i = 0; i < 2000; i++)
+	for(int i = 0; i < 200; i++)
 		s.runOneCycle();
 
 	return 1;

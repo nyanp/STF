@@ -7,12 +7,14 @@
  */
 #include "ModeChangeCommand.h"
 #include "../manager/ModeManagerBase.h"
+#include "../../util/Trace.h"
 
 namespace stf {
 namespace core {
 namespace command {
 
 void modeChangeCommand::execute(){
+	util::Trace trace(util::Trace::kCommand,name_);
 	this->modeman_->change_mode(this->mode_);
 }
 

@@ -10,6 +10,7 @@
 
 #include "Command.h"
 #include "../functor/Functor.h"
+#include "../../util/Trace.h"
 
 namespace stf {
 namespace core {
@@ -38,6 +39,7 @@ public:
 		return new UnaryFunctorCommand<T>(t,func_,arg_);
 	}
 	virtual void execute(){
+		util::Trace trace(util::Trace::kCommand,name_);
 		(*func_)(arg_);
 	}
 private:
@@ -66,6 +68,7 @@ public:
 		return new UnAryMemberFunctionCommand<T,U,ARG>(t,obj_,f_,arg_);
 	}
 	virtual void execute(){
+		util::Trace trace(util::Trace::kCommand,name_);
 		U response = (*obj_.*f_)(arg_);
 		this->rcv_->send_packet(response);
 	}
@@ -92,6 +95,7 @@ public:
 		return new UnAryMemberFunctionCommand<T,void,ARG>(t,obj_,f_,arg_);
 	}
 	virtual void execute(){
+		util::Trace trace(util::Trace::kCommand,name_);
 		(*obj_.*f_)(arg_);
 	}
 private:

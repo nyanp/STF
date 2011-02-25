@@ -20,7 +20,7 @@ template <class T> inline T slope(T yn, T(*df)(double,T), double tn, double dt){
     T k3 = df(tn + 0.5 * dt, yn + 0.5 * dt * k2);
     T k4 = df(tn + dt, yn + dt * k3);
 
-    return dt * (k1 + 2 * k2 + 2 * k3 + k4) / 6;
+    return (dt / 6) * (k1 + 2 * k2 + 2 * k3 + k4);
 }
 
 //! y' = Ay + B型の微分方程式
@@ -29,7 +29,7 @@ template <class T,class A> inline T slope(T yn, A A, T B, double dt){
     T k2 = A * (yn + 0.5 * dt * k1) + B;
     T k3 = A * (yn + 0.5 * dt * k2) + B;
     T k4 = A * (yn + dt * k3) + B;
-    return dt * (k1 + 2 * k2 + 2 * k3 + k4) / 6;
+    return (dt / 6) * (k1 + 2 * k2 + 2 * k3 + k4);
 }
 
 //! y' = Ay型の微分方程式
@@ -38,7 +38,7 @@ template <class T,class A> inline T slope(T yn, A A, double dt){
     T k2 = A * (yn + 0.5 * dt * k1);
     T k3 = A * (yn + 0.5 * dt * k2);
     T k4 = A * (yn + dt * k3);
-    return dt * (k1 + 2 * k2 + 2 * k3 + k4) / 6;
+    return (dt / 6) * (k1 + 2 * k2 + 2 * k3 + k4);
 }
 
 } /* End of namespace stf::util::math::RungeKutta */

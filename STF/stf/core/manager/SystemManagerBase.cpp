@@ -9,7 +9,7 @@
 #include "../mode/ModeBase.h"
 #include "../datapool/Datapool.h"
 #include "../functor/Functor.h"
-#include "../../util/Ostream.h"
+#include "../../util/Trace.h"
 
 namespace stf {
 namespace core {
@@ -23,9 +23,10 @@ void SystemManagerBase::notify(const mode::ModeBase* value){
 
 void SystemManagerBase::run()
 {
-	//util::cout << "Telman run:\n";
+	util::Trace trace(util::Trace::kManager, "run SystemManager");
+
 	if(func_ == 0 || func_->size() == 0){
-	//	util::cout << "skip" << util::endl;
+		trace.debug("skip");
 		return;
 	}
 
