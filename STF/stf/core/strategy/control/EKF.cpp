@@ -98,12 +98,12 @@ void EKF::do_compute(const datatype::Time& t)
 
 	util::Trace trace(util::Trace::kControlBlock,name_);
 
-	if(this->getLastOutputtime<0>() < t && this->getLastInputTime<0>() >= this->getLastOutputtime<0>()){
-		update_( this->source<0,datatype::Quaternion>().get_in_bodyframe(t), t );
+	if(this->getLastOutputtime<0>() < t && this->get_lastinput<0>() >= this->getLastOutputtime<0>()){
+		update_( this->source<0,datatype::Quaternion>().get_value(t), t );
 		//util::cout << "update:" << util::endl;
 	}
 	//util::cout << "propagate:" << util::endl;
-	propagate_( this->source<1,datatype::StaticVector<3>>().get_in_bodyframe(t), t );
+	propagate_( this->source<1,datatype::StaticVector<3>>().get_value(t), t );
 
 }
 

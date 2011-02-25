@@ -1,6 +1,6 @@
 /**
  * @file   SimpleSatelliteFactory.h
- * @brief  
+ * @brief  SimpleSatellite用の具象ファクトリ．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -30,6 +30,7 @@
 
 namespace stf {
 namespace factory {
+
 
 template<class Env>
 class SimpleSatelliteFactory : public SatelliteFactory<Env>{
@@ -174,11 +175,6 @@ void SimpleSatelliteFactory<Env>::create_switches(){
 
 template<class Env>
 void SimpleSatelliteFactory<Env>::create_functor(){
-
-}
-
-template<class Env>
-void SimpleSatelliteFactory<Env>::create_additional_hotspot(){
 	//一定時間が経過したらSafeMode->MissionModeへ移行
 	core::functor::IFunctor* timerfunc = new functor::Functor<functor::Getter_Over<datatype::Time,devicedriver::clock::ITimeClock>,core::functor::ModeChangeFunc>
 			(
@@ -188,6 +184,11 @@ void SimpleSatelliteFactory<Env>::create_additional_hotspot(){
 					new functor::ModeChangeFunc(this->global_->ss_modemanager,*(this->global_->ss_missionmode))
 			);
 	this->global_->ss_safemode->add_list(timerfunc);
+}
+
+template<class Env>
+void SimpleSatelliteFactory<Env>::create_additional_hotspot(){
+
 }
 
 template<class Env>

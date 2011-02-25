@@ -64,16 +64,16 @@ void TRIAD::do_compute(const datatype::Time& t) {
 	util::Trace trace(util::Trace::kControlBlock,name_);
 
 	datatype::StaticVector<3> v1 = datatype::TypeConverter::toRectangular(
-		this->source<0,datatype::StaticVector<2>>().get_in_bodyframe(t));
+		this->source<0,datatype::StaticVector<2>>().get_value(t));
 
 	datatype::StaticVector<3> v2 = datatype::TypeConverter::toRectangular(
-		this->source<2,datatype::StaticVector<2>>().get_in_bodyframe(t));
+		this->source<2,datatype::StaticVector<2>>().get_value(t));
 
 	datatype::StaticVector<3> w1 = datatype::TypeConverter::toRectangular(
-		this->source<1,datatype::StaticVector<2>>().get_in_bodyframe(t));
+		this->source<1,datatype::StaticVector<2>>().get_value(t));
 
 	datatype::StaticVector<3> w2 = datatype::TypeConverter::toRectangular(
-		this->source<3,datatype::StaticVector<2>>().get_in_bodyframe(t));
+		this->source<3,datatype::StaticVector<2>>().get_value(t));
 
 	this->value_b_ = estimate_(v1, v2, w1, w2);
 	this->last_update_ = t;
@@ -103,11 +103,11 @@ void SunEarthTRIAD::do_compute(const datatype::Time& t) {
 	util::Trace trace(util::Trace::kControlBlock,name_);
 
 	//センサから取得した衛星基準座標系における地球，太陽方向
-	datatype::StaticVector<2> w_sun = this->source<0,datatype::StaticVector<2>>().get_in_bodyframe(t);
-	datatype::StaticVector<2> w_earth = this->source<1,datatype::StaticVector<2>>().get_in_bodyframe(t);
+	datatype::StaticVector<2> w_sun = this->source<0,datatype::StaticVector<2>>().get_value(t);
+	datatype::StaticVector<2> w_earth = this->source<1,datatype::StaticVector<2>>().get_value(t);
 	//軌道情報をもとに計算された衛星位置における地球，太陽方向
-	datatype::StaticVector<3> v1 = datatype::OrbitCalc::getSunDirection3D(this->source<3,datatype::DateTime>().get_in_bodyframe());
-	datatype::StaticVector<3> v2 = datatype::OrbitCalc::getEarthDirection3D(this->source<2,datatype::PositionInfo>().get_in_bodyframe(t));
+	datatype::StaticVector<3> v1 = datatype::OrbitCalc::getSunDirection3D(this->source<3,datatype::DateTime>().get_value(t));
+	datatype::StaticVector<3> v2 = datatype::OrbitCalc::getEarthDirection3D(this->source<2,datatype::PositionInfo>().get_value(t));
 
 	datatype::StaticVector<3> w1 = datatype::TypeConverter::toRectangular(w_sun);
 	datatype::StaticVector<3> w2 = datatype::TypeConverter::toRectangular(w_earth);
@@ -139,13 +139,13 @@ void SunMagTRIAD::do_compute(const datatype::Time& t) {
 	util::Trace trace(util::Trace::kControlBlock,name_);
 
 	//センサから取得した衛星基準座標系における地球，太陽方向
-	datatype::StaticVector<2> w_sun = this->source<0,datatype::StaticVector<2>>().get_in_bodyframe(t);
-	datatype::MagneticField w_mag = this->source<1,datatype::MagneticField>().get_in_bodyframe(t);
+	datatype::StaticVector<2> w_sun = this->source<0,datatype::StaticVector<2>>().get_value(t);
+	datatype::MagneticField w_mag = this->source<1,datatype::MagneticField>().get_value(t);
 	//軌道情報をもとに計算された衛星位置における地球，太陽方向
-	datatype::DateTime time = this->source<3,datatype::DateTime>().get_in_bodyframe();
+	datatype::DateTime time = this->source<3,datatype::DateTime>().get_value(t);
 
 	datatype::MagneticField v_mag = 
-		datatype::OrbitCalc::getMagneticFieldDirection(this->source<2,datatype::PositionInfo>().get_in_bodyframe(t),time);
+		datatype::OrbitCalc::getMagneticFieldDirection(this->source<2,datatype::PositionInfo>().get_value(t),time);
 	datatype::StaticVector<3> v1 = datatype::OrbitCalc::getSunDirection3D(time);
 	datatype::StaticVector<3> w1 = datatype::TypeConverter::toRectangular(w_sun);
 
@@ -175,13 +175,13 @@ void SunMagTRIAD2::do_compute(const datatype::Time& t) {
 	util::Trace trace(util::Trace::kControlBlock,name_);
 
 	//センサから取得した衛星基準座標系における地球，太陽方向
-	datatype::StaticVector<2> w_sun = this->source<0,datatype::StaticVector<2>>().get_in_bodyframe(t);
-	datatype::MagneticField w_mag = this->source<1,datatype::MagneticField>().get_in_bodyframe(t);
+	datatype::StaticVector<2> w_sun = this->source<0,datatype::StaticVector<2>>().get_value(t);
+	datatype::MagneticField w_mag = this->source<1,datatype::MagneticField>().get_value(t);
 	//軌道情報をもとに計算された衛星位置における地球，太陽方向
 	datatype::DateTime time = this->clock_->get_datetime();
 
 	datatype::MagneticField v_mag = 
-		datatype::OrbitCalc::getMagneticFieldDirection(this->source<2,datatype::PositionInfo>().get_in_bodyframe(t),time);
+		datatype::OrbitCalc::getMagneticFieldDirection(this->source<2,datatype::PositionInfo>().get_value(t),time);
 	datatype::StaticVector<3> v1 = datatype::OrbitCalc::getSunDirection3D(time);
 	datatype::StaticVector<3> w1 = datatype::TypeConverter::toRectangular(w_sun);
 

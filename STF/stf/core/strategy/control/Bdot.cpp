@@ -28,7 +28,7 @@ Bdot::Bdot(int instance_id,double k,
 void Bdot::do_compute(const datatype::Time& t) {
 	if(t <= this->last_update_) return; //既に別のブロック経由で更新済みなら再計算しない
 	util::Trace trace(util::Trace::kControlBlock,name_);
-	this->source<0,datatype::MagneticField>().get_in_bodyframe(t);
+	this->source<0,datatype::MagneticField>().get_value(t);
 
 	for(int i = 0; i < 3; i++){
 		this->value_b_[i] = - this->k_ * (this->source<0,datatype::MagneticField>().value_b_[i] - this->mag_before_[i]);

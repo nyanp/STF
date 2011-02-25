@@ -34,7 +34,7 @@ void SingleAxisPID::do_compute(const datatype::Time& t)
 	if(t > this->last_update_){//既に別のブロック経由で更新済みなら再計算しない
 		util::Trace trace(util::Trace::kControlBlock,name_);
 
-		this->value_b_ = compute_torque_(this->source<0,datatype::Scalar>().get_in_bodyframe(t));
+		this->value_b_ = compute_torque_(this->source<0,datatype::Scalar>().get_value(t));
 		this->last_update_ = t;
 	}
 }

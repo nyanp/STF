@@ -52,8 +52,8 @@ public:
 			util::Trace trace(util::Trace::kControlBlock,name_);
 
 			this->value_b_.reset();
-			if(this->input_isconnected<0>()) this->value_b_ += this->source<0,T>().get_in_bodyframe(t);
-			if(this->input_isconnected<1>()) this->value_b_ += this->source<1,T>().get_in_bodyframe(t);
+			if(this->input_isconnected<0>()) this->value_b_ += this->source<0,T>().get_value(t);
+			if(this->input_isconnected<1>()) this->value_b_ += this->source<1,T>().get_value(t);
 
 			trace.debug(value_b_);
 
@@ -99,9 +99,9 @@ public:
 			util::Trace trace(util::Trace::kControlBlock,name_);
 
 			this->value_b_.reset();
-			if(this->input_isconnected<0>()) this->value_b_ += this->source<0,T>().get_in_bodyframe(t);
-			if(this->input_isconnected<1>()) this->value_b_ += this->source<1,T>().get_in_bodyframe(t);
-			if(this->input_isconnected<2>()) this->value_b_ += this->source<2,T>().get_in_bodyframe(t);
+			if(this->input_isconnected<0>()) this->value_b_ += this->source<0,T>().get_value(t);
+			if(this->input_isconnected<1>()) this->value_b_ += this->source<1,T>().get_value(t);
+			if(this->input_isconnected<2>()) this->value_b_ += this->source<2,T>().get_value(t);
 
 			trace.debug(value_b_);
 
@@ -149,10 +149,10 @@ public:
 			util::Trace trace(util::Trace::kControlBlock,name_);
 
 			this->value_b_.reset();
-			if(this->input_isconnected<0>()) this->value_b_ += this->source<0,T>().get_in_bodyframe(t);
-			if(this->input_isconnected<1>()) this->value_b_ += this->source<1,T>().get_in_bodyframe(t);
-			if(this->input_isconnected<2>()) this->value_b_ += this->source<2,T>().get_in_bodyframe(t);
-			if(this->input_isconnected<3>()) this->value_b_ += this->source<3,T>().get_in_bodyframe(t);
+			if(this->input_isconnected<0>()) this->value_b_ += this->source<0,T>().get_value(t);
+			if(this->input_isconnected<1>()) this->value_b_ += this->source<1,T>().get_value(t);
+			if(this->input_isconnected<2>()) this->value_b_ += this->source<2,T>().get_value(t);
+			if(this->input_isconnected<3>()) this->value_b_ += this->source<3,T>().get_value(t);
 
 			trace.debug(value_b_);
 
@@ -202,11 +202,11 @@ public:
 			util::Trace trace(util::Trace::kControlBlock,name_);
 
 			this->value_b_.reset();
-			if(this->input_isconnected<0>()) this->value_b_ += this->source<0,T>().get_in_bodyframe(t);
-			if(this->input_isconnected<1>()) this->value_b_ += this->source<1,T>().get_in_bodyframe(t);
-			if(this->input_isconnected<2>()) this->value_b_ += this->source<2,T>().get_in_bodyframe(t);
-			if(this->input_isconnected<3>()) this->value_b_ += this->source<3,T>().get_in_bodyframe(t);
-			if(this->input_isconnected<4>()) this->value_b_ += this->source<4,T>().get_in_bodyframe(t);
+			if(this->input_isconnected<0>()) this->value_b_ += this->source<0,T>().get_value(t);
+			if(this->input_isconnected<1>()) this->value_b_ += this->source<1,T>().get_value(t);
+			if(this->input_isconnected<2>()) this->value_b_ += this->source<2,T>().get_value(t);
+			if(this->input_isconnected<3>()) this->value_b_ += this->source<3,T>().get_value(t);
+			if(this->input_isconnected<4>()) this->value_b_ += this->source<4,T>().get_value(t);
 
 			trace.debug(value_b_);
 
@@ -258,12 +258,12 @@ public:
 			util::Trace trace(util::Trace::kControlBlock,name_);
 
 			this->value_b_.reset();
-			if(this->input_isconnected<0>()) this->value_b_ += this->source<0,T>().get_in_bodyframe(t);
-			if(this->input_isconnected<1>()) this->value_b_ += this->source<1,T>().get_in_bodyframe(t);
-			if(this->input_isconnected<2>()) this->value_b_ += this->source<2,T>().get_in_bodyframe(t);
-			if(this->input_isconnected<3>()) this->value_b_ += this->source<3,T>().get_in_bodyframe(t);
-			if(this->input_isconnected<4>()) this->value_b_ += this->source<4,T>().get_in_bodyframe(t);
-			if(this->input_isconnected<5>()) this->value_b_ += this->source<5,T>().get_in_bodyframe(t);
+			if(this->input_isconnected<0>()) this->value_b_ += this->source<0,T>().get_value(t);
+			if(this->input_isconnected<1>()) this->value_b_ += this->source<1,T>().get_value(t);
+			if(this->input_isconnected<2>()) this->value_b_ += this->source<2,T>().get_value(t);
+			if(this->input_isconnected<3>()) this->value_b_ += this->source<3,T>().get_value(t);
+			if(this->input_isconnected<4>()) this->value_b_ += this->source<4,T>().get_value(t);
+			if(this->input_isconnected<5>()) this->value_b_ += this->source<5,T>().get_value(t);
 
 			trace.debug(value_b_);
 

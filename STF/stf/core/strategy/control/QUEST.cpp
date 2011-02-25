@@ -43,11 +43,11 @@ void QUEST::do_compute(const datatype::Time& t) {
 	util::Trace trace(util::Trace::kControlBlock,name_);
 
 	//センサから取得した衛星基準座標系における地球，太陽方向
-	datatype::StaticVector<2> w_sun = this->source<0,datatype::StaticVector<2>>().get_in_bodyframe(t);
-	datatype::StaticVector<2> w_earth = this->source<1,datatype::StaticVector<2>>().get_in_bodyframe(t);
+	datatype::StaticVector<2> w_sun = this->source<0,datatype::StaticVector<2>>().get_value(t);
+	datatype::StaticVector<2> w_earth = this->source<1,datatype::StaticVector<2>>().get_value(t);
 	//軌道情報をもとに計算された衛星位置における地球，太陽方向
-	datatype::StaticVector<3> v1 = datatype::OrbitCalc::getSunDirection3D(this->source<3,datatype::DateTime>().get_in_bodyframe());
-	datatype::StaticVector<3> v2 = datatype::OrbitCalc::getEarthDirection3D(this->source<2,datatype::PositionInfo>().get_in_bodyframe(t));
+	datatype::StaticVector<3> v1 = datatype::OrbitCalc::getSunDirection3D(this->source<3,datatype::DateTime>().get_value(t));
+	datatype::StaticVector<3> v2 = datatype::OrbitCalc::getEarthDirection3D(this->source<2,datatype::PositionInfo>().get_value(t));
 	datatype::StaticVector<3> w1 = datatype::TypeConverter::toRectangular(w_sun);
 	datatype::StaticVector<3> w2 = datatype::TypeConverter::toRectangular(w_earth);
 

@@ -34,8 +34,8 @@ void MagneticMomentToTorque::do_compute(const datatype::Time& t) {
 
 	// T = M * B
 	this->value_b_ = 
-		this->source<1,datatype::MagneticMoment>().get_in_bodyframe(t) % 
-		this->source<0,datatype::MagneticMoment>().get_in_bodyframe(t);
+		this->source<1,datatype::MagneticMoment>().get_value(t) % 
+		this->source<0,datatype::MagneticMoment>().get_value(t);
 
 	this->last_update_ = t;
 }

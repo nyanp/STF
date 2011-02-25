@@ -39,8 +39,8 @@ void GGCompensation::do_compute(const datatype::Time& t) {
 
 	// 軌道情報と姿勢情報から，機体座標における地球方向ベクトルを算出
 	datatype::StaticVector<3> R = datatype::OrbitCalc::getEarthDirectionInBodyFrame(
-		this->source<1,datatype::PositionInfo>().get_in_bodyframe(t),
-		this->source<0,datatype::Quaternion>().get_in_bodyframe(t));
+		this->source<1,datatype::PositionInfo>().get_value(t),
+		this->source<0,datatype::Quaternion>().get_value(t));
 
 	double r = R.norm(2);
 	datatype::StaticVector<3> u = R / r;

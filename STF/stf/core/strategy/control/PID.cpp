@@ -87,9 +87,9 @@ void PID::do_compute(const datatype::Time& t)
 	if(t > this->last_update_){//既に別のブロック経由で更新済みなら再計算しない
 		util::Trace trace(util::Trace::kControlBlock,name_);
 		//Quaternion観測値
-		datatype::Quaternion q = this->source<0,datatype::Quaternion>().get_in_bodyframe(t);
+		datatype::Quaternion q = this->source<0,datatype::Quaternion>().get_value(t);
 		datatype::EulerAngle e = datatype::TypeConverter::toEulerAngle(q.conjugate() * this->q_target_);
-		datatype::EulerAngle e_diff = this->source<1,datatype::StaticVector<3>>().get_in_bodyframe(t);
+		datatype::EulerAngle e_diff = this->source<1,datatype::StaticVector<3>>().get_value(t);
 		this->e_total_ += e * this->dt_;
 
 		this->value_b_ = compute_torque_(e,e_diff,e_total_);
@@ -116,7 +116,7 @@ void QuaternionPID::do_compute(const datatype::Time& t)
 		util::Trace trace(util::Trace::kControlBlock,name_);
 
 		//Quaternion観測値
-		datatype::Quaternion q = this->source<0,datatype::Quaternion>().get_in_bodyframe(t);
+		datatype::Quaternion q = this->source<0,datatype::Quaternion>().get_value(t);
 		datatype::EulerAngle e = datatype::TypeConverter::toEulerAngle(q.conjugate() * this->q_target_);
 		//角速度センサではなくQの差分で微分値を計算
 		datatype::EulerAngle e_diff = (e - this->e_before_) / this->dt_;
@@ -136,8 +136,8 @@ void EarthPointingPID::do_compute(const datatype::Time& t)
 		util::Trace trace(util::Trace::kControlBlock,name_);
 
 		//Quaternion観測値
-		datatype::Quaternion q = this->source<0,datatype::Quaternion>().get_in_bodyframe(t);
-		this->earthvector_ = datatype::OrbitCalc::getEarthDirection3D(this->source<2,datatype::PositionInfo>().get_in_bodyframe(t));
+		datatype::Quaternion q = this->source<0,datatype::Quaternion>().get_value(t);
+		this->earthvector_ = datatype::OrbitCalc::getEarthDirection3D(this->source<2,datatype::PositionInfo>().get_value(t));
 		datatype::StaticVector<3> v = this->earthvector_ - this->target_earthvector_;
 		
 		//角速度センサではなくQの差分で微分値を計算
@@ -160,9 +160,9 @@ void DynamicPID::do_compute(const datatype::Time& t){
 		util::Trace trace(util::Trace::kControlBlock,name_);
 
 		//Quaternion観測値
-		datatype::Quaternion q = this->source<0,datatype::Quaternion>().get_in_bodyframe(t);
+		datatype::Quaternion q = this->source<0,datatype::Quaternion>().get_value(t);
 		//Quaternion目標値
-		datatype::Quaternion q_target = this->source<2,datatype::Quaternion>().get_in_bodyframe(t);
+		datatype::Quaternion q_target = this->source<2,datatype::Quaternion>().get_value(t);
 		//目標までのオイラー角
 		datatype::EulerAngle e = datatype::TypeConverter::toEulerAngle( q.conjugate() * q_target );
 		

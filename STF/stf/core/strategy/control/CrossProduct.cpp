@@ -37,8 +37,8 @@ void CrossProduct::do_compute(const datatype::Time& t) {
 	util::Trace trace(util::Trace::kControlBlock,name_);
 
 	// M = B * T / |B|2
-	datatype::MagneticField B = this->source<1,datatype::MagneticField>().get_in_bodyframe(t);
-	datatype::StaticVector<3> T = this->source<0,datatype::StaticVector<3>>().get_in_bodyframe(t);
+	datatype::MagneticField B = this->source<1,datatype::MagneticField>().get_value(t);
+	datatype::StaticVector<3> T = this->source<0,datatype::StaticVector<3>>().get_value(t);
 
 	this->value_b_ = (B % T) / (B.norm(2) * B.norm(2));
 
