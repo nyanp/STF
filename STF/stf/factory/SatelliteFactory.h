@@ -25,9 +25,9 @@ public:
 	SatelliteFactory(){}
 	virtual ~SatelliteFactory(){}
 	Global<Env>* create(){
+		create_funcmanager();
 		create_component();
 		create_datapool();
-		create_funcmanager();
 		create_mode();
 	    create_command();
 		create_telemetry();

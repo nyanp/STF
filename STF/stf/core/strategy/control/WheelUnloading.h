@@ -4,6 +4,7 @@
  *
  * @author Taiga Nomi
  * @date   2011.02.16
+ * @todo アンローディング則の実装
  */
 #ifndef stf_core_strategy_control_WheelUnloading_h
 #define stf_core_strategy_control_WheelUnloading_h

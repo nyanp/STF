@@ -60,6 +60,15 @@ struct SSGlobal : public Global<Env>{
 	manager::UnitManager* ss_unitmanager;
 	manager::SystemManager* ss_systemmanager;
 
+	// Command / Telemetry Handler 
+	devicedriver::cmhandler::ICommandReceiver* ss_commandreceiver;
+	devicedriver::tmhandler::ITelemetryStoragable* ss_tmhandler;
+
+	//Control Strategy
+	core::strategy::control::IControlStrategy* ss_controlstrategy;
+	core::strategy::telemetry::ITelemetryStrategy* ss_tmstrategy;
+
+
 	//Gyro
 	typedef devicedriver::gyro::Gyro<Env> Gyro;
 	typedef devicedriver::CompositeInput<Gyro, 3> ThreeAxisGyro;

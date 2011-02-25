@@ -9,6 +9,7 @@
 #include "../../../datatype/TypeConverter.h"
 #include "../../../datatype/Time.h"
 #include "../../../datatype/OrbitCalc.h"
+#include "../../../util/Trace.h"
 
 namespace stf {
 namespace core {
@@ -83,9 +84,8 @@ DynamicPID::DynamicPID(int instance_id, double kp, double ki, double kd, double 
 
 void PID::do_compute(const datatype::Time& t)
 {
-	//assert(this->;//input sourceが無い
 	if(t > this->last_update_){//既に別のブロック経由で更新済みなら再計算しない
-		//util::cout << "compute: PID" << util::endl;
+		util::Trace trace(util::Trace::kControlBlock,name_);
 		//Quaternion観測値
 		datatype::Quaternion q = this->source<0,datatype::Quaternion>().get_in_bodyframe(t);
 		datatype::EulerAngle e = datatype::TypeConverter::toEulerAngle(q.conjugate() * this->q_target_);
@@ -112,9 +112,9 @@ datatype::StaticVector<3> PID::compute_torque_(const datatype::EulerAngle& x, co
 
 void QuaternionPID::do_compute(const datatype::Time& t)
 {
-//	assert(this->prevholder_ != 0);//input sourceが無い
 	if(t > this->last_update_){//既に別のブロック経由で更新済みなら再計算しない
-		//util::cout << "compute: PID(Quaternion)" << util::endl;
+		util::Trace trace(util::Trace::kControlBlock,name_);
+
 		//Quaternion観測値
 		datatype::Quaternion q = this->source<0,datatype::Quaternion>().get_in_bodyframe(t);
 		datatype::EulerAngle e = datatype::TypeConverter::toEulerAngle(q.conjugate() * this->q_target_);
@@ -132,9 +132,9 @@ void QuaternionPID::do_compute(const datatype::Time& t)
 
 void EarthPointingPID::do_compute(const datatype::Time& t)
 {
-//	assert(this->prevholder_ != 0);//input sourceが無い
 	if(t > this->last_update_){//既に別のブロック経由で更新済みなら再計算しない
-		//util::cout << "compute: PID(Earth-Pointing)" << util::endl;
+		util::Trace trace(util::Trace::kControlBlock,name_);
+
 		//Quaternion観測値
 		datatype::Quaternion q = this->source<0,datatype::Quaternion>().get_in_bodyframe(t);
 		this->earthvector_ = datatype::OrbitCalc::getEarthDirection3D(this->source<2,datatype::PositionInfo>().get_in_bodyframe(t));
@@ -156,9 +156,9 @@ void EarthPointingPID::do_compute(const datatype::Time& t)
 
 
 void DynamicPID::do_compute(const datatype::Time& t){
-//	assert(this->prevholder_ != 0);//input sourceが無い
 	if(t > this->last_update_){//既に別のブロック経由で更新済みなら再計算しない
-		//util::cout << "compute: PID(Dynamic)" << util::endl;
+		util::Trace trace(util::Trace::kControlBlock,name_);
+
 		//Quaternion観測値
 		datatype::Quaternion q = this->source<0,datatype::Quaternion>().get_in_bodyframe(t);
 		//Quaternion目標値

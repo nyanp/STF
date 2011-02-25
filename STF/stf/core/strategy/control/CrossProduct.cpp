@@ -10,6 +10,7 @@
 #include "../../../datatype/OrbitCalc.h"
 #include "../../../datatype/TypeConverter.h"
 #include "../../../GlobalObject.h"
+#include "../../../util/Trace.h"
 
 namespace stf {
 namespace core {
@@ -32,7 +33,9 @@ CrossProduct::CrossProduct(int instance_id,
 
 void CrossProduct::do_compute(const datatype::Time& t) {
 	if(t <= this->last_update_) return; //既に別のブロック経由で更新済みなら再計算しない
-	//util::cout << "compute: crossproduct" << util::endl;	
+
+	util::Trace trace(util::Trace::kControlBlock,name_);
+
 	// M = B * T / |B|2
 	datatype::MagneticField B = this->source<1,datatype::MagneticField>().get_in_bodyframe(t);
 	datatype::StaticVector<3> T = this->source<0,datatype::StaticVector<3>>().get_in_bodyframe(t);

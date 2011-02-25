@@ -10,6 +10,7 @@
 #include "../../../datatype/SatelliteModel.h"
 #include "../../../GlobalObject.h"
 #include "../../../datatype/StaticMatrix.h"
+#include "../../../util/Trace.h"
 
 namespace stf {
 namespace core {
@@ -33,7 +34,9 @@ GGCompensation::GGCompensation(int instance_id,
 
 void GGCompensation::do_compute(const datatype::Time& t) {
 	if(t <= this->last_update_) return; //既に別のブロック経由で更新済みなら再計算しない
-	//util::cout << "compute: ggcompensation" << util::endl;
+
+	util::Trace trace(util::Trace::kControlBlock,name_);
+
 	// 軌道情報と姿勢情報から，機体座標における地球方向ベクトルを算出
 	datatype::StaticVector<3> R = datatype::OrbitCalc::getEarthDirectionInBodyFrame(
 		this->source<1,datatype::PositionInfo>().get_in_bodyframe(t),

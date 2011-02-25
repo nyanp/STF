@@ -13,6 +13,7 @@
 #include "../../devicedriver/IOPort.h"
 #include "../../../datatype/StaticVector.h"
 #include "../../../datatype/Magnetic.h"
+#include "../../../util/Trace.h"
 
 namespace stf {
 namespace datatype {
@@ -45,7 +46,7 @@ public:
     //virtual void propagate(const datatype::StaticVector<3>& omega,const datatype::Time& t);
 	//virtual void reset();
 	virtual void do_compute(const datatype::Time& t){
-		//util::cout << "compute: RMMEKF(not implemented)" << util::endl;
+		util::Trace trace(util::Trace::kControlBlock,name_);
 	}//伝搬，更新処理
 };
 

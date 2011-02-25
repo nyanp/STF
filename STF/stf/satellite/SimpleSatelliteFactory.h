@@ -69,15 +69,19 @@ void SimpleSatelliteFactory<Env>::create_component(){
 	typedef devicedriver::rw::RW<Env> RW;
 	typedef devicedriver::CompositeOutput<RW, 4> SkewRW;
 	typedef stf::core::devicedriver::clock::DummyClock<100> Clock;
+	typedef devicedriver::cmhandler::DummyCommandReceiver CmHandler;
+	typedef devicedriver::tmhandler::DebugLogger TmHandler;
 
 	//DataPool
 	this->global_->ss_aocsdatapool = new core::datapool::AocsDataPool(0);
 	this->global_->ss_eventdatapool = new core::datapool::EventDataPool(0);
 
-
 	// Clock(RTC&OBCTime)
 	this->global_->ss_clock = new Clock(ID_CLOCK,YEAR,MONTH,DATE);
 
+	// Command/Telemetry Driver
+	this->global_->ss_commandreceiver = new CmHandler(0,global_->ss_commandmanager);
+	this->global_->ss_tmhandler = new TmHandler("ss_telemetry.csv",false);
 
 	//Gyro
 	this->global_->ss_gyrox = new GYRO(ID_GYRO_X,datatype::TypeConverter::toDCM(0,-90,0));
@@ -89,9 +93,9 @@ void SimpleSatelliteFactory<Env>::create_component(){
 	this->global_->ss_gyro->appendChild(this->global_->ss_gyroz);
 
 	// Reaction Wheel
-	this->global_->ss_rw1 = new RW(ID_RW_1,datatype::TypeConverter::toDCM(0,0,0));
-	this->global_->ss_rw2 = new RW(ID_RW_2,datatype::TypeConverter::toDCM(0,0,0));
-	this->global_->ss_rw3 = new RW(ID_RW_3,datatype::TypeConverter::toDCM(0,0,0));
+	this->global_->ss_rw1 = new RW(ID_RW_1,datatype::TypeConverter::toDCM(0,70,0));
+	this->global_->ss_rw2 = new RW(ID_RW_2,datatype::TypeConverter::toDCM(0,70,120));
+	this->global_->ss_rw3 = new RW(ID_RW_3,datatype::TypeConverter::toDCM(0,70,240));
 	this->global_->ss_rw4 = new RW(ID_RW_4,datatype::TypeConverter::toDCM(0,0,0));
 	this->global_->ss_rw  = new SkewRW(ID_RW,datatype::TypeConverter::toDCM(0,0,0));
 	this->global_->ss_rw->appendChild(this->global_->ss_rw1);
@@ -128,6 +132,11 @@ void SimpleSatelliteFactory<Env>::create_command(){
 
 template<class Env>
 void SimpleSatelliteFactory<Env>::create_telemetry(){
+	this->global_->ss_tmstrategy = new strategy::telemetry::OutputAll<>(0,global_->ss_tmhandler,global_->ss_aocsdatapool,global_->ss_eventdatapool);
+
+	this->global_->ss_safemode->add_list(global_->ss_tmstrategy);
+	this->global_->ss_missionmode->add_list(global_->ss_tmstrategy);
+
 }
 
 template<class Env>

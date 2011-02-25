@@ -13,6 +13,7 @@
 #include "../../../datatype/SatelliteModel.h"
 #include "../../devicedriver/IOPort.h"
 #include "../../../GlobalObject.h"
+#include "../../../util/Trace.h"
 
 namespace stf {
 namespace core {
@@ -42,14 +43,17 @@ public:
 	}
 	~CouplingCompensation(){ }
 	virtual void do_compute(const datatype::Time& t){
-		if(t > this->last_update_){
-			datatype::StaticVector<3> omega = this->source<0,datatype::StaticVector<3>>().get_in_bodyframe(t);
-			const datatype::StaticMatrix<3,3>& I = this->global_->get_satellitemodel().getI();
-			
-			this->value_b_ = - omega % ( I * omega );
+		if(t <= this->last_update_) return;
 
-			this->last_update_ = t;
-		}	
+		util::Trace trace(util::Trace::kControlBlock,name_);
+
+		datatype::StaticVector<3> omega = this->source<0,datatype::StaticVector<3>>().get_in_bodyframe(t);
+		const datatype::StaticMatrix<3,3>& I = this->global_->get_satellitemodel().getI();
+			
+		this->value_b_ = - omega % ( I * omega );
+
+		this->last_update_ = t;
+		
 	}
 private:
 	Global<Env>* global_;

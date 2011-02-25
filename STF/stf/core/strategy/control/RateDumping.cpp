@@ -7,7 +7,7 @@
  */
 #include "RateDumping.h"
 #include "../../../datatype/Time.h"
-#include "../../../util/Ostream.h"
+#include "../../../util/Trace.h"
 
 namespace stf {
 namespace core {
@@ -31,9 +31,9 @@ RateDumping::RateDumping(int instance_id, double kp, double ki, double kd, doubl
 
 void RateDumping::do_compute(const datatype::Time& t)
 {
-	assert(this->prevholder_ != 0);//input sourceが無い
 	if(t > this->last_update_){//既に別のブロック経由で更新済みなら再計算しない
-		util::cout << "compute: RateDumping" << util::endl;
+		util::Trace trace(util::Trace::kControlBlock,name_);
+
 		this->value_b_ = compute_torque_(this->source<0,datatype::StaticVector<3>>().get_in_bodyframe(t));
 		this->last_update_ = t;
 	}
@@ -47,11 +47,11 @@ datatype::StaticVector<3> RateDumping::compute_torque_(const datatype::StaticVec
 	this->omega_before_ = input;
 	this->omega_total_ += input * this->dt_;
 	datatype::StaticVector<3> v;
-	//::cout << this->clock_->get_time().total_seconds() << util::endl;
-	//util::cout << input
+
 	v[0] = - this->kp_ * input[0] - this->kd_ * omage_diff[0] - this->ki_ * this->omega_total_[0];
 	v[1] = - this->kp_ * input[1] - this->kd_ * omage_diff[1] - this->ki_ * this->omega_total_[1];
 	v[2] = - this->kp_ * input[2] - this->kd_ * omage_diff[2] - this->ki_ * this->omega_total_[2];
+
 	return v;
 }
 

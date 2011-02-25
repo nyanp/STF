@@ -10,6 +10,7 @@
 #include <assert.h>
 #include "../../devicedriver/IOPort.h"
 #include "../StrategyBase.h"
+#include "../../../util/Trace.h"
 
 namespace stf {
 namespace core {
@@ -41,7 +42,8 @@ public:
 
 	virtual void do_compute(const datatype::Time& t){
 		if(t > this->last_update_){
-			//util::cout << "compute: FirstOrderCorrection" << util::endl;
+			util::Trace trace(util::Trace::kControlBlock,name_);
+
 			this->value_b_ =  this->source<0,T>().get_in_bodyframe(t) * this->source<1,U>().get_in_bodyframe(t);
 			this->last_update_ = t;
 		}

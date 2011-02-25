@@ -14,6 +14,7 @@
 #include "AOCSSensor.h"
 #include "../../datatype/StaticMatrix.h"
 #include "../datapool/Datapool.h"
+#include "../../util/Ostream.h"
 
 namespace stf {
 namespace core {
@@ -153,10 +154,13 @@ void CompositeOutput<Leaf,Numbers>::matrixset(){
 	datatype::StaticMatrix<3,Numbers> m;
 	for(int i = 0; i < Numbers; i++){
 		datatype::DCM d = this->childs_[i]->getDCM();
+		util::cout << d << util::endl;
 		for(int j = 0; j < 3; j++)
 			m[j][i] = d[j][2];
 	}
+	util::cout << m.trans();
 	this->output_mat_ = m.trans() * ( m * m.trans() ).inverse();
+	util::cout << output_mat_;
 }
 
 

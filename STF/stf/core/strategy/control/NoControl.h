@@ -10,6 +10,7 @@
 
 #include "../StrategyBase.h"
 #include "../../devicedriver/IOPort.h"
+#include "../../../util/Trace.h"
 
 namespace stf {
 namespace datatype {
@@ -25,8 +26,8 @@ class NoControl : public StrategyBase, public devicedriver::OutputPort<datatype:
 public:
 	NoControl(int instance_id) : StrategyBase(instance_id, "NoControl"){}
 	~NoControl(){}
-	virtual const datatype::StaticVector<3>& get_in_bodyframe(const datatype::Time& t){
-		return this->value_b_;
+	virtual void do_compute(const datatype::Time& t){
+		util::Trace trace(util::Trace::kControlBlock,name_);
 	}//何もしない
 };
 

@@ -101,10 +101,10 @@ void OutputAll<T,SCALE>::operator ++(){
 template<class T, int SCALE>
 double OutputAll<T,SCALE>::operator()(){
 	if(!this->datapooliter_.end()){
-		this->datapooliter_();
+		return this->datapooliter_();
 	}
 	else{
-		(*this->tmlistiter_)();
+		return (*this->tmlistiter_)();
 	}
 }
 

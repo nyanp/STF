@@ -232,7 +232,7 @@ int main(void){
 
 	///////////////////////////////////////////////
 	// é¿çs
-	for(int i = 0; i < 40000; i++)
+	for(int i = 0; i < 200; i++)
 		s.runOneCycle();
 
 	return 1;
