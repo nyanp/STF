@@ -17,31 +17,77 @@ namespace factory {
 /*! 
 	Factory Methodパターンによる衛星オブジェクト群の生成を行うクラスの抽象インターフェース．
 	createメソッドのみ実装が既定されており，初期化の順序が決まっている（Template Method）．
-	@tparam Env コンポーネントの環境クラス．
+
+	@tparam Env     コンポーネントの環境クラス．
+	@tparam Derived CRTPによるSingletonパターンの実装のために導入される派生クラスパラメータ．
+
+	これを継承したクラスは，以下のようなインターフェースを有している必要がある．
+
+	@code
+	// すべてのメソッドとデータはprivateとし，SatelliteFactoryをfriendとする．
+	template<class Environment>
+	class SomeFactory : public SatelliteFactory<Environment, SomeFactory<Environment> >
+	{
+		friend class SatelliteFactory<Environment, NJFactory<Environment>>;
+
+		// Constructor & Destructor
+		SomeFactory(){ this->global_ = new SomeGlobal<Environment>();}
+		virtual ~SomeFactory(){ delete this->global_; }
+
+		// Virtual method implementations
+		virtual void create_component();
+		virtual void create_funcmanager();
+		virtual void create_controller();
+		virtual void create_telemetry();
+		virtual void create_command();
+		virtual void create_functor();
+		virtual void create_dataupdates();
+		virtual void create_switches();
+		virtual void create_additional_hotspot();
+		virtual void create_mode();
+		virtual void create_datapool();
+		virtual void satellite_initialize(){}
+		virtual Global<Env>* return_created_object(){
+			return this->global_;
+		}
+
+		// Global object for concrete satellite
+		SomeGlobal<Environment>* global_;
+	};
+
+	int main(void){
+		SomeFactory<Environment>& factory = SomeFactory<Environment>::getInstance();
+		Global<Environment>* g = factory.create();
+
+		return 0;
+	}
+	@endcode
+
 */
-template<class Env>
+template<class Env, class Derived>
 class SatelliteFactory {
 public:
-	typedef Env Environment;//!< 環境クラス．
+	static Derived& getInstance(){
+		static Derived instance;
+		return instance;
+	}
 
-	SatelliteFactory(){}
-	virtual ~SatelliteFactory(){}
 	Global<Env>* create(){
-		create_funcmanager();
-		create_component();
-		create_datapool();
-		create_mode();
-	    create_command();
-		create_telemetry();
-		create_controller();
-
-		create_functor();
-		create_dataupdates();
-		create_switches();
-		create_additional_hotspot();
-
-		satellite_initialize();
-
+		if(is_created_ == false){
+			create_funcmanager();
+			create_component();
+			create_datapool();
+			create_mode();
+			create_command();
+			create_telemetry();
+			create_controller();
+			create_functor();
+			create_dataupdates();
+			create_switches();
+			create_additional_hotspot();
+			satellite_initialize();
+			is_created_ = true;
+		}
 		return return_created_object();
 	}
 protected:
@@ -71,6 +117,11 @@ protected:
 	virtual void satellite_initialize() = 0;
 	//! 生成されたオブジェクトを、Globalのポインタで返却
 	virtual Global<Env>* return_created_object() = 0;
+
+	SatelliteFactory() : is_created_(false){}
+	virtual ~SatelliteFactory(){}
+private:
+	bool is_created_;
 };
 
 } /* End of namespace stf::factory */

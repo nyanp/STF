@@ -31,10 +31,13 @@ namespace stf {
 namespace factory {
 
 template<class Env>
-class NJFactory : public SatelliteFactory<Env>{
-public:
+class NJFactory : public SatelliteFactory<Env, NJFactory<Env>>{
+	friend class SatelliteFactory<Env, NJFactory<Env>>;
+	typedef Env Environment;//!< ŠÂ‹«ƒNƒ‰ƒXD
+
 	NJFactory(){ this->global_ = new NJGlobal<Env>();}
 	virtual ~NJFactory(){ delete this->global_; }
+
 	virtual void create_component();
 	virtual void create_funcmanager();
 	virtual void create_controller();
@@ -50,7 +53,7 @@ public:
 	virtual Global<Env>* return_created_object(){
 		return this->global_;
 	}
-private:
+
 	NJGlobal<Env>* global_;
 };
 
@@ -200,14 +203,14 @@ void NJFactory<Env>::create_funcmanager(){
 	this->global_->nj_sysman = new core::manager::SystemManager(ID_SYSTEMMANAGER);
 	this->global_->nj_commman = new core::manager::CommandManager(ID_COMMANDMANAGER);
 
-	this->global_->managers_.add(*this->global_->nj_modeman);
-	this->global_->managers_.add(*this->global_->nj_conman);
-	this->global_->managers_.add(*this->global_->nj_uniman1);
-	this->global_->managers_.add(*this->global_->nj_uniman2);
-	this->global_->managers_.add(*this->global_->nj_telman);
-	this->global_->managers_.add(*this->global_->nj_cusman);
-	this->global_->managers_.add(*this->global_->nj_sysman);
-	this->global_->managers_.add(*this->global_->nj_commman);
+	this->global_->add_function_manager(this->global_->nj_modeman);
+	this->global_->add_function_manager(this->global_->nj_conman);
+	this->global_->add_function_manager(this->global_->nj_uniman1);
+	this->global_->add_function_manager(this->global_->nj_uniman2);
+	this->global_->add_function_manager(this->global_->nj_telman);
+	this->global_->add_function_manager(this->global_->nj_cusman);
+	this->global_->add_function_manager(this->global_->nj_sysman);
+	this->global_->add_function_manager(this->global_->nj_commman);
 }
 
 template<class Env>

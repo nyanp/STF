@@ -33,10 +33,13 @@ namespace factory {
 
 
 template<class Env>
-class SimpleSatelliteFactory : public SatelliteFactory<Env>{
-public:
+class SimpleSatelliteFactory : public SatelliteFactory<Env, SimpleSatelliteFactory<Env>>{
+	friend class SatelliteFactory<Env, SimpleSatelliteFactory<Env>>;
+	typedef Env Environment;//!< ŠÂ‹«ƒNƒ‰ƒXD
+
 	SimpleSatelliteFactory(){ this->global_ = new SSGlobal<Env>();}
 	virtual ~SimpleSatelliteFactory(){ delete this->global_; }
+
 	virtual void create_component();
 	virtual void create_funcmanager();
 	virtual void create_controller();
@@ -52,7 +55,7 @@ public:
 	virtual Global<Env>* return_created_object(){
 		return this->global_;
 	}
-private:
+
 	SSGlobal<Env>* global_;
 };
 
@@ -114,12 +117,12 @@ void SimpleSatelliteFactory<Env>::create_funcmanager(){
 	global_->ss_unitmanager = new manager::UnitManager(ID_UNITMANAGER);
 	global_->ss_systemmanager = new manager::SystemManager(ID_SYSTEMMANAGER);
 
-	this->global_->managers_.add(*this->global_->ss_unitmanager);
-	this->global_->managers_.add(*this->global_->ss_systemmanager);
-	this->global_->managers_.add(*this->global_->ss_commandmanager);
-	this->global_->managers_.add(*this->global_->ss_modemanager);
-	this->global_->managers_.add(*this->global_->ss_controlmanager);
-	this->global_->managers_.add(*this->global_->ss_telemetrymanager);
+	this->global_->add_function_manager(this->global_->ss_unitmanager);
+	this->global_->add_function_manager(this->global_->ss_systemmanager);
+	this->global_->add_function_manager(this->global_->ss_commandmanager);
+	this->global_->add_function_manager(this->global_->ss_modemanager);
+	this->global_->add_function_manager(this->global_->ss_controlmanager);
+	this->global_->add_function_manager(this->global_->ss_telemetrymanager);
 }
 
 template<class Env>

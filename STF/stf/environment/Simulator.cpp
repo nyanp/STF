@@ -118,7 +118,7 @@ void Simulator::runOneCycle()
             << this->global_->ekf->bref_[2] << "\n";*/
 	}
 
-	datatype::List<core::manager::ManagerBase>::iterator it_m = global_->getFunctionManager()->begin(), end_m = global_->getFunctionManager()->end();
+	datatype::List<core::manager::ManagerBase>::iterator it_m = global_->get_function_manager()->begin(), end_m = global_->get_function_manager()->end();
 	while( it_m !=  end_m ){
 		(*it_m).run();
 		++it_m;

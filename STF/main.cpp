@@ -99,12 +99,10 @@ public:
 
 
 int main(void){
-	datatype::StaticMatrix<2, 2> mat2;
-	mat2[0][0] = 0.3;
-	mat2[0][1] = 0;
-	mat2[1][1] = 0.2;
-
-	util::cout << util::math::exp(mat2, 4);
+	datatype::Scalar target;
+	strategy::control::SingleAxisPID pid(0, 1, 0, 0, 0, target);
+	devicedriver::rw::RW<ENV> rw(0, datatype::TypeConverter::toDCM(0,0,0) );
+	strategy::control::ControlBlock cb(0, &pid, &rw);
 
 	util::Trace::enable(util::Trace::kManager);
 	util::Trace::enable(util::Trace::kControlBlock);
@@ -129,14 +127,17 @@ int main(void){
 	std::cout << Conversion<int, double>::exists << std::endl;
 	std::cout << Conversion<char*, double>::exists << std::endl;
 
-	stf::factory::SatelliteFactory<ENV>* en = new stf::factory::PRISMFactory<ENV>();
-	stf::Global<ENV>* gl = en->create();
+	//stf::factory::SatelliteFactory<ENV>* en = new ();
+	stf::factory::PRISMFactory<ENV>& factory = stf::factory::PRISMFactory<ENV>::getInstance();
+	stf::Global<ENV>* gl = factory.create();
 
-	stf::factory::SatelliteFactory<ENV>* en2 = new stf::factory::NJFactory<ENV>();
-	stf::Global<ENV>* gl2 = en2->create();
+	//stf::factory::SatelliteFactory<ENV>* en2 = new stf::factory::NJFactory<ENV>();
+	stf::Global<ENV>* gl2 = stf::factory::NJFactory<ENV>::getInstance().create();
 
-	stf::factory::SatelliteFactory<ENV>* en3 = new stf::factory::SimpleSatelliteFactory<ENV>();
-	stf::Global<ENV>* gl3 = en3->create();
+	//stf::factory::SatelliteFactory<ENV>* en3 = new stf::factory::SimpleSatelliteFactory<ENV>();
+	stf::Global<ENV>* gl3 = stf::factory::SimpleSatelliteFactory<ENV>::getInstance().create();
+
+	stf::Global<ENV>* gl4 = stf::factory::SimpleSatelliteFactory<ENV>::getInstance().create();
 	//グローバルオブジェクトの生成
 	//stf::Global<env>& g = stf::Global<env>::get_instance();
 

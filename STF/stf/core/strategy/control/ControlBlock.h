@@ -4,7 +4,6 @@
  *
  * @author Taiga Nomi
  * @date   2011.02.16
- * @todo   1軸出力に対応させる
  */
 #ifndef stf_core_strategy_control_ControlBlock_h
 #define stf_core_strategy_control_ControlBlock_h
@@ -40,7 +39,7 @@ public:
 	}
 
 	virtual void compute_torque(const datatype::Time& t);
-	template<class T> void set_actuator(T* torque_target, devicedriver::OutputPort<typename T::Target>* torque_source);
+	template<class T> void set_actuator(T* torque_target, devicedriver::OutputPort<typename T::Hold>* torque_source);
 private:
 	//! アクチュエータ・制御ブロックのペアを組み合わせるための内部抽象インターフェース．
 	struct ControlImpl {
@@ -50,14 +49,21 @@ private:
 	//! アクチュエータ・制御ブロックのペアを組み合わせるための内部クラス．
 	template<class Actuator>
 	struct ControlInputPort : public ControlImpl{
-		devicedriver::OutputPort<typename Actuator::Hold>* holderport_;
-		Actuator* output_;
 		virtual void set_torque(const datatype::Time& t){
 			if(holderport_ != 0 && output_ != 0)
 			 output_->set_torque(holderport_->get_value(t));
 		}
-		virtual void connectHolder_(devicedriver::OutputPort<typename Actuator::Hold>* holder) { holderport_ = holder; }
-		virtual void connectActuator_(Actuator* act) { output_ = act; }
+
+		virtual void connect_holder_(devicedriver::OutputPort<typename Actuator::Hold>* holder){
+			holderport_ = holder;
+		}
+
+		virtual void connect_actuator_(Actuator* act) {
+			output_ = act;
+		}
+
+		devicedriver::OutputPort<typename Actuator::Hold>* holderport_;
+		Actuator* output_;
 	};
 
 	datatype::List< ControlImpl > controllers_;
@@ -73,10 +79,10 @@ inline void ControlBlock::compute_torque(const datatype::Time& t){
 	}
 }
 
-template<class T> void ControlBlock::set_actuator(T* torque_target, devicedriver::OutputPort<typename T::Target>* torque_source){
+template<class T> void ControlBlock::set_actuator(T* torque_target, devicedriver::OutputPort<typename T::Hold>* torque_source){
 	ControlInputPort<T>* tuple = new ControlInputPort<T>;
-	tuple->connectActuator_(torque_target);
-	tuple->connectHolder_(torque_source);
+	tuple->connect_actuator_(torque_target);
+	tuple->connect_holder_(torque_source);
 	this->controllers_.add(*tuple);
 }
 

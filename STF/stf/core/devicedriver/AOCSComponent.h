@@ -4,7 +4,6 @@
  *
  * @author Taiga Nomi
  * @date   2011.02.16
- * @todo   copyToBodyFrame_の特殊化を洗練させる
  */
 
 #ifndef stf_core_devicedriver_AOCSComponent_h

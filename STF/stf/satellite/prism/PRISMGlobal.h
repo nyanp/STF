@@ -57,16 +57,10 @@ struct PRISMGlobal : public Global<Env>{
 		return this->pr_eventdatapool;
 	}
 
-	//friend class factory::PRISMFactory<Env>;
-	//friend core::command::Command* __prism_cdhcmd_analyze(char* cmd, int* params, int paramlength, const PRISMGlobal<Env>* g);
-	//friend core::command::Command* __prism_powercmd_analyze(char* cmd, int* params, int paramlength, const PRISMGlobal<Env>* g);
-	//friend core::command::Command* __prism_adcscmd_analyze(char* cmd, int* params, int paramlength, const PRISMGlobal<Env>* g);
-
 	datatype::SatelliteModel prism_body_;
 	//Data Pool
 	datapool::AocsDataPool* pr_aocsdatapool;
 	datapool::EventDataPool* pr_eventdatapool;
-
 
 	//Mode
 	mode::ModeBase* pr_safemode;

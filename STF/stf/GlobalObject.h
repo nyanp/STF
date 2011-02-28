@@ -4,7 +4,6 @@
  *
  * @author Taiga Nomi
  * @date   2011.02.16
- * @todo   Singleton Patternの適用
  */
 #ifndef stf_GlobalObject_h
 #define stf_GlobalObject_h
@@ -41,8 +40,6 @@ class Global{
 public:
 	typedef Env Environment;//!< 環境クラス．
 
-	//static Global<Env>& get_instance();//Environmentごとに単一のインスタンスのみを生成
-
 	//! Aocsデータプールのハンドラを取得．
 	virtual const core::datapool::AocsDataPool* get_datapool() const = 0;
 
@@ -59,13 +56,20 @@ public:
 	virtual const datatype::SatelliteModel get_satellitemodel() const = 0;
 
 	//! 衛星の機能マネージャをリスト形式で取得
-	virtual datatype::List<core::manager::ManagerBase>* getFunctionManager() {return &(this->managers_);}
+	virtual datatype::List<core::manager::ManagerBase>* get_function_manager() {return &(this->managers_);}
+
+	//! 衛星の機能マネージャを追加
+	void add_function_manager(core::manager::ManagerBase* manager){ this->managers_.add(*manager); }
 
 	virtual ~Global(){}//デストラクタ
-	Global(){}//コンストラクタを禁止（シングルトンパターン）
+
+protected:
+	Global(){}
+	datatype::List<core::manager::ManagerBase> managers_;
+
+private:
 	Global(const Global<Env>&);
 	void operator=(const Global<Env>&);
-	datatype::List<core::manager::ManagerBase> managers_;
 };
 
 } /* End of namespace stf */

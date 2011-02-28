@@ -32,10 +32,13 @@ namespace stf {
 namespace factory {
 
 template<class Env>
-class PRISMFactory : public SatelliteFactory<Env>{
-public:
+class PRISMFactory : public SatelliteFactory<Env, PRISMFactory<Env>>{
+	friend class SatelliteFactory<Env, PRISMFactory<Env>>;
+	typedef Env Environment;//!< ŠÂ‹«ƒNƒ‰ƒXD
+
 	PRISMFactory(){ this->global_ = new PRISMGlobal<Env>();}
 	virtual ~PRISMFactory(){ delete this->global_; }
+
 	virtual void create_component();
 	virtual void create_funcmanager();
 	virtual void create_controller();
@@ -51,7 +54,7 @@ public:
 	virtual Global<Env>* return_created_object(){
 		return this->global_;
 	}
-private:
+
 	PRISMGlobal<Env>* global_;
 };
 
@@ -151,16 +154,16 @@ void PRISMFactory<Env>::create_funcmanager(){
 	this->global_->pr_heater = new core::manager::HeaterControl<Env>(this->global_->pr_tempsensor, 0, 0);
 	this->global_->pr_customman = new core::manager::PRISMCustomManager<Env>(ID_CUSTOMMANAGER, this->global_->pr_heater);
 
-	this->global_->managers_.add(*this->global_->pr_modeman);
-	this->global_->managers_.add(*this->global_->pr_conman);
-	this->global_->managers_.add(*this->global_->pr_uniman1);
-	this->global_->managers_.add(*this->global_->pr_uniman2);
-	this->global_->managers_.add(*this->global_->pr_telman1);
-	this->global_->managers_.add(*this->global_->pr_telman2);
-	this->global_->managers_.add(*this->global_->pr_cusman);
-	this->global_->managers_.add(*this->global_->pr_sysman);
-	this->global_->managers_.add(*this->global_->pr_commman);
-	this->global_->managers_.add(*this->global_->pr_customman);
+	this->global_->add_function_manager(this->global_->pr_modeman);
+	this->global_->add_function_manager(this->global_->pr_conman);
+	this->global_->add_function_manager(this->global_->pr_uniman1);
+	this->global_->add_function_manager(this->global_->pr_uniman2);
+	this->global_->add_function_manager(this->global_->pr_telman1);
+	this->global_->add_function_manager(this->global_->pr_telman2);
+	this->global_->add_function_manager(this->global_->pr_cusman);
+	this->global_->add_function_manager(this->global_->pr_sysman);
+	this->global_->add_function_manager(this->global_->pr_commman);
+	this->global_->add_function_manager(this->global_->pr_customman);
 }
 
 template<class Env>
