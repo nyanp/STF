@@ -4,7 +4,6 @@
 
  *
  * @author Taiga Nomi
- * @todo   Envクラスをデフォルト引数に追加
  * @date   2011.02.16
  */
 #ifndef stf_core_devicedriver_CompositeOutput_h
@@ -25,8 +24,8 @@ namespace devicedriver {
 	@tparam UseAlignment     取り付け行列に基づいた指令値の分配を行うか
 	@tparam DistributionPolicy 分配に使用するポリシークラス．
 
-	Compositeデザインパターンを使い，単体のAOCSActuatorと同等の扱いができる．
-	軸ごとに指令値を送る必要があるアクチュエータを一括して扱う際に利用できる．
+	Compositeデザインパターンを使うことで，単体のAOCSActuatorと同等の扱いが可能．
+	軸ごとに通信系統が独立したアクチュエータを，一個のモジュールのように操作できる．
 
 	@code
 	RW rw[4]; //1軸ホイール
@@ -60,6 +59,9 @@ class CompositeOutput : public AOCSActuator<typename Leaf::Target, typename Leaf
 public:
 	STF_STATIC_ASSERT( Numbers <= 255 , CHILD_NUMBER_OVERFLOW );
 
+	typedef Leaf Child;
+	enum { UseAlignmentForDistribution = UseAlignment, NumberOfChilds = Numbers };
+
 	CompositeOutput(int instance_id, const datatype::DCM& dcm)
 		: AOCSActuator<typename Leaf::Target, typename Leaf::Target, typename Leaf::Environment>(instance_id, "Composite", dcm), index_(0)
 	{
@@ -70,7 +72,7 @@ public:
 	virtual void do_update();
 	void append_child(Leaf* c);
 private:
-	Leaf* childs_[Numbers];
+	Child* childs_[Numbers];
 	unsigned char index_;//max 255 childs
 };
 

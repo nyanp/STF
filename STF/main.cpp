@@ -48,18 +48,11 @@
 
 
 using namespace stf;
-//using namespace stf::util;
 using namespace stf::core;
 using namespace stf::core::devicedriver;
 using stf::util::cout;
 using datatype::TypeConverter;
 
-
-
-//
-// STT<ENV, ENV::STTPX>
-//
-//
 
 class SPIBase {
 public:
@@ -104,36 +97,8 @@ public:
 
 };
 
-template<class Env, class HW>
-class STT
-{
-public:
-	STT() : spi(HW::SPI::BAUDRATE, HW::SPI::MOSI, 0), gpio(HW::BASEADDR) {}
-	typedef typename Env::SPI SPI;
-	typedef typename Env::GPIO GPIO;
-	SPI spi;
-	GPIO gpio;
-
-	void init(){
-		//gpio[ENABLE].set(1);
-	}
-
-	void send(){
-		spi.send("hoge");
-	}
-};
-
-template<class T, int N>
-void hoge(T (&value)[N]){
-	for(int i = 0; i < N; i++)
-	util::cout << value[i] << ", ";
-}
 
 int main(void){
-
-	int values[] = { 1, 2, 3 };
-	hoge(values);
-
 	datatype::StaticMatrix<2, 2> mat2;
 	mat2[0][0] = 0.3;
 	mat2[0][1] = 0;
@@ -160,39 +125,6 @@ int main(void){
 	typedef devicedriver::sunsensor::SunSensor<ENV> SS;
 	typedef devicedriver::rw::RW<ENV> RW;
 
-	datatype::Quaternion qu;
-	qu[1] = 0.3;
-
-	/*stf::core::devicedriver::clock::DummyClock cl(0, 2005, 12, 11);
-	STT stt(0, datatype::TypeConverter::toDCM(0, 0, 0));
-	stf::core::datapool::AocsDataPool aocspool(0);
-	aocspool.create<STT>(&stt, 10, "STT");
-	aocspool.set<STT>(0, qu);
-
-	stf::core::datapool::AocsDataPoolIterator aocsit(&aocspool);
-
-	while(!aocsit.end()){
-	util::cout << aocsit() << ", ";
-	++aocsit;
-	}	
-
-
-	stf::core::strategy::control::NJEKF ek(0);
-	stf::interface::NJEKFIterator<1000> ekit(&ek);
-
-	while(!ekit.end()){
-	util::cout << ekit() << ", ";
-	++ekit;
-	}
-
-	stf::interface::DataIterator iter(&qu);
-	while(!iter.end()){
-		stf::util::cout << iter();
-		++iter;
-	}
-	*/
-	//STT<H8, HW::STTPX> stt;
-	//stt.send();
 	std::cout << "AOCS Framework Test Program:\n\n";
 	std::cout << Conversion<int, double>::exists << std::endl;
 	std::cout << Conversion<char*, double>::exists << std::endl;

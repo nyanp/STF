@@ -24,8 +24,8 @@ namespace devicedriver {
 	@tparam UseAlignment     取り付け行列に基づいた取得値の集約を行うか
 	@tparam AggregationPolicy  集約に使用するポリシークラス．
 
-	Compositeデザインパターンを使い，単体のAOCSSensorと同等の扱いができる．
-	軸ごとに指令値を送る必要があるアクチュエータを一括して扱う際に利用できる．
+	Compositeデザインパターンを使うことで，単体のAOCSSensorと同等の扱いが可能．
+	軸ごとに通信系統が独立したセンサを，一個のモジュールのように操作できる．
 
 	@code
 	Gyro gyro[3]; //1軸サンセンサ
@@ -75,6 +75,9 @@ template
 class CompositeInput : public AOCSSensor<typename Leaf::Target, typename Leaf::Target, typename Leaf::Environment>, public AggregationPolicy {
 public:
 	STF_STATIC_ASSERT( Numbers <= 255, CHILD_NUMBER_OVERFLOW );
+
+	typedef Leaf Child;
+	enum { UseAlignmentForAggregation = UseAlignment, NumberOfChilds = Numbers };
 
 	CompositeInput(int instance_id, const datatype::DCM& dcm)
 		: AOCSSensor<typename Leaf::Target, typename Leaf::Target, typename Leaf::Environment>(instance_id, "Composite", dcm), index_(0)

@@ -19,6 +19,7 @@ namespace datatype {
 template<int dim>
 class StaticVector : public IAocsData {
 public:
+	enum { Size = dim };
 	StaticVector(){ for ( int i = 0; i < dim; i++ ) value_[i] = 0.0; }
 	StaticVector(const StaticVector<dim>& rhs);
 	~StaticVector(){}

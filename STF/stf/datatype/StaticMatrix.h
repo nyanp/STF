@@ -19,6 +19,7 @@ namespace datatype {
 template<int rows, int cols>
 class StaticMatrix {
 public:
+	enum { Rows = rows, Cols = cols };
 	StaticMatrix(){}
     StaticMatrix(const StaticMatrix<rows, cols> &rhs);
 	~StaticMatrix(){}
