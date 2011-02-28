@@ -88,18 +88,18 @@ void PRISMFactory<Env>::create_component(){
 	this->global_->pr_mtqy = new MTQ(ID_MTQ_Y,datatype::TypeConverter::toDCM(0,0,90));
 	this->global_->pr_mtqz = new MTQ(ID_MTQ_Z,datatype::TypeConverter::toDCM(0,0,0));
 	this->global_->pr_mtq = new ThreeAxisMTQ(ID_MTQ,datatype::TypeConverter::toDCM(0,0,0));
-	this->global_->pr_mtq->appendChild(this->global_->pr_mtqx);
-	this->global_->pr_mtq->appendChild(this->global_->pr_mtqy);
-	this->global_->pr_mtq->appendChild(this->global_->pr_mtqz);
+	this->global_->pr_mtq->append_child(this->global_->pr_mtqx);
+	this->global_->pr_mtq->append_child(this->global_->pr_mtqy);
+	this->global_->pr_mtq->append_child(this->global_->pr_mtqz);
 
 	// Gyro
 	this->global_->pr_gyrox = new GYRO(ID_GYRO_X,datatype::TypeConverter::toDCM(0,-90,0));
 	this->global_->pr_gyroy = new GYRO(ID_GYRO_Y,datatype::TypeConverter::toDCM(0,0,90));
 	this->global_->pr_gyroz = new GYRO(ID_GYRO_Z,datatype::TypeConverter::toDCM(0,0,0));
 	this->global_->pr_gyro =  new ThreeAxisGyro(ID_GYRO,datatype::TypeConverter::toDCM(0,0,0));
-	this->global_->pr_gyro->appendChild(this->global_->pr_gyrox);
-	this->global_->pr_gyro->appendChild(this->global_->pr_gyroy);
-	this->global_->pr_gyro->appendChild(this->global_->pr_gyroz);
+	this->global_->pr_gyro->append_child(this->global_->pr_gyrox);
+	this->global_->pr_gyro->append_child(this->global_->pr_gyroy);
+	this->global_->pr_gyro->append_child(this->global_->pr_gyroz);
 
 	// Sun Sensor
 	this->global_->pr_sspx = new SS(ID_SS_PX,datatype::TypeConverter::toDCM(0,-90,0));
@@ -109,12 +109,12 @@ void PRISMFactory<Env>::create_component(){
 	this->global_->pr_ssmy = new SS(ID_SS_MY,datatype::TypeConverter::toDCM(180,0,90));
 	this->global_->pr_ssmz = new SS(ID_SS_MZ,datatype::TypeConverter::toDCM(180,0,0));
 	this->global_->pr_ss = new SixAxisSS(ID_SS,datatype::TypeConverter::toDCM(0,0,0));
-	this->global_->pr_ss->appendChild(this->global_->pr_sspx);
-	this->global_->pr_ss->appendChild(this->global_->pr_sspy);
-	this->global_->pr_ss->appendChild(this->global_->pr_sspz);
-	this->global_->pr_ss->appendChild(this->global_->pr_ssmx);
-	this->global_->pr_ss->appendChild(this->global_->pr_ssmy);
-	this->global_->pr_ss->appendChild(this->global_->pr_ssmz);
+	this->global_->pr_ss->append_child(this->global_->pr_sspx);
+	this->global_->pr_ss->append_child(this->global_->pr_sspy);
+	this->global_->pr_ss->append_child(this->global_->pr_sspz);
+	this->global_->pr_ss->append_child(this->global_->pr_ssmx);
+	this->global_->pr_ss->append_child(this->global_->pr_ssmy);
+	this->global_->pr_ss->append_child(this->global_->pr_ssmz);
 
 	// MagnetoMeter
 	this->global_->pr_tam = new TAM(ID_TAM,datatype::TypeConverter::toDCM(0,0,0));

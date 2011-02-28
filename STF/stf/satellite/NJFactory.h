@@ -99,35 +99,35 @@ void NJFactory<Env>::create_component(){
 	this->global_->nj_mtqy = new MTQ(ID_MTQ_Y,datatype::TypeConverter::toDCM(0,0,90));
 	this->global_->nj_mtqz = new MTQ(ID_MTQ_Z,datatype::TypeConverter::toDCM(0,0,0));
 	this->global_->nj_mtq = new ThreeAxisMTQ(ID_MTQ,datatype::TypeConverter::toDCM(0,0,0));
-	this->global_->nj_mtq->appendChild(this->global_->nj_mtqx);
-	this->global_->nj_mtq->appendChild(this->global_->nj_mtqy);
-	this->global_->nj_mtq->appendChild(this->global_->nj_mtqz);
+	this->global_->nj_mtq->append_child(this->global_->nj_mtqx);
+	this->global_->nj_mtq->append_child(this->global_->nj_mtqy);
+	this->global_->nj_mtq->append_child(this->global_->nj_mtqz);
 
 	//MC
 	this->global_->nj_mcx = new MC(ID_MTQ_X,datatype::TypeConverter::toDCM(0,-90,0));
 	this->global_->nj_mcy = new MC(ID_MTQ_Y,datatype::TypeConverter::toDCM(0,0,90));
 	this->global_->nj_mcz = new MC(ID_MTQ_Z,datatype::TypeConverter::toDCM(0,0,0));
 	this->global_->nj_mc = new ThreeAxisMC(ID_MTQ,datatype::TypeConverter::toDCM(0,0,0));
-	this->global_->nj_mc->appendChild(this->global_->nj_mcx);
-	this->global_->nj_mc->appendChild(this->global_->nj_mcy);
-	this->global_->nj_mc->appendChild(this->global_->nj_mcz);
+	this->global_->nj_mc->append_child(this->global_->nj_mcx);
+	this->global_->nj_mc->append_child(this->global_->nj_mcy);
+	this->global_->nj_mc->append_child(this->global_->nj_mcz);
 
 	// Gyro
 	this->global_->nj_gyrox = new GYRO(ID_GYRO_X,datatype::TypeConverter::toDCM(0,-90,0));
 	this->global_->nj_gyroy = new GYRO(ID_GYRO_Y,datatype::TypeConverter::toDCM(0,0,90));
 	this->global_->nj_gyroz = new GYRO(ID_GYRO_Z,datatype::TypeConverter::toDCM(0,0,0));
 	this->global_->nj_gyro =  new ThreeAxisGyro(ID_GYRO,datatype::TypeConverter::toDCM(0,0,0));
-	this->global_->nj_gyro->appendChild(this->global_->nj_gyrox);
-	this->global_->nj_gyro->appendChild(this->global_->nj_gyroy);
-	this->global_->nj_gyro->appendChild(this->global_->nj_gyroz);
+	this->global_->nj_gyro->append_child(this->global_->nj_gyrox);
+	this->global_->nj_gyro->append_child(this->global_->nj_gyroy);
+	this->global_->nj_gyro->append_child(this->global_->nj_gyroz);
 
 	this->global_->nj_fogx = new FOG(ID_FOG_X,datatype::TypeConverter::toDCM(0,-90,0));
 	this->global_->nj_fogy = new FOG(ID_FOG_Y,datatype::TypeConverter::toDCM(0,0,90));
 	this->global_->nj_fogz = new FOG(ID_FOG_Z,datatype::TypeConverter::toDCM(0,0,0));
 	this->global_->nj_fog =  new ThreeAxisFOG(ID_FOG,datatype::TypeConverter::toDCM(0,0,0));
-	this->global_->nj_fog->appendChild(this->global_->nj_fogx);
-	this->global_->nj_fog->appendChild(this->global_->nj_fogy);
-	this->global_->nj_fog->appendChild(this->global_->nj_fogz);
+	this->global_->nj_fog->append_child(this->global_->nj_fogx);
+	this->global_->nj_fog->append_child(this->global_->nj_fogy);
+	this->global_->nj_fog->append_child(this->global_->nj_fogz);
 
 	// Sun Sensor
 	this->global_->nj_sspx = new Sunsensor(ID_SS_PX,datatype::TypeConverter::toDCM(0,-90,0));
@@ -137,12 +137,12 @@ void NJFactory<Env>::create_component(){
 	this->global_->nj_ssmy = new Sunsensor(ID_SS_MY,datatype::TypeConverter::toDCM(180,0,90));
 	this->global_->nj_ssmz = new Sunsensor(ID_SS_MZ,datatype::TypeConverter::toDCM(180,0,0));
 	this->global_->nj_ss = new SixAxisSunsensor(ID_SS,datatype::TypeConverter::toDCM(0,0,0));
-	this->global_->nj_ss->appendChild(this->global_->nj_sspx);
-	this->global_->nj_ss->appendChild(this->global_->nj_sspy);
-	this->global_->nj_ss->appendChild(this->global_->nj_sspz);
-	this->global_->nj_ss->appendChild(this->global_->nj_ssmx);
-	this->global_->nj_ss->appendChild(this->global_->nj_ssmy);
-	this->global_->nj_ss->appendChild(this->global_->nj_ssmz);
+	this->global_->nj_ss->append_child(this->global_->nj_sspx);
+	this->global_->nj_ss->append_child(this->global_->nj_sspy);
+	this->global_->nj_ss->append_child(this->global_->nj_sspz);
+	this->global_->nj_ss->append_child(this->global_->nj_ssmx);
+	this->global_->nj_ss->append_child(this->global_->nj_ssmy);
+	this->global_->nj_ss->append_child(this->global_->nj_ssmz);
 
 	// MagnetoMeter
 	this->global_->nj_st4 = new ST4(ID_TAM,datatype::TypeConverter::toDCM(0,0,0));
@@ -152,8 +152,8 @@ void NJFactory<Env>::create_component(){
 	this->global_->nj_sttx = new STT(ID_STT_X,datatype::TypeConverter::toDCM(0,-90,0));
 	this->global_->nj_stty = new STT(ID_STT_Y,datatype::TypeConverter::toDCM(0,0,0));
 	this->global_->nj_stt = new TwoAxisSTT(ID_STT,datatype::TypeConverter::toDCM(0,0,0));
-	this->global_->nj_stt->appendChild(this->global_->nj_sttx);
-	this->global_->nj_stt->appendChild(this->global_->nj_stty);
+	this->global_->nj_stt->append_child(this->global_->nj_sttx);
+	this->global_->nj_stt->append_child(this->global_->nj_stty);
 
 	// Reaction Wheel
 	this->global_->nj_rw1 = new RW(ID_RW_1,datatype::TypeConverter::toDCM(0,0,0));
@@ -161,10 +161,10 @@ void NJFactory<Env>::create_component(){
 	this->global_->nj_rw3 = new RW(ID_RW_3,datatype::TypeConverter::toDCM(0,0,0));
 	this->global_->nj_rw4 = new RW(ID_RW_4,datatype::TypeConverter::toDCM(0,0,0));
 	this->global_->nj_rw  = new SkewRW(ID_RW,datatype::TypeConverter::toDCM(0,0,0));
-	this->global_->nj_rw->appendChild(this->global_->nj_rw1);
-	this->global_->nj_rw->appendChild(this->global_->nj_rw2);
-	this->global_->nj_rw->appendChild(this->global_->nj_rw3);
-	this->global_->nj_rw->appendChild(this->global_->nj_rw4);
+	this->global_->nj_rw->append_child(this->global_->nj_rw1);
+	this->global_->nj_rw->append_child(this->global_->nj_rw2);
+	this->global_->nj_rw->append_child(this->global_->nj_rw3);
+	this->global_->nj_rw->append_child(this->global_->nj_rw4);
 
 	// GPS,RTC
 	this->global_->nj_rtc = new RTC(ID_RTC, YEAR, MONTH, DATE);

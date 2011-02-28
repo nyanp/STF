@@ -1,12 +1,12 @@
 /**
- * @file   CompositePolicy.h
- * @brief  Compositeクラスの集約・分配則を決めるためのポリシークラス群．
+ * @file   AggregationPolicy.h
+ * @brief  子の値をCompositeInputに集約する方法を定めるポリシークラス群と，ポリシー選択メタ関数．
  *
  * @author Taiga Nomi
- * @date   2011.02.16
+ * @date   2011.02.28
  */
-#ifndef stf_core_devicedriver_CompositePloicy_h
-#define stf_core_devicedriver_CompositePloicy_h
+#ifndef stf_core_devicedriver_AggregationPolicy_h
+#define stf_core_devicedriver_AggregationPolicy_h
 
 #include "../../datatype/Time.h"
 #include "../../datatype/DCM.h"
@@ -18,7 +18,7 @@ namespace devicedriver {
 
 //! 子のScalar値を各要素に持ったVectorを親の値とする合成ポリシー．
 template<class To,int N>
-class NScalarAggregate {
+class NScalarAggregation {
 public:
 	template<class Parent,class Child>
 	void setup(Parent* parent, Child (&child)[N]){}
@@ -26,8 +26,9 @@ public:
 	template<class Parent,class Child>
 	void aggregate(Parent* parent, Child (&child)[N]){
 		To value;
+		const datatype::Time& t = parent->get_lastupdate();
 		for(int i = 0; i < N; i++){
-			value[i] += child[i]->get_value(parent->get_lastupdate()).value();
+			value[i] += child[i]->get_value(t).value();
 		}
 		parent->set_value(value);
 	}
@@ -35,7 +36,7 @@ public:
 
 //! 子の平均値を親の値とする合成ポリシー．
 template<class ToAndFrom,int N>
-class AverageAggregate {
+class AverageAggregation {
 public:
 	template<class Parent,class Child>
 	void setup(Parent* parent, Child (&child)[N]){}
@@ -43,8 +44,9 @@ public:
 	template<class Parent,class Child>
 	void aggregate(Parent* parent, Child (&child)[N]){
 		ToAndFrom value;
+		const datatype::Time& t = parent->get_lastupdate();
 		for(int i = 0; i < N; i++){
-			value += child[i]->get_value(parent->get_lastupdate());
+			value += child[i]->get_value(t);
 		}
 		value /= N;
 		parent->set_value(value);
@@ -53,7 +55,7 @@ public:
 
 
 template<class To, int N>
-class ScalarDCMAggregate {
+class ScalarDCMAggregation {
 public:
 	template<class Parent,class Child>
 	void setup(Parent* parent, Child (&child)[N]){	
@@ -69,8 +71,9 @@ public:
 	template<class Parent,class Child>
 	void aggregate(Parent* parent, Child (&child)[N]){
 		datatype::StaticVector<N> value;
+		const datatype::Time& t = parent->get_lastupdate();
 		for(int i = 0; i < N; i++){
-			value[i] = child[i]->get_value(parent->get_lastupdate());
+			value[i] = child[i]->get_value(t);
 		}
 		parent->set_value(aggregate_mat_ * value);
 	}
@@ -79,7 +82,7 @@ private:
 };
 
 template<class ToAndFrom,int N>
-class VectorDCMAggregate {
+class VectorDCMAggregation {
 public:
 	template<class Parent,class Child>
 	void setup(Parent* parent, Child (&child)[N]){	}
@@ -96,65 +99,33 @@ public:
 	}
 };
 
-//! 疑似逆行列から
-template<class From,int N>
-class ScalarDCMDistribute {
-public:
-	template<class Parent,class Child>
-	void setup(Parent* parent, Child (&child)[N]){	
-		datatype::StaticMatrix<3,N> m;
-		for(int i = 0; i < N; i++){
-			datatype::DCM d = child[i]->get_transfomer();
-			for(int j = 0; j < 3; j++)
-				m[j][i] = d[j][2];
-		}
-		this->output_mat_ = m.trans() * ( m * m.trans() ).inverse();
-	}
-
-	template<class Parent,class Child>
-	void distribute(Parent* parent, Child (&child)[N]){
-		datatype::StaticVector<N> v = output_mat_ * parent->get_torque();
-		for(int i = 0; i < N; i++){
-			child[i]->set_torque(v[i]);
-		}
-	}
-private:
-	datatype::StaticMatrix<N,3> output_mat_;//トルク分配行列
-};
-
-
 template<class To, class From, int Numbers, bool UseAlignment>
-struct AggregateSelector {
-typedef NScalarAggregate<To,Numbers> Result;
+struct AggregationSelector {
+typedef NScalarAggregation<To,Numbers> Result;
 };
 
 template<int Numbers, class ToAndFrom>
-struct AggregateSelector<ToAndFrom,ToAndFrom,Numbers,false> {
-typedef AverageAggregate<ToAndFrom, Numbers> Result;
+struct AggregationSelector<ToAndFrom,ToAndFrom,Numbers,false> {
+typedef AverageAggregation<ToAndFrom, Numbers> Result;
 };
 
 template<int Numbers, class ToAndFrom>
-struct AggregateSelector<ToAndFrom,ToAndFrom,Numbers,true> {
-typedef VectorDCMAggregate<ToAndFrom, Numbers> Result;
+struct AggregationSelector<ToAndFrom,ToAndFrom,Numbers,true> {
+typedef VectorDCMAggregation<ToAndFrom, Numbers> Result;
 };
 
 template<class To, int Numbers>
-struct AggregateSelector<To,datatype::Scalar,Numbers,false> {
-typedef NScalarAggregate<To,Numbers> Result;
+struct AggregationSelector<To,datatype::Scalar,Numbers,false> {
+typedef NScalarAggregation<To,Numbers> Result;
 };
 
 template<class To, int Numbers>
-struct AggregateSelector<To,datatype::Scalar,Numbers,true> {
-typedef ScalarDCMAggregate<To,Numbers> Result;
-};
-
-template<class To, class From, int Numbers, bool UseAlignment>
-struct DistributeSelector {
-typedef ScalarDCMDistribute<From,Numbers> Result;
+struct AggregationSelector<To,datatype::Scalar,Numbers,true> {
+typedef ScalarDCMAggregation<To,Numbers> Result;
 };
 
 } /* End of namespace stf::core::component */
 } /* End of namespace stf::core */
 } /* End of namespace stf */
 
-#endif // stf_core_devicedriver_CompositePloicy_h
+#endif // stf_core_devicedriver_AggregationPolicy_h

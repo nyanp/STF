@@ -89,9 +89,9 @@ void SimpleSatelliteFactory<Env>::create_component(){
 	this->global_->ss_gyroy = new GYRO(ID_GYRO_Y,datatype::TypeConverter::toDCM(0,0,90));
 	this->global_->ss_gyroz = new GYRO(ID_GYRO_Z,datatype::TypeConverter::toDCM(0,0,0));
 	this->global_->ss_gyro =  new ThreeAxisGyro(ID_GYRO,datatype::TypeConverter::toDCM(0,0,0));
-	this->global_->ss_gyro->appendChild(this->global_->ss_gyrox);
-	this->global_->ss_gyro->appendChild(this->global_->ss_gyroy);
-	this->global_->ss_gyro->appendChild(this->global_->ss_gyroz);
+	this->global_->ss_gyro->append_child(this->global_->ss_gyrox);
+	this->global_->ss_gyro->append_child(this->global_->ss_gyroy);
+	this->global_->ss_gyro->append_child(this->global_->ss_gyroz);
 
 	// Reaction Wheel
 	this->global_->ss_rw1 = new RW(ID_RW_1,datatype::TypeConverter::toDCM(0,70,0));
@@ -99,10 +99,10 @@ void SimpleSatelliteFactory<Env>::create_component(){
 	this->global_->ss_rw3 = new RW(ID_RW_3,datatype::TypeConverter::toDCM(0,70,240));
 	this->global_->ss_rw4 = new RW(ID_RW_4,datatype::TypeConverter::toDCM(0,0,0));
 	this->global_->ss_rw  = new SkewRW(ID_RW,datatype::TypeConverter::toDCM(0,0,0));
-	this->global_->ss_rw->appendChild(this->global_->ss_rw1);
-	this->global_->ss_rw->appendChild(this->global_->ss_rw2);
-	this->global_->ss_rw->appendChild(this->global_->ss_rw3);
-	this->global_->ss_rw->appendChild(this->global_->ss_rw4);
+	this->global_->ss_rw->append_child(this->global_->ss_rw1);
+	this->global_->ss_rw->append_child(this->global_->ss_rw2);
+	this->global_->ss_rw->append_child(this->global_->ss_rw3);
+	this->global_->ss_rw->append_child(this->global_->ss_rw4);
 }
 
 template<class Env>

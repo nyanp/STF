@@ -205,6 +205,7 @@
     <ClInclude Include="scube\core\datapool\IDatapoolConnector.h" />
     <ClInclude Include="stf\core\devicedriver\adc\ADCBase.h" />
     <ClInclude Include="stf\core\devicedriver\adc\ConvertPolicy.h" />
+    <ClInclude Include="stf\core\devicedriver\AggregationPolicy.h" />
     <ClInclude Include="stf\core\devicedriver\AOCSActuator.h" />
     <ClInclude Include="stf\core\devicedriver\AOCSSensor.h" />
     <ClInclude Include="stf\core\devicedriver\CDHComponent.h" />
@@ -215,8 +216,9 @@
     <ClInclude Include="stf\core\devicedriver\clock\ITimeClock.h" />
     <ClInclude Include="stf\core\devicedriver\cmhandler\DummyCommandReceiver.h" />
     <ClInclude Include="stf\core\devicedriver\cmhandler\ICommandReceiver.h" />
-    <ClInclude Include="stf\core\devicedriver\Composite.h" />
-    <ClInclude Include="stf\core\devicedriver\CompositePolicy.h" />
+    <ClInclude Include="stf\core\devicedriver\CompositeInput.h" />
+    <ClInclude Include="stf\core\devicedriver\CompositeOutput.h" />
+    <ClInclude Include="stf\core\devicedriver\DistributionPolicy.h" />
     <ClInclude Include="stf\core\devicedriver\earthsensor\EarthSensor.h" />
     <ClInclude Include="stf\core\devicedriver\earthsensor\EarthSensorBase.h" />
     <ClInclude Include="stf\core\devicedriver\gps\DummyGPS.h" />
