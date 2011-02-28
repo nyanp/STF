@@ -39,6 +39,9 @@ struct OutputPort {
 	//! データの取得を行う関数．
 	virtual const T& get_value(const datatype::Time& t){ do_compute(t); return value_; }
 
+	//! データの設定を行う関数．
+	virtual void set_value(const T& value){ value_ = value; }
+
 	//! データの最終更新時刻を取得する関数．
 	const datatype::Time& get_lastupdate() const{ return last_update_;}
 

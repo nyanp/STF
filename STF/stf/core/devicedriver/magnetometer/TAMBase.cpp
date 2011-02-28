@@ -18,7 +18,7 @@ namespace magnetometer {
 //シミュレータ環境ではSTT座標系での真値を取得する
 template <>
 void TAMBase<environment::Simulator>::do_update(){
-	this->set_value(filter(this->environment_->getMagneticField(*this)));
+	this->value_ = filter(this->environment_->getMagneticField(*this));
 	if(this->datapool_ != 0){
 		datapool_->set<TAMBase<environment::Simulator>>(datapool_hold_index_,this->value_);
 	}

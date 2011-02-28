@@ -23,7 +23,7 @@ template <>
 void STTBase<environment::Simulator>::do_update(){
 	count_++;
 	if(count_ >= 5){
-		this->set_value(filter(this->environment_->getQuaternion(*this)));
+		this->value_ = filter(this->environment_->getQuaternion(*this));
 		if(this->datapool_ != 0){
 			datapool_->set<STTBase<environment::Simulator>>(datapool_hold_index_,this->value_);
 		}

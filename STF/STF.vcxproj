@@ -216,6 +216,7 @@
     <ClInclude Include="stf\core\devicedriver\cmhandler\DummyCommandReceiver.h" />
     <ClInclude Include="stf\core\devicedriver\cmhandler\ICommandReceiver.h" />
     <ClInclude Include="stf\core\devicedriver\Composite.h" />
+    <ClInclude Include="stf\core\devicedriver\CompositePolicy.h" />
     <ClInclude Include="stf\core\devicedriver\earthsensor\EarthSensor.h" />
     <ClInclude Include="stf\core\devicedriver\earthsensor\EarthSensorBase.h" />
     <ClInclude Include="stf\core\devicedriver\gps\DummyGPS.h" />

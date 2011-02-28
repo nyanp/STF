@@ -5,6 +5,7 @@
  *         必要な物理量をコンポーネント単独のインターフェースで得られない場合
  *        （軸ごとに通信系統が違うアクチュエータや，複数軸の観測値を組み合わせる前提のセンサなど）に使う．
  * @author Taiga Nomi
+ * @todo   Envクラスをデフォルト引数に追加
  * @date   2011.02.16
  */
 #ifndef stf_core_devicedriver_Composite_h
@@ -14,6 +15,7 @@
 #include "AOCSSensor.h"
 #include "../../datatype/StaticMatrix.h"
 #include "../datapool/Datapool.h"
+#include "CompositePolicy.h"
 
 namespace stf {
 namespace core {
@@ -25,8 +27,8 @@ namespace devicedriver {
 	@tparam Leaf    集約するAOCSSensorの型．
 	@tparam Numbers 集約チャネル数．
 */
-template<class Leaf,int Numbers>
-class CompositeInput : public AOCSSensor<typename Leaf::Target> {
+template<class Leaf, int Numbers, class AggregatePolicy = SimpleNVectorAggregate>
+class CompositeInput : public AOCSSensor<typename Leaf::Target>, public AggregatePolicy {
 public:
 	CompositeInput(int instance_id, const datatype::DCM& dcm) : AOCSSensor<typename Leaf::Target>(instance_id,"Composite",dcm), index_(0)
 	{
@@ -34,7 +36,7 @@ public:
 	}
 	virtual ~CompositeInput(){}
 	virtual void do_update();
-	virtual void aggregate();
+	//virtual void aggregate();
 	virtual typename Leaf::Target filter(const typename Leaf::Target& value){ return value; }//compositeはフィルタをそのまま返す
 	void appendChild(Leaf* c);
 protected:
@@ -48,8 +50,8 @@ private:
 	@tparam Leaf    集約するAOCSActuatorの型．
 	@tparam Numbers 集約チャネル数．
 */
-template<class Leaf,int Numbers>
-class CompositeOutput : public AOCSActuator<typename Leaf::Target> {
+template<class Leaf, int Numbers, class DistributePolicy = SimpleDistribute>
+class CompositeOutput : public AOCSActuator<typename Leaf::Target>, public DistributePolicy {
 public:
 	CompositeOutput(int instance_id, const datatype::DCM& dcm) : AOCSActuator<typename Leaf::Target>(instance_id,"Composite",dcm), index_(0)
 	{
@@ -58,25 +60,25 @@ public:
 	}
 	virtual ~CompositeOutput(){}
 	virtual void do_update();
-	virtual void distribute();
+	//virtual void distribute();
 	virtual void matrixset();//疑似逆行列を用いてトルク分配行列を生成
 	void appendChild(Leaf* c);
 protected:
 private:
 	Leaf* childs_[Numbers];
-	datatype::StaticMatrix<Numbers,3> output_mat_;//トルク分配行列
+	//datatype::StaticMatrix<Numbers,3> output_mat_;//トルク分配行列
 	unsigned char index_;//max 255 childs
 };
 
-template <class Leaf,int Numbers>
-void CompositeInput<Leaf,Numbers>::appendChild(Leaf* c){
+template <class Leaf, int Numbers, class AggregatePolicy>
+void CompositeInput<Leaf,Numbers,AggregatePolicy>::appendChild(Leaf* c){
 	assert(index_ < Numbers);
 	childs_[index_] = c;
 	index_++;
 }
 
-template <class Leaf,int Numbers>
-void CompositeOutput<Leaf,Numbers>::appendChild(Leaf* c){
+template <class Leaf, int Numbers, class DistributePolicy>
+void CompositeOutput<Leaf,Numbers,DistributePolicy>::appendChild(Leaf* c){
 	assert(index_ < Numbers);
 	childs_[index_] = c;
 	index_++;
@@ -87,23 +89,33 @@ void CompositeOutput<Leaf,Numbers>::appendChild(Leaf* c){
 
 //Input:親から子へ再帰的にUpdateを実行する．
 // 実センサから値を取得→各センサオブジェクトがローカルに保持した値をCompositeに集約→Body座標系での値としてDBに登録
-template <class Leaf,int Numbers>
-void CompositeInput<Leaf,Numbers>::do_update(){
+template <class Leaf,int Numbers, class AggregatePolicy>
+void CompositeInput<Leaf,Numbers,AggregatePolicy>::do_update(){
 	for(unsigned char i = 0; i < Numbers; ++i){
 		if(childs_[i] != 0)
 			childs_[i]->do_update();
 	}
-	aggregate();
+
+	typename Leaf::Target v;
+
+	aggregate(this,childs_); //Policy Class Method
+
+	//aggregate();
 	if(this->datapool_ != 0){
 		datapool_->set<CompositeInput<Leaf,Numbers>>(datapool_hold_index_,this->value_);
 	}
 }
 
+/*
 //リーフコンポーネントが取得した値を合成するメソッド．
 //必要に応じて部分特殊化を使い，物理量とアプリケーションに対して適切な合成を行う
-template <class Leaf,int Numbers>
-void CompositeInput<Leaf,Numbers>::aggregate(){
+template <class Leaf,int Numbers, class AggregatePolicy>
+void CompositeInput<Leaf,Numbers,AggregatePolicy>::aggregate(){
 	typename Leaf::Target v;
+
+	//aggregate(&v,childs_);
+
+	/*typename Leaf::Target v;
 	int updatedsensors = 0;
 	for(unsigned char i = 0; i < Numbers; ++i){
 		if(childs_[i] != 0){
@@ -118,41 +130,46 @@ void CompositeInput<Leaf,Numbers>::aggregate(){
 	}
 	v.normalize();//物理量を正規化
 	this->set_in_bodyframe(v);
-}
+}*/
 
 
 //Output:親から子へ再帰的にUpdateを実行する．
 // Body座標系での指令値をDBから読み込み→各センサへトルクを分配→各センサオブジェクトがローカルに保持した値を実アクチュエータに送信
-template <class Leaf,int Numbers>
-void CompositeOutput<Leaf,Numbers>::do_update(){
+template <class Leaf, int Numbers, class DistributePolicy>
+void CompositeOutput<Leaf,Numbers,DistributePolicy>::do_update(){
 	if(this->datapool_ != 0){
-		this->datapool_->set<CompositeOutput<Leaf,Numbers>>(datapool_hold_index_,this->value_);//
+		this->datapool_->set<CompositeOutput<Leaf,Numbers>>(datapool_hold_index_,this->output_);//
 	}
-	distribute();
+
+	distribute(this, childs_); //Policy Class Method
+
+	//distribute();
+
+
 	for(unsigned char i = 0; i < Numbers; ++i){
 		if(childs_[i] != 0)
 			childs_[i]->do_update();
 	}
 }
-
+/*
 //リーフコンポーネントに出力（トルク等）を分配するメソッド．
 //必要に応じて部分特殊化を使い，物理量とアプリケーションに対して適切な分配を行う
-template <class Leaf,int Numbers>
-void CompositeOutput<Leaf,Numbers>::distribute(){
-	datatype::StaticVector<Numbers> v = this->output_mat_ * this->value_;
+template <class Leaf, int Numbers, class DistributePolicy>
+void CompositeOutput<Leaf,Numbers,DistributePolicy>::distribute(){
+	/*datatype::StaticVector<Numbers> v = this->output_mat_ * this->value_;
 	for(int i = 0; i < Numbers; i++){
 		childs_[i]->set_torque(v[i]);
 	}
 
-}
+}*/
 
 //子コンポーネントがZ軸まわりのトルクを出すと仮定して，
 //疑似逆行列でエネルギー最小のトルク分配行列を計算．
-template <class Leaf,int Numbers>
-void CompositeOutput<Leaf,Numbers>::matrixset(){
+template <class Leaf, int Numbers, class DistributePolicy>
+void CompositeOutput<Leaf,Numbers,DistributePolicy>::matrixset(){
 	datatype::StaticMatrix<3,Numbers> m;
 	for(int i = 0; i < Numbers; i++){
-		datatype::DCM d = this->childs_[i]->getDCM();
+		datatype::DCM d = this->childs_[i]->get_transfomer();
 		for(int j = 0; j < 3; j++)
 			m[j][i] = d[j][2];
 	}

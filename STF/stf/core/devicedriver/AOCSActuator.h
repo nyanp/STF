@@ -25,23 +25,19 @@ class AOCSActuator : public AOCSComponent<T,U,Env>, public InputPorts< TYPELIST_
 public:
 	AOCSActuator(int instance_id, const datatype::String& name, const datatype::DCM& dcm) : AOCSComponent<T,U,Env>(instance_id,name,dcm){}
 	virtual ~AOCSActuator(){}
-	void setMaxOutput(const U& ref) { max_output_ = ref; }
-    virtual void set_torque(U value) {
-		if(value > this->max_output_) this->set_value(this->max_output_);//サチる
-		else if(value < this->min_output_) this->set_value(this->min_output_);
-		else 
-			 this->set_value(value);
+    virtual void set_torque(const U& value) {
+		this->output_ = value;
 	}
+	const U& get_torque() const { return output_; }
 protected:
-	U max_output_;
-	U min_output_;
+	U output_;
 	double sigma_;
 private:
 	AOCSActuator& operator = (const AOCSActuator& rhs);
     AOCSActuator();
 	AOCSActuator(const AOCSActuator<T,U,Env>& rhs);
 };
-
+ 
 } /* End of namespace stf::core::component */
 } /* End of namespace stf::core */
 } /* End of namespace stf */

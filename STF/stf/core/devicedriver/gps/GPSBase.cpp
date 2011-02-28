@@ -16,7 +16,7 @@ namespace gps {
 
 template <>
 void GPSBase<environment::Simulator>::do_update(){
-	this->set_value(filter(this->environment_->getTrueSatellitePosition()));
+	this->value_ = filter(this->environment_->getTrueSatellitePosition());
 
 	//if(this->datapool_ != 0){
 	//	datapool_->set<GPSBase<environment::Simulator>>(datapool_hold_index_,this->value_);

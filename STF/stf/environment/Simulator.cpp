@@ -39,34 +39,34 @@ Simulator::~Simulator()
 
 datatype::MagneticField Simulator::getMagneticField(const Magnetometer& component) const
 {
-	return component.getDCM().inverse() * this->orbit_.getMagneticField();
+	return component.get_transfomer().inverse() * this->orbit_.getMagneticField();
 }
 
 datatype::StaticVector<3> Simulator::getAngularVelocity(const MultiGyro& component) const 
 {
-	datatype::StaticVector<3> v  = component.getDCM().inverse() * this->true_angular_velocity_;
+	datatype::StaticVector<3> v  = component.get_transfomer().inverse() * this->true_angular_velocity_;
 	return v;
 }
 
 datatype::Scalar Simulator::getAngularVelocity(const Gyro& component) const 
 {
-	return datatype::Scalar((component.getDCM().inverse() * this->true_angular_velocity_)[2]);
+	return datatype::Scalar((component.get_transfomer().inverse() * this->true_angular_velocity_)[2]);
 }
 
 datatype::Quaternion Simulator::getQuaternion(const STT& component) const 
 {
-	datatype::Quaternion q = datatype::TypeConverter::toQuaternion(component.getDCM()).conjugate();
+	datatype::Quaternion q = datatype::TypeConverter::toQuaternion(component.get_transfomer()).conjugate();
 	return  q * this->true_quaternion_;
 }
 
 datatype::StaticVector<2> Simulator::getSunDirection(const Vectorsensor& component) const 
 {
-	return datatype::TypeConverter::toPolar(component.getDCM().inverse() * datatype::OrbitCalc::getSunDirectionInBodyFrame(this->orbit_.get_time(), this->true_quaternion_));
+	return datatype::TypeConverter::toPolar(component.get_transfomer().inverse() * datatype::OrbitCalc::getSunDirectionInBodyFrame(this->orbit_.get_time(), this->true_quaternion_));
 }
 
 datatype::StaticVector<2> Simulator::getEarthDirection(const Vectorsensor& component) const 
 {
-	return datatype::TypeConverter::toPolar(component.getDCM().inverse() * datatype::OrbitCalc::getEarthDirectionInBodyFrame(this->orbit_.getSatellitePosition(), this->true_quaternion_));
+	return datatype::TypeConverter::toPolar(component.get_transfomer().inverse() * datatype::OrbitCalc::getEarthDirectionInBodyFrame(this->orbit_.getSatellitePosition(), this->true_quaternion_));
 }
 
 const datatype::PositionInfo Simulator::getTrueSatellitePosition() const
@@ -127,7 +127,9 @@ void Simulator::runOneCycle()
     this->true_torque_.reset();//トルクを一旦リセットし，外部ソースから計算しなおす
     std::vector<TorqueSource*>::iterator it_t = this->torque_sources_.begin(), end_t = this->torque_sources_.end();
     while( it_t != end_t ){
-		this->true_torque_ += (*it_t)->get_in_bodyframe();
+		for(int i = 0; i < 3; i++){
+			this->true_torque_[i] += (*it_t)->get_torque().value() * (*it_t)->get_transfomer()[i][2];
+		}
         ++it_t;
     }
 

@@ -20,7 +20,7 @@ namespace sunsensor {
 //シミュレータ環境ではSTT座標系での真値を取得する
 template <>
 void SunSensorBase<environment::Simulator>::do_update(){
-	this->set_value(filter(this->environment_->getSunDirection(*this)));
+	this->value_ = filter(this->environment_->getSunDirection(*this));
 	if(this->datapool_ != 0){
 		datapool_->set<SunSensorBase<environment::Simulator>>(datapool_hold_index_,this->value_);
 	}

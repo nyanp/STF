@@ -18,7 +18,7 @@ namespace gyro {
 
 template <>
 void GyroBase<environment::Simulator>::do_update(){
-	this->set_value(filter(this->environment_->getAngularVelocity(*this)));
+	this->value_ = filter(this->environment_->getAngularVelocity(*this));
 	if(this->datapool_ != 0){
 		datapool_->set<GyroBase<environment::Simulator>>(datapool_hold_index_,this->value_);
 	}

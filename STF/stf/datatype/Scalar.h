@@ -37,6 +37,7 @@ public:
 	inline Scalar& operator -= (double s);
 	inline Scalar& operator *= (double s);
 	inline Scalar& operator /= (double s);
+	double operator ()() const { return value_; }
 protected:
 	double value_;
 private:

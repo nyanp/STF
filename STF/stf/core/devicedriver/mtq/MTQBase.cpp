@@ -21,7 +21,7 @@ void MTQBase<environment::Simulator>::do_update(){
 	//this->linearity_ * 0.01
 	//DBへ記録
 	if(this->datapool_ != 0){
-		datapool_->set<MTQBase<environment::Simulator>>(this->datapool_hold_index_,this->value_);
+		datapool_->set<MTQBase<environment::Simulator>>(this->datapool_hold_index_,this->output_);
 	}
 }
 
@@ -31,8 +31,8 @@ template<>
 MTQBase<environment::Simulator>::MTQBase(int instance_id, const datatype::DCM &dcm, double max_torque, double min_torque, double linearity) 
 	: AOCSActuator<datatype::MagneticMoment, datatype::Scalar, environment::Simulator>(instance_id, "MTQ", dcm), linearity_(linearity)
 {
-	this->max_output_ = max_torque;
-	this->min_output_ = min_torque;	
+	//this->max_output_ = max_torque;
+	//this->min_output_ = min_torque;	
 	this->environment_->attachMagneticSource(this);
 }
 

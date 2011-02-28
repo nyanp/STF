@@ -30,7 +30,7 @@ public:
 	STTBase(int instance_id, const datatype::DCM &angle,double err_arcsec,int sigma = 3);
     virtual ~STTBase();
 	virtual void do_update();
-	virtual const datatype::Quaternion& get_in_bodyframe();
+	//virtual const datatype::Quaternion& get_in_bodyframe();
 	virtual datatype::Quaternion filter(const datatype::Quaternion& value); 
 private:
     STTBase();
@@ -64,11 +64,11 @@ void STTBase<T>::do_update(){
 }
 
 // DCMで計算せずにQuaternionで計算するためにオーバーライド
-template <class T>
+/*template <class T>
 const datatype::Quaternion& STTBase<T>::get_in_bodyframe(){
 	this->value_b_ = q_set_angle_ * value_;
 	return this->value_b_;
-}
+}*/
 
 //STT本体のQuaternion
 template <>

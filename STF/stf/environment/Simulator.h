@@ -12,6 +12,8 @@
 #include <iostream>
 #include <vector>
 #include "../core/devicedriver/AOCSComponent.h"
+#include "../core/devicedriver/AOCSActuator.h"
+#include "../core/devicedriver/AOCSSensor.h"
 #include "../datatype/StaticVector.h"
 #include "../datatype/StaticMatrix.h"
 #include "../datatype/Vector.h"
@@ -79,7 +81,7 @@ public:
 	typedef core::devicedriver::AOCSComponent<datatype::StaticVector<2>,datatype::StaticVector<2>,Simulator> Vectorsensor;
 	typedef core::devicedriver::AOCSComponent<datatype::MagneticField,datatype::MagneticField,Simulator> Magnetometer;
 	typedef core::devicedriver::clock::ITimeClock Clock;
-	typedef core::devicedriver::AOCSComponent<datatype::StaticVector<3>,datatype::Scalar,Simulator> TorqueSource;
+	typedef core::devicedriver::AOCSActuator<datatype::StaticVector<3>,datatype::Scalar,Simulator> TorqueSource;
 	typedef core::devicedriver::AOCSComponent<datatype::MagneticMoment,datatype::Scalar,Simulator> MagneticSource;
 
 	static Simulator& get_instance();

@@ -348,7 +348,7 @@ void NJFactory<Env>::create_controller(){
 	mism_pid->connect_source<2>(mism_spincond);//長期要求に基づいて目標Quaterionを更新
 
 	mism_starekf->connect_source<0>(ccdm_ekf);
-	mism_starekf->connect_source<1>(this->global_->nj_rw);
+	//mism_starekf->connect_source<1>(this->global_->nj_rw);
 
 	//制御トルクはRWへ出力
 	NJ_CONTROLLER_MISM->set_actuator(this->global_->nj_rw, mism_pid);

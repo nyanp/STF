@@ -22,7 +22,7 @@ namespace devicedriver {
 	@tparam Env コンポーネントの環境クラス．
 */
 template<class T,class U = T,class Env = ENV>
-class AOCSSensor : public AOCSComponent<T,U,Env> {
+class AOCSSensor : public AOCSComponent<T,U,Env>, public OutputPorts< TYPELIST_1(U) > {
 public:
 	AOCSSensor(int instance_id, const datatype::String& name, const datatype::DCM& dcm) : AOCSComponent<T,U,Env>(instance_id,name,dcm){}
 	AOCSSensor(int instance_id, const datatype::String& name) : AOCSComponent<T,U,Env>(instance_id,name){}

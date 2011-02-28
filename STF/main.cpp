@@ -133,8 +133,16 @@ public:
 	}
 };
 
+template<class T,int N>
+void hoge(T (&value)[N]){
+	for(int i = 0; i < N; i++)
+	util::cout << value[i] << ",";
+}
+
 int main(void){
 
+	int values[] = { 1, 2, 3 };
+	hoge(values);
 
 	datatype::StaticMatrix<2,2> mat2;
 	mat2[0][0] = 0.3;
