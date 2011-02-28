@@ -49,26 +49,39 @@ namespace devicedriver {
 	子からCompositeへの集約規則は，AggregationPolicyポリシー・クラスが決定する．
 	AggregationPolicyは以下の2つのメソッドを持っている必要がある．
 	
-	:setup:子が既定の個数登録された段階で実行される，ポリシークラスの初期化メソッド．空でも良い．
-	:aggregate:子の値をCompositeに集約するメソッド．
+	-setup: 子が既定の個数登録された段階で実行される，ポリシークラスの初期化メソッド．空でも良い．
+
+	-aggregate: 子の値をCompositeに集約するメソッド．
 	
 	テンプレート引数を省略した場合，ポリシーはAggregationSelectorメタ関数によって自動的に決定される．
 
-	,  UseAlignment  ,  型(集約前)  ,  型(集約後)  ,  AggregationSelectorが選択するAggregationPolicy
-	,     false      ,    Scalar    ,    Scalar    ,  AverageAggregation(平均値合成)
-	,     false      ,    Scalar    ,    Vector    ,  NScalarAggregation(i番目の子の値をvalue[i]に代入)
-	,     false      ,    Vector    ,    Vector    ,  AverageAggregation(平均値合成)
-	,      true      ,    Scalar    ,    Scalar    ,  未定義
-	,      true      ,    Scalar    ,    Vector    ,  ScalarDCMAggregation(取り付け行列の疑似逆行列から機体座標系の物理量を計算)
-	,      true      ,    Vector    ,    Vector    ,  VectorDCMAggregation(取り付け行列の疑似逆行列から機体座標系の物理量を計算)
+	<TABLE>
+	<TR><TD>UseAlignment</TD><TD>型(集約前)</TD><TD>型(集約後)</TD><TD>      AggregationSelectorが選択するAggregationPolicy        </TD></TR>
+	<TR><TD>   false    </TD><TD>  Scalar  </TD><TD>  Scalar  </TD><TD>               AverageAggregation(平均値合成)               </TD></TR>
+	<TR><TD>   false    </TD><TD>  Scalar  </TD><TD>  Vector  </TD><TD>     NScalarAggregation(i番目の子の値をvalue[i]に代入)      </TD></TR>
+	<TR><TD>   false    </TD><TD>  Vector  </TD><TD>  Vector  </TD><TD>               AverageAggregation(平均値合成)               </TD></TR>
+	<TR><TD>    true    </TD><TD>  Scalar  </TD><TD>  Scalar  </TD><TD>                           未定義                           </TD></TR>
+	<TR><TD>    true    </TD><TD>  Scalar  </TD><TD>  Vector  </TD><TD> ScalarDCMAggregation(取付行列から機体座標系の物理量を計算) </TD></TR>
+	<TR><TD>    true    </TD><TD>  Vector  </TD><TD>  Vector  </TD><TD> VectorDCMAggregation(取付行列から機体座標系の物理量を計算) </TD></TR>
+	</TABLE>
 */
-template<class Leaf, int Numbers, bool UseAlignment = false, class AggregationPolicy = typename AggregationSelector<typename Leaf::Target,typename Leaf::Hold,Numbers,UseAlignment>::Result >
-class CompositeInput : public AOCSSensor<typename Leaf::Target>, public AggregationPolicy {
+template
+<
+	class Leaf, 
+	int Numbers, 
+	bool UseAlignment = false, 
+	class AggregationPolicy = typename AggregationSelector<typename Leaf::Target, typename Leaf::Hold,Numbers, UseAlignment>::Result 
+>
+class CompositeInput : public AOCSSensor<typename Leaf::Target, typename Leaf::Target, typename Leaf::Environment>, public AggregationPolicy {
 public:
-	CompositeInput(int instance_id, const datatype::DCM& dcm) : AOCSSensor<typename Leaf::Target>(instance_id,"Composite",dcm), index_(0)
+	STF_STATIC_ASSERT( Numbers <= 255, CHILD_NUMBER_OVERFLOW );
+
+	CompositeInput(int instance_id, const datatype::DCM& dcm)
+		: AOCSSensor<typename Leaf::Target, typename Leaf::Target, typename Leaf::Environment>(instance_id, "Composite", dcm), index_(0)
 	{
 		for(int i = 0; i < Numbers; i++) childs_[index_] = 0;
 	}
+
 	virtual ~CompositeInput(){}
 	virtual void do_update();
 	virtual typename Leaf::Target filter(const typename Leaf::Target& value){ return value; }//compositeはフィルタをそのまま返す
@@ -81,27 +94,27 @@ private:
 
 //! Compositeが纏める子オブジェクトを登録する．
 template <class Leaf, int Numbers, bool UseAlignment, class AggregationPolicy>
-void CompositeInput<Leaf,Numbers,UseAlignment,AggregationPolicy>::append_child(Leaf* c){
+void CompositeInput<Leaf, Numbers, UseAlignment, AggregationPolicy>::append_child(Leaf* c){
 	assert(index_ < Numbers);
 	childs_[index_] = c;
 	index_++;
 	if(index_ == Numbers){//子が出そろった
-		setup(this,childs_);//Policy Class Method
+		setup(this, childs_);//Policy Class Method
 	}
 }
 
 //! 親から子へ再帰的にUpdateを実行する．
 template <class Leaf, int Numbers, bool UseAlignment, class AggregationPolicy>
-void CompositeInput<Leaf,Numbers,UseAlignment,AggregationPolicy>::do_update(){
+void CompositeInput<Leaf, Numbers, UseAlignment, AggregationPolicy>::do_update(){
 	for(unsigned char i = 0; i < Numbers; ++i){
 		if(childs_[i] != 0)
 			childs_[i]->do_update();
 	}
 
-	aggregate(this,childs_); //Policy Class Method
+	aggregate(this, childs_); //Policy Class Method
 
 	if(this->datapool_ != 0){
-		datapool_->set<CompositeInput<Leaf,Numbers>>(datapool_hold_index_,this->value_);
+		datapool_->set<CompositeInput<Leaf, Numbers>>(datapool_hold_index_,this->value_);
 	}
 }
 

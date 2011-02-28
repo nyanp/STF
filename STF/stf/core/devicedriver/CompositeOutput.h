@@ -49,13 +49,23 @@ namespace devicedriver {
 	
 	テンプレート引数を省略した場合，ポリシーはDistributionSelectorメタ関数によって自動的に決定される．
 */
-template<class Leaf, int Numbers, bool UseAlignment = false, class DistributionPolicy = typename DistributionSelector<typename Leaf::Hold,typename Leaf::Target,Numbers,UseAlignment>::Result >
-class CompositeOutput : public AOCSActuator<typename Leaf::Target>, public DistributionPolicy {
+template
+<
+	class Leaf, 
+	int Numbers, 
+	bool UseAlignment = false, 
+	class DistributionPolicy = typename DistributionSelector<typename Leaf::Hold, typename Leaf::Target, Numbers, UseAlignment>::Result 
+>
+class CompositeOutput : public AOCSActuator<typename Leaf::Target, typename Leaf::Target, typename Leaf::Environment>, public DistributionPolicy {
 public:
-	CompositeOutput(int instance_id, const datatype::DCM& dcm) : AOCSActuator<typename Leaf::Target>(instance_id,"Composite",dcm), index_(0)
+	STF_STATIC_ASSERT( Numbers <= 255 , CHILD_NUMBER_OVERFLOW );
+
+	CompositeOutput(int instance_id, const datatype::DCM& dcm)
+		: AOCSActuator<typename Leaf::Target, typename Leaf::Target, typename Leaf::Environment>(instance_id, "Composite", dcm), index_(0)
 	{
 		for(int i = 0; i < Numbers; i++) childs_[index_] = 0;
 	}
+
 	virtual ~CompositeOutput(){}
 	virtual void do_update();
 	void append_child(Leaf* c);
@@ -66,7 +76,7 @@ private:
 
 //! Compositeが纏める子オブジェクトを登録する．
 template <class Leaf, int Numbers, bool UseAlignment, class DistributionPolicy>
-void CompositeOutput<Leaf,Numbers,UseAlignment,DistributionPolicy>::append_child(Leaf* c){
+void CompositeOutput<Leaf, Numbers, UseAlignment, DistributionPolicy>::append_child(Leaf* c){
 	assert(index_ < Numbers);
 	childs_[index_] = c;
 	index_++;
@@ -77,9 +87,9 @@ void CompositeOutput<Leaf,Numbers,UseAlignment,DistributionPolicy>::append_child
 
 //! 親から子へ再帰的にUpdateを実行する．
 template <class Leaf, int Numbers, bool UseAlignment, class DistributionPolicy>
-void CompositeOutput<Leaf,Numbers,UseAlignment,DistributionPolicy>::do_update(){
+void CompositeOutput<Leaf, Numbers, UseAlignment, DistributionPolicy>::do_update(){
 	if(this->datapool_ != 0){
-		this->datapool_->set<CompositeOutput<Leaf,Numbers>>(datapool_hold_index_,this->output_);//
+		this->datapool_->set<CompositeOutput<Leaf, Numbers> >(datapool_hold_index_, this->output_);//
 	}
 
 	distribute(this, childs_); //Policy Class Method

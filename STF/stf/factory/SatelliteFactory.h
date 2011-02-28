@@ -22,6 +22,8 @@ namespace factory {
 template<class Env>
 class SatelliteFactory {
 public:
+	typedef Env Environment;//!< 環境クラス．
+
 	SatelliteFactory(){}
 	virtual ~SatelliteFactory(){}
 	Global<Env>* create(){

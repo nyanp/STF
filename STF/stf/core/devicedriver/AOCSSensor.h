@@ -21,22 +21,20 @@ namespace devicedriver {
 	@tparam U   センサが入力する次元での物理量．3軸センサならTと一致，1軸ならScalar．
 	@tparam Env コンポーネントの環境クラス．
 */
-template<class T,class U = T,class Env = ENV>
+template<class T, class U, class Env>
 class AOCSSensor : public AOCSComponent<T,U,Env>, public OutputPorts< TYPELIST_1(U) > {
 public:
-	AOCSSensor(int instance_id, const datatype::String& name, const datatype::DCM& dcm) : AOCSComponent<T,U,Env>(instance_id,name,dcm){}
-	AOCSSensor(int instance_id, const datatype::String& name) : AOCSComponent<T,U,Env>(instance_id,name){}
+	AOCSSensor(int instance_id, const datatype::String& name, const datatype::DCM& dcm)
+		: AOCSComponent<T, U, Env>(instance_id, name, dcm){}
+
+	AOCSSensor(int instance_id, const datatype::String& name)
+		: AOCSComponent<T, U, Env>(instance_id, name){}
+
 	virtual ~AOCSSensor(){}
-	void set_sigma(double ref) { sigma_ = ref; }
+
 	//! 真値からノイズモデルを加味した観測値を計算する関数．
 	/*! テンプレートクラス内のメンバ関数は，使用しない限り実体化されないので，フライトコードにオーバーヘッドは無い． */
 	virtual U filter(const U& value) = 0; 
-protected:
-
-private:
-	AOCSSensor& operator = (const AOCSSensor& rhs);
-    AOCSSensor();
-	AOCSSensor(const AOCSSensor<T,U,Env>& rhs);
 };
 
 } /* End of namespace stf::core::component */

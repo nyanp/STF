@@ -39,6 +39,8 @@ using namespace core;
 template<class Env>
 class Global{
 public:
+	typedef Env Environment;//!< 環境クラス．
+
 	//static Global<Env>& get_instance();//Environmentごとに単一のインスタンスのみを生成
 
 	//! Aocsデータプールのハンドラを取得．

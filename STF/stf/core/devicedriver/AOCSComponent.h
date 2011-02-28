@@ -33,34 +33,23 @@ template<class T> class Datapool;
 }
 namespace devicedriver {
 
-template<class T, class U>
-struct Convert{
-typedef datatype::DCM Result;
-};
-
-template<>
-struct Convert<datatype::StaticVector<3>,datatype::Scalar> {
-typedef datatype::StaticVector<3> Result;
-};
-
-
 //! センサおよびアクチュエータの基底クラス．
 /*! 
 	@tparam T   測定している物理量を表す型．Targetにtypedefされる
 	@tparam U   可観測次元の量を表す型．全軸感度を持ったコンポーネントの場合はT=U．Holdにtypedefされる
 	@tparam Env コンポーネントの環境クラス．
 */
-template<class T,class U = T,class Env = ENV>
+template<class T, class U, class Env>
 class AOCSComponent : public RootObject, virtual public IDataUpdatable, virtual public ISwitchable {
 public:
-	typedef T Target;//測定している物理量を表す型．
-	typedef U Hold;//可観測次元の量を表す型．全軸感度を持ったコンポーネントの場合はT=U
-	//typedef typename Convert<T,U>::Result Hold2Target;//コンポーネントの観測量を機体座標系へ変換するための物理量．
+	typedef Env Environment;//!< 環境クラス．
+	typedef T Target;//!< 測定している物理量を表す型．
+	typedef U Hold;//!< 可観測次元の量を表す型．全軸感度を持ったコンポーネントの場合はT=U
 
 	AOCSComponent(int instance_id, const datatype::String& name, const datatype::DCM& dcm);
 	AOCSComponent(int instance_id, const datatype::String& name);
-	void connect(core::datapool::AocsDataPool* pool,int rows, const datatype::String name){ 
-		this->datapool_hold_index_ = pool->create(this,rows,name);
+	void connect(core::datapool::AocsDataPool* pool, int rows, const datatype::String name){ 
+		this->datapool_hold_index_ = pool->create(this, rows, name);
 		datapool_ = pool; 
 	}
 	const datatype::DCM& get_transfomer() const{ return set_angle_; }
@@ -68,42 +57,29 @@ public:
 	virtual void on(){ is_on_ = true;}
 	virtual void off(){ is_on_ = false;}
 	virtual bool is_on() const{ return is_on_; }
-	/*virtual void set_value(const U& value) { 
-		value_ = value; 
-		copyToBodyFrame_(Loki::Type2Type<Target>(),Loki::Type2Type<Hold>());
-		this->last_update_ = this->clock_->get_time();
-	}
-	virtual void set_in_bodyframe(const T& value){ 
-		value_b_ = value; 	
-		copyToLocalFrame_(Loki::Type2Type<Target>(),Loki::Type2Type<Hold>());
-		this->last_update_ = this->clock_->get_time(); 	
-	}*/
-	//virtual const U& get_value() const{ return value_; }
-	//virtual const T& get_in_bodyframe(){ return value_b_;}//get_value(Loki::Type2Type<Target>(),Loki::Type2Type<Hold>());}
 	virtual void do_compute(const datatype::Time& t){}
 	virtual ~AOCSComponent(){}
 protected:
 	bool is_on_;
-	//T value_b_;
 	Env* environment_;
 	//! コンポーネント座標系から機体座標系へのDCM．
 	/*! 計算負荷の都合から，通常の取り付け行列の逆行列となっている．value_b_ = set_angle_ * value_ */
-	//Hold2Target set_angle_;
     datatype::DCM set_angle_;
-
 private:
     AOCSComponent();
-	DISALLOW_COPY_AND_ASSIGN_3(AOCSComponent,T,U,Env);
+	DISALLOW_COPY_AND_ASSIGN_3(AOCSComponent, T, U, Env);
 };
 
-template<class T,class U,class Env>
-AOCSComponent<T,U,Env>::AOCSComponent(int instance_id, const datatype::String& name) : RootObject(instance_id,name)
+template<class T, class U, class Env>
+AOCSComponent<T, U, Env>::AOCSComponent(int instance_id, const datatype::String& name)
+	: RootObject(instance_id, name)
 {
 	this->environment_ = &Env::get_instance();
 }
 
-template<class T,class U,class Env>
-AOCSComponent<T,U,Env>::AOCSComponent(int instance_id, const datatype::String& name, const datatype::DCM& dcm) : set_angle_(dcm), RootObject(instance_id,name)
+template<class T, class U, class Env>
+AOCSComponent<T, U, Env>::AOCSComponent(int instance_id, const datatype::String& name, const datatype::DCM& dcm)
+	: set_angle_(dcm), RootObject(instance_id, name)
 {
 	this->environment_ = &Env::get_instance();
 }
