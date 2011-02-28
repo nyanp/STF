@@ -27,7 +27,7 @@ namespace devicedriver {
 	@tparam Leaf    集約するAOCSSensorの型．
 	@tparam Numbers 集約チャネル数．
 */
-template<class Leaf, int Numbers, class AggregatePolicy = SimpleNVectorAggregate>
+template<class Leaf, int Numbers, bool UseAlignment = false, class AggregatePolicy = typename AggregateSelector<typename Leaf::Target,typename Leaf::Hold,Numbers,UseAlignment>::Result >
 class CompositeInput : public AOCSSensor<typename Leaf::Target>, public AggregatePolicy {
 public:
 	CompositeInput(int instance_id, const datatype::DCM& dcm) : AOCSSensor<typename Leaf::Target>(instance_id,"Composite",dcm), index_(0)
@@ -50,18 +50,18 @@ private:
 	@tparam Leaf    集約するAOCSActuatorの型．
 	@tparam Numbers 集約チャネル数．
 */
-template<class Leaf, int Numbers, class DistributePolicy = SimpleDistribute>
+template<class Leaf, int Numbers, bool UseAlignment = false, class DistributePolicy = typename DistributeSelector<typename Leaf::Target,typename Leaf::Hold,Numbers,UseAlignment>::Result >
 class CompositeOutput : public AOCSActuator<typename Leaf::Target>, public DistributePolicy {
 public:
 	CompositeOutput(int instance_id, const datatype::DCM& dcm) : AOCSActuator<typename Leaf::Target>(instance_id,"Composite",dcm), index_(0)
 	{
 		for(int i = 0; i < Numbers; i++) childs_[index_] = 0;
-		output_mat_.unitize(); //デフォルトでトルク分配行列は単位行列
+		//output_mat_.unitize(); //デフォルトでトルク分配行列は単位行列
 	}
 	virtual ~CompositeOutput(){}
 	virtual void do_update();
 	//virtual void distribute();
-	virtual void matrixset();//疑似逆行列を用いてトルク分配行列を生成
+	//virtual void matrixset();//疑似逆行列を用いてトルク分配行列を生成
 	void appendChild(Leaf* c);
 protected:
 private:
@@ -70,27 +70,30 @@ private:
 	unsigned char index_;//max 255 childs
 };
 
-template <class Leaf, int Numbers, class AggregatePolicy>
-void CompositeInput<Leaf,Numbers,AggregatePolicy>::appendChild(Leaf* c){
-	assert(index_ < Numbers);
-	childs_[index_] = c;
-	index_++;
-}
-
-template <class Leaf, int Numbers, class DistributePolicy>
-void CompositeOutput<Leaf,Numbers,DistributePolicy>::appendChild(Leaf* c){
+template <class Leaf, int Numbers, bool UseAlignment, class AggregatePolicy>
+void CompositeInput<Leaf,Numbers,UseAlignment,AggregatePolicy>::appendChild(Leaf* c){
 	assert(index_ < Numbers);
 	childs_[index_] = c;
 	index_++;
 	if(index_ == Numbers){//子が出そろった
-		this->matrixset();
+		setup(this,childs_);//Policy Class Method
+	}
+}
+
+template <class Leaf, int Numbers, bool UseAlignment, class DistributePolicy>
+void CompositeOutput<Leaf,Numbers,UseAlignment,DistributePolicy>::appendChild(Leaf* c){
+	assert(index_ < Numbers);
+	childs_[index_] = c;
+	index_++;
+	if(index_ == Numbers){//子が出そろった
+		setup(this,childs_);//Policy Class Method
 	}
 }
 
 //Input:親から子へ再帰的にUpdateを実行する．
 // 実センサから値を取得→各センサオブジェクトがローカルに保持した値をCompositeに集約→Body座標系での値としてDBに登録
-template <class Leaf,int Numbers, class AggregatePolicy>
-void CompositeInput<Leaf,Numbers,AggregatePolicy>::do_update(){
+template <class Leaf, int Numbers, bool UseAlignment, class AggregatePolicy>
+void CompositeInput<Leaf,Numbers,UseAlignment,AggregatePolicy>::do_update(){
 	for(unsigned char i = 0; i < Numbers; ++i){
 		if(childs_[i] != 0)
 			childs_[i]->do_update();
@@ -135,8 +138,8 @@ void CompositeInput<Leaf,Numbers,AggregatePolicy>::aggregate(){
 
 //Output:親から子へ再帰的にUpdateを実行する．
 // Body座標系での指令値をDBから読み込み→各センサへトルクを分配→各センサオブジェクトがローカルに保持した値を実アクチュエータに送信
-template <class Leaf, int Numbers, class DistributePolicy>
-void CompositeOutput<Leaf,Numbers,DistributePolicy>::do_update(){
+template <class Leaf, int Numbers, bool UseAlignment, class DistributePolicy>
+void CompositeOutput<Leaf,Numbers,UseAlignment,DistributePolicy>::do_update(){
 	if(this->datapool_ != 0){
 		this->datapool_->set<CompositeOutput<Leaf,Numbers>>(datapool_hold_index_,this->output_);//
 	}
@@ -165,8 +168,8 @@ void CompositeOutput<Leaf,Numbers,DistributePolicy>::distribute(){
 
 //子コンポーネントがZ軸まわりのトルクを出すと仮定して，
 //疑似逆行列でエネルギー最小のトルク分配行列を計算．
-template <class Leaf, int Numbers, class DistributePolicy>
-void CompositeOutput<Leaf,Numbers,DistributePolicy>::matrixset(){
+/*template <class Leaf, int Numbers, bool UseAlignment, class DistributePolicy>
+void CompositeOutput<Leaf,Numbers,UseAlignment,DistributePolicy>::matrixset(){
 	datatype::StaticMatrix<3,Numbers> m;
 	for(int i = 0; i < Numbers; i++){
 		datatype::DCM d = this->childs_[i]->get_transfomer();
@@ -174,7 +177,7 @@ void CompositeOutput<Leaf,Numbers,DistributePolicy>::matrixset(){
 			m[j][i] = d[j][2];
 	}
 	this->output_mat_ = m.trans() * ( m * m.trans() ).inverse();
-}
+}*/
 
 
 } /* End of namespace stf::core::component */

@@ -15,10 +15,6 @@ namespace stf {
 namespace core {
 namespace devicedriver {
 
-template<class To, class From, int N>
-struct AggregateSelector {
-typedef NScalarAggregate<To, From, N> Result;
-};
 
 //! 子のScalar値を各要素に持ったVectorを親の値とする合成ポリシー．
 template<class To,int N>
@@ -91,8 +87,9 @@ public:
 	template<class Parent,class Child>
 	void aggregate(Parent* parent, Child (&child)[N]){
 		Parent::Target value;
+		const datatype::Time& t = parent->get_lastupdate();
 		for(int i = 0; i < N; i++){
-			value += child[i]->get_transfomer() * child[i]->get_value(parent->get_lastupdate());
+			value += child[i]->get_transfomer() * child[i]->get_value(t);
 		}
 		value.normalize();
 		parent->set_value(value);
@@ -100,16 +97,60 @@ public:
 };
 
 //! 疑似逆行列から
-class SimpleDistribute {
+template<class From,int N>
+class ScalarDCMDistribute {
 public:
-	template<class Parent,class Child,int N>
+	template<class Parent,class Child>
+	void setup(Parent* parent, Child (&child)[N]){	
+		datatype::StaticMatrix<3,N> m;
+		for(int i = 0; i < N; i++){
+			datatype::DCM d = child[i]->get_transfomer();
+			for(int j = 0; j < 3; j++)
+				m[j][i] = d[j][2];
+		}
+		this->output_mat_ = m.trans() * ( m * m.trans() ).inverse();
+	}
+
+	template<class Parent,class Child>
 	void distribute(Parent* parent, Child (&child)[N]){
-		datatype::StaticVector<N> v = parent->output_mat_ * parent->output_;
+		datatype::StaticVector<N> v = output_mat_ * parent->get_torque();
 		for(int i = 0; i < N; i++){
 			child[i]->set_torque(v[i]);
 		}
 	}
+private:
+	datatype::StaticMatrix<N,3> output_mat_;//トルク分配行列
+};
 
+
+template<class To, class From, int Numbers, bool UseAlignment>
+struct AggregateSelector {
+typedef NScalarAggregate<To,Numbers> Result;
+};
+
+template<int Numbers, class ToAndFrom>
+struct AggregateSelector<ToAndFrom,ToAndFrom,Numbers,false> {
+typedef AverageAggregate<ToAndFrom, Numbers> Result;
+};
+
+template<int Numbers, class ToAndFrom>
+struct AggregateSelector<ToAndFrom,ToAndFrom,Numbers,true> {
+typedef VectorDCMAggregate<ToAndFrom, Numbers> Result;
+};
+
+template<class To, int Numbers>
+struct AggregateSelector<To,datatype::Scalar,Numbers,false> {
+typedef NScalarAggregate<To,Numbers> Result;
+};
+
+template<class To, int Numbers>
+struct AggregateSelector<To,datatype::Scalar,Numbers,true> {
+typedef ScalarDCMAggregate<To,Numbers> Result;
+};
+
+template<class To, class From, int Numbers, bool UseAlignment>
+struct DistributeSelector {
+typedef ScalarDCMDistribute<From,Numbers> Result;
 };
 
 } /* End of namespace stf::core::component */
