@@ -49,7 +49,7 @@ namespace devicedriver {
 	
 	テンプレート引数を省略した場合，ポリシーはDistributionSelectorメタ関数によって自動的に決定される．
 */
-template<class Leaf, int Numbers, bool UseAlignment = false, class DistributionPolicy = typename DistributionSelector<typename Leaf::Target,typename Leaf::Hold,Numbers,UseAlignment>::Result >
+template<class Leaf, int Numbers, bool UseAlignment = false, class DistributionPolicy = typename DistributionSelector<typename Leaf::Hold,typename Leaf::Target,Numbers,UseAlignment>::Result >
 class CompositeOutput : public AOCSActuator<typename Leaf::Target>, public DistributionPolicy {
 public:
 	CompositeOutput(int instance_id, const datatype::DCM& dcm) : AOCSActuator<typename Leaf::Target>(instance_id,"Composite",dcm), index_(0)

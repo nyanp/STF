@@ -9,15 +9,18 @@
 #define stf_core_devicedriver_DistributionPolicy_h
 
 #include "../../datatype/DCM.h"
+#include "../../Macros.h"
 
 namespace stf {
 namespace core {
 namespace devicedriver {
 
-//! 疑似逆行列から
+//! 疑似逆行列によってトルクを分配する分配ポリシー．
 template<class From,int N>
 class ScalarDCMDistribution {
 public:
+	MUST_BE_DERIVED_FROM(From, datatype::StaticVector<3>);
+
 	template<class Parent,class Child>
 	void setup(Parent* parent, Child (&child)[N]){	
 		datatype::StaticMatrix<3,N> m;

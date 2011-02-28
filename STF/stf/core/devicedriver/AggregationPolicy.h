@@ -10,6 +10,7 @@
 
 #include "../../datatype/Time.h"
 #include "../../datatype/DCM.h"
+#include "../../Macros.h"
 
 namespace stf {
 namespace core {
@@ -20,6 +21,8 @@ namespace devicedriver {
 template<class To,int N>
 class NScalarAggregation {
 public:
+	MUST_BE_DERIVED_FROM( To, datatype::StaticVector<N> );
+
 	template<class Parent,class Child>
 	void setup(Parent* parent, Child (&child)[N]){}
 
@@ -53,10 +56,15 @@ public:
 	}
 };
 
-
+//! 取付行列を用いて，子のスカラー値から親座標系でのベクトルを取得する合成ポリシー．
+/*
+	rankが小さく，疑似逆行列を生成できないような取付行列の場合の動作は未定義．
+*/
 template<class To, int N>
 class ScalarDCMAggregation {
 public:
+	MUST_BE_DERIVED_FROM( To, datatype::StaticVector<3> );
+
 	template<class Parent,class Child>
 	void setup(Parent* parent, Child (&child)[N]){	
 		datatype::StaticMatrix<N,3> m;
@@ -81,6 +89,10 @@ private:
 	datatype::StaticMatrix<3,N> aggregate_mat_;//トルク分配行列
 };
 
+//! 取付行列を用いて，子のベクトル値から親座標系でのベクトルを取得する合成ポリシー．
+/*
+	rankが小さく，疑似逆行列を生成できないような取付行列の場合の動作は未定義．
+*/
 template<class ToAndFrom,int N>
 class VectorDCMAggregation {
 public:
