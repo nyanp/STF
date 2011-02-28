@@ -50,7 +50,7 @@ struct SSGlobal : public Global<Env>{
 	mode::ModeBase* ss_missionmode;
 
 	//Clock
-	devicedriver::clock::DummyClock<100>* ss_clock;
+	devicedriver::clock::DummyClock<Env, 100>* ss_clock;
 
 	//Manager
 	manager::ModeManager* ss_modemanager;

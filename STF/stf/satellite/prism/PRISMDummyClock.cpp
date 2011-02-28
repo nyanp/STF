@@ -22,7 +22,7 @@ const datatype::DateTime PRISMDummyClock::get_datetime() const {
 }
 
 PRISMDummyClock::PRISMDummyClock(int instance_id, int year, int month, int date)
-	: CDHMultiComponent<TYPELIST_2( datatype::Time, datatype::DateTime )>(instance_id, "PRISMDummyClock")//, datetime_(year, month, date)
+	: CDHMultiComponent<TYPELIST_2( datatype::Time, datatype::DateTime ), ENV>(instance_id, "PRISMDummyClock")//, datetime_(year, month, date)
 {
 	const_cast<datatype::DateTime*>(&get<1, datatype::DateTime>())->init(year, month, date, 0, 0, 0);
 	this->clock_ = this;//staticƒ|ƒCƒ“ƒ^‚ÉŠ„‚è“–‚Ä

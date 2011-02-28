@@ -16,7 +16,8 @@ namespace core {
 namespace devicedriver {
 namespace clock {
 
-class PRISMDummyClock : public CDHMultiComponent< TYPELIST_2( datatype::Time, datatype::DateTime ) >, virtual public ITimeClock, virtual public IAbsoluteTimeClock
+class PRISMDummyClock 
+	: public CDHMultiComponent<TYPELIST_2( datatype::Time, datatype::DateTime ), ENV>, virtual public ITimeClock, virtual public IAbsoluteTimeClock
 {
 public:
 	PRISMDummyClock(int instance_id, int year, int month, int date);

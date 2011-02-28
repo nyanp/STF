@@ -31,9 +31,10 @@ namespace devicedriver {
 	@tparam NUM 観測チャネル数．
 	@tparam Env コンポーネントの環境クラス．
 */
-template<class T, int NUM, class Env = ENV>
+template<class T, int NUM, class Env>
 class CDHComponent : public RootObject, virtual public IDataUpdatable, virtual public ISwitchable {
 public:
+	typedef Env Environment;//!< 環境クラス．
 	CDHComponent(int instance_id, const datatype::String& name) : RootObject(instance_id, name) {}
 	void connect(core::datapool::AocsDataPool* pool, int rows, const datatype::String name){ 
 		this->datapool_hold_index_ = pool->create(this, rows, name);
@@ -59,9 +60,10 @@ private:
 	@tparam TList   測定している物理量を表す型．LokiのTypelistを与える
 	@tparam Env     コンポーネントの環境クラス．
 */
-template<class TList, class Env = ENV>
+template<class TList, class Env>
 class CDHMultiComponent : public RootObject, public OutputPorts<TList>, virtual public IDataUpdatable, virtual public ISwitchable {
 public:
+	typedef Env Environment;//!< 環境クラス．
 	CDHMultiComponent(int instance_id, const datatype::String& name) : RootObject(instance_id, name) {}
 	virtual void on(){ is_on_ = true;}
 	virtual void off(){ is_on_ = false;}

@@ -18,7 +18,7 @@ namespace core {
 namespace devicedriver {
 namespace clock {
 
-class NJRTC : public CDHMultiComponent< TYPELIST_2( datatype::Time, datatype::DateTime ) >, virtual public ITimeClock, virtual public IAbsoluteTimeClock
+class NJRTC : public CDHMultiComponent<TYPELIST_2( datatype::Time, datatype::DateTime ), ENV>, virtual public ITimeClock, virtual public IAbsoluteTimeClock
 {
 public:
 	NJRTC(int instance_id, int year, int month, int date);

@@ -21,12 +21,15 @@ namespace clock {
 //! ダミーの時刻計算を行うコンポーネントドライバ．
 /*! 
 	IDataUpdatable::doUpdateが呼び出されるたびに，CLOCKミリ秒だ内部時刻が進む．
+	
+	@tparam Env   環境クラス．
+	@tparam CLOCK 時計の刻み幅（単位ミリ秒）．
 */
-template<int CLOCK = 100>
-class DummyClock : public CDHMultiComponent< TYPELIST_2( datatype::Time, datatype::DateTime ) >, virtual public ITimeClock, virtual public IAbsoluteTimeClock
+template<class Env, int CLOCK = 100>
+class DummyClock : public CDHMultiComponent<TYPELIST_2( datatype::Time, datatype::DateTime ), Env>, virtual public ITimeClock, virtual public IAbsoluteTimeClock
 {
 public:
-	DummyClock(int instance_id, int year, int month, int date): CDHMultiComponent< TYPELIST_2( datatype::Time, datatype::DateTime )>(instance_id, "DummyClock")
+	DummyClock(int instance_id, int year, int month, int date): CDHMultiComponent<TYPELIST_2( datatype::Time, datatype::DateTime ), Env>(instance_id, "DummyClock")
 	{
 		const_cast<datatype::DateTime*>(&get<1, datatype::DateTime>())->init(year, month, date, 0, 0, 0);
 		this->clock_ = this;//staticポインタに割り当て

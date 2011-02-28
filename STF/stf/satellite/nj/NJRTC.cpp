@@ -21,7 +21,8 @@ const datatype::DateTime NJRTC::get_datetime() const {
 	return this->get<1, datatype::DateTime>();
 }
 
-NJRTC::NJRTC(int instance_id, int year, int month, int date) : CDHMultiComponent< TYPELIST_2( datatype::Time, datatype::DateTime )>(instance_id, "NJRTC")//, datetime_(year, month, date)
+NJRTC::NJRTC(int instance_id, int year, int month, int date)
+	: CDHMultiComponent< TYPELIST_2( datatype::Time, datatype::DateTime ), ENV>(instance_id, "NJRTC")//, datetime_(year, month, date)
 {
 	const_cast<datatype::DateTime*>(&get<1, datatype::DateTime>())->init(year, month, date, 0, 0, 0);
 	this->clock_ = this;//staticƒ|ƒCƒ“ƒ^‚ÉŠ„‚è“–‚Ä
