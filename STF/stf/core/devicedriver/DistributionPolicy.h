@@ -16,12 +16,12 @@ namespace core {
 namespace devicedriver {
 
 //! 疑似逆行列によってトルクを分配する分配ポリシー．
-template<class From,int N>
+template<class From, int N>
 class ScalarDCMDistribution {
 public:
 	MUST_BE_DERIVED_FROM(From, datatype::StaticVector<3>);
 
-	template<class Parent,class Child>
+	template<class Parent, class Child>
 	void setup(Parent* parent, Child (&child)[N]){	
 		datatype::StaticMatrix<3,N> m;
 		for(int i = 0; i < N; i++){
@@ -32,7 +32,7 @@ public:
 		this->output_mat_ = m.trans() * ( m * m.trans() ).inverse();
 	}
 
-	template<class Parent,class Child>
+	template<class Parent, class Child>
 	void distribute(Parent* parent, Child (&child)[N]){
 		datatype::StaticVector<N> v = output_mat_ * parent->get_torque();
 		for(int i = 0; i < N; i++){
@@ -40,7 +40,7 @@ public:
 		}
 	}
 private:
-	datatype::StaticMatrix<N,3> output_mat_;//トルク分配行列
+	datatype::StaticMatrix<N, 3> output_mat_;//トルク分配行列
 };
 
 

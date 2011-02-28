@@ -211,7 +211,7 @@ inline const StaticVector<dim> operator * (double factor, const StaticVector<dim
 	return vec * factor;
 }
 
-inline const StaticVector<3> operator %(const StaticVector<3>& vec1,const StaticVector<3>& vec2){
+inline const StaticVector<3> operator %(const StaticVector<3>& vec1, const StaticVector<3>& vec2){
 	StaticVector<3> temp;
 	temp[0] = vec1[1] * vec2[2] - vec1[2] * vec2[1];
 	temp[1] = vec1[2] * vec2[0] - vec1[0] * vec2[2];
@@ -219,7 +219,7 @@ inline const StaticVector<3> operator %(const StaticVector<3>& vec1,const Static
 	return temp;
 }
 
-inline double operator %(const StaticVector<2>& vec1,const StaticVector<2>& vec2){
+inline double operator %(const StaticVector<2>& vec1, const StaticVector<2>& vec2){
 	return vec1[0] * vec2[1] - vec1[1] * vec2[0];
 }
 
@@ -234,22 +234,22 @@ inline const StaticVector<dim> operator / (const StaticVector<dim>& vec, double 
 // Dummy Operators
 
 template<int dim>
-inline bool operator > (const StaticVector<dim>& vec1,const StaticVector<dim>& vec2){
+inline bool operator > (const StaticVector<dim>& vec1, const StaticVector<dim>& vec2){
 	assert(0); return false;
 }
 
 template<int dim>
-inline bool operator < (const StaticVector<dim>& vec1,const StaticVector<dim>& vec2){
+inline bool operator < (const StaticVector<dim>& vec1, const StaticVector<dim>& vec2){
 	assert(0); return false;
 }
 
 template<int dim>
-inline bool operator >= (const StaticVector<dim>& vec1,const StaticVector<dim>& vec2){
+inline bool operator >= (const StaticVector<dim>& vec1, const StaticVector<dim>& vec2){
 	assert(0); return false;
 }
 
 template<int dim>
-inline bool operator <= (const StaticVector<dim>& vec1,const StaticVector<dim>& vec2){
+inline bool operator <= (const StaticVector<dim>& vec1, const StaticVector<dim>& vec2){
 	assert(0); return false;
 }
 

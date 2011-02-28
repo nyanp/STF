@@ -20,12 +20,12 @@ template<int rows, int cols>
 class StaticMatrix {
 public:
 	StaticMatrix(){}
-    StaticMatrix(const StaticMatrix<rows,cols> &rhs);
+    StaticMatrix(const StaticMatrix<rows, cols> &rhs);
 	~StaticMatrix(){}
     inline const StaticVector<cols> &operator[](int index) const;
     inline StaticVector<cols> &operator[](int index);
     StaticMatrix &unitize();
-    StaticMatrix<cols,rows> trans() const ;
+    StaticMatrix<cols, rows> trans() const ;
     StaticMatrix inverse() const ;
     bool isSquare();
     int pivot(StaticMatrix &m, int row) const ;
@@ -34,7 +34,7 @@ public:
     StaticMatrix &operator=(const StaticMatrix &rhs);
     StaticMatrix &operator+=(const StaticMatrix &rhs);
     StaticMatrix &operator-=(const StaticMatrix &rhs);
-    StaticMatrix &operator*=(const StaticMatrix<cols,cols> &rhs);
+    StaticMatrix &operator*=(const StaticMatrix<cols, cols> &rhs);
     StaticMatrix &operator*=(double rhs);
     StaticMatrix &operator/=(double rhs);
     bool operator==(const StaticMatrix &rhs) const ;
@@ -49,14 +49,14 @@ protected:
 //////////////////////////////////////
 
 template<int rows, int cols>
-inline const StaticVector<cols> &StaticMatrix<rows,cols>::operator[](int index) const
+inline const StaticVector<cols> &StaticMatrix<rows, cols>::operator[](int index) const
 {
 	assert(index >= 0 && index < rows);
 	return value_[index];
 }
 
 template<int rows, int cols>
-inline StaticVector<cols> &StaticMatrix<rows,cols>::operator[](int index)
+inline StaticVector<cols> &StaticMatrix<rows, cols>::operator[](int index)
 {
 	assert(index >= 0 && index < rows);
 	return value_[index];
@@ -64,24 +64,24 @@ inline StaticVector<cols> &StaticMatrix<rows,cols>::operator[](int index)
 
 //行列の加算
 template<int rows, int cols>
-const StaticMatrix<rows,cols> operator + (const StaticMatrix<rows,cols>& oper1, const StaticMatrix<rows,cols>& oper2){
-	StaticMatrix<rows,cols> mat = oper1;
+const StaticMatrix<rows, cols> operator + (const StaticMatrix<rows, cols>& oper1, const StaticMatrix<rows, cols>& oper2){
+	StaticMatrix<rows, cols> mat = oper1;
 	mat += oper2;
 	return mat;
 }
 
 //行列の減算
 template<int rows, int cols>
-inline const StaticMatrix<rows,cols> operator - (const StaticMatrix<rows,cols>& oper1, const StaticMatrix<rows,cols>& oper2){
-	StaticMatrix<rows,cols> mat = oper1;
+inline const StaticMatrix<rows, cols> operator - (const StaticMatrix<rows, cols>& oper1, const StaticMatrix<rows, cols>& oper2){
+	StaticMatrix<rows, cols> mat = oper1;
 	mat -= oper2;
 	return mat;		
 }
 
 //行列の積算
 template<int rows1, int cols1, int cols2>
-inline const StaticMatrix<rows1,cols2> operator * (const StaticMatrix<rows1,cols1>& oper1, const StaticMatrix<cols1,cols2>& oper2){
-	StaticMatrix<rows1,cols2> mat;
+inline const StaticMatrix<rows1, cols2> operator * (const StaticMatrix<rows1, cols1>& oper1, const StaticMatrix<cols1, cols2>& oper2){
+	StaticMatrix<rows1, cols2> mat;
 
 	for(int r = 0;r < rows1; r++)
 	  for(int c = 0;c < cols2; c++)
@@ -93,29 +93,29 @@ inline const StaticMatrix<rows1,cols2> operator * (const StaticMatrix<rows1,cols
 
 //行列を右から定数倍
 template<int rows, int cols>
-inline const StaticMatrix<rows,cols> operator * (const StaticMatrix<rows,cols>& oper, double factor){
-	StaticMatrix<rows,cols> mat = oper;
+inline const StaticMatrix<rows, cols> operator * (const StaticMatrix<rows, cols>& oper, double factor){
+	StaticMatrix<rows, cols> mat = oper;
 	mat *= factor;
 	return mat;
 }
 
 //行列を左から定数倍
 template<int rows, int cols>
-inline const StaticMatrix<rows,cols> operator * (double factor, const StaticMatrix<rows,cols>& oper){
+inline const StaticMatrix<rows, cols> operator * (double factor, const StaticMatrix<rows, cols>& oper){
 	return oper * factor;
 }
 
 //行列の定数除算
 template<int rows, int cols>
-inline const StaticMatrix<rows,cols> operator / (const StaticMatrix<rows,cols>& oper, double factor){
-	StaticMatrix<rows,cols> mat = oper;
+inline const StaticMatrix<rows, cols> operator / (const StaticMatrix<rows, cols>& oper, double factor){
+	StaticMatrix<rows, cols> mat = oper;
 	mat /= factor;
 	return mat;
 }
 
 //行列とベクトルの積
 template<int rows, int cols>
-inline const StaticVector<rows> operator * (const StaticMatrix<rows,cols>& mat, const StaticVector<cols>& vec){
+inline const StaticVector<rows> operator * (const StaticMatrix<rows, cols>& mat, const StaticVector<cols>& vec){
 	StaticVector<rows> temp;
 
 	for(int i = 0; i < rows; i++)
@@ -130,7 +130,7 @@ inline const StaticVector<rows> operator * (const StaticMatrix<rows,cols>& mat, 
 //////////////////////
 
 template<int rows, int cols>
-StaticMatrix<rows,cols>::StaticMatrix(const StaticMatrix<rows,cols> &rhs)
+StaticMatrix<rows, cols>::StaticMatrix(const StaticMatrix<rows, cols> &rhs)
 {
 	for(int i = 0; i < rows; i++)
 		for(int j = 0; j < cols; j++)
@@ -138,7 +138,7 @@ StaticMatrix<rows,cols>::StaticMatrix(const StaticMatrix<rows,cols> &rhs)
 }
 
 template<int rows, int cols>
-StaticMatrix<rows,cols> &StaticMatrix<rows,cols>::unitize()
+StaticMatrix<rows, cols> &StaticMatrix<rows, cols>::unitize()
 {
 	for(int i = 0; i < rows; i++)
 		for(int j = 0; j < cols; j++)
@@ -148,7 +148,7 @@ StaticMatrix<rows,cols> &StaticMatrix<rows,cols>::unitize()
 }
 
 template<int rows, int cols>
-double StaticMatrix<rows,cols>::det() const 
+double StaticMatrix<rows, cols>::det() const 
 {
 	assert(cols == rows);
 	assert(cols <= 3);//とりあえず3次まで定義
@@ -171,7 +171,7 @@ double StaticMatrix<rows,cols>::det() const
 }
 
 template<int rows, int cols>
-double StaticMatrix<rows,cols>::trace() const
+double StaticMatrix<rows, cols>::trace() const
 {
 	double v = 0;
 	for(int i = 0; i < rows; i++)
@@ -180,9 +180,9 @@ double StaticMatrix<rows,cols>::trace() const
 }
 
 template<int rows, int cols>
-StaticMatrix<cols,rows> StaticMatrix<rows,cols>::trans() const 
+StaticMatrix<cols, rows> StaticMatrix<rows, cols>::trans() const 
 {
-	StaticMatrix<cols,rows> temp;
+	StaticMatrix<cols, rows> temp;
 	for(int i = 0; i < rows; i++)
 		for(int j = 0; j < cols; j++)
 			temp[j][i] = value_[i][j];
@@ -190,20 +190,20 @@ StaticMatrix<cols,rows> StaticMatrix<rows,cols>::trans() const
 }
 
 template<int rows, int cols>
-StaticMatrix<rows,cols> StaticMatrix<rows,cols>::inverse() const 
+StaticMatrix<rows, cols> StaticMatrix<rows, cols>::inverse() const 
 {
 	int i, j, k;
 	double a1, a2;
 	//result = false;
 	assert(rows == cols);
 
-	StaticMatrix<rows,cols> tempmat;
+	StaticMatrix<rows, cols> tempmat;
 	for(int i = 0; i < rows; i++) tempmat[i][i] = 1.0;
-	StaticMatrix<rows,cols> m = *this;//副作用を生じないように現インスタンスのコピーで計算
+	StaticMatrix<rows, cols> m = *this;//副作用を生じないように現インスタンスのコピーで計算
 
 	for (k = 0; k < rows; k++)
 	{
-		int indx = pivot(m,k);
+		int indx = pivot(m, k);
 		assert(indx != -1);
 		if (indx != 0)
 		{
@@ -233,20 +233,20 @@ StaticMatrix<rows,cols> StaticMatrix<rows,cols>::inverse() const
 }
 
 template<int rows, int cols>
-bool StaticMatrix<rows,cols>::isSquare()
+bool StaticMatrix<rows, cols>::isSquare()
 {
 	if(rows == cols && rows > 0) return true;
 	return false;
 }
 
 template<int rows, int cols>
-int StaticMatrix<rows,cols>::pivot(StaticMatrix &m, int row) const 
+int StaticMatrix<rows, cols>::pivot(StaticMatrix &m, int row) const 
 {
     return 0;
 }
 
 template<int rows, int cols>
-StaticMatrix<rows,cols> &StaticMatrix<rows,cols>::operator=(const StaticMatrix<rows,cols> &rhs)
+StaticMatrix<rows, cols> &StaticMatrix<rows, cols>::operator=(const StaticMatrix<rows, cols> &rhs)
 {
 	if(this == &rhs) return *this;//自己参照によるメモリリークを防ぐ
 
@@ -257,7 +257,7 @@ StaticMatrix<rows,cols> &StaticMatrix<rows,cols>::operator=(const StaticMatrix<r
 }
 
 template<int rows, int cols>
-StaticMatrix<rows,cols> &StaticMatrix<rows,cols>::operator+=(const StaticMatrix<rows,cols> &rhs)
+StaticMatrix<rows, cols> &StaticMatrix<rows, cols>::operator+=(const StaticMatrix<rows, cols> &rhs)
 {
 	for(int r = 0; r < rows; r++) 
 	  for(int c = 0; c < cols; c++)
@@ -266,7 +266,7 @@ StaticMatrix<rows,cols> &StaticMatrix<rows,cols>::operator+=(const StaticMatrix<
 }
 
 template<int rows, int cols>
-StaticMatrix<rows,cols> &StaticMatrix<rows,cols>::operator-=(const StaticMatrix<rows,cols> &rhs)
+StaticMatrix<rows, cols> &StaticMatrix<rows, cols>::operator-=(const StaticMatrix<rows, cols> &rhs)
 {
 	for(int r = 0; r < rows; r++) 
 	  for(int c = 0; c < cols; c++)
@@ -275,9 +275,9 @@ StaticMatrix<rows,cols> &StaticMatrix<rows,cols>::operator-=(const StaticMatrix<
 }
 
 template<int rows, int cols>
-StaticMatrix<rows,cols> &StaticMatrix<rows,cols>::operator*=(const StaticMatrix<cols,cols> &rhs)
+StaticMatrix<rows, cols> &StaticMatrix<rows, cols>::operator*=(const StaticMatrix<cols, cols> &rhs)
 {
-	StaticMatrix<rows,cols> mat;
+	StaticMatrix<rows, cols> mat;
 
 	for(int r = 0;r < rows; r++)
 	  for(int c = 0;c < cols; c++)
@@ -289,7 +289,7 @@ StaticMatrix<rows,cols> &StaticMatrix<rows,cols>::operator*=(const StaticMatrix<
 }
 
 template<int rows, int cols>
-StaticMatrix<rows,cols> &StaticMatrix<rows,cols>::operator*=(double rhs)
+StaticMatrix<rows, cols> &StaticMatrix<rows, cols>::operator*=(double rhs)
 {
 	for(int r = 0; r < rows; r++) 
 	  for(int c = 0; c < cols; c++)
@@ -298,7 +298,7 @@ StaticMatrix<rows,cols> &StaticMatrix<rows,cols>::operator*=(double rhs)
 }
 
 template<int rows, int cols>
-StaticMatrix<rows,cols> &StaticMatrix<rows,cols>::operator/=(double rhs)
+StaticMatrix<rows, cols> &StaticMatrix<rows, cols>::operator/=(double rhs)
 {
 	for(int r = 0; r < rows; r++) 
 	  for(int c = 0; c < cols; c++)
@@ -307,7 +307,7 @@ StaticMatrix<rows,cols> &StaticMatrix<rows,cols>::operator/=(double rhs)
 }
 
 template<int rows, int cols>
-bool StaticMatrix<rows,cols>::operator==(const StaticMatrix<rows,cols> &rhs) const 
+bool StaticMatrix<rows, cols>::operator==(const StaticMatrix<rows, cols> &rhs) const 
 {
 	for (int i = 0; i < rows; i++)
 		for(int j = 0; j < cols; j++)
@@ -316,7 +316,7 @@ bool StaticMatrix<rows,cols>::operator==(const StaticMatrix<rows,cols> &rhs) con
 }
 
 template<int rows, int cols>
-bool StaticMatrix<rows,cols>::operator!=(const StaticMatrix<rows,cols> &rhs) const 
+bool StaticMatrix<rows, cols>::operator!=(const StaticMatrix<rows, cols> &rhs) const 
 {
 	return !(*this == rhs);
 }

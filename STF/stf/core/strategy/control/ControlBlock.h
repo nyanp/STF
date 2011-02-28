@@ -33,10 +33,10 @@ public:
 	ControlBlock(int instance_id) : StrategyBase(instance_id, "ControlBlock") {}
 
 	template<class T>
-	ControlBlock(int instance_id,devicedriver::OutputPort<typename T::Hold>* torque_source, T* torque_target)
+	ControlBlock(int instance_id, devicedriver::OutputPort<typename T::Hold>* torque_source, T* torque_target)
 		: StrategyBase(instance_id, "ControlBlock")
 	{
-		set_actuator<T>(torque_target,torque_source);
+		set_actuator<T>(torque_target, torque_source);
 	}
 
 	virtual void compute_torque(const datatype::Time& t);

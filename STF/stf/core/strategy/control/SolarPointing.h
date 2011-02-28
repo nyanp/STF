@@ -30,8 +30,8 @@ class SolarPointing
 	public devicedriver::OutputPorts< TYPELIST_1( datatype::MagneticMoment ) >
 {
 public:
-	SolarPointing(int instance_id,double k) : StrategyBase(instance_id, "SolarPointing"){}
-	SolarPointing(int instance_id,double k, 
+	SolarPointing(int instance_id, double k) : StrategyBase(instance_id, "SolarPointing"){}
+	SolarPointing(int instance_id, double k, 
 		devicedriver::OutputPort<datatype::MagneticField>* mag_source,
 		devicedriver::OutputPort<datatype::StaticVector<2>>* sunvector_source = 0,
 		devicedriver::InputPort<datatype::MagneticMoment>* mag_out = 0

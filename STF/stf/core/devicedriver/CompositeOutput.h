@@ -30,7 +30,7 @@ namespace devicedriver {
 
 	@code
 	RW rw[4]; //1軸ホイール
-	CompositeOutput<RW,4> rwmodule; //4軸ホイールモジュール
+	CompositeOutput<RW, 4> rwmodule; //4軸ホイールモジュール
 	
 	for(int i = 0; i < 4; i ++)
 		rwmodule.append_child(rw[i]);//モジュールに子を登録
@@ -81,7 +81,7 @@ void CompositeOutput<Leaf, Numbers, UseAlignment, DistributionPolicy>::append_ch
 	childs_[index_] = c;
 	index_++;
 	if(index_ == Numbers){//子が出そろった
-		setup(this,childs_);//Policy Class Method
+		setup(this, childs_);//Policy Class Method
 	}
 }
 

@@ -15,7 +15,7 @@ namespace datatype {
 
 //! Z-Y-Xの順で回転させる回転行列（DCM）．
 /*! */
-class DCM : public StaticMatrix<3,3> {
+class DCM : public StaticMatrix<3, 3> {
 public:
     DCM(){
 		this->value_[0][0] = 1.0;
@@ -29,7 +29,7 @@ public:
 			value_[i][j] = rhs[i][j];
 	}
 
-    DCM(const StaticMatrix<3,3> &rhs){
+    DCM(const StaticMatrix<3, 3> &rhs){
 		for(int i = 0; i < 3; i++)
 		  for(int j = 0; j < 3; j++)
 			value_[i][j] = rhs[i][j];

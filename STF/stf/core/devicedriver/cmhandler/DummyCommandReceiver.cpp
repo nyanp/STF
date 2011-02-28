@@ -20,7 +20,7 @@ namespace devicedriver {
 namespace cmhandler {
 
 DummyCommandReceiver::DummyCommandReceiver(int instance_id, core::manager::CommandManagerBase* manager, const std::string &filename)
-	: RootObject(instance_id,"DummyReceiver"), manager_(manager)
+	: RootObject(instance_id, "DummyReceiver"), manager_(manager)
 {
 	this->manager_->set_receiver(this);
 

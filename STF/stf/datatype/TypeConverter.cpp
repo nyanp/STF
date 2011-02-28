@@ -100,7 +100,7 @@ DCM TypeConverter::toDCM(double z_deg, double y_deg, double x_deg)
 
 StaticVector<2> TypeConverter::toPolar(const StaticVector<3> &vec){
 	StaticVector<2> v;
-	double phi = atan2(vec[1],vec[0]);
+	double phi = atan2(vec[1], vec[0]);
 	double theta;
 	if(sin(phi) != 0){
 		theta = atan2(vec[1] / sin(phi), vec[2]);
@@ -157,8 +157,8 @@ PositionInfo TypeConverter::toPositionInfo(const OrbitInfo &o)
 	for(int i = 0; i < 5; i++){
 		E = E - ( E - o.e * sin(E) - o.M) / ( 1 - o.e * cos(o.e) );
 	}
-	StaticMatrix<2,2> m1;
-	StaticMatrix<3,2> m2;
+	StaticMatrix<2, 2> m1;
+	StaticMatrix<3, 2> m2;
 
 	m1[0][0] = cos(o.omega); m1[0][1] = -sin(o.omega);
 	m1[1][0] = sin(o.omega); m1[1][1] = cos(o.omega);

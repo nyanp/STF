@@ -27,14 +27,14 @@ class GetCommand : public Command {
 	typedef U (T::*Func)(void) const;
 public:
 	GetCommand(const datatype::Time& t, T* obj, Func f)
-		: Command(t,"GetCommand"), obj_(obj), f_(f){}
+		: Command(t, "GetCommand"), obj_(obj), f_(f){}
 	~GetCommand(){}
 	virtual void init(int* params, int paramsize){}
 	virtual Command* clone(const datatype::Time& t){
-		return new GetCommand(t,obj_,f_);
+		return new GetCommand(t, obj_, f_);
 	}
 	virtual void execute(){
-		util::Trace trace(util::Trace::kCommand,name_);
+		util::Trace trace(util::Trace::kCommand, name_);
 		U response = (*obj_.*f_)();
 		this->rcv_->send_packet(response);
 	}
@@ -55,14 +55,14 @@ class GetIteratorCommand : public Command {
 	typedef Targ (T::*Func)(void) const;
 public:
 	GetIteratorCommand(const datatype::Time& t, T* obj, Func f)
-		: Command(t,"GetCommand"), obj_(obj), f_(f){}
+		: Command(t, "GetCommand"), obj_(obj), f_(f){}
 	~GetIteratorCommand(){}
 	virtual void init(int* params, int paramsize){}
 	virtual Command* clone(const datatype::Time& t){
-		return new GetIteratorCommand<T,Iterator,Targ,SCALE>(t,obj_,f_);
+		return new GetIteratorCommand<T, Iterator, Targ, SCALE>(t, obj_, f_);
 	}
 	virtual void execute(){
-		util::Trace trace(util::Trace::kCommand,name_);
+		util::Trace trace(util::Trace::kCommand, name_);
 		Targ response = (*obj_.*f_)();
 		Iterator it(&response);
 		while(!it.end()){
@@ -83,10 +83,10 @@ template<int SCALE>
 class IteratorStreamCommand : public Command {
 public:
 	IteratorStreamCommand(const datatype::Time& t, interface::Iterator* it)
-		: Command(t,"IteratorStreamCommand"), it_(it) {}
+		: Command(t, "IteratorStreamCommand"), it_(it) {}
 	virtual void init(int* params, int paramsize){}
 	virtual Command* clone(const datatype::Time& t){
-		return new IteratorStreamCommand<SCALE>(t,it_);
+		return new IteratorStreamCommand<SCALE>(t, it_);
 	}
 	virtual void execute(){
 		it_->init();

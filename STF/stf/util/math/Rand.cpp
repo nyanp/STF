@@ -111,12 +111,12 @@ void init_by_array(unsigned long init_key[], int key_length)
     mt[0] = 0x80000000UL; /* MSB is 1; assuring non-zero initial array */ 
 }
 
-/* generates a random number on [0,0xffffffff]-interval */
+/* generates a random number on [0, 0xffffffff]-interval */
 unsigned long genrand_int32(void)
 {
     unsigned long y;
     static unsigned long mag01[2]={0x0UL, MATRIX_A};
-    /* mag01[x] = x * MATRIX_A  for x=0,1 */
+    /* mag01[x] = x * MATRIX_A  for x=0, 1 */
 
     if (mti >= N) { /* generate N words at one time */
         int kk;
@@ -149,34 +149,34 @@ unsigned long genrand_int32(void)
     return y;
 }
 
-/* generates a random number on [0,0x7fffffff]-interval */
+/* generates a random number on [0, 0x7fffffff]-interval */
 long genrand_int31(void)
 {
     return (long)(genrand_int32()>>1);
 }
 
-/* generates a random number on [0,1]-real-interval */
+/* generates a random number on [0, 1]-real-interval */
 double genrand_real1(void)
 {
     return genrand_int32()*(1.0/4294967295.0); 
     /* divided by 2^32-1 */ 
 }
 
-/* generates a random number on [0,1)-real-interval */
+/* generates a random number on [0, 1)-real-interval */
 double genrand_real2(void)
 {
     return genrand_int32()*(1.0/4294967296.0); 
     /* divided by 2^32 */
 }
 
-/* generates a random number on (0,1)-real-interval */
+/* generates a random number on (0, 1)-real-interval */
 double genrand_real3(void)
 {
     return (((double)genrand_int32()) + 0.5)*(1.0/4294967296.0); 
     /* divided by 2^32 */
 }
 
-/* generates a random number on [0,1) with 53-bit resolution*/
+/* generates a random number on [0, 1) with 53-bit resolution*/
 double genrand_res53(void) 
 { 
     unsigned long a=genrand_int32()>>5, b=genrand_int32()>>6; 

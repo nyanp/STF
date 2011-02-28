@@ -18,7 +18,7 @@ template <class T>
 class NJFineTAM : public TAMBase<T>{
 public:  
 	// 3-SigmaÇ≈1ìxê∏ìx
-	NJFineTAM(int instance_id, const datatype::DCM &angle) : TAMBase(instance_id,angle){}
+	NJFineTAM(int instance_id, const datatype::DCM &angle) : TAMBase(instance_id, angle){}
 	~NJFineTAM(){}
 	virtual void do_update(){}
 private:

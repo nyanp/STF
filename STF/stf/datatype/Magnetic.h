@@ -19,7 +19,7 @@ public:
 	MagneticField(){}
     MagneticField(const StaticVector<3> &rhs);
     MagneticField(const MagneticField &rhs);
-    MagneticField(double m0,double m1, double m2);
+    MagneticField(double m0, double m1, double m2);
 	~MagneticField(){}
 private:
 };
@@ -31,7 +31,7 @@ public:
 	MagneticMoment(){}
     MagneticMoment(const StaticVector<3> &rhs);
     MagneticMoment(const MagneticMoment &rhs);
-    MagneticMoment(double m0,double m1, double m2);
+    MagneticMoment(double m0, double m1, double m2);
 	~MagneticMoment(){}
 private:
 };

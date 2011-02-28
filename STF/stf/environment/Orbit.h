@@ -22,9 +22,9 @@ namespace environment {
 class Orbit {
 public:
 	Orbit()
-		: orbit_(7100000, 0.0, 0.0, util::math::PI / 2, 0.0, 0.0), starttime_(YEAR,MONTH,DATE){}
+		: orbit_(7100000, 0.0, 0.0, util::math::PI / 2, 0.0, 0.0), starttime_(YEAR, MONTH, DATE){}
 	Orbit(double a, double e, double i, double Omega, double omega, int year, int month, int day, int hour = 0, int minutes = 0, int second = 0)
-		: orbit_(a,e,0,i,Omega,omega), starttime_(year,month,day,hour,minutes,second){}
+		: orbit_(a, e, 0, i, Omega, omega), starttime_(year, month, day, hour, minutes, second){}
 	~Orbit(){}
 	void set_orbitElement(double a, double e, double i, double Omega, double omega);
 	void set_orbitElement(const datatype::OrbitInfo& orbit);

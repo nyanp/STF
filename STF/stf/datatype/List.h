@@ -23,8 +23,8 @@ namespace datatype {
 	・イテレータのインターフェースはC++標準コンテナとほぼ同一
 
 	@code
-	datatype::Quaternion q1(1,0,0,0);
-	datatype::Quaternion q2(0,1,0,0);
+	datatype::Quaternion q1(1, 0, 0, 0);
+	datatype::Quaternion q2(0, 1, 0, 0);
 	datatype::List<datatype::Quaternion> list;
 	list.add(q1);
 	list.add(q2);
@@ -48,7 +48,7 @@ namespace datatype {
 template<class T>
 class List {
 public:
-	explicit List() : size_(0),capacity_(3){ data_ = new T*[capacity_];};
+	explicit List() : size_(0), capacity_(3){ data_ = new T*[capacity_];};
 	~List(){};
 	/*! @class _iterator
 		@brief Listのイテレータとなる内部クラス
@@ -97,8 +97,8 @@ public:
 	// public methods
 	T& operator [](int index){assert(index < size_ && index >= 0); return *(data_[index]);}
 	const T& operator [](int index) const {assert(index < size_ && index >= 0); return *(data_[index]);}
-	_iterator begin() const{return _iterator(this,0);}
-	_iterator end() const{return _iterator(this,size_);}
+	_iterator begin() const{return _iterator(this, 0);}
+	_iterator end() const{return _iterator(this, size_);}
 	int size() const{return size_;}
 	int capacity() const{return capacity_;}
 	void clear(){

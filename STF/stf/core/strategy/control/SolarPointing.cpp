@@ -33,10 +33,10 @@ SolarPointing::SolarPointing(int instance_id, double k,
 
 void SolarPointing::do_compute(const datatype::Time& t) {
 	if(t <= this->last_update_) return; //既に別のブロック経由で更新済みなら再計算しない
-	util::Trace trace(util::Trace::kControlBlock,name_);
+	util::Trace trace(util::Trace::kControlBlock, name_);
 
-	datatype::MagneticField b = this->source<0,datatype::MagneticField>().get_value(t);
-	datatype::StaticVector<3> s = datatype::TypeConverter::toRectangular(this->source<1,datatype::StaticVector<2>>().get_value(t));
+	datatype::MagneticField b = this->source<0, datatype::MagneticField>().get_value(t);
+	datatype::StaticVector<3> s = datatype::TypeConverter::toRectangular(this->source<1, datatype::StaticVector<2>>().get_value(t));
 
 	this->value_[0] = 0;
 	this->value_[1] = 0;

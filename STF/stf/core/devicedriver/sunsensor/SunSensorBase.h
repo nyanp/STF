@@ -24,7 +24,7 @@ namespace sunsensor {
 	@tparam T コンポーネントの環境クラス．
 */
 template <class T>
-class SunSensorBase : public AOCSSensor<datatype::StaticVector<2>,datatype::StaticVector<2>,T>{
+class SunSensorBase : public AOCSSensor<datatype::StaticVector<2>, datatype::StaticVector<2>, T>{
 public:
 	SunSensorBase(int instance_id, const datatype::DCM &angle, double err_deg, int sigma = 3);
 	virtual ~SunSensorBase(){}
@@ -38,7 +38,7 @@ private:
 
 template <class T>
 SunSensorBase<T>::SunSensorBase(int instance_id, const datatype::DCM& dcm, double err_deg, int sigma)
-	: AOCSSensor<datatype::StaticVector<2>,datatype::StaticVector<2>,T>(instance_id, "SS", dcm), err_deg_(err_deg), sigma_(sigma)
+	: AOCSSensor<datatype::StaticVector<2>, datatype::StaticVector<2>, T>(instance_id, "SS", dcm), err_deg_(err_deg), sigma_(sigma)
 {
 
 }

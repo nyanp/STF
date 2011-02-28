@@ -79,24 +79,24 @@ void PRISMTelemetryHandler<T>::logging(datatype::String value, int address)
 template<class T>
 ITelemetryStoragable &PRISMTelemetryHandler<T>::operator <<(int value)
 {
-	if(this->console_out_) util::cout << value << ",";
-	if(this->ofs_ != 0)    *ofs_ << value << ",";
+	if(this->console_out_) util::cout << value << ", ";
+	if(this->ofs_ != 0)    *ofs_ << value << ", ";
 	return *this;
 }
 
 template<class T>
 ITelemetryStoragable &PRISMTelemetryHandler<T>::operator <<(double value)
 {
-	if(this->console_out_) util::cout << value << ",";
-	if(this->ofs_ != 0)    *ofs_ << value << ",";
+	if(this->console_out_) util::cout << value << ", ";
+	if(this->ofs_ != 0)    *ofs_ << value << ", ";
 	return *this;
 }
 
 template<class T>
 ITelemetryStoragable &PRISMTelemetryHandler<T>::operator <<(const char* value)
 {
-	if(this->console_out_) util::cout << value << ",";
-	if(this->ofs_ != 0)    *ofs_ << value << ",";
+	if(this->console_out_) util::cout << value << ", ";
+	if(this->ofs_ != 0)    *ofs_ << value << ", ";
 	return *this;
 }
 

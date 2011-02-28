@@ -14,12 +14,12 @@ namespace core {
 namespace command {
 
 void modeChangeCommand::execute(){
-	util::Trace trace(util::Trace::kCommand,name_);
+	util::Trace trace(util::Trace::kCommand, name_);
 	this->modeman_->change_mode(this->mode_);
 }
 
 Command* modeChangeCommand::clone(const datatype::Time& t){
-	modeChangeCommand* newcmd = new modeChangeCommand(t,mode_,modeman_);
+	modeChangeCommand* newcmd = new modeChangeCommand(t, mode_, modeman_);
 	return newcmd;
 }
 } /* End of namespace stf::core::command */

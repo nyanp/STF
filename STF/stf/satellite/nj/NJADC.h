@@ -39,7 +39,7 @@ public:
 template<class Env = ENV>
 class NJCurrentSensor : public MultiSensor<datatype::Current, NJ__CURRENT__CHANNELS, NJ__ADC__CHANNELS, Env> {
 public:
-	NJCurrentSensor(int instance_id, ADCBase<NJ__ADC__CHANNELS,Env>* adc) 
+	NJCurrentSensor(int instance_id, ADCBase<NJ__ADC__CHANNELS, Env>* adc) 
 		: MultiSensor<datatype::Current, NJ__CURRENT__CHANNELS, NJ__ADC__CHANNELS, Env>(instance_id, adc, NJ__CURRENT__OFFSET){}
 };
 
@@ -47,7 +47,7 @@ public:
 template<class Env = ENV>
 class NJVoltageSensor : public  MultiSensor<datatype::Voltage, NJ__VOLTAGE__CHANNELS, NJ__ADC__CHANNELS, Env> {
 public:
-	NJVoltageSensor(int instance_id, ADCBase<NJ__ADC__CHANNELS,Env>* adc)
+	NJVoltageSensor(int instance_id, ADCBase<NJ__ADC__CHANNELS, Env>* adc)
 		:  MultiSensor<datatype::Voltage, NJ__VOLTAGE__CHANNELS, NJ__ADC__CHANNELS, Env>(instance_id, adc, NJ__VOLTAGE__OFFSET){}
 };
 
@@ -55,7 +55,7 @@ public:
 template<class Env = ENV>
 class NJCoarseTempSensor : public  MultiSensor<datatype::Temperature, NJ__TEMP1__CHANNELS, NJ__ADC__CHANNELS, Env> {
 public:
-	NJCoarseTempSensor(int instance_id, ADCBase<NJ__ADC__CHANNELS,Env>* adc)
+	NJCoarseTempSensor(int instance_id, ADCBase<NJ__ADC__CHANNELS, Env>* adc)
 		:  MultiSensor<datatype::Temperature, NJ__TEMP1__CHANNELS, NJ__ADC__CHANNELS, Env>(instance_id, adc,  NJ__TEMP1__OFFSET){}
 };
 
@@ -63,7 +63,7 @@ public:
 template<class Env = ENV>
 class NJFineTempSensor : public  MultiSensor<datatype::Temperature, NJ__TEMP2__CHANNELS, NJ__ADC__CHANNELS, Env> {
 public:
-	NJFineTempSensor(int instance_id, ADCBase<NJ__ADC__CHANNELS,Env>* adc)
+	NJFineTempSensor(int instance_id, ADCBase<NJ__ADC__CHANNELS, Env>* adc)
 		:  MultiSensor<datatype::Temperature, NJ__TEMP2__CHANNELS, NJ__ADC__CHANNELS, Env>(instance_id, adc,  NJ__TEMP2__OFFSET){}
 };
 

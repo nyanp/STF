@@ -24,7 +24,7 @@ class Gyro : public GyroBase<T> {
 public:
 	Gyro(){}
 	//Sigma =0.02, tau(ECRV)=1000sec
-	Gyro(int instance_id, const datatype::DCM &angle) : GyroBase(instance_id, angle,0.02,GYROECRV){}
+	Gyro(int instance_id, const datatype::DCM &angle) : GyroBase(instance_id, angle, 0.02,GYROECRV){}
 	~Gyro(){}
 private:
 };

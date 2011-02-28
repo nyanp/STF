@@ -51,10 +51,10 @@ public:
 	@tparam InputFunctor  入力ファンクタの型．
 	@tparam OutputFunctor 出力ファンクタの型．
 */
-template <class InputFunctor,class OutputFunctor>
+template <class InputFunctor, class OutputFunctor>
 class Functor : virtual public IFunctor{
 public:
-	Functor(const InputFunctor* in,const OutputFunctor* out) : in_(in), out_(out) {}
+	Functor(const InputFunctor* in, const OutputFunctor* out) : in_(in), out_(out) {}
 	virtual void operator()() const {
 		if((*in_)()){//引数なし，bool値trueが帰ってきたら
 			(*out_)();//指定の動作を実施
@@ -72,10 +72,10 @@ private:
 	@tparam OutputFunctor 出力ファンクタの型．
 	@tparam Arg           出力ファンクタの起動時引数の型．
 */
-template <class InputFunctor,class OutputFunctor,class Arg>
+template <class InputFunctor, class OutputFunctor, class Arg>
 class UnAryFunctor : public IFunctor{
 public:
-	UnAryFunctor(const InputFunctor* in,const OutputFunctor* out,const Arg& arg) : in_(in), out_(out), arg_(arg) {}
+	UnAryFunctor(const InputFunctor* in, const OutputFunctor* out, const Arg& arg) : in_(in), out_(out), arg_(arg) {}
 	virtual int operator()() const {
 		if((*in_)()){//引数なし，bool値trueが帰ってきたら
 			return (*out_)(arg_);//指定の動作を実施

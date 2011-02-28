@@ -42,12 +42,12 @@ void SubjectBase<Evt>::check(){
 
 template <class Evt>
 void SubjectBase<Evt>::notify_observers(const typename Evt::Target& p){
-	util::Trace trace(util::Trace::kEvent,this->event_.name());
+	util::Trace trace(util::Trace::kEvent, this->event_.name());
 	datatype::List< Observer<Evt> >::iterator it = observers_.begin();
 	for( ; it != observers_.end() ; ++it ){
 		(*it).notify(&p);
 	}
-	//Global<ENV>::get_eventdatapool().set<SubjectBase<Evt>>(this->event_.instance_id(),this->event_);
+	//Global<ENV>::get_eventdatapool().set<SubjectBase<Evt>>(this->event_.instance_id(), this->event_);
 }
 
 } /* End of namespace stf::core::event */

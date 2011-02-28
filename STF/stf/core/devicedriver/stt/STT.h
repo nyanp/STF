@@ -23,7 +23,7 @@ template <class T>
 class STT : public STTBase<T>{
 public:  
 	//10arcsec精度(3-Sigma)のSTT．
-	STT(int instance_id, const datatype::DCM &angle) : STTBase(instance_id, angle,10){}
+	STT(int instance_id, const datatype::DCM &angle) : STTBase(instance_id, angle, 10){}
 	~STT(){}
 private:
 	STT(){}

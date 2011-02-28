@@ -19,7 +19,7 @@ namespace control {
 
 //! TをaT+bに変換して出力する制御ブロック．
 /*! 
-	@tparam T 変換対象の物理量．operator + (const T&,const T&)　および operator * (double,const T&)が実装されている必要がある
+	@tparam T 変換対象の物理量．operator + (const T&, const T&)　および operator * (double, const T&)が実装されている必要がある
 */
 template<class T>
 class LiniarCorrection : public devicedriver::InputPorts< TYPELIST_1(T) >, 
@@ -42,9 +42,9 @@ public:
 
 	virtual void do_compute(const datatype::Time& t){
 		if(t > this->last_update_){
-			util::Trace trace(util::Trace::kControlBlock,name_);
+			util::Trace trace(util::Trace::kControlBlock, name_);
 
-			this->value_ =  sf_ * this->source<0,T>().get_value(t) + offset_;
+			this->value_ =  sf_ * this->source<0, T>().get_value(t) + offset_;
 			this->last_update_ = t;
 		}
 	}

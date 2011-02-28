@@ -47,7 +47,7 @@ public:
 
 	template <class T>
 	void set(const datatype::Time& time, const T& value){
-		util::Trace trace(util::Trace::kDataPool,"set Tuple");
+		util::Trace trace(util::Trace::kDataPool, "set Tuple");
 		index_ ++;
 		index_ %= capacity_;
 		*(static_cast<T*>(data_[index_])) = value;//copy
@@ -133,7 +133,7 @@ public:
 
 	const datatype::IAocsData* get(int rows) const;
 
-	const datatype::IAocsData* get(int rows,int cols) const;
+	const datatype::IAocsData* get(int rows, int cols) const;
 
 	template<class T>const T& get(int rows){
 		return this->table_[rows]->get<T>();
@@ -146,7 +146,7 @@ public:
 
 	// 値をセット
 	template<class Producer> void set(int index, const typename Producer::Hold& value){
-		table_[index]->set<typename Producer::Hold>(this->clock_->get_time(),value);
+		table_[index]->set<typename Producer::Hold>(this->clock_->get_time(), value);
 	}
 
 	template<class Producer> typename Producer::Hold& get_at(int index, int rows) const {
@@ -155,25 +155,25 @@ public:
 
 	//初期化時にのみ使用．動的生成
 	//IAocsDataをHoldしているRoot配下のクラスであれば何でも取れる
-	template<class Producer> int create(Producer* producer,unsigned short capacity, const datatype::String& name = "unknown"){
+	template<class Producer> int create(Producer* producer, unsigned short capacity, const datatype::String& name = "unknown"){
 		this->createdindex_++;
-		this->table_[createdindex_] = new Tuple<datatype::IAocsData>(capacity,Loki::Type2Type<Producer::Hold>(),name);
+		this->table_[createdindex_] = new Tuple<datatype::IAocsData>(capacity, Loki::Type2Type<Producer::Hold>(), name);
 		return createdindex_ ;
 	}
 
 	//初期化時にのみ使用．動的生成
 	//IAocsDataをHoldしているRoot配下のクラスであれば何でも取れる
-	template<class Datatype> int create(Loki::Type2Type<Datatype>,unsigned short capacity, const datatype::String& name = "unknown"){
+	template<class Datatype> int create(Loki::Type2Type<Datatype>, unsigned short capacity, const datatype::String& name = "unknown"){
 		this->createdindex_++;
-		this->table_[createdindex_] = new Tuple<datatype::IAocsData>(capacity,Loki::Type2Type<Datatype>(),name);
+		this->table_[createdindex_] = new Tuple<datatype::IAocsData>(capacity, Loki::Type2Type<Datatype>(), name);
 		return createdindex_ ;
 	}
 
 	//初期化時にのみ使用．動的生成
 	//IAocsDataをHoldしているRoot配下のクラスであれば何でも取れる
-	template<class Producer> int create(int id,unsigned short capacity, const datatype::String& name = "unknown"){
+	template<class Producer> int create(int id, unsigned short capacity, const datatype::String& name = "unknown"){
 		this->createdindex_++;
-		this->table_[createdindex_] = new Tuple<datatype::IAocsData>(capacity,Loki::Type2Type<Producer::Hold>(),name);
+		this->table_[createdindex_] = new Tuple<datatype::IAocsData>(capacity, Loki::Type2Type<Producer::Hold>(), name);
 		return createdindex_ ;
 	}
 
@@ -204,7 +204,7 @@ public:
 
 	const core::event::EventBase* get(int rows) const;
 
-	const core::event::EventBase* get(int rows,int cols) const;
+	const core::event::EventBase* get(int rows, int cols) const;
 
 	// 最新の値を取る
 	datatype::Time gettime(int index) const;
@@ -213,28 +213,28 @@ public:
 
 	// 値をセット
 	template<class Producer> void set(int index, const typename Producer::Hold& value){
-		table_[index]->set<typename Producer::Hold>(this->clock_->get_time(),value);
+		table_[index]->set<typename Producer::Hold>(this->clock_->get_time(), value);
 	}
 
 	template<class Producer> typename Producer::Hold& get_at(int index, int rows) const {
 		return table_[index]->get_at<Producer::Hold>(rows);//copy
 	}
 
-	template<class Producer> int create(Producer* producer,unsigned short capacity, const datatype::String& name = "unknown"){
+	template<class Producer> int create(Producer* producer, unsigned short capacity, const datatype::String& name = "unknown"){
 		this->createdindex_++;
-		this->table_[createdindex_] = new Tuple<core::event::EventBase>(capacity,Loki::Type2Type<Producer::Hold>(),name);
+		this->table_[createdindex_] = new Tuple<core::event::EventBase>(capacity, Loki::Type2Type<Producer::Hold>(), name);
 		return createdindex_ ;
 	}
 
-	template<class Datatype> int create(Loki::Type2Type<Datatype>,unsigned short capacity, const datatype::String& name = "unknown"){
+	template<class Datatype> int create(Loki::Type2Type<Datatype>, unsigned short capacity, const datatype::String& name = "unknown"){
 		this->createdindex_++;
-		this->table_[createdindex_] = new Tuple<core::event::EventBase>(capacity,Loki::Type2Type<Datatype>(),name);
+		this->table_[createdindex_] = new Tuple<core::event::EventBase>(capacity, Loki::Type2Type<Datatype>(), name);
 		return createdindex_ ;
 	}
 
-	template<class Producer> int create(int id,unsigned short capacity, const datatype::String& name = "unknown"){
+	template<class Producer> int create(int id, unsigned short capacity, const datatype::String& name = "unknown"){
 		this->createdindex_++;
-		this->table_[createdindex_] = new Tuple<core::event::EventBase>(capacity,Loki::Type2Type<Producer::Hold>(),name);
+		this->table_[createdindex_] = new Tuple<core::event::EventBase>(capacity, Loki::Type2Type<Producer::Hold>(), name);
 		return createdindex_ ;
 	}
 

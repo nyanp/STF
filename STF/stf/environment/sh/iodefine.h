@@ -553,9 +553,9 @@ struct st_pa {                                          /* struct PA    */
                           }      WORD;                  /*              */
                    struct {                             /*  Byte Access */
                           char          wk;             /*              */
-                          unsigned char HL;             /*    High,Low  */
-                          unsigned char LH;             /*    Low ,High */
-                          unsigned char LL;             /*    Low ,Low  */
+                          unsigned char HL;             /*    High, Low  */
+                          unsigned char LH;             /*    Low , High */
+                          unsigned char LL;             /*    Low , Low  */
                           }      BYTE;                  /*              */
                    struct {                             /*  Bit  Access */
                           unsigned char    :8;          /*              */

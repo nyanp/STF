@@ -44,7 +44,7 @@ private:
 };
 
 template <class T>
-GyroBase<T>::GyroBase(int instance_id, const datatype::DCM &dcm,double sigma, double tau)
+GyroBase<T>::GyroBase(int instance_id, const datatype::DCM &dcm, double sigma, double tau)
 	: AOCSSensor<datatype::StaticVector<3>, datatype::Scalar, T>(instance_id, "Gyro", dcm), sigma_(sigma), tau_(tau), bias_rate_(0.0)
 {
 

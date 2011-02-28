@@ -29,7 +29,7 @@ public:
 	virtual const datatype::String& name() const { return this->name_; }
 	~ModeBase(){}
 private:
-	ModeBase() : RootObject(0,"err!/ModeBase"){}
+	ModeBase() : RootObject(0, "err!/ModeBase"){}
 };
 
 } /* End of namespace stf::core::mode */

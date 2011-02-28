@@ -20,7 +20,7 @@ class PRISMGyro : public GyroBase<T> {
 public:
 	PRISMGyro(){}
 	//Sigma =0.02, tau(ECRV)=1000sec
-	PRISMGyro(int instance_id, const datatype::DCM &angle) : GyroBase(instance_id, angle,0.02,GYROECRV){}
+	PRISMGyro(int instance_id, const datatype::DCM &angle) : GyroBase(instance_id, angle, 0.02,GYROECRV){}
 	~PRISMGyro(){}
 	virtual void do_update(){}
 private:

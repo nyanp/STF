@@ -21,7 +21,7 @@ void MTQBase<environment::Simulator>::do_update(){
 	//this->linearity_ * 0.01
 	//DBへ記録
 	if(this->datapool_ != 0){
-		datapool_->set<MTQBase<environment::Simulator>>(this->datapool_hold_index_,this->output_);
+		datapool_->set<MTQBase<environment::Simulator>>(this->datapool_hold_index_, this->output_);
 	}
 }
 

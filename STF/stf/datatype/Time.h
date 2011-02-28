@@ -40,17 +40,17 @@ public:
     inline Time &operator/=(int rhs);
     inline Time &operator*=(int rhs);
 private:
-    friend inline bool operator ==(const Time&,const Time&);
-    friend inline bool operator !=(const Time&,const Time&);
-    friend inline bool operator >(const Time&,const Time&);
-    friend inline bool operator <(const Time&,const Time&);
-    friend inline bool operator >=(const Time&,const Time&);
-    friend inline bool operator <=(const Time&,const Time&);
-	friend inline const Time operator +(const Time&,const Time&);
-	friend inline const Time operator -(const Time&,const Time&);
-	friend inline const Time operator *(int,const Time&);
-	friend inline const Time operator *(const Time&,int);
-	friend inline const Time operator /(const Time&,int);
+    friend inline bool operator ==(const Time&, const Time&);
+    friend inline bool operator !=(const Time&, const Time&);
+    friend inline bool operator > (const Time&, const Time&);
+    friend inline bool operator < (const Time&, const Time&);
+    friend inline bool operator >=(const Time&, const Time&);
+    friend inline bool operator <=(const Time&, const Time&);
+	friend inline const Time operator +(const Time&, const Time&);
+	friend inline const Time operator -(const Time&, const Time&);
+	friend inline const Time operator *(int, const Time&);
+	friend inline const Time operator *(const Time&, int);
+	friend inline const Time operator /(const Time&, int);
     int seconds_;
     double milliseconds_;
 };

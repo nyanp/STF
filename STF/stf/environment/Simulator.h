@@ -75,14 +75,14 @@ public:
 	typedef std::ofstream OutputStream;
 	typedef std::ifstream InputStream;
 
-	typedef core::devicedriver::AOCSComponent<datatype::StaticVector<3>,datatype::StaticVector<3>,Simulator> MultiGyro;
-	typedef core::devicedriver::AOCSComponent<datatype::StaticVector<3>,datatype::Scalar,Simulator> Gyro;
-	typedef core::devicedriver::AOCSComponent<datatype::Quaternion,datatype::Quaternion,Simulator> STT;
-	typedef core::devicedriver::AOCSComponent<datatype::StaticVector<2>,datatype::StaticVector<2>,Simulator> Vectorsensor;
-	typedef core::devicedriver::AOCSComponent<datatype::MagneticField,datatype::MagneticField,Simulator> Magnetometer;
+	typedef core::devicedriver::AOCSComponent<datatype::StaticVector<3>, datatype::StaticVector<3>, Simulator> MultiGyro;
+	typedef core::devicedriver::AOCSComponent<datatype::StaticVector<3>, datatype::Scalar, Simulator> Gyro;
+	typedef core::devicedriver::AOCSComponent<datatype::Quaternion, datatype::Quaternion, Simulator> STT;
+	typedef core::devicedriver::AOCSComponent<datatype::StaticVector<2>, datatype::StaticVector<2>, Simulator> Vectorsensor;
+	typedef core::devicedriver::AOCSComponent<datatype::MagneticField, datatype::MagneticField, Simulator> Magnetometer;
 	typedef core::devicedriver::clock::ITimeClock Clock;
-	typedef core::devicedriver::AOCSActuator<datatype::StaticVector<3>,datatype::Scalar,Simulator> TorqueSource;
-	typedef core::devicedriver::AOCSComponent<datatype::MagneticMoment,datatype::Scalar,Simulator> MagneticSource;
+	typedef core::devicedriver::AOCSActuator<datatype::StaticVector<3>, datatype::Scalar, Simulator> TorqueSource;
+	typedef core::devicedriver::AOCSComponent<datatype::MagneticMoment, datatype::Scalar, Simulator> MagneticSource;
 
 	static Simulator& get_instance();
 	void init(Global<Simulator>* global, double stepTimeInSecond, double maxTimeInSecond, const datatype::OrbitInfo& orbit, std::ofstream *ostream);
@@ -120,7 +120,7 @@ private:
 	std::vector< torquesource::NoiseBase* > noise_sources_;
 	std::vector< MagneticSource* > mag_sources_;
 
-    datatype::StaticMatrix<4,4> Omega_;
+    datatype::StaticMatrix<4, 4> Omega_;
     Global<Simulator> *global_;
     datatype::Time max_time_;
     std::ofstream *ofstream_;

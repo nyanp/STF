@@ -18,7 +18,7 @@ template <class T>
 class NJSunSensor : public SunSensorBase<T>{
 public:  
 	// 3-SigmaÇ≈1ìxê∏ìx
-	NJSunSensor(int instance_id, const datatype::DCM &angle) : SunSensorBase(instance_id,angle,1,3){}
+	NJSunSensor(int instance_id, const datatype::DCM &angle) : SunSensorBase(instance_id, angle, 1, 3){}
 	~NJSunSensor(){}
 	virtual void do_update(){}
 private:

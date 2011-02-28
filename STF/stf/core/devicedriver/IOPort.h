@@ -82,19 +82,19 @@ template<class TList>
 class InputPorts : public Loki::GenScatterHierarchy<TList, core::devicedriver::InputPort>{
 public:
 	//! i番目の入力ポートに，出力ポートを持ったコンポーネントを接続する．
-	template<int i,class T> 
+	template<int i, class T> 
 	void connect_source(T* outputport) {
 		return Loki::Field<i>(*this).connect_source_(outputport); 
 	}
 
 	//! i番目の入力ポートを取得する．
-	template<int i,class T>
+	template<int i, class T>
 	InputPort<T>& inputport() {
 		return Loki::Field<i>(*this);
 	}
 
 	//! i番目の入力ポートに接続された出力ポートを取得する．何も接続されていないポートに対して実行した場合の動作は未定義．
-	template<int i,class T>
+	template<int i, class T>
 	OutputPort<T>& source(){
 		return *(Loki::Field<i>(*this).prevholder_);
 	}
@@ -124,13 +124,13 @@ public:
 	virtual void do_compute(const datatype::Time& t){}
 
 	//! i番目の出力ポートから現在の値を伝搬無しで取得する．
-	template<int i,class T>
+	template<int i, class T>
 	const T& get() const{	
 		return Loki::Field<i>(*this).value_;
 	}
 
 	//! i番目の出力ポートを取得する．
-	template<int i,class T>
+	template<int i, class T>
 	OutputPort<T>& outputport() {
 		return Loki::Field<i>(*this);
 	}

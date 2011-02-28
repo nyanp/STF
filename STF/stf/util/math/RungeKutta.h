@@ -13,8 +13,8 @@ namespace util {
 namespace math {
 namespace RungeKutta {
 
-//! y' = f(t,y)型の微分方程式
-template <class T> inline T slope(T yn, T(*df)(double,T), double tn, double dt){
+//! y' = f(t, y)型の微分方程式
+template <class T> inline T slope(T yn, T(*df)(double, T), double tn, double dt){
     T k1 = df(tn, yn);
     T k2 = df(tn + 0.5 * dt, yn + 0.5 * dt * k1);
     T k3 = df(tn + 0.5 * dt, yn + 0.5 * dt * k2);
@@ -24,7 +24,7 @@ template <class T> inline T slope(T yn, T(*df)(double,T), double tn, double dt){
 }
 
 //! y' = Ay + B型の微分方程式
-template <class T,class A> inline T slope(T yn, A A, T B, double dt){
+template <class T, class A> inline T slope(T yn, A A, T B, double dt){
     T k1 = A * yn + B;
     T k2 = A * (yn + 0.5 * dt * k1) + B;
     T k3 = A * (yn + 0.5 * dt * k2) + B;
@@ -33,7 +33,7 @@ template <class T,class A> inline T slope(T yn, A A, T B, double dt){
 }
 
 //! y' = Ay型の微分方程式
-template <class T,class A> inline T slope(T yn, A A, double dt){
+template <class T, class A> inline T slope(T yn, A A, double dt){
     T k1 = A * yn;
     T k2 = A * (yn + 0.5 * dt * k1);
     T k3 = A * (yn + 0.5 * dt * k2);

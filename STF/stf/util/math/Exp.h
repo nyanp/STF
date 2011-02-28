@@ -24,12 +24,12 @@ datatype::Matrix exp(const datatype::Matrix& m);
 
 //! 行列の指数をn次のマクローリン展開まで計算して返す関数．
 template<int rows>
-datatype::StaticMatrix<rows,rows> exp(const datatype::StaticMatrix<rows,rows>& m, int n){
-    datatype::StaticMatrix<rows,rows> result;
+datatype::StaticMatrix<rows, rows> exp(const datatype::StaticMatrix<rows, rows>& m, int n){
+    datatype::StaticMatrix<rows, rows> result;
     result.unitize();
 
     int k = 1;
-    datatype::StaticMatrix<rows,rows> m_n;
+    datatype::StaticMatrix<rows, rows> m_n;
 	m_n.unitize();
 	int f = 1;
 
@@ -45,8 +45,8 @@ datatype::StaticMatrix<rows,rows> exp(const datatype::StaticMatrix<rows,rows>& m
 
 //! 行列の指数を4次のマクローリン展開まで計算して返す関数．
 template<int rows>
-inline datatype::StaticMatrix<rows,rows> exp(const datatype::StaticMatrix<rows,rows>& m){
-	return exp(m,4);
+inline datatype::StaticMatrix<rows, rows> exp(const datatype::StaticMatrix<rows, rows>& m){
+	return exp(m, 4);
 }
 
 } /* End of namespace stf::util::math */

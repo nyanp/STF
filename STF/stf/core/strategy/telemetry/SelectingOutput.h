@@ -37,10 +37,10 @@ namespace telemetry {
 template<class T, int SCALE>
 class SelectingOutput : public StrategyBase,  virtual public ITelemetryStrategy, virtual public interface::Iterator{
 public:
-	SelectingOutput(int instance_id,devicedriver::tmhandler::ITelemetryStoragable* storage,
+	SelectingOutput(int instance_id, devicedriver::tmhandler::ITelemetryStoragable* storage,
 		const core::datapool::AocsDataPool* pool,
 		const core::datapool::EventDataPool* eventpool
-		) : StrategyBase(instance_id,"SelectingOutput"), storage_(storage), pool_(pool)
+		) : StrategyBase(instance_id, "SelectingOutput"), storage_(storage), pool_(pool)
 	{
 		this->createindex_(pool);
 		this->tmlistiter_ = this->tmlist_.begin();
@@ -69,7 +69,7 @@ protected:
 };
 
 template<class T, int SCALE>
-void SelectingOutput<T,SCALE>::init(){
+void SelectingOutput<T, SCALE>::init(){
 	datatype::List<interface::Iterator>::iterator it = tmlist_.begin();
 	while(it != tmlist_.end()){
 		(*it).init();
@@ -79,7 +79,7 @@ void SelectingOutput<T,SCALE>::init(){
 }
 
 template<class T, int SCALE>
-bool SelectingOutput<T,SCALE>::end(){
+bool SelectingOutput<T, SCALE>::end(){
 	datatype::List<interface::Iterator>::iterator it = tmlist_.begin();
 	while(it != tmlist_.end()){
 		if(!(*it).end()) return false;
@@ -89,7 +89,7 @@ bool SelectingOutput<T,SCALE>::end(){
 }
 
 template<class T, int SCALE>
-void SelectingOutput<T,SCALE>::operator ++(){
+void SelectingOutput<T, SCALE>::operator ++(){
 	++(*this->tmlistiter_);
 	if((*this->tmlistiter_).end()){
 		++this->tmlistiter_;
@@ -97,19 +97,19 @@ void SelectingOutput<T,SCALE>::operator ++(){
 }
 
 template<class T, int SCALE>
-double SelectingOutput<T,SCALE>::operator()(){
+double SelectingOutput<T, SCALE>::operator()(){
 	return (*this->tmlistiter_)();
 }
 
 template<class T, int SCALE>
-void SelectingOutput<T,SCALE>::write_to_telemetry(){
+void SelectingOutput<T, SCALE>::write_to_telemetry(){
 	(*this->storage_) << this->clock_->get_time().total_milliseconds();
 	//TBD
 	this->storage_->endl();	
 }
 
 template<class T, int SCALE>
-void SelectingOutput<T,SCALE>::createindex_(const core::datapool::AocsDataPool* pool)
+void SelectingOutput<T, SCALE>::createindex_(const core::datapool::AocsDataPool* pool)
 {
 	(*this->storage_) << "Time(ms)";
 	//TBD
@@ -117,7 +117,7 @@ void SelectingOutput<T,SCALE>::createindex_(const core::datapool::AocsDataPool* 
 }
 
 template<class T, int SCALE>
-void SelectingOutput<T,SCALE>::write_(const double* data, int length)
+void SelectingOutput<T, SCALE>::write_(const double* data, int length)
 {
 	for(int i = 0; i < length; i++){
 		(*this->storage_) << data[i];

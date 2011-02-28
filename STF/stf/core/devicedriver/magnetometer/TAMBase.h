@@ -26,7 +26,7 @@ namespace magnetometer {
 	@tparam T コンポーネントの環境クラス．
 */
 template <class T>
-class TAMBase : public AOCSSensor<datatype::MagneticField,datatype::MagneticField,T>{
+class TAMBase : public AOCSSensor<datatype::MagneticField, datatype::MagneticField, T>{
 public:
 	TAMBase(int instance_id, const datatype::DCM &angle);
 	virtual ~TAMBase(){}
@@ -40,7 +40,7 @@ private:
 
 template <class T>
 TAMBase<T>::TAMBase(int instance_id, const datatype::DCM& dcm)
-	: AOCSSensor<datatype::MagneticField,datatype::MagneticField,T>(instance_id, "TAM", dcm)
+	: AOCSSensor<datatype::MagneticField, datatype::MagneticField, T>(instance_id, "TAM", dcm)
 {
 
 }

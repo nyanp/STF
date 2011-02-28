@@ -34,12 +34,12 @@ namespace manager {
 	ユーザーはこのクラスを書き換えることが許可されない．
 	機能マネージャの振る舞いをカスタマイズしたい場合，派生クラス側で仮想関数を実装する（Generation-Gapパターン）．
 */
-class ModeManagerBase : public ManagerBase, virtual public event::SubjectBase<event::ModeChangeEvent>,virtual public event::Observer<event::ModeChangeEvent>{
+class ModeManagerBase : public ManagerBase, virtual public event::SubjectBase<event::ModeChangeEvent>, virtual public event::Observer<event::ModeChangeEvent>{
 public:
 	typedef core::devicedriver::ISwitchable HotSpot;
 	typedef Loki::Type2Type<core::devicedriver::ISwitchable> SpotType;
 
-	ModeManagerBase(int instance_id) : ManagerBase(instance_id, "ModeManager"),current_mode_(0), component_(0) {}
+	ModeManagerBase(int instance_id) : ManagerBase(instance_id, "ModeManager"), current_mode_(0), component_(0) {}
 	virtual ~ModeManagerBase(){}
 
 	virtual void change_mode(const mode::ModeBase *newmode);

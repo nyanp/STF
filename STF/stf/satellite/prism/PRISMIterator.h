@@ -18,7 +18,7 @@
 namespace stf {
 namespace interface {
 
-template<int SCALE,int SIZE, class BASE>
+template<int SCALE, int SIZE, class BASE>
 class PRISMIteratorBase : public Iterator {
 public:
 	PRISMIteratorBase(const BASE* data) : data_(data), index_(0) {}
@@ -33,9 +33,9 @@ protected:
 
 // PRISMのテレメトリに必要なEKFのテレメトリ出力を定義。
 template<int SCALE>
-class PRISMEKFIterator : public PRISMIteratorBase<SCALE,13,core::strategy::control::PRISMEKF> {
+class PRISMEKFIterator : public PRISMIteratorBase<SCALE, 13, core::strategy::control::PRISMEKF> {
 public:
-	PRISMEKFIterator(const core::strategy::control::PRISMEKF* data): PRISMIteratorBase<SCALE,13,core::strategy::control::PRISMEKF>(data) {}
+	PRISMEKFIterator(const core::strategy::control::PRISMEKF* data): PRISMIteratorBase<SCALE, 13, core::strategy::control::PRISMEKF>(data) {}
 	virtual double operator()() {
 		if(index_ < 4) return (SCALE * data_->q_[index_]);
 		if(index_ < 7) return (SCALE * data_->bref_[index_ - 4]);
@@ -46,9 +46,9 @@ private:
 
 // PRISMのテレメトリに必要なEKFのテレメトリ出力を定義。
 template<int SCALE>
-class PRISMRMMEKFIterator : public PRISMIteratorBase<SCALE,3,core::strategy::control::PRISMRMMEKF> {
+class PRISMRMMEKFIterator : public PRISMIteratorBase<SCALE, 3, core::strategy::control::PRISMRMMEKF> {
 public:
-	PRISMRMMEKFIterator(const core::strategy::control::PRISMRMMEKF* data): PRISMIteratorBase<SCALE,3,core::strategy::control::PRISMRMMEKF>(data) {}
+	PRISMRMMEKFIterator(const core::strategy::control::PRISMRMMEKF* data): PRISMIteratorBase<SCALE, 3, core::strategy::control::PRISMRMMEKF>(data) {}
 	virtual double operator()() {		
 		return data_->value_[index_];
 	}
@@ -57,9 +57,9 @@ private:
 
 // TRIADからQuaternionの推定値をテレメトリとして出力．
 template<int SCALE>
-class PRISMSunMagTRIADIterator : public PRISMIteratorBase<SCALE,4,core::strategy::control::PRISMSunMagTRIAD> {
+class PRISMSunMagTRIADIterator : public PRISMIteratorBase<SCALE, 4, core::strategy::control::PRISMSunMagTRIAD> {
 public:
-	PRISMSunMagTRIADIterator(const core::strategy::control::PRISMSunMagTRIAD* data): PRISMIteratorBase<SCALE,4,core::strategy::control::PRISMSunMagTRIAD>(data) {}
+	PRISMSunMagTRIADIterator(const core::strategy::control::PRISMSunMagTRIAD* data): PRISMIteratorBase<SCALE, 4, core::strategy::control::PRISMSunMagTRIAD>(data) {}
 	virtual double operator()() {
 		return data_->value_[index_];
 	}
@@ -67,9 +67,9 @@ private:
 };
 
 
-class PRISMControlBlockIterator : public PRISMIteratorBase<1,3,core::strategy::control::PRISMControlBlock> {
+class PRISMControlBlockIterator : public PRISMIteratorBase<1, 3, core::strategy::control::PRISMControlBlock> {
 public:
-	PRISMControlBlockIterator(const core::strategy::control::PRISMControlBlock* data): PRISMIteratorBase<1,3,core::strategy::control::PRISMControlBlock>(data) {}
+	PRISMControlBlockIterator(const core::strategy::control::PRISMControlBlock* data): PRISMIteratorBase<1, 3, core::strategy::control::PRISMControlBlock>(data) {}
 	virtual double operator()() {
 		switch(this->index_){
 		case 0:

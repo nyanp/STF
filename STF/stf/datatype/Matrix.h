@@ -96,7 +96,7 @@ inline const Matrix operator - (const Matrix& oper1, const Matrix& oper2){
 //行列の積算
 inline const Matrix operator * (const Matrix& oper1, const Matrix& oper2){
 	assert(oper1.cols_ == oper2.rows_);
-	Matrix mat(oper1.rows_,oper2.cols_);
+	Matrix mat(oper1.rows_, oper2.cols_);
 	for(int rows = 0;rows < mat.rows_; rows++)
 	  for(int cols = 0;cols < mat.cols_; cols++)
 		for(int index = 0;index < oper1.cols_; index ++)

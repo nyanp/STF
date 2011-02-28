@@ -57,21 +57,21 @@ private:
 
 template<class Env>
 void PRISMFactory<Env>::create_mode(){
-	this->global_->pr_safemode = new core::mode::ModeBase(ID_SAFEMODE,"PRISM_SAFEMODE");
-	this->global_->pr_amode = new core::mode::ModeBase(ID_SAFEMODE,"PRISM_AOCSMODE");
-	this->global_->pr_dmode = new core::mode::ModeBase(ID_SAFEMODE,"PRISM_NOCONTROLMODE");
-	this->global_->pr_dpmode = new core::mode::ModeBase(ID_SAFEMODE,"PRISM_MISSIONMODE");
-	this->global_->pr_dsmode = new core::mode::ModeBase(ID_SAFEMODE,"PRISM_SAFEMODE");
-	this->global_->pr_resetmode = new core::mode::ModeBase(ID_SAFEMODE,"PRISM_RESETMODE");
+	this->global_->pr_safemode = new core::mode::ModeBase(ID_SAFEMODE, "PRISM_SAFEMODE");
+	this->global_->pr_amode = new core::mode::ModeBase(ID_SAFEMODE, "PRISM_AOCSMODE");
+	this->global_->pr_dmode = new core::mode::ModeBase(ID_SAFEMODE, "PRISM_NOCONTROLMODE");
+	this->global_->pr_dpmode = new core::mode::ModeBase(ID_SAFEMODE, "PRISM_MISSIONMODE");
+	this->global_->pr_dsmode = new core::mode::ModeBase(ID_SAFEMODE, "PRISM_SAFEMODE");
+	this->global_->pr_resetmode = new core::mode::ModeBase(ID_SAFEMODE, "PRISM_RESETMODE");
 	//this->global_->pr_safemode->add_list((core::devicedriver::IDataUpdatable*)(this->global_->pr_gyro));
 }
 
 
 template<class Env>
 void PRISMFactory<Env>::create_component(){
-	typedef stf::core::devicedriver::CompositeOutput<devicedriver::mtq::PRISMMTQ<Env>,3> ThreeAxisMTQ;
-	typedef stf::core::devicedriver::CompositeInput<devicedriver::gyro::PRISMGyro<Env>,3> ThreeAxisGyro;
-	typedef stf::core::devicedriver::CompositeInput<devicedriver::sunsensor::PRISMSunSensor<Env>,6> SixAxisSS;
+	typedef stf::core::devicedriver::CompositeOutput<devicedriver::mtq::PRISMMTQ<Env>, 3> ThreeAxisMTQ;
+	typedef stf::core::devicedriver::CompositeInput<devicedriver::gyro::PRISMGyro<Env>, 3> ThreeAxisGyro;
+	typedef stf::core::devicedriver::CompositeInput<devicedriver::sunsensor::PRISMSunSensor<Env>, 6> SixAxisSS;
 	typedef stf::core::devicedriver::gyro::PRISMGyro<Env> GYRO;
 	typedef stf::core::devicedriver::mtq::PRISMMTQ<Env> MTQ;
 	typedef stf::core::devicedriver::sunsensor::PRISMSunSensor<Env> SS;
@@ -84,31 +84,31 @@ void PRISMFactory<Env>::create_component(){
 	this->global_->pr_eventdatapool = new core::datapool::EventDataPool(0);
 
 	// MTQ
-	this->global_->pr_mtqx = new MTQ(ID_MTQ_X,datatype::TypeConverter::toDCM(0,-90,0));
-	this->global_->pr_mtqy = new MTQ(ID_MTQ_Y,datatype::TypeConverter::toDCM(0,0,90));
-	this->global_->pr_mtqz = new MTQ(ID_MTQ_Z,datatype::TypeConverter::toDCM(0,0,0));
-	this->global_->pr_mtq = new ThreeAxisMTQ(ID_MTQ,datatype::TypeConverter::toDCM(0,0,0));
+	this->global_->pr_mtqx = new MTQ(ID_MTQ_X, datatype::TypeConverter::toDCM(0,-90, 0));
+	this->global_->pr_mtqy = new MTQ(ID_MTQ_Y, datatype::TypeConverter::toDCM(0, 0, 90));
+	this->global_->pr_mtqz = new MTQ(ID_MTQ_Z, datatype::TypeConverter::toDCM(0, 0, 0));
+	this->global_->pr_mtq = new ThreeAxisMTQ(ID_MTQ, datatype::TypeConverter::toDCM(0, 0, 0));
 	this->global_->pr_mtq->append_child(this->global_->pr_mtqx);
 	this->global_->pr_mtq->append_child(this->global_->pr_mtqy);
 	this->global_->pr_mtq->append_child(this->global_->pr_mtqz);
 
 	// Gyro
-	this->global_->pr_gyrox = new GYRO(ID_GYRO_X,datatype::TypeConverter::toDCM(0,-90,0));
-	this->global_->pr_gyroy = new GYRO(ID_GYRO_Y,datatype::TypeConverter::toDCM(0,0,90));
-	this->global_->pr_gyroz = new GYRO(ID_GYRO_Z,datatype::TypeConverter::toDCM(0,0,0));
-	this->global_->pr_gyro =  new ThreeAxisGyro(ID_GYRO,datatype::TypeConverter::toDCM(0,0,0));
+	this->global_->pr_gyrox = new GYRO(ID_GYRO_X, datatype::TypeConverter::toDCM(0,-90, 0));
+	this->global_->pr_gyroy = new GYRO(ID_GYRO_Y, datatype::TypeConverter::toDCM(0, 0, 90));
+	this->global_->pr_gyroz = new GYRO(ID_GYRO_Z, datatype::TypeConverter::toDCM(0, 0, 0));
+	this->global_->pr_gyro =  new ThreeAxisGyro(ID_GYRO, datatype::TypeConverter::toDCM(0, 0, 0));
 	this->global_->pr_gyro->append_child(this->global_->pr_gyrox);
 	this->global_->pr_gyro->append_child(this->global_->pr_gyroy);
 	this->global_->pr_gyro->append_child(this->global_->pr_gyroz);
 
 	// Sun Sensor
-	this->global_->pr_sspx = new SS(ID_SS_PX,datatype::TypeConverter::toDCM(0,-90,0));
-	this->global_->pr_sspy = new SS(ID_SS_PY,datatype::TypeConverter::toDCM(0,0,90));
-	this->global_->pr_sspz = new SS(ID_SS_PZ,datatype::TypeConverter::toDCM(0,0,0));
-	this->global_->pr_ssmx = new SS(ID_SS_MX,datatype::TypeConverter::toDCM(180,-90,0));
-	this->global_->pr_ssmy = new SS(ID_SS_MY,datatype::TypeConverter::toDCM(180,0,90));
-	this->global_->pr_ssmz = new SS(ID_SS_MZ,datatype::TypeConverter::toDCM(180,0,0));
-	this->global_->pr_ss = new SixAxisSS(ID_SS,datatype::TypeConverter::toDCM(0,0,0));
+	this->global_->pr_sspx = new SS(ID_SS_PX, datatype::TypeConverter::toDCM(0,-90, 0));
+	this->global_->pr_sspy = new SS(ID_SS_PY, datatype::TypeConverter::toDCM(0, 0, 90));
+	this->global_->pr_sspz = new SS(ID_SS_PZ, datatype::TypeConverter::toDCM(0, 0, 0));
+	this->global_->pr_ssmx = new SS(ID_SS_MX, datatype::TypeConverter::toDCM(180,-90, 0));
+	this->global_->pr_ssmy = new SS(ID_SS_MY, datatype::TypeConverter::toDCM(180, 0, 90));
+	this->global_->pr_ssmz = new SS(ID_SS_MZ, datatype::TypeConverter::toDCM(180, 0, 0));
+	this->global_->pr_ss = new SixAxisSS(ID_SS, datatype::TypeConverter::toDCM(0, 0, 0));
 	this->global_->pr_ss->append_child(this->global_->pr_sspx);
 	this->global_->pr_ss->append_child(this->global_->pr_sspy);
 	this->global_->pr_ss->append_child(this->global_->pr_sspz);
@@ -117,23 +117,23 @@ void PRISMFactory<Env>::create_component(){
 	this->global_->pr_ss->append_child(this->global_->pr_ssmz);
 
 	// MagnetoMeter
-	this->global_->pr_tam = new TAM(ID_TAM,datatype::TypeConverter::toDCM(0,0,0));
+	this->global_->pr_tam = new TAM(ID_TAM, datatype::TypeConverter::toDCM(0, 0, 0));
 
 	// DummyGPS(TLE Holder)
 	this->global_->pr_gpsdummy = new GPS(ID_GPS);
 
 	// Clock(RTC&OBCTime)
-	this->global_->pr_clock = new Clock(ID_CLOCK,YEAR,MONTH,DATE);
+	this->global_->pr_clock = new Clock(ID_CLOCK, YEAR, MONTH, DATE);
 
 	// Telemetery Handler
 	//this->global_->pr_tmhandler = new core::devicedriver::tmhandler::PRISMTelemetryHandler();
 	this->global_->pr_tmhandler = new core::devicedriver::tmhandler::PRISMTelemetryHandler<Env>();
-	this->global_->pr_commandreceiver = new core::devicedriver::cmhandler::PRISMCommandReceiver<Env>(0,this->global_->pr_commman,"command.txt",this->global_);
+	this->global_->pr_commandreceiver = new core::devicedriver::cmhandler::PRISMCommandReceiver<Env>(0, this->global_->pr_commman, "command.txt", this->global_);
 
 	this->global_->pr_adc = new core::devicedriver::PRISMADC<Env>(0);
-	this->global_->pr_currentsensor = new core::devicedriver::PRISMCurrentSensor<Env>(0,global_->pr_adc);
-	this->global_->pr_voltagesensor = new core::devicedriver::PRISMVoltageSensor<Env>(0,global_->pr_adc);
-	this->global_->pr_tempsensor = new core::devicedriver::PRISMTempSensor<Env>(0,global_->pr_adc);
+	this->global_->pr_currentsensor = new core::devicedriver::PRISMCurrentSensor<Env>(0, global_->pr_adc);
+	this->global_->pr_voltagesensor = new core::devicedriver::PRISMVoltageSensor<Env>(0, global_->pr_adc);
+	this->global_->pr_tempsensor = new core::devicedriver::PRISMTempSensor<Env>(0, global_->pr_adc);
 	//this->global_->pr_currentsensor = new core::devicedriver::CDHComponent<
 }
 
@@ -148,8 +148,8 @@ void PRISMFactory<Env>::create_funcmanager(){
 	this->global_->pr_cusman = new core::manager::CustomManager(ID_CUSTOMMANAGER);
 	this->global_->pr_sysman = new core::manager::SystemManager(ID_SYSTEMMANAGER);
 	this->global_->pr_commman = new core::manager::CommandManager(ID_COMMANDMANAGER);
-	this->global_->pr_heater = new core::manager::HeaterControl<Env>(this->global_->pr_tempsensor,0,0);
-	this->global_->pr_customman = new core::manager::PRISMCustomManager<Env>(ID_CUSTOMMANAGER,this->global_->pr_heater);
+	this->global_->pr_heater = new core::manager::HeaterControl<Env>(this->global_->pr_tempsensor, 0, 0);
+	this->global_->pr_customman = new core::manager::PRISMCustomManager<Env>(ID_CUSTOMMANAGER, this->global_->pr_heater);
 
 	this->global_->managers_.add(*this->global_->pr_modeman);
 	this->global_->managers_.add(*this->global_->pr_conman);
@@ -183,18 +183,18 @@ void PRISMFactory<Env>::create_controller(){
 	MagCombiner*      PRISM_MAG_COMBINER    = new MagCombiner(0);
 	CrossProduct*     PRISM_CROSSPRODUCT    = new CrossProduct(0);
 	LiniarCorrection* PRISM_RMMCOMP         = new LiniarCorrection(0,-1);
-	Bdot*             PRISM_BDOT            = new Bdot(0,1);
-	Decoupling*       PRISM_DECOUPLING      = new Decoupling(0,this->global_);
-	RateDumping*      PRISM_RATEDUMPING     = new RateDumping(0,1,0.1,0.1,STEPTIME);
-	PID*              PRISM_PID             = new PID(0,1,0.01,0.01,STEPTIME,*(new datatype::StaticVector<3>));
-	PID*              PRISM_PD              = new PID(0,1,0,0.01,STEPTIME,*(new datatype::StaticVector<3>));
+	Bdot*             PRISM_BDOT            = new Bdot(0, 1);
+	Decoupling*       PRISM_DECOUPLING      = new Decoupling(0, this->global_);
+	RateDumping*      PRISM_RATEDUMPING     = new RateDumping(0, 1, 0.1, 0.1, STEPTIME);
+	PID*              PRISM_PID             = new PID(0, 1, 0.01, 0.01, STEPTIME,*(new datatype::StaticVector<3>));
+	PID*              PRISM_PD              = new PID(0, 1, 0, 0.01, STEPTIME,*(new datatype::StaticVector<3>));
 	GGComp*           PRISM_GGCOMP          = new GGComp(0);
 	EKF*              PRISM_EKF             = new EKF(0);
 	TRIAD*            PRISM_TRIAD           = new TRIAD(0);
 	RMMEKF*           PRISM_RMMEKF          = new RMMEKF(0);
 
 	//制御ブロックのコンテナ
-	STRATEGY* PRISM_CONTROLLER = new STRATEGY(0,PRISM_MAG_COMBINER,this->global_->pr_mtq);
+	STRATEGY* PRISM_CONTROLLER = new STRATEGY(0,PRISM_MAG_COMBINER, this->global_->pr_mtq);
 	PRISM_CONTROLLER->setStrategy(STRATEGY::TorqueCombiner, PRISM_TORQUE_COMBINER);
 	PRISM_CONTROLLER->setStrategy(STRATEGY::MagCombiner, PRISM_MAG_COMBINER);
 	PRISM_CONTROLLER->setStrategy(STRATEGY::CrossProduct, PRISM_CROSSPRODUCT);
@@ -290,14 +290,14 @@ void PRISMFactory<Env>::create_controller(){
 	//　AOCS系コマンド
 	datatype::Time t_init = this->global_->pr_clock->get_time();
 
-	this->global_->pr_c_aen0 = new command::SimpleMemberFunctionCommand<STRATEGY,void>(t_init,PRISM_CONTROLLER,&STRATEGY::enable);
+	this->global_->pr_c_aen0 = new command::SimpleMemberFunctionCommand<STRATEGY, void>(t_init,PRISM_CONTROLLER,&STRATEGY::enable);
 
-	this->global_->pr_c_aen1 = new command::SimpleMemberFunctionCommand<STRATEGY,void>(t_init,PRISM_CONTROLLER,&STRATEGY::disable);
+	this->global_->pr_c_aen1 = new command::SimpleMemberFunctionCommand<STRATEGY, void>(t_init,PRISM_CONTROLLER,&STRATEGY::disable);
 
-	this->global_->pr_c_ams = new command::TypeListMemberFunctionCommand<STRATEGY,int,2>
-		(t_init,PRISM_CONTROLLER,&STRATEGY::set_mode,0,0);
+	this->global_->pr_c_ams = new command::TypeListMemberFunctionCommand<STRATEGY, int, 2>
+		(t_init,PRISM_CONTROLLER,&STRATEGY::set_mode, 0, 0);
 
-	this->global_->pr_c_amG = new command::IteratorStreamCommand<1>(t_init,new interface::PRISMControlBlockIterator(PRISM_CONTROLLER));
+	this->global_->pr_c_amG = new command::IteratorStreamCommand<1>(t_init, new interface::PRISMControlBlockIterator(PRISM_CONTROLLER));
 
 	//TBD:pr_c_aps
 	//TBD:pr_c_apg
@@ -312,54 +312,54 @@ void PRISMFactory<Env>::create_command(){
 	datatype::Time t_init = this->global_->pr_clock->get_time();
 
 	// 生存確認
-	this->global_->pr_c_alv = new core::command::MessageCommand(t_init,"alive");
+	this->global_->pr_c_alv = new core::command::MessageCommand(t_init, "alive");
 
 	// ヒーター制御関係
 	this->global_->pr_c_hta = 
-		new core::command::SimpleMemberFunctionCommand<Heater,void>
-		(t_init,this->global_->pr_heater,&Heater::enable);
+		new core::command::SimpleMemberFunctionCommand<Heater, void>
+		(t_init, this->global_->pr_heater,&Heater::enable);
 
 	this->global_->pr_c_htd = 
-		new core::command::SimpleMemberFunctionCommand<Heater,void>
-		(t_init,this->global_->pr_heater,&Heater::disable);
+		new core::command::SimpleMemberFunctionCommand<Heater, void>
+		(t_init, this->global_->pr_heater,&Heater::disable);
 
 	this->global_->pr_c_htg = 
-		new core::command::GetCommand<Heater,datatype::String>
-		(t_init,this->global_->pr_heater,&Heater::get_status);
+		new core::command::GetCommand<Heater, datatype::String>
+		(t_init, this->global_->pr_heater,&Heater::get_status);
 
 	this->global_->pr_c_hts = 
-		new core::command::TypeListMemberFunctionCommand<Heater,int,3>
-		(t_init,this->global_->pr_heater,&Heater::set_params,0,0,0);
+		new core::command::TypeListMemberFunctionCommand<Heater, int, 3>
+		(t_init, this->global_->pr_heater,&Heater::set_params, 0, 0, 0);
 
 	// 時刻設定・時刻取得関係
 	this->global_->pr_c_rtg = 
-		new core::command::GetIteratorCommand<Clock,interface::DateTimeIterator,const datatype::DateTime,100>(t_init,this->global_->pr_clock,&Clock::get_datetime);
+		new core::command::GetIteratorCommand<Clock, interface::DateTimeIterator, const datatype::DateTime, 100>(t_init, this->global_->pr_clock,&Clock::get_datetime);
 
 	this->global_->pr_c_tmg = 
-		new core::command::GetIteratorCommand<Clock,interface::TimeIterator,const datatype::Time,100>(t_init,this->global_->pr_clock,&Clock::get_time);
+		new core::command::GetIteratorCommand<Clock, interface::TimeIterator, const datatype::Time, 100>(t_init, this->global_->pr_clock,&Clock::get_time);
 
 	this->global_->pr_c_rts = 
-		new core::command::TypeListMemberFunctionCommand<Clock,int,6>
-		(t_init,this->global_->pr_clock,&Clock::set_absolute_time,0,0,0,0,0,0);
+		new core::command::TypeListMemberFunctionCommand<Clock, int, 6>
+		(t_init, this->global_->pr_clock,&Clock::set_absolute_time, 0, 0, 0, 0, 0, 0);
 
 	this->global_->pr_c_tms = 
-		new core::command::TypeListMemberFunctionCommand<Clock,int,2>
-		(t_init,this->global_->pr_clock,&Clock::set_time,0,0);
+		new core::command::TypeListMemberFunctionCommand<Clock, int, 2>
+		(t_init, this->global_->pr_clock,&Clock::set_time, 0, 0);
 
 	//CDHテレメ
 	this->global_->pr_c_tlg = 
-		new core::command::IteratorStreamCommand<100>(t_init,this->global_->pr_telemetryiterator);
+		new core::command::IteratorStreamCommand<100>(t_init, this->global_->pr_telemetryiterator);
 
 	this->global_->pr_c_sgs = 
-		new core::command::IteratorStreamCommand<100>(t_init,this->global_->pr_statusiterator);
+		new core::command::IteratorStreamCommand<100>(t_init, this->global_->pr_statusiterator);
 
 	this->global_->pr_c_trs =
-		new core::command::TypeListMemberFunctionCommand<Telem,int,6>
-		(t_init,this->global_->pr_tmstrategy,&Telem::setRTCTime,0,0,0,0,0,0);
+		new core::command::TypeListMemberFunctionCommand<Telem, int, 6>
+		(t_init, this->global_->pr_tmstrategy,&Telem::setRTCTime, 0, 0, 0, 0, 0, 0);
 
 	this->global_->pr_c_tos = 
-		new core::command::UnAryMemberFunctionCommand<Telem,void,int>
-		(t_init,this->global_->pr_tmstrategy,&Telem::set_time,0);
+		new core::command::UnAryMemberFunctionCommand<Telem, void, int>
+		(t_init, this->global_->pr_tmstrategy,&Telem::set_time, 0);
 
 	//電源系
 	//this->global_->pr_c_pd = 
@@ -375,34 +375,34 @@ void PRISMFactory<Env>::create_command(){
 		new core::command::modeChangeCommand(t_init, this->global_->pr_amode, this->global_->pr_modeman);
 
 	this->global_->pr_c_md = 
-		new core::command::GetCommand<ModeManager,const datatype::String&>(t_init, this->global_->pr_modeman, &ModeManager::get_current_modename);
+		new core::command::GetCommand<ModeManager, const datatype::String&>(t_init, this->global_->pr_modeman, &ModeManager::get_current_modename);
 
 	this->global_->pr_c_hth = 
-		new core::command::GetCommand<Heater,datatype::String>
-		(t_init,this->global_->pr_battheater,&Heater::get_status);
+		new core::command::GetCommand<Heater, datatype::String>
+		(t_init, this->global_->pr_battheater,&Heater::get_status);
 
 	this->global_->pr_c_hdt = 
-		new core::command::TypeListMemberFunctionCommand<Heater,int,3>
-		(t_init,this->global_->pr_battheater,&Heater::set_params,0,0,0);
+		new core::command::TypeListMemberFunctionCommand<Heater, int, 3>
+		(t_init, this->global_->pr_battheater,&Heater::set_params, 0, 0, 0);
 
 	//AOCS系->一部はcontrollerHotSpotでインスタンス化
-	this->global_->pr_c_atw = new core::command::UnAryMemberFunctionCommand<Telem,void,bool>
-		(t_init,this->global_->pr_aocstmstrategy,&Telem::setstate,false);
+	this->global_->pr_c_atw = new core::command::UnAryMemberFunctionCommand<Telem, void, bool>
+		(t_init, this->global_->pr_aocstmstrategy,&Telem::setstate, false);
 
-	this->global_->pr_c_atg = new core::command::IteratorStreamCommand<100>(t_init,this->global_->pr_aocstelemetryiterator);
+	this->global_->pr_c_atg = new core::command::IteratorStreamCommand<100>(t_init, this->global_->pr_aocstelemetryiterator);
 
-	this->global_->pr_c_atr = new core::command::TypeListMemberFunctionCommand<Telem,int,6>
-		(t_init,this->global_->pr_aocstmstrategy,&Telem::setRTCTime,0,0,0,0,0,0);
+	this->global_->pr_c_atr = new core::command::TypeListMemberFunctionCommand<Telem, int, 6>
+		(t_init, this->global_->pr_aocstmstrategy,&Telem::setRTCTime, 0, 0, 0, 0, 0, 0);
 
 	this->global_->pr_c_ato = 
-		new core::command::UnAryMemberFunctionCommand<Telem,void,int>
-		(t_init,this->global_->pr_aocstmstrategy,&Telem::set_time,0);
+		new core::command::UnAryMemberFunctionCommand<Telem, void, int>
+		(t_init, this->global_->pr_aocstmstrategy,&Telem::set_time, 0);
 }
 
 template<class Env>
 void PRISMFactory<Env>::create_telemetry(){
-	this->global_->pr_tmstrategy = new core::strategy::telemetry::PRISMTelemetryStrategy<1000>(0, this->global_->pr_tmhandler,this->global_->pr_aocsdatapool,this->global_->pr_eventdatapool,this->global_->pr_clock);
-	this->global_->pr_aocstmstrategy = new core::strategy::telemetry::PRISMTelemetryStrategy<1000>(0, this->global_->pr_tmhandler,this->global_->pr_aocsdatapool,this->global_->pr_eventdatapool,this->global_->pr_clock);
+	this->global_->pr_tmstrategy = new core::strategy::telemetry::PRISMTelemetryStrategy<1000>(0, this->global_->pr_tmhandler, this->global_->pr_aocsdatapool, this->global_->pr_eventdatapool, this->global_->pr_clock);
+	this->global_->pr_aocstmstrategy = new core::strategy::telemetry::PRISMTelemetryStrategy<1000>(0, this->global_->pr_tmhandler, this->global_->pr_aocsdatapool, this->global_->pr_eventdatapool, this->global_->pr_clock);
 }
 
 template<class Env>
@@ -477,10 +477,10 @@ void PRISMFactory<Env>::create_functor(){
 	// モード変更関係のファンクタ
 
 	//一定時間が経過したらSafeModeに移行するファンクタ
-	core::functor::IFunctor* timerfunc = new functor::Functor<functor::Getter_Over<datatype::Time,devicedriver::clock::ITimeClock>,core::functor::ModeChangeFunc>
+	core::functor::IFunctor* timerfunc = new functor::Functor<functor::Getter_Over<datatype::Time, devicedriver::clock::ITimeClock>, core::functor::ModeChangeFunc>
 			(
-				new functor::Getter_Over<datatype::Time,devicedriver::clock::ITimeClock>(
-					this->global_->pr_clock,&devicedriver::clock::ITimeClock::get_time,new datatype::Time(200,0)
+				new functor::Getter_Over<datatype::Time, devicedriver::clock::ITimeClock>(
+					this->global_->pr_clock,&devicedriver::clock::ITimeClock::get_time, new datatype::Time(200, 0)
 					),
 					new functor::ModeChangeFunc(this->global_->pr_modeman,*(this->global_->pr_safemode))
 			);
@@ -507,19 +507,19 @@ template<class Env>
 void PRISMFactory<Env>::create_datapool(){
 
 
-	this->global_->pr_mtqx->connect(global_->pr_aocsdatapool,10,"PR_MTQ1");
-	this->global_->pr_mtqy->connect(global_->pr_aocsdatapool,10,"PR_MTQ2");
-	this->global_->pr_mtqz->connect(global_->pr_aocsdatapool,10,"PR_MTQ3");
-	this->global_->pr_mtq->connect(global_->pr_aocsdatapool,10,"PR_MTQ");
+	this->global_->pr_mtqx->connect(global_->pr_aocsdatapool, 10, "PR_MTQ1");
+	this->global_->pr_mtqy->connect(global_->pr_aocsdatapool, 10, "PR_MTQ2");
+	this->global_->pr_mtqz->connect(global_->pr_aocsdatapool, 10, "PR_MTQ3");
+	this->global_->pr_mtq->connect(global_->pr_aocsdatapool, 10, "PR_MTQ");
 
-	this->global_->pr_gyrox->connect(global_->pr_aocsdatapool,20,"PR_GYRO1");
-	this->global_->pr_gyroy->connect(global_->pr_aocsdatapool,20,"PR_GYRO2");
-	this->global_->pr_gyroz->connect(global_->pr_aocsdatapool,20,"PR_GYRO3");
-	this->global_->pr_gyro->connect(global_->pr_aocsdatapool,20,"PR_GYRO");
+	this->global_->pr_gyrox->connect(global_->pr_aocsdatapool, 20, "PR_GYRO1");
+	this->global_->pr_gyroy->connect(global_->pr_aocsdatapool, 20, "PR_GYRO2");
+	this->global_->pr_gyroz->connect(global_->pr_aocsdatapool, 20, "PR_GYRO3");
+	this->global_->pr_gyro->connect(global_->pr_aocsdatapool, 20, "PR_GYRO");
 
-	this->global_->pr_ss->connect(global_->pr_aocsdatapool,20,"PR_SS");
+	this->global_->pr_ss->connect(global_->pr_aocsdatapool, 20, "PR_SS");
 
-	this->global_->pr_tam->connect(global_->pr_aocsdatapool,20,"PR_TAM");
+	this->global_->pr_tam->connect(global_->pr_aocsdatapool, 20, "PR_TAM");
 	
 }
 

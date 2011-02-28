@@ -29,7 +29,7 @@ namespace devicedriver {
 
 	@code
 	Gyro gyro[3]; //1軸サンセンサ
-	CompositeInput<Gyro,3> gyromodule; //3軸ホイールモジュール．子のScalarをX,Y,Z軸の順で当てたStaticVectorが親の値となる
+	CompositeInput<Gyro, 3> gyromodule; //3軸ホイールモジュール．子のScalarをX,Y,Z軸の順で当てたStaticVectorが親の値となる
 	
 	for(int i = 0; i < 3; i ++)
 		gyromodule.append_child(gyro[i]);//モジュールに子を登録
@@ -37,7 +37,7 @@ namespace devicedriver {
 	gyromodule.do_update();//子それぞれから値を取得
 
 	STT stt[2]; //2軸スターセンサ
-	CompositeInput<STT,2> sttmodule; //2軸スターセンサモジュール．子のQuaternionの平均値が親のQuaternionとなる
+	CompositeInput<STT, 2> sttmodule; //2軸スターセンサモジュール．子のQuaternionの平均値が親のQuaternionとなる
 
 	sttmodule.append_child(stt[0]);
 	sttmodule.append_child(stt[1]);
@@ -114,7 +114,7 @@ void CompositeInput<Leaf, Numbers, UseAlignment, AggregationPolicy>::do_update()
 	aggregate(this, childs_); //Policy Class Method
 
 	if(this->datapool_ != 0){
-		datapool_->set<CompositeInput<Leaf, Numbers>>(datapool_hold_index_,this->value_);
+		datapool_->set<CompositeInput<Leaf, Numbers>>(datapool_hold_index_, this->value_);
 	}
 }
 

@@ -296,7 +296,7 @@ double  angle
 
      if (magv1*magv2 > small*small)
        {
-         temp= dot(vec1,vec2) / (magv1*magv2);
+         temp= dot(vec1, vec2) / (magv1*magv2);
          if (fabs( temp ) > 1.0)
              temp= sgn(temp) * 1.0;
          return acos( temp );
@@ -399,7 +399,7 @@ void newtonnu
            {
              sine= ( sqrt( 1.0 -ecc*ecc ) * sin(nu) ) / ( 1.0 +ecc*cos(nu) );
              cose= ( ecc + cos(nu) ) / ( 1.0  + ecc*cos(nu) );
-             e0  = atan2( sine,cose );
+             e0  = atan2( sine, cose );
              m   = e0 - ecc*sin(e0);
            }
            else
@@ -423,10 +423,10 @@ void newtonnu
 
      if ( ecc < 1.0  )
        {
-         m = fmod( m,2.0 *pi );
+         m = fmod( m, 2.0 *pi );
          if ( m < 0.0  )
              m = m + 2.0 *pi;
-         e0 = fmod( e0,2.0 *pi );
+         e0 = fmod( e0, 2.0 *pi );
        }
    }  // end newtonnu
 
@@ -513,7 +513,7 @@ void rv2coe
      magv = mag( v );
 
      // ------------------  find h n and e vectors   ----------------
-     cross( r,v, hbar );
+     cross( r, v, hbar );
      magh = mag( hbar );
      if ( magh > small )
        {
@@ -522,7 +522,7 @@ void rv2coe
          nbar[2]=   0.0;
          magn = mag( nbar );
          c1 = magv*magv - mu /magr;
-         rdotv = dot( r,v );
+         rdotv = dot( r, v );
          for (i= 0; i <= 2; i++)
              ebar[i]= (c1*r[i] - rdotv*v[i])/mu;
          ecc = mag( ebar );
@@ -541,21 +541,21 @@ void rv2coe
 
          // --------  determine type of orbit for later use  --------
          // ------ elliptical, parabolic, hyperbolic inclined -------
-         strcpy(typeorbit,"ei");
+         strcpy(typeorbit, "ei");
          if ( ecc < small )
            {
              // ----------------  circular equatorial ---------------
              if  ((incl<small) | (fabs(incl-pi)<small))
-                 strcpy(typeorbit,"ce");
+                 strcpy(typeorbit, "ce");
                else
                  // --------------  circular inclined ---------------
-                 strcpy(typeorbit,"ci");
+                 strcpy(typeorbit, "ci");
            }
            else
            {
              // - elliptical, parabolic, hyperbolic equatorial --
              if  ((incl<small) | (fabs(incl-pi)<small))
-                 strcpy(typeorbit,"ee");
+                 strcpy(typeorbit, "ee");
            }
 
          // ----------  find longitude of ascending node ------------
@@ -572,9 +572,9 @@ void rv2coe
              omega= undefined;
 
          // ---------------- find argument of perigee ---------------
-         if ( strcmp(typeorbit,"ei") == 0 )
+         if ( strcmp(typeorbit, "ei") == 0 )
            {
-             argp = angle( nbar,ebar);
+             argp = angle( nbar, ebar);
              if ( ebar[2] < 0.0  )
                  argp= twopi - argp;
            }
@@ -584,7 +584,7 @@ void rv2coe
          // ------------  find true anomaly at epoch    -------------
          if ( typeorbit[0] == 'e' )
            {
-             nu =  angle( ebar,r);
+             nu =  angle( ebar, r);
              if ( rdotv < 0.0  )
                  nu= twopi - nu;
            }
@@ -593,9 +593,9 @@ void rv2coe
 
          // ----  find argument of latitude - circular inclined -----
 		 //緯度の計算（円の/傾斜面の)
-         if ( strcmp(typeorbit,"ci") == 0 )
+         if ( strcmp(typeorbit, "ci") == 0 )
            {
-             arglat = angle( nbar,r );
+             arglat = angle( nbar, r );
              if ( r[2] < 0.0  )
                  arglat= twopi - arglat;
              m = arglat;
@@ -604,7 +604,7 @@ void rv2coe
              arglat= undefined;
 
          // -- find longitude of perigee - elliptical equatorial ----
-         if  (( ecc>small ) && (strcmp(typeorbit,"ee") == 0))
+         if  (( ecc>small ) && (strcmp(typeorbit, "ee") == 0))
            {
              temp= ebar[0]/ecc;
              if ( fabs(temp) > 1.0  )
@@ -620,7 +620,7 @@ void rv2coe
 
          // -------- find true longitude - circular equatorial ------
 		 //真の経度の計算(円の/赤道の)
-         if  (( magr>small ) && ( strcmp(typeorbit,"ce") == 0 ))
+         if  (( magr>small ) && ( strcmp(typeorbit, "ce") == 0 ))
            {
              temp= r[0]/magr;
              if ( fabs(temp) > 1.0  )
@@ -637,7 +637,7 @@ void rv2coe
 
          // ------------ find mean anomaly for all orbits -----------
          if ( typeorbit[0] == 'e' )
-             newtonnu(ecc,nu,  e, m);
+             newtonnu(ecc, nu,  e, m);
      }
       else
      {
@@ -671,7 +671,7 @@ void rv2coe
 *  inputs          description                    range / units
 *    year        - year                           1900 .. 2100
 *    mon         - month                          1 .. 12
-*    day         - day                            1 .. 28,29,30,31
+*    day         - day                            1 .. 28, 29, 30, 31
 *    hr          - universal time hour            0 .. 23
 *    min         - universal time min             0 .. 59
 *    sec         - universal time sec             0.0 .. 59.999
@@ -727,7 +727,7 @@ void    jday
 *
 *  outputs       :
 *    mon         - month                          1 .. 12
-*    day         - day                            1 .. 28,29,30,31
+*    day         - day                            1 .. 28, 29, 30, 31
 *    hr          - hour                           0 .. 23
 *    min         - minute                         0 .. 59
 *    sec         - second                         0.0 .. 59.999
@@ -798,7 +798,7 @@ void    days2mdhms
 *  outputs       :
 *    year        - year                           1900 .. 2100
 *    mon         - month                          1 .. 12
-*    day         - day                            1 .. 28,29,30,31
+*    day         - day                            1 .. 28, 29, 30, 31
 *    hr          - hour                           0 .. 23
 *    min         - minute                         0 .. 59
 *    sec         - second                         0.0 .. 59.999
@@ -858,7 +858,7 @@ void JdToDecyear
           double* decyear
         )
    {
-     int leapyrs,year;
+     int leapyrs, year;
      double    days, tu, temp;
 
      /* --------------- find year and days of the year --------------- */

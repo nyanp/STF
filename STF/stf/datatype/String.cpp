@@ -18,7 +18,7 @@ int strlen(const char* s){
   return ss - s;
 }
 
-//文字列コピー関数．s1,s2のアドレスが重複していた場合の動作は未定義．
+//文字列コピー関数．s1, s2のアドレスが重複していた場合の動作は未定義．
 char *strcpy(char * s1, const char * s2)
 {
   for (register char *ss = s1; (*ss = *s2) != '\0'; ss++, s2++)
@@ -84,7 +84,7 @@ String &String::operator+=(const String &s){
 	char* c = new char[this->length_ + s.length_ + 1];
 	
 	if(length_)
-		strcpy(c,this->value_);
+		strcpy(c, this->value_);
 
 	delete [] value_;
 
@@ -92,7 +92,7 @@ String &String::operator+=(const String &s){
 		strcpy(&c[length_], s.value_);
 
 	this->value_ = new char[this->length_ + s.length_ + 1];
-	strcpy(value_,c);
+	strcpy(value_, c);
 
 	this->length_ += s.length_;
 	return *this;
@@ -118,11 +118,11 @@ String &String::operator=(const String &rhs){
 }
 
 bool operator == (const String &s1, const String &s2){
-	if(strcmp(s1.value_,s2.value_) == 0) return true;
+	if(strcmp(s1.value_, s2.value_) == 0) return true;
 	return false;
 }
 
-String operator + (const String &s1,const String &s2){
+String operator + (const String &s1, const String &s2){
     String temp = s1;
     return temp += s2;
 }

@@ -35,8 +35,8 @@ template<class T, int NUM, class Env = ENV>
 class CDHComponent : public RootObject, virtual public IDataUpdatable, virtual public ISwitchable {
 public:
 	CDHComponent(int instance_id, const datatype::String& name) : RootObject(instance_id, name) {}
-	void connect(core::datapool::AocsDataPool* pool,int rows, const datatype::String name){ 
-		this->datapool_hold_index_ = pool->create(this,rows,name);
+	void connect(core::datapool::AocsDataPool* pool, int rows, const datatype::String name){ 
+		this->datapool_hold_index_ = pool->create(this, rows, name);
 		datapool_ = pool; 
 	}
 	virtual void on(){ is_on_ = true;}
@@ -50,7 +50,7 @@ protected:
 	bool is_on_;
 	T value_[NUM];
 private:
-	friend class interface::CDHComponentIterator<T,NUM,Env>;
+	friend class interface::CDHComponentIterator<T, NUM, Env>;
     CDHComponent();
 };
 
@@ -60,7 +60,7 @@ private:
 	@tparam Env     コンポーネントの環境クラス．
 */
 template<class TList, class Env = ENV>
-class CDHMultiComponent : public RootObject, public OutputPorts< TList >, virtual public IDataUpdatable, virtual public ISwitchable {
+class CDHMultiComponent : public RootObject, public OutputPorts<TList>, virtual public IDataUpdatable, virtual public ISwitchable {
 public:
 	CDHMultiComponent(int instance_id, const datatype::String& name) : RootObject(instance_id, name) {}
 	virtual void on(){ is_on_ = true;}
@@ -75,7 +75,7 @@ protected:
 
 namespace interface {
 
-//! scalar型など,value()でdoubleを取れる型のCDHComponentに対して使えるイテレータ
+//! scalar型など, value()でdoubleを取れる型のCDHComponentに対して使えるイテレータ
 /*! 
 	@tparam T   対象CDHComponentが測定している物理量を表す型．
 	@tparam NUM 対象CDHComponentの観測チャネル数．
@@ -84,7 +84,7 @@ namespace interface {
 template<class T, int NUM, class Env>
 class CDHComponentIterator : public Iterator {
 public:
-	CDHComponentIterator(core::devicedriver::CDHComponent<T,NUM,Env>* data) : data_(data), index_(0){}
+	CDHComponentIterator(core::devicedriver::CDHComponent<T, NUM, Env>* data) : data_(data), index_(0){}
 	virtual void init(){ index_  = 0; }
 	virtual bool end(){
 		if(index_ >= NUM) return true; return false;
@@ -96,7 +96,7 @@ public:
 		return data_->value_[index_].value();
 	}
 private:
-	const core::devicedriver::CDHComponent<T,NUM,Env>* data_;
+	const core::devicedriver::CDHComponent<T, NUM, Env>* data_;
 	int index_;
 };
 

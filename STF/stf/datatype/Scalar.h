@@ -49,13 +49,13 @@ private:
 	friend inline bool operator < (const Scalar& left, const Scalar& right);
 	friend inline Scalar operator + (const Scalar& s);
 	friend inline Scalar operator - (const Scalar& s);
-	friend inline Scalar operator + (const Scalar& s1,const Scalar& s2);
-	friend inline Scalar operator - (const Scalar& s1,const Scalar& s2);
-	friend inline Scalar operator * (const Scalar& s1,const Scalar& s2);
-	friend inline Scalar operator / (const Scalar& s1,const Scalar& s2);
-	friend inline Scalar operator * (const Scalar& s,double d);
-	friend inline Scalar operator * (double d,const Scalar& s);
-	friend inline Scalar operator / (const Scalar& s,double d);
+	friend inline Scalar operator + (const Scalar& s1, const Scalar& s2);
+	friend inline Scalar operator - (const Scalar& s1, const Scalar& s2);
+	friend inline Scalar operator * (const Scalar& s1, const Scalar& s2);
+	friend inline Scalar operator / (const Scalar& s1, const Scalar& s2);
+	friend inline Scalar operator * (const Scalar& s, double d);
+	friend inline Scalar operator * (double d, const Scalar& s);
+	friend inline Scalar operator / (const Scalar& s, double d);
 };
 
 //////////////////////////
@@ -135,19 +135,19 @@ inline Scalar operator * (const Scalar& s1, const Scalar& s2){
 	return temp;
 }
 
-inline Scalar operator * (const Scalar& s,double d){
+inline Scalar operator * (const Scalar& s, double d){
 	Scalar temp = s;
 	temp.value_ *= d;
 	return temp;
 }
 
-inline Scalar operator * (double d,const Scalar& s){
+inline Scalar operator * (double d, const Scalar& s){
 	Scalar temp = s;
 	temp.value_ *= d;
 	return temp;
 }
 
-inline Scalar operator / (const Scalar& s,double d){
+inline Scalar operator / (const Scalar& s, double d){
 	Scalar temp = s;
 	temp.value_ /= d;
 	return temp;

@@ -13,7 +13,7 @@ namespace environment {
 namespace torquesource {
 
 ImpulseNoise::ImpulseNoise(double magnitude, const datatype::StaticVector<3> &vector, const int &startTimeInSecond, const double &durationInMillisec, environment::Simulator *env)
-: NoiseBase(env), vector_(vector), magnitude_(magnitude), starttime_(startTimeInSecond,0), duration_(0,durationInMillisec)
+: NoiseBase(env), vector_(vector), magnitude_(magnitude), starttime_(startTimeInSecond, 0), duration_(0, durationInMillisec)
 {
 }
 

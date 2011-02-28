@@ -76,7 +76,7 @@ static void dscom
        double epoch,  double ep,     double argpp,   double tc,     double inclp,
        double nodep,  double np,
        double& snodm, double& cnodm, double& sinim,  double& cosim, double& sinomm,
-       double& cosomm,double& day,   double& e3,     double& ee2,   double& em,
+       double& cosomm, double& day,   double& e3,     double& ee2,   double& em,
        double& emsq,  double& gam,   double& peo,    double& pgho,  double& pho,
        double& pinco, double& plo,   double& rtemsq, double& se2,   double& se3,
        double& sgh2,  double& sgh3,  double& sgh4,   double& sh2,   double& sh3,
@@ -134,8 +134,8 @@ static void initl
        double ecco,   double epoch,  double inclo,   double& no,
        char& method,
        double& ainv,  double& ao,    double& con41,  double& con42, double& cosio,
-       double& cosio2,double& eccsq, double& omeosq, double& posq,
-       double& rp,    double& rteosq,double& sinio , double& gsto
+       double& cosio2, double& eccsq, double& omeosq, double& posq,
+       double& rp,    double& rteosq, double& sinio , double& gsto
      );
 
 /* -----------------------------------------------------------------------------
@@ -404,7 +404,7 @@ static void dscom
        double epoch,  double ep,     double argpp,   double tc,     double inclp,
        double nodep,  double np,
        double& snodm, double& cnodm, double& sinim,  double& cosim, double& sinomm,
-       double& cosomm,double& day,   double& e3,     double& ee2,   double& em,
+       double& cosomm, double& day,   double& e3,     double& ee2,   double& em,
        double& emsq,  double& gam,   double& peo,    double& pgho,  double& pho,
        double& pinco, double& plo,   double& rtemsq, double& se2,   double& se3,
        double& sgh2,  double& sgh3,  double& sgh4,   double& sh2,   double& sh3,
@@ -1198,8 +1198,8 @@ static void initl
        double ecco,   double epoch,  double inclo,   double& no,
        char& method,
        double& ainv,  double& ao,    double& con41,  double& con42, double& cosio,
-       double& cosio2,double& eccsq, double& omeosq, double& posq,
-       double& rp,    double& rteosq,double& sinio , double& gsto
+       double& cosio2, double& eccsq, double& omeosq, double& posq,
+       double& rp,    double& rteosq, double& sinio , double& gsto
      )
 {
      /* --------------------- local variables ------------------------ */
@@ -1526,7 +1526,7 @@ int sgp4init
              dscom
                  (
                    epoch, satrec.ecco, satrec.argpo, tc, satrec.inclo, satrec.nodeo,
-                   satrec.no, snodm, cnodm,  sinim, cosim,sinomm,     cosomm,
+                   satrec.no, snodm, cnodm,  sinim, cosim, sinomm,     cosomm,
                    day, satrec.e3, satrec.ee2, em,         emsq, gam,
                    satrec.peo,  satrec.pgho,   satrec.pho, satrec.pinco,
                    satrec.plo,  rtemsq,        satrec.se2, satrec.se3,
@@ -1548,7 +1548,7 @@ int sgp4init
                    satrec.se3, satrec.sgh2, satrec.sgh3, satrec.sgh4,
                    satrec.sh2, satrec.sh3, satrec.si2,  satrec.si3,
                    satrec.sl2, satrec.sl3, satrec.sl4,  satrec.t,
-                   satrec.xgh2,satrec.xgh3,satrec.xgh4, satrec.xh2,
+                   satrec.xgh2, satrec.xgh3, satrec.xgh4, satrec.xh2,
                    satrec.xh3, satrec.xi2, satrec.xi3,  satrec.xl2,
                    satrec.xl3, satrec.xl4, satrec.zmol, satrec.zmos, inclm, satrec.init,
                    satrec.ecco, satrec.inclo, satrec.nodeo, satrec.argpo, satrec.mo
@@ -1790,7 +1790,7 @@ int sgp4
 //         printf("# error nm %f\n", nm);
          satrec.error = 2;
        }
-     am = pow((xke / nm),x2o3) * tempa * tempa;
+     am = pow((xke / nm), x2o3) * tempa * tempa;
      nm = xke / pow(am, 1.5);
      em = em - tempe;
 
@@ -1962,7 +1962,7 @@ int sgp4
      // sgp4fix for decaying satellites
      if (mrt < 1.0)		//地球に激突して破壊？
        {
-//         printf("# decay condition %11.6f \n",mrt);
+//         printf("# decay condition %11.6f \n", mrt);
          satrec.error = 6;
        }
 
@@ -2020,7 +2020,7 @@ double  gstime
 
 /*
 //debug用
-	int temp1,temp2;
+	int temp1, temp2;
 	double temp3;
 	temp1 = (int)(temp*180/pi/15);
 	temp2 = (int)((temp*180/pi/15-temp1)*60);
@@ -2113,7 +2113,7 @@ void getgravconst
            j3oj2  =  j3 / j2;
          break;
          default:
-           fprintf(stderr,"unknown gravity option (%d)\n",whichconst);
+           fprintf(stderr, "unknown gravity option (%d)\n", whichconst);
          break;
          }
 

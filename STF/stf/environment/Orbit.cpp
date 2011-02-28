@@ -78,7 +78,7 @@ const StaticVector<3> Orbit::getEarthVector3D() const {
 
 const MagneticField Orbit::getMagneticField() const {
 	//外部のigrf.hを使って磁場計算．外部ファイルigrf10.coefが無いとプログラムが停止するので注意．
-	return OrbitCalc::getMagneticFieldDirection(this->getSatellitePosition(),this->starttime_ + this->localtime_);
+	return OrbitCalc::getMagneticFieldDirection(this->getSatellitePosition(), this->starttime_ + this->localtime_);
 }
 
 } /* End of namespace stf::environment */

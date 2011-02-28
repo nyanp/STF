@@ -26,17 +26,17 @@ class TypeListMemberFunctionCommand : public Command {
 	typedef void (T::*Func)(ARG);
 public:
 	TypeListMemberFunctionCommand(const datatype::Time& t, T* obj, Func f, ARG arg) 
-		: Command(t,"TypeListMemberFuncCommand"), obj_(obj), f_(f), arg_(arg) {}
+		: Command(t, "TypeListMemberFuncCommand"), obj_(obj), f_(f), arg_(arg) {}
 	~TypeListMemberFunctionCommand(){}
 	virtual void init(int* params, int paramsize){
 		assert(paramsize >= 1);
 		arg_ = (ARG)params[0];
 	}
 	virtual Command* clone(const datatype::Time& t){
-		return new TypeListMemberFunctionCommand<T,ARG,N>(t,obj_,f_,arg_);
+		return new TypeListMemberFunctionCommand<T, ARG, N>(t, obj_, f_, arg_);
 	}
 	virtual void execute(){
-		util::Trace trace(util::Trace::kCommand,name_);
+		util::Trace trace(util::Trace::kCommand, name_);
 		(*obj_.*f_)(arg_);//trigger functor
 	}
 private:
@@ -50,11 +50,11 @@ private:
 	@tparam ARG 引数の型．
  */
 template<class T, class ARG>
-class TypeListMemberFunctionCommand<T,ARG,2> : public Command {
-	typedef void (T::*Func)(ARG,ARG);
+class TypeListMemberFunctionCommand<T, ARG, 2> : public Command {
+	typedef void (T::*Func)(ARG, ARG);
 public:
 	TypeListMemberFunctionCommand(const datatype::Time& t, T* obj, Func f, ARG arg1, ARG arg2)
-		: Command(t,"TypeListMemberFuncCommand"), obj_(obj), f_(f), arg1_(arg1), arg2_(arg2) {}
+		: Command(t, "TypeListMemberFuncCommand"), obj_(obj), f_(f), arg1_(arg1), arg2_(arg2) {}
 	~TypeListMemberFunctionCommand(){}
 	virtual void init(int* params, int paramsize){
 		assert(paramsize >= 2);
@@ -62,7 +62,7 @@ public:
 		arg2_ = params[1];
 	}
 	virtual Command* clone(const datatype::Time& t){
-		return new TypeListMemberFunctionCommand<T,ARG,2>(t,obj_,f_,arg1_,arg2_);
+		return new TypeListMemberFunctionCommand<T, ARG, 2>(t, obj_, f_, arg1_, arg2_);
 	}
 	virtual void execute(){
 		(*obj_.*f_)(arg1_, arg2_);//trigger functor
@@ -79,11 +79,11 @@ private:
 	@tparam ARG 引数の型．
  */
 template<class T, class ARG>
-class TypeListMemberFunctionCommand<T,ARG,3> : public Command {
-	typedef void (T::*Func)(ARG,ARG,ARG);
+class TypeListMemberFunctionCommand<T, ARG, 3> : public Command {
+	typedef void (T::*Func)(ARG, ARG, ARG);
 public:
 	TypeListMemberFunctionCommand(const datatype::Time& t, T* obj, Func f, ARG arg1, ARG arg2, ARG arg3)
-		: Command(t,"TypeListMemberFuncCommand"), obj_(obj), f_(f), arg1_(arg1), arg2_(arg2), arg3_(arg3) {}
+		: Command(t, "TypeListMemberFuncCommand"), obj_(obj), f_(f), arg1_(arg1), arg2_(arg2), arg3_(arg3) {}
 	~TypeListMemberFunctionCommand(){}
 	virtual void init(int* params, int paramsize){
 		assert(paramsize >= 3);
@@ -92,7 +92,7 @@ public:
 		arg3_ = params[2];
 	}
 	virtual Command* clone(const datatype::Time& t){
-		return new TypeListMemberFunctionCommand<T,ARG,3>(t,obj_,f_,arg1_,arg2_,arg3_);
+		return new TypeListMemberFunctionCommand<T, ARG, 3>(t, obj_, f_, arg1_, arg2_, arg3_);
 	}
 	virtual void execute(){
 		(*obj_.*f_)(arg1_, arg2_, arg3_);//trigger functor
@@ -110,11 +110,11 @@ private:
 	@tparam ARG 引数の型．
  */
 template<class T, class ARG>
-class TypeListMemberFunctionCommand<T,ARG,4> : public Command {
-	typedef void (T::*Func)(ARG,ARG,ARG,ARG);
+class TypeListMemberFunctionCommand<T, ARG, 4> : public Command {
+	typedef void (T::*Func)(ARG, ARG, ARG, ARG);
 public:
 	TypeListMemberFunctionCommand(const datatype::Time& t, T* obj, Func f, ARG arg1, ARG arg2, ARG arg3, ARG arg4)
-		: Command(t,"TypeListMemberFuncCommand"), obj_(obj), f_(f), arg1_(arg1), arg2_(arg2), arg3_(arg3), arg4_(arg4) {}
+		: Command(t, "TypeListMemberFuncCommand"), obj_(obj), f_(f), arg1_(arg1), arg2_(arg2), arg3_(arg3), arg4_(arg4) {}
 	~TypeListMemberFunctionCommand(){}
 	virtual void init(int* params, int paramsize){
 		assert(paramsize >= 4);
@@ -124,10 +124,10 @@ public:
 		arg4_ = params[3];
 	}
 	virtual Command* clone(const datatype::Time& t){
-		return new TypeListMemberFunctionCommand<T,ARG,4>(t,obj_,f_,arg1_,arg2_,arg3_,arg4_);
+		return new TypeListMemberFunctionCommand<T, ARG, 4>(t, obj_, f_, arg1_, arg2_, arg3_, arg4_);
 	}
 	virtual void execute(){
-		(*obj_.*f_)(arg1_, arg2_, arg3_,arg4_);//trigger functor
+		(*obj_.*f_)(arg1_, arg2_, arg3_, arg4_);//trigger functor
 	}
 private:
 	T* obj_;
@@ -143,11 +143,11 @@ private:
 	@tparam ARG 引数の型．
  */
 template<class T, class ARG>
-class TypeListMemberFunctionCommand<T,ARG,5> : public Command {
-	typedef void (T::*Func)(ARG,ARG,ARG,ARG,ARG);
+class TypeListMemberFunctionCommand<T, ARG, 5> : public Command {
+	typedef void (T::*Func)(ARG, ARG, ARG, ARG, ARG);
 public:
 	TypeListMemberFunctionCommand(const datatype::Time& t, T* obj, Func f, ARG arg1, ARG arg2, ARG arg3, ARG arg4, ARG arg5)
-		: Command(t,"TypeListMemberFuncCommand"), obj_(obj), f_(f), arg1_(arg1), arg2_(arg2), arg3_(arg3), arg4_(arg4), arg5_(arg5) {}
+		: Command(t, "TypeListMemberFuncCommand"), obj_(obj), f_(f), arg1_(arg1), arg2_(arg2), arg3_(arg3), arg4_(arg4), arg5_(arg5) {}
 	~TypeListMemberFunctionCommand(){}
 	virtual void init(int* params, int paramsize){
 		assert(paramsize >= 5);
@@ -158,10 +158,10 @@ public:
 		arg5_ = params[4];
 	}
 	virtual Command* clone(const datatype::Time& t){
-		return new TypeListMemberFunctionCommand<T,ARG,5>(t,obj_,f_,arg1_,arg2_,arg3_,arg4_,arg5_);
+		return new TypeListMemberFunctionCommand<T, ARG, 5>(t, obj_, f_, arg1_, arg2_, arg3_, arg4_, arg5_);
 	}
 	virtual void execute(){
-		(*obj_.*f_)(arg1_, arg2_, arg3_,arg4_,arg5_);//trigger functor
+		(*obj_.*f_)(arg1_, arg2_, arg3_, arg4_, arg5_);//trigger functor
 	}
 private:
 	T* obj_;
@@ -178,11 +178,11 @@ private:
 	@tparam ARG 引数の型．
  */
 template<class T, class ARG>
-class TypeListMemberFunctionCommand<T,ARG,6> : public Command {
-	typedef void (T::*Func)(ARG,ARG,ARG,ARG,ARG,ARG);
+class TypeListMemberFunctionCommand<T, ARG, 6> : public Command {
+	typedef void (T::*Func)(ARG, ARG, ARG, ARG, ARG, ARG);
 public:
 	TypeListMemberFunctionCommand(const datatype::Time& t, T* obj, Func f, ARG arg1, ARG arg2, ARG arg3, ARG arg4, ARG arg5, ARG arg6)
-		: Command(t,"TypeListMemberFuncCommand"), obj_(obj), f_(f), arg1_(arg1), arg2_(arg2), arg3_(arg3), arg4_(arg4), arg5_(arg5), arg6_(arg6) {}
+		: Command(t, "TypeListMemberFuncCommand"), obj_(obj), f_(f), arg1_(arg1), arg2_(arg2), arg3_(arg3), arg4_(arg4), arg5_(arg5), arg6_(arg6) {}
 	~TypeListMemberFunctionCommand(){}
 	virtual void init(int* params, int paramsize){
 		assert(paramsize >= 6);
@@ -194,10 +194,10 @@ public:
 		arg6_ = params[5];
 	}
 	virtual Command* clone(const datatype::Time& t){
-		return new TypeListMemberFunctionCommand<T,ARG,6>(t,obj_,f_,arg1_,arg2_,arg3_,arg4_,arg5_,arg6_);
+		return new TypeListMemberFunctionCommand<T, ARG, 6>(t, obj_, f_, arg1_, arg2_, arg3_, arg4_, arg5_, arg6_);
 	}
 	virtual void execute(){
-		(*obj_.*f_)(arg1_, arg2_, arg3_,arg4_,arg5_,arg6_);//trigger functor
+		(*obj_.*f_)(arg1_, arg2_, arg3_, arg4_, arg5_, arg6_);//trigger functor
 	}
 private:
 	T* obj_;

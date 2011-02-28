@@ -22,7 +22,7 @@ namespace strategy {
 /*! */
 class StrategyBase : public RootObject, virtual public interface::IEnabable{
 public:
-	StrategyBase(int instance_id, const datatype::String& strategy_name) : RootObject(instance_id,strategy_name) {}
+	StrategyBase(int instance_id, const datatype::String& strategy_name) : RootObject(instance_id, strategy_name) {}
 	virtual ~StrategyBase(){}
 	//! ストラテジの有効化．
 	virtual void enable(){ is_enabled_ = true; }

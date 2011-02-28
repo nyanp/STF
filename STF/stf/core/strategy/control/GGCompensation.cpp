@@ -35,12 +35,12 @@ GGCompensation::GGCompensation(int instance_id,
 void GGCompensation::do_compute(const datatype::Time& t) {
 	if(t <= this->last_update_) return; //既に別のブロック経由で更新済みなら再計算しない
 
-	util::Trace trace(util::Trace::kControlBlock,name_);
+	util::Trace trace(util::Trace::kControlBlock, name_);
 
 	// 軌道情報と姿勢情報から，機体座標における地球方向ベクトルを算出
 	datatype::StaticVector<3> R = datatype::OrbitCalc::getEarthDirectionInBodyFrame(
-		this->source<1,datatype::PositionInfo>().get_value(t),
-		this->source<0,datatype::Quaternion>().get_value(t));
+		this->source<1, datatype::PositionInfo>().get_value(t),
+		this->source<0, datatype::Quaternion>().get_value(t));
 
 	double r = R.norm(2);
 	datatype::StaticVector<3> u = R / r;

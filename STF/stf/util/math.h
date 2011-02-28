@@ -31,7 +31,7 @@ namespace math {
 	//! 余弦を求める，cmathのラッパ．
 	double Cos(double s);
 	//! sが指定以下であれば0を返す切り下げ判定関数．
-	inline double Align(double s,double align = ALIGN){
+	inline double Align(double s, double align = ALIGN){
 		return abs(s) < align ? 0 : s;
 	}
 }

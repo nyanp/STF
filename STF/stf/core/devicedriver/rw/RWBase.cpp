@@ -21,7 +21,7 @@ void RWBase<environment::Simulator>::do_update(){
 	this->angular_momentum_ += this->output_.value() * STEPTIME;
 	//
 	if(this->datapool_ != 0){
-		datapool_->set<RWBase<environment::Simulator>>(datapool_hold_index_,this->output_);
+		datapool_->set<RWBase<environment::Simulator>>(datapool_hold_index_, this->output_);
 	}
 }
 

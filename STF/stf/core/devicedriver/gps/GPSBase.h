@@ -34,7 +34,7 @@ public:
 	virtual const datatype::DateTime get_datetime() const {return t_;}
 	virtual void set_absolute_time(datatype::DateTime t) {t_ = t;}
 	virtual void set_absolute_time(int year, int month, int day, int hour, int minute, int second){
-		t_.init(year,month,day,hour,minute,second);
+		t_.init(year, month, day, hour, minute, second);
 	}
 	virtual datatype::PositionInfo filter(const datatype::PositionInfo& value); 
 protected:

@@ -58,8 +58,8 @@ private:
 
 template<class Env>
 void SimpleSatelliteFactory<Env>::create_mode(){
-	this->global_->ss_safemode = new mode::ModeBase(ID_SAFEMODE,"SS_SAFEMODE");
-	this->global_->ss_missionmode = new mode::ModeBase(ID_MISSIONMODE,"SS_MISSIONMODE");
+	this->global_->ss_safemode = new mode::ModeBase(ID_SAFEMODE, "SS_SAFEMODE");
+	this->global_->ss_missionmode = new mode::ModeBase(ID_MISSIONMODE, "SS_MISSIONMODE");
 }
 
 
@@ -78,27 +78,27 @@ void SimpleSatelliteFactory<Env>::create_component(){
 	this->global_->ss_eventdatapool = new core::datapool::EventDataPool(0);
 
 	// Clock(RTC&OBCTime)
-	this->global_->ss_clock = new Clock(ID_CLOCK,YEAR,MONTH,DATE);
+	this->global_->ss_clock = new Clock(ID_CLOCK,YEAR, MONTH, DATE);
 
 	// Command/Telemetry Driver
-	this->global_->ss_commandreceiver = new CmHandler(0,global_->ss_commandmanager);
-	this->global_->ss_tmhandler = new TmHandler("ss_telemetry.csv",false);
+	this->global_->ss_commandreceiver = new CmHandler(0, global_->ss_commandmanager);
+	this->global_->ss_tmhandler = new TmHandler("ss_telemetry.csv", false);
 
 	//Gyro
-	this->global_->ss_gyrox = new GYRO(ID_GYRO_X,datatype::TypeConverter::toDCM(0,-90,0));
-	this->global_->ss_gyroy = new GYRO(ID_GYRO_Y,datatype::TypeConverter::toDCM(0,0,90));
-	this->global_->ss_gyroz = new GYRO(ID_GYRO_Z,datatype::TypeConverter::toDCM(0,0,0));
-	this->global_->ss_gyro =  new ThreeAxisGyro(ID_GYRO,datatype::TypeConverter::toDCM(0,0,0));
+	this->global_->ss_gyrox = new GYRO(ID_GYRO_X, datatype::TypeConverter::toDCM(0,-90, 0));
+	this->global_->ss_gyroy = new GYRO(ID_GYRO_Y, datatype::TypeConverter::toDCM(0, 0, 90));
+	this->global_->ss_gyroz = new GYRO(ID_GYRO_Z, datatype::TypeConverter::toDCM(0, 0, 0));
+	this->global_->ss_gyro =  new ThreeAxisGyro(ID_GYRO, datatype::TypeConverter::toDCM(0, 0, 0));
 	this->global_->ss_gyro->append_child(this->global_->ss_gyrox);
 	this->global_->ss_gyro->append_child(this->global_->ss_gyroy);
 	this->global_->ss_gyro->append_child(this->global_->ss_gyroz);
 
 	// Reaction Wheel
-	this->global_->ss_rw1 = new RW(ID_RW_1,datatype::TypeConverter::toDCM(0,70,0));
-	this->global_->ss_rw2 = new RW(ID_RW_2,datatype::TypeConverter::toDCM(0,70,120));
-	this->global_->ss_rw3 = new RW(ID_RW_3,datatype::TypeConverter::toDCM(0,70,240));
-	this->global_->ss_rw4 = new RW(ID_RW_4,datatype::TypeConverter::toDCM(0,0,0));
-	this->global_->ss_rw  = new SkewRW(ID_RW,datatype::TypeConverter::toDCM(0,0,0));
+	this->global_->ss_rw1 = new RW(ID_RW_1, datatype::TypeConverter::toDCM(0, 70, 0));
+	this->global_->ss_rw2 = new RW(ID_RW_2, datatype::TypeConverter::toDCM(0, 70, 120));
+	this->global_->ss_rw3 = new RW(ID_RW_3, datatype::TypeConverter::toDCM(0, 70, 240));
+	this->global_->ss_rw4 = new RW(ID_RW_4, datatype::TypeConverter::toDCM(0, 0, 0));
+	this->global_->ss_rw  = new SkewRW(ID_RW, datatype::TypeConverter::toDCM(0, 0, 0));
 	this->global_->ss_rw->append_child(this->global_->ss_rw1);
 	this->global_->ss_rw->append_child(this->global_->ss_rw2);
 	this->global_->ss_rw->append_child(this->global_->ss_rw3);
@@ -144,7 +144,7 @@ void SimpleSatelliteFactory<Env>::create_command(){
 
 template<class Env>
 void SimpleSatelliteFactory<Env>::create_telemetry(){
-	this->global_->ss_tmstrategy = new strategy::telemetry::OutputAll<>(0,global_->ss_tmhandler,global_->ss_aocsdatapool,global_->ss_eventdatapool);
+	this->global_->ss_tmstrategy = new strategy::telemetry::OutputAll<>(0, global_->ss_tmhandler, global_->ss_aocsdatapool, global_->ss_eventdatapool);
 
 	this->global_->ss_safemode->add_list(global_->ss_tmstrategy);
 	this->global_->ss_missionmode->add_list(global_->ss_tmstrategy);
@@ -176,10 +176,10 @@ void SimpleSatelliteFactory<Env>::create_switches(){
 template<class Env>
 void SimpleSatelliteFactory<Env>::create_functor(){
 	//àÍíËéûä‘Ç™åoâﬂÇµÇΩÇÁSafeMode->MissionModeÇ÷à⁄çs
-	core::functor::IFunctor* timerfunc = new functor::Functor<functor::Getter_Over<datatype::Time,devicedriver::clock::ITimeClock>,core::functor::ModeChangeFunc>
+	core::functor::IFunctor* timerfunc = new functor::Functor<functor::Getter_Over<datatype::Time, devicedriver::clock::ITimeClock>, core::functor::ModeChangeFunc>
 			(
-				new functor::Getter_Over<datatype::Time,devicedriver::clock::ITimeClock>(
-					this->global_->ss_clock,&devicedriver::clock::ITimeClock::get_time,new datatype::Time(10,0)
+				new functor::Getter_Over<datatype::Time, devicedriver::clock::ITimeClock>(
+					this->global_->ss_clock,&devicedriver::clock::ITimeClock::get_time, new datatype::Time(10, 0)
 					),
 					new functor::ModeChangeFunc(this->global_->ss_modemanager,*(this->global_->ss_missionmode))
 			);
@@ -193,16 +193,16 @@ void SimpleSatelliteFactory<Env>::create_additional_hotspot(){
 
 template<class Env>
 void SimpleSatelliteFactory<Env>::create_datapool(){
-	this->global_->ss_gyrox->connect(global_->ss_aocsdatapool,20,"SS_GYRO1");
-	this->global_->ss_gyroy->connect(global_->ss_aocsdatapool,20,"SS_GYRO2");
-	this->global_->ss_gyroz->connect(global_->ss_aocsdatapool,20,"SS_GYRO3");
-	this->global_->ss_gyro->connect(global_->ss_aocsdatapool,20,"SS_GYRO");
+	this->global_->ss_gyrox->connect(global_->ss_aocsdatapool, 20, "SS_GYRO1");
+	this->global_->ss_gyroy->connect(global_->ss_aocsdatapool, 20, "SS_GYRO2");
+	this->global_->ss_gyroz->connect(global_->ss_aocsdatapool, 20, "SS_GYRO3");
+	this->global_->ss_gyro->connect(global_->ss_aocsdatapool, 20, "SS_GYRO");
 
-	this->global_->ss_rw1->connect(global_->ss_aocsdatapool,10,"SS_RW1");
-	this->global_->ss_rw2->connect(global_->ss_aocsdatapool,10,"SS_RW2");
-	this->global_->ss_rw3->connect(global_->ss_aocsdatapool,10,"SS_RW3");
-	this->global_->ss_rw4->connect(global_->ss_aocsdatapool,10,"SS_RW4");
-	this->global_->ss_rw->connect(global_->ss_aocsdatapool,10,"SS_RW");
+	this->global_->ss_rw1->connect(global_->ss_aocsdatapool, 10, "SS_RW1");
+	this->global_->ss_rw2->connect(global_->ss_aocsdatapool, 10, "SS_RW2");
+	this->global_->ss_rw3->connect(global_->ss_aocsdatapool, 10, "SS_RW3");
+	this->global_->ss_rw4->connect(global_->ss_aocsdatapool, 10, "SS_RW4");
+	this->global_->ss_rw->connect(global_->ss_aocsdatapool, 10, "SS_RW");
 }
 
 template<class Env>

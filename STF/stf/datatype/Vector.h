@@ -48,13 +48,13 @@ private:
 	friend class Matrix;
 	template<class T>friend class stf::util::Ostream;
 	friend inline const Matrix operator * (const Matrix&, const Matrix&);
-	friend inline const Vector operator +(const Vector&,const Vector&);
-	friend inline const Vector operator -(const Vector&,const Vector&);
-	friend inline const double operator *(const Vector&,const Vector&);
-	friend inline const Vector operator *(double,const Vector&);
-	friend inline const Vector operator *(const Vector&,double);
-	friend inline const Vector operator %(const Vector&,const Vector&);
-	friend inline const Vector operator /(const Vector&,double);
+	friend inline const Vector operator +(const Vector&, const Vector&);
+	friend inline const Vector operator -(const Vector&, const Vector&);
+	friend inline const double operator *(const Vector&, const Vector&);
+	friend inline const Vector operator *(double, const Vector&);
+	friend inline const Vector operator *(const Vector&, double);
+	friend inline const Vector operator %(const Vector&, const Vector&);
+	friend inline const Vector operator /(const Vector&, double);
 	friend inline const Vector operator * (const Matrix&, const Vector&); 
 	friend inline bool operator >= (const Vector& left, const Vector& right);
 	friend inline bool operator <= (const Vector& left, const Vector& right);
@@ -136,7 +136,7 @@ inline const Vector operator * (double factor, const Vector& vec){
 }
 
 // ベクトルの外積．2または3次元ベクトルの場合のみ有効
-inline const Vector operator %(const Vector& vec1,const Vector& vec2){
+inline const Vector operator %(const Vector& vec1, const Vector& vec2){
 	assert(vec1.dimension_ == vec2.dimension_);
 	assert(vec1.dimension_ == 2 || vec1.dimension_ == 3);
 	if(vec1.dimension_ == 2){

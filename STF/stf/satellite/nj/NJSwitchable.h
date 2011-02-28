@@ -31,7 +31,7 @@ private:
 };
 
 template<class Env>
-class NJTDI : public NJSimpleComponent<Env,5> {
+class NJTDI : public NJSimpleComponent<Env, 5> {
 public:
 
 private:
@@ -63,7 +63,7 @@ private:
 };
 
 template<class Env>
-class NJHeaterManager : public NJSimpleComponent<Env,2>  {
+class NJHeaterManager : public NJSimpleComponent<Env, 2>  {
 public:
 
 private:

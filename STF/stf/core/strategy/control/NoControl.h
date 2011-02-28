@@ -27,7 +27,7 @@ public:
 	NoControl(int instance_id) : StrategyBase(instance_id, "NoControl"){}
 	~NoControl(){}
 	virtual void do_compute(const datatype::Time& t){
-		util::Trace trace(util::Trace::kControlBlock,name_);
+		util::Trace trace(util::Trace::kControlBlock, name_);
 	}//何もしない
 };
 

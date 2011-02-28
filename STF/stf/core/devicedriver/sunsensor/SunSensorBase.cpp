@@ -22,7 +22,7 @@ template <>
 void SunSensorBase<environment::Simulator>::do_update(){
 	this->value_ = filter(this->environment_->getSunDirection(*this));
 	if(this->datapool_ != 0){
-		datapool_->set<SunSensorBase<environment::Simulator>>(datapool_hold_index_,this->value_);
+		datapool_->set<SunSensorBase<environment::Simulator>>(datapool_hold_index_, this->value_);
 	}
 }
 
@@ -31,7 +31,7 @@ datatype::StaticVector<2> SunSensorBase<environment::Simulator>::filter(const da
 	datatype::StaticVector<3> sunvector_true = datatype::TypeConverter::toRectangular(value);
 
 	datatype::EulerAngle angle;
-	//angle[0] = util::math::WhiteNoise(this->err_deg_ * util::math::DEG2RAD ,0) / 3;
+	//angle[0] = util::math::WhiteNoise(this->err_deg_ * util::math::DEG2RAD , 0) / 3;
 	//angle[1] = util::math::WhiteNoise(this->err_deg_ * util::math::DEG2RAD, 0) / 3;
 	//angle[2] = util::math::WhiteNoise(this->err_deg_ * util::math::DEG2RAD, 0) / 3;
 

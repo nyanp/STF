@@ -22,33 +22,36 @@ namespace control {
 	@tparam T 補正対象の物理量．
 	@tparam U 補正に使用する物理量．operator * (const T&, const U&)が定義されている必要がある．
 */
-template<class T,class U>
+template<class T, class U>
 class FirstOrderCorrection : public devicedriver::InputPorts< TYPELIST_2(T, U) >, 
 		public devicedriver::OutputPorts < TYPELIST_1(T) > ,
 		public StrategyBase
 {
 public:
 	FirstOrderCorrection(int instance_id) {}
-	FirstOrderCorrection(int instance_id,
+
+	FirstOrderCorrection
+	(
+		int instance_id,
 		devicedriver::OutputPort<T>* target_source, 
 		devicedriver::OutputPort<U>* corrector_source, 
-		devicedriver::InputPort<T>* target_out) 
-	{
+		devicedriver::InputPort<T>* target_out
+	) {
 		 this->connect_source<0>(target_source);
 		 this->connect_source<1>(corrector_source);
 		 if(target_out != 0) target_out->connect_source_(this);
 	}
+
 	~FirstOrderCorrection(){}
 
 	virtual void do_compute(const datatype::Time& t){
 		if(t > this->last_update_){
-			util::Trace trace(util::Trace::kControlBlock,name_);
+			util::Trace trace(util::Trace::kControlBlock, name_);
 
-			this->value_ =  this->source<0,T>().get_value(t) * this->source<1,U>().get_value(t);
+			this->value_ =  this->source<0, T>().get_value(t) * this->source<1, U>().get_value(t);
 			this->last_update_ = t;
 		}
 	}
-protected:
 };
 
 

@@ -21,7 +21,7 @@ namespace functor {
 	@tparam T      メンバ関数の戻り値型．operator > が実装されている必要がある．
 	@tparam Holder メンバ関数を保持するクラス．
 */
-template <class T,class Holder>
+template <class T, class Holder>
 class Getter_Over {
 	typedef const T(Holder::*Getter)(void) const;
 public:
@@ -72,7 +72,7 @@ public:
 		@param datapool_hold_index データ判定に使用するデータプールの列番号．
 		@param ref                 判定に使用する基準値．
 	*/
-	Is_Equal(DB* holder,int datapool_hold_index, const typename T::Hold* ref) : holder_(holder), value_(ref), datapool_hold_index_(datapool_hold_index){}
+	Is_Equal(DB* holder, int datapool_hold_index, const typename T::Hold* ref) : holder_(holder), value_(ref), datapool_hold_index_(datapool_hold_index){}
 
 	bool operator()() const {
 		if(holder_->get<T>(datapool_hold_index_) == *value_ ){
@@ -103,7 +103,7 @@ public:
 		@param distance            判定の境界条件となるノルム値．
 		@param norm                計算に使用するノルムの次元．
 	*/
-	Is_Near(DB* holder,int datapool_hold_index, const typename T::Hold* ref, double distance, int norm) 
+	Is_Near(DB* holder, int datapool_hold_index, const typename T::Hold* ref, double distance, int norm) 
 		: holder_(holder), value_(ref), datapool_hold_index_(datapool_hold_index), distance_(distance), norm_(norm){
 
 	}
@@ -131,10 +131,10 @@ template <class T>
 class Is_Under  {
 public:
 	typedef core::datapool::AocsDataPool DB;
-	Is_Under(DB* holder,int datapool_hold_index, double norm) : holder_(holder), datapool_hold_index_(datapool_hold_index), distance_(norm), norm_(2){
+	Is_Under(DB* holder, int datapool_hold_index, double norm) : holder_(holder), datapool_hold_index_(datapool_hold_index), distance_(norm), norm_(2){
 
 	}
-	Is_Under(DB* holder,int datapool_hold_index, int index, double value) : holder_(holder), datapool_hold_index_(datapool_hold_index), distance_(value), norm_(0),index_(index){
+	Is_Under(DB* holder, int datapool_hold_index, int index, double value) : holder_(holder), datapool_hold_index_(datapool_hold_index), distance_(value), norm_(0), index_(index){
 
 	}
 	bool operator()() const {
@@ -167,12 +167,12 @@ template <class T>
 class Is_Over  {
 public:
 	typedef core::datapool::AocsDataPool DB;
-	Is_Over(DB* holder,int datapool_hold_index, double norm) : holder_(holder), datapool_hold_index_(datapool_hold_index), distance_(norm), norm_(2){
+	Is_Over(DB* holder, int datapool_hold_index, double norm) 
+		: holder_(holder), datapool_hold_index_(datapool_hold_index), distance_(norm), norm_(2){}
 
-	}
-	Is_Over(DB* holder,int datapool_hold_index, int index, double value) : holder_(holder), datapool_hold_index_(datapool_hold_index), distance_(value), norm_(0),index_(index){
+	Is_Over(DB* holder, int datapool_hold_index, int index, double value)
+		: holder_(holder), datapool_hold_index_(datapool_hold_index), distance_(value), norm_(0), index_(index){}
 
-	}
 	bool operator()() const {
 		if(norm_ > 0){//ノルムで評価
 			if(holder_->get<T>(datapool_hold_index_).norm(norm_) > distance_ ){
@@ -186,6 +186,7 @@ public:
 		}
 		return false;
 	}
+
 private:
 	DISALLOW_COPY_AND_ASSIGN_1(Is_Over, T);
 	double distance_;

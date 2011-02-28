@@ -30,12 +30,12 @@ MagneticMomentToTorque::MagneticMomentToTorque(int instance_id,
 void MagneticMomentToTorque::do_compute(const datatype::Time& t) {
 	if(t <= this->last_update_) return; //既に別のブロック経由で更新済みなら再計算しない
 
-	util::Trace trace(util::Trace::kControlBlock,name_);
+	util::Trace trace(util::Trace::kControlBlock, name_);
 
 	// T = M * B
 	this->value_ = 
-		this->source<1,datatype::MagneticMoment>().get_value(t) % 
-		this->source<0,datatype::MagneticMoment>().get_value(t);
+		this->source<1, datatype::MagneticMoment>().get_value(t) % 
+		this->source<0, datatype::MagneticMoment>().get_value(t);
 
 	this->last_update_ = t;
 }

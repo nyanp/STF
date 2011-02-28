@@ -19,7 +19,7 @@ StepNoise::StepNoise(double magnitude, stf::environment::Simulator *env)
 }
 
 StepNoise::StepNoise(double magnitude, const datatype::StaticVector<3> &vector, const int &startTimeInSecond, stf::environment::Simulator *env)
-: magnitude_(magnitude), vector_(vector), starttime_(startTimeInSecond,0), NoiseBase(env)
+: magnitude_(magnitude), vector_(vector), starttime_(startTimeInSecond, 0), NoiseBase(env)
 {
 }
 

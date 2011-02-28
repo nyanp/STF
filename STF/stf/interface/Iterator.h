@@ -24,7 +24,7 @@ namespace interface {
 	Object* obj = new Object();//走査対象
 	Iterator it(obj);
 	while(!it.end()){
-		std::cout << (*it)() << ",";
+		std::cout << (*it)() << ", ";
 		++it;
 	}
 	@endcode

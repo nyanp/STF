@@ -65,7 +65,7 @@ public:
 	Trace(TraceId id, const char* name) : function_name_(name), id_(-1){
 		if(this->active_table_[id]){
 			id_ = id;
-			util::clog << id_ << ",begin," << name << util::endl;
+			util::clog << id_ << ", begin, " << name << util::endl;
 		}
 	}
 
@@ -78,13 +78,13 @@ public:
 		if(this->active_table_[id]){
 			id_ = id;
 			function_name_ = name.to_char();
-			util::clog << id_ << ",begin," << name << util::endl;
+			util::clog << id_ << ", begin, " << name << util::endl;
 		}
 	}
 
 	~Trace() {
 		if(id_ != -1){
-			util::clog << id_ << ",end," << function_name_ << util::endl;
+			util::clog << id_ << ", end, " << function_name_ << util::endl;
 		}
 	}
 
@@ -95,7 +95,7 @@ public:
 	template<typename T>
 	void debug(T message){
 		if(id_ != -1){
-			util::clog << id_ << ",do," << message << util::endl;
+			util::clog << id_ << ", do, " << message << util::endl;
 		}
 	}
 		
@@ -105,7 +105,7 @@ public:
 	*/
 	void debug(const datatype::String& message){
 		if(id_ != -1){
-			util::clog << id_ << ",do," << message.to_char() << util::endl;
+			util::clog << id_ << ", do, " << message.to_char() << util::endl;
 		}
 	}
 

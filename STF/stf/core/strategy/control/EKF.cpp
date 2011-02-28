@@ -70,7 +70,7 @@ void EKF::init()
     this->bref_ = params_.b0;
     this->dt_ = params_.timestep;
     this->tau_ = params_.tau;
-    //w,vからQ,Rを生成
+    //w, vからQ,Rを生成
     for(int i = 0; i < 3; i++)
 	{
         Q_[i][i] = params_.w_q * params_.w_q;
@@ -88,7 +88,7 @@ void EKF::init()
     A_[0][3] = A_[1][4] = A_[2][5] = -0.5;
     A_[3][3] = A_[4][4] = A_[5][5] = -1 / this->tau_;
     //F
-    F_ = util::math::exp(A_ * dt_,4);
+    F_ = util::math::exp(A_ * dt_, 4);
 }
 
 
@@ -96,19 +96,19 @@ void EKF::do_compute(const datatype::Time& t)
 {
 	if(this->getLastOutputtime<1>() >= t) return; //伝搬済みなので何もしない
 
-	util::Trace trace(util::Trace::kControlBlock,name_);
+	util::Trace trace(util::Trace::kControlBlock, name_);
 
 	if(this->getLastOutputtime<0>() < t && this->get_lastinput<0>() >= this->getLastOutputtime<0>()){
-		update_( this->source<0,datatype::Quaternion>().get_value(t), t );
+		update_( this->source<0, datatype::Quaternion>().get_value(t), t );
 		//util::cout << "update:" << util::endl;
 	}
 	//util::cout << "propagate:" << util::endl;
-	propagate_( this->source<1,datatype::StaticVector<3>>().get_value(t), t );
+	propagate_( this->source<1, datatype::StaticVector<3>>().get_value(t), t );
 
 }
 
 
-void EKF::update_(const datatype::Quaternion &input,const datatype::Time& t)
+void EKF::update_(const datatype::Quaternion &input, const datatype::Time& t)
 {
     q_.normalize();
     //カルマンゲインの計算
@@ -140,13 +140,13 @@ void EKF::update_(const datatype::Quaternion &input,const datatype::Time& t)
     bref_[1] += x_[4];
     bref_[2] += x_[5];
 
-	this->outputport<0,datatype::Quaternion>().value_ = this->q_;
+	this->outputport<0, datatype::Quaternion>().value_ = this->q_;
 	//this->setLastOutputtime<0>(t);
 	this->setLastOutputtime<0>(t);
 }
 
 
-void EKF::propagate_(const datatype::StaticVector<3>& omega,const datatype::Time& t)
+void EKF::propagate_(const datatype::StaticVector<3>& omega, const datatype::Time& t)
 {
     //現時点での推定角速度でΩ，Aを更新
     this->omega_[0] = omega[0] - this->bref_[0] ;//- this->x_[3];
@@ -165,25 +165,25 @@ void EKF::propagate_(const datatype::StaticVector<3>& omega,const datatype::Time
       for(int j = 0; j < 4; j++)
         if(i > j) Omega_[i][j] = -Omega_[j][i];
 
-    //A,F,Gの更新
+    //A, F,Gの更新
     A_[0][1] =  this->omega_[2];
     A_[0][2] = -this->omega_[1];
     A_[1][0] = -this->omega_[2];
     A_[1][2] =  this->omega_[0];
     A_[2][0] =  this->omega_[1];
     A_[2][1] = -this->omega_[0];
-    F_ = util::math::exp(A_ * dt_,3);//TBD:expのマクローリン展開を3次まで取る．t>1のときは粗い近似になってしまう
+    F_ = util::math::exp(A_ * dt_, 3);//TBD:expのマクローリン展開を3次まで取る．t>1のときは粗い近似になってしまう
     G_ = B_ * dt_ + 0.5 * A_ * B_ * dt_ * dt_;//exp(A(t-tau))を3次まで展開して積分
 
-    //RKでq,bの基準値を伝搬(微小状態量は伝搬しない)
-    this->q_ += util::math::RungeKutta::slope(q_,0.5 * Omega_,dt_);
-    this->bref_ += util::math::RungeKutta::slope(bref_,-1 / tau_,dt_);
+    //RKでq, bの基準値を伝搬(微小状態量は伝搬しない)
+    this->q_ += util::math::RungeKutta::slope(q_, 0.5 * Omega_, dt_);
+    this->bref_ += util::math::RungeKutta::slope(bref_,-1 / tau_, dt_);
 
     //共分散行列の伝搬
     this->P_ = F_ * P_ * F_.trans() + G_ * Q_ * G_.trans();
 
-	this->outputport<0,datatype::Quaternion>().value_ = this->q_;
-	this->outputport<1,datatype::StaticVector<3>>().value_ = this->omega_;
+	this->outputport<0, datatype::Quaternion>().value_ = this->q_;
+	this->outputport<1, datatype::StaticVector<3>>().value_ = this->omega_;
 	this->setLastOutputtime<1>(t);
 }
 

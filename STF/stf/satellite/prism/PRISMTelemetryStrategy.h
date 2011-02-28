@@ -21,26 +21,34 @@ namespace telemetry {
 // 基本的にはSelectingOutputの実装を引き継いでいるが，外部イテレータへ実装を公開する点，
 // 時刻によって開始と終了を制御する点が異なる．
 template<int SCALE>
-class PRISMTelemetryStrategy : public SelectingOutput<short,SCALE> {
+class PRISMTelemetryStrategy : public SelectingOutput<short, SCALE> {
 public:
-	PRISMTelemetryStrategy(int instance_id,devicedriver::tmhandler::ITelemetryStoragable* storage,
+	PRISMTelemetryStrategy
+	(
+		int instance_id,
+		devicedriver::tmhandler::ITelemetryStoragable* storage,
 		const core::datapool::AocsDataPool* pool,
 		const core::datapool::EventDataPool* eventpool,
 		const devicedriver::clock::PRISMDummyClock* clock
-		) : SelectingOutput<short,SCALE>(instance_id, storage, pool, eventpool), clock_(clock){}
+	) 
+		: SelectingOutput<short, SCALE>(instance_id, storage, pool, eventpool), clock_(clock){}
+
 	void setstate(bool enable) { is_enabled_ = enable; }
+
 	virtual void write_to_telemetry(){
 		if(is_enabled_)
 			if( this->start_obc_ >= this->clock_->get_time() || this->start_rtc_ >= this->clock_->get_datetime() ){
-				SelectingOutput<short,SCALE>::write_to_telemetry();
+				SelectingOutput<short, SCALE>::write_to_telemetry();
 			}
 	}
+
 	void set_time(int second){
 		this->start_obc_.clear();
 		this->start_obc_.add_seconds(second);
 	}
-	void setRTCTime(int year,int month,int date,int hour,int minute,int second){
-		this->start_rtc_.init(year,month,date,hour,minute,second);
+
+	void setRTCTime(int year, int month, int date, int hour, int minute, int second){
+		this->start_rtc_.init(year, month, date, hour, minute, second);
 	}
 private:
 	// どちらか一方が超え，かつテレメ有効フラグが立っていたら取得開始．データがいっぱいになり，かつ上書き禁止モードのとき取得停止．

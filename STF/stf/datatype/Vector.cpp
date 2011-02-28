@@ -13,12 +13,12 @@ namespace datatype {
 
 Vector::Vector()
 {
-	initVector(1,0.0);
+	initVector(1, 0.0);
 }
 
 Vector::Vector(int dim)
 {
-	initVector(dim,0.0);
+	initVector(dim, 0.0);
 }
 
 void Vector::normalize()
@@ -45,7 +45,7 @@ double Vector::norm(int n) const
 Vector::Vector(const Vector &rhs)
 {
 
-	initVector(rhs.dimension_,0.0);
+	initVector(rhs.dimension_, 0.0);
 	for(int i = 0; i < dimension_; i++)
 		this->value_[i] = rhs[i];
 }
@@ -60,7 +60,7 @@ Vector &Vector::operator=(const Vector &rhs)
 {
 	assert(rhs.dimension_ == dimension_);
 	//delete[] this->value_;
-	//initVector(rhs.dimension_,0.0);
+	//initVector(rhs.dimension_, 0.0);
 	for(int i = 0; i < dimension_; i++)
 		this->value_[i] = rhs[i];
 	return *this;

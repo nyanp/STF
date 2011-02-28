@@ -52,7 +52,7 @@ public:
 	virtual void send_packet(int msg);
 	virtual void add_command(command::Command*);
 	PRISMCommandReceiver(int instance_id, core::manager::CommandManagerBase* manager, const datatype::String& filename,PRISMGlobal<T>* global)
-		: RootObject(instance_id,"PRISMReceiver"), manager_(manager), global_(global){
+		: RootObject(instance_id, "PRISMReceiver"), manager_(manager), global_(global){
 			this->ifs_ = new typename T::InputStream(filename.to_char());
 	}
     ~PRISMCommandReceiver() { }
@@ -109,14 +109,14 @@ void PRISMCommandReceiver<T>::analyzeCommand_(char* cmd)
 	switch(subsystem)
 	{
 	case 'p':
-		this->add_command(__prism_powercmd_analyze(cmd, params, paramlength,t,this->global_));
+		this->add_command(__prism_powercmd_analyze(cmd, params, paramlength, t, this->global_));
 		break;
 
 	case 'c':
-		this->add_command(__prism_cdhcmd_analyze(cmd, params, paramlength,t,this->global_));
+		this->add_command(__prism_cdhcmd_analyze(cmd, params, paramlength, t, this->global_));
 		break;
 	case 'a':
-		this->add_command(__prism_adcscmd_analyze(cmd, params, paramlength,t,this->global_));
+		this->add_command(__prism_adcscmd_analyze(cmd, params, paramlength, t, this->global_));
 		break;
 	default:
 		util::cout << "command parse error" << util::endl;

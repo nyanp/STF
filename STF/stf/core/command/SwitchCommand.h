@@ -23,10 +23,10 @@ namespace command {
 class SwitchCommand : public Command {
 public:
 	SwitchCommand(const datatype::Time& t, devicedriver::ISwitchable* sw, bool on)
-		: Command(t,"SwitchCommand"), sw_(sw), on_(on) {}
+		: Command(t, "SwitchCommand"), sw_(sw), on_(on) {}
 	~SwitchCommand(){}
 	virtual void execute(){
-		util::Trace trace(util::Trace::kCommand,name_);
+		util::Trace trace(util::Trace::kCommand, name_);
 		if(on_) this->sw_->on();
 		else    this->sw_->off();
 	}

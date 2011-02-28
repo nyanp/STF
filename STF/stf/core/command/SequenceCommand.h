@@ -24,7 +24,7 @@ template<int Num>
 class SequenceCommand : public Command {
 public:
 	SequenceCommand(const datatype::Time& t)
-		: Command(t,"SequenceCommand"), index_(-1){
+		: Command(t, "SequenceCommand"), index_(-1){
 			for(int i = 0; i < Num; i++) commands_[i] = 0;
 	}
 	~SequenceCommand(){
@@ -48,7 +48,7 @@ public:
 	}
 	virtual void execute(){
 		assert(index_ >= 0);
-		util::Trace trace(util::Trace::kCommand,name_);
+		util::Trace trace(util::Trace::kCommand, name_);
 		for(int i = 0; i < index_; i++){
 			commands_[i]->execute();//順番に実行
 		}

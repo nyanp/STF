@@ -12,7 +12,7 @@
 namespace stf { 
 namespace datatype {
 
-MagneticField::MagneticField(double m0,double m1, double m2)
+MagneticField::MagneticField(double m0, double m1, double m2)
 {
     this->value_[0] = m0;
     this->value_[1] = m1;
@@ -31,7 +31,7 @@ MagneticField::MagneticField(const MagneticField &rhs)
 		(*this)[i] = rhs[i];
 }
 
-MagneticMoment::MagneticMoment(double m0,double m1, double m2)
+MagneticMoment::MagneticMoment(double m0, double m1, double m2)
 {
     this->value_[0] = m0;
     this->value_[1] = m1;

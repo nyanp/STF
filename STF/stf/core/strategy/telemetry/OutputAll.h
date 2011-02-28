@@ -37,10 +37,10 @@ namespace telemetry {
 template<class T = double, int SCALE = 1>
 class OutputAll : public StrategyBase,  virtual public ITelemetryStrategy, virtual public interface::Iterator{
 public:
-	OutputAll(int instance_id,devicedriver::tmhandler::ITelemetryStoragable* storage,
+	OutputAll(int instance_id, devicedriver::tmhandler::ITelemetryStoragable* storage,
 		const core::datapool::AocsDataPool* pool,
 		const core::datapool::EventDataPool* eventpool
-		) : StrategyBase(instance_id,"OutputAll"), storage_(storage),datapooliter_(pool)
+		) : StrategyBase(instance_id, "OutputAll"), storage_(storage), datapooliter_(pool)
 	{
 		this->createindex_(pool);
 		this->tmlistiter_ = this->tmlist_.begin();
@@ -64,7 +64,7 @@ protected:
 };
 
 template<class T, int SCALE>
-void OutputAll<T,SCALE>::init(){
+void OutputAll<T, SCALE>::init(){
 	this->datapooliter_.init();
 	datatype::List<interface::Iterator>::iterator it = tmlist_.begin();
 	while(it != tmlist_.end()){
@@ -75,7 +75,7 @@ void OutputAll<T,SCALE>::init(){
 }
 
 template<class T, int SCALE>
-bool OutputAll<T,SCALE>::end(){
+bool OutputAll<T, SCALE>::end(){
 	if(!this->datapooliter_.end()) return false;
 	datatype::List<interface::Iterator>::iterator it = tmlist_.begin();
 	while(it != tmlist_.end()){
@@ -86,7 +86,7 @@ bool OutputAll<T,SCALE>::end(){
 }
 
 template<class T, int SCALE>
-void OutputAll<T,SCALE>::operator ++(){
+void OutputAll<T, SCALE>::operator ++(){
 	if(!this->datapooliter_.end()){
 		++(this->datapooliter_);
 	}
@@ -99,7 +99,7 @@ void OutputAll<T,SCALE>::operator ++(){
 }
 
 template<class T, int SCALE>
-double OutputAll<T,SCALE>::operator()(){
+double OutputAll<T, SCALE>::operator()(){
 	if(!this->datapooliter_.end()){
 		return this->datapooliter_();
 	}
@@ -109,7 +109,7 @@ double OutputAll<T,SCALE>::operator()(){
 }
 
 template<class T, int SCALE>
-void OutputAll<T,SCALE>::write_to_telemetry(){
+void OutputAll<T, SCALE>::write_to_telemetry(){
 	(*this->storage_) << this->clock_->get_time().total_milliseconds();
 	this->datapooliter_.init();
 	while(!datapooliter_.end()){
@@ -121,7 +121,7 @@ void OutputAll<T,SCALE>::write_to_telemetry(){
 }
 
 template<class T, int SCALE>
-void OutputAll<T,SCALE>::createindex_(const core::datapool::AocsDataPool* pool)
+void OutputAll<T, SCALE>::createindex_(const core::datapool::AocsDataPool* pool)
 {
 	(*this->storage_) << "Time(ms)";
 	for(int i = 0; i < pool->rows(); i++){
@@ -136,7 +136,7 @@ void OutputAll<T,SCALE>::createindex_(const core::datapool::AocsDataPool* pool)
 }
 
 template<class T, int SCALE>
-void OutputAll<T,SCALE>::write_(const double* data, int length)
+void OutputAll<T, SCALE>::write_(const double* data, int length)
 {
 	for(int i = 0; i < length; i++){
 		(*this->storage_) << data[i];

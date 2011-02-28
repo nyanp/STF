@@ -86,7 +86,7 @@ std::ostream &operator << (std::ostream& out_file, const stf::datatype::OrbitInf
 std::ostream &operator << (std::ostream& out_file, const stf::datatype::PositionInfo& pos);
 
 template<int i, int j>
-std::ostream &operator << (std::ostream& out_file, const stf::datatype::StaticMatrix<i,j>& mat){
+std::ostream &operator << (std::ostream& out_file, const stf::datatype::StaticMatrix<i, j>& mat){
 	for(int row = 0; row < i; row++){
 		for(int col = 0; col < j; col++){
 			out_file.width(6);

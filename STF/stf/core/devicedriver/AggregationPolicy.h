@@ -18,15 +18,15 @@ namespace devicedriver {
 
 
 //! 子のScalar値を各要素に持ったVectorを親の値とする合成ポリシー．
-template<class To,int N>
+template<class To, int N>
 class NScalarAggregation {
 public:
 	MUST_BE_DERIVED_FROM( To, datatype::StaticVector<N> );
 
-	template<class Parent,class Child>
+	template<class Parent, class Child>
 	void setup(Parent* parent, Child (&child)[N]){}
 
-	template<class Parent,class Child>
+	template<class Parent, class Child>
 	void aggregate(Parent* parent, Child (&child)[N]){
 		To value;
 		const datatype::Time& t = parent->get_lastupdate();
@@ -38,13 +38,13 @@ public:
 };
 
 //! 子の平均値を親の値とする合成ポリシー．
-template<class ToAndFrom,int N>
+template<class ToAndFrom, int N>
 class AverageAggregation {
 public:
-	template<class Parent,class Child>
+	template<class Parent, class Child>
 	void setup(Parent* parent, Child (&child)[N]){}
 
-	template<class Parent,class Child>
+	template<class Parent, class Child>
 	void aggregate(Parent* parent, Child (&child)[N]){
 		ToAndFrom value;
 		const datatype::Time& t = parent->get_lastupdate();
@@ -65,9 +65,9 @@ class ScalarDCMAggregation {
 public:
 	MUST_BE_DERIVED_FROM( To, datatype::StaticVector<3> );
 
-	template<class Parent,class Child>
+	template<class Parent, class Child>
 	void setup(Parent* parent, Child (&child)[N]){	
-		datatype::StaticMatrix<N,3> m;
+		datatype::StaticMatrix<N, 3> m;
 		for(int i = 0; i < Numbers; i++){
 			datatype::DCM d = this->childs_[i]->get_transfomer().inverse();
 			for(int j = 0; j < 3; j++)
@@ -76,7 +76,7 @@ public:
 		this->aggregate_mat_ = m.trans() * ( m * m.trans() ).inverse();		
 	}
 
-	template<class Parent,class Child>
+	template<class Parent, class Child>
 	void aggregate(Parent* parent, Child (&child)[N]){
 		datatype::StaticVector<N> value;
 		const datatype::Time& t = parent->get_lastupdate();
@@ -93,13 +93,13 @@ private:
 /*
 	rankが小さく，疑似逆行列を生成できないような取付行列の場合の動作は未定義．
 */
-template<class ToAndFrom,int N>
+template<class ToAndFrom, int N>
 class VectorDCMAggregation {
 public:
-	template<class Parent,class Child>
+	template<class Parent, class Child>
 	void setup(Parent* parent, Child (&child)[N]){	}
 
-	template<class Parent,class Child>
+	template<class Parent, class Child>
 	void aggregate(Parent* parent, Child (&child)[N]){
 		Parent::Target value;
 		const datatype::Time& t = parent->get_lastupdate();
@@ -117,22 +117,22 @@ typedef NScalarAggregation<To,Numbers> Result;
 };
 
 template<int Numbers, class ToAndFrom>
-struct AggregationSelector<ToAndFrom,ToAndFrom,Numbers,false> {
+struct AggregationSelector<ToAndFrom, ToAndFrom,Numbers, false> {
 typedef AverageAggregation<ToAndFrom, Numbers> Result;
 };
 
 template<int Numbers, class ToAndFrom>
-struct AggregationSelector<ToAndFrom,ToAndFrom,Numbers,true> {
+struct AggregationSelector<ToAndFrom, ToAndFrom,Numbers, true> {
 typedef VectorDCMAggregation<ToAndFrom, Numbers> Result;
 };
 
 template<class To, int Numbers>
-struct AggregationSelector<To,datatype::Scalar,Numbers,false> {
+struct AggregationSelector<To, datatype::Scalar,Numbers, false> {
 typedef NScalarAggregation<To,Numbers> Result;
 };
 
 template<class To, int Numbers>
-struct AggregationSelector<To,datatype::Scalar,Numbers,true> {
+struct AggregationSelector<To, datatype::Scalar,Numbers, true> {
 typedef ScalarDCMAggregation<To,Numbers> Result;
 };
 

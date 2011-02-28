@@ -40,14 +40,14 @@ QUEST::QUEST(int instance_id, double sigma_sun, double sigma_earth,
 void QUEST::do_compute(const datatype::Time& t) {
 	if(t <= this->last_update_) return; //既に別のブロック経由で更新済みなら再計算しない
 
-	util::Trace trace(util::Trace::kControlBlock,name_);
+	util::Trace trace(util::Trace::kControlBlock, name_);
 
 	//センサから取得した衛星基準座標系における地球，太陽方向
-	datatype::StaticVector<2> w_sun = this->source<0,datatype::StaticVector<2>>().get_value(t);
-	datatype::StaticVector<2> w_earth = this->source<1,datatype::StaticVector<2>>().get_value(t);
+	datatype::StaticVector<2> w_sun = this->source<0, datatype::StaticVector<2>>().get_value(t);
+	datatype::StaticVector<2> w_earth = this->source<1, datatype::StaticVector<2>>().get_value(t);
 	//軌道情報をもとに計算された衛星位置における地球，太陽方向
-	datatype::StaticVector<3> v1 = datatype::OrbitCalc::getSunDirection3D(this->source<3,datatype::DateTime>().get_value(t));
-	datatype::StaticVector<3> v2 = datatype::OrbitCalc::getEarthDirection3D(this->source<2,datatype::PositionInfo>().get_value(t));
+	datatype::StaticVector<3> v1 = datatype::OrbitCalc::getSunDirection3D(this->source<3, datatype::DateTime>().get_value(t));
+	datatype::StaticVector<3> v2 = datatype::OrbitCalc::getEarthDirection3D(this->source<2, datatype::PositionInfo>().get_value(t));
 	datatype::StaticVector<3> w1 = datatype::TypeConverter::toRectangular(w_sun);
 	datatype::StaticVector<3> w2 = datatype::TypeConverter::toRectangular(w_earth);
 
@@ -60,7 +60,7 @@ datatype::Quaternion QUEST::estimate_(
 	datatype::StaticVector<3> v1, datatype::StaticVector<3> v2, 
 	datatype::StaticVector<3> w1, datatype::StaticVector<3> w2)
 {
-	datatype::StaticMatrix<3,3> B;
+	datatype::StaticMatrix<3, 3> B;
 	for(int i = 0; i < 3; i++){
 		for(int j = 0; j < 3; j++){
 			B[i][j] = a1_ * w1[i] * v1[j] + a2_ * w2[i] * v2[j];
@@ -69,9 +69,9 @@ datatype::Quaternion QUEST::estimate_(
 		}
 	}
 	double sigma = B.trace();
-	datatype::StaticMatrix<3,3> C;
+	datatype::StaticMatrix<3, 3> C;
 	datatype::DCM S = B + C;
-	datatype::StaticMatrix<3,3> I; I.unitize();
+	datatype::StaticMatrix<3, 3> I; I.unitize();
 	double det = S.det();
 
 	//TBD!

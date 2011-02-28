@@ -20,7 +20,7 @@ void CommandManagerBase::run(){
 }
 
 void CommandManagerBase::execute_command_(const datatype::Time& t){
-	util::Trace trace(util::Trace::kManager,"run CommandManager");
+	util::Trace trace(util::Trace::kManager, "run CommandManager");
 	//実装はリングバッファだが，実装しやすいのでコマンドの確認順序は配列の後ろから
 	//実行順序に制約のあるコマンドはトランザクションとして実装するので問題は無いはず
 	for(int i = NUM_OF_LIST - 1 ; i >= 0 ; i--){
@@ -42,7 +42,7 @@ void CommandManagerBase::remove_command_(int index){
 }
 
 void CommandManagerBase::notify(const mode::ModeBase* value){
-	//util::Trace trace(util::Trace::kManager,"strategychange CommandManager");
+	//util::Trace trace(util::Trace::kManager, "strategychange CommandManager");
 }
 
 } /* End of namespace stf::core::manager */

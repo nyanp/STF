@@ -25,7 +25,7 @@ void STTBase<environment::Simulator>::do_update(){
 	if(count_ >= 5){
 		this->value_ = filter(this->environment_->getQuaternion(*this));
 		if(this->datapool_ != 0){
-			datapool_->set<STTBase<environment::Simulator>>(datapool_hold_index_,this->value_);
+			datapool_->set<STTBase<environment::Simulator>>(datapool_hold_index_, this->value_);
 		}
 		count_ = 0;
 	}
@@ -34,7 +34,7 @@ void STTBase<environment::Simulator>::do_update(){
 template <>
 datatype::Quaternion STTBase<environment::Simulator>::filter(const datatype::Quaternion& value){
 	datatype::EulerAngle angle;
-	angle[0] = util::math::WhiteNoise(this->err_arcsec_ * util::math::ARCSEC2RAD ,0) / 3;
+	angle[0] = util::math::WhiteNoise(this->err_arcsec_ * util::math::ARCSEC2RAD , 0) / 3;
 	angle[1] = util::math::WhiteNoise(this->err_arcsec_ * util::math::ARCSEC2RAD, 0) / 3;
 	angle[2] = util::math::WhiteNoise(this->err_arcsec_ * util::math::ARCSEC2RAD, 0) / 3;
 	return datatype::TypeConverter::toQuaternion(angle) * value;

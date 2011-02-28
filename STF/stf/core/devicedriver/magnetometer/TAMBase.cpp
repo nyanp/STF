@@ -20,7 +20,7 @@ template <>
 void TAMBase<environment::Simulator>::do_update(){
 	this->value_ = filter(this->environment_->getMagneticField(*this));
 	if(this->datapool_ != 0){
-		datapool_->set<TAMBase<environment::Simulator>>(datapool_hold_index_,this->value_);
+		datapool_->set<TAMBase<environment::Simulator>>(datapool_hold_index_, this->value_);
 	}
 }
 

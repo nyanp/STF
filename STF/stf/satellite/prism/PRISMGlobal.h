@@ -58,9 +58,9 @@ struct PRISMGlobal : public Global<Env>{
 	}
 
 	//friend class factory::PRISMFactory<Env>;
-	//friend core::command::Command* __prism_cdhcmd_analyze(char* cmd, int* params, int paramlength,const PRISMGlobal<Env>* g);
-	//friend core::command::Command* __prism_powercmd_analyze(char* cmd, int* params, int paramlength,const PRISMGlobal<Env>* g);
-	//friend core::command::Command* __prism_adcscmd_analyze(char* cmd, int* params, int paramlength,const PRISMGlobal<Env>* g);
+	//friend core::command::Command* __prism_cdhcmd_analyze(char* cmd, int* params, int paramlength, const PRISMGlobal<Env>* g);
+	//friend core::command::Command* __prism_powercmd_analyze(char* cmd, int* params, int paramlength, const PRISMGlobal<Env>* g);
+	//friend core::command::Command* __prism_adcscmd_analyze(char* cmd, int* params, int paramlength, const PRISMGlobal<Env>* g);
 
 	datatype::SatelliteModel prism_body_;
 	//Data Pool
@@ -97,13 +97,13 @@ struct PRISMGlobal : public Global<Env>{
 	devicedriver::mtq::PRISMMTQ<Env>* pr_mtqx;
 	devicedriver::mtq::PRISMMTQ<Env>* pr_mtqy;
 	devicedriver::mtq::PRISMMTQ<Env>* pr_mtqz;
-	devicedriver::CompositeOutput<devicedriver::mtq::PRISMMTQ<Env>,3>* pr_mtq;
+	devicedriver::CompositeOutput<devicedriver::mtq::PRISMMTQ<Env>, 3>* pr_mtq;
 
 	//Gyro
 	devicedriver::gyro::PRISMGyro<Env>* pr_gyrox;
 	devicedriver::gyro::PRISMGyro<Env>* pr_gyroy;	
 	devicedriver::gyro::PRISMGyro<Env>* pr_gyroz;
-	devicedriver::CompositeInput<devicedriver::gyro::PRISMGyro<Env>,3>* pr_gyro;
+	devicedriver::CompositeInput<devicedriver::gyro::PRISMGyro<Env>, 3>* pr_gyro;
 
 	//Sun Sensor
 	devicedriver::sunsensor::PRISMSunSensor<Env>* pr_sspx;
@@ -112,7 +112,7 @@ struct PRISMGlobal : public Global<Env>{
 	devicedriver::sunsensor::PRISMSunSensor<Env>* pr_ssmx;
 	devicedriver::sunsensor::PRISMSunSensor<Env>* pr_ssmy;
 	devicedriver::sunsensor::PRISMSunSensor<Env>* pr_ssmz;
-	devicedriver::CompositeInput<devicedriver::sunsensor::PRISMSunSensor<Env>,6>* pr_ss;
+	devicedriver::CompositeInput<devicedriver::sunsensor::PRISMSunSensor<Env>, 6>* pr_ss;
 
 	//Magnetrometer
 	devicedriver::magnetometer::PRISMTAM<Env>* pr_tam;
@@ -131,10 +131,10 @@ struct PRISMGlobal : public Global<Env>{
 	devicedriver::cmhandler::PRISMCommandReceiver<Env>* pr_commandreceiver;
 	devicedriver::tmhandler::PRISMTelemetryHandler<Env>* pr_tmhandler;
 	// CDH/AOCSのステータスとテレメをダウンリンクするためのイテレータ
-	interface::PRISMTelemetryIterator<100,1>* pr_statusiterator;
-	interface::PRISMTelemetryIterator<100,4>* pr_telemetryiterator;
-	interface::PRISMTelemetryIterator<100,1>* pr_aocsstatusiterator;
-	interface::PRISMTelemetryIterator<100,4>* pr_aocstelemetryiterator;
+	interface::PRISMTelemetryIterator<100, 1>* pr_statusiterator;
+	interface::PRISMTelemetryIterator<100, 4>* pr_telemetryiterator;
+	interface::PRISMTelemetryIterator<100, 1>* pr_aocsstatusiterator;
+	interface::PRISMTelemetryIterator<100, 4>* pr_aocstelemetryiterator;
 
 	// Command-Prototypes
 	// CDH

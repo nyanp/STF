@@ -24,7 +24,7 @@ namespace earthsensor {
 	@tparam T コンポーネントの環境クラス．
 */
 template <class T>
-class EarthSensorBase : public AOCSSensor<datatype::StaticVector<2>,datatype::StaticVector<2>,T>{
+class EarthSensorBase : public AOCSSensor<datatype::StaticVector<2>, datatype::StaticVector<2>, T>{
 public:
 	EarthSensorBase(int instance_id, const datatype::DCM &angle, double err_deg, int sigma = 3);
 	virtual ~EarthSensorBase(){}
@@ -38,7 +38,7 @@ private:
 
 template <class T>
 EarthSensorBase<T>::EarthSensorBase(int instance_id, const datatype::DCM& dcm, double err_deg, int sigma)
-	: AOCSSensor<datatype::StaticVector<2>,datatype::StaticVector<2>,T>(instance_id, "EarthSensor", dcm), err_deg_(err_deg), sigma_(sigma)
+	: AOCSSensor<datatype::StaticVector<2>, datatype::StaticVector<2>, T>(instance_id, "EarthSensor", dcm), err_deg_(err_deg), sigma_(sigma)
 {
 
 }

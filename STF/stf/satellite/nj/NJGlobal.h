@@ -60,21 +60,21 @@ struct NJGlobal : public Global<Env>{
 	}
 
 	typedef devicedriver::mtq::NJMTQ<Env> MTQ;
-	typedef devicedriver::CompositeOutput<MTQ,3> ThreeAxisMTQ;
+	typedef devicedriver::CompositeOutput<MTQ, 3> ThreeAxisMTQ;
 	typedef devicedriver::mtq::NJMC<Env> MC;
-	typedef devicedriver::CompositeOutput<MC,3> ThreeAxisMC;
+	typedef devicedriver::CompositeOutput<MC, 3> ThreeAxisMC;
 	typedef devicedriver::rw::NJRW<Env> RW;
-	typedef devicedriver::CompositeOutput<RW,4> SkewRW;
+	typedef devicedriver::CompositeOutput<RW, 4> SkewRW;
 	typedef devicedriver::stt::NJSTT<Env> STT;
-	typedef devicedriver::CompositeInput<STT,2> TwoAxisSTT;
+	typedef devicedriver::CompositeInput<STT, 2> TwoAxisSTT;
 	typedef devicedriver::sunsensor::NJSunSensor<Env> Sunsensor;
-	typedef devicedriver::CompositeInput<Sunsensor,6> SixAxisSunsensor;
+	typedef devicedriver::CompositeInput<Sunsensor, 6> SixAxisSunsensor;
 	typedef devicedriver::clock::NJRTC RTC;
 	typedef devicedriver::gps::NJGPS<Env> GPS;
 	typedef devicedriver::gyro::NJGyro<Env> Gyro;
-	typedef devicedriver::CompositeInput<Gyro,3> ThreeAxisGyro;
+	typedef devicedriver::CompositeInput<Gyro, 3> ThreeAxisGyro;
 	typedef devicedriver::gyro::NJFOG<Env> FOG;
-	typedef devicedriver::CompositeInput<FOG,3> ThreeAxisFOG;
+	typedef devicedriver::CompositeInput<FOG, 3> ThreeAxisFOG;
 	typedef devicedriver::magnetometer::NJCoarseTAM<Env> ST4;
 	typedef devicedriver::magnetometer::NJFineTAM<Env> ST5;
 

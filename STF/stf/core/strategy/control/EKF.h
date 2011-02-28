@@ -23,7 +23,7 @@ class Time;
 }
 namespace core {
 namespace devicedriver {
-template<class T,class U,class Env> class AOCSComponent;
+template<class T, class U, class Env> class AOCSComponent;
 }
 namespace strategy {
 namespace control {
@@ -52,26 +52,26 @@ public:
 	virtual void reset(); //!< 誤差共分散行列を初期化する．
 	virtual void do_compute(const datatype::Time& t);//伝搬，更新処理
 protected:
-    virtual void update_(const datatype::Quaternion &input,const datatype::Time& t);
-    virtual void propagate_(const datatype::StaticVector<3>& omega,const datatype::Time& t);
+    virtual void update_(const datatype::Quaternion &input, const datatype::Time& t);
+    virtual void propagate_(const datatype::StaticVector<3>& omega, const datatype::Time& t);
     EKFParamaters params_; //!< リセット時のために保存される，各初期値セット
 	datatype::StaticVector<3> omega_; //!< 角速度推定値
     datatype::Quaternion q_; //!< オイラーパラメータ推定値
     datatype::StaticVector<3> bref_; //!< ジャイロバイアス推定値
 	//伝搬頻度(sec)
 	double dt_;
-    datatype::StaticMatrix<6,6> A_;
-    datatype::StaticMatrix<6,6> B_;
-    datatype::StaticMatrix<6,6> G_;
-    datatype::StaticMatrix<6,6> F_;
-    datatype::StaticMatrix<3,6> H_;
-    datatype::StaticMatrix<6,6> P_; //!< 共分散行列
-    datatype::StaticMatrix<6,3> K_; //!< カルマンゲイン
-    datatype::StaticMatrix<6,6> Q_;
-    datatype::StaticMatrix<3,3> R_;
+    datatype::StaticMatrix<6, 6> A_;
+    datatype::StaticMatrix<6, 6> B_;
+    datatype::StaticMatrix<6, 6> G_;
+    datatype::StaticMatrix<6, 6> F_;
+    datatype::StaticMatrix<3, 6> H_;
+    datatype::StaticMatrix<6, 6> P_; //!< 共分散行列
+    datatype::StaticMatrix<6, 3> K_; //!< カルマンゲイン
+    datatype::StaticMatrix<6, 6> Q_;
+    datatype::StaticMatrix<3, 3> R_;
     datatype::StaticVector<6> x_; //!< 状態量ベクトル
-    datatype::StaticMatrix<6,3> Ht_;
-    datatype::StaticMatrix<4,4> Omega_;
+    datatype::StaticMatrix<6, 3> Ht_;
+    datatype::StaticMatrix<4, 4> Omega_;
     double tau_; //!< ジャイロECRV時定数(s)
 };
 

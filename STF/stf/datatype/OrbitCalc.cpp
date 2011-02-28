@@ -79,11 +79,11 @@ MagneticField OrbitCalc::getMagneticFieldDirection(const PositionInfo& p, const 
 	double pos[3];
 	for(int i = 0; i < 3; i++) pos[i] = p.position[i] / 1000;
 
-	double lat,lon,alt;
+	double lat, lon, alt;
 	sgp4::TransECIToGeo(side, pos, &lon, &lat, &alt);
 
 	double mag[3];
-	igrf::IgrfCalc(decyear,lat,lon,alt,side,mag);
+	igrf::IgrfCalc(decyear, lat, lon, alt, side, mag);
 	
 	datatype::MagneticField m;
 	for(int i = 0; i < 3; i++) m[i] = mag[i];

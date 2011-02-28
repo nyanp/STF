@@ -26,22 +26,22 @@ void init_genrand(unsigned long s);
 /* slight change for C++, 2004/2/26 */
 void init_by_array(unsigned long init_key[], int key_length);
 
-/* generates a random number on [0,0xffffffff]-interval */
+/* generates a random number on [0, 0xffffffff]-interval */
 unsigned long genrand_int32(void);
 
-/* generates a random number on [0,0x7fffffff]-interval */
+/* generates a random number on [0, 0x7fffffff]-interval */
 long genrand_int31(void);
 
-/* generates a random number on [0,1]-real-interval */
+/* generates a random number on [0, 1]-real-interval */
 double genrand_real1(void);
 
-/* generates a random number on [0,1)-real-interval */
+/* generates a random number on [0, 1)-real-interval */
 double genrand_real2(void);
 
-/* generates a random number on (0,1)-real-interval */
+/* generates a random number on (0, 1)-real-interval */
 double genrand_real3(void);
 
-/* generates a random number on [0,1) with 53-bit resolution*/
+/* generates a random number on [0, 1) with 53-bit resolution*/
 double genrand_res53(void) ;
 /* These real versions are due to Isaku Wada, 2002/01/09 added */
 

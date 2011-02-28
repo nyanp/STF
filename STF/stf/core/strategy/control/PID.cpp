@@ -34,23 +34,23 @@ PID::PID(int instance_id, double kp, double ki, double kd, double dt, const data
 }
 
 QuaternionPID::QuaternionPID(int instance_id, double kp, double ki, double kd, double dt, const datatype::Quaternion &target)
- : PID(instance_id,kp,ki,kd,dt,target)
+ : PID(instance_id, kp, ki, kd, dt, target)
 {
 }
 
 QuaternionPID::QuaternionPID(int instance_id, double kp, double ki, double kd, double dt, const datatype::Quaternion &target, 
 		devicedriver::OutputPort<datatype::Quaternion>* q_source, 
 		devicedriver::InputPort<datatype::StaticVector<3>>* torque_out)
-		: PID(instance_id,kp,ki,kd,dt,target,q_source,0,torque_out)
+		: PID(instance_id, kp, ki, kd, dt, target, q_source, 0, torque_out)
 {
 }
 
-EarthPointingPID::EarthPointingPID(int instance_id, double kp, double ki, double kd, double dt,const datatype::StaticVector<3>& target)
+EarthPointingPID::EarthPointingPID(int instance_id, double kp, double ki, double kd, double dt, const datatype::StaticVector<3>& target)
 	: kp_(kp), kd_(kd), ki_(ki), dt_(dt), target_earthvector_(target), StrategyBase(instance_id, "EarthPointingPID")
 {
 }
 
-EarthPointingPID::EarthPointingPID(int instance_id, double kp, double ki, double kd, double dt,const datatype::StaticVector<3>& target,
+EarthPointingPID::EarthPointingPID(int instance_id, double kp, double ki, double kd, double dt, const datatype::StaticVector<3>& target,
 		devicedriver::OutputPort<datatype::Quaternion>* q_source, 
 		devicedriver::OutputPort<datatype::StaticVector<3>>* omega_source, 
 		devicedriver::OutputPort<datatype::PositionInfo>* position_source,
@@ -85,14 +85,14 @@ DynamicPID::DynamicPID(int instance_id, double kp, double ki, double kd, double 
 void PID::do_compute(const datatype::Time& t)
 {
 	if(t > this->last_update_){//既に別のブロック経由で更新済みなら再計算しない
-		util::Trace trace(util::Trace::kControlBlock,name_);
+		util::Trace trace(util::Trace::kControlBlock, name_);
 		//Quaternion観測値
-		datatype::Quaternion q = this->source<0,datatype::Quaternion>().get_value(t);
+		datatype::Quaternion q = this->source<0, datatype::Quaternion>().get_value(t);
 		datatype::EulerAngle e = datatype::TypeConverter::toEulerAngle(q.conjugate() * this->q_target_);
-		datatype::EulerAngle e_diff = this->source<1,datatype::StaticVector<3>>().get_value(t);
+		datatype::EulerAngle e_diff = this->source<1, datatype::StaticVector<3>>().get_value(t);
 		this->e_total_ += e * this->dt_;
 
-		this->value_ = compute_torque_(e,e_diff,e_total_);
+		this->value_ = compute_torque_(e, e_diff, e_total_);
 
 		this->e_before_ = e;
 
@@ -113,16 +113,16 @@ datatype::StaticVector<3> PID::compute_torque_(const datatype::EulerAngle& x, co
 void QuaternionPID::do_compute(const datatype::Time& t)
 {
 	if(t > this->last_update_){//既に別のブロック経由で更新済みなら再計算しない
-		util::Trace trace(util::Trace::kControlBlock,name_);
+		util::Trace trace(util::Trace::kControlBlock, name_);
 
 		//Quaternion観測値
-		datatype::Quaternion q = this->source<0,datatype::Quaternion>().get_value(t);
+		datatype::Quaternion q = this->source<0, datatype::Quaternion>().get_value(t);
 		datatype::EulerAngle e = datatype::TypeConverter::toEulerAngle(q.conjugate() * this->q_target_);
 		//角速度センサではなくQの差分で微分値を計算
 		datatype::EulerAngle e_diff = (e - this->e_before_) / this->dt_;
 		this->e_total_ += e * this->dt_;
 
-		this->value_ = compute_torque_(e,e_diff,e_total_);
+		this->value_ = compute_torque_(e, e_diff, e_total_);
 
 		this->e_before_ = e;
 
@@ -133,11 +133,11 @@ void QuaternionPID::do_compute(const datatype::Time& t)
 void EarthPointingPID::do_compute(const datatype::Time& t)
 {
 	if(t > this->last_update_){//既に別のブロック経由で更新済みなら再計算しない
-		util::Trace trace(util::Trace::kControlBlock,name_);
+		util::Trace trace(util::Trace::kControlBlock, name_);
 
 		//Quaternion観測値
-		datatype::Quaternion q = this->source<0,datatype::Quaternion>().get_value(t);
-		this->earthvector_ = datatype::OrbitCalc::getEarthDirection3D(this->source<2,datatype::PositionInfo>().get_value(t));
+		datatype::Quaternion q = this->source<0, datatype::Quaternion>().get_value(t);
+		this->earthvector_ = datatype::OrbitCalc::getEarthDirection3D(this->source<2, datatype::PositionInfo>().get_value(t));
 		datatype::StaticVector<3> v = this->earthvector_ - this->target_earthvector_;
 		
 		//角速度センサではなくQの差分で微分値を計算
@@ -157,12 +157,12 @@ void EarthPointingPID::do_compute(const datatype::Time& t)
 
 void DynamicPID::do_compute(const datatype::Time& t){
 	if(t > this->last_update_){//既に別のブロック経由で更新済みなら再計算しない
-		util::Trace trace(util::Trace::kControlBlock,name_);
+		util::Trace trace(util::Trace::kControlBlock, name_);
 
 		//Quaternion観測値
-		datatype::Quaternion q = this->source<0,datatype::Quaternion>().get_value(t);
+		datatype::Quaternion q = this->source<0, datatype::Quaternion>().get_value(t);
 		//Quaternion目標値
-		datatype::Quaternion q_target = this->source<2,datatype::Quaternion>().get_value(t);
+		datatype::Quaternion q_target = this->source<2, datatype::Quaternion>().get_value(t);
 		//目標までのオイラー角
 		datatype::EulerAngle e = datatype::TypeConverter::toEulerAngle( q.conjugate() * q_target );
 		

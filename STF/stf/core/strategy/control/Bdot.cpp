@@ -14,7 +14,7 @@ namespace core {
 namespace strategy {
 namespace control {
 
-Bdot::Bdot(int instance_id,double k, 
+Bdot::Bdot(int instance_id, double k, 
 		devicedriver::OutputPort<datatype::MagneticField>* mag_source,
 		devicedriver::InputPort<datatype::MagneticMoment>* torque_out
 		) : StrategyBase(instance_id, "Bdot"), k_(k)
@@ -27,14 +27,14 @@ Bdot::Bdot(int instance_id,double k,
 
 void Bdot::do_compute(const datatype::Time& t) {
 	if(t <= this->last_update_) return; //既に別のブロック経由で更新済みなら再計算しない
-	util::Trace trace(util::Trace::kControlBlock,name_);
-	this->source<0,datatype::MagneticField>().get_value(t);
+	util::Trace trace(util::Trace::kControlBlock, name_);
+	this->source<0, datatype::MagneticField>().get_value(t);
 
 	for(int i = 0; i < 3; i++){
-		this->value_[i] = - this->k_ * (this->source<0,datatype::MagneticField>().value_[i] - this->mag_before_[i]);
+		this->value_[i] = - this->k_ * (this->source<0, datatype::MagneticField>().value_[i] - this->mag_before_[i]);
 	}
 	trace.debug(value_);
-	this->mag_before_ = this->source<0,datatype::MagneticField>().value_;
+	this->mag_before_ = this->source<0, datatype::MagneticField>().value_;
 
 	this->last_update_ = t;
 }

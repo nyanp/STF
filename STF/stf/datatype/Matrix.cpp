@@ -21,7 +21,7 @@ Matrix::Matrix(int rows, int cols)
 	this->cols_ = cols;//ArgoUMLの制約がなければ初期化子でやるほうが低コスト
 	this->value_  = new Vector[rows];
 	for(int i = 0; i < rows; i++)
-		this->value_[i].initVector(cols,0.0);
+		this->value_[i].initVector(cols, 0.0);
 }
 
 Matrix::Matrix(const Matrix &rhs)
@@ -30,7 +30,7 @@ Matrix::Matrix(const Matrix &rhs)
 	this->cols_ = rhs.cols_;
 	value_ = new Vector[rows_];
 	for(int i = 0; i < rows_; i++)
-		value_[i].initVector(cols_,0.0);
+		value_[i].initVector(cols_, 0.0);
 	for(int i = 0; i < rows_; i++)
 		for(int j = 0; j < cols_; j++)
 			value_[i].value_[j] = rhs[i].value_[j];
@@ -86,7 +86,7 @@ double Matrix::trace() const
 Matrix Matrix::trans() const 
 {
 	//assert(rows_ == cols_);
-	Matrix temp(cols_,rows_);
+	Matrix temp(cols_, rows_);
 	for(int i = 0; i < rows_; i++)
 		for(int j = 0; j < cols_; j++)
 			temp[j][i] = value_[i][j];
@@ -98,15 +98,15 @@ Matrix Matrix::inverse() const
 	int i, j, k;
 	double a1, a2;
 	//result = false;
-	if(rows_ != cols_) return Matrix(rows_,cols_);
+	if(rows_ != cols_) return Matrix(rows_, cols_);
 
-	Matrix tempmat(rows_,cols_);
+	Matrix tempmat(rows_, cols_);
 	for(int i = 0; i < rows_; i++) tempmat[i][i] = 1.0;
 	Matrix m = *this;//副作用を生じないように現インスタンスのコピーで計算
 
 	for (k = 0; k < rows_; k++)
 	{
-		int indx = pivot(m,k);
+		int indx = pivot(m, k);
 		assert(indx != -1);
 		if (indx != 0)
 		{
@@ -158,7 +158,7 @@ Matrix &Matrix::operator=(const Matrix &rhs)
 		this->cols_ = rhs.cols_;
 		value_ = new Vector[rows_];
 		for(int i = 0; i < rows_; i++)
-			value_[i].initVector(cols_,0.0);
+			value_[i].initVector(cols_, 0.0);
 		for(int i = 0; i < rows_; i++)
 			for(int j = 0; j < cols_; j++)
 				value_[i][j] = rhs[i][j];

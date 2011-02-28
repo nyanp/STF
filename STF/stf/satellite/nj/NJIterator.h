@@ -16,7 +16,7 @@
 namespace stf {
 namespace interface {
 
-template<int SCALE,int SIZE, class BASE>
+template<int SCALE, int SIZE, class BASE>
 class NJIteratorBase : public Iterator {
 public:
 	NJIteratorBase(const BASE* data) : data_(data), index_(0) {}
@@ -30,9 +30,9 @@ protected:
 
 // NJのテレメトリに必要なEKFのテレメトリ出力を定義。
 template<int SCALE>
-class NJEKFIterator : public NJIteratorBase<SCALE,13,core::strategy::control::NJEKF> {
+class NJEKFIterator : public NJIteratorBase<SCALE, 13, core::strategy::control::NJEKF> {
 public:
-	NJEKFIterator(const core::strategy::control::NJEKF* data): NJIteratorBase<SCALE,13,core::strategy::control::NJEKF>(data) {}
+	NJEKFIterator(const core::strategy::control::NJEKF* data): NJIteratorBase<SCALE, 13, core::strategy::control::NJEKF>(data) {}
 	virtual double operator()() {
 		if(index_ < 4) return (SCALE * data_->q_[index_]);
 		if(index_ < 7) return (SCALE * data_->bref_[index_ - 4]);
@@ -43,9 +43,9 @@ private:
 
 // NJのテレメトリに必要なEKFのテレメトリ出力を定義。
 template<int SCALE>
-class NJRMMEKFIterator : public NJIteratorBase<SCALE,3,core::strategy::control::NJRMMEKF> {
+class NJRMMEKFIterator : public NJIteratorBase<SCALE, 3, core::strategy::control::NJRMMEKF> {
 public:
-	NJRMMEKFIterator(const core::strategy::control::NJRMMEKF* data): NJIteratorBase<SCALE,3,core::strategy::control::NJRMMEKF>(data) {}
+	NJRMMEKFIterator(const core::strategy::control::NJRMMEKF* data): NJIteratorBase<SCALE, 3, core::strategy::control::NJRMMEKF>(data) {}
 	virtual double operator()() {		
 		return data_->value_[index_];
 	}
@@ -54,9 +54,9 @@ private:
 
 // TRIADからQuaternionの推定値をテレメトリとして出力．
 template<int SCALE>
-class NJSunMagTRIADIterator : public NJIteratorBase<SCALE,4,core::strategy::control::NJSunMagTRIAD> {
+class NJSunMagTRIADIterator : public NJIteratorBase<SCALE, 4, core::strategy::control::NJSunMagTRIAD> {
 public:
-	NJSunMagTRIADIterator(const core::strategy::control::NJSunMagTRIAD* data): NJIteratorBase<SCALE,4,core::strategy::control::NJSunMagTRIAD>(data) {}
+	NJSunMagTRIADIterator(const core::strategy::control::NJSunMagTRIAD* data): NJIteratorBase<SCALE, 4, core::strategy::control::NJSunMagTRIAD>(data) {}
 	virtual double operator()() {
 		return data_->value_[index_];
 	}

@@ -29,7 +29,7 @@ namespace command {
 class modeChangeCommand : public Command {
 public:
 	modeChangeCommand(const datatype::Time& t, core::mode::ModeBase *mode, core::manager::ModeManagerBase *modeman)
-		: Command(t,"modeChangeCommand"), mode_(mode), modeman_(modeman) {}
+		: Command(t, "modeChangeCommand"), mode_(mode), modeman_(modeman) {}
 	~modeChangeCommand(){}
 	virtual void execute();
 	virtual Command* clone(const datatype::Time& t);

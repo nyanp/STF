@@ -23,7 +23,7 @@ public:
 
 	DateTime(int year, int month, int day, int hour = 0, int minute = 0, int second = 0) 
 	{
-		init(year,month,day,hour,minute,second);
+		init(year, month, day, hour, minute, second);
 	}
 
     DateTime(const DateTime &rhs){
@@ -59,12 +59,12 @@ public:
     inline DateTime &operator-=(const Time &rhs);
 
 private:
-    friend inline bool operator ==(const DateTime&,const DateTime&);
-    friend inline bool operator !=(const DateTime&,const DateTime&);
-    friend inline bool operator >(const DateTime&,const DateTime&);
-    friend inline bool operator <(const DateTime&,const DateTime&);
-    friend inline bool operator >=(const DateTime&,const DateTime&);
-    friend inline bool operator <=(const DateTime&,const DateTime&);
+    friend inline bool operator ==(const DateTime&, const DateTime&);
+    friend inline bool operator !=(const DateTime&, const DateTime&);
+    friend inline bool operator >(const DateTime&, const DateTime&);
+    friend inline bool operator <(const DateTime&, const DateTime&);
+    friend inline bool operator >=(const DateTime&, const DateTime&);
+    friend inline bool operator <=(const DateTime&, const DateTime&);
 
 	int date_;
 	int hour_;

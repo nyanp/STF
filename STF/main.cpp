@@ -57,7 +57,7 @@ using datatype::TypeConverter;
 
 
 //
-// STT<ENV,ENV::STTPX>
+// STT<ENV, ENV::STTPX>
 //
 //
 
@@ -108,7 +108,7 @@ template<class Env, class HW>
 class STT
 {
 public:
-	STT() : spi(HW::SPI::BAUDRATE,HW::SPI::MOSI,0), gpio(HW::BASEADDR) {}
+	STT() : spi(HW::SPI::BAUDRATE, HW::SPI::MOSI, 0), gpio(HW::BASEADDR) {}
 	typedef typename Env::SPI SPI;
 	typedef typename Env::GPIO GPIO;
 	SPI spi;
@@ -123,10 +123,10 @@ public:
 	}
 };
 
-template<class T,int N>
+template<class T, int N>
 void hoge(T (&value)[N]){
 	for(int i = 0; i < N; i++)
-	util::cout << value[i] << ",";
+	util::cout << value[i] << ", ";
 }
 
 int main(void){
@@ -134,12 +134,12 @@ int main(void){
 	int values[] = { 1, 2, 3 };
 	hoge(values);
 
-	datatype::StaticMatrix<2,2> mat2;
+	datatype::StaticMatrix<2, 2> mat2;
 	mat2[0][0] = 0.3;
 	mat2[0][1] = 0;
 	mat2[1][1] = 0.2;
 
-	util::cout << util::math::exp(mat2,4);
+	util::cout << util::math::exp(mat2, 4);
 
 	util::Trace::enable(util::Trace::kManager);
 	util::Trace::enable(util::Trace::kControlBlock);
@@ -147,13 +147,13 @@ int main(void){
 	util::Trace::enable(util::Trace::kEvent);
 	util::Trace::enable(util::Trace::kDataPool);
 
-	util::Trace tr(util::Trace::kManager,"man");
+	util::Trace tr(util::Trace::kManager, "man");
 
-	typedef devicedriver::CompositeOutput<devicedriver::mtq::MTQ<ENV>,3> ThreeAxisMTQ;
-	typedef devicedriver::CompositeOutput<devicedriver::rw::RW<ENV>,4> SkewRW;
-	typedef devicedriver::CompositeInput<devicedriver::gyro::Gyro<ENV>,3> ThreeAxisGyro;
-	typedef devicedriver::CompositeInput<devicedriver::stt::STT<ENV>,2> TwoAxisSTT;
-	typedef devicedriver::CompositeInput<devicedriver::sunsensor::SunSensor<ENV>,6> SixAxisSS;
+	typedef devicedriver::CompositeOutput<devicedriver::mtq::MTQ<ENV>, 3> ThreeAxisMTQ;
+	typedef devicedriver::CompositeOutput<devicedriver::rw::RW<ENV>, 4> SkewRW;
+	typedef devicedriver::CompositeInput<devicedriver::gyro::Gyro<ENV>, 3> ThreeAxisGyro;
+	typedef devicedriver::CompositeInput<devicedriver::stt::STT<ENV>, 2> TwoAxisSTT;
+	typedef devicedriver::CompositeInput<devicedriver::sunsensor::SunSensor<ENV>, 6> SixAxisSS;
 	typedef devicedriver::gyro::Gyro<ENV> GYRO;
 	typedef devicedriver::stt::STT<ENV> STT;
 	typedef devicedriver::mtq::MTQ<ENV> MTQ;
@@ -163,16 +163,16 @@ int main(void){
 	datatype::Quaternion qu;
 	qu[1] = 0.3;
 
-	/*stf::core::devicedriver::clock::DummyClock cl(0,2005,12,11);
-	STT stt(0,datatype::TypeConverter::toDCM(0,0,0));
+	/*stf::core::devicedriver::clock::DummyClock cl(0, 2005, 12, 11);
+	STT stt(0, datatype::TypeConverter::toDCM(0, 0, 0));
 	stf::core::datapool::AocsDataPool aocspool(0);
-	aocspool.create<STT>(&stt,10,"STT");
-	aocspool.set<STT>(0,qu);
+	aocspool.create<STT>(&stt, 10, "STT");
+	aocspool.set<STT>(0, qu);
 
 	stf::core::datapool::AocsDataPoolIterator aocsit(&aocspool);
 
 	while(!aocsit.end()){
-	util::cout << aocsit() << ",";
+	util::cout << aocsit() << ", ";
 	++aocsit;
 	}	
 
@@ -181,7 +181,7 @@ int main(void){
 	stf::interface::NJEKFIterator<1000> ekit(&ek);
 
 	while(!ekit.end()){
-	util::cout << ekit() << ",";
+	util::cout << ekit() << ", ";
 	++ekit;
 	}
 
@@ -191,11 +191,11 @@ int main(void){
 		++iter;
 	}
 	*/
-	//STT<H8,HW::STTPX> stt;
+	//STT<H8, HW::STTPX> stt;
 	//stt.send();
 	std::cout << "AOCS Framework Test Program:\n\n";
-	std::cout << Conversion<int,double>::exists << std::endl;
-	std::cout << Conversion<char*,double>::exists << std::endl;
+	std::cout << Conversion<int, double>::exists << std::endl;
+	std::cout << Conversion<char*, double>::exists << std::endl;
 
 	stf::factory::SatelliteFactory<ENV>* en = new stf::factory::PRISMFactory<ENV>();
 	stf::Global<ENV>* gl = en->create();
@@ -219,13 +219,13 @@ int main(void){
 	datatype::StaticVector<3> v;
 	v[0] = 0.3;
 	v[1] = -0.2;
-	s.attachNoiseSource(new environment::torquesource::ImpulseNoise(3,v,0,3000,&s));
-    s.attachNoiseSource(new environment::torquesource::WhiteNoise(0.01,0));
+	s.attachNoiseSource(new environment::torquesource::ImpulseNoise(3, v, 0, 3000,&s));
+    s.attachNoiseSource(new environment::torquesource::WhiteNoise(0.01, 0));
 
 	//実行タスクの追加
 
 	//そのほかの設定
-	//g.comm->add_command(new core::command::modeChangeCommand(g.get_global_time(),g.missionmode,g.modeman));
+	//g.comm->add_command(new core::command::modeChangeCommand(g.get_global_time(), g.missionmode, g.modeman));
 	//g.modeman->change_mode(g.safemode);
 
 	///////////////////////////////////////////////

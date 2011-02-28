@@ -53,22 +53,22 @@ void DebugLogger::logging(datatype::String value, int address)
 
 ITelemetryStoragable &DebugLogger::operator <<(int value)
 {
-	if(this->console_out_) util::cout << value << ",";
-	if(this->ofs_ != 0)    *ofs_ << value << ",";
+	if(this->console_out_) util::cout << value << ", ";
+	if(this->ofs_ != 0)    *ofs_ << value << ", ";
 	return *this;
 }
 
 ITelemetryStoragable &DebugLogger::operator <<(double value)
 {
-	if(this->console_out_) util::cout << value << ",";
-	if(this->ofs_ != 0)    *ofs_ << value << ",";
+	if(this->console_out_) util::cout << value << ", ";
+	if(this->ofs_ != 0)    *ofs_ << value << ", ";
 	return *this;
 }
 
 ITelemetryStoragable &DebugLogger::operator <<(const char* value)
 {
-	if(this->console_out_) util::cout << value << ",";
-	if(this->ofs_ != 0)    *ofs_ << value << ",";
+	if(this->console_out_) util::cout << value << ", ";
+	if(this->ofs_ != 0)    *ofs_ << value << ", ";
 	return *this;
 }
 

@@ -16,7 +16,7 @@ namespace core {
 namespace manager {
 
 void ControlManagerBase::run(){
-	util::Trace trace(util::Trace::kManager,"run ControlManager"); 
+	util::Trace trace(util::Trace::kManager, "run ControlManager"); 
 	if(this->controller_ == 0){
 		trace.debug("skip");
 		return;

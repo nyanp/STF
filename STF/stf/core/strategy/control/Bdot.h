@@ -32,8 +32,8 @@ class Bdot
 	public devicedriver::OutputPorts< TYPELIST_1( datatype::MagneticMoment ) >
 {
 public:
-	Bdot(int instance_id,double k) : StrategyBase(instance_id, "Bdot"), k_(k) {}
-	Bdot(int instance_id,double k, 
+	Bdot(int instance_id, double k) : StrategyBase(instance_id, "Bdot"), k_(k) {}
+	Bdot(int instance_id, double k, 
 		devicedriver::OutputPort<datatype::MagneticField>* mag_source,
 		devicedriver::InputPort<datatype::MagneticMoment>* torque_out = 0
 		);

@@ -23,7 +23,7 @@ template <class T>
 class EarthSensor : public EarthSensorBase<T>{
 public:  
 	// 3-Sigmaで1度精度
-	EarthSensor(int instance_id, const datatype::DCM &angle) : EarthSensorBase(instance_id,angle,1,3){}
+	EarthSensor(int instance_id, const datatype::DCM &angle) : EarthSensorBase(instance_id, angle, 1, 3){}
 	~EarthSensor(){}
 private:
 	EarthSensor(){}

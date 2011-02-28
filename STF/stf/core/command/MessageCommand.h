@@ -24,14 +24,14 @@ namespace command {
 class MessageCommand : public Command {
 public:
 	 MessageCommand(const datatype::Time& t, const datatype::String& msg)
-		: msg_(msg), Command(t,"UnaryFunctorCommand") {}
+		: msg_(msg), Command(t, "UnaryFunctorCommand") {}
 	~ MessageCommand(){}
 	virtual void init(int* params, int paramsize){}
 	virtual Command* clone(const datatype::Time& t){
-		return new MessageCommand(t,msg_);
+		return new MessageCommand(t, msg_);
 	}
 	virtual void execute(){
-		util::Trace trace(util::Trace::kCommand,name_);
+		util::Trace trace(util::Trace::kCommand, name_);
 		this->rcv_->send_packet(msg_);
 	}
 private:

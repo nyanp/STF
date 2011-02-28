@@ -32,14 +32,14 @@ template<class T>
 class UnaryFunctorCommand : public Command {
 public:
 	UnaryFunctorCommand(const datatype::Time& t, functor::IUnAryFunctor<T>* func, T arg)
-		: func_(func), arg_(arg), Command(t,"UnaryFunctorCommand") {}
+		: func_(func), arg_(arg), Command(t, "UnaryFunctorCommand") {}
 	~UnaryFunctorCommand(){}
 	virtual void init(int* params, int paramsize){}
 	virtual Command* clone(const datatype::Time& t){
-		return new UnaryFunctorCommand<T>(t,func_,arg_);
+		return new UnaryFunctorCommand<T>(t, func_, arg_);
 	}
 	virtual void execute(){
-		util::Trace trace(util::Trace::kCommand,name_);
+		util::Trace trace(util::Trace::kCommand, name_);
 		(*func_)(arg_);
 	}
 private:
@@ -61,14 +61,14 @@ class UnAryMemberFunctionCommand : public Command {
 	typedef U (T::*Func)(ARG);
 public:
 	UnAryMemberFunctionCommand(const datatype::Time& t, T* obj, Func f, ARG arg)
-    : Command(t,"UnAryMemberFuncCommand"), obj_(obj), f_(f), arg_(arg) {}
+    : Command(t, "UnAryMemberFuncCommand"), obj_(obj), f_(f), arg_(arg) {}
 	~UnAryMemberFunctionCommand(){}
 	virtual void init(int* params, int paramsize){}
 	virtual Command* clone(const datatype::Time& t){
-		return new UnAryMemberFunctionCommand<T,U,ARG>(t,obj_,f_,arg_);
+		return new UnAryMemberFunctionCommand<T, U, ARG>(t, obj_, f_, arg_);
 	}
 	virtual void execute(){
-		util::Trace trace(util::Trace::kCommand,name_);
+		util::Trace trace(util::Trace::kCommand, name_);
 		U response = (*obj_.*f_)(arg_);
 		this->rcv_->send_packet(response);
 	}
@@ -84,18 +84,18 @@ private:
 	@tparam ARG メンバ関数の引数型．
 */
 template<class T, class ARG>
-class UnAryMemberFunctionCommand<T,void,ARG> : public Command {
+class UnAryMemberFunctionCommand<T, void, ARG> : public Command {
 	typedef void (T::*Func)(ARG);
 public:
 	UnAryMemberFunctionCommand(const datatype::Time& t, T* obj, Func f, ARG arg)
-    : Command(t,"UnAryMemberFuncCommand"), obj_(obj), f_(f), arg_(arg) {}
+    : Command(t, "UnAryMemberFuncCommand"), obj_(obj), f_(f), arg_(arg) {}
 	~UnAryMemberFunctionCommand(){}
 	virtual void init(int* params, int paramsize){}
 	virtual Command* clone(const datatype::Time& t){
-		return new UnAryMemberFunctionCommand<T,void,ARG>(t,obj_,f_,arg_);
+		return new UnAryMemberFunctionCommand<T, void, ARG>(t, obj_, f_, arg_);
 	}
 	virtual void execute(){
-		util::Trace trace(util::Trace::kCommand,name_);
+		util::Trace trace(util::Trace::kCommand, name_);
 		(*obj_.*f_)(arg_);
 	}
 private:

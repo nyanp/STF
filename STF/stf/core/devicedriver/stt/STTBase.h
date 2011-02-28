@@ -25,9 +25,9 @@ namespace stt {
 	@todo count_をどうにかする
 */
 template <class T>
-class STTBase : public AOCSSensor<datatype::Quaternion,datatype::Quaternion,T>{
+class STTBase : public AOCSSensor<datatype::Quaternion, datatype::Quaternion, T>{
 public:
-	STTBase(int instance_id, const datatype::DCM &angle,double err_arcsec,int sigma = 3);
+	STTBase(int instance_id, const datatype::DCM &angle, double err_arcsec, int sigma = 3);
     virtual ~STTBase();
 	virtual void do_update();
 	//virtual const datatype::Quaternion& get_in_bodyframe();
@@ -42,8 +42,8 @@ private:
 
 
 template <class T>
-STTBase<T>::STTBase(int instance_id, const datatype::DCM& dcm,double err_arcsec,int sigma) 
-	: AOCSSensor<datatype::Quaternion,datatype::Quaternion,T>(instance_id, "STT", dcm), err_arcsec_(err_arcsec), sigma_(sigma), count_(0)
+STTBase<T>::STTBase(int instance_id, const datatype::DCM& dcm, double err_arcsec, int sigma) 
+	: AOCSSensor<datatype::Quaternion, datatype::Quaternion, T>(instance_id, "STT", dcm), err_arcsec_(err_arcsec), sigma_(sigma), count_(0)
 {
 	this->q_set_angle_ = datatype::TypeConverter::toQuaternion(dcm);
 }

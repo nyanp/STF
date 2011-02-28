@@ -23,7 +23,7 @@ template <class T>
 class TAM : public TAMBase<T>{
 public:  
 	// 3-Sigmaで1度精度
-	TAM(int instance_id, const datatype::DCM &angle) : TAMBase(instance_id,angle){}
+	TAM(int instance_id, const datatype::DCM &angle) : TAMBase(instance_id, angle){}
 	~TAM(){}
 private:
 	TAM(){}

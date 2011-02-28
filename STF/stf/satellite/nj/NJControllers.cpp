@@ -47,27 +47,27 @@ void QuaternionForRMMEstimation::do_compute(const datatype::Time& t){
 		//Šµ«‹óŠÔ‚É‚¨‚¯‚é‘¾—z•ûŒü‚ğŒvZ
 		datatype::StaticVector<2> sunvector = datatype::OrbitCalc::getSunDirection2D(this->clock_->get_datetime());
 
-		datatype::DCM sundcm = datatype::TypeConverter::toDCM(sunvector[0],sunvector[1],0);
+		datatype::DCM sundcm = datatype::TypeConverter::toDCM(sunvector[0], sunvector[1], 0);
 		datatype::DCM dcm;
 
 		switch(this->index_){
 		case 0:
-			dcm = datatype::TypeConverter::toDCM(0,0,0);
+			dcm = datatype::TypeConverter::toDCM(0, 0, 0);
 			break;
 		case 1:
-			dcm = datatype::TypeConverter::toDCM(90,0,0);
+			dcm = datatype::TypeConverter::toDCM(90, 0, 0);
 			break;
 		case 2:
-			dcm = datatype::TypeConverter::toDCM(-90,0,0);
+			dcm = datatype::TypeConverter::toDCM(-90, 0, 0);
 			break;
 		case 3:
-			dcm = datatype::TypeConverter::toDCM(0,90,0);
+			dcm = datatype::TypeConverter::toDCM(0, 90, 0);
 			break;
 		case 4:
-			dcm = datatype::TypeConverter::toDCM(0,-90,0);
+			dcm = datatype::TypeConverter::toDCM(0,-90, 0);
 			break;
 		case 5:
-			dcm = datatype::TypeConverter::toDCM(0,0,180);
+			dcm = datatype::TypeConverter::toDCM(0, 0, 180);
 			break;
 		default:
 			index_ = 0;

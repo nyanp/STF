@@ -24,7 +24,7 @@ class PRISMControlBlock : public ControlBlock
 public:
 	PRISMControlBlock(int instance_id) : ControlBlock(instance_id), ads_mode_(0), acs_mode_(0), obs_mode_(0) {}
 	template<class T>
-	PRISMControlBlock(int instance_id,devicedriver::OutputPort<typename T::Hold>* torque_source, T* torque_target)
+	PRISMControlBlock(int instance_id, devicedriver::OutputPort<typename T::Hold>* torque_source, T* torque_target)
 		: ControlBlock(instance_id, torque_source, torque_target){}
 
 	void set_mode(int mid, int value);

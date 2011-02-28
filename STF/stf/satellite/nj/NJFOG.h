@@ -20,7 +20,7 @@ class NJFOG : public GyroBase<T> {
 public:
 	NJFOG(){}
 	//Sigma =0.0001, tau(ECRV)=1000sec
-	NJFOG(int instance_id, const datatype::DCM &angle) : GyroBase(instance_id, angle,0.0001,GYROECRV){}
+	NJFOG(int instance_id, const datatype::DCM &angle) : GyroBase(instance_id, angle, 0.0001,GYROECRV){}
 	~NJFOG(){}
 	virtual void do_update(){}
 private:

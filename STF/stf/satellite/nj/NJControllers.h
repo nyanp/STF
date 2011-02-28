@@ -50,7 +50,7 @@ protected:
 };
 
 //StarEKF ¯‘œ‚©‚çŠp‘¬“x‚ğ„’è‚·‚éEKF.
-class StarImageEKF : public devicedriver::InputPorts< TYPELIST_2(datatype::StaticVector<3>,datatype::StaticVector<3>) >,
+class StarImageEKF : public devicedriver::InputPorts< TYPELIST_2(datatype::StaticVector<3>, datatype::StaticVector<3>) >,
 		public devicedriver::OutputPorts < TYPELIST_1(datatype::StaticVector<3>) > ,
 		public StrategyBase
 {
@@ -119,7 +119,7 @@ private:
 };
 
 class RWConstantOutput : 
-	public devicedriver::OutputPorts < TYPELIST_4(datatype::StaticVector<3>,datatype::StaticVector<3>,datatype::StaticVector<3>,datatype::StaticVector<3>) > , public StrategyBase
+	public devicedriver::OutputPorts < TYPELIST_4(datatype::StaticVector<3>, datatype::StaticVector<3>, datatype::StaticVector<3>, datatype::StaticVector<3>) > , public StrategyBase
 {
 public:
 	RWConstantOutput(int instance_id, devicedriver::clock::IAbsoluteTimeClock* clock, datatype::Time timespan)

@@ -21,7 +21,7 @@ template <>
 void EarthSensorBase<environment::Simulator>::do_update(){
 	this->value_ = filter(this->environment_->getEarthDirection(*this));
 	if(this->datapool_ != 0){
-		datapool_->set<EarthSensorBase<environment::Simulator>>(datapool_hold_index_,this->value_);
+		datapool_->set<EarthSensorBase<environment::Simulator>>(datapool_hold_index_, this->value_);
 	}
 }
 
@@ -30,7 +30,7 @@ datatype::StaticVector<2> EarthSensorBase<environment::Simulator>::filter(const 
 	datatype::StaticVector<3> earthvector_true = datatype::TypeConverter::toRectangular(value);
 
 	datatype::EulerAngle angle;
-	angle[0] = util::math::WhiteNoise(this->err_deg_ * util::math::DEG2RAD ,0) / 3;
+	angle[0] = util::math::WhiteNoise(this->err_deg_ * util::math::DEG2RAD , 0) / 3;
 	angle[1] = util::math::WhiteNoise(this->err_deg_ * util::math::DEG2RAD, 0) / 3;
 	angle[2] = util::math::WhiteNoise(this->err_deg_ * util::math::DEG2RAD, 0) / 3;
 

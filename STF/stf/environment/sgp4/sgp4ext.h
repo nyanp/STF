@@ -101,7 +101,7 @@ void JdToDecyear
           double* decyear
         );
 
-float juldayTEST(int,int,int);
+float juldayTEST(int, int, int);
 
 
 } /* end of namespace sgp4 */

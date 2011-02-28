@@ -92,29 +92,29 @@ void Simulator::runOneCycle()
 	if(this->ofstream_ != 0){
 		//Logging
 		(*this->ofstream_) 
-			<< this->true_time_.total_seconds() << ","
-			<< this->true_quaternion_[0] << ","
-			<< this->true_quaternion_[1] << ","
-			<< this->true_quaternion_[2] << ","
-			<< this->true_quaternion_[3] << ","
-			<< this->true_angular_velocity_[0] << ","
-			<< this->true_angular_velocity_[1] << ","
-			<< this->true_angular_velocity_[2] << ","
-			<< this->true_torque_[0] << ","
-			<< this->true_torque_[1] << ","
-			<< this->true_torque_[2] << ","
-			<< this->noise_torque_[0] << ","
-			<< this->noise_torque_[1] << ","
+			<< this->true_time_.total_seconds() << ", "
+			<< this->true_quaternion_[0] << ", "
+			<< this->true_quaternion_[1] << ", "
+			<< this->true_quaternion_[2] << ", "
+			<< this->true_quaternion_[3] << ", "
+			<< this->true_angular_velocity_[0] << ", "
+			<< this->true_angular_velocity_[1] << ", "
+			<< this->true_angular_velocity_[2] << ", "
+			<< this->true_torque_[0] << ", "
+			<< this->true_torque_[1] << ", "
+			<< this->true_torque_[2] << ", "
+			<< this->noise_torque_[0] << ", "
+			<< this->noise_torque_[1] << ", "
 			<< this->noise_torque_[2] << "\n";
-            /*<< this->global_->fog1->bias_rate_ << ","
-            << this->global_->fog2->bias_rate_ << ","
-            << this->global_->fog3->bias_rate_ << ","
-            << this->global_->ekf->q_[0] << ","
-            << this->global_->ekf->q_[1] << ","
-            << this->global_->ekf->q_[2] << ","
-            << this->global_->ekf->q_[3] << ","
-            << this->global_->ekf->bref_[0] << ","
-            << this->global_->ekf->bref_[1] << ","
+            /*<< this->global_->fog1->bias_rate_ << ", "
+            << this->global_->fog2->bias_rate_ << ", "
+            << this->global_->fog3->bias_rate_ << ", "
+            << this->global_->ekf->q_[0] << ", "
+            << this->global_->ekf->q_[1] << ", "
+            << this->global_->ekf->q_[2] << ", "
+            << this->global_->ekf->q_[3] << ", "
+            << this->global_->ekf->bref_[0] << ", "
+            << this->global_->ekf->bref_[1] << ", "
             << this->global_->ekf->bref_[2] << "\n";*/
 	}
 
@@ -161,7 +161,7 @@ void Simulator::runOneCycle()
       for(int j = 0; j < 4; j++)
         if(i > j) Omega_[i][j] = -Omega_[j][i];
 
-    this->true_quaternion_ += util::math::RungeKutta::slope(true_quaternion_,0.5 * Omega_,timestep_.total_seconds());
+    this->true_quaternion_ += util::math::RungeKutta::slope(true_quaternion_, 0.5 * Omega_, timestep_.total_seconds());
     for(int i = 0; i < 3; i++) this->true_angular_velocity_[i] = omega[i];
 	this->step_();
 }

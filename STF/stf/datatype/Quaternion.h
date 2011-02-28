@@ -25,7 +25,7 @@ public:
     Quaternion(const Quaternion &rhs){
 		for(int i = 0; i < 4; i++) this->value_[i] = rhs[i];
 	}
-    Quaternion(double q0,double q1, double q2, double q3){
+    Quaternion(double q0, double q1, double q2, double q3){
 		this->value_[0] = q0;
 		this->value_[1] = q1;
 		this->value_[2] = q2;
@@ -34,7 +34,7 @@ public:
 	~Quaternion(){}
 
 	//! 共役を取得する．
-	Quaternion conjugate() const { return Quaternion(-value_[0],value_[1],value_[2],value_[3]); }
+	Quaternion conjugate() const { return Quaternion(-value_[0], value_[1], value_[2], value_[3]); }
 	//! ノルムを1に調整する．
 	virtual void normalize();
 	//! n-ノルムを取得．

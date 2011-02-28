@@ -19,7 +19,7 @@ AocsDataPool::AocsDataPool(int instance_id): DataPoolBase(instance_id){
 const datatype::IAocsData* AocsDataPool::get(int rows) const{
 	return table_[rows]->get_data_at(table_[rows]->index());
 }
-const datatype::IAocsData* AocsDataPool::get(int rows,int cols) const{
+const datatype::IAocsData* AocsDataPool::get(int rows, int cols) const{
 	return table_[rows]->get_data_at(cols);
 }
 
@@ -43,7 +43,7 @@ EventDataPool::EventDataPool(int instance_id): DataPoolBase(instance_id){
 const core::event::EventBase* EventDataPool::get(int rows) const{
 	return table_[rows]->get_data_at(table_[rows]->index());
 }
-const core::event::EventBase* EventDataPool::get(int rows,int cols) const{
+const core::event::EventBase* EventDataPool::get(int rows, int cols) const{
 	return table_[rows]->get_data_at(cols);
 }
 
