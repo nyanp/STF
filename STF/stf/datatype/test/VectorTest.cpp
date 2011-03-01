@@ -8,6 +8,7 @@
 #ifndef stf_datatype_VectorTest_h
 #define stf_datatype_VectorTest_h
 
+#include <cppunit/extensions/HelperMacros.h>
 #include "../Vector.h"
 
 namespace stf { 

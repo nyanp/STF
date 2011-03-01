@@ -8,6 +8,7 @@
 #ifndef stf_datatype_TypeConverterTest_h
 #define stf_datatype_TypeConverterTest_h
 
+#include <cppunit/extensions/HelperMacros.h>
 #include "../TypeConverter.h"
 
 namespace stf {

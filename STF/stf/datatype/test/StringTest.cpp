@@ -8,6 +8,7 @@
 #ifndef stf_datatype_StringTest_h
 #define stf_datatype_StringTest_h
 
+#include <cppunit/extensions/HelperMacros.h>
 #include "../String.h"
 
 namespace stf {

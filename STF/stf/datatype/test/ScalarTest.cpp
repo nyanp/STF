@@ -8,6 +8,7 @@
 #ifndef stf_datatype_ScalarTest_h
 #define stf_datatype_ScalarTest_h
 
+#include <cppunit/extensions/HelperMacros.h>
 #include "../Scalar.h"
 
 namespace stf { 

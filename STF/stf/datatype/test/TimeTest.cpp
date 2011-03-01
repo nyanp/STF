@@ -1,20 +1,19 @@
 /**
- * @file   EulerAngleTest.h
+ * @file   TimeTest.h
  * @brief  
  *
  * @author Taiga Nomi
  * @date   2011.02.16
  */
-#ifndef stf_datatype_EulerAngleTest_h
-#define stf_datatype_EulerAngleTest_h
+#ifndef datatype_TimeTest_h
+#define datatype_TimeTest_h
 
-#include "../EulerAngle.h"
+#include <cppunit/extensions/HelperMacros.h>
+#include "../Time.h"
 
 namespace stf { 
 namespace datatype {
 
-
 } /* End of namespace stf::datatype */
 } /* End of namespace stf */
-
-#endif // stf_datatype_EulerAngleTest_h
+#endif // datatype_TimeTest_h

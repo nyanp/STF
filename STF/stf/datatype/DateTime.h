@@ -13,7 +13,7 @@
 namespace stf { 
 namespace datatype {
 
-//! ユリウス暦による絶対時刻を秒精度で保持する．
+//! グレゴリオ暦による絶対時刻を秒精度で保持する．
 /*! */
 class DateTime {
 public:
@@ -52,7 +52,7 @@ public:
 	int dates() const { return this->date_; }
     inline void add_dates(int dates);
 
-	inline double get_julius() const;
+	inline double get_julian() const;
     inline void clear();
     inline DateTime &operator=(const DateTime &rhs);
     inline DateTime &operator+=(const Time &rhs);
@@ -66,18 +66,21 @@ private:
     friend inline bool operator >=(const DateTime&, const DateTime&);
     friend inline bool operator <=(const DateTime&, const DateTime&);
 
+	int to_julianday_(int year, int month, int day);
+
 	int date_;
 	int hour_;
 	int minute_;
 	int second_;
 };
 
+
 //////////////////////////////////
 //  Inline Methods for DateTime //
 //////////////////////////////////
 inline void DateTime::init(int year, int month, int day, int hour, int minute, int second)
 {
-	this->date_  = 367 * year - (int)(7 * (double)(year + (int)(((double)month + 9) / 12)) / 4) + (int)(275 * (double)month / 9) + day + 1721014;
+	this->date_  = to_julianday_(year, month, day);
 	this->hour_ = hour;
 	this->minute_ = minute;
 	this->second_ = second;
@@ -142,7 +145,7 @@ inline void DateTime::add_dates(int dates)
 	this->date_ += dates;
 }
 
-inline double DateTime::get_julius() const
+inline double DateTime::get_julian() const
 {
 	return this->date_ + ( this->hour_ + (this->minute_ + (this->second_ / 60)) / 60 )/ 24 ;
 }
@@ -171,6 +174,11 @@ inline DateTime &DateTime::operator=(const DateTime &rhs){
 	this->hour_ = rhs.hour_;
 	this->date_ = rhs.date_;
     return *this;
+}
+
+inline int DateTime::to_julianday_(int year, int month, int day)
+{
+	return 367 * year - (int)(7 * (double)(year + (int)(((double)month + 9) / 12)) / 4) + (int)(275 * (double)month / 9) + day + 1721014;
 }
 
 //////////////////////////

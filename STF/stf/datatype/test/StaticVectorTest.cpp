@@ -8,6 +8,7 @@
 #ifndef stf_datatype_StaticVectorTest_h
 #define stf_datatype_StaticVectorTest_h
 
+#include <cppunit/extensions/HelperMacros.h>
 #include "../StaticVector.h"
 
 namespace stf { 

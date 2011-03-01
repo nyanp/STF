@@ -8,6 +8,7 @@
 #ifndef stf_datatype_OrbitInfoTest_h
 #define stf_datatype_OrbitInfoTest_h
 
+#include <cppunit/extensions/HelperMacros.h>
 #include "../OrbitInfo.h"
 
 namespace stf { 

@@ -8,10 +8,27 @@
 #include <cppunit/TestResult.h>
 #include <cppunit/TestResultCollector.h>
 #include <cppunit/TestRunner.h>
+/*
 #include "datatype/test/DateTimeTest.h"
+#include "datatype/test/DCMTest.h"
+#include "datatype/test/EnvironmentsTest.h"
+#include "datatype/test/EulerAngleTest.h"
+#include "datatype/test/ListTest.h"
+#include "datatype/test/MagneticTest.h"
+#include "datatype/test/MatrixTest.h"
+#include "datatype/test/OrbitCalcTest.h"
+#include "datatype/test/OrbitInfoTest.h"
+#include "datatype/test/QuaternionTest.h"
+#include "datatype/test/ScalarTest.h"
+#include "datatype/test/StaticVectorTest.h"
+#include "datatype/test/StringTest.h"
+#include "datatype/test/TimeTest.h"
+#include "datatype/test/TypeConverterTest.h"
+#include "datatype/test/VectorTest.h"*/
 
 int main( int ac, char **av )
 {
+
   // イベント・マネージャとテスト・コントローラを生成する
   CPPUNIT_NS::TestResult controller;
 
