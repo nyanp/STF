@@ -303,7 +303,7 @@
     <ClInclude Include="stf\core\strategy\telemetry\SelectingOutput.h" />
     <ClInclude Include="scube\datatype\Current.h" />
     <ClInclude Include="stf\datatype\DateTime.h" />
-    <ClInclude Include="stf\datatype\Envitonments.h" />
+    <ClInclude Include="stf\datatype\Environments.h" />
     <ClInclude Include="stf\interface\ITelemetable.h" />
     <ClInclude Include="stf\datatype\Magnetic.h" />
     <ClInclude Include="stf\datatype\OrbitCalc.h" />

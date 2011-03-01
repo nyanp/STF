@@ -11,7 +11,7 @@
 #include <assert.h>
 #include "../CDHComponent.h"
 #include "ConvertPolicy.h"
-#include "../../../datatype/Envitonments.h"
+#include "../../../datatype/Environments.h"
 
 namespace stf {
 namespace core {
