@@ -135,7 +135,7 @@ Matrix Matrix::inverse() const
 	return tempmat;
 }
 
-bool Matrix::isSquare()
+bool Matrix::is_square()
 {
 	if(this->rows_ == this->cols_ && this->rows_ > 0) return true;
 	return false;

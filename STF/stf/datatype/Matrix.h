@@ -34,7 +34,7 @@ class Matrix {
     Matrix &unitize();
     Matrix trans() const ;
     Matrix inverse() const ;
-    bool isSquare();
+    bool is_square();
     int pivot(Matrix &m, int row) const ;
 	double trace() const ;//Trace
 	double det() const ; //行列式

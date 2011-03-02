@@ -44,6 +44,8 @@ public:
 	~DCM(){}
 	//! 値を-pi～piに調整する
 	virtual void normalize();
+	//! 単位行列に戻す
+	virtual void reset(){ this->unitize(); }
 };
 
 } /* End of namespace stf::datatype */

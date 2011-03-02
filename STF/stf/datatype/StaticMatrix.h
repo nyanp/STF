@@ -28,7 +28,8 @@ public:
     StaticMatrix &unitize();
     StaticMatrix<cols, rows> trans() const ;
     StaticMatrix inverse() const ;
-    bool isSquare();
+    bool is_square() const;
+	bool is_unit(double delta = 0.0) const;
     int pivot(StaticMatrix &m, int row) const ;
 	double trace() const ;//Trace
 	double det() const ; //行列式
@@ -234,10 +235,32 @@ StaticMatrix<rows, cols> StaticMatrix<rows, cols>::inverse() const
 }
 
 template<int rows, int cols>
-bool StaticMatrix<rows, cols>::isSquare()
+bool StaticMatrix<rows, cols>::is_square() const
 {
 	if(rows == cols && rows > 0) return true;
 	return false;
+}
+
+template<int rows, int cols>
+bool StaticMatrix<rows, cols>::is_unit(double delta) const
+{
+	assert(rows == cols);
+	double upperlimit = 1.0 + delta;
+	double lowerlimit = 1.0 - delta;
+
+	for(int i = 0; i < rows; i++){
+		if(value_[i][i] > upperlimit) return false;
+		if(value_[i][i] < lowerlimit) return false;
+	}
+
+	for(int i = 0; i < rows; i++){
+		for(int j = 0; j < cols; j++){
+			if(i == j) continue;
+			if(value_[i][j] > delta) return false;
+			if(value_[i][j] < -delta) return false;
+		}
+	}
+	return true;
 }
 
 template<int rows, int cols>

@@ -15,8 +15,8 @@ namespace stf {
 namespace datatype {
 
 
-class MagneticMomentTest : public CPPUNIT_NS::TestFixture {
-	CPPUNIT_TEST_SUITE( MagneticMomentTest );
+class MagneticTest : public CPPUNIT_NS::TestFixture {
+	CPPUNIT_TEST_SUITE( MagneticTest );
 
 	CPPUNIT_TEST( test_init );
 	CPPUNIT_TEST( test_operator_add );
@@ -37,43 +37,43 @@ protected:
 	void test_add();  // 
 	void test_totalcount();
 	void test_getjulian();
-	void test_operator_add(); // + += ++
-	void test_operator_sub(); // - -= --
-	void test_operator_mul(); // * *=
-	void test_operator_div(); // / /=
-	void test_operator_equal();// = == !=
-	void test_operator_inequal();// < > <= >=
+	void test_operator_add();
+	void test_operator_sub();
+	void test_operator_mul();
+	void test_operator_div();
+	void test_operator_equal();
+	void test_operator_inequal();
 	
 	MagneticMoment* t_;
 };
 
-CPPUNIT_TEST_SUITE_REGISTRATION( MagneticMomentTest ); 
+CPPUNIT_TEST_SUITE_REGISTRATION( MagneticTest ); 
 
-void MagneticMomentTest::test_init(){
-
-}
-
-void MagneticMomentTest::test_operator_add(){
+void MagneticTest::test_init(){
 
 }
 
-void MagneticMomentTest::test_operator_sub(){
+void MagneticTest::test_operator_add(){
 
 }
 
-void MagneticMomentTest::test_operator_mul(){
+void MagneticTest::test_operator_sub(){
 
 }
 
-void MagneticMomentTest::test_operator_div(){
+void MagneticTest::test_operator_mul(){
 
 }
 
-void MagneticMomentTest::test_operator_equal(){
+void MagneticTest::test_operator_div(){
 
 }
 
-void MagneticMomentTest::test_operator_inequal(){
+void MagneticTest::test_operator_equal(){
+
+}
+
+void MagneticTest::test_operator_inequal(){
 
 }
 
