@@ -30,7 +30,6 @@ void ModeManagerBase::notify(const mode::ModeBase* value){
 void ModeManagerBase::run()
 {
 	util::Trace trace(util::Trace::kManager, "run ModeManager");
-	this->check();
 }
 
 const datatype::String& ModeManagerBase::get_current_modename() const {

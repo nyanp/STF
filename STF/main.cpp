@@ -15,8 +15,7 @@
 #include "stf/core/mode/ModeBase.h"
 
 #include "stf/core/event/SubjectBase.h"
-#include "stf/core/event/ModeChangeEvent.h"
-#include "stf/core/event/CommandEvent.h"
+#include "stf/core/event/Event.h"
 #include "stf/core/manager/Includes.h"
 #include "stf/core/functor/Functor.h"
 #include "stf/core/command/ModeChangeCommand.h"

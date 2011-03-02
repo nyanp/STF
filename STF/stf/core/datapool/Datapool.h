@@ -23,6 +23,9 @@
 
 namespace stf {
 namespace core {
+namespace event {
+class EventBase;
+}
 namespace datapool {
 //! 時刻とデータポインタのペアを一定要素数のリングバッファで保持する．
 /*! データのポインタ配列を保持しており，データ追加時はBase型ではなく，キャストする型を指定する．

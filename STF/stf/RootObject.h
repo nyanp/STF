@@ -18,9 +18,6 @@ class Time;
 class IAocsData;
 }
 namespace core {
-namespace event {
-class EventBase;
-}
 namespace devicedriver {
 namespace clock {
 class ITimeClock;

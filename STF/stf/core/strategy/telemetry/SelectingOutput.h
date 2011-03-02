@@ -11,7 +11,7 @@
 #include "../../../GlobalObject.h"
 #include "../StrategyBase.h"
 #include "../../datapool/Datapool.h"
-#include "../../event/EventBase.h"
+#include "../../event/Event.h"
 #include "../../devicedriver/tmhandler/ITelemetryStoragable.h"
 #include "../../../interface/Iterator.h"
 #include "../../../datatype/IAocsData.h"

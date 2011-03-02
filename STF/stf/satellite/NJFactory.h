@@ -17,7 +17,6 @@
 #include "../core/devicedriver/Includes.h"
 #include "../core/datapool/Datapool.h"
 #include "../core/command/Includes.h"
-#include "../core/event/Includes.h"
 #include "../core/functor/InputFunctor.h"
 #include "../core/functor/OutputFunctor.h"
 #include "../core/datapool/Datapool.h"

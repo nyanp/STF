@@ -10,7 +10,7 @@
 
 #include "ManagerBase.h"
 #include "../../datatype/List.h"
-#include "../event/ModeChangeEvent.h"
+#include "../event/Event.h"
 #include "../event/SubjectBase.h"
 #include "../../util/loki/TypeManip.h"
 

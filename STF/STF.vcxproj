@@ -243,10 +243,7 @@
     <ClInclude Include="stf\core\devicedriver\sunsensor\SunSensorBase.h" />
     <ClInclude Include="scube\core\devicedriver\telemetryhandler\DummyStorage.h" />
     <ClInclude Include="stf\core\devicedriver\tmhandler\debuglogger.h" />
-    <ClInclude Include="stf\core\event\commandevent.h" />
-    <ClInclude Include="stf\core\event\EventBase.h" />
-    <ClInclude Include="stf\core\event\Includes.h" />
-    <ClInclude Include="stf\core\event\ModeChangeEvent.h" />
+    <ClInclude Include="stf\core\event\Event.h" />
     <ClInclude Include="stf\core\event\SubjectBase.h" />
     <ClInclude Include="stf\core\functor\Functor.h" />
     <ClInclude Include="stf\core\functor\InputFunctor.h" />
