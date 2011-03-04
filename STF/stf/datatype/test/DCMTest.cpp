@@ -25,6 +25,7 @@ class DCMTest : public CPPUNIT_NS::TestFixture {
 	CPPUNIT_TEST( test_operator_div );
 	CPPUNIT_TEST( test_operator_equal );
 	CPPUNIT_TEST( test_operator_inequal );
+	CPPUNIT_TEST( test_inverse );
 
 	CPPUNIT_TEST_SUITE_END();
 
@@ -43,6 +44,7 @@ protected:
 	void test_operator_div();
 	void test_operator_equal();
 	void test_operator_inequal();
+	void test_inverse();
 	
 	DCM* t_;
 };
@@ -178,6 +180,10 @@ void DCMTest::test_operator_inequal(){
 
 	CPPUNIT_ASSERT( dcm != *t_ );
 	CPPUNIT_ASSERT( *t_ != dcm );
+}
+
+void DCMTest::test_inverse(){
+	CPPUNIT_ASSERT( *t_ == t_->inverse() );//単位行列の逆行列
 }
 
 } /* End of namespace stf::datatype */

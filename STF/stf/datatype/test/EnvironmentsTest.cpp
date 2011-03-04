@@ -57,15 +57,14 @@ protected:
 CPPUNIT_TEST_SUITE_REGISTRATION( EnvironmentTest ); 
 
 void EnvironmentTest::test_init(){
+	CPPUNIT_ASSERT( v_->value() == 0.0 );
 
+	v_->reset();
+
+	CPPUNIT_ASSERT( v_->value() == 0.0 );
 }
 
 void EnvironmentTest::test_operator_add(){
-	//‘g‚İ‚İŒ^‚Ì‰ÁZ
-	*v_ += 1.0;
-	*a_ += 1.0;
-	*t_ += 1.0;
-
 
 }
 

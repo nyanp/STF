@@ -196,12 +196,12 @@ private:
 //! Eventのデータプール．
 /*! 
 */
-class EventDataPool : public DataPoolBase//: public RootObject
+class EventDataPool : public RootObject
 {
 public:
 	typedef Loki::Tuple<TYPELIST_2( event::EventType, datatype::Time )> EventLog;
 
-	EventDataPool(int instance_id) : DataPoolBase(instance_id), index_(-1)
+	EventDataPool(int instance_id) : RootObject(instance_id, "EventDataPool"), index_(-1)
 	{
 		for(int i = 0; i < kMaxEventDataCols; i++)
 			Loki::Field<0>(tuple_[i]) = event::NoEvent;	
@@ -215,14 +215,24 @@ public:
 		return Loki::Field<0>(tuple_[index_]);
 	}
 
+	event::EventType get(int index) const{
+		assert(index < kMaxEventDataCols );
+		return Loki::Field<0>(tuple_[index]);
+	}
+
 	//! 最終イベント発生時刻を取得
-	datatype::Time gettime() const {
+	const datatype::Time& gettime() const {
 		assert(index_ >= 0);
 		return Loki::Field<1>(tuple_[index_]);
 	}
 
+	const datatype::Time& gettime(int index) {
+		assert(index < kMaxEventDataCols );
+		return Loki::Field<1>(tuple_[index]);
+	}
+
 	//! 指定したイベントの最終発生時刻を取得．無い場合はtimeの初期値を返却
-	datatype::Time gettime(event::EventType value){
+	datatype::Time gettimeof(event::EventType value){
 		int pt = index_;
 		do{
 			if(Loki::Field<0>(tuple_[pt]) == value) return Loki::Field<1>(tuple_[pt]);
@@ -240,6 +250,10 @@ public:
 		Loki::Field<0>(tuple_[index_]) = value;
 		Loki::Field<1>(tuple_[index_]) = this->clock_->get_time();
 	}
+
+	int rows() const { return kMaxEventDataCols; }
+
+	int currentindex() const { return index_; }
 
 private:
 	static const int kMaxEventDataCols = 100;
@@ -294,38 +308,32 @@ private:
 */
 class EventDataPoolIterator : public interface::Iterator {
 public:
-	EventDataPoolIterator(const EventDataPool* pool) : pool_(pool), index_(0), rows_(0) {
-		focusrow_(0);
+	EventDataPoolIterator(const EventDataPool* pool) : pool_(pool) {
+		startindex_ = index_ = pool_->currentindex();
 	}
 	virtual void init(){
-		rows_ = 0;
-		focusrow_(rows_);
+		startindex_ = index_ = pool_->currentindex();
 	}
 	virtual bool end(){
-		if(pool_->is_created(rows_)) return false;
-		else return true;
+		if(index_ == -1) return true;
+		else return false;
 	}
 	virtual void operator ++() { 
 		index_ ++;
-		if(index_ >= localstreamsize_){//次の列へ
-			rows_++;
-			focusrow_(rows_);
+		if(index_ == startindex_){//１周した
+			index_ = -1;
+		}
+		if(index_ >= pool_->rows()){//末尾に達した
+			index_ = 0;
 		}
 	}
 	virtual double operator()() {
-		return 0;//not implemented yet	
+		return pool_->get(index_);
 	}
 private:
-	void focusrow_(int row){
-		if(!pool_->is_created(rows_)) return;
-		//const core::event::EventBase* d = pool_->get(row);
-		//d->
-		index_ = 0;
-	}
 	const EventDataPool* pool_;
-	int localstreamsize_;
 	int index_;
-	int rows_;
+	int startindex_;
 };
 
 } /* End of namespace stf::core::datapool */

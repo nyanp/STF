@@ -53,8 +53,6 @@ using stf::util::cout;
 using datatype::TypeConverter;
 using namespace stf::core::datapool;
 
-
-
 int main(void){
 	datatype::Scalar target;
 	strategy::control::SingleAxisPID pid(0, 1, 0, 0, 0, target);

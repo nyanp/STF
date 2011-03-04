@@ -120,6 +120,9 @@
     <ClCompile Include="..\STF\stf\environment\models\igrf.cpp">
       <Filter>リソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="..\STF\stf\datatype\test\ScalarTest.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\STF\stf\datatype\OrbitCalc.h">
