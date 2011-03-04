@@ -11,6 +11,8 @@
 #include "../util/math/Rand.h"
 #include "../util/math/RungeKutta.h"
 #include "../datatype/OrbitCalc.h"
+#include "../core/devicedriver/AOCSActuator.h"
+#include "../core/devicedriver/AOCSSensor.h"
 
 namespace stf {
 namespace environment {

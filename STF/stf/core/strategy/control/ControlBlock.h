@@ -11,6 +11,7 @@
 #include "IControlStrategy.h"
 #include "../StrategyBase.h"
 #include "../../devicedriver/IOPort.h"
+#include "../../../datatype/List.h"
 
 namespace stf {
 namespace core {

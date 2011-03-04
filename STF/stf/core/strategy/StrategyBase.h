@@ -9,7 +9,6 @@
 #define stf_core_strategy_StrategyBase_h
 
 #include "../../RootObject.h"
-#include "../datapool/Datapool.h"
 #include "../devicedriver/clock/ITimeClock.h"
 #include "../../interface/IEnabable.h"
 #include "../../util/loki/TypeManip.h"

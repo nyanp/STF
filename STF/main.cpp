@@ -51,50 +51,8 @@ using namespace stf::core;
 using namespace stf::core::devicedriver;
 using stf::util::cout;
 using datatype::TypeConverter;
+using namespace stf::core::datapool;
 
-
-class SPIBase {
-public:
-	void send(char* s){}
-};
-
-struct HW {
-struct STTPX {
-	struct SPI{
-		static const int BAUDRATE = 9600;
-		enum IO{
-			MOSI = 1,
-			MISO = 2
-		};
-	};
-	enum GPIO{
-		BASEADDR = 1
-
-	};
-};
-struct RW {
-	enum SPI{
-		MOSI = 3,
-		MISO = 4
-	};
-	enum GPIO{
-		ENABLE = 4
-	};
-};
-};
-
-class H8 {
-public:
-	class SPI : public SPIBase{
-	public:
-		SPI(int baseaddr, int baudrate, int mode){}
-	};
-	class GPIO{
-	public:
-		GPIO(int baseaddr){}
-	};
-
-};
 
 
 int main(void){

@@ -18,6 +18,7 @@ class ModeBase;
 namespace event {
 
 enum EventType {
+	NoEvent,
 	Unknowmn,
 	ModeChange,
 	Switch,

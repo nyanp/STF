@@ -11,9 +11,7 @@
 #include <fstream>
 #include <iostream>
 #include <vector>
-#include "../core/devicedriver/AOCSComponent.h"
-#include "../core/devicedriver/AOCSActuator.h"
-#include "../core/devicedriver/AOCSSensor.h"
+
 #include "../datatype/StaticVector.h"
 #include "../datatype/StaticMatrix.h"
 #include "../datatype/Vector.h"
@@ -23,6 +21,7 @@
 #include "../datatype/DateTime.h"
 #include "../datatype/OrbitInfo.h"
 #include "../datatype/Magnetic.h"
+#include "../datatype/Scalar.h"
 #include "torquesource/NoiseBase.h"
 #include "../core/manager/ManagerBase.h"
 #include "../datatype/List.h"
@@ -37,6 +36,13 @@ class ITimeMeasure;
 } /* End of namespace interface */
 
 namespace stf {
+namespace core {
+namespace devicedriver {
+template<class T, class U, class Env> class AOCSSensor;
+template<class T, class U, class Env> class AOCSActuator;
+
+}
+}
 namespace environment {
 
 //! ソフトウェアシミュレータ環境クラス．
@@ -75,14 +81,14 @@ public:
 	typedef std::ofstream OutputStream;
 	typedef std::ifstream InputStream;
 
-	typedef core::devicedriver::AOCSComponent<datatype::StaticVector<3>, datatype::StaticVector<3>, Simulator> MultiGyro;
-	typedef core::devicedriver::AOCSComponent<datatype::StaticVector<3>, datatype::Scalar, Simulator> Gyro;
-	typedef core::devicedriver::AOCSComponent<datatype::Quaternion, datatype::Quaternion, Simulator> STT;
-	typedef core::devicedriver::AOCSComponent<datatype::StaticVector<2>, datatype::StaticVector<2>, Simulator> Vectorsensor;
-	typedef core::devicedriver::AOCSComponent<datatype::MagneticField, datatype::MagneticField, Simulator> Magnetometer;
+	typedef core::devicedriver::AOCSSensor<datatype::StaticVector<3>, datatype::StaticVector<3>, Simulator> MultiGyro;
+	typedef core::devicedriver::AOCSSensor<datatype::StaticVector<3>, datatype::Scalar, Simulator> Gyro;
+	typedef core::devicedriver::AOCSSensor<datatype::Quaternion, datatype::Quaternion, Simulator> STT;
+	typedef core::devicedriver::AOCSSensor<datatype::StaticVector<2>, datatype::StaticVector<2>, Simulator> Vectorsensor;
+	typedef core::devicedriver::AOCSSensor<datatype::MagneticField, datatype::MagneticField, Simulator> Magnetometer;
 	typedef core::devicedriver::clock::ITimeClock Clock;
 	typedef core::devicedriver::AOCSActuator<datatype::StaticVector<3>, datatype::Scalar, Simulator> TorqueSource;
-	typedef core::devicedriver::AOCSComponent<datatype::MagneticMoment, datatype::Scalar, Simulator> MagneticSource;
+	typedef core::devicedriver::AOCSActuator<datatype::MagneticMoment, datatype::Scalar, Simulator> MagneticSource;
 
 	static Simulator& get_instance();
 	void init(Global<Simulator>* global, double stepTimeInSecond, double maxTimeInSecond, const datatype::OrbitInfo& orbit, std::ofstream *ostream);

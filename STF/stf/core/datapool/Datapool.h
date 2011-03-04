@@ -19,7 +19,9 @@
 #include "../devicedriver/clock/ITimeClock.h"
 #include "../../interface/Iterator.h"
 #include "../../util/loki/TypeManip.h"
+#include "../../util/loki/HierarchyGenerators.h"
 #include "../../util/Trace.h"
+#include "../event/Event.h"
 
 namespace stf {
 namespace core {
@@ -143,7 +145,7 @@ public:
 	}
 
 	// 最新の値を取る
-	datatype::Time gettime(int index) const;
+	const datatype::Time& gettime(int index) const;
 
 	const datatype::String& getname(int index) const;
 
@@ -197,58 +199,52 @@ private:
 class EventDataPool : public DataPoolBase//: public RootObject
 {
 public:
-	EventDataPool(int instance_id);
+	typedef Loki::Tuple<TYPELIST_2( event::EventType, datatype::Time )> EventLog;
+
+	EventDataPool(int instance_id) : DataPoolBase(instance_id), index_(-1)
+	{
+		for(int i = 0; i < kMaxEventDataCols; i++)
+			Loki::Field<0>(tuple_[i]) = event::NoEvent;	
+	}
+
 	~EventDataPool(void){}
 
-	// 最新の値を元の型として取る
-	template<class Producer> typename Producer::Hold get(int index) const{
-		return table_[index]->get<Producer::Hold>();//copy
+	//! 最新のイベントを取得
+	event::EventType get() const{
+		assert(index_ >= 0);
+		return Loki::Field<0>(tuple_[index_]);
 	}
 
-	const core::event::EventBase* get(int rows) const;
-
-	const core::event::EventBase* get(int rows, int cols) const;
-
-	// 最新の値を取る
-	datatype::Time gettime(int index) const;
-
-	const datatype::String& getname(int index) const;
-
-	// 値をセット
-	template<class Producer> void set(int index, const typename Producer::Hold& value){
-		table_[index]->set<typename Producer::Hold>(this->clock_->get_time(), value);
+	//! 最終イベント発生時刻を取得
+	datatype::Time gettime() const {
+		assert(index_ >= 0);
+		return Loki::Field<1>(tuple_[index_]);
 	}
 
-	template<class Producer> typename Producer::Hold& get_at(int index, int rows) const {
-		return table_[index]->get_at<Producer::Hold>(rows);//copy
+	//! 指定したイベントの最終発生時刻を取得．無い場合はtimeの初期値を返却
+	datatype::Time gettime(event::EventType value){
+		int pt = index_;
+		do{
+			if(Loki::Field<0>(tuple_[pt]) == value) return Loki::Field<1>(tuple_[pt]);
+			pt++;
+			if(pt == kMaxEventDataCols) pt = 0;
+		}while(pt != index_);
+		datatype::Time t;
+		return t;
 	}
 
-	template<class Producer> int create(Producer* producer, unsigned short capacity, const datatype::String& name = "unknown"){
-		this->createdindex_++;
-		this->table_[createdindex_] = new Tuple<core::event::EventBase>(capacity, Loki::Type2Type<Producer::Hold>(), name);
-		return createdindex_ ;
+	//! 値をセット
+	void set(event::EventType value){
+		index_ ++;
+		if(index_ == kMaxEventDataCols) index_ = 0;
+		Loki::Field<0>(tuple_[index_]) = value;
+		Loki::Field<1>(tuple_[index_]) = this->clock_->get_time();
 	}
 
-	template<class Datatype> int create(Loki::Type2Type<Datatype>, unsigned short capacity, const datatype::String& name = "unknown"){
-		this->createdindex_++;
-		this->table_[createdindex_] = new Tuple<core::event::EventBase>(capacity, Loki::Type2Type<Datatype>(), name);
-		return createdindex_ ;
-	}
-
-	template<class Producer> int create(int id, unsigned short capacity, const datatype::String& name = "unknown"){
-		this->createdindex_++;
-		this->table_[createdindex_] = new Tuple<core::event::EventBase>(capacity, Loki::Type2Type<Producer::Hold>(), name);
-		return createdindex_ ;
-	}
-
-	template<class Producer> void show(int index) const{
-		table_[index]->print<Producer::Hold>();
-	}
-
-	// 指定したインスタンスIDが生成したタプルへのポインタを取得（テレメトリ用）
-	Tuple<core::event::EventBase>* get_ptr(int index) ;
 private:
-	Tuple<core::event::EventBase>** table_;
+	static const int kMaxEventDataCols = 100;
+	EventLog tuple_[kMaxEventDataCols];
+	int index_;
 };
 
 //! AocsDataPoolの各列の最新データをなめるイテレータ．
@@ -322,7 +318,7 @@ public:
 private:
 	void focusrow_(int row){
 		if(!pool_->is_created(rows_)) return;
-		const core::event::EventBase* d = pool_->get(row);
+		//const core::event::EventBase* d = pool_->get(row);
 		//d->
 		index_ = 0;
 	}
