@@ -7,7 +7,7 @@
  */
 #ifndef stf_datatype_StaticVector_h
 #define stf_datatype_StaticVector_h
-#include "assert.h"
+#include "../util/stfassert.h"
 #include "IAocsData.h"
 #include "../util/math.h"
 

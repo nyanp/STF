@@ -119,16 +119,47 @@
 "Object file" "Renesas OptLinker" "Renesas SH Assembler" 
 "Object file" "Renesas OptLinker" "Renesas SH C/C++ Compiler" 
 [PROJECT_FILES]
-"C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\HEW\SHPrototype\SHPrototype\SHPrototype.cpp" "User" "C++ source file" 2 
+"C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\HEW\SHPrototype\SHPrototype\SHPrototype.cpp" "User" "C++ source file|datatype" 2 
 "C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\HEW\SHPrototype\SHPrototype\dbsct.c" "User" "C source file" 2 
 "C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\HEW\SHPrototype\SHPrototype\intprg.c" "User" "C source file" 2 
 "C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\HEW\SHPrototype\SHPrototype\resetprg.c" "User" "C source file" 2 
 "C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\HEW\SHPrototype\SHPrototype\sbrk.c" "User" "C source file" 2 
 "C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\HEW\SHPrototype\SHPrototype\vecttbl.c" "User" "C source file" 2 
-"C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\stf\util\math.cpp" "User" "C++ source file" 2 
+"C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\stf\datatype\DCM.cpp" "User" "C++ source file|datatype" 2 
+"C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\stf\datatype\DCM.h" "User" "C header file|datatype" 2 
+"C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\stf\datatype\DateTime.h" "User" "C header file|datatype" 2 
+"C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\stf\datatype\Environments.h" "User" "C header file|datatype" 2 
+"C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\stf\datatype\EulerAngle.cpp" "User" "C++ source file|datatype" 2 
+"C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\stf\datatype\EulerAngle.h" "User" "C header file|datatype" 2 
+"C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\stf\datatype\IAocsData.h" "User" "C header file|datatype" 2 
+"C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\stf\datatype\List.h" "User" "C header file|datatype" 2 
+"C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\stf\datatype\Magnetic.cpp" "User" "C++ source file|datatype" 2 
+"C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\stf\datatype\Magnetic.h" "User" "C header file|datatype" 2 
+"C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\stf\datatype\Matrix.cpp" "User" "C++ source file|datatype" 2 
+"C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\stf\datatype\Matrix.h" "User" "C header file|datatype" 2 
+"C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\stf\datatype\OrbitCalc.cpp" "User" "C++ source file|datatype" 2 
+"C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\stf\datatype\OrbitCalc.h" "User" "C header file|datatype" 2 
+"C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\stf\datatype\OrbitInfo.h" "User" "C header file|datatype" 2 
+"C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\stf\datatype\Quaternion.cpp" "User" "C++ source file|datatype" 2 
+"C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\stf\datatype\Quaternion.h" "User" "C header file|datatype" 2 
+"C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\stf\datatype\SatelliteModel.h" "User" "C header file|datatype" 2 
+"C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\stf\datatype\Scalar.h" "User" "C header file|datatype" 2 
+"C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\stf\datatype\StaticMatrix.h" "User" "C header file|datatype" 2 
+"C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\stf\datatype\StaticVector.h" "User" "C header file|datatype" 2 
+"C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\stf\datatype\String.cpp" "User" "C++ source file|datatype" 2 
+"C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\stf\datatype\String.h" "User" "C header file|datatype" 2 
+"C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\stf\datatype\Time.h" "User" "C header file|datatype" 2 
+"C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\stf\datatype\TypeConverter.cpp" "User" "C++ source file|datatype" 2 
+"C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\stf\datatype\TypeConverter.h" "User" "C header file|datatype" 2 
+"C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\stf\datatype\Vector.cpp" "User" "C++ source file|datatype" 2 
+"C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\stf\datatype\Vector.h" "User" "C header file|datatype" 2 
+"C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\stf\util\math.cpp" "User" "C++ source file|datatype" 2 
 [FOLDER]
+"C header file" "C header file" 
+"C header file|datatype" "" 
 "C source file" "C source file" 
 "C++ source file" "C++ source file" 
+"C++ source file|datatype" "" 
 [GENERAL_DATA_PROJECT]
 "USE_CUSTOM_LINKAGE_ORDER" "0" 
 [ON_DEMAND_COMPONENTS_LOADED]
@@ -139,7 +170,7 @@
 [GENERAL_DATA_SESSION_DefaultSession]
 [GENERAL_DATA_SESSION_SimSessionSH-2]
 [OPTIONS_Debug_Renesas OptLinker]
-"Single Shot" "0752a3f47c7ebc10" 4 
+"Single Shot" "015d53079c7ebc10" 4 
 [OPTIONS_Debug_Renesas SH Assembler]
 "Assembly source file" "060e611fbb7ebc10" 3 
 "Linkage symbol file" "060e611fbb7ebc10" 3 
@@ -152,6 +183,15 @@
 "C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\HEW\SHPrototype\SHPrototype\resetprg.c" "060e611fbb7ebc10" 2 
 "C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\HEW\SHPrototype\SHPrototype\sbrk.c" "060e611fbb7ebc10" 2 
 "C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\HEW\SHPrototype\SHPrototype\vecttbl.c" "060e611fbb7ebc10" 2 
+"C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\stf\datatype\DCM.cpp" "05bc72079c7ebc10" 2 
+"C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\stf\datatype\EulerAngle.cpp" "05bc72079c7ebc10" 2 
+"C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\stf\datatype\Magnetic.cpp" "05bc72079c7ebc10" 2 
+"C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\stf\datatype\Matrix.cpp" "05bc72079c7ebc10" 2 
+"C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\stf\datatype\OrbitCalc.cpp" "05bc72079c7ebc10" 2 
+"C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\stf\datatype\Quaternion.cpp" "05bc72079c7ebc10" 2 
+"C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\stf\datatype\String.cpp" "05bc72079c7ebc10" 2 
+"C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\stf\datatype\TypeConverter.cpp" "05bc72079c7ebc10" 2 
+"C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\stf\datatype\Vector.cpp" "05bc72079c7ebc10" 2 
 "C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\stf\util\math.cpp" "0c4987d46c7ebc10" 2 
 [OPTIONS_Debug_Renesas SH C/C++ Library Generator]
 "Single Shot" "060e611fbb7ebc10" 1 
@@ -165,7 +205,7 @@
 [LINKAGE_ORDER_Debug]
 [GENERAL_DATA_CONFIGURATION_Debug]
 [OPTIONS_Release_Renesas OptLinker]
-"Single Shot" "0752a3f47c7ebc10" 4 
+"Single Shot" "015d53079c7ebc10" 4 
 [OPTIONS_Release_Renesas SH Assembler]
 "Assembly source file" "060e611fbb7ebc10" 3 
 "Linkage symbol file" "060e611fbb7ebc10" 3 
@@ -178,6 +218,15 @@
 "C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\HEW\SHPrototype\SHPrototype\resetprg.c" "060e611fbb7ebc10" 2 
 "C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\HEW\SHPrototype\SHPrototype\sbrk.c" "060e611fbb7ebc10" 2 
 "C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\HEW\SHPrototype\SHPrototype\vecttbl.c" "060e611fbb7ebc10" 2 
+"C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\stf\datatype\DCM.cpp" "05bc72079c7ebc10" 2 
+"C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\stf\datatype\EulerAngle.cpp" "05bc72079c7ebc10" 2 
+"C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\stf\datatype\Magnetic.cpp" "05bc72079c7ebc10" 2 
+"C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\stf\datatype\Matrix.cpp" "05bc72079c7ebc10" 2 
+"C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\stf\datatype\OrbitCalc.cpp" "05bc72079c7ebc10" 2 
+"C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\stf\datatype\Quaternion.cpp" "05bc72079c7ebc10" 2 
+"C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\stf\datatype\String.cpp" "05bc72079c7ebc10" 2 
+"C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\stf\datatype\TypeConverter.cpp" "05bc72079c7ebc10" 2 
+"C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\stf\datatype\Vector.cpp" "05bc72079c7ebc10" 2 
 "C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\stf\util\math.cpp" "0c4987d46c7ebc10" 2 
 [OPTIONS_Release_Renesas SH C/C++ Library Generator]
 "Single Shot" "060e611fbb7ebc10" 1 
@@ -191,7 +240,7 @@
 [LINKAGE_ORDER_Release]
 [GENERAL_DATA_CONFIGURATION_Release]
 [OPTIONS_SimDebug_SH-2_Renesas OptLinker]
-"Single Shot" "0752a3f47c7ebc10" 4 
+"Single Shot" "015d53079c7ebc10" 4 
 [OPTIONS_SimDebug_SH-2_Renesas SH Assembler]
 "Assembly source file" "060e611fbb7ebc10" 3 
 "Linkage symbol file" "060e611fbb7ebc10" 3 
@@ -204,6 +253,15 @@
 "C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\HEW\SHPrototype\SHPrototype\resetprg.c" "060e611fbb7ebc10" 2 
 "C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\HEW\SHPrototype\SHPrototype\sbrk.c" "060e611fbb7ebc10" 2 
 "C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\HEW\SHPrototype\SHPrototype\vecttbl.c" "060e611fbb7ebc10" 2 
+"C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\stf\datatype\DCM.cpp" "05bc72079c7ebc10" 2 
+"C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\stf\datatype\EulerAngle.cpp" "05bc72079c7ebc10" 2 
+"C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\stf\datatype\Magnetic.cpp" "05bc72079c7ebc10" 2 
+"C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\stf\datatype\Matrix.cpp" "05bc72079c7ebc10" 2 
+"C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\stf\datatype\OrbitCalc.cpp" "05bc72079c7ebc10" 2 
+"C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\stf\datatype\Quaternion.cpp" "05bc72079c7ebc10" 2 
+"C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\stf\datatype\String.cpp" "05bc72079c7ebc10" 2 
+"C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\stf\datatype\TypeConverter.cpp" "05bc72079c7ebc10" 2 
+"C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\stf\datatype\Vector.cpp" "05bc72079c7ebc10" 2 
 "C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\stf\util\math.cpp" "0c4987d46c7ebc10" 2 
 [OPTIONS_SimDebug_SH-2_Renesas SH C/C++ Library Generator]
 "Single Shot" "060e611fbb7ebc10" 1 

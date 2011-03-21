@@ -7,7 +7,7 @@
  */
 #include "Vector.h"
 #include "../util/math.h"
-#include "../util/Ostream.h"
+
 namespace stf { 
 namespace datatype {
 

@@ -5,13 +5,12 @@
  * @author Taiga Nomi
  * @date   2011.02.16
  */
-#include <cmath>//TBD!
+#include <math.h>//TBD!
 
 #include "DCM.h"
 #include "EulerAngle.h"
 #include "Quaternion.h"
 #include "TypeConverter.h"
-#include "../util/Ostream.h"
 
 namespace stf {
 namespace datatype {

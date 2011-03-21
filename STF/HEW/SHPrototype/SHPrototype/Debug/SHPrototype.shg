@@ -1,4 +1,0 @@
--cpu=sh2
--output="C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\HEW\SHPrototype\SHPrototype\Debug\SHPrototype.lib"
--gbr=auto
--head=runtime,new,math,stdio,stdlib,string

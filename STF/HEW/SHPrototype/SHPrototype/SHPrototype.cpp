@@ -10,7 +10,7 @@
 /***********************************************************************/
                   
 #include "../../../stf/datatype/Time.h"
-//#include "../../../stf/datatype/DCM.h"
+#include "../../../stf/datatype/DCM.h"
 
 //#include "typedefine.h"
 #ifdef __cplusplus
@@ -25,9 +25,13 @@ void abort(void);
 }
 #endif
 
+using namespace stf;
+
 void main(void)
 {
-	stf::datatype::Time t;
+	assert(0);
+	datatype::Time t;
+	datatype::DCM d;
 
 }
 
