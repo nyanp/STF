@@ -6,6 +6,7 @@
  * @date   2011.02.16
  */
 #include "math.h"
+#include <math.h>
 
 namespace stf {
 namespace util {

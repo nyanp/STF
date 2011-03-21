@@ -5,7 +5,7 @@
  * @author Takuji Nishimura and Makoto Matsumoto
  * @date   2011.02.16
  */
-#include<cmath>
+#include<math.h>
 #include"Rand.h"
 
 namespace stf { 

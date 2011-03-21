@@ -9,7 +9,7 @@
 #include "../../../datatype/TypeConverter.h"
 #include "../../../environment/Simulator.h"
 #include "../../datapool/Datapool.h"
-#include "../../../util/math.h"
+#include "../../../util/math/Rand.h"
 
 namespace stf {
 namespace core {

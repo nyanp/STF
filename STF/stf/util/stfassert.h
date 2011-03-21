@@ -10,6 +10,12 @@
 #ifndef stf_util_stfassert_h
 #define stf_util_stfassert_h
 
+#if defined(_MSC_VER) || defined(__GNUC__)
 #include<assert.h>
+#else
+#define assert(exp) \
+	if( !(exp) ) {}
+
+#endif
 
 #endif

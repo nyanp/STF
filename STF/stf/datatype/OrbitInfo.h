@@ -20,7 +20,7 @@ struct OrbitInfo {
 	OrbitInfo(double a, double e, double M, double i, double Omega, double omega)
 		: a(a), e(e), M(M), i(i), Omega(Omega), omega(omega)
 	{
-		n = sqrt( util::math::MU / (a * a * a) ); 
+		n = util::math::sqrt( util::math::MU / (a * a * a) ); 
 	}
 	double a; //!< 長半径(m)
 	double e; //!< 離心率

@@ -8,7 +8,7 @@
 #include "GyroBase.h"
 #include "../../datapool/Datapool.h"
 #include "../../../environment/Simulator.h"
-#include "../../../util/math.h"
+#include "../../../util/math/Rand.h"
 #include "../../../util/math/RungeKutta.h"
 
 namespace stf {

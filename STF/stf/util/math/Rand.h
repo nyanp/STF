@@ -8,7 +8,7 @@
 #ifndef util_math_Rand_h
 #define util_math_Rand_h
 
-#include<cmath>
+#include<math.h>
 #include<stdlib.h>
 #include<float.h>
 namespace stf { 

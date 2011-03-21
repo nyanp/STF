@@ -10,8 +10,6 @@
 #ifndef stf_util_math_h
 #define stf_util_math_h
 
-#include "math/Rand.h"
-
 namespace stf {
 namespace util {
 namespace math { 

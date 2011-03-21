@@ -1,0 +1,55 @@
+Optimizing Linkage Editor (V.10.00.01.000)        21-Mar-2011 12:59:01
+
+*** Options ***
+
+-subcommand=C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\HEW\SHPrototype\SHPrototype\Debug\SHPrototype.hlk
+-noprelink
+-rom=D=R
+-nomessage
+-list="C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\HEW\SHPrototype\SHPrototype\Debug\SHPrototype.map"
+-nooptimize
+-start=DVECTTBL,DINTTBL/00,PResetPRG,PIntPRG/0500,P,C,C$BSEC,C$DSEC,C$INIT,D/01000,B,R/0FFFFF000,S/0FFFFFBF0
+-nologo
+-input="C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\HEW\SHPrototype\SHPrototype\Debug\dbsct.obj"
+-input="C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\HEW\SHPrototype\SHPrototype\Debug\intprg.obj"
+-input="C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\HEW\SHPrototype\SHPrototype\Debug\math.obj"
+-input="C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\HEW\SHPrototype\SHPrototype\Debug\resetprg.obj"
+-input="C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\HEW\SHPrototype\SHPrototype\Debug\sbrk.obj"
+-input="C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\HEW\SHPrototype\SHPrototype\Debug\SHPrototype.obj"
+-input="C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\HEW\SHPrototype\SHPrototype\Debug\vecttbl.obj"
+-library="C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\HEW\SHPrototype\SHPrototype\Debug\SHPrototype.lib"
+-output="C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\HEW\SHPrototype\SHPrototype\Debug\SHPrototype.abs"
+-end
+
+*** Error information ***
+
+*** Mapping List ***
+
+SECTION                            START      END         SIZE   ALIGN
+
+DVECTTBL
+                                  00000000  0000000f        10   4
+DINTTBL
+                                  00000010  000003ff       3f0   4
+PResetPRG
+                                  00000500  00000543        44   4
+PIntPRG
+                                  00000544  000006ab       168   4
+P
+                                  00001000  0000298b      198c   4
+C
+                                  0000298c  00002b7f       1f4   4
+C$BSEC
+                                  00002b80  00002b87         8   4
+C$DSEC
+                                  00002b88  00002b93         c   4
+C$INIT
+                                  00002b94  00002b94         0   4
+D
+                                  00002b94  00002bab        18   4
+B
+                                  fffff000  fffff407       408   4
+R
+                                  fffff408  fffff41f        18   4
+S
+                                  fffffbf0  ffffffef       400   4
