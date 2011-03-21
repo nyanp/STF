@@ -11,6 +11,14 @@
                   
 #include "../../../stf/datatype/Time.h"
 #include "../../../stf/datatype/DCM.h"
+#include "../../../stf/datatype/EulerAngle.h"
+#include "../../../stf/datatype/Magnetic.h"
+#include "../../../stf/datatype/Quaternion.h"
+#include "../../../stf/datatype/StaticMatrix.h"
+#include "../../../stf/datatype/StaticVector.h"
+#include "../../../stf/datatype/Time.h"
+#include "../../../stf/datatype/DateTime.h"
+#include "../../../stf/datatype/List.h"
 
 //#include "typedefine.h"
 #ifdef __cplusplus
@@ -29,10 +37,12 @@ using namespace stf;
 
 void main(void)
 {
-	assert(0);
 	datatype::Time t;
 	datatype::DCM d;
-
+	datatype::DateTime dt;
+	datatype::List<int> l;
+	int i = 0;
+	l.add(i);
 }
 
 #ifdef __cplusplus
