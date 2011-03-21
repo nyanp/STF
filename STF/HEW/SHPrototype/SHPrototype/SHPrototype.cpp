@@ -19,6 +19,47 @@
 #include "../../../stf/datatype/Time.h"
 #include "../../../stf/datatype/DateTime.h"
 #include "../../../stf/datatype/List.h"
+#include "shutils.h"
+
+
+class SCI {
+public:
+	SCI(){
+		initSCI1();
+	}
+	void putc(char c){
+		putCharSCI1(c);	
+	}
+	const SCI& operator << (char c) const{
+		putCharSCI1(c);	
+		return *this;
+	}
+	const SCI& operator << (double d) const{
+		SCI1_printf("%d",(int)d);
+		putCharSCI1('.');
+		
+		double minor = d - (int)d;
+		for(int i = 0; i < 4; i++){//4Œ…ŒÅ’è
+			minor *= 10;
+			putCharSCI1((int)minor);
+			minor -= (int)minor;
+		}
+		
+		return *this;	
+	};
+	const SCI& operator << (char* c) const{
+		putStringSCI1(c);
+		return *this;	
+	}
+	const SCI& operator << (int i) const{
+		SCI1_printf("%d",i);
+		return *this;	
+	}
+	
+private:	
+	
+};
+
 
 //#include "typedefine.h"
 #ifdef __cplusplus
@@ -33,16 +74,58 @@ void abort(void);
 }
 #endif
 
+
 using namespace stf;
 
 void main(void)
 {
+	SCI sci;
+	
+	// Test of Time
 	datatype::Time t;
+	t.add_milliseconds(100);
+	t.add_seconds(1);
+	t.add_milliseconds(2500);
+	sci <<  "total:" << t.total_milliseconds() << "\n";
+
+	// Test of DCM
 	datatype::DCM d;
-	datatype::DateTime dt;
+	d.unitize();
+	d[0][0] = 3;
+	d[1][1] = 2;
+	datatype::DCM d2 = d.inverse();
+	sci << "d:\n" << 
+			d[0][0] << "," << d[0][1] << "," << d[0][2] << "\n" <<
+			d[1][0] << "," << d[1][1] << "," << d[1][2] << "\n" <<
+			d[2][0] << "," << d[2][1] << "," << d[2][2] << "\n";	
+	sci << "d2:\n" << 
+			d2[0][0] << "," << d2[0][1] << "," << d2[0][2] << "\n" <<
+			d2[1][0] << "," << d2[1][1] << "," << d2[1][2] << "\n" <<
+			d2[2][0] << "," << d2[2][1] << "," << d2[2][2] << "\n";
+			
+	// Test of DateTime
+	datatype::DateTime dt(2010, 3, 31, 10, 25, 16);
+
+
+	sci << "ju:" << dt.get_julian() << " th:" << dt.total_hours()
+	    << "ts:" << dt.total_seconds();
+
+	// Test of List
 	datatype::List<int> l;
 	int i = 0;
 	l.add(i);
+	l.add(i);
+	l.add(i);
+	l.capacity();
+
+	// Quaternion
+	datatype::Quaternion q;
+	q[1] = 0.3;
+	q[5] = 0.1;
+	q.normalize();
+
+	datatype::Quaternion q2 = q.conjugate();
+
 }
 
 #ifdef __cplusplus
