@@ -138,6 +138,7 @@
     <ClCompile Include="stf\environment\sgp4\sgp4ext.cpp" />
     <ClCompile Include="stf\environment\sgp4\sgp4io.cpp" />
     <ClCompile Include="stf\environment\sgp4\sgp4unit.cpp" />
+    <ClCompile Include="stf\environment\sh\GPIO.c" />
     <ClCompile Include="stf\environment\Simulator.cpp" />
     <ClCompile Include="stf\environment\torquesource\ImpulseNoise.cpp" />
     <ClCompile Include="stf\environment\torquesource\StepNoise.cpp" />
@@ -248,6 +249,7 @@
     <ClInclude Include="stf\core\functor\Functor.h" />
     <ClInclude Include="stf\core\functor\InputFunctor.h" />
     <ClInclude Include="stf\core\functor\OutputFunctor.h" />
+    <ClInclude Include="stf\environment\sh\GPIO.h" />
     <ClInclude Include="stf\interface\IEnabable.h" />
     <ClInclude Include="stf\core\manager\CommandManager.h" />
     <ClInclude Include="stf\core\manager\CommandManagerBase.h" />

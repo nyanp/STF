@@ -8,7 +8,7 @@
 #include "ModeManagerBase.h"
 #include "../mode/ModeBase.h"
 #include "../../util/Trace.h"
-
+#include "../../core/datapool/Datapool.h"
 
 namespace stf {
 namespace core {
@@ -20,6 +20,7 @@ void ModeManagerBase::change_mode(const core::mode::ModeBase *mode)
 	util::Trace trace(util::Trace::kManager, "modeChange ModeManager");
 	trace.debug(mode->name());
 	current_mode_ = mode;
+	this->eventdatapool_->set(event::ModeChange);
 	this->notify_observers(*mode);
 }
 

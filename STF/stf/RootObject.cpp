@@ -11,6 +11,7 @@
 namespace stf {
 
 core::devicedriver::clock::ITimeClock* RootObject::clock_ = 0;
+core::datapool::EventDataPool* RootObject::eventdatapool_ = 0;
 int RootObject::last_oid_ = 0;
 
 RootObject::RootObject(int instance_id, const datatype::String& name) : instance_id_(instance_id), name_(name), datapool_(0)

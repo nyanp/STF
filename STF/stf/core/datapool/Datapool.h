@@ -205,6 +205,7 @@ public:
 	{
 		for(int i = 0; i < kMaxEventDataCols; i++)
 			Loki::Field<0>(tuple_[i]) = event::NoEvent;	
+		this->eventdatapool_ = this;
 	}
 
 	~EventDataPool(void){}

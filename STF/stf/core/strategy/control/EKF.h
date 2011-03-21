@@ -15,7 +15,7 @@
 #include "../../../datatype/StaticMatrix.h"
 #include "../../../datatype/Quaternion.h"
 
-#include "EKFParamaters.h"
+#include "EKFParameters.h"
 
 namespace stf {
 namespace datatype {
@@ -30,7 +30,7 @@ namespace control {
 
 //! ジャイロバイアス推定を行う拡張カルマンフィルタ制御ブロック．
 /*! 
-	カルマンフィルタの初期パラメータは，EKFParamatersによって纏めて与える．ジャイロバイアスはECRVでモデル化されている．
+	カルマンフィルタの初期パラメータは，EKFParametersによって纏めて与える．ジャイロバイアスはECRVでモデル化されている．
 	参考：宇宙科学研究所報告第102号　天文観測用科学衛星の姿勢決定系におけるカルマンフィルタ
 	入力:姿勢情報, 角速度
 	出力:姿勢情報，角速度（推定値）
@@ -40,21 +40,21 @@ class EKF : public StrategyBase,
 	public devicedriver::OutputPorts< TYPELIST_2( datatype::Quaternion, datatype::StaticVector<3> ) >
 {
 public:
-    EKF(int instance_id, const EKFParamaters &params);
-	EKF(int instance_id, const EKFParamaters &params, 
+    EKF(int instance_id, const EKFParameters &params);
+	EKF(int instance_id, const EKFParameters &params, 
 		OutputPort<datatype::Quaternion>* q_source, OutputPort<datatype::StaticVector<3>>* omega_source,
 		InputPort<datatype::Quaternion>* q_out = 0, InputPort<datatype::StaticVector<3>>* omega_out = 0
 		);
     EKF(int instance_id);
 	virtual ~EKF(){}	
-	virtual void init(const EKFParamaters &params);//!< 与えられたEKFParamatersを用いて推定値と各伝搬行列を全て初期化する．
+	virtual void init(const EKFParameters &params);//!< 与えられたEKFParametersを用いて推定値と各伝搬行列を全て初期化する．
     virtual void init();  //!< ローカルのparams_を用いて推定値と各伝搬行列を全て初期化する．
 	virtual void reset(); //!< 誤差共分散行列を初期化する．
 	virtual void do_compute(const datatype::Time& t);//伝搬，更新処理
 protected:
     virtual void update_(const datatype::Quaternion &input, const datatype::Time& t);
     virtual void propagate_(const datatype::StaticVector<3>& omega, const datatype::Time& t);
-    EKFParamaters params_; //!< リセット時のために保存される，各初期値セット
+    EKFParameters params_; //!< リセット時のために保存される，各初期値セット
 	datatype::StaticVector<3> omega_; //!< 角速度推定値
     datatype::Quaternion q_; //!< オイラーパラメータ推定値
     datatype::StaticVector<3> bref_; //!< ジャイロバイアス推定値

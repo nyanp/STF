@@ -1,12 +1,12 @@
 /**
- * @file   EKFParamaters.h
+ * @file   EKFParameters.h
  * @brief  ジャイロバイアスEKFの初期値を設定する構造体．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
  */
-#ifndef aocs_core_strategy_control_EKFParamaters_h
-#define aocs_core_strategy_control_EKFParamaters_h
+#ifndef aocs_core_strategy_control_EKFParameters_h
+#define aocs_core_strategy_control_EKFParameters_h
 
 #include "../../../datatype/Quaternion.h"
 #include "../../../datatype/StaticMatrix.h"
@@ -20,9 +20,9 @@ namespace control {
 //! ジャイロバイアスEKFの初期値を設定する構造体．
 /*! 
 */
-struct EKFParamaters {
+struct EKFParameters {
 public:
-	EKFParamaters(){}
+	EKFParameters(){}
     datatype::Quaternion q0;//! q初期値
     datatype::StaticVector<3> b0;//! b初期値
     datatype::StaticMatrix<6, 6> P0;//! 共分散行列初期値
@@ -33,7 +33,7 @@ public:
     double tau;//! バイアスレートランダムノイズの時定数(non-zero)
 	double MinimunGain;//! カルマンゲインKの対角成分に設定される最小値．0の場合は最小値を設定しない通常のKF
 	bool calcSensorGap;//! センサ出力遅延の処理
-	~EKFParamaters(){}
+	~EKFParameters(){}
 };
 
 } /* End of namespace stf::core::strategy::control */
@@ -41,4 +41,4 @@ public:
 } /* End of namespace stf::core */
 } /* End of namespace stf */
 
-#endif // aocs_strategy_input_EKFParamaters_h
+#endif // aocs_strategy_input_EKFParameters_h

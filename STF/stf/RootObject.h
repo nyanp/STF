@@ -47,6 +47,7 @@ protected:
 	const datatype::String name_;
     static int last_oid_;
 	static core::devicedriver::clock::ITimeClock* clock_;
+	static core::datapool::EventDataPool* eventdatapool_;
 	//観測値が格納されるデータベースインデックス．
 	int datapool_hold_index_;
 	core::datapool::AocsDataPool* datapool_;
