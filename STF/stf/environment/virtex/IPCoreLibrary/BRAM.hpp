@@ -2,7 +2,7 @@
 #define BRAM_HPP_
 
 //#include "../Util/assert.hpp"
-#include<assert.h>
+#include"../../../util/stfassert.h"
 
 namespace nj
 {

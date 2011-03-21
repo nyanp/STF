@@ -8,7 +8,7 @@
 #ifndef stf_core_devicedriver_ADCBase_h
 #define stf_core_devicedriver_ADCBase_h
 
-#include <assert.h>
+#include "../../util/stfassert.h"
 #include "../CDHComponent.h"
 #include "ConvertPolicy.h"
 #include "../../../datatype/Environments.h"

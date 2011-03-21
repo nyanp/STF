@@ -7,7 +7,7 @@
  */
 #ifndef datatype_Time_h
 #define datatype_Time_h
-#include<assert.h>
+#include"../util/stfassert.h"
 
 namespace stf { 
 namespace datatype {

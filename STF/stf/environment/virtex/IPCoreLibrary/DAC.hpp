@@ -18,7 +18,7 @@
 
 #include "./AccessControl/AccessControl.hpp"
 
-#include <assert.h>
+#include "../../util/stfassert.h"
 namespace nj
 {
   namespace lib

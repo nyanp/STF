@@ -6,7 +6,7 @@
  * @date   2011.02.16
  */
 #include "PRISMADC.h"
-#include<assert.h>
+#include"../../util/stfassert.h"
 
 namespace stf {
 namespace core {

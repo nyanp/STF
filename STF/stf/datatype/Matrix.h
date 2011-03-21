@@ -8,7 +8,7 @@
 #ifndef stf_datatype_Matrix_h
 #define stf_datatype_Matrix_h
 
-#include <assert.h>
+#include "../util/stfassert.h"
 #include "Vector.h"
 #include "StaticVector.h"
 #include "IAocsData.h"

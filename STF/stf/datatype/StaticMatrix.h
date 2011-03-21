@@ -8,7 +8,7 @@
 #ifndef stf_datatype_StaticMatrix_h
 #define stf_datatype_StaticMatrix_h
 
-#include <assert.h>
+#include "../util/stfassert.h"
 #include "StaticVector.h"
 
 namespace stf { 

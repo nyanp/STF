@@ -7,7 +7,7 @@
  */
 #ifndef stf_core_devicedriver_CompositeInput_h
 #define stf_core_devicedriver_CompositeInput_h
-#include <assert.h>
+#include "../../util/stfassert.h"
 #include "AOCSSensor.h"
 #include "../datapool/Datapool.h"
 #include "AggregationPolicy.h"

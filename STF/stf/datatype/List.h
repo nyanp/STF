@@ -9,7 +9,7 @@
 
 #ifndef stf_datatype_List_h
 #define stf_datatype_List_h
-#include<assert.h>
+#include"../util/stfassert.h"
 
 namespace stf { 
 namespace datatype {

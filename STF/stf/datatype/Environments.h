@@ -8,7 +8,7 @@
 #ifndef stf_datatype_Environments_h
 #define stf_datatype_Environments_h
 
-#include <assert.h>
+#include "../../util/stfassert.h"
 #include "Scalar.h"
 
 namespace stf { 

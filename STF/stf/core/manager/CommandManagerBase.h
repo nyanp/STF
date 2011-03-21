@@ -7,7 +7,7 @@
  */
 #ifndef core_manager_CommandManagerBase_h
 #define core_manager_CommandManagerBase_h
-#include <assert.h>
+#include "../../util/stfassert.h"
 #include "ManagerBase.h"
 #include "../event/Event.h"
 #include "../event/SubjectBase.h"

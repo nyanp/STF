@@ -5,7 +5,7 @@
  * @author Taiga Nomi
  * @date   2011.02.16
  */
-#include <assert.h>
+#include "../util/stfassert.h"
 #include "DCM.h"
 
 namespace stf { 

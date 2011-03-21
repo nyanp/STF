@@ -7,7 +7,7 @@
  */
 #ifndef stf_core_strategy_control_SingleAxisPID_h
 #define stf_core_strategy_control_SingleAxisPID_h
-#include <assert.h>
+#include "../../../util/stfassert.h"
 #include "IControlStrategy.h"
 #include "../../devicedriver/IOPort.h"
 #include "../StrategyBase.h"

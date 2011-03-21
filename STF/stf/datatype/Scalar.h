@@ -8,7 +8,7 @@
 #ifndef stf_datatype_Scalar_h
 #define stf_datatype_Scalar_h
 
-#include <assert.h>
+#include "../util/stfassert.h"
 #include "IAocsData.h"
 
 namespace stf { 

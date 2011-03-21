@@ -278,7 +278,7 @@
     <ClInclude Include="stf\core\strategy\control\ControlBlock.h" />
     <ClInclude Include="stf\core\strategy\control\CouplingCompensation.h" />
     <ClInclude Include="stf\core\strategy\control\EKF.h" />
-    <ClInclude Include="stf\core\strategy\control\EKFParamaters.h" />
+    <ClInclude Include="stf\core\strategy\control\EKFParameters.h" />
     <ClInclude Include="stf\core\strategy\control\FirstOrderCorrection.h" />
     <ClInclude Include="stf\core\strategy\control\GGCompensation.h" />
     <ClInclude Include="stf\core\strategy\control\IControlStrategy.h" />
@@ -403,6 +403,7 @@
     <ClInclude Include="stf\util\math\RungeKutta.h" />
     <ClInclude Include="stf\util\Null.h" />
     <ClInclude Include="stf\util\Ostream.h" />
+    <ClInclude Include="stf\util\stfassert.h" />
     <ClInclude Include="stf\util\Trace.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -8,7 +8,7 @@
 #ifndef util_math_Exp_h
 #define util_math_Exp_h
 
-#include<assert.h>
+#include"../../util/stfassert.h"
 #include"../../datatype/Matrix.h"
 #include"../../datatype/StaticMatrix.h"
 

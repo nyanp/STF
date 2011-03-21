@@ -7,7 +7,7 @@
  */
 #ifndef stf_core_strategy_control_ControlBlock_h
 #define stf_core_strategy_control_ControlBlock_h
-#include <assert.h>
+#include "../../../util/stfassert.h"
 #include "IControlStrategy.h"
 #include "../StrategyBase.h"
 #include "../../devicedriver/IOPort.h"

@@ -8,7 +8,7 @@
  */
 #ifndef stf_core_devicedriver_CompositeOutput_h
 #define stf_core_devicedriver_CompositeOutput_h
-#include <assert.h>
+#include "../../util/stfassert.h"
 #include "AOCSActuator.h"
 #include "../datapool/Datapool.h"
 #include "DistributionPolicy.h"

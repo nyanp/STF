@@ -8,7 +8,7 @@
 #ifndef stf_core_command_TypeListFunctionCommand_h
 #define stf_core_command_TypeListFunctionCommand_h
 
-#include <assert.h>
+#include "../../util/stfassert.h"
 #include "Command.h"
 #include "../../util/Trace.h"
 

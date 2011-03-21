@@ -7,7 +7,7 @@
  */
 #ifndef stf_core_strategy_control_FirstOrderCorrection_h
 #define stf_core_strategy_control_FirstOrderCorrection_h
-#include <assert.h>
+#include "../../../util/stfassert.h"
 #include "../../devicedriver/IOPort.h"
 #include "../StrategyBase.h"
 #include "../../../util/Trace.h"

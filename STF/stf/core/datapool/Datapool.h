@@ -10,7 +10,7 @@
  */
 #ifndef stf_core_datapool_Datapool_h
 #define stf_core_datapool_Datapool_h
-#include<assert.h>
+#include"../../util/stfassert.h"
 #include "../../RootObject.h"
 #include "../../datatype/IAocsData.h"
 #include "../../datatype/List.h"
