@@ -79,7 +79,7 @@ public:
 		case 2:
 			return data_->obs_mode_;
 		}
-		assert(0);//out of inde
+		stf_assert(0);//out of inde
 		return 0;
 	}
 };

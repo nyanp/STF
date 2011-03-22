@@ -8,8 +8,7 @@
 #ifndef stf_core_devicedriver_rw_RWBase_h
 #define stf_core_devicedriver_rw_RWBase_h
 
-#include "../../../datatype/DCM.h"
-#include "../../../datatype/Quaternion.h"
+#include "../../../util/stfassert.h"
 #include "../../../datatype/StaticVector.h"
 #include "../../../datatype/Scalar.h"
 #include "../AOCSActuator.h"
@@ -60,7 +59,7 @@ RWBase<T>::~RWBase()
 
 template<class T>
 void RWBase<T>::do_update(){
-//	this->datapool_.get< 0, RWBase >();
+	stf_static_assert(0 && "Not-Implemented-Exception");
 }
 
 template <>

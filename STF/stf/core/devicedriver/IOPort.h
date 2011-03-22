@@ -28,12 +28,12 @@ struct OutputPort {
 
 	//! get_in_bodyframe関数から呼び出される，データの更新を行う関数．
 	/*! OutputPortを継承した具象クラスは各々の更新ルーチンを実装しなければならない．本来ならこれは純粋仮想関数としておくべきだが，
-	 *  OutputPortsが使用するLokiのFieldヘルパは抽象クラスを扱えない．そのため，ここではassert(0)を実行する関数を実装し，
+	 *  OutputPortsが使用するLokiのFieldヘルパは抽象クラスを扱えない．そのため，ここではstf_assert(0)を実行する関数を実装し，
 	 *  派生クラス側での未実装をコンパイル時でなく，実行時に検出する仕様としている．
 	 */
 	virtual void do_compute(const datatype::Time& t){
 		//util::cout << "do_compute must be implemented" << util::endl;
-		assert(0);
+		stf_assert(0);
 	}
 
 	//! データの取得を行う関数．

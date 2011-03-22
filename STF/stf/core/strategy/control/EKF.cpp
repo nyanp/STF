@@ -63,7 +63,7 @@ void EKF::init(const EKFParameters &params)
 void EKF::init()
 {
 	//全ての値を初期化する．コンストラクタから呼ぶほか，大マニューバ後やセンサ異常時のリセットにも使える
-    assert(tau_ != 0);
+    stf_assert(tau_ != 0);
 
     this->P_ = params_.P0;
     this->q_ = params_.q0;

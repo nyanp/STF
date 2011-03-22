@@ -8,8 +8,7 @@
 #ifndef stf_core_devicedriver_gyro_GyroBase_h
 #define stf_core_devicedriver_gyro_GyroBase_h
 
-#include "../../../datatype/DCM.h"
-#include "../../../datatype/Quaternion.h"
+#include "../../../util/stfassert.h"
 #include "../../../datatype/Scalar.h"
 #include "../../../datatype/StaticVector.h"
 #include "../AOCSSensor.h"
@@ -52,13 +51,12 @@ GyroBase<T>::GyroBase(int instance_id, const datatype::DCM &dcm, double sigma, d
 
 template <class T>
 void GyroBase<T>::do_update(){
-
+	stf_static_assert(0 && "Not-Implemented-Exception");
 }
 
-template <>
+template<>
 void GyroBase<environment::Simulator>::do_update();
-template <>
-datatype::Scalar GyroBase<environment::Simulator>::filter(const datatype::Scalar& value); 
+
 } /* End of namespace stf::core::devicedriver::gyro */
 } /* End of namespace stf::core::devicedriver */
 } /* End of namespace stf::core */

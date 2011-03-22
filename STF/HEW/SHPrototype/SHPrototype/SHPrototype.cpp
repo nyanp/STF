@@ -20,7 +20,7 @@
 #include "../../../stf/datatype/DateTime.h"
 #include "../../../stf/datatype/List.h"
 #include "shutils.h"
-
+#include<iostream>
 
 class SCI {
 public:
@@ -79,6 +79,7 @@ using namespace stf;
 
 void main(void)
 {
+	cout << "h";
 	SCI sci;
 	
 	// Test of Time

@@ -39,7 +39,7 @@ class Tuple
 public:
 	template <class T>
 	Tuple(int capacity, Loki::Type2Type<T>, const datatype::String& name) : capacity_(capacity), index_(0), name_(name){
-		assert(capacity > 0);
+		stf_assert(capacity > 0);
 		this->data_ = new Base*[capacity];
 		for(int i = 0; i < capacity; i++)
 			this->data_[i] = new T;
@@ -83,12 +83,12 @@ public:
 	int index() const { return index_; }
 
 	const Base* get_data_at(int index) const{ 
-		assert(index < capacity_); 
+		stf_assert(index < capacity_); 
 
 		return (data_)[index_]; 
 	}
 
-	const datatype::Time& get_time_at(int index) const{ assert(index < capacity_); return time_[index]; }
+	const datatype::Time& get_time_at(int index) const{ stf_assert(index < capacity_); return time_[index]; }
 
 	const datatype::String& name() const { return name_; }
 
@@ -110,7 +110,7 @@ public:
 	~DataPoolBase(void){}
 	const int rows () const{ return this->kMaxDataPoolRows; }
 	bool is_created(int index) const{ 
-		assert( index < kMaxDataPoolRows && index >= 0); 
+		stf_assert( index < kMaxDataPoolRows && index >= 0); 
 		if(index <= createdindex_) return true;
 		else return false;
 	}
@@ -212,23 +212,23 @@ public:
 
 	//! 最新のイベントを取得
 	event::EventType get() const{
-		assert(index_ >= 0);
+		stf_assert(index_ >= 0);
 		return Loki::Field<0>(tuple_[index_]);
 	}
 
 	event::EventType get(int index) const{
-		assert(index < kMaxEventDataCols );
+		stf_assert(index < kMaxEventDataCols );
 		return Loki::Field<0>(tuple_[index]);
 	}
 
 	//! 最終イベント発生時刻を取得
 	const datatype::Time& gettime() const {
-		assert(index_ >= 0);
+		stf_assert(index_ >= 0);
 		return Loki::Field<1>(tuple_[index_]);
 	}
 
 	const datatype::Time& gettime(int index) {
-		assert(index < kMaxEventDataCols );
+		stf_assert(index < kMaxEventDataCols );
 		return Loki::Field<1>(tuple_[index]);
 	}
 

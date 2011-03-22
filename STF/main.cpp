@@ -2,7 +2,7 @@
 #include<fstream>
 #include<vector>
 #include "stf/util/Ostream.h"
-
+#include "stf/Config.h"
 //#include "stf/core/strategy/control/Includes.h"
 #include "stf/GlobalObject.h"
 #include "stf/InstanceID.h"
@@ -52,6 +52,8 @@ using namespace stf::core::devicedriver;
 using stf::util::cout;
 using datatype::TypeConverter;
 using namespace stf::core::datapool;
+
+#include <iostream>
 
 int main(void){
 	datatype::OrbitInfo orbit_i(7100000, 0.01, 0, 0.5 * util::math::PI, 0, 0);

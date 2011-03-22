@@ -95,8 +95,8 @@ public:
 	};
 	typedef typename List<T>::_iterator iterator;
 	// public methods
-	T& operator [](int index){assert(index < size_ && index >= 0); return *(data_[index]);}
-	const T& operator [](int index) const {assert(index < size_ && index >= 0); return *(data_[index]);}
+	T& operator [](int index){stf_assert(index < size_ && index >= 0); return *(data_[index]);}
+	const T& operator [](int index) const {stf_assert(index < size_ && index >= 0); return *(data_[index]);}
 	_iterator begin() const{return _iterator(this, 0);}
 	_iterator end() const{return _iterator(this, size_);}
 	int size() const{return size_;}
@@ -152,7 +152,7 @@ private:
     T& operator =(const List<T>& rhs){}//コピー，実行されない
     //i番目の要素を削除
     void removeat_(int index){
-        assert(size_ != 0);
+        stf_assert(size_ != 0);
         size_ --;
         for(int i = index; i < size_; i++)
           data_[i] = data_[i+1];

@@ -6,8 +6,6 @@
  * @date   2011.02.16
  */
 #include "CommandManager.h"
-#include "../strategy/control/IControlStrategy.h"
-#include "../../util/Ostream.h"
 
 namespace stf {
 namespace core {

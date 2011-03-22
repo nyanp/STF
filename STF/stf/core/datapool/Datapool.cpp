@@ -32,7 +32,7 @@ const datatype::String& AocsDataPool::getname(int index) const{
 
 // 指定したインスタンスIDが生成したタプルへのポインタを取得（テレメトリ用）
 Tuple<datatype::IAocsData>* AocsDataPool::get_ptr(int index) {
-	assert( index < kMaxDataPoolRows );
+	stf_assert( index < kMaxDataPoolRows );
 	return table_[index];
 }
 

@@ -123,7 +123,7 @@ namespace nj
     template<typename AC>
     void DAC<AC>::enable(unsigned char num)
     {
-      assert(num < num_dac_);
+      stf_assert(num < num_dac_);
 	
       unsigned int mask = (0x00000001 << (num_dac_-1-num));
 
@@ -134,7 +134,7 @@ namespace nj
     template<typename AC>
     void DAC<AC>::disable(unsigned char num)
     {
-      assert(num < num_dac_);
+      stf_assert(num < num_dac_);
 	
       unsigned int mask = (0x00000001 << (num_dac_-1-num));
 	
@@ -145,7 +145,7 @@ namespace nj
     template<typename AC>
     void DAC<AC>::set_value(unsigned char num, unsigned int value)
     {
-      assert(num < num_dac_);
+      stf_assert(num < num_dac_);
 	
       AccessControl<AC> ac_obj;
       *reinterpret_cast<unsigned int*>(base_addr_+4*(num+1)) = value;
@@ -154,7 +154,7 @@ namespace nj
     template<typename AC>
     unsigned int DAC<AC>::get_value(unsigned char num) const
     {
-      assert(num < num_dac_);
+      stf_assert(num < num_dac_);
 	
       AccessControl<AC> ac_obj;
       return *reinterpret_cast<unsigned int*>(base_addr_+4*(num+1));

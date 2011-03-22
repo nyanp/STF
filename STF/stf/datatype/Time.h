@@ -19,7 +19,7 @@ public:
 	Time() : seconds_(0), milliseconds_(0) {}
 	Time(const Time &rhs) : seconds_(rhs.seconds_), milliseconds_(rhs.milliseconds_) {}
     Time(int second, double millisecond) : seconds_(second), milliseconds_(millisecond) {
-		assert(second >= 0);
+		stf_assert(second >= 0);
 		while(milliseconds_ >= 1000){
 			seconds_ ++;
 			milliseconds_ -= 1000;  
@@ -63,7 +63,7 @@ private:
 inline void Time::add_seconds(int seconds)
 {
     this->seconds_ += seconds;
-    assert(this->seconds_ >= 0);
+    stf_assert(this->seconds_ >= 0);
 }
 
 inline void Time::add_milliseconds(double milliSeconds)
@@ -72,7 +72,7 @@ inline void Time::add_milliseconds(double milliSeconds)
     int u = (int)(this->milliseconds_ / 1000);
     this->seconds_ += u;
     this->milliseconds_ -= u * 1000;  
-    assert(this->seconds_ >= 0);
+    stf_assert(this->seconds_ >= 0);
 }
 
 inline double Time::total_milliseconds() const 
@@ -101,7 +101,7 @@ inline Time &Time::operator+=(const Time &rhs){
         this->milliseconds_ += 1000;
     }
     this->seconds_ += rhs.seconds_;
-    assert(this->seconds_ >= 0);
+    stf_assert(this->seconds_ >= 0);
     return *this;
 }
 
@@ -115,7 +115,7 @@ inline Time &Time::operator-=(const Time &rhs){
         this->milliseconds_ += 1000;
     }
     this->seconds_ -= rhs.seconds_;
-    assert(this->seconds_ >= 0);
+    stf_assert(this->seconds_ >= 0);
     return *this;
 }
 
@@ -124,7 +124,7 @@ inline Time &Time::operator/=(int rhs){
     this->seconds_ /= rhs;
     this->milliseconds_ += r * 1000;
     this->milliseconds_ /= rhs;
-    assert(this->seconds_ >= 0);
+    stf_assert(this->seconds_ >= 0);
     return *this;
 }
 
@@ -134,7 +134,7 @@ inline Time &Time::operator*=(int rhs){
     int u = (int)(this->milliseconds_ / 1000);
     this->seconds_ += u;
     this->milliseconds_ -= u * 1000;
-    assert(this->seconds_ >= 0);
+    stf_assert(this->seconds_ >= 0);
     return *this;
 }
 

@@ -22,7 +22,7 @@ void Quaternion::normalize()
 
 double Quaternion::norm(int n) const 
 {
-	assert((n == 1) || (n == 2));//計算負荷の問題から今は1，2次のノルムしかとらない
+	stf_assert((n == 1) || (n == 2));//計算負荷の問題から今は1，2次のノルムしかとらない
 	double value = 0.0;
 	if(n == 1){
 		for(int i = 0; i < 4; i++)

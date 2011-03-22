@@ -16,7 +16,7 @@
 namespace stf {
 namespace core {
 namespace devicedriver {
-template<class T, class U, class ENV> class AOCSComponent;
+template<class T, class U, class Env> class AOCSComponent;
 }
 namespace strategy {
 namespace control {

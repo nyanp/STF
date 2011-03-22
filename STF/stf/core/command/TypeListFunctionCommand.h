@@ -29,7 +29,7 @@ public:
 		: Command(t, "TypeListMemberFuncCommand"), obj_(obj), f_(f), arg_(arg) {}
 	~TypeListMemberFunctionCommand(){}
 	virtual void init(int* params, int paramsize){
-		assert(paramsize >= 1);
+		stf_assert(paramsize >= 1);
 		arg_ = (ARG)params[0];
 	}
 	virtual Command* clone(const datatype::Time& t){
@@ -57,7 +57,7 @@ public:
 		: Command(t, "TypeListMemberFuncCommand"), obj_(obj), f_(f), arg1_(arg1), arg2_(arg2) {}
 	~TypeListMemberFunctionCommand(){}
 	virtual void init(int* params, int paramsize){
-		assert(paramsize >= 2);
+		stf_assert(paramsize >= 2);
 		arg1_ = params[0];
 		arg2_ = params[1];
 	}
@@ -86,7 +86,7 @@ public:
 		: Command(t, "TypeListMemberFuncCommand"), obj_(obj), f_(f), arg1_(arg1), arg2_(arg2), arg3_(arg3) {}
 	~TypeListMemberFunctionCommand(){}
 	virtual void init(int* params, int paramsize){
-		assert(paramsize >= 3);
+		stf_assert(paramsize >= 3);
 		arg1_ = params[0];
 		arg2_ = params[1];
 		arg3_ = params[2];
@@ -117,7 +117,7 @@ public:
 		: Command(t, "TypeListMemberFuncCommand"), obj_(obj), f_(f), arg1_(arg1), arg2_(arg2), arg3_(arg3), arg4_(arg4) {}
 	~TypeListMemberFunctionCommand(){}
 	virtual void init(int* params, int paramsize){
-		assert(paramsize >= 4);
+		stf_assert(paramsize >= 4);
 		arg1_ = params[0];
 		arg2_ = params[1];
 		arg3_ = params[2];
@@ -150,7 +150,7 @@ public:
 		: Command(t, "TypeListMemberFuncCommand"), obj_(obj), f_(f), arg1_(arg1), arg2_(arg2), arg3_(arg3), arg4_(arg4), arg5_(arg5) {}
 	~TypeListMemberFunctionCommand(){}
 	virtual void init(int* params, int paramsize){
-		assert(paramsize >= 5);
+		stf_assert(paramsize >= 5);
 		arg1_ = params[0];
 		arg2_ = params[1];
 		arg3_ = params[2];
@@ -185,7 +185,7 @@ public:
 		: Command(t, "TypeListMemberFuncCommand"), obj_(obj), f_(f), arg1_(arg1), arg2_(arg2), arg3_(arg3), arg4_(arg4), arg5_(arg5), arg6_(arg6) {}
 	~TypeListMemberFunctionCommand(){}
 	virtual void init(int* params, int paramsize){
-		assert(paramsize >= 6);
+		stf_assert(paramsize >= 6);
 		arg1_ = params[0];
 		arg2_ = params[1];
 		arg3_ = params[2];

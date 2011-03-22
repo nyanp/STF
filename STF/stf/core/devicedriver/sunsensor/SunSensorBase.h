@@ -8,6 +8,7 @@
 #ifndef stf_core_devicedriver_sunsensor_SunSensorBase_h
 #define stf_core_devicedriver_sunsensor_SunSensorBase_h
 
+#include "../../../util/stfassert.h"
 #include "../AOCSSensor.h"
 #include "../../../datatype/StaticVector.h"
 
@@ -45,14 +46,12 @@ SunSensorBase<T>::SunSensorBase(int instance_id, const datatype::DCM& dcm, doubl
 
 template <class T>
 void SunSensorBase<T>::do_update(){
-
+	stf_static_assert(0 && "Not-Implemented-Exception");
 }
 
 //シミュレータ用の特殊化
 template <>
 void SunSensorBase<environment::Simulator>::do_update();
-template <>
-datatype::StaticVector<2> SunSensorBase<environment::Simulator>::filter(const datatype::StaticVector<2>& value); 
 
 } /* End of namespace stf::core::devicedriver::sunsensor */
 } /* End of namespace stf::core::devicedriver */

@@ -12,10 +12,13 @@
 
 #if defined(_MSC_VER) || defined(__GNUC__)
 #include<assert.h>
+#define stf_assert(exp) assert(exp)
 #else
-#define assert(exp) \
+#define stf_assert(exp) \
 	if( !(exp) ) {}
 
 #endif
+
+#define stf_static_assert(exp) stf_assert(exp)
 
 #endif

@@ -8,6 +8,7 @@
 #ifndef stf_core_devicedriver_gps_GPSBase_h
 #define stf_core_devicedriver_gps_GPSBase_h
 
+#include "../../../util/stfassert.h"
 #include "../../../datatype/OrbitInfo.h"
 #include "../AOCSSensor.h"
 #include "../clock/IAbsoluteTimeClock.h"
@@ -41,16 +42,16 @@ protected:
 	datatype::DateTime t_;
 };
 
-
 template <class T>
 void GPSBase<T>::do_update(){
-
+	stf_static_assert(0 && "Not-Implemented-Exception");
 }
 
+//シミュレータ用の特殊化
 template <>
 void GPSBase<environment::Simulator>::do_update();
-template <>
-datatype::PositionInfo GPSBase<environment::Simulator>::filter(const datatype::PositionInfo& value); 
+
+
 } /* End of namespace stf::core::devicedriver::gyro */
 } /* End of namespace stf::core::devicedriver */
 } /* End of namespace stf::core */

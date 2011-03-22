@@ -192,6 +192,7 @@
     <ClCompile Include="stf\util\Trace.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="stf\Config.h" />
     <ClInclude Include="stf\core\command\Command.h" />
     <ClInclude Include="stf\core\command\GetCommand.h" />
     <ClInclude Include="stf\core\command\Includes.h" />

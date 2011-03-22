@@ -8,6 +8,7 @@
 #ifndef stf_core_devicedriver_magnetometer_TAMBase_h
 #define stf_core_devicedriver_magnetometer_TAMBase_h
 
+#include "../../../util/stfassert.h"
 #include "../../../datatype/Magnetic.h"
 
 #include "../AOCSSensor.h"
@@ -47,14 +48,13 @@ TAMBase<T>::TAMBase(int instance_id, const datatype::DCM& dcm)
 
 template <class T>
 void TAMBase<T>::do_update(){
-
+	stf_static_assert(0 && "Not-Implemented-Exception");
 }
 
 //シミュレータ用の特殊化
 template <>
 void TAMBase<environment::Simulator>::do_update();
-template <>
-datatype::MagneticField TAMBase<environment::Simulator>::filter(const datatype::MagneticField& value); 
+
 
 } /* End of namespace stf::core::devicedriver::magnetometer */
 } /* End of namespace stf::core::devicedriver */

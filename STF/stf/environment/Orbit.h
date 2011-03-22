@@ -12,7 +12,8 @@
 #include "../datatype/OrbitCalc.h"
 #include "../datatype/DateTime.h"
 #include "../datatype/Magnetic.h"
-#include "../InstanceID.h"
+#include "../Config.h"
+
 
 namespace stf {
 namespace environment {

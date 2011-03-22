@@ -47,8 +47,8 @@ public:
 	virtual void off(){ is_on_ = false;}
 	virtual bool is_on() const{ return is_on_; }
 	virtual void do_update() = 0;
-	const T& operator [] (int i) const { assert( i < NUM); return value_[i]; }
-	T& operator [] (int i) { assert( i < NUM);return value_[i]; }
+	const T& operator [] (int i) const { stf_assert( i < NUM); return value_[i]; }
+	T& operator [] (int i) { stf_assert( i < NUM);return value_[i]; }
 	virtual ~CDHComponent(){}
 protected:
 	bool is_on_;

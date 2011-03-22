@@ -66,7 +66,7 @@ void BRAM::read(unsigned int addr, T& data) const
 
 unsigned char* BRAM::calc_addr_(unsigned int pos) const
 {
-	assert(pos < size_); //読み出し位置はBRAMサイズを超えないはず!!
+	stf_assert(pos < size_); //読み出し位置はBRAMサイズを超えないはず!!
 	return base_+pos;
 }
 

@@ -16,6 +16,7 @@
 #include "../../../datatype/StaticVector.h"
 #include "../../../datatype/List.h"
 #include "../../../datatype/OrbitInfo.h"
+#include "../../../util/Trace.h"
 
 namespace stf {
 namespace core {
@@ -30,6 +31,7 @@ namespace control {
 	入力:軌道情報
 	出力:RW出力トルク，MTQ出力トルク
 */
+template<class Env>
 class WheelUnloading
 	: virtual public StrategyBase, 
 	public devicedriver::InputPorts< TYPELIST_1( datatype::PositionInfo ) >,
@@ -43,12 +45,36 @@ public:
 		devicedriver::InputPort<datatype::StaticVector<3>>* wheel_out = 0
 		);
 	~WheelUnloading(){}
-	void add_wheel(core::devicedriver::rw::RWBase<ENV>* wheel) { this->unloading_wheels_.add(*wheel); }
+	void add_wheel(core::devicedriver::rw::RWBase<Env>* wheel) { this->unloading_wheels_.add(*wheel); }
 	virtual void do_compute(const datatype::Time& t);
 protected:
-	datatype::List< core::devicedriver::rw::RWBase<ENV> > unloading_wheels_;
+	datatype::List< core::devicedriver::rw::RWBase<Env> > unloading_wheels_;
 
 };
+
+template<class Env>
+WheelUnloading<Env>::WheelUnloading(int instance_id, 
+		devicedriver::OutputPort<datatype::PositionInfo>* position_source,
+		devicedriver::InputPort<datatype::StaticVector<3>>* torquer_out,
+		devicedriver::InputPort<datatype::StaticVector<3>>* wheel_out
+		) : StrategyBase(instance_id, "WheelUnloading")
+{
+	this->connect_source<0>(position_source);
+	if(torquer_out != 0){
+		torquer_out->connect_source_(&outputport<0, datatype::StaticVector<3>>());
+	}
+	if(wheel_out != 0){
+		wheel_out->connect_source_(&outputport<1, datatype::StaticVector<3>>());
+	}
+}
+
+template<class Env>
+void WheelUnloading<Env>::do_compute(const datatype::Time& t) {
+	//if(t <= this->last_update_) return; //既に別のブロック経由で更新済みなら再計算しない
+	util::Trace trace(util::Trace::kControlBlock, name_);
+	//this->last_update_ = t;
+}
+
 
 
 } /* End of namespace stf::core::strategy::control */

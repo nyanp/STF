@@ -43,11 +43,11 @@ public:
 	}
 	void add_command(Command* command){
 		index_++;
-		assert(index_ < Num);
+		stf_assert(index_ < Num);
 		commands_[index_] = command;
 	}
 	virtual void execute(){
-		assert(index_ >= 0);
+		stf_assert(index_ >= 0);
 		util::Trace trace(util::Trace::kCommand, name_);
 		for(int i = 0; i < index_; i++){
 			commands_[i]->execute();//順番に実行

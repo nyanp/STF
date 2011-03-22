@@ -230,7 +230,7 @@ void NJFactory<Env>::create_controller(){
 	typedef core::strategy::control::nj::StarImageEKF STAR_EKF;
 	typedef core::strategy::control::nj::LongRangeSpinController SPINAXIS_CONTROLLER;
 	typedef core::strategy::control::nj::MidRangeSpinController MIDRANGE_SPINCONTROLLER;
-	typedef core::strategy::control::WheelUnloading UNLOADING;
+	typedef core::strategy::control::WheelUnloading<Env> UNLOADING;
 	typedef core::strategy::control::nj::QuaternionForRMMEstimation QUATERNION_RMMESTM;
 	typedef core::strategy::control::nj::MCConstantOutput MC_CONSTANT;
 	typedef core::strategy::control::nj::RWConstantOutput RW_CONSTANT;

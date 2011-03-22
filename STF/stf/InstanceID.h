@@ -4,38 +4,10 @@
  *
  * @author Taiga Nomi
  * @date   2011.02.16
- * @todo   インスタンスID以外の定数を分離する
  */
 #ifndef InstanceID_h
 #define InstanceID_h
 
-namespace stf {
-
-template <int ID>
-struct InstanceID {
-	enum { value = ID };
-};
-
-namespace environment {
-class Simulator;
-class NullEnv;
-class SH;
-}
-
-} /* End of namespace stf */
-
-typedef stf::environment::Simulator ENV;
-
-//datetime settings
-#define YEAR 2005
-#define MONTH 1
-#define DATE 31
-
-//satellite settings
-#define STEPTIME 0.1
-#define GYROECRV 1000
-
-//
 #define ID_STT_X 1
 #define ID_STT_Y 2
 #define ID_STT 3

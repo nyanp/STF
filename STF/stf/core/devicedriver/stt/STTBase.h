@@ -8,6 +8,7 @@
 #ifndef stf_core_devicedriver_stt_STTBase_h
 #define stf_core_devicedriver_stt_STTBase_h
 
+#include "../../../util/stfassert.h"
 #include "../AOCSSensor.h"
 #include "../../../datatype/StaticVector.h"
 
@@ -60,7 +61,7 @@ STTBase<T>::~STTBase()
 
 template <class T>
 void STTBase<T>::do_update(){
-
+	stf_static_assert(0 && "Not-Implemented-Exception");
 }
 
 // DCMで計算せずにQuaternionで計算するためにオーバーライド
@@ -73,8 +74,7 @@ const datatype::Quaternion& STTBase<T>::get_in_bodyframe(){
 //STT本体のQuaternion
 template <>
 void STTBase<environment::Simulator>::do_update();
-template <>
-datatype::Quaternion STTBase<environment::Simulator>::filter(const datatype::Quaternion& value); 
+
 } /* End of namespace stf::core::devicedriver::stt */
 } /* End of namespace stf::core::devicedriver */
 } /* End of namespace stf::core */

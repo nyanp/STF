@@ -80,11 +80,11 @@ private:
 //////////////////////////////////
 inline void DateTime::init(int year, int month, int day, int hour, int minute, int second)
 {
-	assert(month > 0 && month < 13);
-	assert(day > 0 && day < 32);
-	assert(hour >= 0 && hour < 24);
-	assert(minute >= 0 && minute < 60);
-	assert(second >= 0 && second < 60);
+	stf_assert(month > 0 && month < 13);
+	stf_assert(day > 0 && day < 32);
+	stf_assert(hour >= 0 && hour < 24);
+	stf_assert(minute >= 0 && minute < 60);
+	stf_assert(second >= 0 && second < 60);
 
 	this->date_  = to_julianday_(year, month, day);
 	this->hour_ = hour;

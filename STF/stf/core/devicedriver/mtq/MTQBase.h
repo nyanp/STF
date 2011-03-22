@@ -8,7 +8,7 @@
 #ifndef stf_core_devicedriver_mtq_MTQBase_h
 #define stf_core_devicedriver_mtq_MTQBase_h
 
-
+#include "../../../util/stfassert.h"
 #include "../AOCSActuator.h"
 #include "../../../datatype/Scalar.h"
 #include "../../../datatype/Magnetic.h"
@@ -56,7 +56,7 @@ MTQBase<T>::~MTQBase()
 
 template<class T>
 void MTQBase<T>::do_update(){
-//	this->datapool_.get< 0, MTQBase >();
+	stf_static_assert(0 && "Not-Implemented-Exception");
 }
 
 template <>

@@ -29,7 +29,7 @@ void Vector::normalize()
 
 double Vector::norm(int n) const
 {
-	assert((n == 1) || (n == 2));//計算負荷の問題から今は1，2次のノルムしかとらない
+	stf_assert((n == 1) || (n == 2));//計算負荷の問題から今は1，2次のノルムしかとらない
 	double value = 0.0;
 	if(n == 1){
 		for(int i = 0; i < this->dimension_; i++)
@@ -58,7 +58,7 @@ Vector::~Vector()
 
 Vector &Vector::operator=(const Vector &rhs)
 {
-	assert(rhs.dimension_ == dimension_);
+	stf_assert(rhs.dimension_ == dimension_);
 	//delete[] this->value_;
 	//initVector(rhs.dimension_, 0.0);
 	for(int i = 0; i < dimension_; i++)
@@ -68,10 +68,10 @@ Vector &Vector::operator=(const Vector &rhs)
 
 void Vector::initVector(int dim, double value)
 {
-    assert(dim > 0);
+    stf_assert(dim > 0);
 	this->value_ = new double[dim];
 	this->dimension_ = dim;
-	assert(this->value_ != 0);//メモリが確保できないときにvalue_==0となって終了
+	stf_assert(this->value_ != 0);//メモリが確保できないときにvalue_==0となって終了
 	for(int i = 0; i < dim; i++)
 		this->value_[i] = value;
 }
@@ -88,7 +88,7 @@ bool Vector::operator!=(const Vector &rhs) const
 
 Vector &Vector::operator+=(const Vector &rhs)
 {
-	assert(dimension_ == rhs.dimension_);
+	stf_assert(dimension_ == rhs.dimension_);
 	for(int i = 0; i < dimension_; i++)
 		value_[i] += rhs[i];
 	return *this;
@@ -96,7 +96,7 @@ Vector &Vector::operator+=(const Vector &rhs)
 
 Vector &Vector::operator-=(const Vector &rhs)
 {
-	assert(dimension_ == rhs.dimension_);
+	stf_assert(dimension_ == rhs.dimension_);
 	for(int i = 0; i < dimension_ ; i++)
 		value_[i] -= rhs[i];
 	return *this;

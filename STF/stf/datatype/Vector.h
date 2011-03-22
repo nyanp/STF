@@ -102,14 +102,14 @@ inline double Vector::min() const
 }
 
 inline const Vector operator + (const Vector& vec1, const Vector& vec2){
-	assert(vec1.dimension_ == vec2.dimension_);
+	stf_assert(vec1.dimension_ == vec2.dimension_);
 	Vector temp = vec1;
 	temp += vec2;
 	return temp;
 }
 
 inline const Vector operator - (const Vector& vec1, const Vector& vec2){
-	assert(vec1.dimension_ == vec2.dimension_);
+	stf_assert(vec1.dimension_ == vec2.dimension_);
 	Vector temp = vec1;
 	temp -= vec2;
 	return temp;
@@ -117,7 +117,7 @@ inline const Vector operator - (const Vector& vec1, const Vector& vec2){
 
 // ベクトルの内積
 inline const double operator * (const Vector& vec1, const Vector& vec2){
-	assert(vec1.dimension_ == vec2.dimension_);
+	stf_assert(vec1.dimension_ == vec2.dimension_);
 	double value = 0.0;
 	for(int i = 0; i < vec1.dimension_; i++)
 		value += vec1[i] * vec2[i];
@@ -137,8 +137,8 @@ inline const Vector operator * (double factor, const Vector& vec){
 
 // ベクトルの外積．2または3次元ベクトルの場合のみ有効
 inline const Vector operator %(const Vector& vec1, const Vector& vec2){
-	assert(vec1.dimension_ == vec2.dimension_);
-	assert(vec1.dimension_ == 2 || vec1.dimension_ == 3);
+	stf_assert(vec1.dimension_ == vec2.dimension_);
+	stf_assert(vec1.dimension_ == 2 || vec1.dimension_ == 3);
 	if(vec1.dimension_ == 2){
 		Vector temp(1);
 		temp[0] = vec1[0] * vec2[1] - vec1[1] * vec2[0];
@@ -159,24 +159,24 @@ inline const Vector operator / (const Vector& vec, double factor){
 }
 
 inline bool operator >= (const Vector& left, const Vector& right){
-	assert(0);
+	stf_assert(0);
 	if(left.value_ >= right.value_) return true;
 	return false;
 }
 
 inline bool operator <= (const Vector& left, const Vector& right){
-	assert(0);
+	stf_assert(0);
 	if(left.value_ <= right.value_) return true;
 	return false;
 }
 
 inline bool operator > (const Vector& left, const Vector& right){
-	assert(0);
+	stf_assert(0);
 	return !(left <= right);
 }
 
 inline bool operator < (const Vector& left, const Vector& right){
-	assert(0);
+	stf_assert(0);
 	return !(left >= right);
 }
 

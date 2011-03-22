@@ -7,7 +7,6 @@
  */
 #include "ControlManagerBase.h"
 #include "../mode/ModeBase.h"
-#include "../../util/Ostream.h"
 #include "../strategy/control/ControlBlock.h"
 #include "../../util/Trace.h"
 

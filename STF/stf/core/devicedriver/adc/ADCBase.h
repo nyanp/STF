@@ -45,7 +45,7 @@ class MultiSensor : public CDHComponent< T, NUM, Env >, public ConversionPolicy 
 public:
 	MultiSensor(int instance_id, ADCBase<ADCNUM, Env>* adc, int offset) : adcsource_(adc), offset_(offset), CDHComponent< T, NUM, Env >(instance_id, "TempSensor")
 	{
-		assert(offset + NUM <= ADCNUM);//ADCの範囲をこえない
+		stf_assert(offset + NUM <= ADCNUM);//ADCの範囲をこえない
 	}
 	virtual void do_update(){
 		for(int i = 0; i < NUM; i++){

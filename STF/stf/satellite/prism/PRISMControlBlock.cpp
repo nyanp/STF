@@ -13,7 +13,7 @@ namespace strategy {
 namespace control {
 
 void PRISMControlBlock::set_mode(int id, int value){
-	assert( id < 3 );
+	stf_assert( id < 3 );
 	switch(id){
 	case 0:
 		this->set_ads_(value);

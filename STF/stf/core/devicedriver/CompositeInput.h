@@ -98,7 +98,7 @@ private:
 //! Compositeが纏める子オブジェクトを登録する．
 template <class Leaf, int Numbers, bool UseAlignment, class AggregationPolicy>
 void CompositeInput<Leaf, Numbers, UseAlignment, AggregationPolicy>::append_child(Leaf* c){
-	assert(index_ < Numbers);
+	stf_assert(index_ < Numbers);
 	childs_[index_] = c;
 	index_++;
 	if(index_ == Numbers){//子が出そろった

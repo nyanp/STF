@@ -65,7 +65,7 @@ public:
 	virtual bool end(){ if(index_ == SIZE) return true; return false;}
 	virtual void operator ++() { index_ ++; }
 	virtual double operator()() { 
-		assert(index_ < 2);
+		stf_assert(index_ < 2);
 		if(index_ == 0) return t_->seconds();
 		return t_->milliseconds();
 	}
@@ -84,7 +84,7 @@ public:
 	virtual bool end(){ if(index_ == SIZE) return true; return false;}
 	virtual void operator ++() { index_ ++; }
 	virtual double operator()() { 
-		assert(index_ < 4);
+		stf_assert(index_ < 4);
 		switch(index_){
 		case 0:
 			return t_->dates();
@@ -95,7 +95,7 @@ public:
 		case 3:
 			return t_->seconds();
 		default:
-			assert(0);
+			stf_assert(0);
 			break;
 		}
 		return 0;

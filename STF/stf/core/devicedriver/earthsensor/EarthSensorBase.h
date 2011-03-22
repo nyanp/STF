@@ -8,6 +8,7 @@
 #ifndef stf_core_devicedriver_earthsensor_EarthSensorBase_h
 #define stf_core_devicedriver_earthsensor_EarthSensorBase_h
 
+#include "../../../util/stfassert.h"
 #include "../AOCSSensor.h"
 #include "../../../datatype/StaticVector.h"
 
@@ -45,14 +46,13 @@ EarthSensorBase<T>::EarthSensorBase(int instance_id, const datatype::DCM& dcm, d
 
 template <class T>
 void EarthSensorBase<T>::do_update(){
-
+	stf_static_assert(0 && "Not-Implemented-Exception");
 }
 
 //シミュレータ用の特殊化
-template <>
+template<>
 void EarthSensorBase<environment::Simulator>::do_update();
-template <>
-datatype::StaticVector<2> EarthSensorBase<environment::Simulator>::filter(const datatype::StaticVector<2>& value); 
+
 
 } /* End of namespace stf::core::devicedriver::earthsensor */
 } /* End of namespace stf::core::devicedriver */

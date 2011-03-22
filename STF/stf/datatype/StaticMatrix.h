@@ -53,14 +53,14 @@ protected:
 template<int rows, int cols>
 inline const StaticVector<cols> &StaticMatrix<rows, cols>::operator[](int index) const
 {
-	assert(index >= 0 && index < rows);
+	stf_assert(index >= 0 && index < rows);
 	return value_[index];
 }
 
 template<int rows, int cols>
 inline StaticVector<cols> &StaticMatrix<rows, cols>::operator[](int index)
 {
-	assert(index >= 0 && index < rows);
+	stf_assert(index >= 0 && index < rows);
 	return value_[index];
 }
 
@@ -152,8 +152,8 @@ StaticMatrix<rows, cols> &StaticMatrix<rows, cols>::unitize()
 template<int rows, int cols>
 double StaticMatrix<rows, cols>::det() const 
 {
-	assert(cols == rows);
-	assert(cols <= 3);//とりあえず3次まで定義
+	stf_assert(cols == rows);
+	stf_assert(cols <= 3);//とりあえず3次まで定義
 
 	if(cols == 2){
 		return value_[0][0] * value_[1][1] - value_[0][1] * value_[1][0];
@@ -169,7 +169,7 @@ double StaticMatrix<rows, cols>::det() const
 	if(cols == 1){
 		return value_[0][0];
 	}
-	assert(0);
+	stf_assert(0);
 }
 
 template<int rows, int cols>
@@ -197,7 +197,7 @@ StaticMatrix<rows, cols> StaticMatrix<rows, cols>::inverse() const
 	int i, j, k;
 	double a1, a2;
 	//result = false;
-	assert(rows == cols);
+	stf_assert(rows == cols);
 
 	StaticMatrix<rows, cols> tempmat;
 	for(int i = 0; i < rows; i++) tempmat[i][i] = 1.0;
@@ -206,7 +206,7 @@ StaticMatrix<rows, cols> StaticMatrix<rows, cols>::inverse() const
 	for (k = 0; k < rows; k++)
 	{
 		int indx = pivot(m, k);
-		assert(indx != -1);
+		stf_assert(indx != -1);
 		if (indx != 0)
 		{
 			StaticVector<cols> temp = tempmat.value_[k];
@@ -244,7 +244,7 @@ bool StaticMatrix<rows, cols>::is_square() const
 template<int rows, int cols>
 bool StaticMatrix<rows, cols>::is_unit(double delta) const
 {
-	assert(rows == cols);
+	stf_assert(rows == cols);
 	double upperlimit = 1.0 + delta;
 	double lowerlimit = 1.0 - delta;
 

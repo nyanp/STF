@@ -73,13 +73,13 @@ private:
 
 inline Vector &Matrix::operator[](int index) const 
 {
-	assert(index >= 0 && index < rows_);
+	stf_assert(index >= 0 && index < rows_);
 	return value_[index];
 }
 
 //行列の加算
 inline const Matrix operator + (const Matrix& oper1, const Matrix& oper2){
-	assert(oper1.rows_ == oper2.rows_ && oper1.cols_ == oper2.cols_);
+	stf_assert(oper1.rows_ == oper2.rows_ && oper1.cols_ == oper2.cols_);
 	Matrix mat = oper1;
 	mat += oper2;
 	return mat;
@@ -87,7 +87,7 @@ inline const Matrix operator + (const Matrix& oper1, const Matrix& oper2){
 
 //行列の減算
 inline const Matrix operator - (const Matrix& oper1, const Matrix& oper2){
-	assert(oper1.rows_ == oper2.rows_ && oper1.cols_ == oper2.cols_);
+	stf_assert(oper1.rows_ == oper2.rows_ && oper1.cols_ == oper2.cols_);
 	Matrix mat = oper1;
 	mat -= oper2;
 	return mat;		
@@ -95,7 +95,7 @@ inline const Matrix operator - (const Matrix& oper1, const Matrix& oper2){
 
 //行列の積算
 inline const Matrix operator * (const Matrix& oper1, const Matrix& oper2){
-	assert(oper1.cols_ == oper2.rows_);
+	stf_assert(oper1.cols_ == oper2.rows_);
 	Matrix mat(oper1.rows_, oper2.cols_);
 	for(int rows = 0;rows < mat.rows_; rows++)
 	  for(int cols = 0;cols < mat.cols_; cols++)
@@ -126,7 +126,7 @@ inline const Matrix operator / (const Matrix& oper, double factor){
 
 //行列とベクトルの積
 inline const Vector operator * (const Matrix& mat, const Vector& vec){
-	assert(mat.cols_ == vec.dimension_);
+	stf_assert(mat.cols_ == vec.dimension_);
 	Vector temp(mat.rows_);
 	for(int i = 0; i < temp.dimension_; i++)
 		for(int index = 0; index < vec.dimension_; index ++)
@@ -135,7 +135,7 @@ inline const Vector operator * (const Matrix& mat, const Vector& vec){
 }
 
 inline const Vector operator * (const Matrix& mat, const StaticVector<3>& vec){
-	assert(mat.cols_ == 3);
+	stf_assert(mat.cols_ == 3);
 	Vector temp(mat.rows_);
 	for(int i = 0; i < temp.dimension(); i++)
 		for(int index = 0; index < 3; index ++)
@@ -144,7 +144,7 @@ inline const Vector operator * (const Matrix& mat, const StaticVector<3>& vec){
 }
 
 inline const Vector operator * (const Matrix& mat, const StaticVector<4>& vec){
-	assert(mat.cols_ == 4);
+	stf_assert(mat.cols_ == 4);
 	Vector temp(mat.rows_);
 	for(int i = 0; i < temp.dimension(); i++)
 		for(int index = 0; index < 4; index ++)
