@@ -21,10 +21,5 @@ void CalculateSolarPosition(double jd, double *solar_vector);
 int SatEclipsed(double *pos, double *sol, double *depth);
 bool SatEclipsed(double *pos, double *sol);
 
-//int InitOrbit(double* jdepoch);
-int InitOrbit(double* jdepoch, char* tle1, char* tle2);
-int OrbitMain(double stoptime, double* mag);
-
-//int test();		//もともとのメイン関数
 }
 #endif //__orbit_H__

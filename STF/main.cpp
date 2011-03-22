@@ -54,6 +54,13 @@ using datatype::TypeConverter;
 using namespace stf::core::datapool;
 
 int main(void){
+	datatype::OrbitInfo orbit_i(7100000, 0.01, 0, 0.5 * util::math::PI, 0, 0);
+	
+	datatype::DateTime t_i(1995,2,10);
+
+	util::cout << datatype::OrbitCalc::getMagneticFieldDirection(datatype::TypeConverter::toPositionInfo(orbit_i), t_i) << util::endl;
+
+
 	datatype::Scalar target;
 	strategy::control::SingleAxisPID pid(0, 1, 0, 0, 0, target);
 	devicedriver::rw::RW<ENV> rw(0, datatype::TypeConverter::toDCM(0,0,0) );

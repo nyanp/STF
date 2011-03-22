@@ -48,10 +48,10 @@
 /****************************************************************************/
 
 #include <stdio.h>
-#include <string.h>
+//#include <string.h>
 #include <math.h>
-#include <cstdlib>
-#include <iostream>
+#include <stdlib.h>
+//#include <iostream>
 #include "../sgp4/sgp4ext.h"
 using namespace std;
 using namespace sgp4;
@@ -60,9 +60,6 @@ using namespace sgp4;
 namespace igrf {
 
 double testglobal[3];
-
-#pragma warning( disable: 4996 )	//fopenなど回避
-#pragma warning( disable: 4305 )	//double->float回避
 
 /*--------------------*/
 /*   Basic Routines   */

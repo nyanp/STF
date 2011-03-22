@@ -33,7 +33,7 @@
 
 #include "sgp4ext.h"    // for several misc routines
 #include "sgp4unit.h"   // for sgp4init and getgravconst
-#include "sgp4io.h"
+//#include "sgp4io.h"
 
 #pragma warning ( disable : 4996 )		//fopenエラー回避
 
