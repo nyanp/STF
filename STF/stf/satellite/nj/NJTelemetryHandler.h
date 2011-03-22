@@ -31,7 +31,7 @@ public:
     ITelemetryStoragable &operator <<(const char* value);
     virtual ITelemetryStoragable &endl();
  private:
-    typename T::OutputStream *ofs_;
+    typename T::OutputFileStream *ofs_;
     bool console_out_;
 };
 
@@ -40,7 +40,7 @@ NJTelemetryHandler<T>::NJTelemetryHandler(const std::string &filename, bool cons
 : console_out_(console_out)
 {
 	if(filename.length() != 0)
-		this->ofs_ = new typename T::OutputStream(filename);
+		this->ofs_ = new typename T::OutputFileStream(filename);
 	else
 		this->ofs_ = 0;
 }

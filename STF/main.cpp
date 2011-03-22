@@ -32,6 +32,7 @@
 #include "stf/datatype/TypeConverter.h"
 #include "stf/datatype/StaticVector.h"
 #include "stf/datatype/StaticMatrix.h"
+#include "stf/datatype/OrbitCalc.h"
 #include "stf/core/datapool/Datapool.h"
 #include "stf/core/devicedriver/CDHComponent.h"
 #include "stf/util/loki/HierarchyGenerators.h"

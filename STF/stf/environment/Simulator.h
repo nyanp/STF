@@ -22,11 +22,8 @@
 #include "../datatype/OrbitInfo.h"
 #include "../datatype/Magnetic.h"
 #include "../datatype/Scalar.h"
-#include "torquesource/NoiseBase.h"
-#include "../core/manager/ManagerBase.h"
 #include "../datatype/List.h"
-#include "../GlobalObject.h"
-#include "Orbit.h"
+
 #include "IODriverBase.h"
 
 namespace interface {
@@ -36,14 +33,22 @@ class ITimeMeasure;
 } /* End of namespace interface */
 
 namespace stf {
+template<class T> class Global;
 namespace core {
 namespace devicedriver {
 template<class T, class U, class Env> class AOCSSensor;
 template<class T, class U, class Env> class AOCSActuator;
-
+namespace clock {
+class ITimeClock;
+}
 }
 }
 namespace environment {
+namespace torquesource {
+class NoiseBase;
+}
+
+class SimulatorImpl;
 
 //! ソフトウェアシミュレータ環境クラス．
 /*! 
@@ -78,8 +83,9 @@ public:
 	typedef UARTBase UART;
 
 	// Type Traits
-	typedef std::ofstream OutputStream;
-	typedef std::ifstream InputStream;
+	typedef std::ostream OutputStream;
+	typedef std::ofstream OutputFileStream;
+	typedef std::ifstream InputFileStream;
 
 	typedef core::devicedriver::AOCSSensor<datatype::StaticVector<3>, datatype::StaticVector<3>, Simulator> MultiGyro;
 	typedef core::devicedriver::AOCSSensor<datatype::StaticVector<3>, datatype::Scalar, Simulator> Gyro;
@@ -101,9 +107,9 @@ public:
 	datatype::MagneticField getMagneticField(const Magnetometer& component) const;
 	datatype::Time get_time(const Clock& component) const ;
 
-	const datatype::Time& getTrueTime() const { return this->true_time_; }
-	const datatype::Quaternion& getTrueQuaternion() const { return this->true_quaternion_; }
-	const datatype::StaticVector<3>& getTrueAngular() const { return this->true_angular_velocity_; }
+	const datatype::Time& getTrueTime() const;
+	const datatype::Quaternion& getTrueQuaternion() const;
+	const datatype::StaticVector<3>& getTrueAngular() const;
 	const datatype::PositionInfo getTrueSatellitePosition() const;
 
     void start();
@@ -114,23 +120,7 @@ public:
 private:
     Simulator();
 	static Simulator* singleton_;//Singleton Object
-	void step_() { this->true_time_ += this->timestep_; this->orbit_.addTime(this->timestep_); }
-	Orbit orbit_;
-	datatype::StaticVector<3> true_angular_velocity_;
-    datatype::Quaternion true_quaternion_;
-	datatype::StaticVector<3> true_torque_;
-    datatype::Time true_time_;
-    datatype::Time timestep_;
-	datatype::StaticVector<3> noise_torque_;
-	std::vector< TorqueSource* > torque_sources_;
-	std::vector< torquesource::NoiseBase* > noise_sources_;
-	std::vector< MagneticSource* > mag_sources_;
-
-    datatype::StaticMatrix<4, 4> Omega_;
-    Global<Simulator> *global_;
-    datatype::Time max_time_;
-    std::ofstream *ofstream_;
-	//datatype::List<core::manager::ManagerBase> managers_;
+	SimulatorImpl* simulatorimpl_;
 };
 
 } /* End of namespace stf::environment */

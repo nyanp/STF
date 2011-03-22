@@ -17,7 +17,8 @@ namespace environment {
 class SHSPI;
 class SHUART;
 class SHOstream;
-class SHIstream;
+class SHOfstream;
+class SHIfstream;
 
 //! Renesas SH7145プロセッサ用の環境クラス．
 /*! */
@@ -30,7 +31,8 @@ struct SH7145 {
 	typedef SHSPI SPI;
 	typedef SHUART UART;
 	typedef SHOstream OutputStream;
-	typedef SHIstream InputStream;
+	typedef SHOfstream OutputFileStream;
+	typedef SHIfstream InputFileStream;
 };
 
 //! Renesas SHプロセッサ用のSPIクラス．未実装．

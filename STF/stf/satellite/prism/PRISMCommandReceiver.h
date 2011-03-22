@@ -53,14 +53,14 @@ public:
 	virtual void add_command(command::Command*);
 	PRISMCommandReceiver(int instance_id, core::manager::CommandManagerBase* manager, const datatype::String& filename,PRISMGlobal<T>* global)
 		: RootObject(instance_id, "PRISMReceiver"), manager_(manager), global_(global){
-			this->ifs_ = new typename T::InputStream(filename.to_char());
+			this->ifs_ = new typename T::InputFileStream(filename.to_char());
 	}
     ~PRISMCommandReceiver() { }
 private:
 	void analyzeCommand_(char* cmd);
 	core::manager::CommandManagerBase* manager_;
 	PRISMGlobal<T>* global_;
-	typename T::InputStream* ifs_;
+	typename T::InputFileStream* ifs_;
 };
 
 //外部デバイスからコマンドの受信を行う．

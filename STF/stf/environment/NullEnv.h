@@ -15,7 +15,8 @@ namespace environment {
 /*! */
 class NullEnv {
 	typedef NullEnv OutputStream;
-	typedef NullEnv InputStream;
+	typedef NullEnv OutputFileStream;
+	typedef NullEnv InputFileStream;
 private:
 	NullEnv(){}
 	~NullEnv(){}

@@ -17,6 +17,7 @@
 #include<fstream>
 #include"../datatype/StaticVector.h"
 #include"../datatype/StaticMatrix.h"
+#include"../Config.h"
 
 namespace stf { 
 namespace datatype {
@@ -39,15 +40,13 @@ namespace util {
 template<class T>
 class Ostream {
 public:
-	Ostream(T& stream): stream_(stream){};
+	typedef typename T::OutputStream Os;
+	Ostream(Os& stream): stream_(stream){};
 	template < typename U>
 	Ostream<T>& operator <<(U val){ stream_ << val; return *this; }
 	inline Ostream<T>& operator <<(Ostream<T>&(*f)(Ostream<T>&));//マニピュレータ用
 private:
-	T& stream_;
-	Ostream();
-	Ostream(const Ostream& rhs);//暗黙のコピーを禁止
-	Ostream &operator =(const Ostream& rhs);
+	Os& stream_;
 };
 
 template<class T>
@@ -61,6 +60,29 @@ Ostream<T>& endl(Ostream<T>& os){
 	return os;
 }
 
+template<class T>
+class Ofstream {
+public:
+	typedef typename T::OutputFileStream Ofs;
+	Ofstream(Ofs& stream): stream_(stream){};
+	template < typename U>
+	Ofstream<T>& operator <<(U val){ stream_ << val; return *this; }
+	inline Ofstream<T>& operator <<(Ofstream<T>&(*f)(Ofstream<T>&));//マニピュレータ用
+private:
+	Ofs& stream_;
+};
+
+template<class T>
+inline Ofstream<T>& Ofstream<T>::operator <<(Ofstream<T>&(*f)(Ofstream<T>&)){
+	return (*f)(*this);
+}
+
+template<class T>
+Ofstream<T>& endl(Ofstream<T>& os){
+	os << "\n";//TBD
+	return os;
+}
+
 class NoOutput {
 public:
 	NoOutput& operator <<(int val){return *this;};
@@ -70,8 +92,8 @@ private:
 };
 
 //extern Ostream<NoOutput> cout;
-extern Ostream<std::ostream> cout;
-extern Ostream<std::ofstream> clog;
+extern Ostream<ENV> cout;
+extern Ofstream<ENV> clog;
 
 } /* End of namespace stf::util */
 } /* End of namespace stf */

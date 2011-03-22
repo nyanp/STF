@@ -13,7 +13,7 @@
 #include "../datatype/OrbitCalc.h"
 #include "../core/devicedriver/AOCSActuator.h"
 #include "../core/devicedriver/AOCSSensor.h"
-
+#include "../core/manager/ManagerBase.h"
 #include "../core/devicedriver/gyro/GyroBase.h"
 #include "../core/devicedriver/earthsensor/EarthSensorBase.h"
 #include "../core/devicedriver/gps/GPSBase.h"
@@ -22,13 +22,70 @@
 #include "../core/devicedriver/rw/RWBase.h"
 #include "../core/devicedriver/stt/STTBase.h"
 #include "../core/devicedriver/sunsensor/SunSensorBase.h"
+#include "Orbit.h"
+#include "torquesource/NoiseBase.h"
+#include "../GlobalObject.h"
 
 namespace stf {
 namespace environment {
 
-Simulator* Simulator::singleton_ = new Simulator();
 
-void Simulator::init(Global<Simulator>* global, double stepTimeInSecond, double maxTimeInSecond, const datatype::OrbitInfo& orbit,  std::ofstream *ostream)
+class SimulatorImpl {
+public:
+	typedef core::devicedriver::AOCSSensor<datatype::StaticVector<3>, datatype::StaticVector<3>, Simulator> MultiGyro;
+	typedef core::devicedriver::AOCSSensor<datatype::StaticVector<3>, datatype::Scalar, Simulator> Gyro;
+	typedef core::devicedriver::AOCSSensor<datatype::Quaternion, datatype::Quaternion, Simulator> STT;
+	typedef core::devicedriver::AOCSSensor<datatype::StaticVector<2>, datatype::StaticVector<2>, Simulator> Vectorsensor;
+	typedef core::devicedriver::AOCSSensor<datatype::MagneticField, datatype::MagneticField, Simulator> Magnetometer;
+	typedef core::devicedriver::clock::ITimeClock Clock;
+	typedef core::devicedriver::AOCSActuator<datatype::StaticVector<3>, datatype::Scalar, Simulator> TorqueSource;
+	typedef core::devicedriver::AOCSActuator<datatype::MagneticMoment, datatype::Scalar, Simulator> MagneticSource;
+
+    SimulatorImpl();
+    ~SimulatorImpl();
+
+	void step_() { this->true_time_ += this->timestep_; this->orbit_.addTime(this->timestep_); }
+	void init(Global<Simulator>* global, double stepTimeInSecond, double maxTimeInSecond, const datatype::OrbitInfo& orbit, std::ofstream *ostream);
+
+    datatype::StaticVector<3> getAngularVelocity(const MultiGyro& component) const ;
+    datatype::Scalar getAngularVelocity(const Gyro& component) const ;
+    datatype::Quaternion getQuaternion(const STT& component) const ;
+	datatype::StaticVector<2> getSunDirection(const Vectorsensor& component) const ;
+	datatype::StaticVector<2> getEarthDirection(const Vectorsensor& component) const ;
+	datatype::MagneticField getMagneticField(const Magnetometer& component) const;
+	datatype::Time get_time(const Clock& component) const ;
+
+	const datatype::Time& getTrueTime() const { return this->true_time_; }
+	const datatype::Quaternion& getTrueQuaternion() const { return this->true_quaternion_; }
+	const datatype::StaticVector<3>& getTrueAngular() const { return this->true_angular_velocity_; }
+	const datatype::PositionInfo getTrueSatellitePosition() const;
+
+    void start();
+    void runOneCycle();
+	void attachTorqueSource(TorqueSource* source);
+	void attachMagneticSource(MagneticSource* source);
+	void attachNoiseSource(torquesource::NoiseBase* source);
+
+private:
+	Orbit orbit_;
+	datatype::StaticVector<3> true_angular_velocity_;
+    datatype::Quaternion true_quaternion_;
+	datatype::StaticVector<3> true_torque_;
+    datatype::Time true_time_;
+    datatype::Time timestep_;
+	datatype::StaticVector<3> noise_torque_;
+	std::vector< TorqueSource* > torque_sources_;
+	std::vector< torquesource::NoiseBase* > noise_sources_;
+	std::vector< MagneticSource* > mag_sources_;
+
+    datatype::StaticMatrix<4, 4> Omega_;
+    Global<Simulator> *global_;
+    datatype::Time max_time_;
+    std::ofstream *ofstream_;
+
+};
+
+void SimulatorImpl::init(Global<Simulator>* global, double stepTimeInSecond, double maxTimeInSecond, const datatype::OrbitInfo& orbit,  std::ofstream *ostream)
 {
 	util::math::WhiteNoise_init(0);
     this->global_ = global;
@@ -39,58 +96,54 @@ void Simulator::init(Global<Simulator>* global, double stepTimeInSecond, double 
         this->ofstream_ = ostream;
 }
 
-Simulator& Simulator::get_instance(){
-	return *singleton_;
-}
-
-Simulator::~Simulator()
+SimulatorImpl::~SimulatorImpl()
 {
 	this->ofstream_->close();
 }
 
-datatype::MagneticField Simulator::getMagneticField(const Magnetometer& component) const
+datatype::MagneticField SimulatorImpl::getMagneticField(const Magnetometer& component) const
 {
 	return component.get_transfomer().inverse() * this->orbit_.getMagneticField();
 }
 
-datatype::StaticVector<3> Simulator::getAngularVelocity(const MultiGyro& component) const 
+datatype::StaticVector<3> SimulatorImpl::getAngularVelocity(const MultiGyro& component) const 
 {
 	datatype::StaticVector<3> v  = component.get_transfomer().inverse() * this->true_angular_velocity_;
 	return v;
 }
 
-datatype::Scalar Simulator::getAngularVelocity(const Gyro& component) const 
+datatype::Scalar SimulatorImpl::getAngularVelocity(const Gyro& component) const 
 {
 	return datatype::Scalar((component.get_transfomer().inverse() * this->true_angular_velocity_)[2]);
 }
 
-datatype::Quaternion Simulator::getQuaternion(const STT& component) const 
+datatype::Quaternion SimulatorImpl::getQuaternion(const STT& component) const 
 {
 	datatype::Quaternion q = datatype::TypeConverter::toQuaternion(component.get_transfomer()).conjugate();
 	return  q * this->true_quaternion_;
 }
 
-datatype::StaticVector<2> Simulator::getSunDirection(const Vectorsensor& component) const 
+datatype::StaticVector<2> SimulatorImpl::getSunDirection(const Vectorsensor& component) const 
 {
 	return datatype::TypeConverter::toPolar(component.get_transfomer().inverse() * datatype::OrbitCalc::getSunDirectionInBodyFrame(this->orbit_.get_time(), this->true_quaternion_));
 }
 
-datatype::StaticVector<2> Simulator::getEarthDirection(const Vectorsensor& component) const 
+datatype::StaticVector<2> SimulatorImpl::getEarthDirection(const Vectorsensor& component) const 
 {
 	return datatype::TypeConverter::toPolar(component.get_transfomer().inverse() * datatype::OrbitCalc::getEarthDirectionInBodyFrame(this->orbit_.getSatellitePosition(), this->true_quaternion_));
 }
 
-const datatype::PositionInfo Simulator::getTrueSatellitePosition() const
+const datatype::PositionInfo SimulatorImpl::getTrueSatellitePosition() const
 {
 	return this->orbit_.getSatellitePosition();
 }
 
-datatype::Time Simulator::get_time(const Clock& component) const 
+datatype::Time SimulatorImpl::get_time(const Clock& component) const 
 {
     return this->true_time_;
 }
 
-void Simulator::start()
+void SimulatorImpl::start()
 {
     std::cout << "Simulator Start" << std::endl;
     while(this->true_time_ < this->max_time_){
@@ -98,7 +151,7 @@ void Simulator::start()
     }
 }
 
-void Simulator::runOneCycle()
+void SimulatorImpl::runOneCycle()
 {
 	if(this->ofstream_ != 0){
 		//Logging
@@ -177,25 +230,123 @@ void Simulator::runOneCycle()
 	this->step_();
 }
 
-void Simulator::attachTorqueSource(TorqueSource* source)
+void SimulatorImpl::attachTorqueSource(TorqueSource* source)
 {
     this->torque_sources_.push_back(source);
 }
 
-void Simulator::attachNoiseSource(torquesource::NoiseBase* source)
+void SimulatorImpl::attachNoiseSource(torquesource::NoiseBase* source)
 {
 	this->noise_sources_.push_back(source);
 }
 
-void Simulator::attachMagneticSource(MagneticSource* source)
+void SimulatorImpl::attachMagneticSource(MagneticSource* source)
 {
 	this->mag_sources_.push_back(source);
 }
 
-Simulator::Simulator()
+SimulatorImpl::SimulatorImpl()
 : orbit_()
 {
 	util::math::WhiteNoise_init(0);
+}
+
+Simulator* Simulator::singleton_ = new Simulator();
+
+Simulator& Simulator::get_instance(){
+	return *Simulator::singleton_;
+}
+
+void Simulator::init(Global<Simulator>* global, double stepTimeInSecond, double maxTimeInSecond, const datatype::OrbitInfo& orbit,  std::ofstream *ostream)
+{
+	this->simulatorimpl_->init(global, stepTimeInSecond, maxTimeInSecond, orbit, ostream);
+}
+
+Simulator::~Simulator()
+{
+	
+}
+
+datatype::MagneticField Simulator::getMagneticField(const Magnetometer& component) const
+{
+	return this->simulatorimpl_->getMagneticField(component);
+}
+
+datatype::StaticVector<3> Simulator::getAngularVelocity(const MultiGyro& component) const 
+{
+	return this->simulatorimpl_->getAngularVelocity(component);
+}
+
+datatype::Scalar Simulator::getAngularVelocity(const Gyro& component) const 
+{
+	return this->simulatorimpl_->getAngularVelocity(component);
+}
+
+datatype::Quaternion Simulator::getQuaternion(const STT& component) const 
+{
+	return this->simulatorimpl_->getQuaternion(component);
+}
+
+datatype::StaticVector<2> Simulator::getSunDirection(const Vectorsensor& component) const 
+{
+	return this->simulatorimpl_->getSunDirection(component);
+}
+
+datatype::StaticVector<2> Simulator::getEarthDirection(const Vectorsensor& component) const 
+{
+	return this->simulatorimpl_->getEarthDirection(component);
+}
+
+const datatype::PositionInfo Simulator::getTrueSatellitePosition() const
+{
+	return this->simulatorimpl_->getTrueSatellitePosition();
+}
+
+const datatype::Time& Simulator::getTrueTime() const {
+	return this->simulatorimpl_->getTrueTime();
+}
+
+const datatype::Quaternion& Simulator::getTrueQuaternion() const { 
+	return this->simulatorimpl_->getTrueQuaternion();
+}
+
+const datatype::StaticVector<3>& Simulator::getTrueAngular() const { 
+	return this->simulatorimpl_->getTrueAngular();
+}
+
+datatype::Time Simulator::get_time(const Clock& component) const 
+{
+	return this->simulatorimpl_->get_time(component);
+}
+
+void Simulator::start()
+{
+	this->simulatorimpl_->start();
+}
+
+void Simulator::runOneCycle()
+{
+	this->simulatorimpl_->runOneCycle();
+}
+
+void Simulator::attachTorqueSource(TorqueSource* source)
+{
+	this->simulatorimpl_->attachTorqueSource(source);
+}
+
+void Simulator::attachNoiseSource(torquesource::NoiseBase* source)
+{
+	this->simulatorimpl_->attachNoiseSource(source);
+}
+
+void Simulator::attachMagneticSource(MagneticSource* source)
+{
+	this->simulatorimpl_->attachMagneticSource(source);
+}
+
+Simulator::Simulator()
+{
+	this->simulatorimpl_ = new SimulatorImpl();
 }
 
 } /* End of namespace core::environment */

@@ -16,6 +16,7 @@ class Virtex;
 }
 }
 
+#include "environment/Simulator.h"
 typedef stf::environment::Simulator ENV;
 
 //datetime settings

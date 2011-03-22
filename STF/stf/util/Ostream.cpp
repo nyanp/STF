@@ -97,8 +97,8 @@ namespace stf {
 namespace util {
 NoOutput none;
 std::ofstream log("log.csv");
-Ostream<std::ostream> cout(std::cout);
-Ostream<std::ofstream> clog(log);
+Ostream<ENV> cout(std::cout);
+Ofstream<ENV> clog(log);
 //Ostream<NoOutput> cout(none);
 } /* End of namespace stf::util */
 } /* End of namespace stf */
