@@ -7,7 +7,7 @@
  */
 #include "ControlManager.h"
 #include "../strategy/control/IControlStrategy.h"
-#include "../../util/Ostream.h"
+#include "../../util/Cout.h"
 
 namespace stf {
 namespace core {

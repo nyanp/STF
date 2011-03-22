@@ -10,7 +10,7 @@
 #include "../../command/Command.h"
 #include "../../manager/CommandManagerBase.h"
 #include "../../../datatype/String.h"
-#include "../../../util/Ostream.h"
+#include "../../../util/Cout.h"
 #include "../../devicedriver/clock/ITimeClock.h"
 
 

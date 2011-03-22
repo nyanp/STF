@@ -8,6 +8,7 @@
 #include "Ostream.h"
 #include"../util/math.h"
 #include"../datatype/String.h"
+#include"../datatype/Scalar.h"
 #include"../datatype/Vector.h"
 #include"../datatype/Matrix.h"
 #include"../datatype/Scalar.h"
@@ -22,9 +23,9 @@ namespace {
 	}
 }
 
-//////////////////////////////////////
-// Global OverLoad for std::ostream //
-//////////////////////////////////////
+namespace stf { 
+namespace util {
+
 
 // datatype::Scalar
 std::ostream &operator << (std::ostream& out_file, const stf::datatype::Scalar& scalar){
@@ -93,12 +94,5 @@ std::ostream &operator << (std::ostream& out_file, const stf::datatype::Position
 	return out_file;
 }
 
-namespace stf { 
-namespace util {
-NoOutput none;
-std::ofstream log("log.csv");
-Ostream<ENV> cout(std::cout);
-Ofstream<ENV> clog(log);
-//Ostream<NoOutput> cout(none);
 } /* End of namespace stf::util */
 } /* End of namespace stf */

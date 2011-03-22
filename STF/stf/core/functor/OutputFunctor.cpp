@@ -7,7 +7,7 @@
  */
 #include "OutputFunctor.h"
 #include "../manager/ModeManager.h"
-#include "../../util/Ostream.h"
+#include "../../util/Cout.h"
 
 namespace stf {
 namespace core {

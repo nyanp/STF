@@ -8,7 +8,7 @@
 #include "DebugLogger.h"
 #include "ITelemetryStoragable.h"
 #include "../../../datatype/String.h"
-#include "../../../util/Ostream.h"
+#include "../../../util/Cout.h"
 
 
 namespace stf {

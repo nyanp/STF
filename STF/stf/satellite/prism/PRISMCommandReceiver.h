@@ -17,7 +17,7 @@
 #include "../../environment/Simulator.h"
 #include "../../core/command/Command.h"
 #include "../../core/manager/CommandManager.h"
-#include "../../util/Ostream.h"
+#include "../../util/Cout.h"
 
 namespace stf {
 template<class T> struct PRISMGlobal;

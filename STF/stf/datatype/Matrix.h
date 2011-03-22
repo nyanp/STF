@@ -13,12 +13,6 @@
 #include "StaticVector.h"
 #include "IAocsData.h"
 
-namespace stf {
-namespace util {
-template <class T>class Ostream;
-}
-}
-
 namespace stf { 
 namespace datatype {
 
@@ -56,12 +50,10 @@ private:
 	friend inline const Matrix operator * (double, const Matrix&);
 	friend inline const Matrix operator * (const Matrix&, const Matrix&);
 	friend inline const Matrix operator / (const Matrix&, double);
-	//friend std::ostream &operator << (std::ostream&, const Matrix&);
 	friend inline const Vector operator * (const Matrix&, const Vector&);
 	friend inline const Vector operator * (const Matrix&, const StaticVector<3>&);
 	friend inline const Vector operator * (const Matrix&, const StaticVector<4>&);
     friend class Vector;
-	template<class T>friend class stf::util::Ostream;//TBD:Vectorからiostreamを隠ぺいしつつ，標準出力を実現するための「遠い」フレンドクラス．あまりよくない書き方
     Vector *value_;
     int cols_;
     int rows_;

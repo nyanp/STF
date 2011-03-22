@@ -8,7 +8,7 @@
 #ifndef stf_util_Trace_h
 #define stf_util_Trace_h
 
-#include "Ostream.h"
+#include "Cout.h"
 #include "../datatype/String.h"
 
 namespace stf { 
@@ -65,7 +65,10 @@ public:
 	Trace(TraceId id, const char* name) : function_name_(name), id_(-1){
 		if(this->active_table_[id]){
 			id_ = id;
-			util::clog << id_ << ", begin, " << name << util::endl;
+			util::clog << id_ 
+				<< ", begin, " 
+				<< name 
+				<< util::endl;
 		}
 	}
 

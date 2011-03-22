@@ -25,6 +25,7 @@
 #include "../datatype/List.h"
 
 #include "IODriverBase.h"
+#include "../util/Ostream.h"
 
 namespace interface {
 class IAngularVelocityMeasurable;
@@ -83,8 +84,8 @@ public:
 	typedef UARTBase UART;
 
 	// Type Traits
-	typedef std::ostream OutputStream;
-	typedef std::ofstream OutputFileStream;
+	typedef util::Ostream OutputStream;
+	typedef util::Ofstream OutputFileStream;
 	typedef std::ifstream InputFileStream;
 
 	typedef core::devicedriver::AOCSSensor<datatype::StaticVector<3>, datatype::StaticVector<3>, Simulator> MultiGyro;

@@ -34,6 +34,7 @@ private:
 bool operator == (const String &s1, const String &s2);
 String operator + (const String &s1, const String &s2);
 
+
 } /* End of namespace stf::datatype */
 } /* End of namespace stf */
 

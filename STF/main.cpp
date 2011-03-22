@@ -1,7 +1,7 @@
 #include<iostream>
 #include<fstream>
 #include<vector>
-#include "stf/util/Ostream.h"
+#include "stf/util/Cout.h"
 #include "stf/Config.h"
 //#include "stf/core/strategy/control/Includes.h"
 #include "stf/GlobalObject.h"
@@ -45,7 +45,6 @@
 #include "stf/environment/sh/iodefine.h"
 #include "stf/interface/Iterator.h"
 #include "stf/satellite/PRISM/PRISMIterator.h"
-
 
 using namespace stf;
 using namespace stf::core;

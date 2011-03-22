@@ -12,9 +12,6 @@
 #include "IAocsData.h"
 
 namespace stf { 
-namespace util {
-template <class T>class Ostream;
-}
 namespace datatype {
 //! 可変要素数のベクトル演算を行う．
 /*! メモリの動的確保を行うため，STFではシステム初期化以外のタイミングでの使用が推奨されない．通常はStaticVectorを使うこと */
@@ -46,7 +43,6 @@ protected:
 	int dimension_;
 private:
 	friend class Matrix;
-	template<class T>friend class stf::util::Ostream;
 	friend inline const Matrix operator * (const Matrix&, const Matrix&);
 	friend inline const Vector operator +(const Vector&, const Vector&);
 	friend inline const Vector operator -(const Vector&, const Vector&);

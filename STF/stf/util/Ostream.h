@@ -15,9 +15,9 @@
 #define util_Ostream_h
 #include<iostream>
 #include<fstream>
+#include"../datatype/String.h"
 #include"../datatype/StaticVector.h"
 #include"../datatype/StaticMatrix.h"
-#include"../Config.h"
 
 namespace stf { 
 namespace datatype {
@@ -30,73 +30,39 @@ class DateTime;
 struct OrbitInfo;
 struct PositionInfo;
 }
+}
 
+
+namespace stf { 
 namespace util {
 
 //! 標準出力のラッパ．
 /*! 
 	@tparam T 出力を転送するストリームクラス．
 */
-template<class T>
 class Ostream {
 public:
-	typedef typename T::OutputStream Os;
-	Ostream(Os& stream): stream_(stream){};
+	Ostream(){};
 	template < typename U>
-	Ostream<T>& operator <<(U val){ stream_ << val; return *this; }
-	inline Ostream<T>& operator <<(Ostream<T>&(*f)(Ostream<T>&));//マニピュレータ用
+	Ostream& operator <<(U val){ std::cout << val; return *this; }
+	Ostream& operator <<(Ostream&(*f)(Ostream&)){
+		return (*f)(*this);
+	}
 private:
-	Os& stream_;
+
 };
 
-template<class T>
-inline Ostream<T>& Ostream<T>::operator <<(Ostream<T>&(*f)(Ostream<T>&)){
-	return (*f)(*this);
-}
-
-template<class T>
-Ostream<T>& endl(Ostream<T>& os){
-	os << "\n";//TBD
-	return os;
-}
-
-template<class T>
 class Ofstream {
 public:
-	typedef typename T::OutputFileStream Ofs;
-	Ofstream(Ofs& stream): stream_(stream){};
+	Ofstream(const datatype::String& str): stream_(str.to_char()){};
 	template < typename U>
-	Ofstream<T>& operator <<(U val){ stream_ << val; return *this; }
-	inline Ofstream<T>& operator <<(Ofstream<T>&(*f)(Ofstream<T>&));//マニピュレータ用
+	Ofstream& operator <<(U val){ stream_ << val; return *this; }
+	inline Ofstream& operator <<(Ofstream&(*f)(Ofstream&)){
+		return (*f)(*this);
+	}
 private:
-	Ofs& stream_;
+	std::ofstream stream_;
 };
-
-template<class T>
-inline Ofstream<T>& Ofstream<T>::operator <<(Ofstream<T>&(*f)(Ofstream<T>&)){
-	return (*f)(*this);
-}
-
-template<class T>
-Ofstream<T>& endl(Ofstream<T>& os){
-	os << "\n";//TBD
-	return os;
-}
-
-class NoOutput {
-public:
-	NoOutput& operator <<(int val){return *this;};
-	NoOutput& operator <<(double val){return *this;};
-	NoOutput& operator <<(const char* val){return *this;};
-private:
-};
-
-//extern Ostream<NoOutput> cout;
-extern Ostream<ENV> cout;
-extern Ofstream<ENV> clog;
-
-} /* End of namespace stf::util */
-} /* End of namespace stf */
 
 std::ostream &operator << (std::ostream& out_file, const stf::datatype::Vector& vec);
 std::ostream &operator << (std::ostream& out_file, const stf::datatype::Matrix& mat);
@@ -127,7 +93,7 @@ std::ostream &operator << (std::ostream& out_file, const stf::datatype::StaticVe
 	}
 	return out_file;
 }
-
-
+} /* End of namespace stf::util */
+} /* End of namespace stf */
 
 #endif // util_Ostream_h

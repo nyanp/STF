@@ -40,7 +40,7 @@ NJTelemetryHandler<T>::NJTelemetryHandler(const std::string &filename, bool cons
 : console_out_(console_out)
 {
 	if(filename.length() != 0)
-		this->ofs_ = new typename T::OutputFileStream(filename);
+		this->ofs_ = new typename T::OutputFileStream(filename.c_str());
 	else
 		this->ofs_ = 0;
 }
@@ -104,7 +104,7 @@ template<class T>
 ITelemetryStoragable &NJTelemetryHandler<T>::endl()
 {
 	if(this->console_out_) util::cout << util::endl;
-	if(this->ofs_ != 0)    *ofs_ << std::endl;
+	if(this->ofs_ != 0)    *ofs_ << util::endl;
 	return *this;
 }
 

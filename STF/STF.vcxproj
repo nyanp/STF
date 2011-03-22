@@ -178,6 +178,7 @@
     <ClCompile Include="stf\satellite\prism\PRISMTelemetryHandler.cpp" />
     <ClCompile Include="stf\satellite\prism\PRISMTelemetryStrategy.cpp" />
     <ClCompile Include="stf\satellite\prism\PRISMTRIAD.cpp" />
+    <ClCompile Include="stf\util\Cout.cpp" />
     <ClCompile Include="stf\util\math.cpp" />
     <ClCompile Include="stf\datatype\DCM.cpp" />
     <ClCompile Include="stf\datatype\EulerAngle.cpp" />
@@ -387,6 +388,7 @@
     <ClInclude Include="stf\satellite\prism\PRISMTRIAD.h" />
     <ClInclude Include="stf\satellite\SimpleSatelliteFactory.h" />
     <ClInclude Include="stf\satellite\simplesatellite\SSGlobal.h" />
+    <ClInclude Include="stf\util\Cout.h" />
     <ClInclude Include="stf\util\math.h" />
     <ClInclude Include="stf\datatype\DCM.h" />
     <ClInclude Include="stf\datatype\EulerAngle.h" />

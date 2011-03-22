@@ -104,7 +104,7 @@ template<class T>
 ITelemetryStoragable &PRISMTelemetryHandler<T>::endl()
 {
 	if(this->console_out_) util::cout << util::endl;
-	if(this->ofs_ != 0)    *ofs_ << std::endl;
+	if(this->ofs_ != 0)    *ofs_ << util::endl;
 	return *this;
 }
 
