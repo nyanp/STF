@@ -7,6 +7,8 @@
 [GENERAL_DATA]
 [BREAKPOINTS]
 [OPEN_WORKSPACE_FILES]
+"C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\stf\Config.h" 
+"C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\stf\core\devicedriver\cmhandler\DummyCommandReceiver.h" 
 "C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\stf\core\devicedriver\earthsensor\EarthSensor.cpp" 
 "C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\stf\core\devicedriver\earthsensor\EarthSensor.h" 
 "C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\stf\core\devicedriver\earthsensor\EarthSensorBase.cpp" 
@@ -14,11 +16,14 @@
 "C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\stf\core\devicedriver\magnetometer\TAMBase.cpp" 
 "C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\stf\datatype\OrbitCalc.h" 
 "C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\stf\environment\Simulator.h" 
+"C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\stf\util\loki\TypeManip.h" 
 "C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\stf\util\Ostream.h" 
 "C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\stf\util\Trace.h" 
 [WORKSPACE_FILE_STATES]
+"C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\stf\Config.h" 22 24 1367 404 0 9 
+"C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\stf\core\devicedriver\cmhandler\DummyCommandReceiver.h" 44 48 1367 404 0 10 
 "C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\stf\core\devicedriver\earthsensor\EarthSensor.cpp" 0 0 840 210 0 5 
-"C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\stf\core\devicedriver\earthsensor\EarthSensor.h" -8 -29 944 343 1 8 
+"C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\stf\core\devicedriver\earthsensor\EarthSensor.h" 0 0 944 343 0 8 
 "C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\stf\core\devicedriver\earthsensor\EarthSensorBase.cpp" 22 24 840 210 0 6 
 "C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\stf\core\devicedriver\earthsensor\EarthSensorBase.h" 22 24 1026 302 0 7 
 "C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\stf\core\devicedriver\magnetometer\TAMBase.cpp" 44 48 796 357 0 1 
@@ -26,6 +31,7 @@
 "C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\stf\environment\Simulator.h" 88 96 1026 302 0 4 
 "C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\stf\util\Ostream.h" 66 72 1026 302 0 2 
 "C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\stf\util\Trace.h" 0 0 944 343 0 3 
+"C:\Users\Taiga Noumi\Desktop\My Dropbox\AOCSFramework2\STF\stf\util\loki\TypeManip.h" -8 -29 1106 568 1 11 
 [LOADED_PROJECTS]
 "PRISM" 
 [END]

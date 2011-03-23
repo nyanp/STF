@@ -15,9 +15,12 @@ class SH;
 class Virtex;
 }
 }
+//#include "environment/SH.h"
+//typedef stf::environment::SH ENV;
 
 #include "environment/Simulator.h"
 typedef stf::environment::Simulator ENV;
+
 
 //datetime settings
 #define YEAR 2005
