@@ -1,0 +1,203 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>STF: stf/environment/sgp4/sgp4unit.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.3 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">STF</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="pages.html"><span>関連ページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>ファイルメンバ</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<h1>stf/environment/sgp4/sgp4unit.h</h1>  </div>
+</div>
+<div class="contents">
+<a href="sgp4unit_8h.html">説明を見る。</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<a name="l00009"></a>00009 <span class="preprocessor">#ifndef _sgp4unit_</span>
+<a name="l00010"></a>00010 <span class="preprocessor"></span><span class="preprocessor">#define _sgp4unit_</span>
+<a name="l00011"></a>00011 <span class="preprocessor"></span><span class="comment">/*     ----------------------------------------------------------------</span>
+<a name="l00012"></a>00012 <span class="comment">*</span>
+<a name="l00013"></a>00013 <span class="comment">*                                 sgp4unit.h</span>
+<a name="l00014"></a>00014 <span class="comment">*</span>
+<a name="l00015"></a>00015 <span class="comment">*    this file contains the sgp4 procedures for analytical propagation</span>
+<a name="l00016"></a>00016 <span class="comment">*    of a satellite. the code was originally released in the 1980 and 1986</span>
+<a name="l00017"></a>00017 <span class="comment">*    spacetrack papers. a detailed discussion of the theory and history</span>
+<a name="l00018"></a>00018 <span class="comment">*    may be found in the 2006 aiaa paper by vallado, crawford, hujsak,</span>
+<a name="l00019"></a>00019 <span class="comment">*    and kelso.</span>
+<a name="l00020"></a>00020 <span class="comment">*</span>
+<a name="l00021"></a>00021 <span class="comment">*                            companion code for</span>
+<a name="l00022"></a>00022 <span class="comment">*               fundamentals of astrodynamics and applications</span>
+<a name="l00023"></a>00023 <span class="comment">*                                    2007</span>
+<a name="l00024"></a>00024 <span class="comment">*                              by david vallado</span>
+<a name="l00025"></a>00025 <span class="comment">*</span>
+<a name="l00026"></a>00026 <span class="comment">*       (w) 719-573-2600, email dvallado@agi.com</span>
+<a name="l00027"></a>00027 <span class="comment">*</span>
+<a name="l00028"></a>00028 <span class="comment">*    current :</span>
+<a name="l00029"></a>00029 <span class="comment">*              20 apr 07  david vallado</span>
+<a name="l00030"></a>00030 <span class="comment">*                           misc fixes for constants</span>
+<a name="l00031"></a>00031 <span class="comment">*    changes :</span>
+<a name="l00032"></a>00032 <span class="comment">*              11 aug 06  david vallado</span>
+<a name="l00033"></a>00033 <span class="comment">*                           chg lyddane choice back to strn3, constants, misc doc</span>
+<a name="l00034"></a>00034 <span class="comment">*              15 dec 05  david vallado</span>
+<a name="l00035"></a>00035 <span class="comment">*                           misc fixes</span>
+<a name="l00036"></a>00036 <span class="comment">*              26 jul 05  david vallado</span>
+<a name="l00037"></a>00037 <span class="comment">*                           fixes for paper</span>
+<a name="l00038"></a>00038 <span class="comment">*                           note that each fix is preceded by a</span>
+<a name="l00039"></a>00039 <span class="comment">*                           comment with &quot;sgp4fix&quot; and an explanation of</span>
+<a name="l00040"></a>00040 <span class="comment">*                           what was changed</span>
+<a name="l00041"></a>00041 <span class="comment">*              10 aug 04  david vallado</span>
+<a name="l00042"></a>00042 <span class="comment">*                           2nd printing baseline working</span>
+<a name="l00043"></a>00043 <span class="comment">*              14 may 01  david vallado</span>
+<a name="l00044"></a>00044 <span class="comment">*                           2nd edition baseline</span>
+<a name="l00045"></a>00045 <span class="comment">*                     80  norad</span>
+<a name="l00046"></a>00046 <span class="comment">*                           original baseline</span>
+<a name="l00047"></a>00047 <span class="comment">*       ----------------------------------------------------------------      */</span>
+<a name="l00048"></a>00048 
+<a name="l00049"></a>00049 <span class="preprocessor">#include &lt;math.h&gt;</span>
+<a name="l00050"></a>00050 <span class="preprocessor">#include &lt;stdio.h&gt;</span>
+<a name="l00051"></a>00051 
+<a name="l00052"></a>00052 <span class="keyword">namespace </span><a class="code" href="namespacesgp4.html#adee1a80d66854d4af45c2a24df69a594">sgp4</a> {
+<a name="l00053"></a>00053 <span class="comment">// -------------------------- structure declarations ----------------------------</span>
+<a name="l00054"></a><a class="code" href="namespacesgp4.html#a84be244094e484a8e83cc5dcb7b46e9e">00054</a> <span class="keyword">typedef</span> <span class="keyword">enum</span>
+<a name="l00055"></a>00055 {
+<a name="l00056"></a><a class="code" href="namespacesgp4.html#a84be244094e484a8e83cc5dcb7b46e9eada1c4cc7011593a9ddb004935f8001fd">00056</a>   <a class="code" href="namespacesgp4.html#a84be244094e484a8e83cc5dcb7b46e9eada1c4cc7011593a9ddb004935f8001fd">wgs72old</a>,
+<a name="l00057"></a><a class="code" href="namespacesgp4.html#a84be244094e484a8e83cc5dcb7b46e9ea61278da3b464fd069a7e15add91bd2f1">00057</a>   <a class="code" href="namespacesgp4.html#a84be244094e484a8e83cc5dcb7b46e9ea61278da3b464fd069a7e15add91bd2f1">wgs72</a>,
+<a name="l00058"></a><a class="code" href="namespacesgp4.html#a84be244094e484a8e83cc5dcb7b46e9eaa032d1c92304c8ac7c3d596f2c5d15d3">00058</a>   <a class="code" href="namespacesgp4.html#a84be244094e484a8e83cc5dcb7b46e9eaa032d1c92304c8ac7c3d596f2c5d15d3">wgs84</a>
+<a name="l00059"></a>00059 } <a class="code" href="namespacesgp4.html#a84be244094e484a8e83cc5dcb7b46e9e">gravconsttype</a>;
+<a name="l00060"></a>00060 
+<a name="l00061"></a><a class="code" href="structsgp4_1_1elsetrec.html">00061</a> <span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structsgp4_1_1elsetrec.html">elsetrec</a>
+<a name="l00062"></a>00062 {
+<a name="l00063"></a><a class="code" href="structsgp4_1_1elsetrec.html#a569684cf9a0784f47b9de8c3719114d9">00063</a>   <span class="keywordtype">long</span> <span class="keywordtype">int</span>  <a class="code" href="structsgp4_1_1elsetrec.html#a569684cf9a0784f47b9de8c3719114d9">satnum</a>;
+<a name="l00064"></a><a class="code" href="structsgp4_1_1elsetrec.html#aad1edbbac2965ef1ffcece716ea8967e">00064</a>   <span class="keywordtype">int</span>       <a class="code" href="structsgp4_1_1elsetrec.html#aad1edbbac2965ef1ffcece716ea8967e">epochyr</a>, <a class="code" href="structsgp4_1_1elsetrec.html#a0fcc622f95a9176813d2f1a698e46f0a">epochtynumrev</a>;
+<a name="l00065"></a><a class="code" href="structsgp4_1_1elsetrec.html#ab57488058495a162e7c6af4125010601">00065</a>   <span class="keywordtype">int</span>       <a class="code" href="structsgp4_1_1elsetrec.html#ab57488058495a162e7c6af4125010601">error</a>;
+<a name="l00066"></a><a class="code" href="structsgp4_1_1elsetrec.html#acbea6d8ebef99e4988322cb3cfec5569">00066</a>   <span class="keywordtype">char</span>      <a class="code" href="structsgp4_1_1elsetrec.html#a3a14295c4f7d70336f4d0c9059b6335c">init</a>, <a class="code" href="structsgp4_1_1elsetrec.html#acbea6d8ebef99e4988322cb3cfec5569">method</a>;
+<a name="l00067"></a>00067 
+<a name="l00068"></a>00068   <span class="comment">/* Near Earth */</span>
+<a name="l00069"></a><a class="code" href="structsgp4_1_1elsetrec.html#a876864ac3959dae82f1c15d90491b5d7">00069</a>   <span class="keywordtype">int</span>    <a class="code" href="structsgp4_1_1elsetrec.html#a876864ac3959dae82f1c15d90491b5d7">isimp</a>;
+<a name="l00070"></a><a class="code" href="structsgp4_1_1elsetrec.html#a2cd45705ee518d0c2159e7d0d5e73c68">00070</a>   <span class="keywordtype">double</span> <a class="code" href="structsgp4_1_1elsetrec.html#a6628418041a8ebe808d4cb5322c48f83">aycof</a>  , <a class="code" href="structsgp4_1_1elsetrec.html#a16ccb0fb0cd64d34c304756d1303f70a">con41</a>  , <a class="code" href="structsgp4_1_1elsetrec.html#aa3ec27519ffb3b4452deb061cc2cdb90">cc1</a>    , <a class="code" href="structsgp4_1_1elsetrec.html#aae7fc51e21ea0269e24402e4d677f2db">cc4</a>      , <a class="code" href="structsgp4_1_1elsetrec.html#a7c1f86f775aca064ee704ee42412ebfc">cc5</a>    , <a class="code" href="structsgp4_1_1elsetrec.html#ad626d3e0c9ff30b82f1f45256116bfe0">d2</a>      , <a class="code" href="structsgp4_1_1elsetrec.html#a2448c199295591c61cf9962872f2bb62">d3</a>   , <a class="code" href="structsgp4_1_1elsetrec.html#acec9f436198a40930b88133e8e388ef3">d4</a>    ,
+<a name="l00071"></a>00071          <a class="code" href="structsgp4_1_1elsetrec.html#a4d61c03338eb47ff5cb5159289a8b8ab">delmo</a>  , <a class="code" href="structsgp4_1_1elsetrec.html#adc39edc5028b8ebc12e8659645640868">eta</a>    , <a class="code" href="structsgp4_1_1elsetrec.html#a3794dfa4655891ff11ef04d30ce20e34">argpdot</a>, <a class="code" href="structsgp4_1_1elsetrec.html#a1a3066b5b1e170b1b54b6e1ebb95dde1">omgcof</a>   , <a class="code" href="structsgp4_1_1elsetrec.html#ac1728506007ef3f8efc09ccfea258621">sinmao</a> , <a class="code" href="structsgp4_1_1elsetrec.html#a2918667d82664601fdbb1adf0fe44b1a">t</a>       , <a class="code" href="structsgp4_1_1elsetrec.html#a9406c83b6827ed0c886718636759a89c">t2cof</a>, <a class="code" href="structsgp4_1_1elsetrec.html#a92b9a67758364f84cac8fe1d2231664c">t3cof</a> ,
+<a name="l00072"></a>00072          <a class="code" href="structsgp4_1_1elsetrec.html#a5b4b9d524f7a78a7621af6967fe97c0f">t4cof</a>  , <a class="code" href="structsgp4_1_1elsetrec.html#a5d7e5b2212e83963aa032e8977853072">t5cof</a>  , <a class="code" href="structsgp4_1_1elsetrec.html#a1f073ef414189dd4901f8be74f4a1ade">x1mth2</a> , <a class="code" href="structsgp4_1_1elsetrec.html#a778cfb16c16daf12b5838cec9e0ec4c9">x7thm1</a>   , <a class="code" href="structsgp4_1_1elsetrec.html#ad3e5f43bf6e0edf97d4c5c13d1768a90">mdot</a>   , <a class="code" href="structsgp4_1_1elsetrec.html#a6624e53fad0564a2e3fba8197a87cd2b">nodedot</a>, <a class="code" href="structsgp4_1_1elsetrec.html#af2cefc87aa6c05a5fc79076cc335f599">xlcof</a> , <a class="code" href="structsgp4_1_1elsetrec.html#a2cd45705ee518d0c2159e7d0d5e73c68">xmcof</a> ,
+<a name="l00073"></a>00073          <a class="code" href="structsgp4_1_1elsetrec.html#ad31d1bb03dbc1676425a7756d8d89a8c">nodecf</a>;
+<a name="l00074"></a>00074 
+<a name="l00075"></a>00075   <span class="comment">/* Deep Space */</span>
+<a name="l00076"></a><a class="code" href="structsgp4_1_1elsetrec.html#a5b5682d73c044235a090201f327770c1">00076</a>   <span class="keywordtype">int</span>    <a class="code" href="structsgp4_1_1elsetrec.html#a5b5682d73c044235a090201f327770c1">irez</a>;
+<a name="l00077"></a><a class="code" href="structsgp4_1_1elsetrec.html#ae613bff93cb6d8e07ef1c2d418dae7ae">00077</a>   <span class="keywordtype">double</span> <a class="code" href="structsgp4_1_1elsetrec.html#aac83ffb5c1170491175bb9c617ed1b9a">d2201</a>  , <a class="code" href="structsgp4_1_1elsetrec.html#a69d0c093b184a168557344a6c693082f">d2211</a>  , <a class="code" href="structsgp4_1_1elsetrec.html#ae71649dd5d5786ba38a6729b41ee0c9b">d3210</a>  , <a class="code" href="structsgp4_1_1elsetrec.html#aea737c740844f44e6855db3cf8ff0c4f">d3222</a>    , <a class="code" href="structsgp4_1_1elsetrec.html#a130498f44d3fc5ce920e62e7cfa68a2b">d4410</a>  , <a class="code" href="structsgp4_1_1elsetrec.html#a81e28e9fe4d5ca7ad94ac482468a0871">d4422</a>   , <a class="code" href="structsgp4_1_1elsetrec.html#a91109cb1efb96c6726c64745aae89994">d5220</a> , <a class="code" href="structsgp4_1_1elsetrec.html#a86fbaaf3d669c3a6ba359f20eb120378">d5232</a> ,
+<a name="l00078"></a>00078          <a class="code" href="structsgp4_1_1elsetrec.html#af0eaed781559fa4dcb0d4b090d74c9c1">d5421</a>  , <a class="code" href="structsgp4_1_1elsetrec.html#ad407f986f615de2a613e0bdf2bac763d">d5433</a>  , <a class="code" href="structsgp4_1_1elsetrec.html#a724907a580d1b66425aaa0c1f8482668">dedt</a>   , <a class="code" href="structsgp4_1_1elsetrec.html#a95ac15d69f7e75a08904205f36678460">del1</a>     , <a class="code" href="structsgp4_1_1elsetrec.html#a0b7270c4f4244227b98f47485e756278">del2</a>   , <a class="code" href="structsgp4_1_1elsetrec.html#af4fb07427d4dcd3d843fbc16bb53a233">del3</a>    , <a class="code" href="structsgp4_1_1elsetrec.html#a02ef249044b06a9e5fdc4ca8089b9231">didt</a>  , <a class="code" href="structsgp4_1_1elsetrec.html#a695f8cb0aac5e3b550b845f44c2924df">dmdt</a>  ,
+<a name="l00079"></a>00079          <a class="code" href="structsgp4_1_1elsetrec.html#a3fb10a17e6c143a5fab645c3e0b98e11">dnodt</a>  , <a class="code" href="structsgp4_1_1elsetrec.html#ac05e45d1246973a9a8546affabc14227">domdt</a>  , <a class="code" href="structsgp4_1_1elsetrec.html#a9eacf102e1268b71c466ef684d89894d">e3</a>     , <a class="code" href="structsgp4_1_1elsetrec.html#a21e76be159604312f507b51c96cc96e6">ee2</a>      , <a class="code" href="structsgp4_1_1elsetrec.html#a03f656819059e7918aaac76bc6d41952">peo</a>    , <a class="code" href="structsgp4_1_1elsetrec.html#a7ed720fe7860613acadf950654993f13">pgho</a>    , <a class="code" href="structsgp4_1_1elsetrec.html#acd215b2e1829d8bbb1cef7fafe7a2d38">pho</a>   , <a class="code" href="structsgp4_1_1elsetrec.html#a549cffe2ff75f58f2a87ebefb34d57b8">pinco</a> ,
+<a name="l00080"></a>00080          <a class="code" href="structsgp4_1_1elsetrec.html#a8a9039a5d6f680f7afaa00cb59200e55">plo</a>    , <a class="code" href="structsgp4_1_1elsetrec.html#acb96292b29e70810885f7b87392b3440">se2</a>    , <a class="code" href="structsgp4_1_1elsetrec.html#aeb0954d6b88572d22011197971383314">se3</a>    , <a class="code" href="structsgp4_1_1elsetrec.html#a29e70825ad053b216468503455bb0214">sgh2</a>     , <a class="code" href="structsgp4_1_1elsetrec.html#a20c7463d9a37296e4f7593aef4b9dc54">sgh3</a>   , <a class="code" href="structsgp4_1_1elsetrec.html#a47354314263672ffdc413e858d973796">sgh4</a>    , <a class="code" href="structsgp4_1_1elsetrec.html#a8efadcbb15a1adbad8c11bf5f40a78a0">sh2</a>   , <a class="code" href="structsgp4_1_1elsetrec.html#a8cae07adc4894d76f34f1151106b7c5a">sh3</a>   ,
+<a name="l00081"></a>00081          <a class="code" href="structsgp4_1_1elsetrec.html#a5726b45b77929f68360f45c10e691c38">si2</a>    , <a class="code" href="structsgp4_1_1elsetrec.html#ab92ea3cda54836cf52f1f49a45a091d6">si3</a>    , <a class="code" href="structsgp4_1_1elsetrec.html#a86aa5d798754dfa4980396b2e64dbe94">sl2</a>    , <a class="code" href="structsgp4_1_1elsetrec.html#a47e07031ea280bbb8e83e806ce8a56f1">sl3</a>      , <a class="code" href="structsgp4_1_1elsetrec.html#a66240f96efc1da3dcae357b8d60abcf9">sl4</a>    , <a class="code" href="structsgp4_1_1elsetrec.html#a38a4546562b348f0890d4bf9c39e98b2">gsto</a>    , <a class="code" href="structsgp4_1_1elsetrec.html#addb30c60d5ea06d984f90a6e04bce0e8">xfact</a> , <a class="code" href="structsgp4_1_1elsetrec.html#a1bca79b6c4c54618eed4d63119b0e1f8">xgh2</a>  ,
+<a name="l00082"></a>00082          <a class="code" href="structsgp4_1_1elsetrec.html#af05ab627562d999c64e336df0fa91648">xgh3</a>   , <a class="code" href="structsgp4_1_1elsetrec.html#a2eae2d27e095fa865573eb1e7960b1d6">xgh4</a>   , <a class="code" href="structsgp4_1_1elsetrec.html#aacee312ecab1273b95338ee624cab26c">xh2</a>    , <a class="code" href="structsgp4_1_1elsetrec.html#a4f3dfcf62b28e3edfd88c661dee36865">xh3</a>      , <a class="code" href="structsgp4_1_1elsetrec.html#a0ed2e9d63d21b47f40e8c607d5a213a7">xi2</a>    , <a class="code" href="structsgp4_1_1elsetrec.html#a27d129b5fb6c31bb6f8078331ad96fc0">xi3</a>     , <a class="code" href="structsgp4_1_1elsetrec.html#abf7ca8d516b87cce30507326c24dbd88">xl2</a>   , <a class="code" href="structsgp4_1_1elsetrec.html#a54bf99247669242d5c363ae466c296f7">xl3</a>   ,
+<a name="l00083"></a>00083          <a class="code" href="structsgp4_1_1elsetrec.html#a807456dc2b50d3d68890b43771cc6d6c">xl4</a>    , <a class="code" href="structsgp4_1_1elsetrec.html#a3c60763587db12c58b5644d40bfdb5d3">xlamo</a>  , <a class="code" href="structsgp4_1_1elsetrec.html#aec34eac95a270e7c2b17d79380b9ec2f">zmol</a>   , <a class="code" href="structsgp4_1_1elsetrec.html#ae613bff93cb6d8e07ef1c2d418dae7ae">zmos</a>     , <a class="code" href="structsgp4_1_1elsetrec.html#a5d54a44189d18c4636e1567f91940f5c">atime</a>  , <a class="code" href="structsgp4_1_1elsetrec.html#afd627bb2d2267d2ded602af8bd5905f4">xli</a>     , <a class="code" href="structsgp4_1_1elsetrec.html#ae87a01e4666ac0918defce52457e6c16">xni</a>;
+<a name="l00084"></a>00084 
+<a name="l00085"></a><a class="code" href="structsgp4_1_1elsetrec.html#a40ddabe6510b2e84d546e45529530e4b">00085</a>   <span class="keywordtype">double</span> <a class="code" href="structsgp4_1_1elsetrec.html#aa793268dbee20d1455feec159b5919c6">a</a>      , <a class="code" href="structsgp4_1_1elsetrec.html#a56e804754376a4a98c9403b41ca5a735">altp</a>   , <a class="code" href="structsgp4_1_1elsetrec.html#ab9009499a64f0937ed7fe23c924b6bc4">alta</a>   , <a class="code" href="structsgp4_1_1elsetrec.html#af139a6a1d57827bc1cde88dfb82d95e4">epochdays</a>, <a class="code" href="structsgp4_1_1elsetrec.html#a6152b9ed91d45b52b7568ba225ea4746">jdsatepoch</a>       , <a class="code" href="structsgp4_1_1elsetrec.html#aadf2bfacf0f6c68fa5e1c45c147e84b6">nddot</a> , <a class="code" href="structsgp4_1_1elsetrec.html#afc3af5db2e482add71892ef28716e07a">ndot</a>  ,
+<a name="l00086"></a>00086          <a class="code" href="structsgp4_1_1elsetrec.html#ad233e8f033deadeb4fba78afca69f1e2">bstar</a>  , <a class="code" href="structsgp4_1_1elsetrec.html#a40ddabe6510b2e84d546e45529530e4b">rcse</a>   , <a class="code" href="structsgp4_1_1elsetrec.html#ad69aded71b2fbc457bf143b1bbca4077">inclo</a>  , <a class="code" href="structsgp4_1_1elsetrec.html#a5c105875bca592c8e6b6d2ed88e9daca">nodeo</a>    , <a class="code" href="structsgp4_1_1elsetrec.html#aea8f7ce64ca1d8ac15e199800cb4ec2d">ecco</a>             , <a class="code" href="structsgp4_1_1elsetrec.html#a073ae4cc4c39266a89e0af4d00a5b0c9">argpo</a> , <a class="code" href="structsgp4_1_1elsetrec.html#aaccdff46abfb7e511b85796baf2d3651">mo</a>    ,
+<a name="l00087"></a>00087          <a class="code" href="structsgp4_1_1elsetrec.html#ab27aa09ea2d04427a21ddb763ca3c449">no</a>;
+<a name="l00088"></a>00088 } <a class="code" href="namespacesgp4.html#ac1efaa98f6fc1ca026409b0ded1e2f54">elsetrec</a>;
+<a name="l00089"></a>00089 
+<a name="l00090"></a>00090 <span class="comment">// --------------------------- function declarations ----------------------------</span>
+<a name="l00091"></a>00091 <span class="keywordtype">int</span> <a class="code" href="namespacesgp4.html#ac99253d85e493f5725d01920b0303a69">sgp4init</a>
+<a name="l00092"></a>00092        (
+<a name="l00093"></a>00093          <a class="code" href="namespacesgp4.html#a84be244094e484a8e83cc5dcb7b46e9e">gravconsttype</a> whichconst,      <span class="keyword">const</span> <span class="keywordtype">int</span> satn,     <span class="keyword">const</span> <span class="keywordtype">double</span> epoch,
+<a name="l00094"></a>00094          <span class="keyword">const</span> <span class="keywordtype">double</span> xbstar, <span class="keyword">const</span> <span class="keywordtype">double</span> xecco, <span class="keyword">const</span> <span class="keywordtype">double</span> xargpo,
+<a name="l00095"></a>00095          <span class="keyword">const</span> <span class="keywordtype">double</span> xinclo, <span class="keyword">const</span> <span class="keywordtype">double</span> xmo,   <span class="keyword">const</span> <span class="keywordtype">double</span> xno,
+<a name="l00096"></a>00096          <span class="keyword">const</span> <span class="keywordtype">double</span> xnodeo,
+<a name="l00097"></a>00097          <a class="code" href="structsgp4_1_1elsetrec.html">elsetrec</a>&amp; satrec
+<a name="l00098"></a>00098        );
+<a name="l00099"></a>00099 
+<a name="l00100"></a>00100 <span class="keywordtype">int</span> <a class="code" href="namespacesgp4.html#adee1a80d66854d4af45c2a24df69a594">sgp4</a>
+<a name="l00101"></a>00101        (
+<a name="l00102"></a>00102          <a class="code" href="namespacesgp4.html#a84be244094e484a8e83cc5dcb7b46e9e">gravconsttype</a> whichconst,
+<a name="l00103"></a>00103          <a class="code" href="structsgp4_1_1elsetrec.html">elsetrec</a>&amp; satrec, <span class="keywordtype">double</span> tsince,
+<a name="l00104"></a>00104          <span class="keywordtype">double</span> r[], <span class="keywordtype">double</span> <a class="code" href="namespacestf.html#afa89a4a0c80d3727c2f396aa3ead41cd">v</a>[]
+<a name="l00105"></a>00105        );
+<a name="l00106"></a>00106 
+<a name="l00107"></a>00107 <span class="keywordtype">double</span>  <a class="code" href="namespacesgp4.html#a865dc3d18e20afacb5bdf13a1e3a21cc">gstime</a>
+<a name="l00108"></a>00108        (
+<a name="l00109"></a>00109          <span class="keywordtype">double</span>
+<a name="l00110"></a>00110        );
+<a name="l00111"></a>00111 
+<a name="l00112"></a>00112 <span class="keywordtype">void</span> <a class="code" href="namespacesgp4.html#a31d2ab9f0caa3186f2cf69282ceeb062">getgravconst</a>
+<a name="l00113"></a>00113       (
+<a name="l00114"></a>00114        <a class="code" href="namespacesgp4.html#a84be244094e484a8e83cc5dcb7b46e9e">gravconsttype</a>,
+<a name="l00115"></a>00115        <span class="keywordtype">double</span>&amp;,
+<a name="l00116"></a>00116        <span class="keywordtype">double</span>&amp;,
+<a name="l00117"></a>00117        <span class="keywordtype">double</span>&amp;,
+<a name="l00118"></a>00118        <span class="keywordtype">double</span>&amp;,
+<a name="l00119"></a>00119        <span class="keywordtype">double</span>&amp;,
+<a name="l00120"></a>00120        <span class="keywordtype">double</span>&amp;,
+<a name="l00121"></a>00121        <span class="keywordtype">double</span>&amp;,
+<a name="l00122"></a>00122        <span class="keywordtype">double</span>&amp;
+<a name="l00123"></a>00123       );
+<a name="l00124"></a>00124 } <span class="comment">/* end of namespace sgp4 */</span>
+<a name="l00125"></a>00125 <span class="preprocessor">#endif</span>
+<a name="l00126"></a>00126 <span class="preprocessor"></span>
+</pre></div></div>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>フレンド</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>マクロ定義</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>STFに対してTue Mar 1 2011 03:45:41に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
+</body>
+</html>

@@ -1,0 +1,374 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>STF: クラス テンプレート stf::core::devicedriver::cmhandler::NJCommandReceiver&lt; T &gt;</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.3 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">STF</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="pages.html"><span>関連ページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li class="current"><a href="annotated.html"><span>クラス</span></a></li>
+      <li><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>構成</span></a></li>
+      <li><a href="classes.html"><span>構成索引</span></a></li>
+      <li><a href="inherits.html"><span>クラス階層</span></a></li>
+      <li><a href="functions.html"><span>構成メンバ</span></a></li>
+    </ul>
+  </div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="namespacestf.html">stf</a>      </li>
+      <li class="navelem"><a class="el" href="namespacestf_1_1core.html">core</a>      </li>
+      <li class="navelem"><a class="el" href="namespacestf_1_1core_1_1devicedriver.html">devicedriver</a>      </li>
+      <li class="navelem"><a class="el" href="namespacestf_1_1core_1_1devicedriver_1_1cmhandler.html">cmhandler</a>      </li>
+      <li class="navelem"><a class="el" href="classstf_1_1core_1_1devicedriver_1_1cmhandler_1_1_n_j_command_receiver.html">NJCommandReceiver</a>      </li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public メソッド</a>  </div>
+  <div class="headertitle">
+<h1>クラス テンプレート stf::core::devicedriver::cmhandler::NJCommandReceiver&lt; T &gt;</h1>  </div>
+</div>
+<div class="contents">
+<!-- doxytag: class="stf::core::devicedriver::cmhandler::NJCommandReceiver" --><!-- doxytag: inherits="stf::core::devicedriver::cmhandler::ICommandReceiver,stf::RootObject" -->
+<p><code>#include &lt;<a class="el" href="">NJCommandReceiver.h</a>&gt;</code></p>
+<div class="dynheader">
+stf::core::devicedriver::cmhandler::NJCommandReceiver&lt; T &gt;に対する継承グラフ</div>
+<div class="dyncontent">
+<div class="center"><img src="classstf_1_1core_1_1devicedriver_1_1cmhandler_1_1_n_j_command_receiver__inherit__graph.png" border="0" usemap="#stf_1_1core_1_1devicedriver_1_1cmhandler_1_1_n_j_command_receiver_3_01_t_01_4_inherit__map" alt="Inheritance graph"/></div>
+<map name="stf_1_1core_1_1devicedriver_1_1cmhandler_1_1_n_j_command_receiver_3_01_t_01_4_inherit__map" id="stf_1_1core_1_1devicedriver_1_1cmhandler_1_1_n_j_command_receiver_3_01_t_01_4_inherit__map">
+<area shape="rect" id="node2" href="classstf_1_1core_1_1devicedriver_1_1cmhandler_1_1_i_command_receiver.html" title="受信機からコマンドを受け取り，応答を返却するデバイスの抽象インターフェース．" alt="" coords="5,5,336,35"/><area shape="rect" id="node4" href="classstf_1_1_root_object.html" title="数値型を除いた全クラスの基本となるクラス．" alt="" coords="360,5,469,35"/></map>
+<center><span class="legend">[<a href="graph_legend.html">凡例</a>]</span></center></div>
+<div class="dynheader">
+stf::core::devicedriver::cmhandler::NJCommandReceiver&lt; T &gt;のコラボレーション図</div>
+<div class="dyncontent">
+<div class="center"><img src="classstf_1_1core_1_1devicedriver_1_1cmhandler_1_1_n_j_command_receiver__coll__graph.png" border="0" usemap="#stf_1_1core_1_1devicedriver_1_1cmhandler_1_1_n_j_command_receiver_3_01_t_01_4_coll__map" alt="Collaboration graph"/></div>
+<map name="stf_1_1core_1_1devicedriver_1_1cmhandler_1_1_n_j_command_receiver_3_01_t_01_4_coll__map" id="stf_1_1core_1_1devicedriver_1_1cmhandler_1_1_n_j_command_receiver_3_01_t_01_4_coll__map">
+<area shape="rect" id="node2" href="classstf_1_1core_1_1devicedriver_1_1cmhandler_1_1_i_command_receiver.html" title="受信機からコマンドを受け取り，応答を返却するデバイスの抽象インターフェース．" alt="" coords="1645,127,1976,156"/><area shape="rect" id="node96" href="classstf_1_1core_1_1manager_1_1_command_manager_base.html" title="コマンドの処理を行う機能マネージャ基底クラス．" alt="" coords="2912,95,3187,124"/><area shape="rect" id="node105" href="classstf_1_1core_1_1command_1_1_command.html" title="衛星コマンドの抽象インターフェースと共通の実装を行う基底クラス．" alt="" coords="2511,95,2711,124"/><area shape="rect" id="node4" href="classstf_1_1_root_object.html" title="数値型を除いた全クラスの基本となるクラス．" alt="" coords="1121,331,1231,360"/><area shape="rect" id="node12" href="classstf_1_1core_1_1datapool_1_1_data_pool_base.html" title="Tupleを複数個保持するデータプールの基底クラス．" alt="" coords="1703,459,1919,488"/><area shape="rect" id="node19" href="classstf_1_1core_1_1datapool_1_1_event_data_pool.html" title="Eventのデータプール．" alt="" coords="1701,387,1920,416"/><area shape="rect" id="node82" href="classstf_1_1core_1_1mode_1_1_mode_base.html" title="モードの基底クラス．" alt="" coords="1721,296,1900,325"/><area shape="rect" id="node98" href="classstf_1_1core_1_1manager_1_1_manager_base.html" title="機能マネージャの基底クラス．" alt="" coords="2504,219,2717,248"/><area shape="rect" id="node6" href="classstf_1_1core_1_1devicedriver_1_1clock_1_1_i_time_clock.html" title="Time型のカウントが可能であることを示す抽象インターフェース．" alt="" coords="625,400,879,429"/><area shape="rect" id="node65" href="classstf_1_1core_1_1devicedriver_1_1clock_1_1_n_j_r_t_c.html" title="stf::core::devicedriver::clock::NJRTC" alt="" coords="1391,493,1620,523"/><area shape="rect" id="node8" href="classstf_1_1core_1_1devicedriver_1_1_i_data_updatable.html" title="周期的にデータを取得，送信するコンポーネントに対するインターフェース" alt="" coords="264,400,501,429"/><area shape="rect" id="node10" href="classstf_1_1core_1_1datapool_1_1_aocs_data_pool.html" title="IAocsDataのデータプール．" alt="" coords="644,528,860,557"/><area shape="rect" id="node25" href="structstf_1_1_n_j_global.html" title="stf::NJGlobal\&lt; T \&gt;" alt="" coords="3956,1245,4081,1275"/><area shape="rect" id="node91" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_selecting_output.html" title="stf::core::strategy::telemetry::SelectingOutput\&lt; unsigned int, 1000 \&gt;" alt="" coords="2001,1537,2417,1567"/><area shape="rect" id="node15" href="classstf_1_1core_1_1datapool_1_1_tuple.html" title="stf::core::datapool::Tuple\&lt; datatype::IAocsData \&gt;" alt="" coords="229,475,536,504"/><area shape="rect" id="node17" href="classstf_1_1datatype_1_1_string.html" title="std::stringの簡略版．" alt="" coords="5,381,141,411"/><area shape="rect" id="node22" href="struct_loki_1_1_tuple.html" title="Loki::Tuple\&lt; TYPELIST_2(event::EventType, datatype::Time)\&gt;" alt="" coords="987,415,1365,444"/><area shape="rect" id="node27" href="classstf_1_1_global.html" title="stf::Global\&lt; T \&gt;" alt="" coords="3461,1592,3573,1621"/><area shape="rect" id="node29" href="classstf_1_1core_1_1devicedriver_1_1nj_1_1_n_j_t_x.html" title="stf::core::devicedriver::nj::NJTX\&lt; T \&gt;" alt="" coords="3403,1645,3632,1675"/><area shape="rect" id="node31" href="classstf_1_1core_1_1manager_1_1_system_manager.html" title="条件判定や異常対応を行う機能マネージャ．" alt="" coords="3403,1699,3632,1728"/><area shape="rect" id="node33" href="classstf_1_1core_1_1devicedriver_1_1nj_1_1_n_j_heater_manager.html" title="stf::core::devicedriver::nj::NJHeaterManager\&lt; T \&gt;" alt="" coords="3367,1752,3668,1781"/><area shape="rect" id="node35" href="classstf_1_1core_1_1devicedriver_1_1_n_j_coarse_temp_sensor.html" title="stf::core::devicedriver::NJCoarseTempSensor\&lt; T \&gt;" alt="" coords="3363,1805,3672,1835"/><area shape="rect" id="node37" href="classstf_1_1core_1_1devicedriver_1_1gyro_1_1_n_j_f_o_g.html" title="stf::core::devicedriver::gyro::NJFOG\&lt; T \&gt;" alt="" coords="3388,1859,3647,1888"/><area shape="rect" id="node39" href="classstf_1_1core_1_1devicedriver_1_1_n_j_voltage_sensor.html" title="stf::core::devicedriver::NJVoltageSensor\&lt; T \&gt;" alt="" coords="3376,1912,3659,1941"/><area shape="rect" id="node41" href="classstf_1_1core_1_1devicedriver_1_1_n_j_fine_temp_sensor.html" title="stf::core::devicedriver::NJFineTempSensor\&lt; T \&gt;" alt="" coords="3371,1965,3664,1995"/><area shape="rect" id="node43" href="classstf_1_1core_1_1devicedriver_1_1gyro_1_1_n_j_gyro.html" title="stf::core::devicedriver::gyro::NJGyro\&lt; T \&gt;" alt="" coords="3388,2032,3647,2061"/><area shape="rect" id="node47" href="classstf_1_1datatype_1_1_satellite_model.html" title="衛星質量特性を表現するクラス．" alt="" coords="3425,2085,3609,2115"/><area shape="rect" id="node49" href="classstf_1_1core_1_1devicedriver_1_1nj_1_1_n_j_battery_manager.html" title="stf::core::devicedriver::nj::NJBatteryManager\&lt; T \&gt;" alt="" coords="3364,2139,3671,2168"/><area shape="rect" id="node51" href="classstf_1_1core_1_1devicedriver_1_1_n_j_a_d_c.html" title="stf::core::devicedriver::NJADC\&lt; T \&gt;" alt="" coords="3405,2192,3629,2221"/><area shape="rect" id="node53" href="classstf_1_1core_1_1devicedriver_1_1_composite_input.html" title="AOCSSensorの集合体を表すクラス．" alt="" coords="3243,277,3792,307"/><area shape="rect" id="node55" href="classstf_1_1core_1_1devicedriver_1_1rw_1_1_n_j_r_w.html" title="stf::core::devicedriver::rw::NJRW\&lt; T \&gt;" alt="" coords="3397,355,3637,384"/><area shape="rect" id="node57" href="classstf_1_1core_1_1devicedriver_1_1mtq_1_1_n_j_m_c.html" title="stf::core::devicedriver::mtq::NJMC\&lt; T \&gt;" alt="" coords="3395,1064,3640,1093"/><area shape="rect" id="node59" href="classstf_1_1core_1_1devicedriver_1_1magnetometer_1_1_n_j_fine_t_a_m.html" title="stf::core::devicedriver::magnetometer::NJFineTAM\&lt; T \&gt;" alt="" coords="3348,459,3687,488"/><area shape="rect" id="node61" href="classstf_1_1core_1_1devicedriver_1_1sunsensor_1_1_n_j_sun_sensor.html" title="stf::core::devicedriver::sunsensor::NJSunSensor\&lt; T \&gt;" alt="" coords="3353,709,3681,739"/><area shape="rect" id="node63" href="classstf_1_1core_1_1manager_1_1_telemetry_manager.html" title="テレメトリ生成を行う機能マネージャ．" alt="" coords="3396,876,3639,905"/><area shape="rect" id="node68" href="classstf_1_1core_1_1devicedriver_1_1_composite_output.html" title="AOCSActuatorの集合体を表すクラス．" alt="" coords="3239,575,3796,604"/><area shape="rect" id="node70" href="classstf_1_1core_1_1manager_1_1_unit_manager.html" title="機器の定期データ取得・更新を行う機能マネージャ．" alt="" coords="3413,769,3621,799"/><area shape="rect" id="node72" href="classstf_1_1core_1_1manager_1_1_mode_manager.html" title="モードの管理を行う機能マネージャ．" alt="" coords="3409,1384,3625,1413"/><area shape="rect" id="node74" href="classstf_1_1core_1_1devicedriver_1_1nj_1_1_n_j_t_d_i.html" title="stf::core::devicedriver::nj::NJTDI\&lt; T \&gt;" alt="" coords="3400,823,3635,852"/><area shape="rect" id="node76" href="classstf_1_1core_1_1devicedriver_1_1mtq_1_1_n_j_m_t_q.html" title="stf::core::devicedriver::mtq::NJMTQ\&lt; T \&gt;" alt="" coords="3391,953,3644,983"/><area shape="rect" id="node78" href="classstf_1_1core_1_1manager_1_1_control_manager.html" title="制御ブロックの実行を行う機能マネージャ．" alt="" coords="3404,1277,3631,1307"/><area shape="rect" id="node80" href="classstf_1_1core_1_1devicedriver_1_1stt_1_1_n_j_s_t_t.html" title="stf::core::devicedriver::stt::NJSTT\&lt; T \&gt;" alt="" coords="3396,1011,3639,1040"/><area shape="rect" id="node85" href="classstf_1_1core_1_1devicedriver_1_1nj_1_1_n_j_r_x.html" title="stf::core::devicedriver::nj::NJRX\&lt; T \&gt;" alt="" coords="3403,1171,3632,1200"/><area shape="rect" id="node87" href="classstf_1_1core_1_1devicedriver_1_1_n_j_current_sensor.html" title="stf::core::devicedriver::NJCurrentSensor\&lt; T \&gt;" alt="" coords="3377,1331,3657,1360"/><area shape="rect" id="node89" href="classstf_1_1core_1_1devicedriver_1_1magnetometer_1_1_n_j_coarse_t_a_m.html" title="stf::core::devicedriver::magnetometer::NJCoarseTAM\&lt; T \&gt;" alt="" coords="3340,1117,3695,1147"/><area shape="rect" id="node94" href="classstf_1_1core_1_1manager_1_1_command_manager.html" title="コマンドの処理を行う機能マネージャ．" alt="" coords="3396,144,3639,173"/><area shape="rect" id="node102" href="classstf_1_1core_1_1event_1_1_observer.html" title="stf::core::event::Observer\&lt; event::ModeChangeEvent \&gt;" alt="" coords="2443,272,2779,301"/><area shape="rect" id="node109" href="classstf_1_1core_1_1manager_1_1_custom_manager.html" title="カスタムコードの実行を行う機能マネージャ．" alt="" coords="3403,1224,3632,1253"/><area shape="rect" id="node111" href="classstf_1_1core_1_1devicedriver_1_1gps_1_1_n_j_g_p_s.html" title="stf::core::devicedriver::gps::NJGPS\&lt; T \&gt;" alt="" coords="3391,1437,3644,1467"/></map>
+<center><span class="legend">[<a href="graph_legend.html">凡例</a>]</span></center></div>
+
+<p><a href="classstf_1_1core_1_1devicedriver_1_1cmhandler_1_1_n_j_command_receiver-members.html">すべてのメンバ一覧</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="pub-methods"></a>
+Public メソッド</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1core_1_1devicedriver_1_1cmhandler_1_1_n_j_command_receiver.html#a8695b777e4fdc9bfc63f46b51402989e">receive_command</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">外部通信機からコマンドを受け取る  <a href="#a8695b777e4fdc9bfc63f46b51402989e"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1core_1_1devicedriver_1_1cmhandler_1_1_n_j_command_receiver.html#a951e44bbcaf954d249be791c7eb782ef">send_packet</a> (const <a class="el" href="classstf_1_1datatype_1_1_string.html">datatype::String</a> &amp;msg)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">外部通信機にコマンドの応答を送信する．  <a href="#a951e44bbcaf954d249be791c7eb782ef"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1core_1_1devicedriver_1_1cmhandler_1_1_n_j_command_receiver.html#a314fbeeddd283b8afc29ad1d74a8822c">send_packet</a> (int msg)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">外部通信機にコマンドの応答を送信する．  <a href="#a314fbeeddd283b8afc29ad1d74a8822c"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1core_1_1devicedriver_1_1cmhandler_1_1_n_j_command_receiver.html#a52b3f2b895c65bda424d1cb73647dd33">add_command</a> (<a class="el" href="classstf_1_1core_1_1command_1_1_command.html">command::Command</a> *)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">コマンドをコマンドマネージャが保持するコマンドリストに挿入する  <a href="#a52b3f2b895c65bda424d1cb73647dd33"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1core_1_1devicedriver_1_1cmhandler_1_1_n_j_command_receiver.html#a12ea023e59efa83e61c60807f70fa102">NJCommandReceiver</a> (int instance_id, <a class="el" href="classstf_1_1core_1_1manager_1_1_command_manager_base.html">core::manager::CommandManagerBase</a> *manager, const <a class="el" href="classstf_1_1datatype_1_1_string.html">datatype::String</a> &amp;filename, <a class="el" href="structstf_1_1_n_j_global.html">NJGlobal</a>&lt; T &gt; *global)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1core_1_1devicedriver_1_1cmhandler_1_1_n_j_command_receiver.html#a957eb07bf9e97d4ae2b085a63186ba0c">~NJCommandReceiver</a> ()</td></tr>
+<tr><td class="memTemplParams" colspan="2">template&lt;&gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classstf_1_1core_1_1devicedriver_1_1cmhandler_1_1_n_j_command_receiver.html#ab21140eaaca39cec19f95e12fb8077d2">receive_command</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">外部通信機からコマンドを受け取る  <a href="#ab21140eaaca39cec19f95e12fb8077d2"></a><br/></td></tr>
+<tr><td class="memTemplParams" colspan="2">template&lt;&gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classstf_1_1core_1_1devicedriver_1_1cmhandler_1_1_n_j_command_receiver.html#ab21140eaaca39cec19f95e12fb8077d2">receive_command</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">外部通信機からコマンドを受け取る  <a href="#ab21140eaaca39cec19f95e12fb8077d2"></a><br/></td></tr>
+</table>
+<hr/><a name="_details"></a><h2>説明</h2>
+<div class="textblock"><h3>template&lt;class T&gt;<br/>
+ class stf::core::devicedriver::cmhandler::NJCommandReceiver&lt; T &gt;</h3>
+
+
+<p> <a class="el" href="">NJCommandReceiver.h</a> の <a class="el" href="#L34">34</a> 行で定義されています。</p>
+</div><hr/><h2>コンストラクタとデストラクタ</h2>
+<a class="anchor" id="a12ea023e59efa83e61c60807f70fa102"></a><!-- doxytag: member="stf::core::devicedriver::cmhandler::NJCommandReceiver::NJCommandReceiver" ref="a12ea023e59efa83e61c60807f70fa102" args="(int instance_id, core::manager::CommandManagerBase *manager, const datatype::String &amp;filename, NJGlobal&lt; T &gt; *global)" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classstf_1_1core_1_1devicedriver_1_1cmhandler_1_1_n_j_command_receiver.html">stf::core::devicedriver::cmhandler::NJCommandReceiver</a>&lt; T &gt;::<a class="el" href="classstf_1_1core_1_1devicedriver_1_1cmhandler_1_1_n_j_command_receiver.html">NJCommandReceiver</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>instance_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classstf_1_1core_1_1manager_1_1_command_manager_base.html">core::manager::CommandManagerBase</a> *&#160;</td>
+          <td class="paramname"><em>manager</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classstf_1_1datatype_1_1_string.html">datatype::String</a> &amp;&#160;</td>
+          <td class="paramname"><em>filename</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structstf_1_1_n_j_global.html">NJGlobal</a>&lt; T &gt; *&#160;</td>
+          <td class="paramname"><em>global</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">NJCommandReceiver.h</a> の <a class="el" href="#L40">40</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">                : <a class="code" href="classstf_1_1_root_object.html#a16410f7e3007286680f7b52e5a2de9e7">RootObject</a>(<a class="code" href="classstf_1_1_root_object.html#a233a3fbd4d53b7a8eaa5d2edab4cf75b">instance_id</a>, <span class="stringliteral">&quot;NJReceiver&quot;</span>), manager_(manager), global_(global){
+                        this-&gt;ifs_ = <span class="keyword">new</span> <span class="keyword">typename</span> T::InputFileStream(filename.to_char());
+        }
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="a957eb07bf9e97d4ae2b085a63186ba0c"></a><!-- doxytag: member="stf::core::devicedriver::cmhandler::NJCommandReceiver::~NJCommandReceiver" ref="a957eb07bf9e97d4ae2b085a63186ba0c" args="()" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classstf_1_1core_1_1devicedriver_1_1cmhandler_1_1_n_j_command_receiver.html">stf::core::devicedriver::cmhandler::NJCommandReceiver</a>&lt; T &gt;::~<a class="el" href="classstf_1_1core_1_1devicedriver_1_1cmhandler_1_1_n_j_command_receiver.html">NJCommandReceiver</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">NJCommandReceiver.h</a> の <a class="el" href="#L44">44</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">{ }
+</pre></div>
+</div>
+</div>
+<hr/><h2>関数</h2>
+<a class="anchor" id="a52b3f2b895c65bda424d1cb73647dd33"></a><!-- doxytag: member="stf::core::devicedriver::cmhandler::NJCommandReceiver::add_command" ref="a52b3f2b895c65bda424d1cb73647dd33" args="(command::Command *)" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classstf_1_1core_1_1devicedriver_1_1cmhandler_1_1_n_j_command_receiver.html">stf::core::devicedriver::cmhandler::NJCommandReceiver</a>&lt; T &gt;::add_command </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classstf_1_1core_1_1command_1_1_command.html">command::Command</a> *&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>コマンドをコマンドマネージャが保持するコマンドリストに挿入する </p>
+
+<p><a class="el" href="classstf_1_1core_1_1devicedriver_1_1cmhandler_1_1_i_command_receiver.html#a6460aa9e485186c3e896cbf2be680881">stf::core::devicedriver::cmhandler::ICommandReceiver</a>を実装しています。</p>
+
+<p> <a class="el" href="">NJCommandReceiver.h</a> の <a class="el" href="#L76">76</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">{
+        this-&gt;manager_-&gt;add_command(cmd);
+        cmd-&gt;connectReceiver(<span class="keyword">this</span>);
+}
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="a8695b777e4fdc9bfc63f46b51402989e"></a><!-- doxytag: member="stf::core::devicedriver::cmhandler::NJCommandReceiver::receive_command" ref="a8695b777e4fdc9bfc63f46b51402989e" args="()" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classstf_1_1core_1_1devicedriver_1_1cmhandler_1_1_n_j_command_receiver.html">stf::core::devicedriver::cmhandler::NJCommandReceiver</a>&lt; T &gt;::receive_command </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>外部通信機からコマンドを受け取る </p>
+
+<p><a class="el" href="classstf_1_1core_1_1devicedriver_1_1cmhandler_1_1_i_command_receiver.html#abad3e469866b079917f4900090ec9ef1">stf::core::devicedriver::cmhandler::ICommandReceiver</a>を実装しています。</p>
+
+<p> <a class="el" href="">NJCommandReceiver.h</a> の <a class="el" href="#L53">53</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">{
+}
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="ab21140eaaca39cec19f95e12fb8077d2"></a><!-- doxytag: member="stf::core::devicedriver::cmhandler::NJCommandReceiver::receive_command" ref="ab21140eaaca39cec19f95e12fb8077d2" args="()" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classstf_1_1core_1_1devicedriver_1_1cmhandler_1_1_n_j_command_receiver.html">stf::core::devicedriver::cmhandler::NJCommandReceiver</a>&lt; <a class="el" href="classstf_1_1environment_1_1_simulator.html">environment::Simulator</a> &gt;::receive_command </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>外部通信機からコマンドを受け取る </p>
+
+<p><a class="el" href="classstf_1_1core_1_1devicedriver_1_1cmhandler_1_1_i_command_receiver.html#abad3e469866b079917f4900090ec9ef1">stf::core::devicedriver::cmhandler::ICommandReceiver</a>を実装しています。</p>
+
+<p> <a class="el" href="">NJCommandReceiver.cpp</a> の <a class="el" href="#L18">18</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">                                                                        {
+
+
+}
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="ab21140eaaca39cec19f95e12fb8077d2"></a><!-- doxytag: member="stf::core::devicedriver::cmhandler::NJCommandReceiver::receive_command" ref="ab21140eaaca39cec19f95e12fb8077d2" args="()" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classstf_1_1core_1_1devicedriver_1_1cmhandler_1_1_n_j_command_receiver.html">stf::core::devicedriver::cmhandler::NJCommandReceiver</a>&lt; <a class="el" href="classstf_1_1environment_1_1_simulator.html">environment::Simulator</a> &gt;::receive_command </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>外部通信機からコマンドを受け取る </p>
+
+<p><a class="el" href="classstf_1_1core_1_1devicedriver_1_1cmhandler_1_1_i_command_receiver.html#abad3e469866b079917f4900090ec9ef1">stf::core::devicedriver::cmhandler::ICommandReceiver</a>を実装しています。</p>
+
+</div>
+</div>
+<a class="anchor" id="a951e44bbcaf954d249be791c7eb782ef"></a><!-- doxytag: member="stf::core::devicedriver::cmhandler::NJCommandReceiver::send_packet" ref="a951e44bbcaf954d249be791c7eb782ef" args="(const datatype::String &amp;msg)" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classstf_1_1core_1_1devicedriver_1_1cmhandler_1_1_n_j_command_receiver.html">stf::core::devicedriver::cmhandler::NJCommandReceiver</a>&lt; T &gt;::send_packet </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classstf_1_1datatype_1_1_string.html">datatype::String</a> &amp;&#160;</td>
+          <td class="paramname"><em>msg</em></td><td>)</td>
+          <td><code> [virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>外部通信機にコマンドの応答を送信する． </p>
+
+<p><a class="el" href="classstf_1_1core_1_1devicedriver_1_1cmhandler_1_1_i_command_receiver.html#ac132380772628af0b8f9f8708d587f75">stf::core::devicedriver::cmhandler::ICommandReceiver</a>を実装しています。</p>
+
+<p> <a class="el" href="">NJCommandReceiver.h</a> の <a class="el" href="#L63">63</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">{
+        <a class="code" href="namespacestf_1_1util.html#ac1e2b8b0b75f1384aaebe7da50977c3f">util::cout</a> &lt;&lt; <span class="stringliteral">&quot;downlink:&quot;</span> &lt;&lt; msg &lt;&lt; <span class="stringliteral">&quot;at:&quot;</span> &lt;&lt; this-&gt;<a class="code" href="classstf_1_1_root_object.html#aa017b38716ed6c01dc754e6f003d6656">clock_</a>-&gt;get_time() &lt;&lt; <a class="code" href="namespacestf_1_1util.html#a057756069e48d361fcd1748792afe316">util::endl</a>;
+}
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="a314fbeeddd283b8afc29ad1d74a8822c"></a><!-- doxytag: member="stf::core::devicedriver::cmhandler::NJCommandReceiver::send_packet" ref="a314fbeeddd283b8afc29ad1d74a8822c" args="(int msg)" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classstf_1_1core_1_1devicedriver_1_1cmhandler_1_1_n_j_command_receiver.html">stf::core::devicedriver::cmhandler::NJCommandReceiver</a>&lt; T &gt;::send_packet </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>msg</em></td><td>)</td>
+          <td><code> [virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>外部通信機にコマンドの応答を送信する． </p>
+
+<p><a class="el" href="classstf_1_1core_1_1devicedriver_1_1cmhandler_1_1_i_command_receiver.html#a3ee36b32d6a8b43b0f6ae2fa2fd7cd6a">stf::core::devicedriver::cmhandler::ICommandReceiver</a>を実装しています。</p>
+
+<p> <a class="el" href="">NJCommandReceiver.h</a> の <a class="el" href="#L70">70</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">{
+        <a class="code" href="namespacestf_1_1util.html#ac1e2b8b0b75f1384aaebe7da50977c3f">util::cout</a> &lt;&lt; <span class="stringliteral">&quot;downlink:&quot;</span> &lt;&lt; msg &lt;&lt; <span class="stringliteral">&quot;at:&quot;</span> &lt;&lt; this-&gt;<a class="code" href="classstf_1_1_root_object.html#aa017b38716ed6c01dc754e6f003d6656">clock_</a>-&gt;get_time() &lt;&lt; <a class="code" href="namespacestf_1_1util.html#a057756069e48d361fcd1748792afe316">util::endl</a>;
+}
+</pre></div>
+</div>
+</div>
+<hr/>このクラスの説明は次のファイルから生成されました:<ul>
+<li>stf/satellite/nj/<a class="el" href="">NJCommandReceiver.h</a></li>
+</ul>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>フレンド</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>マクロ定義</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>STFに対してWed Mar 23 2011 05:33:13に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
+</body>
+</html>

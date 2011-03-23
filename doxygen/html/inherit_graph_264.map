@@ -1,0 +1,5 @@
+<map id="G" name="G">
+<area shape="rect" id="node1" href="$classstf_1_1core_1_1functor_1_1_i_functor.html" title="引数なしファンクタの抽象インターフェース．" alt="" coords="5,32,176,61"/>
+<area shape="rect" id="node3" href="$classstf_1_1core_1_1functor_1_1_functor.html" title="ファンクタクラス．" alt="" coords="256,5,611,35"/>
+<area shape="rect" id="node5" href="$classstf_1_1core_1_1functor_1_1_un_ary_functor.html" title="1引数ファンクタクラス．" alt="" coords="224,59,643,88"/>
+</map>

@@ -1,0 +1,143 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>STF: stf/satellite/prism/PRISMControlBlock.cpp ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.3 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">STF</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="pages.html"><span>関連ページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>ファイルメンバ</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<h1>stf/satellite/prism/PRISMControlBlock.cpp</h1>  </div>
+</div>
+<div class="contents">
+<a href="_p_r_i_s_m_control_block_8cpp.html">説明を見る。</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<a name="l00008"></a>00008 <span class="preprocessor">#include &quot;<a class="code" href="_p_r_i_s_m_control_block_8h.html">PRISMControlBlock.h</a>&quot;</span>
+<a name="l00009"></a>00009 
+<a name="l00010"></a>00010 <span class="keyword">namespace </span>stf {
+<a name="l00011"></a>00011 <span class="keyword">namespace </span>core {
+<a name="l00012"></a>00012 <span class="keyword">namespace </span>strategy {
+<a name="l00013"></a>00013 <span class="keyword">namespace </span>control {
+<a name="l00014"></a>00014 
+<a name="l00015"></a><a class="code" href="classstf_1_1core_1_1strategy_1_1control_1_1_p_r_i_s_m_control_block.html#af485a6dee99b303a11480e91000fc6a3">00015</a> <span class="keywordtype">void</span> <a class="code" href="classstf_1_1core_1_1strategy_1_1control_1_1_p_r_i_s_m_control_block.html#af485a6dee99b303a11480e91000fc6a3">PRISMControlBlock::set_mode</a>(<span class="keywordtype">int</span> <span class="keywordtype">id</span>, <span class="keywordtype">int</span> value){
+<a name="l00016"></a>00016         assert( <span class="keywordtype">id</span> &lt; 3 );
+<a name="l00017"></a>00017         <span class="keywordflow">switch</span>(<span class="keywordtype">id</span>){
+<a name="l00018"></a>00018         <span class="keywordflow">case</span> 0:
+<a name="l00019"></a>00019                 this-&gt;set_ads_(value);
+<a name="l00020"></a>00020         <span class="keywordflow">case</span> 1:
+<a name="l00021"></a>00021                 this-&gt;set_obs_(value);
+<a name="l00022"></a>00022         <span class="keywordflow">case</span> 2:
+<a name="l00023"></a>00023                 this-&gt;set_acs_(value);
+<a name="l00024"></a>00024         <span class="keywordflow">default</span>:
+<a name="l00025"></a>00025                 <span class="keywordflow">break</span>;
+<a name="l00026"></a>00026         }
+<a name="l00027"></a>00027 }
+<a name="l00028"></a>00028 
+<a name="l00029"></a>00029 <span class="comment">// �p������n���[�h</span>
+<a name="l00030"></a>00030 <span class="keywordtype">void</span> PRISMControlBlock::set_acs_(<span class="keywordtype">int</span> <a class="code" href="namespacenj.html#a5ff675c2521e44d40530ddfdb7661279">mode</a>){
+<a name="l00031"></a>00031         this-&gt;acs_mode_ = <a class="code" href="namespacenj.html#a5ff675c2521e44d40530ddfdb7661279">mode</a>;
+<a name="l00032"></a>00032         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> mask = 0x00000001;
+<a name="l00033"></a>00033 
+<a name="l00034"></a>00034         (mode &amp; (mask &lt;&lt; 0)) ? this-&gt;strategylist_[<a class="code" href="classstf_1_1core_1_1strategy_1_1control_1_1_p_r_i_s_m_control_block.html#aefdc6d4cf3794f33eafdc736b157960facba5ef94be244373559aa747cd196e9e">Bdot</a>]-&gt;<a class="code" href="classstf_1_1core_1_1strategy_1_1_strategy_base.html#ad6544501ca834e21ae1ebe1ad3ef1e44" title="ストラテジの有効化．">enable</a>()        : this-&gt;strategylist_[<a class="code" href="classstf_1_1core_1_1strategy_1_1control_1_1_p_r_i_s_m_control_block.html#aefdc6d4cf3794f33eafdc736b157960facba5ef94be244373559aa747cd196e9e">Bdot</a>]-&gt;<a class="code" href="classstf_1_1core_1_1strategy_1_1_strategy_base.html#a9f889b995cf8f95dcbb3efc4dff4e398" title="ストラテジの無効化．">disable</a>() ;
+<a name="l00035"></a>00035         (mode &amp; (mask &lt;&lt; 1)) ? this-&gt;strategylist_[<a class="code" href="classstf_1_1core_1_1strategy_1_1control_1_1_p_r_i_s_m_control_block.html#aefdc6d4cf3794f33eafdc736b157960fac6b53ba7183d02cc93538344b084293c">RateDumping</a>]-&gt;<a class="code" href="classstf_1_1core_1_1strategy_1_1_strategy_base.html#ad6544501ca834e21ae1ebe1ad3ef1e44" title="ストラテジの有効化．">enable</a>() : this-&gt;strategylist_[<a class="code" href="classstf_1_1core_1_1strategy_1_1control_1_1_p_r_i_s_m_control_block.html#aefdc6d4cf3794f33eafdc736b157960fac6b53ba7183d02cc93538344b084293c">RateDumping</a>]-&gt;<a class="code" href="classstf_1_1core_1_1strategy_1_1_strategy_base.html#a9f889b995cf8f95dcbb3efc4dff4e398" title="ストラテジの無効化．">disable</a>() ;
+<a name="l00036"></a>00036         (mode &amp; (mask &lt;&lt; 2)) ? this-&gt;strategylist_[<a class="code" href="classstf_1_1core_1_1strategy_1_1control_1_1_p_r_i_s_m_control_block.html#aefdc6d4cf3794f33eafdc736b157960fae39eb2b84e2f76e1bca36d852ec28ddb">PD</a>]-&gt;<a class="code" href="classstf_1_1core_1_1strategy_1_1_strategy_base.html#ad6544501ca834e21ae1ebe1ad3ef1e44" title="ストラテジの有効化．">enable</a>() : this-&gt;strategylist_[<a class="code" href="classstf_1_1core_1_1strategy_1_1control_1_1_p_r_i_s_m_control_block.html#aefdc6d4cf3794f33eafdc736b157960fae39eb2b84e2f76e1bca36d852ec28ddb">PD</a>]-&gt;<a class="code" href="classstf_1_1core_1_1strategy_1_1_strategy_base.html#a9f889b995cf8f95dcbb3efc4dff4e398" title="ストラテジの無効化．">disable</a>() ;
+<a name="l00037"></a>00037         (mode &amp; (mask &lt;&lt; 3)) ? this-&gt;strategylist_[<a class="code" href="classstf_1_1core_1_1strategy_1_1control_1_1_p_r_i_s_m_control_block.html#aefdc6d4cf3794f33eafdc736b157960fa70d54020dd4e772fd6772aedbac20cf4">PID</a>]-&gt;<a class="code" href="classstf_1_1core_1_1strategy_1_1_strategy_base.html#ad6544501ca834e21ae1ebe1ad3ef1e44" title="ストラテジの有効化．">enable</a>() : this-&gt;strategylist_[<a class="code" href="classstf_1_1core_1_1strategy_1_1control_1_1_p_r_i_s_m_control_block.html#aefdc6d4cf3794f33eafdc736b157960fa70d54020dd4e772fd6772aedbac20cf4">PID</a>]-&gt;<a class="code" href="classstf_1_1core_1_1strategy_1_1_strategy_base.html#a9f889b995cf8f95dcbb3efc4dff4e398" title="ストラテジの無効化．">disable</a>() ;
+<a name="l00038"></a>00038         (mode &amp; (mask &lt;&lt; 4)) ? this-&gt;strategylist_[<a class="code" href="classstf_1_1core_1_1strategy_1_1control_1_1_p_r_i_s_m_control_block.html#aefdc6d4cf3794f33eafdc736b157960fa08ead93ad69f725d6bc78757982a6490">LiniarCorrection</a>]-&gt;<a class="code" href="classstf_1_1core_1_1strategy_1_1_strategy_base.html#ad6544501ca834e21ae1ebe1ad3ef1e44" title="ストラテジの有効化．">enable</a>() : this-&gt;strategylist_[<a class="code" href="classstf_1_1core_1_1strategy_1_1control_1_1_p_r_i_s_m_control_block.html#aefdc6d4cf3794f33eafdc736b157960fa08ead93ad69f725d6bc78757982a6490">LiniarCorrection</a>]-&gt;<a class="code" href="classstf_1_1core_1_1strategy_1_1_strategy_base.html#a9f889b995cf8f95dcbb3efc4dff4e398" title="ストラテジの無効化．">disable</a>() ;
+<a name="l00039"></a>00039         (mode &amp; (mask &lt;&lt; 6)) ? this-&gt;strategylist_[<a class="code" href="classstf_1_1core_1_1strategy_1_1control_1_1_p_r_i_s_m_control_block.html#aefdc6d4cf3794f33eafdc736b157960fad4cce5363b3131560f20b797c94b732c">Decoupling</a>]-&gt;<a class="code" href="classstf_1_1core_1_1strategy_1_1_strategy_base.html#ad6544501ca834e21ae1ebe1ad3ef1e44" title="ストラテジの有効化．">enable</a>() : this-&gt;strategylist_[<a class="code" href="classstf_1_1core_1_1strategy_1_1control_1_1_p_r_i_s_m_control_block.html#aefdc6d4cf3794f33eafdc736b157960fad4cce5363b3131560f20b797c94b732c">Decoupling</a>]-&gt;<a class="code" href="classstf_1_1core_1_1strategy_1_1_strategy_base.html#a9f889b995cf8f95dcbb3efc4dff4e398" title="ストラテジの無効化．">disable</a>() ;
+<a name="l00040"></a>00040         (mode &amp; (mask &lt;&lt; 7)) ? this-&gt;strategylist_[<a class="code" href="classstf_1_1core_1_1strategy_1_1control_1_1_p_r_i_s_m_control_block.html#aefdc6d4cf3794f33eafdc736b157960fa98cae23ffdf6637ff0116b01c235f2f4">GGComp</a>]-&gt;<a class="code" href="classstf_1_1core_1_1strategy_1_1_strategy_base.html#ad6544501ca834e21ae1ebe1ad3ef1e44" title="ストラテジの有効化．">enable</a>() : this-&gt;strategylist_[<a class="code" href="classstf_1_1core_1_1strategy_1_1control_1_1_p_r_i_s_m_control_block.html#aefdc6d4cf3794f33eafdc736b157960fa98cae23ffdf6637ff0116b01c235f2f4">GGComp</a>]-&gt;<a class="code" href="classstf_1_1core_1_1strategy_1_1_strategy_base.html#a9f889b995cf8f95dcbb3efc4dff4e398" title="ストラテジの無効化．">disable</a>() ;
+<a name="l00041"></a>00041 }
+<a name="l00042"></a>00042 
+<a name="l00043"></a>00043 <span class="comment">// �p������n���[�h</span>
+<a name="l00044"></a>00044 <span class="keywordtype">void</span> PRISMControlBlock::set_ads_(<span class="keywordtype">int</span> mode){
+<a name="l00045"></a>00045         this-&gt;ads_mode_ = <a class="code" href="namespacenj.html#a5ff675c2521e44d40530ddfdb7661279">mode</a>;
+<a name="l00046"></a>00046         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> mask = 0x00000001;
+<a name="l00047"></a>00047         <span class="comment">// �Z���T�擾�̗L���E������adsmode�ł͂Ȃ��ʓr�R�}���h��p�ӂ���</span>
+<a name="l00048"></a>00048         (mode &amp; (mask &lt;&lt; 12)) ? this-&gt;strategylist_[<a class="code" href="classstf_1_1core_1_1strategy_1_1control_1_1_p_r_i_s_m_control_block.html#aefdc6d4cf3794f33eafdc736b157960fabb166a5d7a802fdaaaecc8ee4daa4e10">TRIAD</a>]-&gt;<a class="code" href="classstf_1_1core_1_1strategy_1_1_strategy_base.html#ad6544501ca834e21ae1ebe1ad3ef1e44" title="ストラテジの有効化．">enable</a>() : this-&gt;strategylist_[<a class="code" href="classstf_1_1core_1_1strategy_1_1control_1_1_p_r_i_s_m_control_block.html#aefdc6d4cf3794f33eafdc736b157960fabb166a5d7a802fdaaaecc8ee4daa4e10">TRIAD</a>]-&gt;<a class="code" href="classstf_1_1core_1_1strategy_1_1_strategy_base.html#a9f889b995cf8f95dcbb3efc4dff4e398" title="ストラテジの無効化．">disable</a>();
+<a name="l00049"></a>00049         (mode &amp; (mask &lt;&lt; 10)) ? this-&gt;strategylist_[<a class="code" href="classstf_1_1core_1_1strategy_1_1control_1_1_p_r_i_s_m_control_block.html#aefdc6d4cf3794f33eafdc736b157960faa840ce4cf7a630b887a5fc4caf7fa4a7">EKF</a>]-&gt;<a class="code" href="classstf_1_1core_1_1strategy_1_1_strategy_base.html#ad6544501ca834e21ae1ebe1ad3ef1e44" title="ストラテジの有効化．">enable</a>() : this-&gt;strategylist_[<a class="code" href="classstf_1_1core_1_1strategy_1_1control_1_1_p_r_i_s_m_control_block.html#aefdc6d4cf3794f33eafdc736b157960faa840ce4cf7a630b887a5fc4caf7fa4a7">EKF</a>]-&gt;<a class="code" href="classstf_1_1core_1_1strategy_1_1_strategy_base.html#a9f889b995cf8f95dcbb3efc4dff4e398" title="ストラテジの無効化．">disable</a>();
+<a name="l00050"></a>00050 
+<a name="l00051"></a>00051 }
+<a name="l00052"></a>00052 
+<a name="l00053"></a>00053 <span class="comment">// ���C�n���[�h</span>
+<a name="l00054"></a>00054 <span class="keywordtype">void</span> PRISMControlBlock::set_obs_(<span class="keywordtype">int</span> mode){
+<a name="l00055"></a>00055         this-&gt;obs_mode_ = <a class="code" href="namespacenj.html#a5ff675c2521e44d40530ddfdb7661279">mode</a>;
+<a name="l00056"></a>00056         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> mask = 0x00000001;
+<a name="l00057"></a>00057 
+<a name="l00058"></a>00058         (mode &amp; (mask &lt;&lt; 1)) ? this-&gt;strategylist_[<a class="code" href="classstf_1_1core_1_1strategy_1_1control_1_1_p_r_i_s_m_control_block.html#aefdc6d4cf3794f33eafdc736b157960faa9a688d991d1ecfc4e1976074cc03e4f">RMMEKF</a>]-&gt;<a class="code" href="classstf_1_1core_1_1strategy_1_1_strategy_base.html#ad6544501ca834e21ae1ebe1ad3ef1e44" title="ストラテジの有効化．">enable</a>() : this-&gt;strategylist_[<a class="code" href="classstf_1_1core_1_1strategy_1_1control_1_1_p_r_i_s_m_control_block.html#aefdc6d4cf3794f33eafdc736b157960faa9a688d991d1ecfc4e1976074cc03e4f">RMMEKF</a>]-&gt;<a class="code" href="classstf_1_1core_1_1strategy_1_1_strategy_base.html#a9f889b995cf8f95dcbb3efc4dff4e398" title="ストラテジの無効化．">disable</a>();
+<a name="l00059"></a>00059 
+<a name="l00060"></a>00060 }
+<a name="l00061"></a>00061 
+<a name="l00062"></a>00062 } <span class="comment">/* End of namespace stf::core::mode::strategy::control */</span>
+<a name="l00063"></a>00063 } <span class="comment">/* End of namespace stf::core::mode::strategy */</span>
+<a name="l00064"></a>00064 } <span class="comment">/* End of namespace stf::core */</span>
+<a name="l00065"></a>00065 } <span class="comment">/* End of namespace stf */</span>
+</pre></div></div>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>フレンド</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>マクロ定義</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>STFに対してTue Mar 1 2011 03:45:42に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
+</body>
+</html>

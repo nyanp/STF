@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>STF: stf/satellite/prism/PRISMGyro.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.3 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">STF</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="pages.html"><span>関連ページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>ファイルメンバ</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<h1>stf/satellite/prism/PRISMGyro.h</h1>  </div>
+</div>
+<div class="contents">
+<a href="_p_r_i_s_m_gyro_8h.html">説明を見る。</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<a name="l00008"></a>00008 <span class="preprocessor">#ifndef stf_core_devicedriver_PRISMGyro_PRISMGyro_h</span>
+<a name="l00009"></a>00009 <span class="preprocessor"></span><span class="preprocessor">#define stf_core_devicedriver_PRISMGyro_PRISMGyro_h</span>
+<a name="l00010"></a>00010 <span class="preprocessor"></span>
+<a name="l00011"></a>00011 <span class="preprocessor">#include &quot;<a class="code" href="_gyro_base_8h.html" title="ジャイロセンサの基底クラス．">../../core/devicedriver/gyro/GyroBase.h</a>&quot;</span>
+<a name="l00012"></a>00012 
+<a name="l00013"></a>00013 <span class="keyword">namespace </span>stf {
+<a name="l00014"></a>00014 <span class="keyword">namespace </span>core {
+<a name="l00015"></a>00015 <span class="keyword">namespace </span>devicedriver {
+<a name="l00016"></a>00016 <span class="keyword">namespace </span>gyro {
+<a name="l00017"></a>00017 
+<a name="l00018"></a>00018 <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;
+<a name="l00019"></a><a class="code" href="classstf_1_1core_1_1devicedriver_1_1gyro_1_1_p_r_i_s_m_gyro.html">00019</a> <span class="keyword">class </span><a class="code" href="classstf_1_1core_1_1devicedriver_1_1gyro_1_1_p_r_i_s_m_gyro.html">PRISMGyro</a> : <span class="keyword">public</span> <a class="code" href="classstf_1_1core_1_1devicedriver_1_1gyro_1_1_gyro_base.html" title="ジャイロセンサの基底クラス．">GyroBase</a>&lt;T&gt; {
+<a name="l00020"></a>00020 <span class="keyword">public</span>:
+<a name="l00021"></a><a class="code" href="classstf_1_1core_1_1devicedriver_1_1gyro_1_1_p_r_i_s_m_gyro.html#a136ed735907ff8053f994f6b47dbc3d0">00021</a>         <a class="code" href="classstf_1_1core_1_1devicedriver_1_1gyro_1_1_p_r_i_s_m_gyro.html#a136ed735907ff8053f994f6b47dbc3d0">PRISMGyro</a>(){}
+<a name="l00022"></a>00022         <span class="comment">//Sigma =0.02, tau(ECRV)=1000sec</span>
+<a name="l00023"></a><a class="code" href="classstf_1_1core_1_1devicedriver_1_1gyro_1_1_p_r_i_s_m_gyro.html#ae680218bfad8159be3e5452e2773e2f1">00023</a>         <a class="code" href="classstf_1_1core_1_1devicedriver_1_1gyro_1_1_p_r_i_s_m_gyro.html#ae680218bfad8159be3e5452e2773e2f1">PRISMGyro</a>(<span class="keywordtype">int</span> <a class="code" href="classstf_1_1_root_object.html#a233a3fbd4d53b7a8eaa5d2edab4cf75b">instance_id</a>, <span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_d_c_m.html" title="Z-Y-Xの順で回転させる回転行列（DCM）．">datatype::DCM</a> &amp;<a class="code" href="namespacesgp4.html#ae9c168481b4b05275072b4feb66b423f">angle</a>) : <a class="code" href="classstf_1_1core_1_1devicedriver_1_1gyro_1_1_gyro_base.html" title="ジャイロセンサの基底クラス．">GyroBase</a>(instance_id, angle, 0.02,<a class="code" href="_instance_i_d_8h.html#a040cc4de22fca0a26e0ce13c8cc23086">GYROECRV</a>){}
+<a name="l00024"></a><a class="code" href="classstf_1_1core_1_1devicedriver_1_1gyro_1_1_p_r_i_s_m_gyro.html#af690751908f8aa7b65bee5ae8e5917a0">00024</a>         <a class="code" href="classstf_1_1core_1_1devicedriver_1_1gyro_1_1_p_r_i_s_m_gyro.html#af690751908f8aa7b65bee5ae8e5917a0">~PRISMGyro</a>(){}
+<a name="l00025"></a><a class="code" href="classstf_1_1core_1_1devicedriver_1_1gyro_1_1_p_r_i_s_m_gyro.html#abc9d48a1d8d14db9d323c04a5b7c5a30">00025</a>         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classstf_1_1core_1_1devicedriver_1_1gyro_1_1_p_r_i_s_m_gyro.html#abc9d48a1d8d14db9d323c04a5b7c5a30">do_update</a>(){}
+<a name="l00026"></a>00026 <span class="keyword">private</span>:
+<a name="l00027"></a>00027 };
+<a name="l00028"></a>00028 
+<a name="l00029"></a>00029 
+<a name="l00030"></a>00030 
+<a name="l00031"></a>00031 } <span class="comment">/* End of namespace stf::core::devicedriver::gyro */</span>
+<a name="l00032"></a>00032 } <span class="comment">/* End of namespace stf::core::devicedriver */</span>
+<a name="l00033"></a>00033 } <span class="comment">/* End of namespace stf::core */</span>
+<a name="l00034"></a>00034 } <span class="comment">/* End of namespace stf */</span>
+<a name="l00035"></a>00035 
+<a name="l00036"></a>00036 <span class="preprocessor">#endif // stf_core_devicedriver_PRISMGyro_PRISMGyro_h</span>
+</pre></div></div>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>フレンド</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>マクロ定義</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>STFに対してTue Mar 1 2011 03:45:42に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
+</body>
+</html>

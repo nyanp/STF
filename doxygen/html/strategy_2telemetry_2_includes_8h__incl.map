@@ -1,0 +1,48 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$_output_all_8h.html" title="データプールの内容を全て出力するテレメトリ生成ストラテジ．" alt="" coords="1181,83,1267,112"/>
+<area shape="rect" id="node137" href="$_selecting_output_8h.html" title="指定したイテレータをテレメトリとして整形するテレメトリ生成ストラテジ．" alt="" coords="1364,83,1489,112"/>
+<area shape="rect" id="node5" href="$_i_telemetry_strategy_8h.html" title="テレメトリ生成ストラテジの抽象インターフェース．" alt="" coords="1749,160,1891,189"/>
+<area shape="rect" id="node7" href="$_strategy_base_8h.html" title="ストラテジの共通基底クラス．" alt="" coords="2027,237,2149,267"/>
+<area shape="rect" id="node29" href="$_global_object_8h.html" title="RTOSとのインターフェースとなる，衛星アプリケーションが生成するオブジェクト群の基底クラス．" alt="" coords="1235,392,1379,421"/>
+<area shape="rect" id="node34" href="$_list_8h.html" title="Simple Template Container." alt="" coords="1477,547,1584,576"/>
+<area shape="rect" id="node50" href="$_i_aocs_data_8h.html" title="AOCS使用系列のデータ共通の抽象インターフェース．" alt="" coords="292,701,385,731"/>
+<area shape="rect" id="node57" href="$_datapool_8h.html" title="STF生成データにタイムタグを付加して格納するデータプール． データの配列を保持するTupleと，Tupleの配列を保持するデータプールによって テーブル形式のデータ構造を表現する．" alt="" coords="1464,160,1624,189"/>
+<area shape="rect" id="node66" href="$_iterator_8h.html" title="STFが提供するイテレータとその抽象インターフェース．" alt="" coords="1504,315,1653,344"/>
+<area shape="rect" id="node127" href="$_event_8h.html" title="全イベントの基底クラス．" alt="" coords="792,237,901,267"/>
+<area shape="rect" id="node131" href="$_i_telemetry_storagable_8h.html" title="テレメトリデータのストレージに対する抽象インターフェース．" alt="" coords="776,160,1085,189"/>
+<area shape="rect" id="node9" href="$_root_object_8h.html" title="数値型を除いた全クラスの基本となるクラス．" alt="" coords="1677,315,1800,344"/>
+<area shape="rect" id="node17" href="$_i_time_clock_8h.html" title="Time型のカウントが可能であることを示す抽象インターフェース．" alt="" coords="2216,315,2429,344"/>
+<area shape="rect" id="node25" href="$_i_enabable_8h.html" title="有効化・無効化制御が可能なコンポーネントに対するインターフェース．" alt="" coords="1976,315,2141,344"/>
+<area shape="rect" id="node27" href="$_type_manip_8h.html" title="../../util/loki/TypeManip.h" alt="" coords="2096,624,2261,653"/>
+<area shape="rect" id="node11" href="$_instance_i_d_8h.html" title="インスタンスIDの定義を行うマクロ群．" alt="" coords="1605,469,1699,499"/>
+<area shape="rect" id="node13" href="$_string_8h.html" title="std::stringの簡略版クラス．" alt="" coords="965,392,1085,421"/>
+<area shape="rect" id="node15" href="$_macros_8h.html" title="STF全体で使用する簡単なマクロ関数を記述する．" alt="" coords="1725,392,1800,421"/>
+<area shape="rect" id="node19" href="$_time_8h.html" title="経過時間を表すクラス．" alt="" coords="1701,624,1851,653"/>
+<area shape="rect" id="node23" href="$_i_data_updatable_8h.html" title="周期的にデータを取得，送信するコンポーネントに対する抽象インターフェース．" alt="" coords="2341,392,2475,421"/>
+<area shape="rect" id="node21" href="$stfassert_8h.html" title="assertラッパ．" alt="" coords="1409,701,1524,731"/>
+<area shape="rect" id="node38" href="$_date_time_8h.html" title="ユリウス暦による絶対時刻を保持するクラス．時間間隔などの計算にはTimeを使う．" alt="" coords="1608,547,1749,576"/>
+<area shape="rect" id="node42" href="$_satellite_model_8h.html" title="衛星質量特性を表現するクラス．" alt="" coords="1160,469,1328,499"/>
+<area shape="rect" id="node44" href="$_static_matrix_8h.html" title="テンプレートを用いた固定要素数の行列計算クラス" alt="" coords="1352,547,1453,576"/>
+<area shape="rect" id="node47" href="$_static_vector_8h.html" title="テンプレートを用いた固定要素数のベクトル計算クラス" alt="" coords="897,624,1001,653"/>
+<area shape="rect" id="node54" href="$math_8h.html" title="数学系関数のラッパと算術定数の定義．" alt="" coords="952,701,1045,731"/>
+<area shape="rect" id="node52" href="$_i_telemetable_8h.html" title="テレメトリを生成可能なオブジェクトに対するインターフェース．" alt="" coords="1536,779,1707,808"/>
+<area shape="rect" id="node72" href="$_hierarchy_generators_8h.html" title="../../util/loki/HierarchyGenerators.h" alt="" coords="2575,392,2796,421"/>
+<area shape="rect" id="node84" href="$_trace_8h.html" title="STFの内部状態を外部ファイルに書き出すためのトレースオブジェクト．" alt="" coords="976,237,1085,267"/>
+<area shape="rect" id="node74" href="$_typelist_8h.html" title="Typelist.h" alt="" coords="2689,547,2767,576"/>
+<area shape="rect" id="node79" href="$_type_traits_8h.html" title="TypeTraits.h" alt="" coords="2723,469,2816,499"/>
+<area shape="rect" id="node82" href="$_empty_type_8h.html" title="EmptyType.h" alt="" coords="2549,469,2648,499"/>
+<area shape="rect" id="node76" href="$_null_type_8h.html" title="NullType.h" alt="" coords="2687,624,2769,653"/>
+<area shape="rect" id="node86" href="$_ostream_8h.html" title="標準出力のラッパ．" alt="" coords="584,315,667,344"/>
+<area shape="rect" id="node93" href="$_config_8h.html" title="../Config.h" alt="" coords="652,392,732,421"/>
+<area shape="rect" id="node95" href="$_simulator_8h.html" title="ソフトウェアシミュレータ環境クラス．" alt="" coords="680,469,840,499"/>
+<area shape="rect" id="node103" href="$_vector_8h.html" title="可変要素数のベクトル演算を行うクラス．STFではStaticVectorが推奨される" alt="" coords="451,624,587,653"/>
+<area shape="rect" id="node107" href="$_matrix_8h.html" title="可変要素数の行列計算を行うクラス．STFではStaticMatrixが推奨される．" alt="" coords="472,547,605,576"/>
+<area shape="rect" id="node113" href="$_quaternion_8h.html" title="4元数を表現するクラス．" alt="" coords="629,547,792,576"/>
+<area shape="rect" id="node118" href="$_orbit_info_8h.html" title="軌道情報関係の量を表す" alt="" coords="1043,547,1189,576"/>
+<area shape="rect" id="node122" href="$_magnetic_8h.html" title="磁気関係の物理量を表す" alt="" coords="816,547,968,576"/>
+<area shape="rect" id="node147" href="$_dummy_clock_8h.html" title="ダミーの時刻計算を行うコンポーネントドライバ．" alt="" coords="2407,160,2647,189"/>
+<area shape="rect" id="node150" href="$_i_absolute_time_clock_8h.html" title="DateTime型のカウントが可能であることを示す抽象インターフェース．" alt="" coords="2453,315,2600,344"/>
+<area shape="rect" id="node154" href="$_c_d_h_component_8h.html" title="AD変換器や温度計など，複数のセンサを一括して取り扱うコンポーネントの基底クラス．" alt="" coords="2577,237,2716,267"/>
+<area shape="rect" id="node156" href="$_i_o_port_8h.html" title="他機器との接続を型に基づいて行うための入出力ポート．" alt="" coords="2624,315,2693,344"/>
+<area shape="rect" id="node161" href="$_i_switchable_8h.html" title="CPUによる電源のオンオフ制御が可能なコンポーネントに対するインターフェース．" alt="" coords="2717,315,2816,344"/>
+</map>

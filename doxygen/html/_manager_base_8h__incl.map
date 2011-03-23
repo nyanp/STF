@@ -1,0 +1,6 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$_root_object_8h.html" title="数値型を除いた全クラスの基本となるクラス．" alt="" coords="121,83,244,112"/>
+<area shape="rect" id="node5" href="$_instance_i_d_8h.html" title="インスタンスIDの定義を行うマクロ群．" alt="" coords="5,160,99,189"/>
+<area shape="rect" id="node7" href="$_string_8h.html" title="std::stringの簡略版クラス．" alt="" coords="123,160,243,189"/>
+<area shape="rect" id="node9" href="$_macros_8h.html" title="STF全体で使用する簡単なマクロ関数を記述する．" alt="" coords="267,160,341,189"/>
+</map>

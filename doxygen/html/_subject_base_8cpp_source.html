@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>STF: stf/core/event/SubjectBase.cpp ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.3 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">STF</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="pages.html"><span>関連ページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>ファイルメンバ</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<h1>stf/core/event/SubjectBase.cpp</h1>  </div>
+</div>
+<div class="contents">
+<a href="_subject_base_8cpp.html">説明を見る。</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<a name="l00009"></a>00009 <span class="preprocessor">#include &quot;<a class="code" href="_subject_base_8h.html" title="Observerパターンの構成テンプレートクラス群．">SubjectBase.h</a>&quot;</span>
+<a name="l00010"></a>00010 <span class="preprocessor">#include &quot;<a class="code" href="_mode_change_event_8h.html" title="モード変更イベント．">ModeChangeEvent.h</a>&quot;</span>
+<a name="l00011"></a>00011 <span class="preprocessor">#include &quot;<a class="code" href="_mode_manager_base_8h.html" title="モードの管理を行う機能マネージャ基底クラス．">../manager/ModeManagerBase.h</a>&quot;</span>
+<a name="l00012"></a>00012 <span class="preprocessor">#include &quot;<a class="code" href="_datapool_8h.html" title="STF生成データにタイムタグを付加して格納するデータプール． データの配列を保持するTupleと，Tupleの配列を保持するデータプールによって テーブル形式のデータ構造を表現する．">../datapool/Datapool.h</a>&quot;</span>
+<a name="l00013"></a>00013 <span class="preprocessor">#include &quot;<a class="code" href="_trace_8h.html" title="STFの内部状態を外部ファイルに書き出すためのトレースオブジェクト．">../../util/Trace.h</a>&quot;</span>
+<a name="l00014"></a>00014 
+<a name="l00015"></a>00015 <span class="keyword">namespace </span>stf {
+<a name="l00016"></a>00016 <span class="keyword">namespace </span>core {
+<a name="l00017"></a>00017 <span class="keyword">namespace </span>event {
+<a name="l00018"></a>00018 
+<a name="l00019"></a>00019 <span class="keyword">template</span> <span class="keyword">class </span>SubjectBase&lt;ModeChangeEvent&gt;;
+<a name="l00020"></a>00020 <span class="keyword">template</span> <span class="keyword">class </span>Observer&lt;ModeChangeEvent&gt;;
+<a name="l00021"></a>00021 
+<a name="l00022"></a>00022 <span class="keyword">template</span> &lt;<span class="keyword">class</span> Evt&gt;
+<a name="l00023"></a><a class="code" href="classstf_1_1core_1_1event_1_1_observer.html#aa034ec20f42426aeae9d1bfbc26959b7">00023</a> <a class="code" href="classstf_1_1core_1_1event_1_1_observer.html#aa034ec20f42426aeae9d1bfbc26959b7">Observer&lt;Evt&gt;::Observer</a>(){
+<a name="l00024"></a>00024         Evt::SubjectClass::add_listener(<span class="keyword">this</span>);
+<a name="l00025"></a>00025 }
+<a name="l00026"></a>00026 
+<a name="l00027"></a>00027 <span class="keyword">template</span> &lt;<span class="keyword">class</span> Evt&gt;
+<a name="l00028"></a><a class="code" href="classstf_1_1core_1_1event_1_1_subject_base.html#a0dc17587fab3cf16d4a8ff21045dd0e9">00028</a> <span class="keywordtype">void</span> <a class="code" href="classstf_1_1core_1_1event_1_1_subject_base.html#a0dc17587fab3cf16d4a8ff21045dd0e9">SubjectBase&lt;Evt&gt;::check</a>(){
+<a name="l00029"></a>00029         <a class="code" href="classstf_1_1datatype_1_1_list.html" title="機能を最小限に絞ったコンテナクラス． ・assertが有効ならば[]演算子に範囲外チェックが入る ・データの追加は末尾のみ対応，データの削除は任意位置に対して可能 ・適合する最初の要素を削除するremo...">datatype::List&lt; Reporter&lt;Evt&gt;</a> &gt;::iterator it = reporters_.<a class="code" href="classstf_1_1datatype_1_1_list.html#ab5bca799c82f8912d4b2457b57469bd2">begin</a>();
+<a name="l00030"></a>00030         <span class="keyword">typename</span> Evt::Target* t = 0;
+<a name="l00031"></a>00031         <span class="keyword">typename</span> Evt::Target* next = 0;
+<a name="l00032"></a>00032         <span class="keywordtype">int</span> priority = 0;
+<a name="l00033"></a>00033         <span class="keywordflow">for</span>( ; it != reporters_.<a class="code" href="classstf_1_1datatype_1_1_list.html#a3ff24c785c8c0cc2af1d6d50d5bbce1e">end</a>() ; ++it ){
+<a name="l00034"></a>00034                 <span class="keywordtype">int</span> i = (*it).check(t);
+<a name="l00035"></a>00035                 <span class="keywordflow">if</span>(t != 0 &amp;&amp; i &gt; priority){
+<a name="l00036"></a>00036                         priority = i;
+<a name="l00037"></a>00037                         next = t;
+<a name="l00038"></a>00038                 }
+<a name="l00039"></a>00039         }
+<a name="l00040"></a>00040         <span class="keywordflow">if</span>(next != 0) notify_observers(*next);
+<a name="l00041"></a>00041 }
+<a name="l00042"></a>00042 
+<a name="l00043"></a>00043 <span class="keyword">template</span> &lt;<span class="keyword">class</span> Evt&gt;
+<a name="l00044"></a><a class="code" href="classstf_1_1core_1_1event_1_1_subject_base.html#a7d67367f2c403eabc3fe7acdbc13433e">00044</a> <span class="keywordtype">void</span> <a class="code" href="classstf_1_1core_1_1event_1_1_subject_base.html#a7d67367f2c403eabc3fe7acdbc13433e">SubjectBase&lt;Evt&gt;::notify_observers</a>(<span class="keyword">const</span> <span class="keyword">typename</span> Evt::Target&amp; <a class="code" href="namespaceigrf.html#a9b0d3a2208a4bd2bf3982ee85d905d5a">p</a>){
+<a name="l00045"></a>00045         <a class="code" href="classstf_1_1util_1_1_trace.html" title="標準出力のラッパ．">util::Trace</a> trace(<a class="code" href="classstf_1_1util_1_1_trace.html#a7cce9d9f41332a3fd076bd10605f0139a55f8d1065e4de8e2167370ca4f340021" title="イベント">util::Trace::kEvent</a>, this-&gt;event_.name());
+<a name="l00046"></a>00046         <a class="code" href="classstf_1_1datatype_1_1_list.html" title="機能を最小限に絞ったコンテナクラス． ・assertが有効ならば[]演算子に範囲外チェックが入る ・データの追加は末尾のみ対応，データの削除は任意位置に対して可能 ・適合する最初の要素を削除するremo...">datatype::List&lt; Observer&lt;Evt&gt;</a> &gt;::iterator it = observers_.<a class="code" href="classstf_1_1datatype_1_1_list.html#ab5bca799c82f8912d4b2457b57469bd2">begin</a>();
+<a name="l00047"></a>00047         <span class="keywordflow">for</span>( ; it != observers_.end() ; ++it ){
+<a name="l00048"></a>00048                 (*it).notify(&amp;p);
+<a name="l00049"></a>00049         }
+<a name="l00050"></a>00050         <span class="comment">//Global&lt;ENV&gt;::get_eventdatapool().set&lt;SubjectBase&lt;Evt&gt;&gt;(this-&gt;event_.instance_id(), this-&gt;event_);</span>
+<a name="l00051"></a>00051 }
+<a name="l00052"></a>00052 
+<a name="l00053"></a>00053 } <span class="comment">/* End of namespace stf::core::event */</span>
+<a name="l00054"></a>00054 } <span class="comment">/* End of namespace stf::core */</span>
+<a name="l00055"></a>00055 } <span class="comment">/* End of namespace stf */</span>
+<a name="l00056"></a>00056 
+</pre></div></div>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>フレンド</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>マクロ定義</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>STFに対してTue Mar 1 2011 03:45:37に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
+</body>
+</html>

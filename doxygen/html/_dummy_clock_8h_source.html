@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>STF: stf/core/devicedriver/clock/DummyClock.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.3 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">STF</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="pages.html"><span>関連ページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>ファイルメンバ</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<h1>stf/core/devicedriver/clock/DummyClock.h</h1>  </div>
+</div>
+<div class="contents">
+<a href="_dummy_clock_8h.html">説明を見る。</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<a name="l00008"></a>00008 <span class="preprocessor">#ifndef stf_core_devicedriver_clock_DummyClock_h</span>
+<a name="l00009"></a>00009 <span class="preprocessor"></span><span class="preprocessor">#define stf_core_devicedriver_clock_DummyClock_h</span>
+<a name="l00010"></a>00010 <span class="preprocessor"></span>
+<a name="l00011"></a>00011 <span class="preprocessor">#include &quot;<a class="code" href="_i_time_clock_8h.html" title="Time型のカウントが可能であることを示す抽象インターフェース．">ITimeClock.h</a>&quot;</span>
+<a name="l00012"></a>00012 <span class="preprocessor">#include &quot;<a class="code" href="_i_absolute_time_clock_8h.html" title="DateTime型のカウントが可能であることを示す抽象インターフェース．">IAbsoluteTimeClock.h</a>&quot;</span>
+<a name="l00013"></a>00013 <span class="preprocessor">#include &quot;<a class="code" href="_c_d_h_component_8h.html" title="AD変換器や温度計など，複数のセンサを一括して取り扱うコンポーネントの基底クラス．">../CDHComponent.h</a>&quot;</span>
+<a name="l00014"></a>00014 <span class="preprocessor">#include &quot;<a class="code" href="_typelist_8h.html">../../../util/loki/Typelist.h</a>&quot;</span>
+<a name="l00015"></a>00015 
+<a name="l00016"></a>00016 <span class="keyword">namespace </span>stf {
+<a name="l00017"></a>00017 <span class="keyword">namespace </span>core {
+<a name="l00018"></a>00018 <span class="keyword">namespace </span>devicedriver {
+<a name="l00019"></a><a class="code" href="namespacestf_1_1core_1_1devicedriver_1_1clock.html">00019</a> <span class="keyword">namespace </span>clock {
+<a name="l00020"></a>00020 
+<a name="l00022"></a>00022 
+<a name="l00028"></a>00028 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Env, <span class="keywordtype">int</span> CLOCK = 100&gt;
+<a name="l00029"></a><a class="code" href="classstf_1_1core_1_1devicedriver_1_1clock_1_1_dummy_clock.html">00029</a> <span class="keyword">class </span><a class="code" href="classstf_1_1core_1_1devicedriver_1_1clock_1_1_dummy_clock.html" title="ダミーの時刻計算を行うコンポーネントドライバ．">DummyClock</a> : <span class="keyword">public</span> <a class="code" href="classstf_1_1core_1_1devicedriver_1_1_c_d_h_multi_component.html" title="電圧と電流など，異なる物理量を複合的に取り扱うコンポーネントの基底クラス．">CDHMultiComponent</a>&lt;TYPELIST_2( datatype::Time, datatype::DateTime ), Env&gt;, <span class="keyword">virtual</span> <span class="keyword">public</span> <a class="code" href="classstf_1_1core_1_1devicedriver_1_1clock_1_1_i_time_clock.html" title="Time型のカウントが可能であることを示す抽象インターフェース．">ITimeClock</a>, <span class="keyword">virtual</span> <span class="keyword">public</span> <a class="code" href="classstf_1_1core_1_1devicedriver_1_1clock_1_1_i_absolute_time_clock.html" title="DateTime型のカウントが可能であることを示す抽象インターフェース．">IAbsoluteTimeClock</a>
+<a name="l00030"></a>00030 {
+<a name="l00031"></a>00031 <span class="keyword">public</span>:
+<a name="l00032"></a><a class="code" href="classstf_1_1core_1_1devicedriver_1_1clock_1_1_dummy_clock.html#a9d292264b691ba519d72bc7b34f91065">00032</a>         <a class="code" href="classstf_1_1core_1_1devicedriver_1_1clock_1_1_dummy_clock.html#a9d292264b691ba519d72bc7b34f91065">DummyClock</a>(<span class="keywordtype">int</span> <a class="code" href="classstf_1_1_root_object.html#a233a3fbd4d53b7a8eaa5d2edab4cf75b">instance_id</a>, <span class="keywordtype">int</span> year, <span class="keywordtype">int</span> month, <span class="keywordtype">int</span> date): <a class="code" href="classstf_1_1core_1_1devicedriver_1_1_c_d_h_multi_component.html" title="電圧と電流など，異なる物理量を複合的に取り扱うコンポーネントの基底クラス．">CDHMultiComponent</a>&lt;<a class="code" href="_typelist_8h.html#a311cb99af993804c6737ae46c5cbfaff">TYPELIST_2</a>( datatype::Time, datatype::DateTime ), Env&gt;(instance_id, <span class="stringliteral">&quot;DummyClock&quot;</span>)
+<a name="l00033"></a>00033         {
+<a name="l00034"></a>00034                 <span class="keyword">const_cast&lt;</span><a class="code" href="classstf_1_1datatype_1_1_date_time.html" title="ユリウス暦による絶対時刻を秒精度で保持する．">datatype::DateTime</a>*<span class="keyword">&gt;</span>(&amp;get&lt;1, datatype::DateTime&gt;())-&gt;<a class="code" href="classstf_1_1datatype_1_1_date_time.html#a662c02759644905b2da11a4e834ed14d">init</a>(year, month, date, 0, 0, 0);
+<a name="l00035"></a>00035                 this-&gt;<a class="code" href="classstf_1_1_root_object.html#aa017b38716ed6c01dc754e6f003d6656">clock_</a> = <span class="keyword">this</span>;<span class="comment">//staticポインタに割り当て</span>
+<a name="l00036"></a>00036         }
+<a name="l00037"></a>00037 
+<a name="l00038"></a><a class="code" href="classstf_1_1core_1_1devicedriver_1_1clock_1_1_dummy_clock.html#ae68a1d2172b4e224aba066daa11eb98f">00038</a>         <a class="code" href="classstf_1_1core_1_1devicedriver_1_1clock_1_1_dummy_clock.html#ae68a1d2172b4e224aba066daa11eb98f">~DummyClock</a>(<span class="keywordtype">void</span>){}
+<a name="l00039"></a>00039 
+<a name="l00040"></a><a class="code" href="classstf_1_1core_1_1devicedriver_1_1clock_1_1_dummy_clock.html#afb0cee1757c940636e502afa163d8aa0">00040</a>         <span class="keyword">virtual</span> <span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_time.html" title="経過時間を表すクラス．">datatype::Time</a> <a class="code" href="classstf_1_1core_1_1devicedriver_1_1clock_1_1_dummy_clock.html#afb0cee1757c940636e502afa163d8aa0">get_time</a>()<span class="keyword"> const  </span>{
+<a name="l00041"></a>00041                 <span class="keywordflow">return</span> this-&gt;get&lt;0, datatype::Time&gt;();
+<a name="l00042"></a>00042         }
+<a name="l00043"></a>00043 
+<a name="l00044"></a><a class="code" href="classstf_1_1core_1_1devicedriver_1_1clock_1_1_dummy_clock.html#ac1ac749c827db78da3c9d5593cb26f44">00044</a>         <span class="keyword">virtual</span> <span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_date_time.html" title="ユリウス暦による絶対時刻を秒精度で保持する．">datatype::DateTime</a> <a class="code" href="classstf_1_1core_1_1devicedriver_1_1clock_1_1_dummy_clock.html#ac1ac749c827db78da3c9d5593cb26f44">get_datetime</a>()<span class="keyword"> const </span>{
+<a name="l00045"></a>00045                 <span class="keywordflow">return</span> this-&gt;get&lt;1, datatype::DateTime&gt;();
+<a name="l00046"></a>00046         }
+<a name="l00047"></a>00047 
+<a name="l00048"></a><a class="code" href="classstf_1_1core_1_1devicedriver_1_1clock_1_1_dummy_clock.html#af0fde90e4dce2c250bde7cb6b7413181">00048</a>         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classstf_1_1core_1_1devicedriver_1_1clock_1_1_dummy_clock.html#af0fde90e4dce2c250bde7cb6b7413181">set_absolute_time</a>(<a class="code" href="classstf_1_1datatype_1_1_date_time.html" title="ユリウス暦による絶対時刻を秒精度で保持する．">datatype::DateTime</a> t){
+<a name="l00049"></a>00049                 this-&gt;outputport&lt;1, datatype::DateTime&gt;().value_ = t;
+<a name="l00050"></a>00050         }
+<a name="l00051"></a>00051 
+<a name="l00052"></a><a class="code" href="classstf_1_1core_1_1devicedriver_1_1clock_1_1_dummy_clock.html#afcf67aafaee8ce1a42b536ac9f110434">00052</a>         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classstf_1_1core_1_1devicedriver_1_1clock_1_1_dummy_clock.html#afcf67aafaee8ce1a42b536ac9f110434">set_absolute_time</a>(<span class="keywordtype">int</span> year, <span class="keywordtype">int</span> month, <span class="keywordtype">int</span> day, <span class="keywordtype">int</span> hour, <span class="keywordtype">int</span> minute, <span class="keywordtype">int</span> second){
+<a name="l00053"></a>00053                 this-&gt;outputport&lt;1, datatype::DateTime&gt;().value_.init(year, month, day, hour, minute, second);
+<a name="l00054"></a>00054         }
+<a name="l00055"></a>00055 
+<a name="l00056"></a><a class="code" href="classstf_1_1core_1_1devicedriver_1_1clock_1_1_dummy_clock.html#ac29b721b4901fdc2930fb524678f2d75">00056</a>         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classstf_1_1core_1_1devicedriver_1_1clock_1_1_dummy_clock.html#ac29b721b4901fdc2930fb524678f2d75">set_time</a>(<a class="code" href="classstf_1_1datatype_1_1_time.html" title="経過時間を表すクラス．">datatype::Time</a> t){
+<a name="l00057"></a>00057                 this-&gt;outputport&lt;0, datatype::Time&gt;().value_ = t;
+<a name="l00058"></a>00058         }
+<a name="l00059"></a>00059 
+<a name="l00060"></a><a class="code" href="classstf_1_1core_1_1devicedriver_1_1clock_1_1_dummy_clock.html#a9d57b6020213fc2668e09175795262ad">00060</a>         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classstf_1_1core_1_1devicedriver_1_1clock_1_1_dummy_clock.html#a9d57b6020213fc2668e09175795262ad">set_time</a>(<span class="keywordtype">int</span> sec, <span class="keywordtype">int</span> millisec){
+<a name="l00061"></a>00061                 this-&gt;outputport&lt;0, datatype::Time&gt;().value_.clear();
+<a name="l00062"></a>00062                 this-&gt;outputport&lt;0, datatype::Time&gt;().value_.add_milliseconds(millisec);
+<a name="l00063"></a>00063                 this-&gt;outputport&lt;0, datatype::Time&gt;().value_.add_seconds(sec);
+<a name="l00064"></a>00064         }
+<a name="l00065"></a>00065 
+<a name="l00066"></a><a class="code" href="classstf_1_1core_1_1devicedriver_1_1clock_1_1_dummy_clock.html#a1cef663379e60be0b64bfd33fdf8a525">00066</a>         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classstf_1_1core_1_1devicedriver_1_1clock_1_1_dummy_clock.html#a1cef663379e60be0b64bfd33fdf8a525">do_update</a>(){
+<a name="l00067"></a>00067                 <span class="keyword">const_cast&lt;</span><a class="code" href="classstf_1_1datatype_1_1_time.html" title="経過時間を表すクラス．">datatype::Time</a>*<span class="keyword">&gt;</span>(&amp;get&lt;0, datatype::Time&gt;())-&gt;<a class="code" href="classstf_1_1datatype_1_1_time.html#adf52dfd46f2f18fde9b1a949f85fccef">add_milliseconds</a>(CLOCK);
+<a name="l00068"></a>00068         }
+<a name="l00069"></a>00069 };
+<a name="l00070"></a>00070 
+<a name="l00071"></a>00071 } <span class="comment">/* End of namespace stf::core::devicedriver::clock */</span>
+<a name="l00072"></a>00072 } <span class="comment">/* End of namespace stf::core::devicedriver */</span>
+<a name="l00073"></a>00073 } <span class="comment">/* End of namespace stf::core */</span>
+<a name="l00074"></a>00074 } <span class="comment">/* End of namespace stf */</span>
+<a name="l00075"></a>00075 
+<a name="l00076"></a>00076 <span class="preprocessor">#endif // stf_core_devicedriver_clock_DummyClock_h</span>
+</pre></div></div>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>フレンド</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>マクロ定義</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>STFに対してTue Mar 1 2011 03:45:36に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
+</body>
+</html>

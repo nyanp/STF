@@ -1,0 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>STF: stf/satellite/prism/PRISMGlobal.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.3 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">STF</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="pages.html"><span>関連ページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>ファイルメンバ</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">構成</a> &#124;
+<a href="#namespaces">ネームスペース</a>  </div>
+  <div class="headertitle">
+<h1>stf/satellite/prism/PRISMGlobal.h</h1>  </div>
+</div>
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="">../../GlobalObject.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="">../../core/devicedriver/Includes.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="">../../core/manager/Includes.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="">../../core/datapool/Datapool.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="">../../core/mode/ModeBase.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="">../../core/strategy/control/IControlStrategy.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="">../../core/strategy/telemetry/ITelemetryStrategy.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="">../../datatype/SatelliteModel.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="">PRISMADC.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="">PRISMDummyClock.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="">PRISMGyro.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="">PRISMSunSensor.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="">PRISMTAM.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="">PRISMMTQ.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="">PRISMEKF.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="">PRISMRMMEKF.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="">PRISMTRIAD.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="">PRISMCommandReceiver.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="">PRISMTelemetryHandler.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="">PRISMCustomManager.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="">PRISMIterator.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="">PRISMTelemetryStrategy.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="">PRISMControlBlock.h</a>&quot;</code><br/>
+</div><div class="textblock"><div class="dynheader">
+PRISMGlobal.hのインクルード依存関係図</div>
+<div class="dyncontent">
+<div class="center"><img src="_p_r_i_s_m_global_8h__incl.png" border="0" usemap="#stf_2satellite_2prism_2_p_r_i_s_m_global_8h" alt=""/></div>
+<map name="stf_2satellite_2prism_2_p_r_i_s_m_global_8h" id="stf_2satellite_2prism_2_p_r_i_s_m_global_8h">
+<area shape="rect" id="node3" href="_global_object_8h.html" title="RTOSとのインターフェースとなる，衛星アプリケーションが生成するオブジェクト群の基底クラス．" alt="" coords="124,237,255,267"/><area shape="rect" id="node16" href="_satellite_model_8h.html" title="衛星質量特性を表現するクラス．" alt="" coords="389,315,557,344"/><area shape="rect" id="node18" href="devicedriver_2_includes_8h.html" title="../../core/devicedriver/Includes.h" alt="" coords="1849,160,2052,189"/><area shape="rect" id="node46" href="_datapool_8h.html" title="STF生成データにタイムタグを付加して格納するデータプール． データの配列を保持するTupleと，Tupleの配列を保持するデータプールによって テーブル形式のデータ構造を表現する．" alt="" coords="673,315,823,344"/><area shape="rect" id="node59" href="manager_2_includes_8h.html" title="../../core/manager/Includes.h" alt="" coords="513,83,700,112"/><area shape="rect" id="node72" href="_mode_base_8h.html" title="モードの基底クラス．" alt="" coords="929,83,1113,112"/><area shape="rect" id="node74" href="_i_control_strategy_8h.html" title="制御ブロックの抽象インターフェース．" alt="" coords="1137,83,1409,112"/><area shape="rect" id="node76" href="_i_telemetry_strategy_8h.html" title="テレメトリ生成ストラテジの抽象インターフェース．" alt="" coords="1433,83,1737,112"/><area shape="rect" id="node79" href="_p_r_i_s_m_a_d_c_8h.html" title="PRISMADC.h" alt="" coords="2489,160,2591,189"/><area shape="rect" id="node82" href="_p_r_i_s_m_dummy_clock_8h.html" title="PRISMDummyClock.h" alt="" coords="1761,83,1913,112"/><area shape="rect" id="node85" href="_p_r_i_s_m_gyro_8h.html" title="PRISMGyro.h" alt="" coords="1988,83,2089,112"/><area shape="rect" id="node87" href="_p_r_i_s_m_sun_sensor_8h.html" title="PRISMSunSensor.h" alt="" coords="2113,83,2252,112"/><area shape="rect" id="node89" href="_p_r_i_s_m_t_a_m_8h.html" title="PRISMTAM.h" alt="" coords="2276,83,2377,112"/><area shape="rect" id="node91" href="_p_r_i_s_m_m_t_q_8h.html" title="PRISMMTQ.h" alt="" coords="2401,83,2503,112"/><area shape="rect" id="node93" href="_p_r_i_s_m_e_k_f_8h.html" title="PRISMEKF.h" alt="" coords="2615,160,2713,189"/><area shape="rect" id="node95" href="_p_r_i_s_m_r_m_m_e_k_f_8h.html" title="PRISMRMMEKF.h" alt="" coords="2737,160,2868,189"/><area shape="rect" id="node97" href="_p_r_i_s_m_t_r_i_a_d_8h.html" title="PRISMTRIAD.h" alt="" coords="2892,160,3001,189"/><area shape="rect" id="node99" href="_p_r_i_s_m_command_receiver_8h.html" title="PRISMCommandReceiver.h" alt="" coords="724,83,905,112"/><area shape="rect" id="node103" href="_p_r_i_s_m_telemetry_handler_8h.html" title="PRISMTelemetryHandler.h" alt="" coords="3228,160,3401,189"/><area shape="rect" id="node106" href="_p_r_i_s_m_custom_manager_8h.html" title="PRISMCustomManager.h" alt="" coords="2577,83,2745,112"/><area shape="rect" id="node109" href="_p_r_i_s_m_iterator_8h.html" title="PRISMIterator.h" alt="" coords="2921,83,3036,112"/><area shape="rect" id="node114" href="_p_r_i_s_m_telemetry_strategy_8h.html" title="PRISMTelemetryStrategy.h" alt="" coords="3025,160,3204,189"/><area shape="rect" id="node116" href="_p_r_i_s_m_control_block_8h.html" title="PRISMControlBlock.h" alt="" coords="3425,160,3572,189"/><area shape="rect" id="node7" href="_instance_i_d_8h.html" title="インスタンスIDの定義を行うマクロ群．" alt="" coords="5,315,99,344"/><area shape="rect" id="node9" href="_list_8h.html" title="Simple Template Container." alt="" coords="695,392,801,421"/><area shape="rect" id="node11" href="_time_8h.html" title="経過時間を表すクラス．" alt="" coords="187,392,301,421"/><area shape="rect" id="node13" href="_date_time_8h.html" title="ユリウス暦による絶対時刻を保持するクラス．時間間隔などの計算にはTimeを使う．" alt="" coords="173,315,315,344"/><area shape="rect" id="node20" href="_s_t_t_8h.html" title="ソフトウェアシミュレーションレベルで動作するスターセンサドライバ．" alt="" coords="2024,237,2099,267"/><area shape="rect" id="node22" href="_m_t_q_8h.html" title="ソフトウェアシミュレーションレベルで動作する磁気トルカドライバ．" alt="" coords="2123,237,2208,267"/><area shape="rect" id="node24" href="_gyro_8h.html" title="ソフトウェアシミュレーションレベルで動作するジャイロセンサドライバ．" alt="" coords="2232,237,2323,267"/><area shape="rect" id="node26" href="_sun_sensor_8h.html" title="ソフトウェアシミュレーションレベルで動作する太陽センサドライバ．" alt="" coords="2347,237,2507,267"/><area shape="rect" id="node28" href="_dummy_clock_8h.html" title="ダミーの時刻計算を行うコンポーネントドライバ．" alt="" coords="2531,237,2677,267"/><area shape="rect" id="node30" href="debuglogger_8h.html" title="テレメハンドラのデバッグ用クラス．" alt="" coords="2701,237,2864,267"/><area shape="rect" id="node33" href="_t_a_m_8h.html" title="ソフトウェアシミュレーションレベルで動作する磁気センサドライバ．" alt="" coords="1136,237,1283,267"/><area shape="rect" id="node35" href="_earth_sensor_8h.html" title="ソフトウェアシミュレーションレベルで動作する地球センサドライバ．" alt="" coords="1307,237,1483,267"/><area shape="rect" id="node37" href="_dummy_command_receiver_8h.html" title="コマンドレシーバのデバッグ用クラス．外部テキストファイルからコマンドを読み込む" alt="" coords="2888,237,3139,267"/><area shape="rect" id="node40" href="_r_w_8h.html" title="ソフトウェアシミュレーションレベルで動作するRWドライバ．" alt="" coords="1507,237,1579,267"/><area shape="rect" id="node42" href="_dummy_g_p_s_8h.html" title="TLEのアップリンクで軌道情報を保持するGPSダミー．" alt="" coords="1603,237,1733,267"/><area shape="rect" id="node44" href="_composite_input_8h.html" title="AOCSSensorの集合体を表現するクラス群．" alt="" coords="832,237,955,267"/><area shape="rect" id="node50" href="_composite_output_8h.html" title="AOCSActuatorの集合体を表現するクラス．" alt="" coords="979,237,1112,267"/><area shape="rect" id="node53" href="_i_data_updatable_8h.html" title="周期的にデータを取得，送信するコンポーネントに対する抽象インターフェース．" alt="" coords="1757,237,1877,267"/><area shape="rect" id="node55" href="_i_switchable_8h.html" title="CPUによる電源のオンオフ制御が可能なコンポーネントに対するインターフェース．" alt="" coords="1901,237,2000,267"/><area shape="rect" id="node57" href="_a_d_c_base_8h.html" title="AD変換器ドライバの抽象クラス．" alt="" coords="3163,237,3277,267"/><area shape="rect" id="node61" href="_command_manager_8h.html" title="コマンドの処理を行う機能マネージャ．" alt="" coords="919,160,1060,189"/><area shape="rect" id="node63" href="_control_manager_8h.html" title="制御ブロックの実行を行う機能マネージャ．" alt="" coords="620,160,743,189"/><area shape="rect" id="node65" href="_custom_manager_8h.html" title="カスタムコードの実行を行う機能マネージャ．" alt="" coords="767,160,895,189"/><area shape="rect" id="node67" href="_mode_manager_8h.html" title="モードの管理を行う機能マネージャ．" alt="" coords="329,160,444,189"/><area shape="rect" id="node69" href="_system_manager_8h.html" title="条件判定や異常対応を行う機能マネージャ．" alt="" coords="468,160,596,189"/></map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+このグラフは、どのファイルから直接、間接的にインクルードされているかを示しています。</div>
+<div class="dyncontent">
+<div class="center"><img src="_p_r_i_s_m_global_8h__dep__incl.png" border="0" usemap="#stf_2satellite_2prism_2_p_r_i_s_m_global_8hdep" alt=""/></div>
+<map name="stf_2satellite_2prism_2_p_r_i_s_m_global_8hdep" id="stf_2satellite_2prism_2_p_r_i_s_m_global_8hdep">
+<area shape="rect" id="node3" href="_p_r_i_s_m_factory_8h.html" title="stf/satellite/PRISMFactory.h" alt="" coords="5,83,189,112"/><area shape="rect" id="node7" href="_p_r_i_s_m_command_receiver_8cpp.html" title="stf/satellite/prism/PRISMCommandReceiver.cpp" alt="" coords="213,83,512,112"/><area shape="rect" id="node5" href="main_8cpp.html" title="main.cpp" alt="" coords="60,160,135,189"/></map>
+</div>
+</div>
+<p><a href="">ソースコードを見る。</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="nested-classes"></a>
+構成</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structstf_1_1_p_r_i_s_m_global.html">stf::PRISMGlobal&lt; Env &gt;</a></td></tr>
+<tr><td colspan="2"><h2><a name="namespaces"></a>
+ネームスペース</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf.html">stf</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf_1_1factory.html">stf::factory</a></td></tr>
+</table>
+<hr/><a name="_details"></a><h2>説明</h2>
+<div class="textblock"><dl class="author"><dt><b>作者:</b></dt><dd>Taiga Nomi </dd></dl>
+<dl class="date"><dt><b>日付:</b></dt><dd>2011.02.16 </dd></dl>
+
+<p> <a class="el" href="">PRISMGlobal.h</a> で定義されています。</p>
+</div></div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>フレンド</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>マクロ定義</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>STFに対してWed Mar 23 2011 05:32:48に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
+</body>
+</html>

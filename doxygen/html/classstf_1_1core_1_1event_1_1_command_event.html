@@ -1,0 +1,230 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>STF: クラス stf::core::event::CommandEvent</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.3 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">STF</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="pages.html"><span>関連ページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li class="current"><a href="annotated.html"><span>クラス</span></a></li>
+      <li><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>構成</span></a></li>
+      <li><a href="classes.html"><span>構成索引</span></a></li>
+      <li><a href="inherits.html"><span>クラス階層</span></a></li>
+      <li><a href="functions.html"><span>構成メンバ</span></a></li>
+    </ul>
+  </div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="namespacestf.html">stf</a>      </li>
+      <li class="navelem"><a class="el" href="namespacestf_1_1core.html">core</a>      </li>
+      <li class="navelem"><a class="el" href="namespacestf_1_1core_1_1event.html">event</a>      </li>
+      <li class="navelem"><a class="el" href="classstf_1_1core_1_1event_1_1_command_event.html">CommandEvent</a>      </li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#pub-types">Public 型</a> &#124;
+<a href="#pub-methods">Public メソッド</a>  </div>
+  <div class="headertitle">
+<h1>クラス stf::core::event::CommandEvent</h1>  </div>
+</div>
+<div class="contents">
+<!-- doxytag: class="stf::core::event::CommandEvent" --><!-- doxytag: inherits="stf::core::event::EventBase" -->
+<p>コマンド実行イベント．  
+<a href="#_details">[詳細]</a></p>
+
+<p><code>#include &lt;<a class="el" href="_command_event_8h_source.html">CommandEvent.h</a>&gt;</code></p>
+<div class="dynheader">
+stf::core::event::CommandEventに対する継承グラフ</div>
+<div class="dyncontent">
+<div class="center"><img src="classstf_1_1core_1_1event_1_1_command_event__inherit__graph.png" border="0" usemap="#stf_1_1core_1_1event_1_1_command_event_inherit__map" alt="Inheritance graph"/></div>
+<map name="stf_1_1core_1_1event_1_1_command_event_inherit__map" id="stf_1_1core_1_1event_1_1_command_event_inherit__map">
+<area shape="rect" id="node2" href="classstf_1_1core_1_1event_1_1_event_base.html" title="全イベントの基底クラス．" alt="" coords="20,5,196,35"/></map>
+<center><span class="legend">[<a href="graph_legend.html">凡例</a>]</span></center></div>
+<div class="dynheader">
+stf::core::event::CommandEventのコラボレーション図</div>
+<div class="dyncontent">
+<div class="center"><img src="classstf_1_1core_1_1event_1_1_command_event__coll__graph.png" border="0" usemap="#stf_1_1core_1_1event_1_1_command_event_coll__map" alt="Collaboration graph"/></div>
+<map name="stf_1_1core_1_1event_1_1_command_event_coll__map" id="stf_1_1core_1_1event_1_1_command_event_coll__map">
+<area shape="rect" id="node2" href="classstf_1_1core_1_1event_1_1_event_base.html" title="全イベントの基底クラス．" alt="" coords="20,101,196,131"/><area shape="rect" id="node4" href="classstf_1_1datatype_1_1_string.html" title="std::stringの簡略版．" alt="" coords="40,5,176,35"/></map>
+<center><span class="legend">[<a href="graph_legend.html">凡例</a>]</span></center></div>
+
+<p><a href="classstf_1_1core_1_1event_1_1_command_event-members.html">すべてのメンバ一覧</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="pub-types"></a>
+Public 型</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classstf_1_1core_1_1manager_1_1_command_manager_base.html">manager::CommandManagerBase</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1core_1_1event_1_1_command_event.html#acb02041de8f57c0f89b0274f9985fefd">SubjectClass</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classstf_1_1core_1_1mode_1_1_mode_base.html">mode::ModeBase</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1core_1_1event_1_1_command_event.html#a3922d5ba0826ebd388e0e381b6e1426e">Target</a></td></tr>
+<tr><td colspan="2"><h2><a name="pub-methods"></a>
+Public メソッド</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1core_1_1event_1_1_command_event.html#abfde58776b29a965a7205f6ed65944b1">CommandEvent</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1core_1_1event_1_1_command_event.html#a5df997264db4e64502c711a5978edeea">~CommandEvent</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1core_1_1event_1_1_command_event.html#a895b6fa4c45d2a73ef4f13dd95eb9a3f">instance_id</a> ()</td></tr>
+</table>
+<hr/><a name="_details"></a><h2>説明</h2>
+<div class="textblock"><p>コマンド実行イベント． </p>
+
+<p> <a class="el" href="_command_event_8h_source.html">CommandEvent.h</a> の <a class="el" href="_command_event_8h_source.html#l00024">24</a> 行で定義されています。</p>
+</div><hr/><h2>型定義</h2>
+<a class="anchor" id="acb02041de8f57c0f89b0274f9985fefd"></a><!-- doxytag: member="stf::core::event::CommandEvent::SubjectClass" ref="acb02041de8f57c0f89b0274f9985fefd" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classstf_1_1core_1_1manager_1_1_command_manager_base.html">manager::CommandManagerBase</a> <a class="el" href="classstf_1_1core_1_1manager_1_1_command_manager_base.html">stf::core::event::CommandEvent::SubjectClass</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="_command_event_8h_source.html">CommandEvent.h</a> の <a class="el" href="_command_event_8h_source.html#l00026">26</a> 行で定義されています。</p>
+
+</div>
+</div>
+<a class="anchor" id="a3922d5ba0826ebd388e0e381b6e1426e"></a><!-- doxytag: member="stf::core::event::CommandEvent::Target" ref="a3922d5ba0826ebd388e0e381b6e1426e" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classstf_1_1core_1_1mode_1_1_mode_base.html">mode::ModeBase</a> <a class="el" href="classstf_1_1core_1_1mode_1_1_mode_base.html">stf::core::event::CommandEvent::Target</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="_command_event_8h_source.html">CommandEvent.h</a> の <a class="el" href="_command_event_8h_source.html#l00027">27</a> 行で定義されています。</p>
+
+</div>
+</div>
+<hr/><h2>コンストラクタとデストラクタ</h2>
+<a class="anchor" id="abfde58776b29a965a7205f6ed65944b1"></a><!-- doxytag: member="stf::core::event::CommandEvent::CommandEvent" ref="abfde58776b29a965a7205f6ed65944b1" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">stf::core::event::CommandEvent::CommandEvent </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="_command_event_8h_source.html">CommandEvent.h</a> の <a class="el" href="_command_event_8h_source.html#l00028">28</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">: <a class="code" href="classstf_1_1core_1_1event_1_1_event_base.html#a78921811f61e0b95cc41a069dcc8bc47">EventBase</a>(<span class="stringliteral">&quot;CommandEvent&quot;</span>){}
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="a5df997264db4e64502c711a5978edeea"></a><!-- doxytag: member="stf::core::event::CommandEvent::~CommandEvent" ref="a5df997264db4e64502c711a5978edeea" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual stf::core::event::CommandEvent::~CommandEvent </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inline, virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="_command_event_8h_source.html">CommandEvent.h</a> の <a class="el" href="_command_event_8h_source.html#l00029">29</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">{}
+</pre></div>
+</div>
+</div>
+<hr/><h2>関数</h2>
+<a class="anchor" id="a895b6fa4c45d2a73ef4f13dd95eb9a3f"></a><!-- doxytag: member="stf::core::event::CommandEvent::instance_id" ref="a895b6fa4c45d2a73ef4f13dd95eb9a3f" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual int stf::core::event::CommandEvent::instance_id </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inline, virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p><a class="el" href="classstf_1_1core_1_1event_1_1_event_base.html#ae98b7a9fd41f10ddbb52dc0317a29231">stf::core::event::EventBase</a>を実装しています。</p>
+
+<p> <a class="el" href="_command_event_8h_source.html">CommandEvent.h</a> の <a class="el" href="_command_event_8h_source.html#l00030">30</a> 行で定義されています。</p>
+
+<p>参照先 <a class="el" href="_instance_i_d_8h_source.html#l00104">ID_COMMANDEVENT</a>.</p>
+<div class="fragment"><pre class="fragment">{ <span class="keywordflow">return</span> <a class="code" href="_instance_i_d_8h.html#a0e2cdbfebe720736fc2d4b9ad74eb070">ID_COMMANDEVENT</a>; }
+</pre></div>
+</div>
+</div>
+<hr/>このクラスの説明は次のファイルから生成されました:<ul>
+<li>stf/core/event/<a class="el" href="_command_event_8h_source.html">CommandEvent.h</a></li>
+</ul>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>フレンド</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>マクロ定義</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>STFに対してTue Mar 1 2011 03:46:38に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
+</body>
+</html>

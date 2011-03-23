@@ -1,0 +1,51 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$_ostream_8h.html" title="標準出力のラッパ．" alt="" coords="3971,83,4093,112"/>
+<area shape="rect" id="node5" href="$main_8cpp.html" title="main.cpp" alt="" coords="228,315,303,344"/>
+<area shape="rect" id="node94" href="$_p_r_i_s_m_dummy_clock_8h.html" title="stf/satellite/prism/PRISMDummyClock.h" alt="" coords="6495,83,6748,112"/>
+<area shape="rect" id="node99" href="$_n_j_r_t_c_8h.html" title="stf/satellite/nj/NJRTC.h" alt="" coords="165,83,320,112"/>
+<area shape="rect" id="node104" href="$_orbit_8h.html" title="軌道計算を行う，sgp4のラッパークラス．" alt="" coords="8231,83,8383,112"/>
+<area shape="rect" id="node7" href="$_trace_8h.html" title="STFの内部状態を外部ファイルに書き出すためのトレースオブジェクト．" alt="" coords="3980,160,4084,189"/>
+<area shape="rect" id="node76" href="$_p_r_i_s_m_command_receiver_8h.html" title="stf/satellite/prism/PRISMCommandReceiver.h" alt="" coords="4108,160,4393,189"/>
+<area shape="rect" id="node79" href="$_n_j_command_receiver_8h.html" title="stf/satellite/nj/NJCommandReceiver.h" alt="" coords="280,160,517,189"/>
+<area shape="rect" id="node83" href="$_dummy_command_receiver_8cpp.html" title="コマンドレシーバのデバッグ用クラス．外部テキストファイルからコマンドを読み込む" alt="" coords="4839,160,5220,189"/>
+<area shape="rect" id="node85" href="$_debug_logger_8cpp.html" title="テレメハンドラのデバッグ用クラス．" alt="" coords="541,160,843,189"/>
+<area shape="rect" id="node87" href="$_output_functor_8cpp.html" title="出力ファンクタ群．STFではFunctorのコンストラクタに渡して使用される" alt="" coords="867,160,1085,189"/>
+<area shape="rect" id="node89" href="$_control_manager_8cpp.html" title="制御ブロックの実行を行う機能マネージャ．" alt="" coords="4417,160,4655,189"/>
+<area shape="rect" id="node91" href="$_ostream_8cpp.html" title="標準出力のラッパ．" alt="" coords="4679,160,4815,189"/>
+<area shape="rect" id="node9" href="$_datapool_8h.html" title="STF生成データにタイムタグを付加して格納するデータプール． データの配列を保持するTupleと，Tupleの配列を保持するデータプールによって テーブル形式のデータ構造を表現する．" alt="" coords="6909,237,7093,267"/>
+<area shape="rect" id="node14" href="$_subject_base_8cpp.html" title="Observerパターンの構成テンプレートクラス群．" alt="" coords="7547,315,7749,344"/>
+<area shape="rect" id="node16" href="$_mode_manager_base_8cpp.html" title="モードの管理を行う機能マネージャ基底クラス．" alt="" coords="6727,315,6985,344"/>
+<area shape="rect" id="node18" href="$_system_manager_base_8cpp.html" title="条件判定や異常対応を行う機能マネージャ基底クラス．" alt="" coords="7009,315,7281,344"/>
+<area shape="rect" id="node21" href="$_combining_8h.html" title="任意の物理量を単純加算で合成する制御ブロック群．" alt="" coords="7168,237,7403,267"/>
+<area shape="rect" id="node23" href="$_coupling_compensation_8h.html" title="3軸独立に制御則を適用した際に生じるカップリング項Iωを，フィードフォワードに打ち消すために使う制御ブロック．" alt="" coords="7427,237,7733,267"/>
+<area shape="rect" id="node25" href="$_first_order_correction_8h.html" title="TをT*Uに変換して出力する制御ブロック．" alt="" coords="7757,237,8048,267"/>
+<area shape="rect" id="node27" href="$_liniar_correction_8h.html" title="TをaT+bに変換して出力する制御ブロック" alt="" coords="328,237,592,267"/>
+<area shape="rect" id="node29" href="$_no_control_8h.html" title="制御を行わない制御ブロック．" alt="" coords="616,237,845,267"/>
+<area shape="rect" id="node31" href="$_r_m_m_e_k_f_8h.html" title="残留磁気モーメントの推定を行う拡張カルマンフィルタ制御ブロック．未実装．" alt="" coords="869,237,1099,267"/>
+<area shape="rect" id="node33" href="$_wheel_unloading_8h.html" title="RWのアンローディングをMTQを使用して行うための制御ブロック．" alt="" coords="1123,237,1389,267"/>
+<area shape="rect" id="node35" href="$_get_command_8h.html" title="GetterやイテレータによってSTF内部状態を応答するコマンド群．" alt="" coords="1413,237,1635,267"/>
+<area shape="rect" id="node37" href="$_message_command_8h.html" title="予め決められたメッセージを出力するコマンド．" alt="" coords="1659,237,1912,267"/>
+<area shape="rect" id="node39" href="$_sequence_command_8h.html" title="複数コマンドをシーケンシャルに実行するコマンド．" alt="" coords="1936,237,2195,267"/>
+<area shape="rect" id="node41" href="$_simple_function_command_8h.html" title="引数なしのファンクタやメンバ関数を起動するコマンド．" alt="" coords="2219,237,2509,267"/>
+<area shape="rect" id="node43" href="$_switch_command_8h.html" title="機器のスイッチングを行うコマンド．" alt="" coords="2533,237,2771,267"/>
+<area shape="rect" id="node45" href="$_type_list_function_command_8h.html" title="複数個の引数を取るメンバ関数を起動するコマンド．TypeListを使って纏めたい&#45;&gt;TBD" alt="" coords="2795,237,3093,267"/>
+<area shape="rect" id="node47" href="$_unary_function_command_8h.html" title="１引数のファンクタやメンバ関数を起動するコマンド．" alt="" coords="3117,237,3400,267"/>
+<area shape="rect" id="node49" href="$_mode_change_command_8cpp.html" title="モード変更を行うコマンド．" alt="" coords="3424,237,3715,267"/>
+<area shape="rect" id="node52" href="$_command_manager_base_8cpp.html" title="コマンドの処理を行う機能マネージャ基底クラス．" alt="" coords="3739,237,4024,267"/>
+<area shape="rect" id="node54" href="$_control_manager_base_8cpp.html" title="制御ブロックの実行を行う機能マネージャ基底クラス．" alt="" coords="4048,237,4317,267"/>
+<area shape="rect" id="node58" href="$_telemetry_manager_base_8cpp.html" title="テレメトリ生成を行う機能マネージャ基底クラス．" alt="" coords="4341,237,4627,267"/>
+<area shape="rect" id="node60" href="$_unit_manager_base_8cpp.html" title="機器の定期データ取得・更新を行う機能マネージャ基底クラス．" alt="" coords="4651,237,4901,267"/>
+<area shape="rect" id="node62" href="$_bdot_8cpp.html" title="B&#45;Dot則を計算する制御ブロック．" alt="" coords="4925,237,5139,267"/>
+<area shape="rect" id="node64" href="$_cross_product_8cpp.html" title="クロスプロダクト則を用いて要求出力トルクを磁気モーメントに変換する制御ブロック．" alt="" coords="5163,237,5429,267"/>
+<area shape="rect" id="node66" href="$_e_k_f_8cpp.html" title="ジャイロバイアス推定を行う拡張カルマンフィルタ制御ブロック．" alt="" coords="5453,237,5667,267"/>
+<area shape="rect" id="node68" href="$_g_g_compensation_8cpp.html" title="重力傾斜トルクを計算し，逆符号のトルクを出力する制御ブロック．" alt="" coords="5691,237,5981,267"/>
+<area shape="rect" id="node70" href="$_magnetic_moment_to_torque_8cpp.html" title="磁気モーメントをトルクに変換する制御ブロック．" alt="" coords="6005,237,6347,267"/>
+<area shape="rect" id="node72" href="$_p_i_d_8cpp.html" title="PID制御を行う制御ブロック群．" alt="" coords="6371,237,6579,267"/>
+<area shape="rect" id="node74" href="$_q_u_e_s_t_8cpp.html" title="Quaternion Estimatorによる姿勢決定を行う制御ブロック．未実装．" alt="" coords="6603,237,6835,267"/>
+<area shape="rect" id="node12" href="$_p_r_i_s_m_global_8h.html" title="stf/satellite/prism/PRISMGlobal.h" alt="" coords="8029,315,8243,344"/>
+<area shape="rect" id="node81" href="$_n_j_global_8h.html" title="stf/satellite/nj/NJGlobal.h" alt="" coords="37,237,203,267"/>
+<area shape="rect" id="node97" href="$_p_r_i_s_m_dummy_clock_8cpp.html" title="stf/satellite/prism/PRISMDummyClock.cpp" alt="" coords="6487,160,6756,189"/>
+<area shape="rect" id="node102" href="$_n_j_r_t_c_8cpp.html" title="stf/satellite/nj/NJRTC.cpp" alt="" coords="37,160,205,189"/>
+<area shape="rect" id="node106" href="$_orbit_8cpp.html" title="軌道計算を行う，sgp4のラッパークラス．" alt="" coords="8224,160,8389,189"/>
+<area shape="rect" id="node108" href="$_simulator_8cpp.html" title="ソフトウェアシミュレータ環境クラス．" alt="" coords="8413,160,8605,189"/>
+</map>

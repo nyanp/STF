@@ -1,0 +1,130 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>STF: stf/datatype/Quaternion.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.3 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">STF</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="pages.html"><span>関連ページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>ファイルメンバ</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">構成</a> &#124;
+<a href="#namespaces">ネームスペース</a> &#124;
+<a href="#func-members">関数</a>  </div>
+  <div class="headertitle">
+<h1>stf/datatype/Quaternion.h</h1>  </div>
+</div>
+<div class="contents">
+
+<p>4元数を表現するクラス．  
+<a href="#_details">[詳細]</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="">StaticVector.h</a>&quot;</code><br/>
+</div><div class="textblock"><div class="dynheader">
+Quaternion.hのインクルード依存関係図</div>
+<div class="dyncontent">
+<div class="center"><img src="_quaternion_8h__incl.png" border="0" usemap="#stf_2datatype_2_quaternion_8h" alt=""/></div>
+<map name="stf_2datatype_2_quaternion_8h" id="stf_2datatype_2_quaternion_8h">
+<area shape="rect" id="node3" href="_static_vector_8h.html" title="テンプレートを用いた固定要素数のベクトル計算クラス" alt="" coords="139,83,243,112"/><area shape="rect" id="node5" href="stfassert_8h.html" title="assertラッパ．" alt="" coords="5,160,120,189"/><area shape="rect" id="node7" href="_i_aocs_data_8h.html" title="AOCS使用系列のデータ共通の抽象インターフェース．" alt="" coords="144,160,237,189"/><area shape="rect" id="node11" href="math_8h.html" title="数学系関数のラッパと算術定数の定義．" alt="" coords="261,160,355,189"/><area shape="rect" id="node9" href="_i_telemetable_8h.html" title="テレメトリを生成可能なオブジェクトに対するインターフェース．" alt="" coords="105,237,276,267"/></map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+このグラフは、どのファイルから直接、間接的にインクルードされているかを示しています。</div>
+<div class="dyncontent">
+<div class="center"><img src="_quaternion_8h__dep__incl.png" border="0" usemap="#stf_2datatype_2_quaternion_8hdep" alt=""/></div>
+<map name="stf_2datatype_2_quaternion_8hdep" id="stf_2datatype_2_quaternion_8hdep">
+<area shape="rect" id="node3" href="_s_h_prototype_8cpp.html" title="HEW/SHPrototype/SHPrototype/SHPrototype.cpp" alt="" coords="5,83,317,112"/><area shape="rect" id="node5" href="_simulator_8h.html" title="ソフトウェアシミュレータ環境クラス．" alt="" coords="1051,83,1229,112"/><area shape="rect" id="node11" href="main_8cpp.html" title="main.cpp" alt="" coords="712,315,787,344"/><area shape="rect" id="node48" href="_a_o_c_s_component_8h.html" title="センサおよびアクチュエータの基底クラス．" alt="" coords="1549,160,1803,189"/><area shape="rect" id="node56" href="_type_converter_8h.html" title="単位や姿勢表現の相互変換を行うユーティリティ．" alt="" coords="2913,83,3100,112"/><area shape="rect" id="node62" href="_n_j_controllers_8h.html" title="stf/satellite/nj/NJControllers.h" alt="" coords="3296,160,3485,189"/><area shape="rect" id="node79" href="_orbit_calc_8cpp.html" title="軌道関係情報を計算するメソッドをstaticメンバとしてまとめたクラス．" alt="" coords="3560,160,3733,189"/><area shape="rect" id="node83" href="_type_converter_8cpp.html" title="単位や姿勢表現の相互変換を行うユーティリティ．" alt="" coords="3757,160,3957,189"/><area shape="rect" id="node88" href="_e_k_f_8h.html" title="ジャイロバイアス推定を行う拡張カルマンフィルタ制御ブロック．" alt="" coords="5171,160,5371,189"/><area shape="rect" id="node100" href="_e_k_f_parameters_8h.html" title="ジャイロバイアスEKFの初期値を設定する構造体．" alt="" coords="4916,83,5183,112"/><area shape="rect" id="node103" href="_p_i_d_8h.html" title="PID制御を行う制御ブロック群．" alt="" coords="3988,83,4183,112"/><area shape="rect" id="node107" href="_q_u_e_s_t_8h.html" title="Quaternion Estimatorによる姿勢決定を行う制御ブロック．未実装．" alt="" coords="4321,83,4540,112"/><area shape="rect" id="node111" href="_g_g_compensation_8h.html" title="重力傾斜トルクを計算し，逆符号のトルクを出力する制御ブロック．" alt="" coords="4564,83,4841,112"/><area shape="rect" id="node116" href="_t_r_i_a_d_8h.html" title="TRIAD則で姿勢決定を行う制御ブロック群．" alt="" coords="4213,160,4424,189"/><area shape="rect" id="node128" href="_quaternion_8cpp.html" title="4元数を表現するクラス．" alt="" coords="5207,83,5388,112"/><area shape="rect" id="node130" href="_quaternion_test_8cpp.html" title="stf/datatype/test/QuaternionTest.cpp" alt="" coords="5412,83,5644,112"/><area shape="rect" id="node7" href="_config_8h.html" title="stf/Config.h" alt="" coords="1163,160,1248,189"/><area shape="rect" id="node13" href="_p_r_i_s_m_command_receiver_8h.html" title="stf/satellite/prism/PRISMCommandReceiver.h" alt="" coords="811,315,1096,344"/><area shape="rect" id="node20" href="_n_j_command_receiver_8h.html" title="stf/satellite/nj/NJCommandReceiver.h" alt="" coords="1397,315,1635,344"/><area shape="rect" id="node38" href="_simulator_8cpp.html" title="ソフトウェアシミュレータ環境クラス．" alt="" coords="2027,315,2219,344"/><area shape="rect" id="node44" href="_impulse_noise_8cpp.html" title="インパルスノイズを発生させるトルク源．" alt="" coords="443,160,736,189"/><area shape="rect" id="node46" href="_step_noise_8cpp.html" title="ステップノイズを発生させるトルク源．" alt="" coords="760,160,1037,189"/><area shape="rect" id="node9" href="_ostream_8h.html" title="標準出力のラッパ．" alt="" coords="1024,237,1147,267"/><area shape="rect" id="node28" href="_p_r_i_s_m_dummy_clock_8h.html" title="stf/satellite/prism/PRISMDummyClock.h" alt="" coords="1120,315,1373,344"/><area shape="rect" id="node31" href="_n_j_r_t_c_8h.html" title="stf/satellite/nj/NJRTC.h" alt="" coords="1659,315,1813,344"/><area shape="rect" id="node34" href="_orbit_8h.html" title="軌道計算を行う，sgp4のラッパークラス．" alt="" coords="1323,237,1475,267"/><area shape="rect" id="node15" href="_p_r_i_s_m_global_8h.html" title="stf/satellite/prism/PRISMGlobal.h" alt="" coords="1140,392,1353,421"/><area shape="rect" id="node17" href="_p_r_i_s_m_command_receiver_8cpp.html" title="stf/satellite/prism/PRISMCommandReceiver.cpp" alt="" coords="947,469,1245,499"/><area shape="rect" id="node22" href="_n_j_global_8h.html" title="stf/satellite/nj/NJGlobal.h" alt="" coords="2480,392,2645,421"/><area shape="rect" id="node24" href="_n_j_command_receiver_8cpp.html" title="stf/satellite/nj/NJCommandReceiver.cpp" alt="" coords="1412,469,1663,499"/><area shape="rect" id="node36" href="_orbit_8cpp.html" title="軌道計算を行う，sgp4のラッパークラス．" alt="" coords="1837,315,2003,344"/><area shape="rect" id="node50" href="_a_o_c_s_sensor_8h.html" title="センサの基底クラス．" alt="" coords="1600,237,1827,267"/><area shape="rect" id="node53" href="_a_o_c_s_actuator_8h.html" title="アクチュエータの基底クラス．" alt="" coords="1851,237,2085,267"/><area shape="rect" id="node59" href="_dummy_g_p_s_8h.html" title="TLEのアップリンクで軌道情報を保持するGPSダミー．" alt="" coords="1877,160,2125,189"/><area shape="rect" id="node67" href="_cross_product_8cpp.html" title="クロスプロダクト則を用いて要求出力トルクを磁気モーメントに変換する制御ブロック．" alt="" coords="2149,160,2416,189"/><area shape="rect" id="node69" href="_p_i_d_8cpp.html" title="PID制御を行う制御ブロック群．" alt="" coords="3981,160,4189,189"/><area shape="rect" id="node71" href="_q_u_e_s_t_8cpp.html" title="Quaternion Estimatorによる姿勢決定を行う制御ブロック．未実装．" alt="" coords="4499,160,4731,189"/><area shape="rect" id="node73" href="_single_axis_p_i_d_8cpp.html" title="Scalarを目標値に近づける単純な1次元PID制御ブロック．" alt="" coords="2440,160,2709,189"/><area shape="rect" id="node75" href="_solar_pointing_8cpp.html" title="MTQで太陽指向制御を行うための制御ブロック．" alt="" coords="2733,160,2997,189"/><area shape="rect" id="node77" href="_t_r_i_a_d_8cpp.html" title="TRIAD則で姿勢決定を行う制御ブロック群．" alt="" coords="3492,237,3716,267"/><area shape="rect" id="node81" href="_type_converter_test_8cpp.html" title="stf/datatype/test/TypeConverterTest.cpp" alt="" coords="3021,160,3272,189"/><area shape="rect" id="node65" href="_n_j_controllers_8cpp.html" title="stf/satellite/nj/NJControllers.cpp" alt="" coords="3148,237,3353,267"/><area shape="rect" id="node90" href="strategy_2control_2_includes_8h.html" title="stf/core/strategy/control/Includes.h" alt="" coords="4657,237,4879,267"/><area shape="rect" id="node92" href="_p_r_i_s_m_e_k_f_8h.html" title="stf/satellite/prism/PRISMEKF.h" alt="" coords="2983,315,3185,344"/><area shape="rect" id="node95" href="_n_j_e_k_f_8h.html" title="stf/satellite/nj/NJEKF.h" alt="" coords="4539,315,4693,344"/><area shape="rect" id="node98" href="_e_k_f_8cpp.html" title="ジャイロバイアス推定を行う拡張カルマンフィルタ制御ブロック．" alt="" coords="5020,237,5233,267"/><area shape="rect" id="node114" href="_g_g_compensation_8cpp.html" title="重力傾斜トルクを計算し，逆符号のトルクを出力する制御ブロック．" alt="" coords="4856,160,5147,189"/><area shape="rect" id="node119" href="_p_r_i_s_m_t_r_i_a_d_8h.html" title="stf/satellite/prism/PRISMTRIAD.h" alt="" coords="2411,315,2624,344"/><area shape="rect" id="node122" href="_n_j_t_r_i_a_d_8h.html" title="stf/satellite/nj/NJTRIAD.h" alt="" coords="4172,237,4337,267"/></map>
+</div>
+</div>
+<p><a href="">ソースコードを見る。</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="nested-classes"></a>
+構成</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1datatype_1_1_quaternion.html">stf::datatype::Quaternion</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">4元数を表現するクラス．q0がcosと定義されている点に注意．  <a href="classstf_1_1datatype_1_1_quaternion.html#_details">[詳細]</a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="namespaces"></a>
+ネームスペース</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf.html">stf</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf_1_1datatype.html">stf::datatype</a></td></tr>
+<tr><td colspan="2"><h2><a name="func-members"></a>
+関数</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const Quaternion&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf_1_1datatype.html#a595d5bfa11447f1e7d805fddb6f1d1c1">stf::datatype::operator-</a> (const Quaternion &amp;vec1, const Quaternion &amp;vec2)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Quaternionの減算．  <a href="#a595d5bfa11447f1e7d805fddb6f1d1c1"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">Quaternion&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf_1_1datatype.html#aec083a08597cabca29e4f7478fb9afc9">stf::datatype::operator*</a> (const Quaternion &amp;q1, const Quaternion &amp;q2)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Quaternionの積．  <a href="#aec083a08597cabca29e4f7478fb9afc9"></a><br/></td></tr>
+</table>
+<hr/><a name="_details"></a><h2>説明</h2>
+<div class="textblock"><p>4元数を表現するクラス． </p>
+<dl class="author"><dt><b>作者:</b></dt><dd>Taiga Nomi </dd></dl>
+<dl class="date"><dt><b>日付:</b></dt><dd>2011.02.16 </dd></dl>
+
+<p> <a class="el" href="">Quaternion.h</a> で定義されています。</p>
+</div></div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>フレンド</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>マクロ定義</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>STFに対してWed Mar 23 2011 05:32:40に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
+</body>
+</html>

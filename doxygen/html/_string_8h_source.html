@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>STF: stf/datatype/String.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.3 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">STF</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="pages.html"><span>関連ページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>ファイルメンバ</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<h1>stf/datatype/String.h</h1>  </div>
+</div>
+<div class="contents">
+<a href="_string_8h.html">説明を見る。</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<a name="l00008"></a>00008 <span class="preprocessor">#ifndef stf_datatype_String_h</span>
+<a name="l00009"></a>00009 <span class="preprocessor"></span><span class="preprocessor">#define stf_datatype_String_h</span>
+<a name="l00010"></a>00010 <span class="preprocessor"></span>
+<a name="l00011"></a>00011 <span class="keyword">namespace </span>stf {
+<a name="l00012"></a>00012 <span class="keyword">namespace </span>datatype {
+<a name="l00013"></a>00013 
+<a name="l00015"></a>00015 
+<a name="l00016"></a><a class="code" href="classstf_1_1datatype_1_1_string.html">00016</a> <span class="keyword">class </span><a class="code" href="classstf_1_1datatype_1_1_string.html" title="std::stringの簡略版．">String</a> {
+<a name="l00017"></a>00017 <span class="keyword">public</span>:
+<a name="l00018"></a><a class="code" href="classstf_1_1datatype_1_1_string.html#a31e73b1dbf39d02381232f1580a00181">00018</a>         <a class="code" href="classstf_1_1datatype_1_1_string.html#a31e73b1dbf39d02381232f1580a00181">String</a>():length_(0) { value_ = <span class="keyword">new</span> <span class="keywordtype">char</span>[1]; *value_ = <span class="charliteral">&#39;\0&#39;</span>;}
+<a name="l00019"></a>00019         <a class="code" href="classstf_1_1datatype_1_1_string.html#a31e73b1dbf39d02381232f1580a00181">String</a>(<span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_string.html" title="std::stringの簡略版．">String</a> &amp;rhs);<span class="comment">//copy constructor</span>
+<a name="l00020"></a>00020         <a class="code" href="classstf_1_1datatype_1_1_string.html#a31e73b1dbf39d02381232f1580a00181">String</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *cp);
+<a name="l00021"></a>00021         <a class="code" href="classstf_1_1datatype_1_1_string.html#a31e73b1dbf39d02381232f1580a00181">String</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> c);
+<a name="l00022"></a><a class="code" href="classstf_1_1datatype_1_1_string.html#af860a0fbb7e7e433256b492ca775566f">00022</a>         <a class="code" href="classstf_1_1datatype_1_1_string.html#af860a0fbb7e7e433256b492ca775566f">~String</a>(){<span class="keyword">delete</span>[] value_;}
+<a name="l00023"></a>00023         <a class="code" href="classstf_1_1datatype_1_1_string.html" title="std::stringの簡略版．">String</a> &amp;<a class="code" href="classstf_1_1datatype_1_1_string.html#a1e18b5ccaa640cc31e4a810122eb7ad0">operator=</a>(<span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_string.html" title="std::stringの簡略版．">String</a> &amp;);
+<a name="l00024"></a>00024         <a class="code" href="classstf_1_1datatype_1_1_string.html" title="std::stringの簡略版．">String</a> &amp;<a class="code" href="classstf_1_1datatype_1_1_string.html#a6b133abaf6d6a9790b33ebaa793b939c">operator+=</a>(<span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_string.html" title="std::stringの簡略版．">String</a> &amp;);
+<a name="l00025"></a><a class="code" href="classstf_1_1datatype_1_1_string.html#a7fb288427056f99dcf8faefa921dcf7a">00025</a>         <span class="keyword">inline</span> <span class="keywordtype">int</span> <a class="code" href="classstf_1_1datatype_1_1_string.html#a7fb288427056f99dcf8faefa921dcf7a">length</a>()<span class="keyword"> const</span>{ <span class="keywordflow">return</span> this-&gt;length_; };
+<a name="l00026"></a><a class="code" href="classstf_1_1datatype_1_1_string.html#ae3d0fd5ccd5d6bfae8f9c03859535679">00026</a>         <span class="keyword">inline</span> <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="classstf_1_1datatype_1_1_string.html#ae3d0fd5ccd5d6bfae8f9c03859535679">to_char</a>()<span class="keyword"> const</span>{ <span class="keywordflow">return</span> this-&gt;value_;}
+<a name="l00027"></a>00027 <span class="keyword">private</span>:
+<a name="l00028"></a>00028         <span class="keywordtype">char</span> *value_;
+<a name="l00029"></a>00029         <span class="keywordtype">int</span> length_;
+<a name="l00030"></a>00030         <span class="keyword">friend</span> <span class="keywordtype">bool</span> <a class="code" href="classstf_1_1datatype_1_1_string.html#a1e5ea8d6887643b09f55f11850e4a5c9">operator == </a>(<span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_string.html" title="std::stringの簡略版．">String</a>&amp;, <span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_string.html" title="std::stringの簡略版．">String</a>&amp;);
+<a name="l00031"></a>00031         <span class="keyword">friend</span> <a class="code" href="classstf_1_1datatype_1_1_string.html" title="std::stringの簡略版．">String</a> <a class="code" href="classstf_1_1datatype_1_1_string.html#a69168388b95717b8f5b06019b297cf3d">operator + </a>(<span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_string.html" title="std::stringの簡略版．">String</a>&amp;, <span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_string.html" title="std::stringの簡略版．">String</a>&amp;);
+<a name="l00032"></a>00032 };
+<a name="l00033"></a>00033 
+<a name="l00034"></a>00034 <span class="keywordtype">bool</span> <a class="code" href="namespacestf_1_1datatype.html#a85dba45399db60023f168d347f1befbc">operator == </a>(<span class="keyword">const</span> String &amp;s1, <span class="keyword">const</span> String &amp;s2);
+<a name="l00035"></a>00035 String <a class="code" href="namespacestf_1_1datatype.html#a77787c4327fff411cb3fcbefc1c4083e">operator + </a>(<span class="keyword">const</span> String &amp;s1, <span class="keyword">const</span> String &amp;s2);
+<a name="l00036"></a>00036 
+<a name="l00037"></a>00037 } <span class="comment">/* End of namespace stf::datatype */</span>
+<a name="l00038"></a>00038 } <span class="comment">/* End of namespace stf */</span>
+<a name="l00039"></a>00039 
+<a name="l00040"></a>00040 <span class="preprocessor">#endif // stf_datatype_String_h</span>
+</pre></div></div>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>フレンド</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>マクロ定義</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>STFに対してTue Mar 1 2011 03:45:40に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
+</body>
+</html>

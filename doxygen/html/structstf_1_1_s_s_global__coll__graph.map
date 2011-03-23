@@ -1,0 +1,50 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$classstf_1_1_global.html" title="RTOSとのインターフェースとなる，衛星アプリケーションが生成するオブジェクト群の基底クラス．" alt="" coords="3439,523,3564,552"/>
+<area shape="rect" id="node4" href="$classstf_1_1datatype_1_1_list.html" title="stf::datatype::List\&lt; core::manager::ManagerBase \&gt;" alt="" coords="2633,488,2951,517"/>
+<area shape="rect" id="node6" href="$classstf_1_1core_1_1manager_1_1_manager_base.html" title="機能マネージャの基底クラス．" alt="" coords="2012,765,2225,795"/>
+<area shape="rect" id="node44" href="$classstf_1_1core_1_1manager_1_1_system_manager_base.html" title="条件判定や異常対応を行う機能マネージャ基底クラス．" alt="" coords="2663,629,2921,659"/>
+<area shape="rect" id="node82" href="$classstf_1_1core_1_1manager_1_1_telemetry_manager_base.html" title="テレメトリ生成を行う機能マネージャ基底クラス．" alt="" coords="2656,896,2928,925"/>
+<area shape="rect" id="node99" href="$classstf_1_1core_1_1manager_1_1_unit_manager_base.html" title="機器の定期データ取得・更新を行う機能マネージャ基底クラス．" alt="" coords="2673,683,2911,712"/>
+<area shape="rect" id="node106" href="$classstf_1_1core_1_1manager_1_1_mode_manager_base.html" title="モードの管理を行う機能マネージャ基底クラス．" alt="" coords="2669,1111,2915,1140"/>
+<area shape="rect" id="node114" href="$classstf_1_1core_1_1manager_1_1_control_manager_base.html" title="制御ブロックの実行を行う機能マネージャ基底クラス．" alt="" coords="2664,949,2920,979"/>
+<area shape="rect" id="node122" href="$classstf_1_1core_1_1manager_1_1_command_manager_base.html" title="コマンドの処理を行う機能マネージャ基底クラス．" alt="" coords="2655,561,2929,591"/>
+<area shape="rect" id="node8" href="$classstf_1_1_root_object.html" title="数値型を除いた全クラスの基本となるクラス．" alt="" coords="764,1219,873,1248"/>
+<area shape="rect" id="node14" href="$classstf_1_1core_1_1datapool_1_1_data_pool_base.html" title="Tupleを複数個保持するデータプールの基底クラス．" alt="" coords="1344,1219,1560,1248"/>
+<area shape="rect" id="node25" href="$classstf_1_1core_1_1datapool_1_1_event_data_pool.html" title="Eventのデータプール．" alt="" coords="1343,1337,1561,1367"/>
+<area shape="rect" id="node33" href="$classstf_1_1core_1_1mode_1_1_mode_base.html" title="モードの基底クラス．" alt="" coords="1363,864,1541,893"/>
+<area shape="rect" id="node74" href="$classstf_1_1core_1_1devicedriver_1_1_c_d_h_multi_component.html" title="stf::core::devicedriver::CDHMultiComponent\&lt; TYPELIST_2(datatype::Time, datatype::DateTime), Env \&gt;" alt="" coords="1145,275,1759,304"/>
+<area shape="rect" id="node10" href="$classstf_1_1core_1_1devicedriver_1_1clock_1_1_i_time_clock.html" title="Time型のカウントが可能であることを示す抽象インターフェース．" alt="" coords="147,1157,400,1187"/>
+<area shape="rect" id="node72" href="$classstf_1_1core_1_1devicedriver_1_1clock_1_1_dummy_clock.html" title="stf::core::devicedriver::clock::DummyClock\&lt; Env, 100 \&gt;" alt="" coords="1948,227,2289,256"/>
+<area shape="rect" id="node12" href="$classstf_1_1core_1_1datapool_1_1_aocs_data_pool.html" title="IAocsDataのデータプール．" alt="" coords="2011,1276,2227,1305"/>
+<area shape="rect" id="node17" href="$classstf_1_1core_1_1datapool_1_1_tuple.html" title="stf::core::datapool::Tuple\&lt; datatype::IAocsData \&gt;" alt="" coords="665,1347,972,1376"/>
+<area shape="rect" id="node19" href="$classstf_1_1datatype_1_1_i_aocs_data.html" title="AOCS使用系列のデータ共通の抽象インターフェース．" alt="" coords="192,1320,355,1349"/>
+<area shape="rect" id="node21" href="$classstf_1_1datatype_1_1_time.html" title="経過時間を表すクラス．" alt="" coords="208,1373,339,1403"/>
+<area shape="rect" id="node23" href="$classstf_1_1datatype_1_1_string.html" title="std::stringの簡略版．" alt="" coords="205,1232,341,1261"/>
+<area shape="rect" id="node28" href="$struct_loki_1_1_tuple.html" title="Loki::Tuple\&lt; TYPELIST_2(event::EventType, datatype::Time)\&gt;" alt="" coords="629,1431,1008,1460"/>
+<area shape="rect" id="node30" href="$class_loki_1_1_gen_scatter_hierarchy.html" title="Loki::GenScatterHierarchy\&lt; TYPELIST_2(event::EventType, datatype::Time), TupleUnit \&gt;" alt="" coords="7,1431,540,1460"/>
+<area shape="rect" id="node36" href="$structstf_1_1core_1_1mode_1_1_strategy_holder.html" title="モードに依存したアルゴリズムを纏め，インターフェースを提供するクラス．" alt="" coords="717,864,920,893"/>
+<area shape="rect" id="node38" href="$classstf_1_1core_1_1devicedriver_1_1tmhandler_1_1_i_telemetry_storagable.html" title="テレメトリデータのストレージに対する抽象インターフェース．" alt="" coords="3332,469,3671,499"/>
+<area shape="rect" id="node40" href="$classstf_1_1core_1_1devicedriver_1_1cmhandler_1_1_i_command_receiver.html" title="受信機からコマンドを受け取り，応答を返却するデバイスの抽象インターフェース．" alt="" coords="1953,455,2284,484"/>
+<area shape="rect" id="node42" href="$classstf_1_1core_1_1manager_1_1_system_manager.html" title="条件判定や異常対応を行う機能マネージャ．" alt="" coords="3387,629,3616,659"/>
+<area shape="rect" id="node47" href="$classstf_1_1core_1_1event_1_1_observer.html" title="stf::core::event::Observer\&lt; event::ModeChangeEvent \&gt;" alt="" coords="1951,819,2287,848"/>
+<area shape="rect" id="node49" href="$classstf_1_1datatype_1_1_list.html" title="stf::datatype::List\&lt; HotSpot \&gt;" alt="" coords="2021,1025,2216,1055"/>
+<area shape="rect" id="node51" href="$classstf_1_1core_1_1strategy_1_1telemetry_1_1_i_telemetry_strategy.html" title="テレメトリ生成ストラテジの抽象インターフェース．" alt="" coords="1301,1165,1603,1195"/>
+<area shape="rect" id="node53" href="$classstf_1_1core_1_1devicedriver_1_1rw_1_1_r_w.html" title="ソフトウェアシミュレーションレベルで動作するRWドライバ．" alt="" coords="3389,299,3613,328"/>
+<area shape="rect" id="node55" href="$classstf_1_1core_1_1devicedriver_1_1rw_1_1_r_w_base.html" title="リアクションホイールの基底クラス．" alt="" coords="2665,283,2919,312"/>
+<area shape="rect" id="node57" href="$classstf_1_1core_1_1devicedriver_1_1_a_o_c_s_actuator.html" title="stf::core::devicedriver::AOCSActuator\&lt; datatype::StaticVector\&lt; 3 \&gt;, datatype::Scalar, T \&gt;" alt="" coords="1849,283,2388,312"/>
+<area shape="rect" id="node62" href="$classstf_1_1datatype_1_1_satellite_model.html" title="衛星質量特性を表現するクラス．" alt="" coords="3409,736,3593,765"/>
+<area shape="rect" id="node64" href="$classstf_1_1datatype_1_1_static_matrix.html" title="stf::datatype::StaticMatrix\&lt; 3, 3 \&gt;" alt="" coords="2683,736,2901,765"/>
+<area shape="rect" id="node66" href="$classstf_1_1core_1_1devicedriver_1_1_composite_input.html" title="AOCSSensorの集合体を表すクラス．" alt="" coords="3227,789,3776,819"/>
+<area shape="rect" id="node68" href="$classstf_1_1core_1_1devicedriver_1_1_a_o_c_s_sensor.html" title="stf::core::devicedriver::AOCSSensor\&lt; Leaf::Target, Leaf::Target, Leaf::Environment \&gt;" alt="" coords="2539,789,3045,819"/>
+<area shape="rect" id="node78" href="$classstf_1_1core_1_1devicedriver_1_1clock_1_1_i_absolute_time_clock.html" title="DateTime型のカウントが可能であることを示す抽象インターフェース．" alt="" coords="1300,328,1604,357"/>
+<area shape="rect" id="node80" href="$classstf_1_1core_1_1manager_1_1_telemetry_manager.html" title="テレメトリ生成を行う機能マネージャ．" alt="" coords="3380,843,3623,872"/>
+<area shape="rect" id="node87" href="$classstf_1_1core_1_1strategy_1_1control_1_1_i_control_strategy.html" title="制御ブロックの抽象インターフェース．" alt="" coords="3365,949,3637,979"/>
+<area shape="rect" id="node89" href="$classstf_1_1core_1_1devicedriver_1_1_composite_output.html" title="AOCSActuatorの集合体を表すクラス．" alt="" coords="3223,1003,3780,1032"/>
+<area shape="rect" id="node91" href="$classstf_1_1core_1_1devicedriver_1_1_a_o_c_s_actuator.html" title="stf::core::devicedriver::AOCSActuator\&lt; Leaf::Target, Leaf::Target, Leaf::Environment \&gt;" alt="" coords="2535,1003,3049,1032"/>
+<area shape="rect" id="node93" href="$classstf_1_1core_1_1devicedriver_1_1gyro_1_1_gyro.html" title="ソフトウェアシミュレーションレベルで動作するジャイロセンサドライバ．" alt="" coords="3380,1057,3623,1087"/>
+<area shape="rect" id="node95" href="$classstf_1_1core_1_1devicedriver_1_1gyro_1_1_gyro_base.html" title="ジャイロセンサの基底クラス．" alt="" coords="2656,1057,2928,1087"/>
+<area shape="rect" id="node97" href="$classstf_1_1core_1_1manager_1_1_unit_manager.html" title="機器の定期データ取得・更新を行う機能マネージャ．" alt="" coords="3397,683,3605,712"/>
+<area shape="rect" id="node104" href="$classstf_1_1core_1_1manager_1_1_mode_manager.html" title="モードの管理を行う機能マネージャ．" alt="" coords="3393,1111,3609,1140"/>
+<area shape="rect" id="node112" href="$classstf_1_1core_1_1manager_1_1_control_manager.html" title="制御ブロックの実行を行う機能マネージャ．" alt="" coords="3388,896,3615,925"/>
+<area shape="rect" id="node120" href="$classstf_1_1core_1_1manager_1_1_command_manager.html" title="コマンドの処理を行う機能マネージャ．" alt="" coords="3380,576,3623,605"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_loki_1_1_gen_scatter_hierarchy.html" title="GenScatterHierarchy\&lt; TYPELIST_5(devicedriver::ISwitchable, devicedriver::IDataUpdatable, functor::IFunctor, core::strategy::telemetry::ITelemetryStrategy, core::strategy::control::IControlStrategy), HotSpotList \&gt;" alt="" coords="144,5,1384,35"/>
+<area shape="rect" id="node5" href="$structstf_1_1core_1_1mode_1_1_strategy_holder.html" title="モードに依存したアルゴリズムを纏め，インターフェースを提供するクラス．" alt="" coords="1432,5,1635,35"/>
+<area shape="rect" id="node7" href="$classstf_1_1core_1_1mode_1_1_mode_base.html" title="モードの基底クラス．" alt="" coords="1683,5,1861,35"/>
+</map>

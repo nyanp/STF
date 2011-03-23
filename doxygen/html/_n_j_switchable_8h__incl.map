@@ -1,0 +1,4 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$_i_switchable_8h.html" title="CPUによる電源のオンオフ制御が可能なコンポーネントに対するインターフェース．" alt="" coords="5,83,227,112"/>
+<area shape="rect" id="node5" href="$_i_data_updatable_8h.html" title="周期的にデータを取得，送信するコンポーネントに対する抽象インターフェース．" alt="" coords="251,83,493,112"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$classstf_1_1core_1_1devicedriver_1_1nj_1_1_n_j_simple_component.html" title="stf::core::devicedriver::nj::NJSimpleComponent\&lt; Env, 2 \&gt;" alt="" coords="64,83,413,112"/>
+<area shape="rect" id="node4" href="$classstf_1_1core_1_1devicedriver_1_1_i_switchable.html" title="電源のオンオフ制御が可能なコンポーネントに対するインターフェース．" alt="" coords="5,5,221,35"/>
+<area shape="rect" id="node6" href="$classstf_1_1core_1_1devicedriver_1_1_i_data_updatable.html" title="周期的にデータを取得，送信するコンポーネントに対するインターフェース" alt="" coords="245,5,483,35"/>
+</map>

@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>STF: stf/core/devicedriver/rw/RWBase.cpp ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.3 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">STF</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="pages.html"><span>関連ページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>ファイルメンバ</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<h1>stf/core/devicedriver/rw/RWBase.cpp</h1>  </div>
+</div>
+<div class="contents">
+<a href="_r_w_base_8cpp.html">説明を見る。</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<a name="l00008"></a>00008 <span class="preprocessor">#include &quot;<a class="code" href="_r_w_base_8h.html" title="リアクションホイールの基底クラス．">RWBase.h</a>&quot;</span>
+<a name="l00009"></a>00009 <span class="preprocessor">#include &quot;<a class="code" href="_simulator_8h.html" title="ソフトウェアシミュレータ環境クラス．">../../../environment/Simulator.h</a>&quot;</span>
+<a name="l00010"></a>00010 <span class="preprocessor">#include &quot;<a class="code" href="_datapool_8h.html" title="STF生成データにタイムタグを付加して格納するデータプール． データの配列を保持するTupleと，Tupleの配列を保持するデータプールによって テーブル形式のデータ構造を表現する．">../../datapool/Datapool.h</a>&quot;</span>
+<a name="l00011"></a>00011 
+<a name="l00012"></a>00012 <span class="keyword">namespace </span>stf {
+<a name="l00013"></a>00013 <span class="keyword">namespace </span>core {
+<a name="l00014"></a>00014 <span class="keyword">namespace </span>devicedriver {
+<a name="l00015"></a>00015 <span class="keyword">namespace </span>rw {
+<a name="l00016"></a>00016 
+<a name="l00017"></a>00017 
+<a name="l00018"></a>00018 <span class="keyword">template</span> &lt;&gt;
+<a name="l00019"></a><a class="code" href="classstf_1_1core_1_1devicedriver_1_1rw_1_1_r_w_base.html#aea7ceb034817c05d2f64f8dfcc584236">00019</a> <span class="keywordtype">void</span> <a class="code" href="classstf_1_1core_1_1devicedriver_1_1rw_1_1_r_w_base.html#ab09e7a15671cb74bf034bcbf0cb5602c">RWBase&lt;environment::Simulator&gt;::do_update</a>(){
+<a name="l00020"></a>00020         <span class="comment">//角運動量（回転数）の更新</span>
+<a name="l00021"></a>00021         this-&gt;angular_momentum_ += this-&gt;output_.value() * <a class="code" href="_instance_i_d_8h.html#a57eeee07cb099c4c82318868006aa38f">STEPTIME</a>;
+<a name="l00022"></a>00022         <span class="comment">//</span>
+<a name="l00023"></a>00023         <span class="keywordflow">if</span>(this-&gt;datapool_ != 0){
+<a name="l00024"></a>00024                 datapool_-&gt;set&lt;<a class="code" href="classstf_1_1core_1_1devicedriver_1_1rw_1_1_r_w_base.html" title="リアクションホイールの基底クラス．">RWBase&lt;environment::Simulator&gt;</a>&gt;(datapool_hold_index_, this-&gt;output_);
+<a name="l00025"></a>00025         }
+<a name="l00026"></a>00026 }
+<a name="l00027"></a>00027 
+<a name="l00028"></a>00028 <span class="comment">// シミュレータ用の特殊化版コンストラクタ．</span>
+<a name="l00029"></a>00029 <span class="comment">// トルクソースとしてシミュレータに自動的に登録</span>
+<a name="l00030"></a>00030 <span class="keyword">template</span>&lt;&gt;
+<a name="l00031"></a><a class="code" href="classstf_1_1core_1_1devicedriver_1_1rw_1_1_r_w_base.html#ad86a4747eeab6117f54adbae954c6520">00031</a> <a class="code" href="classstf_1_1core_1_1devicedriver_1_1rw_1_1_r_w_base.html#ad880132f9ee6feb10ccbb36c43a8fb8c">RWBase&lt;environment::Simulator&gt;::RWBase</a>(<span class="keywordtype">int</span> instance_id, <span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_d_c_m.html" title="Z-Y-Xの順で回転させる回転行列（DCM）．">datatype::DCM</a> &amp;dcm, <span class="keywordtype">double</span> max_torque, <span class="keywordtype">double</span> min_torque, <span class="keywordtype">double</span> max_angular_momentum) : 
+<a name="l00032"></a>00032 <a class="code" href="classstf_1_1core_1_1devicedriver_1_1_a_o_c_s_actuator.html" title="アクチュエータの基底クラス．">AOCSActuator</a>&lt;datatype::StaticVector&lt;3&gt;, datatype::Scalar, environment::Simulator&gt;(instance_id, <span class="stringliteral">&quot;RW&quot;</span>, dcm), max_angular_momentum_(max_angular_momentum)
+<a name="l00033"></a>00033 {
+<a name="l00034"></a>00034         this-&gt;<a class="code" href="classstf_1_1core_1_1devicedriver_1_1_a_o_c_s_component.html#adefccc151ffa48c69d8b1182c09a9991">environment_</a>-&gt;attachTorqueSource(<span class="keyword">this</span>);
+<a name="l00035"></a>00035         <span class="comment">//this-&gt;max_output_ = max_torque;</span>
+<a name="l00036"></a>00036         <span class="comment">//this-&gt;min_output_ = min_torque;</span>
+<a name="l00037"></a>00037 }
+<a name="l00038"></a>00038 
+<a name="l00039"></a>00039 } <span class="comment">/* End of namespace stf::core::devicedriver::mtq */</span>
+<a name="l00040"></a>00040 } <span class="comment">/* End of namespace stf::core::devicedriver */</span>
+<a name="l00041"></a>00041 } <span class="comment">/* End of namespace stf::core */</span>
+<a name="l00042"></a>00042 } <span class="comment">/* End of namespace stf */</span>
+</pre></div></div>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>フレンド</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>マクロ定義</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>STFに対してTue Mar 1 2011 03:45:36に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
+</body>
+</html>

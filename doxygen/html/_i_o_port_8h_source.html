@@ -1,0 +1,204 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>STF: stf/core/devicedriver/IOPort.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.3 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">STF</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="pages.html"><span>関連ページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>ファイルメンバ</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<h1>stf/core/devicedriver/IOPort.h</h1>  </div>
+</div>
+<div class="contents">
+<a href="_i_o_port_8h.html">説明を見る。</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<a name="l00008"></a>00008 <span class="preprocessor">#ifndef stf_core_devicedriver_IOPort_h</span>
+<a name="l00009"></a>00009 <span class="preprocessor"></span><span class="preprocessor">#define stf_core_devicedriver_IOPort_h</span>
+<a name="l00010"></a>00010 <span class="preprocessor"></span>
+<a name="l00011"></a>00011 <span class="preprocessor">#include &quot;<a class="code" href="_hierarchy_generators_8h.html">../../util/loki/HierarchyGenerators.h</a>&quot;</span>
+<a name="l00012"></a>00012 <span class="preprocessor">#include &quot;<a class="code" href="_time_8h.html" title="経過時間を表すクラス．">../../datatype/Time.h</a>&quot;</span>
+<a name="l00013"></a>00013 
+<a name="l00014"></a>00014 <span class="keyword">namespace </span>stf {
+<a name="l00015"></a>00015 <span class="keyword">namespace </span>core {
+<a name="l00016"></a>00016 <span class="keyword">namespace </span>devicedriver {
+<a name="l00017"></a>00017 
+<a name="l00018"></a>00018 <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt; <span class="keyword">struct </span><a class="code" href="classcore_1_1devicedriver_1_1_input_port.html">InputPort</a>;
+<a name="l00019"></a>00019 
+<a name="l00021"></a>00021 
+<a name="l00024"></a>00024 <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;
+<a name="l00025"></a><a class="code" href="structstf_1_1core_1_1devicedriver_1_1_output_port.html">00025</a> <span class="keyword">struct </span><a class="code" href="structstf_1_1core_1_1devicedriver_1_1_output_port.html" title="データの出力を表明するポート．">OutputPort</a> {
+<a name="l00027"></a><a class="code" href="structstf_1_1core_1_1devicedriver_1_1_output_port.html#acd163d5c5bb4349dd3fb968e8657ae7d">00027</a>         <a class="code" href="structstf_1_1core_1_1devicedriver_1_1_output_port.html#acd163d5c5bb4349dd3fb968e8657ae7d" title="コンストラクタ．ポートのポインタを初期化">OutputPort</a>() : <a class="code" href="structstf_1_1core_1_1devicedriver_1_1_output_port.html#ac481dbb3334cf6ca5def10ead75c1275" title="接続された入力ポート">nextholder_</a>(0) {}
+<a name="l00028"></a>00028 
+<a name="l00030"></a>00030 
+<a name="l00034"></a><a class="code" href="structstf_1_1core_1_1devicedriver_1_1_output_port.html#a6694a0a67c43c99710ca63f262b132b7">00034</a>         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="structstf_1_1core_1_1devicedriver_1_1_output_port.html#a6694a0a67c43c99710ca63f262b132b7" title="get_in_bodyframe関数から呼び出される，データの更新を行う関数．">do_compute</a>(<span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_time.html" title="経過時間を表すクラス．">datatype::Time</a>&amp; t){
+<a name="l00035"></a>00035                 <span class="comment">//util::cout &lt;&lt; &quot;do_compute must be implemented&quot; &lt;&lt; util::endl;</span>
+<a name="l00036"></a>00036                 assert(0);
+<a name="l00037"></a>00037         }
+<a name="l00038"></a>00038 
+<a name="l00040"></a><a class="code" href="structstf_1_1core_1_1devicedriver_1_1_output_port.html#a88e86d614c433063897f0e424c005105">00040</a>         <span class="keyword">virtual</span> <span class="keyword">const</span> T&amp; <a class="code" href="structstf_1_1core_1_1devicedriver_1_1_output_port.html#a88e86d614c433063897f0e424c005105" title="データの取得を行う関数．">get_value</a>(<span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_time.html" title="経過時間を表すクラス．">datatype::Time</a>&amp; t){ <a class="code" href="structstf_1_1core_1_1devicedriver_1_1_output_port.html#a6694a0a67c43c99710ca63f262b132b7" title="get_in_bodyframe関数から呼び出される，データの更新を行う関数．">do_compute</a>(t); <span class="keywordflow">return</span> <a class="code" href="structstf_1_1core_1_1devicedriver_1_1_output_port.html#a6b981f911d3a7da337f1f22062c5d70f" title="機体座標系における取得値">value_</a>; }
+<a name="l00041"></a>00041 
+<a name="l00043"></a><a class="code" href="structstf_1_1core_1_1devicedriver_1_1_output_port.html#a57e169c5b1e7c1a7c72a53b22208b2eb">00043</a>         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="structstf_1_1core_1_1devicedriver_1_1_output_port.html#a57e169c5b1e7c1a7c72a53b22208b2eb" title="データの設定を行う関数．">set_value</a>(<span class="keyword">const</span> T&amp; value){ <a class="code" href="structstf_1_1core_1_1devicedriver_1_1_output_port.html#a6b981f911d3a7da337f1f22062c5d70f" title="機体座標系における取得値">value_</a> = value; }
+<a name="l00044"></a>00044 
+<a name="l00046"></a><a class="code" href="structstf_1_1core_1_1devicedriver_1_1_output_port.html#a00cc52a5b8e39c6eac1e92878b2d678b">00046</a>         <span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_time.html" title="経過時間を表すクラス．">datatype::Time</a>&amp; <a class="code" href="structstf_1_1core_1_1devicedriver_1_1_output_port.html#a00cc52a5b8e39c6eac1e92878b2d678b" title="データの最終更新時刻を取得する関数．">get_lastupdate</a>()<span class="keyword"> const</span>{ <span class="keywordflow">return</span> <a class="code" href="structstf_1_1core_1_1devicedriver_1_1_output_port.html#a35f635ca6798cdbd05586f59fec9d2cd" title="value_の最終更新時刻">last_update_</a>;}
+<a name="l00047"></a>00047 
+<a name="l00049"></a><a class="code" href="structstf_1_1core_1_1devicedriver_1_1_output_port.html#a6b981f911d3a7da337f1f22062c5d70f">00049</a>         T <a class="code" href="structstf_1_1core_1_1devicedriver_1_1_output_port.html#a6b981f911d3a7da337f1f22062c5d70f" title="機体座標系における取得値">value_</a>;
+<a name="l00050"></a>00050 
+<a name="l00052"></a><a class="code" href="structstf_1_1core_1_1devicedriver_1_1_output_port.html#ac481dbb3334cf6ca5def10ead75c1275">00052</a>         <a class="code" href="structstf_1_1core_1_1devicedriver_1_1_input_port.html" title="データの入力を表明するポート．">InputPort&lt;T&gt;</a>* <a class="code" href="structstf_1_1core_1_1devicedriver_1_1_output_port.html#ac481dbb3334cf6ca5def10ead75c1275" title="接続された入力ポート">nextholder_</a>;
+<a name="l00053"></a>00053 
+<a name="l00055"></a><a class="code" href="structstf_1_1core_1_1devicedriver_1_1_output_port.html#a35f635ca6798cdbd05586f59fec9d2cd">00055</a>         <a class="code" href="classstf_1_1datatype_1_1_time.html" title="経過時間を表すクラス．">datatype::Time</a> <a class="code" href="structstf_1_1core_1_1devicedriver_1_1_output_port.html#a35f635ca6798cdbd05586f59fec9d2cd" title="value_の最終更新時刻">last_update_</a>;
+<a name="l00056"></a>00056 };
+<a name="l00057"></a>00057 
+<a name="l00059"></a>00059 
+<a name="l00062"></a>00062 <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;
+<a name="l00063"></a><a class="code" href="structstf_1_1core_1_1devicedriver_1_1_input_port.html">00063</a> <span class="keyword">struct </span><a class="code" href="structstf_1_1core_1_1devicedriver_1_1_input_port.html" title="データの入力を表明するポート．">InputPort</a> {
+<a name="l00065"></a><a class="code" href="structstf_1_1core_1_1devicedriver_1_1_input_port.html#a93cf503095e4e9bf35226a257645a278">00065</a>         <a class="code" href="structstf_1_1core_1_1devicedriver_1_1_input_port.html#a93cf503095e4e9bf35226a257645a278" title="コンストラクタ．ポートのポインタを初期化．">InputPort</a>() : <a class="code" href="structstf_1_1core_1_1devicedriver_1_1_input_port.html#a84a3c4906e2a2d36770f38ba7f458797" title="接続された出力ポート">prevholder_</a>(0) {}
+<a name="l00066"></a>00066 
+<a name="l00068"></a><a class="code" href="structstf_1_1core_1_1devicedriver_1_1_input_port.html#a233beb1e2b9111ac6212f1b7a6afb191">00068</a>         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="structstf_1_1core_1_1devicedriver_1_1_input_port.html#a233beb1e2b9111ac6212f1b7a6afb191" title="双方向のリンクリストを形成することで，出力ポートとの接続を確立する．">connect_source_</a>(<a class="code" href="structstf_1_1core_1_1devicedriver_1_1_output_port.html" title="データの出力を表明するポート．">OutputPort&lt;T&gt;</a>* outputport) { 
+<a name="l00069"></a>00069                 <a class="code" href="structstf_1_1core_1_1devicedriver_1_1_input_port.html#a84a3c4906e2a2d36770f38ba7f458797" title="接続された出力ポート">prevholder_</a> = outputport; 
+<a name="l00070"></a>00070                 <a class="code" href="structstf_1_1core_1_1devicedriver_1_1_input_port.html#a84a3c4906e2a2d36770f38ba7f458797" title="接続された出力ポート">prevholder_</a>-&gt;nextholder_ = <span class="keyword">this</span>;
+<a name="l00071"></a>00071         }
+<a name="l00072"></a>00072 
+<a name="l00074"></a><a class="code" href="structstf_1_1core_1_1devicedriver_1_1_input_port.html#a84a3c4906e2a2d36770f38ba7f458797">00074</a>         <a class="code" href="structstf_1_1core_1_1devicedriver_1_1_output_port.html" title="データの出力を表明するポート．">OutputPort&lt;T&gt;</a>* <a class="code" href="structstf_1_1core_1_1devicedriver_1_1_input_port.html#a84a3c4906e2a2d36770f38ba7f458797" title="接続された出力ポート">prevholder_</a>;
+<a name="l00075"></a>00075 };
+<a name="l00076"></a>00076 
+<a name="l00078"></a>00078 
+<a name="l00081"></a>00081 <span class="keyword">template</span>&lt;<span class="keyword">class</span> TList&gt;
+<a name="l00082"></a><a class="code" href="classstf_1_1core_1_1devicedriver_1_1_input_ports.html">00082</a> <span class="keyword">class </span><a class="code" href="classstf_1_1core_1_1devicedriver_1_1_input_ports.html" title="入力ポートを纏め，インターフェースを提供するクラス．">InputPorts</a> : <span class="keyword">public</span> Loki::GenScatterHierarchy&lt;TList, core::devicedriver::InputPort&gt;{
+<a name="l00083"></a>00083 <span class="keyword">public</span>:
+<a name="l00085"></a>00085         <span class="keyword">template</span>&lt;<span class="keywordtype">int</span> i, <span class="keyword">class</span> T&gt; 
+<a name="l00086"></a><a class="code" href="classstf_1_1core_1_1devicedriver_1_1_input_ports.html#a77d86539138abf80200c5eabb524a223">00086</a>         <span class="keywordtype">void</span> <a class="code" href="classstf_1_1core_1_1devicedriver_1_1_input_ports.html#a77d86539138abf80200c5eabb524a223" title="i番目の入力ポートに，出力ポートを持ったコンポーネントを接続する．">connect_source</a>(T* outputport) {
+<a name="l00087"></a>00087                 <span class="keywordflow">return</span> Loki::Field&lt;i&gt;(*this).connect_source_(outputport); 
+<a name="l00088"></a>00088         }
+<a name="l00089"></a>00089 
+<a name="l00091"></a>00091         <span class="keyword">template</span>&lt;<span class="keywordtype">int</span> i, <span class="keyword">class</span> T&gt;
+<a name="l00092"></a><a class="code" href="classstf_1_1core_1_1devicedriver_1_1_input_ports.html#acb7a95d05e03415767309e1bfed4e0d8">00092</a>         <a class="code" href="structstf_1_1core_1_1devicedriver_1_1_input_port.html" title="データの入力を表明するポート．">InputPort&lt;T&gt;</a>&amp; <a class="code" href="classstf_1_1core_1_1devicedriver_1_1_input_ports.html#acb7a95d05e03415767309e1bfed4e0d8" title="i番目の入力ポートを取得する．">inputport</a>() {
+<a name="l00093"></a>00093                 <span class="keywordflow">return</span> Loki::Field&lt;i&gt;(*this);
+<a name="l00094"></a>00094         }
+<a name="l00095"></a>00095 
+<a name="l00097"></a>00097         <span class="keyword">template</span>&lt;<span class="keywordtype">int</span> i, <span class="keyword">class</span> T&gt;
+<a name="l00098"></a><a class="code" href="classstf_1_1core_1_1devicedriver_1_1_input_ports.html#a7c7b38921de9185404a042b115cfc334">00098</a>         <a class="code" href="structstf_1_1core_1_1devicedriver_1_1_output_port.html" title="データの出力を表明するポート．">OutputPort&lt;T&gt;</a>&amp; <a class="code" href="classstf_1_1core_1_1devicedriver_1_1_input_ports.html#a7c7b38921de9185404a042b115cfc334" title="i番目の入力ポートに接続された出力ポートを取得する．何も接続されていないポートに対して実行した場合の動作は未定義．">source</a>(){
+<a name="l00099"></a>00099                 <span class="keywordflow">return</span> *(Loki::Field&lt;i&gt;(*this).prevholder_);
+<a name="l00100"></a>00100         }
+<a name="l00101"></a>00101 
+<a name="l00103"></a>00103         <span class="keyword">template</span>&lt;<span class="keywordtype">int</span> i&gt;
+<a name="l00104"></a><a class="code" href="classstf_1_1core_1_1devicedriver_1_1_input_ports.html#ab10077449ce4b0ad11164b289af1310a">00104</a>         <span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_time.html" title="経過時間を表すクラス．">datatype::Time</a>&amp; <a class="code" href="classstf_1_1core_1_1devicedriver_1_1_input_ports.html#ab10077449ce4b0ad11164b289af1310a" title="i番目の入力ポートに接続された出力ポートの，最終更新時刻を取得する．">get_lastinput</a>() {
+<a name="l00105"></a>00105                 <span class="keywordflow">return</span> Loki::Field&lt;i&gt;(*this).prevholder_-&gt;last_update_;
+<a name="l00106"></a>00106         }
+<a name="l00107"></a>00107 
+<a name="l00109"></a>00109         <span class="keyword">template</span>&lt;<span class="keywordtype">int</span> i&gt;
+<a name="l00110"></a><a class="code" href="classstf_1_1core_1_1devicedriver_1_1_input_ports.html#a08eb86926b7eaf72a69630b66a0236c0">00110</a>         <span class="keywordtype">bool</span> <a class="code" href="classstf_1_1core_1_1devicedriver_1_1_input_ports.html#a08eb86926b7eaf72a69630b66a0236c0" title="i番目の入力ポートに出力ポートが接続しているかを取得．">input_isconnected</a>() {
+<a name="l00111"></a>00111                 <span class="keywordflow">if</span>(Loki::Field&lt;i&gt;(*this).prevholder_ == 0) <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00112"></a>00112                 <span class="keywordflow">else</span> <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00113"></a>00113         }
+<a name="l00114"></a>00114 };
+<a name="l00115"></a>00115 
+<a name="l00117"></a>00117 
+<a name="l00120"></a>00120 <span class="keyword">template</span>&lt;<span class="keyword">class</span> TList&gt;
+<a name="l00121"></a><a class="code" href="classstf_1_1core_1_1devicedriver_1_1_output_ports.html">00121</a> <span class="keyword">class </span><a class="code" href="classstf_1_1core_1_1devicedriver_1_1_output_ports.html" title="出力ポートを纏め，インターフェースを提供するクラス．">OutputPorts</a> : <span class="keyword">public</span> Loki::GenScatterHierarchy&lt;TList, OutputPort&gt;{
+<a name="l00122"></a>00122 <span class="keyword">public</span>:
+<a name="l00124"></a><a class="code" href="classstf_1_1core_1_1devicedriver_1_1_output_ports.html#ad26ac8c6d0156f8b84899747a8f2fbc9">00124</a>         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classstf_1_1core_1_1devicedriver_1_1_output_ports.html#ad26ac8c6d0156f8b84899747a8f2fbc9" title="伝搬関数のデフォルト実装．（何もしない）">do_compute</a>(<span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_time.html" title="経過時間を表すクラス．">datatype::Time</a>&amp; t){}
+<a name="l00125"></a>00125 
+<a name="l00127"></a>00127         <span class="keyword">template</span>&lt;<span class="keywordtype">int</span> i, <span class="keyword">class</span> T&gt;
+<a name="l00128"></a><a class="code" href="classstf_1_1core_1_1devicedriver_1_1_output_ports.html#ab64cdea44d21d0b4bea2df705f95d817">00128</a>         <span class="keyword">const</span> T&amp; <span class="keyword">get</span>() <span class="keyword">const</span>{   
+<a name="l00129"></a>00129                 <span class="keywordflow">return</span> Loki::Field&lt;i&gt;(*this).value_;
+<a name="l00130"></a>00130         }
+<a name="l00131"></a>00131 
+<a name="l00133"></a>00133         <span class="keyword">template</span>&lt;<span class="keywordtype">int</span> i, <span class="keyword">class</span> T&gt;
+<a name="l00134"></a><a class="code" href="classstf_1_1core_1_1devicedriver_1_1_output_ports.html#a90f8ba0163308c7d6ea9b794e4847db9">00134</a>         <a class="code" href="structstf_1_1core_1_1devicedriver_1_1_output_port.html" title="データの出力を表明するポート．">OutputPort&lt;T&gt;</a>&amp; <a class="code" href="classstf_1_1core_1_1devicedriver_1_1_output_ports.html#a90f8ba0163308c7d6ea9b794e4847db9" title="i番目の出力ポートを取得する．">outputport</a>() {
+<a name="l00135"></a>00135                 <span class="keywordflow">return</span> Loki::Field&lt;i&gt;(*this);
+<a name="l00136"></a>00136         }
+<a name="l00137"></a>00137 
+<a name="l00139"></a>00139         <span class="keyword">template</span>&lt;<span class="keywordtype">int</span> i&gt;
+<a name="l00140"></a><a class="code" href="classstf_1_1core_1_1devicedriver_1_1_output_ports.html#a7781e978be07a4b7c8c09b8ed20d80aa">00140</a>         <span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_time.html" title="経過時間を表すクラス．">datatype::Time</a>&amp; <a class="code" href="classstf_1_1core_1_1devicedriver_1_1_output_ports.html#a7781e978be07a4b7c8c09b8ed20d80aa" title="i番目の出力ポートの，最終更新時刻を取得する．">getLastOutputtime</a>() {     
+<a name="l00141"></a>00141                 <span class="keywordflow">return</span> Loki::Field&lt;i&gt;(*this).get_lastupdate();
+<a name="l00142"></a>00142         }
+<a name="l00143"></a>00143 
+<a name="l00145"></a>00145         <span class="keyword">template</span>&lt;<span class="keywordtype">int</span> i&gt;
+<a name="l00146"></a><a class="code" href="classstf_1_1core_1_1devicedriver_1_1_output_ports.html#ae291a46c963f2a11b5508daf91828673">00146</a>         <span class="keywordtype">void</span> <a class="code" href="classstf_1_1core_1_1devicedriver_1_1_output_ports.html#ae291a46c963f2a11b5508daf91828673" title="i番目の出力ポートの，最終更新時刻を設定する．">setLastOutputtime</a>(<span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_time.html" title="経過時間を表すクラス．">datatype::Time</a>&amp; time){
+<a name="l00147"></a>00147                 Loki::Field&lt;i&gt;(*this).last_update_ = time;
+<a name="l00148"></a>00148         }
+<a name="l00149"></a>00149 
+<a name="l00151"></a>00151         <span class="keyword">template</span>&lt;<span class="keywordtype">int</span> i&gt;
+<a name="l00152"></a><a class="code" href="classstf_1_1core_1_1devicedriver_1_1_output_ports.html#a77a4886ed698d9cb135b4d9d600d005e">00152</a>         <span class="keywordtype">bool</span> <a class="code" href="classstf_1_1core_1_1devicedriver_1_1_output_ports.html#a77a4886ed698d9cb135b4d9d600d005e" title="i番目の出力ポートに入力ポートが接続しているかを取得．">output_isconnected</a>() {
+<a name="l00153"></a>00153                 <span class="keywordflow">if</span>(Loki::Field&lt;i&gt;(*this).nextholder_ == 0) <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00154"></a>00154                 <span class="keywordflow">else</span> <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00155"></a>00155         }
+<a name="l00156"></a>00156 };
+<a name="l00157"></a>00157 
+<a name="l00158"></a>00158 
+<a name="l00159"></a>00159 } <span class="comment">/* End of namespace stf::core::component */</span>
+<a name="l00160"></a>00160 } <span class="comment">/* End of namespace stf::core */</span>
+<a name="l00161"></a>00161 } <span class="comment">/* End of namespace stf */</span>
+<a name="l00162"></a>00162 
+<a name="l00163"></a>00163 <span class="preprocessor">#endif // stf_core_devicedriver_IOPort_h</span>
+</pre></div></div>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>フレンド</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>マクロ定義</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>STFに対してTue Mar 1 2011 03:45:36に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
+</body>
+</html>

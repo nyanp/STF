@@ -1,0 +1,236 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>STF: stf/util/loki/AbstractFactory.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.3 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">STF</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="pages.html"><span>関連ページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>ファイルメンバ</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<h1>stf/util/loki/AbstractFactory.h</h1>  </div>
+</div>
+<div class="contents">
+<a href="_abstract_factory_8h.html">説明を見る。</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<a name="l00008"></a>00008 
+<a name="l00009"></a>00009 <span class="comment">// The Loki Library</span>
+<a name="l00010"></a>00010 <span class="comment">// Copyright (c) 2001 by Andrei Alexandrescu</span>
+<a name="l00011"></a>00011 <span class="comment">// This code accompanies the book:</span>
+<a name="l00012"></a>00012 <span class="comment">// Alexandrescu, Andrei. &quot;Modern C++ Design: Generic Programming and Design </span>
+<a name="l00013"></a>00013 <span class="comment">//     Patterns Applied&quot;. Copyright (c) 2001. Addison-Wesley.</span>
+<a name="l00014"></a>00014 <span class="comment">// Permission to use, copy, modify, distribute and sell this software for any </span>
+<a name="l00015"></a>00015 <span class="comment">//     purpose is hereby granted without fee, provided that the above copyright </span>
+<a name="l00016"></a>00016 <span class="comment">//     notice appear in all copies and that both that copyright notice and this </span>
+<a name="l00017"></a>00017 <span class="comment">//     permission notice appear in supporting documentation.</span>
+<a name="l00018"></a>00018 <span class="comment">// The author or Addison-Welsey Longman make no representations about the </span>
+<a name="l00019"></a>00019 <span class="comment">//     suitability of this software for any purpose. It is provided &quot;as is&quot; </span>
+<a name="l00020"></a>00020 <span class="comment">//     without express or implied warranty.</span>
+<a name="l00022"></a>00022 <span class="comment"></span>
+<a name="l00023"></a>00023 <span class="comment">// Last update: June 20, 2001</span>
+<a name="l00024"></a>00024 
+<a name="l00025"></a>00025 <span class="preprocessor">#ifndef ABSTRACTFACTORY_INC_</span>
+<a name="l00026"></a>00026 <span class="preprocessor"></span><span class="preprocessor">#define ABSTRACTFACTORY_INC_</span>
+<a name="l00027"></a>00027 <span class="preprocessor"></span>
+<a name="l00028"></a>00028 <span class="preprocessor">#include &quot;<a class="code" href="_typelist_8h.html">Typelist.h</a>&quot;</span>
+<a name="l00029"></a>00029 <span class="preprocessor">#include &quot;<a class="code" href="_type_manip_8h.html">TypeManip.h</a>&quot;</span>
+<a name="l00030"></a>00030 <span class="preprocessor">#include &quot;<a class="code" href="_hierarchy_generators_8h.html">HierarchyGenerators.h</a>&quot;</span>
+<a name="l00031"></a>00031 
+<a name="l00032"></a>00032 <span class="preprocessor">#include &lt;cassert&gt;</span>
+<a name="l00033"></a>00033 
+<a name="l00034"></a><a class="code" href="namespace_loki.html">00034</a> <span class="keyword">namespace </span>Loki
+<a name="l00035"></a>00035 {
+<a name="l00036"></a>00036 
+<a name="l00038"></a>00038 <span class="comment">// class template AbstractFactoryUnit</span>
+<a name="l00039"></a>00039 <span class="comment">// The building block of an Abstract Factory</span>
+<a name="l00041"></a>00041 <span class="comment"></span>
+<a name="l00042"></a>00042     <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;
+<a name="l00043"></a><a class="code" href="class_loki_1_1_abstract_factory_unit.html">00043</a>     <span class="keyword">class </span><a class="code" href="class_loki_1_1_abstract_factory_unit.html">AbstractFactoryUnit</a>
+<a name="l00044"></a>00044     {
+<a name="l00045"></a>00045     <span class="keyword">public</span>:
+<a name="l00046"></a>00046         <span class="keyword">virtual</span> T* <a class="code" href="class_loki_1_1_abstract_factory_unit.html#a0e83f4f5d51b0a24e497ee3849cd65d4">DoCreate</a>(<a class="code" href="struct_loki_1_1_type2_type.html">Type2Type&lt;T&gt;</a>) = 0;
+<a name="l00047"></a><a class="code" href="class_loki_1_1_abstract_factory_unit.html#afad1f1c5f716373498384ad926c9c10c">00047</a>         <span class="keyword">virtual</span> <a class="code" href="class_loki_1_1_abstract_factory_unit.html#afad1f1c5f716373498384ad926c9c10c">~AbstractFactoryUnit</a>() {}
+<a name="l00048"></a>00048     };
+<a name="l00049"></a>00049 
+<a name="l00051"></a>00051 <span class="comment">// class template AbstractFactory</span>
+<a name="l00052"></a>00052 <span class="comment">// Defines an Abstract Factory interface starting from a typelist</span>
+<a name="l00054"></a>00054 <span class="comment"></span>
+<a name="l00055"></a>00055     <span class="keyword">template</span>
+<a name="l00056"></a>00056     &lt;
+<a name="l00057"></a>00057         <span class="keyword">class </span>TList,
+<a name="l00058"></a>00058         <span class="keyword">template</span> &lt;<span class="keyword">class</span>&gt; <span class="keyword">class </span><a class="code" href="class_unit.html">Unit</a> = AbstractFactoryUnit
+<a name="l00059"></a>00059     &gt;
+<a name="l00060"></a><a class="code" href="class_loki_1_1_abstract_factory.html">00060</a>     <span class="keyword">class </span><a class="code" href="class_loki_1_1_abstract_factory.html">AbstractFactory</a> : <span class="keyword">public</span> <a class="code" href="class_loki_1_1_gen_scatter_hierarchy.html">GenScatterHierarchy</a>&lt;TList, Unit&gt;
+<a name="l00061"></a>00061     {
+<a name="l00062"></a>00062     <span class="keyword">public</span>:
+<a name="l00063"></a><a class="code" href="class_loki_1_1_abstract_factory.html#ae0ac6a42411023e6698d9936e49fd417">00063</a>         <span class="keyword">typedef</span> TList <a class="code" href="class_loki_1_1_abstract_factory.html#ae0ac6a42411023e6698d9936e49fd417">ProductList</a>;
+<a name="l00064"></a>00064         
+<a name="l00065"></a><a class="code" href="class_loki_1_1_abstract_factory.html#a26ea4f1f3b4f447885bd28dc2a7792bd">00065</a>         <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt; T* <a class="code" href="class_loki_1_1_abstract_factory.html#a26ea4f1f3b4f447885bd28dc2a7792bd">Create</a>()
+<a name="l00066"></a>00066         {
+<a name="l00067"></a>00067             <a class="code" href="class_unit.html">Unit&lt;T&gt;</a>&amp; unit = *<span class="keyword">this</span>;
+<a name="l00068"></a>00068             <span class="keywordflow">return</span> unit.DoCreate(<a class="code" href="struct_loki_1_1_type2_type.html">Type2Type&lt;T&gt;</a>());
+<a name="l00069"></a>00069         }
+<a name="l00070"></a>00070     };
+<a name="l00071"></a>00071     
+<a name="l00073"></a>00073 <span class="comment">// class template OpNewFactoryUnit</span>
+<a name="l00074"></a>00074 <span class="comment">// Creates an object by invoking the new operator</span>
+<a name="l00076"></a>00076 <span class="comment"></span>
+<a name="l00077"></a>00077     <span class="keyword">template</span> &lt;<span class="keyword">class</span> ConcreteProduct, <span class="keyword">class</span> Base&gt;
+<a name="l00078"></a><a class="code" href="class_loki_1_1_op_new_factory_unit.html">00078</a>     <span class="keyword">class </span><a class="code" href="class_loki_1_1_op_new_factory_unit.html">OpNewFactoryUnit</a> : <span class="keyword">public</span> Base
+<a name="l00079"></a>00079     {
+<a name="l00080"></a>00080         <span class="keyword">typedef</span> <span class="keyword">typename</span> Base::ProductList BaseProductList;
+<a name="l00081"></a>00081     
+<a name="l00082"></a>00082     <span class="keyword">protected</span>:
+<a name="l00083"></a><a class="code" href="class_loki_1_1_op_new_factory_unit.html#ae6b4e1dba2211be1b23afaf9dfb5aac7">00083</a>         <span class="keyword">typedef</span> <span class="keyword">typename</span> BaseProductList::Tail <a class="code" href="class_loki_1_1_op_new_factory_unit.html#ae6b4e1dba2211be1b23afaf9dfb5aac7">ProductList</a>;
+<a name="l00084"></a>00084     
+<a name="l00085"></a>00085     <span class="keyword">public</span>:
+<a name="l00086"></a><a class="code" href="class_loki_1_1_op_new_factory_unit.html#a215f706251fe2c15c5b400ab32a0aa47">00086</a>         <span class="keyword">typedef</span> <span class="keyword">typename</span> BaseProductList::Head <a class="code" href="class_loki_1_1_op_new_factory_unit.html#a215f706251fe2c15c5b400ab32a0aa47">AbstractProduct</a>;
+<a name="l00087"></a><a class="code" href="class_loki_1_1_op_new_factory_unit.html#a6360ccfac2ae48378030729ecc220192">00087</a>         ConcreteProduct* <a class="code" href="class_loki_1_1_op_new_factory_unit.html#a6360ccfac2ae48378030729ecc220192">DoCreate</a>(<a class="code" href="struct_loki_1_1_type2_type.html">Type2Type&lt;AbstractProduct&gt;</a>)
+<a name="l00088"></a>00088         {
+<a name="l00089"></a>00089             <span class="keywordflow">return</span> <span class="keyword">new</span> ConcreteProduct;
+<a name="l00090"></a>00090         }
+<a name="l00091"></a>00091     };
+<a name="l00092"></a>00092 
+<a name="l00094"></a>00094 <span class="comment">// class template PrototypeFactoryUnit</span>
+<a name="l00095"></a>00095 <span class="comment">// Creates an object by cloning a prototype</span>
+<a name="l00096"></a>00096 <span class="comment">// There is a difference between the implementation herein and the one described</span>
+<a name="l00097"></a>00097 <span class="comment">//     in the book: GetPrototype and SetPrototype use the helper friend </span>
+<a name="l00098"></a>00098 <span class="comment">//     functions DoGetPrototype and DoSetPrototype. The friend functions avoid</span>
+<a name="l00099"></a>00099 <span class="comment">//     name hiding issues. Plus, GetPrototype takes a reference to pointer</span>
+<a name="l00100"></a>00100 <span class="comment">//     instead of returning the pointer by value.</span>
+<a name="l00102"></a>00102 <span class="comment"></span>
+<a name="l00103"></a>00103     <span class="keyword">template</span> &lt;<span class="keyword">class</span> ConcreteProduct, <span class="keyword">class</span> Base&gt;
+<a name="l00104"></a><a class="code" href="class_loki_1_1_prototype_factory_unit.html">00104</a>     <span class="keyword">class </span><a class="code" href="class_loki_1_1_prototype_factory_unit.html">PrototypeFactoryUnit</a> : <span class="keyword">public</span> Base
+<a name="l00105"></a>00105     {
+<a name="l00106"></a>00106         <span class="keyword">typedef</span> <span class="keyword">typename</span> Base::ProductList BaseProductList;
+<a name="l00107"></a>00107     
+<a name="l00108"></a>00108     <span class="keyword">protected</span>:
+<a name="l00109"></a><a class="code" href="class_loki_1_1_prototype_factory_unit.html#ad9d2dd4c0dd271ab0a124ae247f56cd7">00109</a>         <span class="keyword">typedef</span> <span class="keyword">typename</span> BaseProductList::Tail <a class="code" href="class_loki_1_1_prototype_factory_unit.html#ad9d2dd4c0dd271ab0a124ae247f56cd7">ProductList</a>;
+<a name="l00110"></a>00110 
+<a name="l00111"></a>00111     <span class="keyword">public</span>:
+<a name="l00112"></a><a class="code" href="class_loki_1_1_prototype_factory_unit.html#ae5366555c93afd2f58759dd353070a0d">00112</a>         <span class="keyword">typedef</span> <span class="keyword">typename</span> BaseProductList::Head <a class="code" href="class_loki_1_1_prototype_factory_unit.html#ae5366555c93afd2f58759dd353070a0d">AbstractProduct</a>;
+<a name="l00113"></a>00113 
+<a name="l00114"></a><a class="code" href="class_loki_1_1_prototype_factory_unit.html#a29a2ef1d4bfc3aa11546296cec26bd08">00114</a>         <a class="code" href="class_loki_1_1_prototype_factory_unit.html#a29a2ef1d4bfc3aa11546296cec26bd08">PrototypeFactoryUnit</a>(<a class="code" href="class_loki_1_1_prototype_factory_unit.html#ae5366555c93afd2f58759dd353070a0d">AbstractProduct</a>* <a class="code" href="namespaceigrf.html#a9b0d3a2208a4bd2bf3982ee85d905d5a">p</a> = 0)
+<a name="l00115"></a>00115             : pPrototype_(<a class="code" href="namespaceigrf.html#a9b0d3a2208a4bd2bf3982ee85d905d5a">p</a>)
+<a name="l00116"></a>00116         {}
+<a name="l00117"></a>00117         
+<a name="l00118"></a><a class="code" href="class_loki_1_1_prototype_factory_unit.html#a0facf1243b76e66d14e46718602d991d">00118</a>         <span class="keyword">friend</span> <span class="keywordtype">void</span> <a class="code" href="class_loki_1_1_prototype_factory_unit.html#a0facf1243b76e66d14e46718602d991d">DoGetPrototype</a>(<span class="keyword">const</span> <a class="code" href="class_loki_1_1_prototype_factory_unit.html">PrototypeFactoryUnit</a>&amp; me,
+<a name="l00119"></a>00119             <a class="code" href="class_loki_1_1_prototype_factory_unit.html#ae5366555c93afd2f58759dd353070a0d">AbstractProduct</a>*&amp; pPrototype)
+<a name="l00120"></a>00120         { pPrototype = me.pPrototype_; }
+<a name="l00121"></a>00121         
+<a name="l00122"></a><a class="code" href="class_loki_1_1_prototype_factory_unit.html#a4bcfda4fe297c17a72eea8cc8a090403">00122</a>         <span class="keyword">friend</span> <span class="keywordtype">void</span> <a class="code" href="class_loki_1_1_prototype_factory_unit.html#a4bcfda4fe297c17a72eea8cc8a090403">DoSetPrototype</a>(<a class="code" href="class_loki_1_1_prototype_factory_unit.html">PrototypeFactoryUnit</a>&amp; me, 
+<a name="l00123"></a>00123             <a class="code" href="class_loki_1_1_prototype_factory_unit.html#ae5366555c93afd2f58759dd353070a0d">AbstractProduct</a>* pObj)
+<a name="l00124"></a>00124         { me.pPrototype_ = pObj; }
+<a name="l00125"></a>00125         
+<a name="l00126"></a>00126         <span class="keyword">template</span> &lt;<span class="keyword">class</span> U&gt;
+<a name="l00127"></a><a class="code" href="class_loki_1_1_prototype_factory_unit.html#a257793a84798e0646ddee13fd4ee422c">00127</a>         <span class="keywordtype">void</span> <a class="code" href="class_loki_1_1_prototype_factory_unit.html#a257793a84798e0646ddee13fd4ee422c">GetPrototype</a>(<a class="code" href="class_loki_1_1_prototype_factory_unit.html#ae5366555c93afd2f58759dd353070a0d">AbstractProduct</a>*&amp; <a class="code" href="namespaceigrf.html#a9b0d3a2208a4bd2bf3982ee85d905d5a">p</a>)
+<a name="l00128"></a>00128         { <span class="keywordflow">return</span> <a class="code" href="class_loki_1_1_prototype_factory_unit.html#a0facf1243b76e66d14e46718602d991d">DoGetPrototype</a>(*<span class="keyword">this</span>, p); }
+<a name="l00129"></a>00129         
+<a name="l00130"></a>00130         <span class="keyword">template</span> &lt;<span class="keyword">class</span> U&gt;
+<a name="l00131"></a><a class="code" href="class_loki_1_1_prototype_factory_unit.html#a72a370b916607ab58b804524449ec706">00131</a>         <span class="keywordtype">void</span> <a class="code" href="class_loki_1_1_prototype_factory_unit.html#a72a370b916607ab58b804524449ec706">SetPrototype</a>(U* pObj)
+<a name="l00132"></a>00132         { <a class="code" href="class_loki_1_1_prototype_factory_unit.html#a4bcfda4fe297c17a72eea8cc8a090403">DoSetPrototype</a>(*<span class="keyword">this</span>, pObj); }
+<a name="l00133"></a>00133         
+<a name="l00134"></a><a class="code" href="class_loki_1_1_prototype_factory_unit.html#aa11f4ee1a6daed58b20ddb8ae9056736">00134</a>         <a class="code" href="class_loki_1_1_prototype_factory_unit.html#ae5366555c93afd2f58759dd353070a0d">AbstractProduct</a>* <a class="code" href="class_loki_1_1_prototype_factory_unit.html#aa11f4ee1a6daed58b20ddb8ae9056736">DoCreate</a>(<a class="code" href="struct_loki_1_1_type2_type.html">Type2Type&lt;AbstractProduct&gt;</a>)
+<a name="l00135"></a>00135         {
+<a name="l00136"></a>00136             assert(pPrototype_);
+<a name="l00137"></a>00137             <span class="keywordflow">return</span> pPrototype_-&gt;Clone();
+<a name="l00138"></a>00138         }
+<a name="l00139"></a>00139         
+<a name="l00140"></a>00140     <span class="keyword">private</span>:
+<a name="l00141"></a>00141         <a class="code" href="class_loki_1_1_prototype_factory_unit.html#ae5366555c93afd2f58759dd353070a0d">AbstractProduct</a>* pPrototype_;
+<a name="l00142"></a>00142     };
+<a name="l00143"></a>00143 
+<a name="l00145"></a>00145 <span class="comment">// class template ConcreteFactory</span>
+<a name="l00146"></a>00146 <span class="comment">// Implements an AbstractFactory interface</span>
+<a name="l00148"></a>00148 <span class="comment"></span>
+<a name="l00149"></a>00149     <span class="keyword">template</span>
+<a name="l00150"></a>00150     &lt;
+<a name="l00151"></a>00151         <span class="keyword">class </span>AbstractFact,
+<a name="l00152"></a>00152         <span class="keyword">template</span> &lt;<span class="keyword">class</span>, <span class="keyword">class</span>&gt; <span class="keyword">class </span>Creator = OpNewFactoryUnit,
+<a name="l00153"></a>00153         <span class="keyword">class </span>TList = <span class="keyword">typename</span> AbstractFact::ProductList
+<a name="l00154"></a>00154     &gt;
+<a name="l00155"></a><a class="code" href="class_loki_1_1_concrete_factory.html">00155</a>     <span class="keyword">class </span><a class="code" href="class_loki_1_1_concrete_factory.html">ConcreteFactory</a>
+<a name="l00156"></a>00156         : <span class="keyword">public</span> GenLinearHierarchy&lt;
+<a name="l00157"></a>00157             typename TL::Reverse&lt;TList&gt;::Result, Creator, AbstractFact&gt;
+<a name="l00158"></a>00158     {
+<a name="l00159"></a>00159     <span class="keyword">public</span>:
+<a name="l00160"></a><a class="code" href="class_loki_1_1_concrete_factory.html#a85685f149ffa8f7263c3d44eb18191e4">00160</a>         <span class="keyword">typedef</span> <span class="keyword">typename</span> AbstractFact::ProductList <a class="code" href="class_loki_1_1_concrete_factory.html#a85685f149ffa8f7263c3d44eb18191e4">ProductList</a>;
+<a name="l00161"></a><a class="code" href="class_loki_1_1_concrete_factory.html#a5cbb31503b9d6ad9c801b7c3e91d0de7">00161</a>         <span class="keyword">typedef</span> TList <a class="code" href="class_loki_1_1_concrete_factory.html#a5cbb31503b9d6ad9c801b7c3e91d0de7">ConcreteProductList</a>;
+<a name="l00162"></a>00162     };
+<a name="l00163"></a>00163 
+<a name="l00164"></a>00164 } <span class="comment">// namespace Loki</span>
+<a name="l00165"></a>00165 
+<a name="l00167"></a>00167 <span class="comment">// Change log:</span>
+<a name="l00168"></a>00168 <span class="comment">// June 20, 2001: ported by Nick Thurn to gcc 2.95.3. Kudos, Nick!!!</span>
+<a name="l00170"></a>00170 <span class="comment"></span>
+<a name="l00171"></a>00171 <span class="preprocessor">#endif // ABSTRACTFACTORY_INC_</span>
+</pre></div></div>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>フレンド</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>マクロ定義</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>STFに対してTue Mar 1 2011 03:45:43に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
+</body>
+</html>

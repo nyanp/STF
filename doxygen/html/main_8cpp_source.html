@@ -1,0 +1,253 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>STF: main.cpp ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.3 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">STF</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="pages.html"><span>関連ページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>ファイルメンバ</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<h1>main.cpp</h1>  </div>
+</div>
+<div class="contents">
+<a href="main_8cpp.html">説明を見る。</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#include&lt;iostream&gt;</span>
+<a name="l00002"></a>00002 <span class="preprocessor">#include&lt;fstream&gt;</span>
+<a name="l00003"></a>00003 <span class="preprocessor">#include&lt;vector&gt;</span>
+<a name="l00004"></a>00004 <span class="preprocessor">#include &quot;<a class="code" href="_ostream_8h.html" title="標準出力のラッパ．">stf/util/Ostream.h</a>&quot;</span>
+<a name="l00005"></a>00005 
+<a name="l00006"></a>00006 <span class="comment">//#include &quot;stf/core/strategy/control/Includes.h&quot;</span>
+<a name="l00007"></a>00007 <span class="preprocessor">#include &quot;<a class="code" href="_global_object_8h.html" title="RTOSとのインターフェースとなる，衛星アプリケーションが生成するオブジェクト群の基底クラス．">stf/GlobalObject.h</a>&quot;</span>
+<a name="l00008"></a>00008 <span class="preprocessor">#include &quot;<a class="code" href="_instance_i_d_8h.html" title="インスタンスIDの定義を行うマクロ群．">stf/InstanceID.h</a>&quot;</span>
+<a name="l00009"></a>00009 
+<a name="l00010"></a>00010 <span class="preprocessor">#include &quot;<a class="code" href="_null_env_8h.html" title="空の環境クラス．">stf/environment/NullEnv.h</a>&quot;</span>
+<a name="l00011"></a>00011 <span class="preprocessor">#include &quot;<a class="code" href="_simulator_8h.html" title="ソフトウェアシミュレータ環境クラス．">stf/environment/Simulator.h</a>&quot;</span>
+<a name="l00012"></a>00012 <span class="preprocessor">#include &quot;<a class="code" href="_impulse_noise_8h.html" title="インパルスノイズを発生させるトルク源．">stf/environment/torquesource/ImpulseNoise.h</a>&quot;</span>
+<a name="l00013"></a>00013 <span class="preprocessor">#include &quot;<a class="code" href="_white_noise_8h.html" title="ホワイトノイズを発生させるトルク源．">stf/environment/torquesource/WhiteNoise.h</a>&quot;</span>
+<a name="l00014"></a>00014 
+<a name="l00015"></a>00015 <span class="preprocessor">#include &quot;<a class="code" href="_mode_base_8h.html" title="モードの基底クラス．">stf/core/mode/ModeBase.h</a>&quot;</span>
+<a name="l00016"></a>00016 
+<a name="l00017"></a>00017 <span class="preprocessor">#include &quot;<a class="code" href="_subject_base_8h.html" title="Observerパターンの構成テンプレートクラス群．">stf/core/event/SubjectBase.h</a>&quot;</span>
+<a name="l00018"></a>00018 <span class="preprocessor">#include &quot;<a class="code" href="_mode_change_event_8h.html" title="モード変更イベント．">stf/core/event/ModeChangeEvent.h</a>&quot;</span>
+<a name="l00019"></a>00019 <span class="preprocessor">#include &quot;<a class="code" href="_command_event_8h.html" title="コマンド実行イベント．">stf/core/event/CommandEvent.h</a>&quot;</span>
+<a name="l00020"></a>00020 <span class="preprocessor">#include &quot;<a class="code" href="manager_2_includes_8h.html">stf/core/manager/Includes.h</a>&quot;</span>
+<a name="l00021"></a>00021 <span class="preprocessor">#include &quot;<a class="code" href="core_2functor_2_functor_8h.html">stf/core/functor/Functor.h</a>&quot;</span>
+<a name="l00022"></a>00022 <span class="preprocessor">#include &quot;<a class="code" href="_mode_change_command_8h.html" title="モード変更を行うコマンド．">stf/core/command/ModeChangeCommand.h</a>&quot;</span>
+<a name="l00023"></a>00023 
+<a name="l00024"></a>00024 <span class="preprocessor">#include &quot;<a class="code" href="math_8h.html" title="数学系関数のラッパと算術定数の定義．">stf/util/math.h</a>&quot;</span>
+<a name="l00025"></a>00025 <span class="preprocessor">#include &quot;<a class="code" href="_trace_8h.html" title="STFの内部状態を外部ファイルに書き出すためのトレースオブジェクト．">stf/util/Trace.h</a>&quot;</span>
+<a name="l00026"></a>00026 <span class="preprocessor">#include &quot;<a class="code" href="_datapool_8h.html" title="STF生成データにタイムタグを付加して格納するデータプール． データの配列を保持するTupleと，Tupleの配列を保持するデータプールによって テーブル形式のデータ構造を表現する．">stf/core/datapool/Datapool.h</a>&quot;</span>
+<a name="l00027"></a>00027 <span class="preprocessor">#include &quot;<a class="code" href="devicedriver_2_includes_8h.html">stf/core/devicedriver/Includes.h</a>&quot;</span>
+<a name="l00028"></a>00028 <span class="preprocessor">#include &quot;<a class="code" href="_i_aocs_data_8h.html" title="AOCS使用系列のデータ共通の抽象インターフェース．">stf/datatype/IAocsData.h</a>&quot;</span>
+<a name="l00029"></a>00029 <span class="preprocessor">#include &quot;<a class="code" href="_type_converter_8h.html" title="単位や姿勢表現の相互変換を行うユーティリティ．">stf/datatype/TypeConverter.h</a>&quot;</span>
+<a name="l00030"></a>00030 <span class="preprocessor">#include &quot;<a class="code" href="_quaternion_8h.html" title="4元数を表現するクラス．">stf/datatype/Quaternion.h</a>&quot;</span>
+<a name="l00031"></a>00031 <span class="preprocessor">#include &quot;<a class="code" href="_euler_angle_8h.html" title="z-y-xオイラー角(rad)．">stf/datatype/EulerAngle.h</a>&quot;</span>
+<a name="l00032"></a>00032 <span class="preprocessor">#include &quot;<a class="code" href="_d_c_m_8h.html" title="Z-Y-Xの順で回転させる回転行列（DCM）．">stf/datatype/DCM.h</a>&quot;</span>
+<a name="l00033"></a>00033 <span class="preprocessor">#include &quot;<a class="code" href="_type_converter_8h.html" title="単位や姿勢表現の相互変換を行うユーティリティ．">stf/datatype/TypeConverter.h</a>&quot;</span>
+<a name="l00034"></a>00034 <span class="preprocessor">#include &quot;<a class="code" href="_static_vector_8h.html" title="テンプレートを用いた固定要素数のベクトル計算クラス">stf/datatype/StaticVector.h</a>&quot;</span>
+<a name="l00035"></a>00035 <span class="preprocessor">#include &quot;<a class="code" href="_static_matrix_8h.html" title="テンプレートを用いた固定要素数の行列計算クラス">stf/datatype/StaticMatrix.h</a>&quot;</span>
+<a name="l00036"></a>00036 <span class="preprocessor">#include &quot;<a class="code" href="_datapool_8h.html" title="STF生成データにタイムタグを付加して格納するデータプール． データの配列を保持するTupleと，Tupleの配列を保持するデータプールによって テーブル形式のデータ構造を表現する．">stf/core/datapool/Datapool.h</a>&quot;</span>
+<a name="l00037"></a>00037 <span class="preprocessor">#include &quot;<a class="code" href="_c_d_h_component_8h.html" title="AD変換器や温度計など，複数のセンサを一括して取り扱うコンポーネントの基底クラス．">stf/core/devicedriver/CDHComponent.h</a>&quot;</span>
+<a name="l00038"></a>00038 <span class="preprocessor">#include &quot;<a class="code" href="_hierarchy_generators_8h.html">stf/util/loki/HierarchyGenerators.h</a>&quot;</span>
+<a name="l00039"></a>00039 <span class="preprocessor">#include &quot;<a class="code" href="_i_o_port_8h.html" title="他機器との接続を型に基づいて行うための入出力ポート．">stf/core/devicedriver/IOPort.h</a>&quot;</span>
+<a name="l00040"></a>00040 <span class="preprocessor">#include &quot;<a class="code" href="_p_r_i_s_m_factory_8h.html">stf/satellite/PRISMFactory.h</a>&quot;</span>
+<a name="l00041"></a>00041 <span class="preprocessor">#include &quot;<a class="code" href="_n_j_factory_8h.html">stf/satellite/NJFactory.h</a>&quot;</span>
+<a name="l00042"></a>00042 <span class="preprocessor">#include &quot;<a class="code" href="_simple_satellite_factory_8h.html" title="SimpleSatellite�p�̋�ۃt�@�N�g���D">stf/satellite/SimpleSatelliteFactory.h</a>&quot;</span>
+<a name="l00043"></a>00043 <span class="preprocessor">#include &quot;<a class="code" href="_exp_8h.html" title="行列の指数関数を計算する関数．">stf/util/math/Exp.h</a>&quot;</span>
+<a name="l00044"></a>00044 
+<a name="l00045"></a>00045 <span class="preprocessor">#include &quot;<a class="code" href="iodefine_8h.html" title="SH7145FのIOレジスタ定義．">stf/environment/sh/iodefine.h</a>&quot;</span>
+<a name="l00046"></a>00046 <span class="preprocessor">#include &quot;<a class="code" href="_iterator_8h.html" title="STFが提供するイテレータとその抽象インターフェース．">stf/interface/Iterator.h</a>&quot;</span>
+<a name="l00047"></a>00047 <span class="preprocessor">#include &quot;stf/satellite/PRISM/PRISMIterator.h&quot;</span>
+<a name="l00048"></a>00048 
+<a name="l00049"></a>00049 
+<a name="l00050"></a>00050 <span class="keyword">using namespace </span>stf;
+<a name="l00051"></a>00051 <span class="keyword">using namespace </span>stf::core;
+<a name="l00052"></a>00052 <span class="keyword">using namespace </span>stf::core::devicedriver;
+<a name="l00053"></a>00053 <span class="keyword">using</span> <a class="code" href="namespacestf_1_1util.html#abc86bcf81e6b88adfc6625c3f0645d03">stf::util::cout</a>;
+<a name="l00054"></a>00054 <span class="keyword">using</span> <a class="code" href="classstf_1_1datatype_1_1_type_converter.html" title="単位や姿勢表現の相互変換を行うユーティリティ．">datatype::TypeConverter</a>;
+<a name="l00055"></a>00055 
+<a name="l00056"></a>00056 
+<a name="l00057"></a><a class="code" href="class_s_p_i_base.html">00057</a> <span class="keyword">class </span><a class="code" href="class_s_p_i_base.html">SPIBase</a> {
+<a name="l00058"></a>00058 <span class="keyword">public</span>:
+<a name="l00059"></a><a class="code" href="class_s_p_i_base.html#a5b7343c1c343c9176ca606900eb30089">00059</a>         <span class="keywordtype">void</span> <a class="code" href="class_s_p_i_base.html#a5b7343c1c343c9176ca606900eb30089">send</a>(<span class="keywordtype">char</span>* s){}
+<a name="l00060"></a>00060 };
+<a name="l00061"></a>00061 
+<a name="l00062"></a><a class="code" href="struct_h_w.html">00062</a> <span class="keyword">struct </span><a class="code" href="struct_h_w.html">HW</a> {
+<a name="l00063"></a><a class="code" href="struct_h_w_1_1_s_t_t_p_x.html">00063</a> <span class="keyword">struct </span><a class="code" href="struct_h_w_1_1_s_t_t_p_x.html">STTPX</a> {
+<a name="l00064"></a><a class="code" href="struct_h_w_1_1_s_t_t_p_x_1_1_s_p_i.html">00064</a>         <span class="keyword">struct </span><a class="code" href="struct_h_w_1_1_s_t_t_p_x_1_1_s_p_i.html">SPI</a>{
+<a name="l00065"></a><a class="code" href="struct_h_w_1_1_s_t_t_p_x_1_1_s_p_i.html#a92184a97ff6738a78dc74ecbd09bc1cd">00065</a>                 <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> BAUDRATE = 9600;
+<a name="l00066"></a><a class="code" href="struct_h_w_1_1_s_t_t_p_x_1_1_s_p_i.html#aa9a8452fd8e1dcbf660ac12bef58219d">00066</a>                 <span class="keyword">enum</span> <a class="code" href="struct_h_w_1_1_s_t_t_p_x_1_1_s_p_i.html#aa9a8452fd8e1dcbf660ac12bef58219d">IO</a>{
+<a name="l00067"></a><a class="code" href="struct_h_w_1_1_s_t_t_p_x_1_1_s_p_i.html#aa9a8452fd8e1dcbf660ac12bef58219da9913eeed94b2ef257aedb96ce2e004b8">00067</a>                         MOSI = 1,
+<a name="l00068"></a><a class="code" href="struct_h_w_1_1_s_t_t_p_x_1_1_s_p_i.html#aa9a8452fd8e1dcbf660ac12bef58219dafd2656c44a5de8a07fad13f5774caa82">00068</a>                         MISO = 2
+<a name="l00069"></a>00069                 };
+<a name="l00070"></a>00070         };
+<a name="l00071"></a><a class="code" href="struct_h_w_1_1_s_t_t_p_x.html#afa91dc9d148191f39e54492c00c54fd1">00071</a>         <span class="keyword">enum</span> <a class="code" href="struct_h_w_1_1_s_t_t_p_x.html#afa91dc9d148191f39e54492c00c54fd1">GPIO</a>{
+<a name="l00072"></a><a class="code" href="struct_h_w_1_1_s_t_t_p_x.html#afa91dc9d148191f39e54492c00c54fd1ad63bc453cc2abe4e7f238f1857e50e19">00072</a>                 BASEADDR = 1
+<a name="l00073"></a>00073 
+<a name="l00074"></a>00074         };
+<a name="l00075"></a>00075 };
+<a name="l00076"></a><a class="code" href="struct_h_w_1_1_r_w.html">00076</a> <span class="keyword">struct </span><a class="code" href="struct_h_w_1_1_r_w.html">RW</a> {
+<a name="l00077"></a><a class="code" href="struct_h_w_1_1_r_w.html#a0daab943a8972a007bc43f87c3c46c59">00077</a>         <span class="keyword">enum</span> <a class="code" href="struct_h_w_1_1_r_w.html#a0daab943a8972a007bc43f87c3c46c59">SPI</a>{
+<a name="l00078"></a><a class="code" href="struct_h_w_1_1_r_w.html#a0daab943a8972a007bc43f87c3c46c59aefd5a55d28c9000cacdde72ec6e90fd0">00078</a>                 MOSI = 3,
+<a name="l00079"></a><a class="code" href="struct_h_w_1_1_r_w.html#a0daab943a8972a007bc43f87c3c46c59a4c0e6a1244256b1f4cafdf3e0388ff36">00079</a>                 MISO = 4
+<a name="l00080"></a>00080         };
+<a name="l00081"></a><a class="code" href="struct_h_w_1_1_r_w.html#aa0537e531ca3f6d41181eece24e291be">00081</a>         <span class="keyword">enum</span> <a class="code" href="struct_h_w_1_1_r_w.html#aa0537e531ca3f6d41181eece24e291be">GPIO</a>{
+<a name="l00082"></a><a class="code" href="struct_h_w_1_1_r_w.html#aa0537e531ca3f6d41181eece24e291beaaad30dede7e4aa0c66ae17cd40154ae0">00082</a>                 ENABLE = 4
+<a name="l00083"></a>00083         };
+<a name="l00084"></a>00084 };
+<a name="l00085"></a>00085 };
+<a name="l00086"></a>00086 
+<a name="l00087"></a><a class="code" href="class_h8.html">00087</a> <span class="keyword">class </span><a class="code" href="class_h8.html">H8</a> {
+<a name="l00088"></a>00088 <span class="keyword">public</span>:
+<a name="l00089"></a><a class="code" href="class_h8_1_1_s_p_i.html">00089</a>         <span class="keyword">class </span><a class="code" href="class_h8_1_1_s_p_i.html">SPI</a> : <span class="keyword">public</span> <a class="code" href="class_s_p_i_base.html">SPIBase</a>{
+<a name="l00090"></a>00090         <span class="keyword">public</span>:
+<a name="l00091"></a><a class="code" href="class_h8_1_1_s_p_i.html#a2e6085f4313fee00cd908d93738e92d5">00091</a>                 <a class="code" href="class_h8_1_1_s_p_i.html#a2e6085f4313fee00cd908d93738e92d5">SPI</a>(<span class="keywordtype">int</span> baseaddr, <span class="keywordtype">int</span> baudrate, <span class="keywordtype">int</span> <a class="code" href="namespacenj.html#a5ff675c2521e44d40530ddfdb7661279">mode</a>){}
+<a name="l00092"></a>00092         };
+<a name="l00093"></a><a class="code" href="class_h8_1_1_g_p_i_o.html">00093</a>         <span class="keyword">class </span><a class="code" href="class_h8_1_1_g_p_i_o.html">GPIO</a>{
+<a name="l00094"></a>00094         <span class="keyword">public</span>:
+<a name="l00095"></a><a class="code" href="class_h8_1_1_g_p_i_o.html#ac40c3ce11fc4ca72722d3d1052f3a05b">00095</a>                 <a class="code" href="class_h8_1_1_g_p_i_o.html#ac40c3ce11fc4ca72722d3d1052f3a05b">GPIO</a>(<span class="keywordtype">int</span> baseaddr){}
+<a name="l00096"></a>00096         };
+<a name="l00097"></a>00097 
+<a name="l00098"></a>00098 };
+<a name="l00099"></a>00099 
+<a name="l00100"></a>00100 
+<a name="l00101"></a><a class="code" href="main_8cpp.html#a840291bc02cba5474a4cb46a9b9566fe">00101</a> <span class="keywordtype">int</span> <a class="code" href="main_8cpp.html#a840291bc02cba5474a4cb46a9b9566fe">main</a>(<span class="keywordtype">void</span>){
+<a name="l00102"></a>00102         <a class="code" href="classstf_1_1datatype_1_1_scalar.html" title="スカラー物理量を表現するクラス．">datatype::Scalar</a> target;
+<a name="l00103"></a>00103         <a class="code" href="classstf_1_1core_1_1strategy_1_1control_1_1_single_axis_p_i_d.html" title="Scalarを目標値に近づける単純な1次元PID制御ブロック．">strategy::control::SingleAxisPID</a> pid(0, 1, 0, 0, 0, target);
+<a name="l00104"></a>00104         <a class="code" href="classstf_1_1core_1_1devicedriver_1_1rw_1_1_r_w.html" title="ソフトウェアシミュレーションレベルで動作するRWドライバ．">devicedriver::rw::RW&lt;ENV&gt;</a> rw(0, <a class="code" href="classstf_1_1datatype_1_1_type_converter.html#a85af9eb2766a25adeadb507332d01e73">datatype::TypeConverter::toDCM</a>(0,0,0) );
+<a name="l00105"></a>00105         <a class="code" href="classstf_1_1core_1_1strategy_1_1control_1_1_control_block.html" title="制御ネットワークのラッパーとなるスーパーブロック．">strategy::control::ControlBlock</a> cb(0, &amp;pid, &amp;rw);
+<a name="l00106"></a>00106 
+<a name="l00107"></a>00107         <a class="code" href="namespacenj.html#a1315aeb00b0bc385e17969b43e76d71e" title="DAC個別有効化メソッド">util::Trace::enable</a>(<a class="code" href="classstf_1_1util_1_1_trace.html#a7cce9d9f41332a3fd076bd10605f0139a3bbeef121c3414004812b150fa357683" title="機能マネージャ">util::Trace::kManager</a>);
+<a name="l00108"></a>00108         <a class="code" href="namespacenj.html#a1315aeb00b0bc385e17969b43e76d71e" title="DAC個別有効化メソッド">util::Trace::enable</a>(<a class="code" href="classstf_1_1util_1_1_trace.html#a7cce9d9f41332a3fd076bd10605f0139a6bc94181cbe2d8decbe2b44b8cf8d5c9" title="姿勢制御ブロック">util::Trace::kControlBlock</a>);
+<a name="l00109"></a>00109         <a class="code" href="namespacenj.html#a1315aeb00b0bc385e17969b43e76d71e" title="DAC個別有効化メソッド">util::Trace::enable</a>(<a class="code" href="classstf_1_1util_1_1_trace.html#a7cce9d9f41332a3fd076bd10605f0139ae15ae4b9bbd28c37c2862f22aafb1814" title="コマンド処理">util::Trace::kCommand</a>);
+<a name="l00110"></a>00110         <a class="code" href="namespacenj.html#a1315aeb00b0bc385e17969b43e76d71e" title="DAC個別有効化メソッド">util::Trace::enable</a>(<a class="code" href="classstf_1_1util_1_1_trace.html#a7cce9d9f41332a3fd076bd10605f0139a55f8d1065e4de8e2167370ca4f340021" title="イベント">util::Trace::kEvent</a>);
+<a name="l00111"></a>00111         <a class="code" href="namespacenj.html#a1315aeb00b0bc385e17969b43e76d71e" title="DAC個別有効化メソッド">util::Trace::enable</a>(<a class="code" href="classstf_1_1util_1_1_trace.html#a7cce9d9f41332a3fd076bd10605f0139a2047dcafc0b8eafc0a970c21f5386105" title="データプール書き込み">util::Trace::kDataPool</a>);
+<a name="l00112"></a>00112 
+<a name="l00113"></a>00113         <a class="code" href="classstf_1_1util_1_1_trace.html" title="標準出力のラッパ．">util::Trace</a> tr(<a class="code" href="classstf_1_1util_1_1_trace.html#a7cce9d9f41332a3fd076bd10605f0139a3bbeef121c3414004812b150fa357683" title="機能マネージャ">util::Trace::kManager</a>, <span class="stringliteral">&quot;man&quot;</span>);
+<a name="l00114"></a>00114 
+<a name="l00115"></a>00115         <span class="keyword">typedef</span> <a class="code" href="classstf_1_1core_1_1devicedriver_1_1_composite_output.html" title="AOCSActuatorの集合体を表すクラス．">devicedriver::CompositeOutput&lt;devicedriver::mtq::MTQ&lt;ENV&gt;</a>, 3&gt; ThreeAxisMTQ;
+<a name="l00116"></a>00116         <span class="keyword">typedef</span> <a class="code" href="classstf_1_1core_1_1devicedriver_1_1_composite_output.html" title="AOCSActuatorの集合体を表すクラス．">devicedriver::CompositeOutput&lt;devicedriver::rw::RW&lt;ENV&gt;</a>, 4&gt; SkewRW;
+<a name="l00117"></a>00117         <span class="keyword">typedef</span> <a class="code" href="classstf_1_1core_1_1devicedriver_1_1_composite_input.html" title="AOCSSensorの集合体を表すクラス．">devicedriver::CompositeInput&lt;devicedriver::gyro::Gyro&lt;ENV&gt;</a>, 3&gt; ThreeAxisGyro;
+<a name="l00118"></a>00118         <span class="keyword">typedef</span> <a class="code" href="classstf_1_1core_1_1devicedriver_1_1_composite_input.html" title="AOCSSensorの集合体を表すクラス．">devicedriver::CompositeInput&lt;devicedriver::stt::STT&lt;ENV&gt;</a>, 2&gt; TwoAxisSTT;
+<a name="l00119"></a>00119         <span class="keyword">typedef</span> <a class="code" href="classstf_1_1core_1_1devicedriver_1_1_composite_input.html" title="AOCSSensorの集合体を表すクラス．">devicedriver::CompositeInput&lt;devicedriver::sunsensor::SunSensor&lt;ENV&gt;</a>, 6&gt; SixAxisSS;
+<a name="l00120"></a>00120         <span class="keyword">typedef</span> <a class="code" href="classstf_1_1core_1_1devicedriver_1_1gyro_1_1_gyro.html" title="ソフトウェアシミュレーションレベルで動作するジャイロセンサドライバ．">devicedriver::gyro::Gyro&lt;ENV&gt;</a> GYRO;
+<a name="l00121"></a>00121         <span class="keyword">typedef</span> <a class="code" href="classstf_1_1core_1_1devicedriver_1_1stt_1_1_s_t_t.html" title="ソフトウェアシミュレーションレベルで動作するスターセンサドライバ．">devicedriver::stt::STT&lt;ENV&gt;</a> STT;
+<a name="l00122"></a>00122         <span class="keyword">typedef</span> <a class="code" href="classstf_1_1core_1_1devicedriver_1_1mtq_1_1_m_t_q.html" title="ソフトウェアシミュレーションレベルで動作する磁気トルカドライバ．">devicedriver::mtq::MTQ&lt;ENV&gt;</a> MTQ;
+<a name="l00123"></a>00123         <span class="keyword">typedef</span> <a class="code" href="classstf_1_1core_1_1devicedriver_1_1sunsensor_1_1_sun_sensor.html" title="ソフトウェアシミュレーションレベルで動作する太陽センサドライバ．">devicedriver::sunsensor::SunSensor&lt;ENV&gt;</a> SS;
+<a name="l00124"></a>00124         <span class="keyword">typedef</span> <a class="code" href="classstf_1_1core_1_1devicedriver_1_1rw_1_1_r_w.html" title="ソフトウェアシミュレーションレベルで動作するRWドライバ．">devicedriver::rw::RW&lt;ENV&gt;</a> RW;
+<a name="l00125"></a>00125 
+<a name="l00126"></a>00126         <a class="code" href="namespacestf_1_1util.html#abc86bcf81e6b88adfc6625c3f0645d03">std::cout</a> &lt;&lt; <span class="stringliteral">&quot;AOCS Framework Test Program:\n\n&quot;</span>;
+<a name="l00127"></a>00127         std::cout &lt;&lt; Conversion&lt;int, double&gt;::exists &lt;&lt; <a class="code" href="namespacestf_1_1util.html#a057756069e48d361fcd1748792afe316">std::endl</a>;
+<a name="l00128"></a>00128         std::cout &lt;&lt; Conversion&lt;char*, double&gt;::exists &lt;&lt; <a class="code" href="namespacestf_1_1util.html#a057756069e48d361fcd1748792afe316">std::endl</a>;
+<a name="l00129"></a>00129 
+<a name="l00130"></a>00130         <span class="comment">//stf::factory::SatelliteFactory&lt;ENV&gt;* en = new ();</span>
+<a name="l00131"></a>00131         <a class="code" href="classstf_1_1factory_1_1_p_r_i_s_m_factory.html">stf::factory::PRISMFactory&lt;ENV&gt;</a>&amp; factory = <a class="code" href="classstf_1_1factory_1_1_p_r_i_s_m_factory.html">stf::factory::PRISMFactory&lt;ENV&gt;::getInstance</a>();
+<a name="l00132"></a>00132         <a class="code" href="classstf_1_1_global.html" title="RTOSとのインターフェースとなる，衛星アプリケーションが生成するオブジェクト群の基底クラス．">stf::Global&lt;ENV&gt;</a>* gl = factory.<a class="code" href="classstf_1_1factory_1_1_satellite_factory.html#a6a55107b7ba72f0915f267be443579b0">create</a>();
+<a name="l00133"></a>00133 
+<a name="l00134"></a>00134         <span class="comment">//stf::factory::SatelliteFactory&lt;ENV&gt;* en2 = new stf::factory::NJFactory&lt;ENV&gt;();</span>
+<a name="l00135"></a>00135         <a class="code" href="classstf_1_1_global.html" title="RTOSとのインターフェースとなる，衛星アプリケーションが生成するオブジェクト群の基底クラス．">stf::Global&lt;ENV&gt;</a>* gl2 = <a class="code" href="classstf_1_1factory_1_1_n_j_factory.html">stf::factory::NJFactory&lt;ENV&gt;::getInstance</a>().<a class="code" href="classstf_1_1factory_1_1_satellite_factory.html#a6a55107b7ba72f0915f267be443579b0">create</a>();
+<a name="l00136"></a>00136 
+<a name="l00137"></a>00137         <span class="comment">//stf::factory::SatelliteFactory&lt;ENV&gt;* en3 = new stf::factory::SimpleSatelliteFactory&lt;ENV&gt;();</span>
+<a name="l00138"></a>00138         <a class="code" href="classstf_1_1_global.html" title="RTOSとのインターフェースとなる，衛星アプリケーションが生成するオブジェクト群の基底クラス．">stf::Global&lt;ENV&gt;</a>* gl3 = <a class="code" href="classstf_1_1factory_1_1_simple_satellite_factory.html">stf::factory::SimpleSatelliteFactory&lt;ENV&gt;::getInstance</a>().<a class="code" href="classstf_1_1factory_1_1_satellite_factory.html#a6a55107b7ba72f0915f267be443579b0">create</a>();
+<a name="l00139"></a>00139 
+<a name="l00140"></a>00140         <a class="code" href="classstf_1_1_global.html" title="RTOSとのインターフェースとなる，衛星アプリケーションが生成するオブジェクト群の基底クラス．">stf::Global&lt;ENV&gt;</a>* gl4 = <a class="code" href="classstf_1_1factory_1_1_simple_satellite_factory.html">stf::factory::SimpleSatelliteFactory&lt;ENV&gt;::getInstance</a>().<a class="code" href="classstf_1_1factory_1_1_satellite_factory.html#a6a55107b7ba72f0915f267be443579b0">create</a>();
+<a name="l00141"></a>00141         <span class="comment">//�O���[�o���I�u�W�F�N�g�̐���</span>
+<a name="l00142"></a>00142         <span class="comment">//stf::Global&lt;env&gt;&amp; g = stf::Global&lt;env&gt;::get_instance();</span>
+<a name="l00143"></a>00143 
+<a name="l00144"></a>00144         <span class="comment">//�V�~�����[�^�̐���</span>
+<a name="l00145"></a>00145         <a class="code" href="classstf_1_1environment_1_1_simulator.html" title="ソフトウェアシミュレータ環境クラス．">stf::environment::Simulator</a>&amp; s = <a class="code" href="classstf_1_1environment_1_1_simulator.html#afe352425a7b87eeafec20f67904d0b8e">stf::environment::Simulator::get_instance</a>();
+<a name="l00146"></a>00146         <span class="comment">//�V�~�����[�V�����p�̋O�����</span>
+<a name="l00147"></a>00147         <a class="code" href="structstf_1_1datatype_1_1_orbit_info.html" title="軌道6要素を保持するクラス．サイズ肥大化を避けるため，主要な計算はOrbitImplのstaticなメソッドに投げることで行う">datatype::OrbitInfo</a> orbit(7100000, 0.01, 0, 0.5 * util::math::PI, 0, 0);
+<a name="l00148"></a>00148         <span class="comment">//�V�~�����[�^������</span>
+<a name="l00149"></a>00149         s.<a class="code" href="classstf_1_1environment_1_1_simulator.html#ab65b4ff41af7733cf328504d6ead9d56">init</a>(gl3, <a class="code" href="_instance_i_d_8h.html#a57eeee07cb099c4c82318868006aa38f">STEPTIME</a>, 100, orbit, <span class="keyword">new</span> std::ofstream(<span class="stringliteral">&quot;output.csv&quot;</span>));
+<a name="l00150"></a>00150         
+<a name="l00151"></a>00151         <span class="comment">//�V�~�����[�^�O���ݒ�</span>
+<a name="l00152"></a>00152         <a class="code" href="classstf_1_1datatype_1_1_static_vector.html">datatype::StaticVector&lt;3&gt;</a> <a class="code" href="namespacestf.html#afa89a4a0c80d3727c2f396aa3ead41cd">v</a>;
+<a name="l00153"></a>00153         v[0] = 0.3;
+<a name="l00154"></a>00154         v[1] = -0.2;
+<a name="l00155"></a>00155         s.<a class="code" href="classstf_1_1environment_1_1_simulator.html#a69fa7024fda67f113d97450073eab760">attachNoiseSource</a>(<span class="keyword">new</span> <a class="code" href="classstf_1_1environment_1_1torquesource_1_1_impulse_noise.html" title="インパルスノイズを発生させるトルク源．">environment::torquesource::ImpulseNoise</a>(3, v, 0, 3000,&amp;s));
+<a name="l00156"></a>00156     s.<a class="code" href="classstf_1_1environment_1_1_simulator.html#a69fa7024fda67f113d97450073eab760">attachNoiseSource</a>(<span class="keyword">new</span> <a class="code" href="classstf_1_1environment_1_1torquesource_1_1_white_noise.html" title="ホワイトノイズを発生させるトルク源．">environment::torquesource::WhiteNoise</a>(0.01, 0));
+<a name="l00157"></a>00157 
+<a name="l00158"></a>00158         <span class="comment">//���s�^�X�N�̒ǉ�</span>
+<a name="l00159"></a>00159 
+<a name="l00160"></a>00160         <span class="comment">//���̂ق��̐ݒ�</span>
+<a name="l00161"></a>00161         <span class="comment">//g.comm-&gt;add_command(new core::command::modeChangeCommand(g.get_global_time(), g.missionmode, g.modeman));</span>
+<a name="l00162"></a>00162         <span class="comment">//g.modeman-&gt;change_mode(g.safemode);</span>
+<a name="l00163"></a>00163 
+<a name="l00165"></a>00165         <span class="comment">// ���s</span>
+<a name="l00166"></a>00166         <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; 800; i++)
+<a name="l00167"></a>00167                 s.<a class="code" href="classstf_1_1environment_1_1_simulator.html#acd4f514ff8df71412ffd9fb18aeb3549">runOneCycle</a>();
+<a name="l00168"></a>00168 
+<a name="l00169"></a>00169         <span class="keywordflow">return</span> 1;
+<a name="l00170"></a>00170 }
+</pre></div></div>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>フレンド</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>マクロ定義</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>STFに対してTue Mar 1 2011 03:45:36に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
+</body>
+</html>

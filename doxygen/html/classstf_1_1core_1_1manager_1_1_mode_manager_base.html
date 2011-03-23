@@ -1,0 +1,365 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>STF: クラス stf::core::manager::ModeManagerBase</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.3 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">STF</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="pages.html"><span>関連ページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li class="current"><a href="annotated.html"><span>クラス</span></a></li>
+      <li><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>構成</span></a></li>
+      <li><a href="classes.html"><span>構成索引</span></a></li>
+      <li><a href="inherits.html"><span>クラス階層</span></a></li>
+      <li><a href="functions.html"><span>構成メンバ</span></a></li>
+    </ul>
+  </div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="namespacestf.html">stf</a>      </li>
+      <li class="navelem"><a class="el" href="namespacestf_1_1core.html">core</a>      </li>
+      <li class="navelem"><a class="el" href="namespacestf_1_1core_1_1manager.html">manager</a>      </li>
+      <li class="navelem"><a class="el" href="classstf_1_1core_1_1manager_1_1_mode_manager_base.html">ModeManagerBase</a>      </li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#pub-types">Public 型</a> &#124;
+<a href="#pub-methods">Public メソッド</a> &#124;
+<a href="#pro-attribs">Protected 変数</a>  </div>
+  <div class="headertitle">
+<h1>クラス stf::core::manager::ModeManagerBase</h1>  </div>
+</div>
+<div class="contents">
+<!-- doxytag: class="stf::core::manager::ModeManagerBase" --><!-- doxytag: inherits="stf::core::manager::ManagerBase,SubjectBase&lt; event::ModeChangeEvent &gt;,Observer&lt; event::ModeChangeEvent &gt;" -->
+<p>モードの管理を行う機能マネージャ基底クラス．  
+<a href="#_details">[詳細]</a></p>
+
+<p><code>#include &lt;<a class="el" href="">ModeManagerBase.h</a>&gt;</code></p>
+<div class="dynheader">
+stf::core::manager::ModeManagerBaseに対する継承グラフ</div>
+<div class="dyncontent">
+<div class="center"><img src="classstf_1_1core_1_1manager_1_1_mode_manager_base__inherit__graph.png" border="0" usemap="#stf_1_1core_1_1manager_1_1_mode_manager_base_inherit__map" alt="Inheritance graph"/></div>
+<map name="stf_1_1core_1_1manager_1_1_mode_manager_base_inherit__map" id="stf_1_1core_1_1manager_1_1_mode_manager_base_inherit__map">
+<area shape="rect" id="node11" href="classstf_1_1core_1_1manager_1_1_mode_manager.html" title="モードの管理を行う機能マネージャ．" alt="" coords="868,59,1084,88"/><area shape="rect" id="node2" href="classstf_1_1core_1_1manager_1_1_manager_base.html" title="機能マネージャの基底クラス．" alt="" coords="236,5,449,35"/><area shape="rect" id="node4" href="classstf_1_1_root_object.html" title="数値型を除いた全クラスの基本となるクラス．" alt="" coords="5,5,115,35"/><area shape="rect" id="node6" href="classstf_1_1core_1_1event_1_1_subject_base.html" title="stf::core::event::SubjectBase\&lt; event::ModeChangeEvent \&gt;" alt="" coords="164,59,521,88"/><area shape="rect" id="node8" href="classstf_1_1core_1_1event_1_1_observer.html" title="stf::core::event::Observer\&lt; event::ModeChangeEvent \&gt;" alt="" coords="175,112,511,141"/></map>
+<center><span class="legend">[<a href="graph_legend.html">凡例</a>]</span></center></div>
+<div class="dynheader">
+stf::core::manager::ModeManagerBaseのコラボレーション図</div>
+<div class="dyncontent">
+<div class="center"><img src="classstf_1_1core_1_1manager_1_1_mode_manager_base__coll__graph.png" border="0" usemap="#stf_1_1core_1_1manager_1_1_mode_manager_base_coll__map" alt="Collaboration graph"/></div>
+<map name="stf_1_1core_1_1manager_1_1_mode_manager_base_coll__map" id="stf_1_1core_1_1manager_1_1_mode_manager_base_coll__map">
+<area shape="rect" id="node2" href="classstf_1_1core_1_1manager_1_1_manager_base.html" title="機能マネージャの基底クラス．" alt="" coords="3844,343,4057,372"/><area shape="rect" id="node4" href="classstf_1_1_root_object.html" title="数値型を除いた全クラスの基本となるクラス．" alt="" coords="2911,224,3020,253"/><area shape="rect" id="node12" href="classstf_1_1core_1_1datapool_1_1_data_pool_base.html" title="Tupleを複数個保持するデータプールの基底クラス．" alt="" coords="3367,200,3583,229"/><area shape="rect" id="node25" href="classstf_1_1core_1_1datapool_1_1_event_data_pool.html" title="Eventのデータプール．" alt="" coords="3365,145,3584,175"/><area shape="rect" id="node36" href="classstf_1_1core_1_1mode_1_1_mode_base.html" title="モードの基底クラス．" alt="" coords="3385,376,3564,405"/><area shape="rect" id="node6" href="classstf_1_1core_1_1devicedriver_1_1clock_1_1_i_time_clock.html" title="Time型のカウントが可能であることを示す抽象インターフェース．" alt="" coords="1925,224,2179,253"/><area shape="rect" id="node8" href="classstf_1_1core_1_1devicedriver_1_1_i_data_updatable.html" title="周期的にデータを取得，送信するコンポーネントに対するインターフェース" alt="" coords="659,224,896,253"/><area shape="rect" id="node10" href="classstf_1_1core_1_1datapool_1_1_aocs_data_pool.html" title="IAocsDataのデータプール．" alt="" coords="3843,200,4059,229"/><area shape="rect" id="node15" href="classstf_1_1core_1_1datapool_1_1_tuple.html" title="stf::core::datapool::Tuple\&lt; datatype::IAocsData \&gt;" alt="" coords="2812,57,3119,87"/><area shape="rect" id="node17" href="classstf_1_1datatype_1_1_i_aocs_data.html" title="AOCS使用系列のデータ共通の抽象インターフェース．" alt="" coords="1971,5,2133,35"/><area shape="rect" id="node19" href="classstf_1_1interface_1_1_i_telemetable.html" title="テレメトリを生成可能なオブジェクトに対するインターフェース．" alt="" coords="691,5,864,35"/><area shape="rect" id="node21" href="classstf_1_1datatype_1_1_time.html" title="経過時間を表すクラス．" alt="" coords="5,84,136,113"/><area shape="rect" id="node32" href="struct_loki_1_1_tuple_unit.html" title="Loki::TupleUnit\&lt; TYPELIST_2(event::EventType, datatype::Time) \&gt;" alt="" coords="575,124,980,153"/><area shape="rect" id="node23" href="classstf_1_1datatype_1_1_string.html" title="std::stringの簡略版．" alt="" coords="1984,111,2120,140"/><area shape="rect" id="node28" href="struct_loki_1_1_tuple.html" title="Loki::Tuple\&lt; TYPELIST_2(event::EventType, datatype::Time)\&gt;" alt="" coords="2776,140,3155,169"/><area shape="rect" id="node30" href="class_loki_1_1_gen_scatter_hierarchy.html" title="Loki::GenScatterHierarchy\&lt; TYPELIST_2(event::EventType, datatype::Time), TupleUnit \&gt;" alt="" coords="1785,168,2319,197"/><area shape="rect" id="node39" href="structstf_1_1core_1_1mode_1_1_strategy_holder.html" title="モードに依存したアルゴリズムを纏め，インターフェースを提供するクラス．" alt="" coords="2864,384,3067,413"/><area shape="rect" id="node41" href="class_loki_1_1_gen_scatter_hierarchy.html" title="Loki::GenScatterHierarchy\&lt; TYPELIST_5(devicedriver::ISwitchable, devicedriver::IDataUpdatable, functor::IFunctor, core::strategy::telemetry::ITelemetryStrategy, core::strategy::control::IControlStrategy), HotSpotList \&gt;" alt="" coords="1416,384,2688,413"/><area shape="rect" id="node43" href="class_hot_spot_list.html" title="HotSpotList \&lt;TYPELIST_5(devicedriver::ISwitchable, devicedriver::IDataUpdatable, functor::IFunctor, core::strategy::telemetry::ITelemetryStrategy, core::strategy::control::IControlStrategy) \&gt;" alt="" coords="223,384,1332,413"/><area shape="rect" id="node45" href="classstf_1_1core_1_1event_1_1_subject_base.html" title="stf::core::event::SubjectBase\&lt; event::ModeChangeEvent \&gt;" alt="" coords="3772,461,4129,491"/><area shape="rect" id="node47" href="classstf_1_1datatype_1_1_list.html" title="stf::datatype::List\&lt; Observer\&lt; event::ModeChangeEvent \&gt; \&gt;" alt="" coords="3291,461,3659,491"/><area shape="rect" id="node49" href="classstf_1_1core_1_1event_1_1_observer.html" title="stf::core::event::Observer\&lt; event::ModeChangeEvent \&gt;" alt="" coords="2797,489,3133,519"/><area shape="rect" id="node52" href="classstf_1_1datatype_1_1_list.html" title="stf::datatype::List\&lt; HotSpot \&gt;" alt="" coords="3853,565,4048,595"/><area shape="rect" id="node54" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_i_telemetry_strategy.html" title="テレメトリ生成ストラテジの抽象インターフェース．" alt="" coords="3324,565,3625,595"/></map>
+<center><span class="legend">[<a href="graph_legend.html">凡例</a>]</span></center></div>
+
+<p><a href="classstf_1_1core_1_1manager_1_1_mode_manager_base-members.html">すべてのメンバ一覧</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="pub-types"></a>
+Public 型</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef <br class="typebreak"/>
+<a class="el" href="classstf_1_1core_1_1devicedriver_1_1_i_switchable.html">core::devicedriver::ISwitchable</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1core_1_1manager_1_1_mode_manager_base.html#af8fd57f62faf19654e42673577abe80b">HotSpot</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="struct_loki_1_1_type2_type.html">Loki::Type2Type</a><br class="typebreak"/>
+&lt; <a class="el" href="classstf_1_1core_1_1devicedriver_1_1_i_switchable.html">core::devicedriver::ISwitchable</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1core_1_1manager_1_1_mode_manager_base.html#a5406d343112d55e997d86161e7d0119c">SpotType</a></td></tr>
+<tr><td colspan="2"><h2><a name="pub-methods"></a>
+Public メソッド</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1core_1_1manager_1_1_mode_manager_base.html#a62c53374d9fb6794d5edfa4599e2cf4b">ModeManagerBase</a> (int instance_id)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1core_1_1manager_1_1_mode_manager_base.html#ac190bd88ebfd6c2a08707221d00620c2">~ModeManagerBase</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1core_1_1manager_1_1_mode_manager_base.html#a0eba268d9e05a7f1ea7207255271d790">change_mode</a> (const <a class="el" href="classstf_1_1core_1_1mode_1_1_mode_base.html">mode::ModeBase</a> *newmode)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classstf_1_1datatype_1_1_string.html">datatype::String</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1core_1_1manager_1_1_mode_manager_base.html#a3a5121b2989aa232167f6e39a3d68f94">get_current_modename</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1core_1_1manager_1_1_mode_manager_base.html#a5679bfe15c271a25514da563ca143a67">run</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1core_1_1manager_1_1_mode_manager_base.html#a8cbeef5a34d5dd95626464e941ad9faf">runnable</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1core_1_1manager_1_1_mode_manager_base.html#a6cf45e6d57cd74a4a67c925e944c2933">notify</a> (const <a class="el" href="classstf_1_1core_1_1mode_1_1_mode_base.html">mode::ModeBase</a> *value)</td></tr>
+<tr><td colspan="2"><h2><a name="pro-attribs"></a>
+Protected 変数</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classstf_1_1core_1_1mode_1_1_mode_base.html">core::mode::ModeBase</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1core_1_1manager_1_1_mode_manager_base.html#a69522a48eacbde36f6a5198a58b5f372">current_mode_</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classstf_1_1datatype_1_1_list.html">datatype::List</a>&lt; <a class="el" href="classstf_1_1core_1_1devicedriver_1_1_i_switchable.html">HotSpot</a> &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1core_1_1manager_1_1_mode_manager_base.html#abda63f0307ffadc496c092c4c0865f5c">component_</a></td></tr>
+</table>
+<hr/><a name="_details"></a><h2>説明</h2>
+<div class="textblock"><p>モードの管理を行う機能マネージャ基底クラス． </p>
+<p>ユーザーはこのクラスを書き換えることが許可されない． 機能マネージャの振る舞いをカスタマイズしたい場合，派生クラス側で仮想関数を実装する（Generation-Gapパターン）． </p>
+
+<p> <a class="el" href="">ModeManagerBase.h</a> の <a class="el" href="#L37">37</a> 行で定義されています。</p>
+</div><hr/><h2>型定義</h2>
+<a class="anchor" id="af8fd57f62faf19654e42673577abe80b"></a><!-- doxytag: member="stf::core::manager::ModeManagerBase::HotSpot" ref="af8fd57f62faf19654e42673577abe80b" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classstf_1_1core_1_1devicedriver_1_1_i_switchable.html">core::devicedriver::ISwitchable</a> <a class="el" href="classstf_1_1core_1_1devicedriver_1_1_i_switchable.html">stf::core::manager::ModeManagerBase::HotSpot</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">ModeManagerBase.h</a> の <a class="el" href="#L39">39</a> 行で定義されています。</p>
+
+</div>
+</div>
+<a class="anchor" id="a5406d343112d55e997d86161e7d0119c"></a><!-- doxytag: member="stf::core::manager::ModeManagerBase::SpotType" ref="a5406d343112d55e997d86161e7d0119c" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="struct_loki_1_1_type2_type.html">Loki::Type2Type</a>&lt;<a class="el" href="classstf_1_1core_1_1devicedriver_1_1_i_switchable.html">core::devicedriver::ISwitchable</a>&gt; <a class="el" href="struct_loki_1_1_type2_type.html">stf::core::manager::ModeManagerBase::SpotType</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">ModeManagerBase.h</a> の <a class="el" href="#L40">40</a> 行で定義されています。</p>
+
+</div>
+</div>
+<hr/><h2>コンストラクタとデストラクタ</h2>
+<a class="anchor" id="a62c53374d9fb6794d5edfa4599e2cf4b"></a><!-- doxytag: member="stf::core::manager::ModeManagerBase::ModeManagerBase" ref="a62c53374d9fb6794d5edfa4599e2cf4b" args="(int instance_id)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">stf::core::manager::ModeManagerBase::ModeManagerBase </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>instance_id</em></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">ModeManagerBase.h</a> の <a class="el" href="#L42">42</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">: <a class="code" href="classstf_1_1core_1_1manager_1_1_manager_base.html#a2158c046eb63db05db5662dc7d73e14c">ManagerBase</a>(<a class="code" href="classstf_1_1_root_object.html#a233a3fbd4d53b7a8eaa5d2edab4cf75b">instance_id</a>, <span class="stringliteral">&quot;ModeManager&quot;</span>), <a class="code" href="classstf_1_1core_1_1manager_1_1_mode_manager_base.html#a69522a48eacbde36f6a5198a58b5f372">current_mode_</a>(0), <a class="code" href="classstf_1_1core_1_1manager_1_1_mode_manager_base.html#abda63f0307ffadc496c092c4c0865f5c">component_</a>(0) {}
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="ac190bd88ebfd6c2a08707221d00620c2"></a><!-- doxytag: member="stf::core::manager::ModeManagerBase::~ModeManagerBase" ref="ac190bd88ebfd6c2a08707221d00620c2" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual stf::core::manager::ModeManagerBase::~ModeManagerBase </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inline, virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">ModeManagerBase.h</a> の <a class="el" href="#L43">43</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">{}
+</pre></div>
+</div>
+</div>
+<hr/><h2>関数</h2>
+<a class="anchor" id="a0eba268d9e05a7f1ea7207255271d790"></a><!-- doxytag: member="stf::core::manager::ModeManagerBase::change_mode" ref="a0eba268d9e05a7f1ea7207255271d790" args="(const mode::ModeBase *newmode)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stf::core::manager::ModeManagerBase::change_mode </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classstf_1_1core_1_1mode_1_1_mode_base.html">mode::ModeBase</a> *&#160;</td>
+          <td class="paramname"><em>newmode</em></td><td>)</td>
+          <td><code> [virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">ModeManagerBase.cpp</a> の <a class="el" href="#L18">18</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">{
+        util::Trace trace(<a class="code" href="classstf_1_1util_1_1_trace.html#a7cce9d9f41332a3fd076bd10605f0139a3bbeef121c3414004812b150fa357683" title="機能マネージャ">util::Trace::kManager</a>, <span class="stringliteral">&quot;modeChange ModeManager&quot;</span>);
+        trace.debug(<a class="code" href="namespacenj.html#a5ff675c2521e44d40530ddfdb7661279">mode</a>-&gt;name());
+        <a class="code" href="classstf_1_1core_1_1manager_1_1_mode_manager_base.html#a69522a48eacbde36f6a5198a58b5f372">current_mode_</a> = <a class="code" href="namespacenj.html#a5ff675c2521e44d40530ddfdb7661279">mode</a>;
+        this-&gt;<a class="code" href="classstf_1_1_root_object.html#a879f94fb216a4d334cb515a0bfdc5183">eventdatapool_</a>-&gt;set(<a class="code" href="namespacestf_1_1core_1_1event.html#a1a506435fc1c863a9600a204254d76e8a71ae09bb3122958c3f63678e1eb7092a">event::ModeChange</a>);
+        this-&gt;<a class="code" href="classstf_1_1core_1_1event_1_1_subject_base.html#a7d67367f2c403eabc3fe7acdbc13433e">notify_observers</a>(*<a class="code" href="namespacenj.html#a5ff675c2521e44d40530ddfdb7661279">mode</a>);
+}
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="a3a5121b2989aa232167f6e39a3d68f94"></a><!-- doxytag: member="stf::core::manager::ModeManagerBase::get_current_modename" ref="a3a5121b2989aa232167f6e39a3d68f94" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classstf_1_1datatype_1_1_string.html">datatype::String</a> &amp; stf::core::manager::ModeManagerBase::get_current_modename </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">ModeManagerBase.cpp</a> の <a class="el" href="#L36">36</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">                                                                  {
+        <span class="keywordflow">return</span> this-&gt;<a class="code" href="classstf_1_1core_1_1manager_1_1_mode_manager_base.html#a69522a48eacbde36f6a5198a58b5f372">current_mode_</a>-&gt;name();
+}
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="a6cf45e6d57cd74a4a67c925e944c2933"></a><!-- doxytag: member="stf::core::manager::ModeManagerBase::notify" ref="a6cf45e6d57cd74a4a67c925e944c2933" args="(const mode::ModeBase *value)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stf::core::manager::ModeManagerBase::notify </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classstf_1_1core_1_1mode_1_1_mode_base.html">mode::ModeBase</a> *&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
+          <td><code> [virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">ModeManagerBase.cpp</a> の <a class="el" href="#L27">27</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">                                                     {
+        this-&gt;<a class="code" href="classstf_1_1core_1_1manager_1_1_mode_manager_base.html#abda63f0307ffadc496c092c4c0865f5c">component_</a> = value-&gt;get_list(<a class="code" href="classstf_1_1core_1_1manager_1_1_mode_manager_base.html#a5406d343112d55e997d86161e7d0119c">SpotType</a>());
+}
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="a5679bfe15c271a25514da563ca143a67"></a><!-- doxytag: member="stf::core::manager::ModeManagerBase::run" ref="a5679bfe15c271a25514da563ca143a67" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stf::core::manager::ModeManagerBase::run </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p><a class="el" href="classstf_1_1core_1_1manager_1_1_manager_base.html#ac2bef9dbc7ca26c630ed7c4accf2da22">stf::core::manager::ManagerBase</a>を実装しています。</p>
+
+<p> <a class="el" href="">ModeManagerBase.cpp</a> の <a class="el" href="#L31">31</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">{
+        util::Trace trace(<a class="code" href="classstf_1_1util_1_1_trace.html#a7cce9d9f41332a3fd076bd10605f0139a3bbeef121c3414004812b150fa357683" title="機能マネージャ">util::Trace::kManager</a>, <span class="stringliteral">&quot;run ModeManager&quot;</span>);
+}
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="a8cbeef5a34d5dd95626464e941ad9faf"></a><!-- doxytag: member="stf::core::manager::ModeManagerBase::runnable" ref="a8cbeef5a34d5dd95626464e941ad9faf" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool stf::core::manager::ModeManagerBase::runnable </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline, virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p><a class="el" href="classstf_1_1core_1_1manager_1_1_manager_base.html#ac6df7dcf1ba7069a405f66ba4599aa8a">stf::core::manager::ManagerBase</a>を再定義しています。</p>
+
+<p> <a class="el" href="">ModeManagerBase.h</a> の <a class="el" href="#L48">48</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">{ <span class="keywordflow">return</span> <span class="keyword">true</span>; }
+</pre></div>
+</div>
+</div>
+<hr/><h2>変数</h2>
+<a class="anchor" id="abda63f0307ffadc496c092c4c0865f5c"></a><!-- doxytag: member="stf::core::manager::ModeManagerBase::component_" ref="abda63f0307ffadc496c092c4c0865f5c" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classstf_1_1datatype_1_1_list.html">datatype::List</a>&lt;<a class="el" href="classstf_1_1core_1_1devicedriver_1_1_i_switchable.html">HotSpot</a>&gt;* <a class="el" href="classstf_1_1core_1_1manager_1_1_mode_manager_base.html#abda63f0307ffadc496c092c4c0865f5c">stf::core::manager::ModeManagerBase::component_</a><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">ModeManagerBase.h</a> の <a class="el" href="#L52">52</a> 行で定義されています。</p>
+
+</div>
+</div>
+<a class="anchor" id="a69522a48eacbde36f6a5198a58b5f372"></a><!-- doxytag: member="stf::core::manager::ModeManagerBase::current_mode_" ref="a69522a48eacbde36f6a5198a58b5f372" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classstf_1_1core_1_1mode_1_1_mode_base.html">core::mode::ModeBase</a>* <a class="el" href="classstf_1_1core_1_1manager_1_1_mode_manager_base.html#a69522a48eacbde36f6a5198a58b5f372">stf::core::manager::ModeManagerBase::current_mode_</a><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">ModeManagerBase.h</a> の <a class="el" href="#L51">51</a> 行で定義されています。</p>
+
+</div>
+</div>
+<hr/>このクラスの説明は次のファイルから生成されました:<ul>
+<li>stf/core/manager/<a class="el" href="">ModeManagerBase.h</a></li>
+<li>stf/core/manager/<a class="el" href="">ModeManagerBase.cpp</a></li>
+</ul>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>フレンド</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>マクロ定義</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>STFに対してWed Mar 23 2011 05:33:25に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
+</body>
+</html>

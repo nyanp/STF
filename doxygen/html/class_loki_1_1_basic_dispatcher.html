@@ -1,0 +1,218 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>STF: クラス テンプレート Loki::BasicDispatcher&lt; BaseLhs, BaseRhs, ResultType, CallbackType &gt;</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.3 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">STF</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="pages.html"><span>関連ページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li class="current"><a href="annotated.html"><span>クラス</span></a></li>
+      <li><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>構成</span></a></li>
+      <li><a href="classes.html"><span>構成索引</span></a></li>
+      <li><a href="inherits.html"><span>クラス階層</span></a></li>
+      <li><a href="functions.html"><span>構成メンバ</span></a></li>
+    </ul>
+  </div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="namespace_loki.html">Loki</a>      </li>
+      <li class="navelem"><a class="el" href="class_loki_1_1_basic_dispatcher.html">BasicDispatcher</a>      </li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public メソッド</a>  </div>
+  <div class="headertitle">
+<h1>クラス テンプレート Loki::BasicDispatcher&lt; BaseLhs, BaseRhs, ResultType, CallbackType &gt;</h1>  </div>
+</div>
+<div class="contents">
+<!-- doxytag: class="Loki::BasicDispatcher" -->
+<p><code>#include &lt;<a class="el" href="">MultiMethods.h</a>&gt;</code></p>
+<div class="dynheader">
+Loki::BasicDispatcher&lt; BaseLhs, BaseRhs, ResultType, CallbackType &gt;のコラボレーション図</div>
+<div class="dyncontent">
+<div class="center"><img src="class_loki_1_1_basic_dispatcher__coll__graph.png" border="0" usemap="#_loki_1_1_basic_dispatcher_3_01_base_lhs_00_01_base_rhs_00_01_result_type_00_01_callback_type_01_4_coll__map" alt="Collaboration graph"/></div>
+<map name="_loki_1_1_basic_dispatcher_3_01_base_lhs_00_01_base_rhs_00_01_result_type_00_01_callback_type_01_4_coll__map" id="_loki_1_1_basic_dispatcher_3_01_base_lhs_00_01_base_rhs_00_01_result_type_00_01_callback_type_01_4_coll__map">
+<area shape="rect" id="node2" href="class_loki_1_1_assoc_vector.html" title="Loki::AssocVector\&lt; KeyType, MappedType \&gt;" alt="" coords="876,27,1161,56"/><area shape="rect" id="node4" href="classstd_1_1vector.html" title="std::vector\&lt; std::pair\&lt; KeyType, MappedType \&gt;, std::allocator\&lt; std::pair\&lt; KeyType, MappedType \&gt; \&gt; \&gt;" alt="" coords="203,5,824,35"/><area shape="rect" id="node6" href="class_loki_1_1_private_1_1_assoc_vector_compare.html" title="Loki::Private::AssocVectorCompare\&lt; MappedType, std::less\&lt; KeyType \&gt; \&gt;" alt="" coords="284,59,743,88"/><area shape="rect" id="node8" href="classstd_1_1less.html" title="std::less\&lt; KeyType \&gt;" alt="" coords="5,59,152,88"/></map>
+<center><span class="legend">[<a href="graph_legend.html">凡例</a>]</span></center></div>
+
+<p><a href="class_loki_1_1_basic_dispatcher-members.html">すべてのメンバ一覧</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="pub-methods"></a>
+Public メソッド</h2></td></tr>
+<tr><td class="memTemplParams" colspan="2">template&lt;class SomeLhs , class SomeRhs &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_loki_1_1_basic_dispatcher.html#aec7016bf32595127c1ad8c720e2d1523">Add</a> (CallbackType fun)</td></tr>
+<tr><td class="memTemplParams" colspan="2">template&lt;class SomeLhs , class SomeRhs &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_loki_1_1_basic_dispatcher.html#ae849e257039cf0b3e73051a957a65318">Remove</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">ResultType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_loki_1_1_basic_dispatcher.html#a40ae49c3492f48c1153d7fc68f695289">Go</a> (BaseLhs &amp;lhs, BaseRhs &amp;rhs)</td></tr>
+</table>
+<hr/><a name="_details"></a><h2>説明</h2>
+<div class="textblock"><h3>template&lt;class BaseLhs, class BaseRhs = BaseLhs, typename ResultType = void, typename CallbackType = ResultType (*)(BaseLhs&amp;, BaseRhs&amp;)&gt;<br/>
+ class Loki::BasicDispatcher&lt; BaseLhs, BaseRhs, ResultType, CallbackType &gt;</h3>
+
+
+<p> <a class="el" href="">MultiMethods.h</a> の <a class="el" href="#L148">148</a> 行で定義されています。</p>
+</div><hr/><h2>関数</h2>
+<a class="anchor" id="aec7016bf32595127c1ad8c720e2d1523"></a><!-- doxytag: member="Loki::BasicDispatcher::Add" ref="aec7016bf32595127c1ad8c720e2d1523" args="(CallbackType fun)" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class BaseLhs , class BaseRhs  = BaseLhs, typename ResultType  = void, typename CallbackType  = ResultType (*)(BaseLhs&amp;, BaseRhs&amp;)&gt; </div>
+<div class="memtemplate">
+template&lt;class SomeLhs , class SomeRhs &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_loki_1_1_basic_dispatcher.html">Loki::BasicDispatcher</a>&lt; BaseLhs, BaseRhs, ResultType, CallbackType &gt;::Add </td>
+          <td>(</td>
+          <td class="paramtype">CallbackType&#160;</td>
+          <td class="paramname"><em>fun</em></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">MultiMethods.h</a> の <a class="el" href="#L160">160</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">        {
+            DoAdd(<span class="keyword">typeid</span>(SomeLhs), <span class="keyword">typeid</span>(SomeRhs), fun);
+        }
+        
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="a40ae49c3492f48c1153d7fc68f695289"></a><!-- doxytag: member="Loki::BasicDispatcher::Go" ref="a40ae49c3492f48c1153d7fc68f695289" args="(BaseLhs &amp;lhs, BaseRhs &amp;rhs)" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class BaseLhs , class BaseRhs , typename ResultType , typename CallbackType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">ResultType <a class="el" href="class_loki_1_1_basic_dispatcher.html">Loki::BasicDispatcher</a>&lt; BaseLhs, BaseRhs, ResultType, CallbackType &gt;::Go </td>
+          <td>(</td>
+          <td class="paramtype">BaseLhs &amp;&#160;</td>
+          <td class="paramname"><em>lhs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">BaseRhs &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">MultiMethods.h</a> の <a class="el" href="#L194">194</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">    {
+        <span class="keyword">typename</span> <a class="code" href="class_loki_1_1_assoc_vector.html#a5841e5df1baf434363254519901c5d50">MapType::key_type</a> k(<span class="keyword">typeid</span>(lhs),<span class="keyword">typeid</span>(rhs));
+        <span class="keyword">typename</span> <a class="code" href="class_loki_1_1_assoc_vector.html#aa119af1ae82779cd02264a4ae73f8cd7">MapType::iterator</a> i = callbackMap_.<a class="code" href="class_loki_1_1_assoc_vector.html#a0e4b91866e717e64d0610157ca15f677">find</a>(k);
+        <span class="keywordflow">if</span> (i == callbackMap_.<a class="code" href="class_loki_1_1_assoc_vector.html#a4bee2aae5dff07e6afc8b0169adb5628">end</a>())
+        {
+                <span class="keywordflow">throw</span> std::runtime_error(<span class="stringliteral">&quot;Function not found&quot;</span>);
+        }
+        <span class="keywordflow">return</span> (i-&gt;second)(lhs, rhs);
+    }
+
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="ae849e257039cf0b3e73051a957a65318"></a><!-- doxytag: member="Loki::BasicDispatcher::Remove" ref="ae849e257039cf0b3e73051a957a65318" args="()" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class BaseLhs , class BaseRhs  = BaseLhs, typename ResultType  = void, typename CallbackType  = ResultType (*)(BaseLhs&amp;, BaseRhs&amp;)&gt; </div>
+<div class="memtemplate">
+template&lt;class SomeLhs , class SomeRhs &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="class_loki_1_1_basic_dispatcher.html">Loki::BasicDispatcher</a>&lt; BaseLhs, BaseRhs, ResultType, CallbackType &gt;::Remove </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">MultiMethods.h</a> の <a class="el" href="#L166">166</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">        {
+            <span class="keywordflow">return</span> DoRemove(<span class="keyword">typeid</span>(SomeLhs), <span class="keyword">typeid</span>(SomeRhs));
+        }
+        
+</pre></div>
+</div>
+</div>
+<hr/>このクラスの説明は次のファイルから生成されました:<ul>
+<li>stf/util/loki/<a class="el" href="">MultiMethods.h</a></li>
+</ul>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>フレンド</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>マクロ定義</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>STFに対してWed Mar 23 2011 05:32:59に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
+</body>
+</html>

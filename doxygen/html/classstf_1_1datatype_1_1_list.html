@@ -1,0 +1,523 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>STF: クラス テンプレート stf::datatype::List&lt; T &gt;</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.3 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">STF</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="pages.html"><span>関連ページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li class="current"><a href="annotated.html"><span>クラス</span></a></li>
+      <li><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>構成</span></a></li>
+      <li><a href="classes.html"><span>構成索引</span></a></li>
+      <li><a href="inherits.html"><span>クラス階層</span></a></li>
+      <li><a href="functions.html"><span>構成メンバ</span></a></li>
+    </ul>
+  </div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="namespacestf.html">stf</a>      </li>
+      <li class="navelem"><a class="el" href="namespacestf_1_1datatype.html">datatype</a>      </li>
+      <li class="navelem"><a class="el" href="classstf_1_1datatype_1_1_list.html">List</a>      </li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">構成</a> &#124;
+<a href="#pub-types">Public 型</a> &#124;
+<a href="#pub-methods">Public メソッド</a>  </div>
+  <div class="headertitle">
+<h1>クラス テンプレート stf::datatype::List&lt; T &gt;</h1>  </div>
+</div>
+<div class="contents">
+<!-- doxytag: class="stf::datatype::List" -->
+<p>機能を最小限に絞ったコンテナクラス． ・assertが有効ならば[]演算子に範囲外チェックが入る ・データの追加は末尾のみ対応，データの削除は任意位置に対して可能 ・適合する最初の要素を削除するremove,適合する全要素を削除するremove_allを用意 ・データ参照と追加はO(1)，オブジェクトを引数に取った削除はO(n) ・イテレータのインターフェースはC++標準コンテナとほぼ同一  
+<a href="#_details">[詳細]</a></p>
+
+<p><code>#include &lt;<a class="el" href="">List.h</a>&gt;</code></p>
+<div class="dynheader">
+stf::datatype::List&lt; T &gt;のコラボレーション図</div>
+<div class="dyncontent">
+<div class="center"><img src="classstf_1_1datatype_1_1_list__coll__graph.png" border="0" usemap="#stf_1_1datatype_1_1_list_3_01_t_01_4_coll__map" alt="Collaboration graph"/></div>
+<center><span class="legend">[<a href="graph_legend.html">凡例</a>]</span></center></div>
+
+<p><a href="classstf_1_1datatype_1_1_list-members.html">すべてのメンバ一覧</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="nested-classes"></a>
+構成</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1datatype_1_1_list_1_1__iterator.html">_iterator</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Listのイテレータとなる内部クラス  <a href="classstf_1_1datatype_1_1_list_1_1__iterator.html#_details">[詳細]</a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="pub-types"></a>
+Public 型</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classstf_1_1datatype_1_1_list.html">List</a>&lt; T &gt;::<a class="el" href="classstf_1_1datatype_1_1_list_1_1__iterator.html">_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1datatype_1_1_list.html#a0710a1bc11c265bb67113d6e2cb22b62">iterator</a></td></tr>
+<tr><td colspan="2"><h2><a name="pub-methods"></a>
+Public メソッド</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1datatype_1_1_list.html#ab8a8dd5f1a8996f5a31612186c11d463">List</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1datatype_1_1_list.html#a9da5a6082d2e280b480f47bb2f989b18">~List</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1datatype_1_1_list.html#aafa868e89c2529eac2aa2c99c0cc2895">operator[]</a> (int index)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1datatype_1_1_list.html#a8cadd1984f3257c32884e6b2b687600f">operator[]</a> (int index) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classstf_1_1datatype_1_1_list_1_1__iterator.html">_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1datatype_1_1_list.html#ab5bca799c82f8912d4b2457b57469bd2">begin</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classstf_1_1datatype_1_1_list_1_1__iterator.html">_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1datatype_1_1_list.html#a3ff24c785c8c0cc2af1d6d50d5bbce1e">end</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1datatype_1_1_list.html#aefebd1f593376ddecc434c900de8ded6">size</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1datatype_1_1_list.html#aacd21b95a5c5b1513e463edfe46e8abe">capacity</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1datatype_1_1_list.html#a12e0c32fc59fb83ff96d1330c59cc371">clear</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1datatype_1_1_list.html#abe6c602f5a6104ef478907b2b51ff02c">add</a> (T &amp;data)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1datatype_1_1_list.html#abb140025a5458b1e65309424ab5b390b">push_back</a> (T &amp;data)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1datatype_1_1_list.html#a2cf2e5ce162a4c558bc4a8da70f799ca">remove</a> (T &amp;data)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1datatype_1_1_list.html#a66f0cc6f8656d127c4b7b51a77db12ad">remove_all</a> (T &amp;data)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1datatype_1_1_list.html#ab7e2bfd97cb66def064b5a1d66593b09">List</a> (const <a class="el" href="classstf_1_1datatype_1_1_list.html">List</a>&lt; T &gt; &amp;rhs)</td></tr>
+</table>
+<hr/><a name="_details"></a><h2>説明</h2>
+<div class="textblock"><h3>template&lt;class T&gt;<br/>
+ class stf::datatype::List&lt; T &gt;</h3>
+
+<p>機能を最小限に絞ったコンテナクラス． ・assertが有効ならば[]演算子に範囲外チェックが入る ・データの追加は末尾のみ対応，データの削除は任意位置に対して可能 ・適合する最初の要素を削除するremove,適合する全要素を削除するremove_allを用意 ・データ参照と追加はO(1)，オブジェクトを引数に取った削除はO(n) ・イテレータのインターフェースはC++標準コンテナとほぼ同一 </p>
+<div class="fragment"><pre class="fragment">        datatype::Quaternion q1(1, 0, 0, 0);
+        datatype::Quaternion q2(0, 1, 0, 0);
+        datatype::List&lt;datatype::Quaternion&gt; list;
+        list.add(q1);
+        list.add(q2);
+        list.add(q3);
+        
+        <span class="comment">//イテレータを使って要素にアクセス</span>
+        datatype::List&lt;datatype::Quaternion&gt;::iterator it = list.begin(), <a class="code" href="classstf_1_1datatype_1_1_list.html#a3ff24c785c8c0cc2af1d6d50d5bbce1e">end</a> = list.end();
+
+        <span class="keywordflow">while</span>(it != <a class="code" href="classstf_1_1datatype_1_1_list.html#a3ff24c785c8c0cc2af1d6d50d5bbce1e">end</a>){
+                <a class="code" href="namespacestf_1_1util.html#ac1e2b8b0b75f1384aaebe7da50977c3f">std::cout</a> &lt;&lt; (*it).conjugate();<span class="comment">//*itを使って要素にアクセス</span>
+                ++it;                          <span class="comment">//後置インクリメントもサポートするが，前置のほうが一時オブジェクトを作らず高速</span>
+        }
+        <span class="keywordflow">for</span>(it = list.begin(); it != <a class="code" href="classstf_1_1datatype_1_1_list.html#a3ff24c785c8c0cc2af1d6d50d5bbce1e">end</a>; ++it){
+                <a class="code" href="namespacestf_1_1util.html#ac1e2b8b0b75f1384aaebe7da50977c3f">std::cout</a> &lt;&lt; (*it).conjugate();<span class="comment">//上と同じことをfor文で</span>
+        }
+        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; list.size(); i++){
+                <a class="code" href="namespacestf_1_1util.html#ac1e2b8b0b75f1384aaebe7da50977c3f">std::cout</a> &lt;&lt; list[i].conjugate();<span class="comment">//イテレータを使わない場合</span>
+        }
+</pre></div> 
+<p> <a class="el" href="">List.h</a> の <a class="el" href="#L49">49</a> 行で定義されています。</p>
+</div><hr/><h2>型定義</h2>
+<a class="anchor" id="a0710a1bc11c265bb67113d6e2cb22b62"></a><!-- doxytag: member="stf::datatype::List::iterator" ref="a0710a1bc11c265bb67113d6e2cb22b62" args="" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classstf_1_1datatype_1_1_list.html">List</a>&lt;T&gt;::<a class="el" href="classstf_1_1datatype_1_1_list_1_1__iterator.html">_iterator</a> <a class="el" href="classstf_1_1datatype_1_1_list.html">stf::datatype::List</a>&lt; T &gt;::<a class="el" href="classstf_1_1datatype_1_1_list_1_1__iterator.html">iterator</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">List.h</a> の <a class="el" href="#L96">96</a> 行で定義されています。</p>
+
+</div>
+</div>
+<hr/><h2>コンストラクタとデストラクタ</h2>
+<a class="anchor" id="ab8a8dd5f1a8996f5a31612186c11d463"></a><!-- doxytag: member="stf::datatype::List::List" ref="ab8a8dd5f1a8996f5a31612186c11d463" args="()" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classstf_1_1datatype_1_1_list.html">stf::datatype::List</a>&lt; T &gt;::<a class="el" href="classstf_1_1datatype_1_1_list.html">List</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inline, explicit]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">List.h</a> の <a class="el" href="#L51">51</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">: size_(0), capacity_(3){ data_ = <span class="keyword">new</span> T*[capacity_];};
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="a9da5a6082d2e280b480f47bb2f989b18"></a><!-- doxytag: member="stf::datatype::List::~List" ref="a9da5a6082d2e280b480f47bb2f989b18" args="()" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classstf_1_1datatype_1_1_list.html">stf::datatype::List</a>&lt; T &gt;::~<a class="el" href="classstf_1_1datatype_1_1_list.html">List</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">List.h</a> の <a class="el" href="#L52">52</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">{};
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="ab7e2bfd97cb66def064b5a1d66593b09"></a><!-- doxytag: member="stf::datatype::List::List" ref="ab7e2bfd97cb66def064b5a1d66593b09" args="(const List&lt; T &gt; &amp;rhs)" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classstf_1_1datatype_1_1_list.html">stf::datatype::List</a>&lt; T &gt;::<a class="el" href="classstf_1_1datatype_1_1_list.html">List</a> </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classstf_1_1datatype_1_1_list.html">List</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">List.h</a> の <a class="el" href="#L147">147</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">{}<span class="comment">//コピーコンストラクタ，実行されない</span>
+</pre></div>
+</div>
+</div>
+<hr/><h2>関数</h2>
+<a class="anchor" id="abe6c602f5a6104ef478907b2b51ff02c"></a><!-- doxytag: member="stf::datatype::List::add" ref="abe6c602f5a6104ef478907b2b51ff02c" args="(T &amp;data)" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classstf_1_1datatype_1_1_list.html">stf::datatype::List</a>&lt; T &gt;::add </td>
+          <td>(</td>
+          <td class="paramtype">T &amp;&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">List.h</a> の <a class="el" href="#L110">110</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">                         {
+        size_++;
+        <span class="comment">//常に1個以上の空きスロットが出来るようにcapacity_を確保する</span>
+                <span class="keywordflow">if</span>(size_ &lt; capacity_){
+                        data_[size_-1] = &amp;<a class="code" href="namespacenj.html#a54b165e7142279e06643f15f96fb3385">data</a>;
+            data_[size_] = 0;<span class="comment">//最後のポインタをNULLで埋める</span>
+                }<span class="keywordflow">else</span>{
+                        T** tempdata = <span class="keyword">new</span> T*[2 * capacity_];
+                        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; capacity_; i++)
+                                tempdata[i] = data_[i];<span class="comment">//ポインタをコピー</span>
+                        <span class="keyword">delete</span> [] data_;
+                        data_ = tempdata;
+                        data_[size_-1] = &amp;<a class="code" href="namespacenj.html#a54b165e7142279e06643f15f96fb3385">data</a>;
+            data_[size_] = 0;<span class="comment">//最後のポインタをNULLで埋める</span>
+                        capacity_ *= 2;
+                }
+        }
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="ab5bca799c82f8912d4b2457b57469bd2"></a><!-- doxytag: member="stf::datatype::List::begin" ref="ab5bca799c82f8912d4b2457b57469bd2" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classstf_1_1datatype_1_1_list_1_1__iterator.html">_iterator</a> <a class="el" href="classstf_1_1datatype_1_1_list.html">stf::datatype::List</a>&lt; T &gt;::begin </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">List.h</a> の <a class="el" href="#L100">100</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">{<span class="keywordflow">return</span> _iterator(<span class="keyword">this</span>, 0);}
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="aacd21b95a5c5b1513e463edfe46e8abe"></a><!-- doxytag: member="stf::datatype::List::capacity" ref="aacd21b95a5c5b1513e463edfe46e8abe" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="classstf_1_1datatype_1_1_list.html">stf::datatype::List</a>&lt; T &gt;::capacity </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">List.h</a> の <a class="el" href="#L103">103</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">{<span class="keywordflow">return</span> capacity_;}
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="a12e0c32fc59fb83ff96d1330c59cc371"></a><!-- doxytag: member="stf::datatype::List::clear" ref="a12e0c32fc59fb83ff96d1330c59cc371" args="()" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classstf_1_1datatype_1_1_list.html">stf::datatype::List</a>&lt; T &gt;::clear </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">List.h</a> の <a class="el" href="#L104">104</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">                    {
+                <span class="keyword">delete</span> [] data_;
+                data_ = <span class="keyword">new</span> T*[3];
+                size_ = 0;
+                capacity_ = 3;
+        }
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="a3ff24c785c8c0cc2af1d6d50d5bbce1e"></a><!-- doxytag: member="stf::datatype::List::end" ref="a3ff24c785c8c0cc2af1d6d50d5bbce1e" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classstf_1_1datatype_1_1_list_1_1__iterator.html">_iterator</a> <a class="el" href="classstf_1_1datatype_1_1_list.html">stf::datatype::List</a>&lt; T &gt;::end </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">List.h</a> の <a class="el" href="#L101">101</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">{<span class="keywordflow">return</span> _iterator(<span class="keyword">this</span>, size_);}
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="a8cadd1984f3257c32884e6b2b687600f"></a><!-- doxytag: member="stf::datatype::List::operator[]" ref="a8cadd1984f3257c32884e6b2b687600f" args="(int index) const " -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">const T&amp; <a class="el" href="classstf_1_1datatype_1_1_list.html">stf::datatype::List</a>&lt; T &gt;::operator[] </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>index</em></td><td>)</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">List.h</a> の <a class="el" href="#L99">99</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">{<a class="code" href="stfassert_8h.html#ac060e3fb0761961a79758ef0d299a120">stf_assert</a>(index &lt; size_ &amp;&amp; index &gt;= 0); <span class="keywordflow">return</span> *(data_[index]);}
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="aafa868e89c2529eac2aa2c99c0cc2895"></a><!-- doxytag: member="stf::datatype::List::operator[]" ref="aafa868e89c2529eac2aa2c99c0cc2895" args="(int index)" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">T&amp; <a class="el" href="classstf_1_1datatype_1_1_list.html">stf::datatype::List</a>&lt; T &gt;::operator[] </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>index</em></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">List.h</a> の <a class="el" href="#L98">98</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">{<a class="code" href="stfassert_8h.html#ac060e3fb0761961a79758ef0d299a120">stf_assert</a>(index &lt; size_ &amp;&amp; index &gt;= 0); <span class="keywordflow">return</span> *(data_[index]);}
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="abb140025a5458b1e65309424ab5b390b"></a><!-- doxytag: member="stf::datatype::List::push_back" ref="abb140025a5458b1e65309424ab5b390b" args="(T &amp;data)" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classstf_1_1datatype_1_1_list.html">stf::datatype::List</a>&lt; T &gt;::push_back </td>
+          <td>(</td>
+          <td class="paramtype">T &amp;&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">List.h</a> の <a class="el" href="#L127">127</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">                           {<span class="comment">//std::vectorと互換性を持たせるための関数</span>
+        <a class="code" href="classstf_1_1datatype_1_1_list.html#abe6c602f5a6104ef478907b2b51ff02c">add</a>(<a class="code" href="namespacenj.html#a54b165e7142279e06643f15f96fb3385">data</a>);
+    }
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="a2cf2e5ce162a4c558bc4a8da70f799ca"></a><!-- doxytag: member="stf::datatype::List::remove" ref="a2cf2e5ce162a4c558bc4a8da70f799ca" args="(T &amp;data)" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classstf_1_1datatype_1_1_list.html">stf::datatype::List</a>&lt; T &gt;::remove </td>
+          <td>(</td>
+          <td class="paramtype">T &amp;&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">List.h</a> の <a class="el" href="#L130">130</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">                        {
+        <span class="keywordtype">int</span> i = 0;
+        <span class="keywordflow">while</span>(i &lt; size_){
+            <span class="keywordflow">if</span>(data_[i] == &amp;<a class="code" href="namespacenj.html#a54b165e7142279e06643f15f96fb3385">data</a>){
+                removeat_(i);
+                <span class="keywordflow">return</span>;
+            }
+            i++;
+        }
+    }
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="a66f0cc6f8656d127c4b7b51a77db12ad"></a><!-- doxytag: member="stf::datatype::List::remove_all" ref="a66f0cc6f8656d127c4b7b51a77db12ad" args="(T &amp;data)" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classstf_1_1datatype_1_1_list.html">stf::datatype::List</a>&lt; T &gt;::remove_all </td>
+          <td>(</td>
+          <td class="paramtype">T &amp;&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">List.h</a> の <a class="el" href="#L140">140</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">                            {
+        <span class="keywordtype">int</span> i = 0;
+        <span class="keywordflow">while</span>(i &lt; size_){
+          <span class="keywordflow">if</span>(data_[i] == &amp;<a class="code" href="namespacenj.html#a54b165e7142279e06643f15f96fb3385">data</a>) removeat_(i);
+          <span class="keywordflow">else</span> i++;
+        }
+    }
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="aefebd1f593376ddecc434c900de8ded6"></a><!-- doxytag: member="stf::datatype::List::size" ref="aefebd1f593376ddecc434c900de8ded6" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="classstf_1_1datatype_1_1_list.html">stf::datatype::List</a>&lt; T &gt;::size </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">List.h</a> の <a class="el" href="#L102">102</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">{<span class="keywordflow">return</span> size_;}
+</pre></div>
+</div>
+</div>
+<hr/>このクラスの説明は次のファイルから生成されました:<ul>
+<li>stf/datatype/<a class="el" href="">List.h</a></li>
+</ul>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>フレンド</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>マクロ定義</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>STFに対してWed Mar 23 2011 05:33:35に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
+</body>
+</html>

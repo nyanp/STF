@@ -1,0 +1,1326 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>STF: stf/environment/sh/ioexpander.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- ‰ΩúÊàêÔºö Doxygen 1.7.3 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'Ê§úÁ¥¢');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">STF</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>„É°„Ç§„É≥„Éö„Éº„Ç∏</span></a></li>
+      <li><a href="pages.html"><span>Èñ¢ÈÄ£„Éö„Éº„Ç∏</span></a></li>
+      <li><a href="namespaces.html"><span>„Éç„Éº„É†„Çπ„Éö„Éº„Çπ</span></a></li>
+      <li><a href="annotated.html"><span>„ÇØ„É©„Çπ</span></a></li>
+      <li class="current"><a href="files.html"><span>„Éï„Ç°„Ç§„É´</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Ê§úÁ¥¢" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>„Éï„Ç°„Ç§„É´‰∏ÄË¶ß</span></a></li>
+      <li><a href="globals.html"><span>„Éï„Ç°„Ç§„É´„É°„É≥„Éê</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#define-members">„Éû„ÇØ„É≠ÂÆöÁæ©</a> &#124;
+<a href="#func-members">Èñ¢Êï∞</a>  </div>
+  <div class="headertitle">
+<h1>stf/environment/sh/ioexpander.c</h1>  </div>
+</div>
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="">iodefine.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="">ioexpander.h</a>&quot;</code><br/>
+<code>#include &quot;nand.h&quot;</code><br/>
+<code>#include &quot;sciutil.h&quot;</code><br/>
+<code>#include &quot;flags.h&quot;</code><br/>
+</div><div class="textblock"><div class="dynheader">
+ioexpander.c„ÅÆ„Ç§„É≥„ÇØ„É´„Éº„Éâ‰æùÂ≠òÈñ¢‰øÇÂõ≥</div>
+<div class="dyncontent">
+<div class="center"><img src="ioexpander_8c__incl.png" border="0" usemap="#stf_2environment_2sh_2ioexpander_8c" alt=""/></div>
+<map name="stf_2environment_2sh_2ioexpander_8c" id="stf_2environment_2sh_2ioexpander_8c">
+<area shape="rect" id="node3" href="stf_2environment_2sh_2iodefine_8h.html" title="iodefine.h" alt="" coords="5,83,83,112"/><area shape="rect" id="node5" href="ioexpander_8h.html" title="ioexpander.h" alt="" coords="107,83,203,112"/></map>
+</div>
+</div>
+<p><a href="">„ÇΩ„Éº„Çπ„Ç≥„Éº„Éâ„ÇíË¶ã„Çã„ÄÇ</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="define-members"></a>
+„Éû„ÇØ„É≠ÂÆöÁæ©</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ioexpander_8c.html#affad48e781a610073c5ddb15bd52c77f">IOE_SW</a>&#160;&#160;&#160;PA.DR.BIT.B16</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ioexpander_8c.html#a1bb283bd7893b9855e2f23013891fc82">INPUT</a>&#160;&#160;&#160;0</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ioexpander_8c.html#a61a3c9a18380aafb6e430e79bf596557">OUTPUT</a>&#160;&#160;&#160;1</td></tr>
+<tr><td colspan="2"><h2><a name="func-members"></a>
+Èñ¢Êï∞</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ioexpander_8c.html#a204e6220665173c8d68ed5a39ecbd779">ioe_power_on</a> (void)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">see PR1-FMT-M-07007  <a href="#a204e6220665173c8d68ed5a39ecbd779"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ioexpander_8c.html#a90895289113eb5bf87d271deca119ae2">ioe_power_off</a> (void)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ioexpander_8c.html#ae19fedd5b404d24e96f628e8c802a7a8">ioe_power_off_2</a> (void)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ioexpander_8c.html#ab6ce313f19b23823dddf8e3ae675f774">ioe_nac_init</a> (void)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ioexpander_8c.html#ab44cd7dc15a06996002723863dc4614b">ioe_focus_init</a> (void)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ioexpander_8c.html#ad57fb053738d52adc367dfe8de5453cd">ioe_magsensor_init</a> (void)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ioexpander_8c.html#a5e52e4cf91bc5953fbee949d72e58f91">ioe_mtq_init</a> (void)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ioexpander_8c.html#a357660c72c1c0a2fa8da063d76d367ff">ioe_sunsensor_init</a> (void)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ioexpander_8c.html#aa94fc66cb9687ae1fc244f440b112616">ioe_sw_init</a> (void)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ioexpander_8c.html#a4f44881fb624a995d6361eb7c13808e7">ioe_boom_init</a> (void)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ioexpander_8c.html#acff41123f7b3d910dc9d4b6d7c0b6162">ioe_nachtr_init</a> (void)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ioexpander_8c.html#ab5622f15c0f9fade6f305e6594c7cdba">ioe_nand_init</a> (void)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ioexpander_8c.html#ab04534e3ca206982b2f457d181eb5beb">ioe_wac_init</a> (unsigned char index)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ioexpander_8c.html#acb4ff80a419def6bcac6a35a3ae51f10">ioe_wac_set_sda_io</a> (unsigned char index, unsigned char io)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ioexpander_8c.html#a6743f78348b6af95c7913759f579e71a">ioe_nac_init2</a> (void)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ioexpander_8c.html#a0edc0bf56fb830d1e63da832d9a482e9">ioe_focus_init2</a> (void)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ioexpander_8c.html#a8d6664913a099bbd36def957f77f74ad">ioe_magsensor_init2</a> (void)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ioexpander_8c.html#ac88f6d55d448655bb384eb2586750118">ioe_mtq_init2</a> (void)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ioexpander_8c.html#a9079e9082845dccda786e0554af3bc06">ioe_sunsensor_init2</a> (void)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ioexpander_8c.html#aec7457ef649467b43992a6d7fe2672db">ioe_boom_init2</a> (void)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ioexpander_8c.html#ae391400c332d439a4ab19fa560e65dd7">ioe_nachtr_init2</a> (void)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ioexpander_8c.html#aae6f122dcb4b74743853a60f12d55487">ioe_nand_init2</a> (void)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ioexpander_8c.html#a032585aeb6f6977e9f0d3bae820a7e97">ioe_wac_init2</a> (unsigned char index)</td></tr>
+</table>
+<hr/><h2>„Éû„ÇØ„É≠ÂÆöÁæ©</h2>
+<a class="anchor" id="a1bb283bd7893b9855e2f23013891fc82"></a><!-- doxytag: member="ioexpander.c::INPUT" ref="a1bb283bd7893b9855e2f23013891fc82" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define INPUT&#160;&#160;&#160;0</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">ioexpander.c</a> „ÅÆ <a class="el" href="#L15">15</a> Ë°å„ÅßÂÆöÁæ©„Åï„Çå„Å¶„ÅÑ„Åæ„Åô„ÄÇ</p>
+
+</div>
+</div>
+<a class="anchor" id="affad48e781a610073c5ddb15bd52c77f"></a><!-- doxytag: member="ioexpander.c::IOE_SW" ref="affad48e781a610073c5ddb15bd52c77f" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IOE_SW&#160;&#160;&#160;PA.DR.BIT.B16</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">ioexpander.c</a> „ÅÆ <a class="el" href="#L14">14</a> Ë°å„ÅßÂÆöÁæ©„Åï„Çå„Å¶„ÅÑ„Åæ„Åô„ÄÇ</p>
+
+</div>
+</div>
+<a class="anchor" id="a61a3c9a18380aafb6e430e79bf596557"></a><!-- doxytag: member="ioexpander.c::OUTPUT" ref="a61a3c9a18380aafb6e430e79bf596557" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define OUTPUT&#160;&#160;&#160;1</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">ioexpander.c</a> „ÅÆ <a class="el" href="#L16">16</a> Ë°å„ÅßÂÆöÁæ©„Åï„Çå„Å¶„ÅÑ„Åæ„Åô„ÄÇ</p>
+
+</div>
+</div>
+<hr/><h2>Èñ¢Êï∞</h2>
+<a class="anchor" id="a4f44881fb624a995d6361eb7c13808e7"></a><!-- doxytag: member="ioexpander.c::ioe_boom_init" ref="a4f44881fb624a995d6361eb7c13808e7" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned char ioe_boom_init </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">ioexpander.c</a> „ÅÆ <a class="el" href="#L207">207</a> Ë°å„ÅßÂÆöÁæ©„Åï„Çå„Å¶„ÅÑ„Åæ„Åô„ÄÇ</p>
+<div class="fragment"><pre class="fragment">{
+        <a class="code" href="ioexpander_8h.html#ad2b5cd630583088815d9f66add987adc">IOE_SW_BM_SH</a>    = 0;<span class="comment">//ÉuÅ[ÉÄìWäJêMçÜÇÕÉfÉtÉHÉãÉgÇ≈OFF</span>
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P2IOR.BIT.B0 = <a class="code" href="ioexpander_8c.html#a61a3c9a18380aafb6e430e79bf596557">OUTPUT</a>;
+        <span class="keywordflow">return</span> 1;
+}
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="aec7457ef649467b43992a6d7fe2672db"></a><!-- doxytag: member="ioexpander.c::ioe_boom_init2" ref="aec7457ef649467b43992a6d7fe2672db" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned char ioe_boom_init2 </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">ioexpander.c</a> „ÅÆ <a class="el" href="#L577">577</a> Ë°å„ÅßÂÆöÁæ©„Åï„Çå„Å¶„ÅÑ„Åæ„Åô„ÄÇ</p>
+<div class="fragment"><pre class="fragment">{
+        <span class="keywordtype">int</span> i=0;
+        
+        <a class="code" href="ioexpander_8h.html#ad2b5cd630583088815d9f66add987adc">IOE_SW_BM_SH</a>    = 0;<span class="comment">//ÉuÅ[ÉÄìWäJêMçÜÇÕÉfÉtÉHÉãÉgÇ≈OFF</span>
+        
+        <span class="keywordflow">for</span>(i=0;i&lt;ioetime_boom*30;i++)
+        {
+                
+        }
+        
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P2IOR.BIT.B0 = <a class="code" href="ioexpander_8c.html#a61a3c9a18380aafb6e430e79bf596557">OUTPUT</a>;
+        <span class="keywordflow">return</span> 1;
+}
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="ab44cd7dc15a06996002723863dc4614b"></a><!-- doxytag: member="ioexpander.c::ioe_focus_init" ref="ab44cd7dc15a06996002723863dc4614b" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned char ioe_focus_init </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">ioexpander.c</a> „ÅÆ <a class="el" href="#L117">117</a> Ë°å„ÅßÂÆöÁæ©„Åï„Çå„Å¶„ÅÑ„Åæ„Åô„ÄÇ</p>
+<div class="fragment"><pre class="fragment">{
+        <a class="code" href="ioexpander_8h.html#a75dcd23953562461b0b1dd3c2e73d0a6">IOE_INA</a> = 0;
+        <a class="code" href="ioexpander_8h.html#ac2eda6b89e2e770a683bb71315c83ea9">IOE_INB</a> = 0;
+        <span class="comment">//ì¸èoóÕÇÃåàíË</span>
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P5IOR.BIT.B1 = <a class="code" href="ioexpander_8c.html#a61a3c9a18380aafb6e430e79bf596557">OUTPUT</a>;<span class="comment">//INA</span>
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P5IOR.BIT.B2 = <a class="code" href="ioexpander_8c.html#a61a3c9a18380aafb6e430e79bf596557">OUTPUT</a>;<span class="comment">//INB</span>
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P5IOR.BIT.B3 = <a class="code" href="ioexpander_8c.html#a1bb283bd7893b9855e2f23013891fc82">INPUT</a>; <span class="comment">//O-LIMIT</span>
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P5IOR.BIT.B4 = <a class="code" href="ioexpander_8c.html#a1bb283bd7893b9855e2f23013891fc82">INPUT</a>; <span class="comment">//L-LIMIT</span>
+        
+        <span class="keywordflow">return</span> 1;
+}
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="a0edc0bf56fb830d1e63da832d9a482e9"></a><!-- doxytag: member="ioexpander.c::ioe_focus_init2" ref="a0edc0bf56fb830d1e63da832d9a482e9" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned char ioe_focus_init2 </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">ioexpander.c</a> „ÅÆ <a class="el" href="#L470">470</a> Ë°å„ÅßÂÆöÁæ©„Åï„Çå„Å¶„ÅÑ„Åæ„Åô„ÄÇ</p>
+<div class="fragment"><pre class="fragment">{
+        <span class="keywordtype">int</span> i=0;
+        
+        <a class="code" href="ioexpander_8h.html#a75dcd23953562461b0b1dd3c2e73d0a6">IOE_INA</a> = 0;
+        <a class="code" href="ioexpander_8h.html#ac2eda6b89e2e770a683bb71315c83ea9">IOE_INB</a> = 0;
+        
+        <span class="keywordflow">for</span>(i=0;i&lt;ioetime_focus*30;i++)
+        {
+                
+        }
+        
+        <span class="comment">//ì¸èoóÕÇÃåàíË</span>
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P5IOR.BIT.B1 = <a class="code" href="ioexpander_8c.html#a61a3c9a18380aafb6e430e79bf596557">OUTPUT</a>;<span class="comment">//INA</span>
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P5IOR.BIT.B2 = <a class="code" href="ioexpander_8c.html#a61a3c9a18380aafb6e430e79bf596557">OUTPUT</a>;<span class="comment">//INB</span>
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P5IOR.BIT.B3 = <a class="code" href="ioexpander_8c.html#a1bb283bd7893b9855e2f23013891fc82">INPUT</a>; <span class="comment">//O-LIMIT</span>
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P5IOR.BIT.B4 = <a class="code" href="ioexpander_8c.html#a1bb283bd7893b9855e2f23013891fc82">INPUT</a>; <span class="comment">//L-LIMIT</span>
+        
+        <span class="keywordflow">return</span> 1;
+}
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="ad57fb053738d52adc367dfe8de5453cd"></a><!-- doxytag: member="ioexpander.c::ioe_magsensor_init" ref="ad57fb053738d52adc367dfe8de5453cd" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned char ioe_magsensor_init </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">ioexpander.c</a> „ÅÆ <a class="el" href="#L131">131</a> Ë°å„ÅßÂÆöÁæ©„Åï„Çå„Å¶„ÅÑ„Åæ„Åô„ÄÇ</p>
+<div class="fragment"><pre class="fragment">{
+        <a class="code" href="ioexpander_8h.html#aa73a486b2807591119505c1b25be58b5" title="NAC,ADCSópÉsÉìñºèÃíËã`">IOE_STA_MGX</a> = 0;<span class="comment">//STA_MG* ÇÕÉfÉtÉHÉãÉgÇ≈0</span>
+        <a class="code" href="ioexpander_8h.html#a6285d032dedc597507d5a3ab42d92bd2">IOE_STA_MGY</a> = 0;
+        <a class="code" href="ioexpander_8h.html#a8620a56a241974e98b7d2c679ca7839b">IOE_STA_MGZ</a> = 0;
+        
+        <span class="comment">//ì¸èoóÕÇÃåàíË</span>
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P0IOR.BIT.B0 = <a class="code" href="ioexpander_8c.html#a61a3c9a18380aafb6e430e79bf596557">OUTPUT</a>;<span class="comment">//STA-MGX</span>
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P0IOR.BIT.B1 = <a class="code" href="ioexpander_8c.html#a61a3c9a18380aafb6e430e79bf596557">OUTPUT</a>;<span class="comment">//STA-MGY</span>
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P0IOR.BIT.B2 = <a class="code" href="ioexpander_8c.html#a61a3c9a18380aafb6e430e79bf596557">OUTPUT</a>;<span class="comment">//STA-MGZ</span>
+        
+        <span class="keywordflow">return</span> 1;
+}
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="a8d6664913a099bbd36def957f77f74ad"></a><!-- doxytag: member="ioexpander.c::ioe_magsensor_init2" ref="a8d6664913a099bbd36def957f77f74ad" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned char ioe_magsensor_init2 </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">ioexpander.c</a> „ÅÆ <a class="el" href="#L492">492</a> Ë°å„ÅßÂÆöÁæ©„Åï„Çå„Å¶„ÅÑ„Åæ„Åô„ÄÇ</p>
+<div class="fragment"><pre class="fragment">{
+        <span class="keywordtype">int</span> i=0;
+        
+        <a class="code" href="ioexpander_8h.html#aa73a486b2807591119505c1b25be58b5" title="NAC,ADCSópÉsÉìñºèÃíËã`">IOE_STA_MGX</a> = 0;<span class="comment">//STA_MG* ÇÕÉfÉtÉHÉãÉgÇ≈0</span>
+        <a class="code" href="ioexpander_8h.html#a6285d032dedc597507d5a3ab42d92bd2">IOE_STA_MGY</a> = 0;
+        <a class="code" href="ioexpander_8h.html#a8620a56a241974e98b7d2c679ca7839b">IOE_STA_MGZ</a> = 0;
+        
+        <span class="keywordflow">for</span>(i=0;i&lt;ioetime_ms*30;i++)
+        {
+                
+        }
+        
+        <span class="comment">//ì¸èoóÕÇÃåàíË</span>
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P0IOR.BIT.B0 = <a class="code" href="ioexpander_8c.html#a61a3c9a18380aafb6e430e79bf596557">OUTPUT</a>;<span class="comment">//STA-MGX</span>
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P0IOR.BIT.B1 = <a class="code" href="ioexpander_8c.html#a61a3c9a18380aafb6e430e79bf596557">OUTPUT</a>;<span class="comment">//STA-MGY</span>
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P0IOR.BIT.B2 = <a class="code" href="ioexpander_8c.html#a61a3c9a18380aafb6e430e79bf596557">OUTPUT</a>;<span class="comment">//STA-MGZ</span>
+        
+        <span class="keywordflow">return</span> 1;
+}
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="a5e52e4cf91bc5953fbee949d72e58f91"></a><!-- doxytag: member="ioexpander.c::ioe_mtq_init" ref="a5e52e4cf91bc5953fbee949d72e58f91" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned char ioe_mtq_init </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">ioexpander.c</a> „ÅÆ <a class="el" href="#L145">145</a> Ë°å„ÅßÂÆöÁæ©„Åï„Çå„Å¶„ÅÑ„Åæ„Åô„ÄÇ</p>
+<div class="fragment"><pre class="fragment">{
+        <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">int</span> i=0;
+        
+        <a class="code" href="ioexpander_8h.html#a0b08fb2b6d66ddb51267b7469daab885">IOE_MTQX_DA</a> = 0;
+        <a class="code" href="ioexpander_8h.html#a6f52c42f2166ec58b59ea4585a47e594">IOE_MTQX_DB</a> = 0;
+        <a class="code" href="ioexpander_8h.html#ab1cba9852e6987ad72608437dcf776b6">IOE_MTQY_DA</a> = 0;
+        <a class="code" href="ioexpander_8h.html#ae34f41a5bd51b47865f7b18c05b80669">IOE_MTQY_DB</a> = 0;
+        <a class="code" href="ioexpander_8h.html#af426ef6446835a31b05385d67ea605d5">IOE_MTQZ_DA</a> = 0;
+        <a class="code" href="ioexpander_8h.html#a11e51dc5074e798d2833dafb8e7a8f82">IOE_MTQZ_DB</a> = 0;
+        
+        <span class="keywordflow">for</span>(i=0;i&lt;1000;i++)
+        {
+                
+        }
+        
+        <span class="comment">//ì¸èoóÕÇåàíË</span>
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P1IOR.BIT.B0 = <a class="code" href="ioexpander_8c.html#a61a3c9a18380aafb6e430e79bf596557">OUTPUT</a>;<span class="comment">//MTQX-DA</span>
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P1IOR.BIT.B1 = <a class="code" href="ioexpander_8c.html#a61a3c9a18380aafb6e430e79bf596557">OUTPUT</a>;<span class="comment">//MTQX-DB</span>
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P1IOR.BIT.B2 = <a class="code" href="ioexpander_8c.html#a61a3c9a18380aafb6e430e79bf596557">OUTPUT</a>;<span class="comment">//MTQY-DA</span>
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P1IOR.BIT.B3 = <a class="code" href="ioexpander_8c.html#a61a3c9a18380aafb6e430e79bf596557">OUTPUT</a>;<span class="comment">//MTQY-DB</span>
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P1IOR.BIT.B4 = <a class="code" href="ioexpander_8c.html#a61a3c9a18380aafb6e430e79bf596557">OUTPUT</a>;<span class="comment">//MTQZ-DA</span>
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P1IOR.BIT.B5 = <a class="code" href="ioexpander_8c.html#a61a3c9a18380aafb6e430e79bf596557">OUTPUT</a>;<span class="comment">//MTQZ-DB</span>
+        
+        
+        <span class="keywordflow">return</span> 1;
+}
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="ac88f6d55d448655bb384eb2586750118"></a><!-- doxytag: member="ioexpander.c::ioe_mtq_init2" ref="ac88f6d55d448655bb384eb2586750118" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned char ioe_mtq_init2 </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">ioexpander.c</a> „ÅÆ <a class="el" href="#L514">514</a> Ë°å„ÅßÂÆöÁæ©„Åï„Çå„Å¶„ÅÑ„Åæ„Åô„ÄÇ</p>
+<div class="fragment"><pre class="fragment">{
+        <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">int</span> i=0;
+        
+        <a class="code" href="ioexpander_8h.html#a0b08fb2b6d66ddb51267b7469daab885">IOE_MTQX_DA</a> = 0;
+        <a class="code" href="ioexpander_8h.html#a6f52c42f2166ec58b59ea4585a47e594">IOE_MTQX_DB</a> = 0;
+        <a class="code" href="ioexpander_8h.html#ab1cba9852e6987ad72608437dcf776b6">IOE_MTQY_DA</a> = 0;
+        <a class="code" href="ioexpander_8h.html#ae34f41a5bd51b47865f7b18c05b80669">IOE_MTQY_DB</a> = 0;
+        <a class="code" href="ioexpander_8h.html#af426ef6446835a31b05385d67ea605d5">IOE_MTQZ_DA</a> = 0;
+        <a class="code" href="ioexpander_8h.html#a11e51dc5074e798d2833dafb8e7a8f82">IOE_MTQZ_DB</a> = 0;
+        
+        <span class="keywordflow">for</span>(i=0;i&lt;ioetime_mtq*30;i++)
+        {
+                
+        }
+        
+        <span class="comment">//ì¸èoóÕÇåàíË</span>
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P1IOR.BIT.B0 = <a class="code" href="ioexpander_8c.html#a61a3c9a18380aafb6e430e79bf596557">OUTPUT</a>;<span class="comment">//MTQX-DA</span>
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P1IOR.BIT.B1 = <a class="code" href="ioexpander_8c.html#a61a3c9a18380aafb6e430e79bf596557">OUTPUT</a>;<span class="comment">//MTQX-DB</span>
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P1IOR.BIT.B2 = <a class="code" href="ioexpander_8c.html#a61a3c9a18380aafb6e430e79bf596557">OUTPUT</a>;<span class="comment">//MTQY-DA</span>
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P1IOR.BIT.B3 = <a class="code" href="ioexpander_8c.html#a61a3c9a18380aafb6e430e79bf596557">OUTPUT</a>;<span class="comment">//MTQY-DB</span>
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P1IOR.BIT.B4 = <a class="code" href="ioexpander_8c.html#a61a3c9a18380aafb6e430e79bf596557">OUTPUT</a>;<span class="comment">//MTQZ-DA</span>
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P1IOR.BIT.B5 = <a class="code" href="ioexpander_8c.html#a61a3c9a18380aafb6e430e79bf596557">OUTPUT</a>;<span class="comment">//MTQZ-DB</span>
+        
+        
+        <span class="keywordflow">return</span> 1;
+}
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="ab6ce313f19b23823dddf8e3ae675f774"></a><!-- doxytag: member="ioexpander.c::ioe_nac_init" ref="ab6ce313f19b23823dddf8e3ae675f774" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned char ioe_nac_init </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p><p>NACêßå‰ópèâä˙âª </p>
+</p>
+
+<p> <a class="el" href="">ioexpander.c</a> „ÅÆ <a class="el" href="#L50">50</a> Ë°å„ÅßÂÆöÁæ©„Åï„Çå„Å¶„ÅÑ„Åæ„Åô„ÄÇ</p>
+<div class="fragment"><pre class="fragment">{
+        <span class="keywordtype">int</span> i=0;
+        
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P3IOR.BIT.B0 = 1;        <span class="comment">// SW-NAC3,             Output</span>
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P3IOR.BIT.B1 = 1;        <span class="comment">// @SW05,               Output</span>
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P3IOR.BIT.B2 = 0;        <span class="comment">// N-T-OUT,     Input</span>
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P3IOR.BIT.B3 = 1;        <span class="comment">// N-S-EN,              Output</span>
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P3IOR.BIT.B4 = 1;        <span class="comment">// N-X-LOAD,    Output</span>
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P3IOR.BIT.B5 = 0;        <span class="comment">// N-LSTLIN,    Input</span>
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P3IOR.BIT.B6 = 1;        <span class="comment">// N-Y-CLK,             Output</span>
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P3IOR.BIT.B7 = 1;        <span class="comment">// N-X-STRT,    Output  </span>
+
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P4IOR.BIT.B0 = 1;        <span class="comment">// N-SYSRES,    Output</span>
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P4IOR.BIT.B1 = 1;        <span class="comment">// N-SSSTOP,    Output</span>
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P4IOR.BIT.B2 = 1;        <span class="comment">// N-SSSTRT,    Output</span>
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P4IOR.BIT.B3 = 0;        <span class="comment">// N-PXLVLD,    Input</span>
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P4IOR.BIT.B4 = 1;        <span class="comment">// N-OE,                Output</span>
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P4IOR.BIT.B5 = 1;        <span class="comment">// N-RE,                Output</span>
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P4IOR.BIT.B6 = 1;        <span class="comment">// N-WRST,              Output          </span>
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P4IOR.BIT.B7 = 1;        <span class="comment">// N-RRST,              Output</span>
+        
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P5IOR.BIT.B0 = 1;        <span class="comment">// N-WE-OBC,    Output  </span>
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P5IOR.BIT.B1 = 1;        <span class="comment">// INA(Motor),  Output</span>
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P5IOR.BIT.B2 = 1;        <span class="comment">// INB(Motor),  Output</span>
+<span class="comment">//      IOENAC.P5IOR.BIT.B3 = 0;        // O-LIMIT,             Input</span>
+<span class="comment">//      IOENAC.P5IOR.BIT.B4 = 0;        // L-LIMIT,             Input   </span>
+
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P5IOR.BIT.B3 = 1;        <span class="comment">// O-LIMIT,             Output</span>
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P5IOR.BIT.B4 = 1;        <span class="comment">// L-LIMIT,             Output</span>
+        
+        <span class="comment">/***/</span>
+        <a class="code" href="ioexpander_8h.html#afebb26eba0634ee07f287336b9bcaad9">IOE_N_S_EN</a>              = 0;
+        <a class="code" href="ioexpander_8h.html#ae22404d807acbc88e65e28c45d940408">IOE_N_X_LOAD</a>    = 0;
+        <a class="code" href="ioexpander_8h.html#a130442830d92b5e6dc774e3e2ac9a450">IOE_N_Y_CLK</a>             = 0;
+        <a class="code" href="ioexpander_8h.html#a8c25e3c872a80f85656715eefc39471d">IOE_N_Y_STRT</a>    = 0;
+        
+        <a class="code" href="ioexpander_8h.html#a4b5d2ff2df9e5453d4230d80a791e499">IOE_N_SYSRES</a>    = 0;
+        <a class="code" href="ioexpander_8h.html#a2be2f91003fe74c8e57c9d60dd1fd742">IOE_N_SSSTOP</a>    = 0;    
+        <a class="code" href="ioexpander_8h.html#acae35ae175738513673089d2f1ba1a25">IOE_N_SSSTRT</a>    = 0;
+
+        <a class="code" href="ioexpander_8h.html#a6e274e3efab0a66119017ef1211eeea7">IOE_N_OE</a>                = 0;
+        <a class="code" href="ioexpander_8h.html#a609df0ac6190bbeb6cbd65217b8b2e7b">IOE_N_RE</a>                = 0;
+        <a class="code" href="ioexpander_8h.html#acebb8c262e649480d8c19c0ecd2bb211">IOE_N_WRST</a>              = 0;
+        <a class="code" href="ioexpander_8h.html#a065f1e9407c7d12a81f7c425c6780860">IOE_N_RRST</a>              = 0;
+
+        <a class="code" href="ioexpander_8h.html#ab34f2b72758575a307d757606566f04c">IOE_N_WE_OBC</a>    = 0;
+        <a class="code" href="ioexpander_8h.html#a75dcd23953562461b0b1dd3c2e73d0a6">IOE_INA</a>                 = 0;
+        <a class="code" href="ioexpander_8h.html#ac2eda6b89e2e770a683bb71315c83ea9">IOE_INB</a>                 = 0;
+        <a class="code" href="ioexpander_8h.html#aa54f2f7ad288e2847948947445aa0188">IOE_O_LIMIT</a>             = 0;
+        <a class="code" href="ioexpander_8h.html#a65c88718190dad704927f6b844f138ef">IOE_L_LIMIT</a>             = 0;
+        
+        <a class="code" href="7040_s_8_h.html#a211238ffe3627f42ca7b04bc96cc8fa6">PE</a>.DRL.BIT.B10                  =        0; <span class="comment">//2008 11/22 NSDATAÇÃèàóù</span>
+        <a class="code" href="7040_s_8_h.html#a211238ffe3627f42ca7b04bc96cc8fa6">PE</a>.DRL.BIT.B8                   =        0; <span class="comment">//2008 11/22 N-SCLKÇÃèàóù</span>
+        <a class="code" href="7040_s_8_h.html#a74cb3af6041b109c53743b600ebbcf4c">PA</a>.DR.BIT.B18                   =    0; <span class="comment">//2008 11/22 N-SRCKÇÃèàóù</span>
+        
+        <span class="keywordflow">for</span>(i=0;i&lt;10000;i++)
+        {
+        }
+        
+        <a class="code" href="ioexpander_8h.html#a5fd6045e9c90ce9811545b1d5f3a89b9">IOE_SW_NAC3</a>  = 1;                       <span class="comment">// NAC 3.3V Off Active Low</span>
+        <a class="code" href="ioexpander_8h.html#a6853f3eaa9ac3a24d87fcbc1b0773be3">IOE_SWO5</a>         = 0;                   <span class="comment">// NAC 5V       Off     Active High</span>
+        
+        <span class="keywordflow">return</span> 1;
+}
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="a6743f78348b6af95c7913759f579e71a"></a><!-- doxytag: member="ioexpander.c::ioe_nac_init2" ref="a6743f78348b6af95c7913759f579e71a" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned char ioe_nac_init2 </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p><p>NACêßå‰ópèâä˙âª </p>
+</p>
+
+<p> <a class="el" href="">ioexpander.c</a> „ÅÆ <a class="el" href="#L393">393</a> Ë°å„ÅßÂÆöÁæ©„Åï„Çå„Å¶„ÅÑ„Åæ„Åô„ÄÇ</p>
+<div class="fragment"><pre class="fragment">{
+        <span class="keywordtype">int</span> i=0;
+        
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P3IOR.BIT.B0 = 1;        <span class="comment">// SW-NAC3,             Output</span>
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P3IOR.BIT.B1 = 1;        <span class="comment">// @SW05,               Output</span>
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P3IOR.BIT.B2 = 0;        <span class="comment">// N-T-OUT,     Input</span>
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P3IOR.BIT.B3 = 1;        <span class="comment">// N-S-EN,              Output</span>
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P3IOR.BIT.B4 = 1;        <span class="comment">// N-X-LOAD,    Output</span>
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P3IOR.BIT.B5 = 0;        <span class="comment">// N-LSTLIN,    Input</span>
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P3IOR.BIT.B6 = 1;        <span class="comment">// N-Y-CLK,             Output</span>
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P3IOR.BIT.B7 = 1;        <span class="comment">// N-X-STRT,    Output  </span>
+
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P4IOR.BIT.B0 = 1;        <span class="comment">// N-SYSRES,    Output</span>
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P4IOR.BIT.B1 = 1;        <span class="comment">// N-SSSTOP,    Output</span>
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P4IOR.BIT.B2 = 1;        <span class="comment">// N-SSSTRT,    Output</span>
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P4IOR.BIT.B3 = 0;        <span class="comment">// N-PXLVLD,    Input</span>
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P4IOR.BIT.B4 = 1;        <span class="comment">// N-OE,                Output</span>
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P4IOR.BIT.B5 = 1;        <span class="comment">// N-RE,                Output</span>
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P4IOR.BIT.B6 = 1;        <span class="comment">// N-WRST,              Output          </span>
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P4IOR.BIT.B7 = 1;        <span class="comment">// N-RRST,              Output</span>
+        
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P5IOR.BIT.B0 = 1;        <span class="comment">// N-WE-OBC,    Output  </span>
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P5IOR.BIT.B1 = 1;        <span class="comment">// INA(Motor),  Output</span>
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P5IOR.BIT.B2 = 1;        <span class="comment">// INB(Motor),  Output</span>
+<span class="comment">//      IOENAC.P5IOR.BIT.B3 = 0;        // O-LIMIT,             Input</span>
+<span class="comment">//      IOENAC.P5IOR.BIT.B4 = 0;        // L-LIMIT,             Input   </span>
+
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P5IOR.BIT.B3 = 1;        <span class="comment">// O-LIMIT,             Output</span>
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P5IOR.BIT.B4 = 1;        <span class="comment">// L-LIMIT,             Output</span>
+        
+        <span class="keywordflow">for</span>(i=0;i&lt;ioetime_nac*30;i++)
+        {
+                
+        }
+        
+        <span class="comment">/***/</span>
+        <a class="code" href="ioexpander_8h.html#afebb26eba0634ee07f287336b9bcaad9">IOE_N_S_EN</a>              = 0;
+        <a class="code" href="ioexpander_8h.html#ae22404d807acbc88e65e28c45d940408">IOE_N_X_LOAD</a>    = 0;
+        <a class="code" href="ioexpander_8h.html#a130442830d92b5e6dc774e3e2ac9a450">IOE_N_Y_CLK</a>             = 0;
+        <a class="code" href="ioexpander_8h.html#a8c25e3c872a80f85656715eefc39471d">IOE_N_Y_STRT</a>    = 0;
+        
+        <a class="code" href="ioexpander_8h.html#a4b5d2ff2df9e5453d4230d80a791e499">IOE_N_SYSRES</a>    = 0;
+        <a class="code" href="ioexpander_8h.html#a2be2f91003fe74c8e57c9d60dd1fd742">IOE_N_SSSTOP</a>    = 0;    
+        <a class="code" href="ioexpander_8h.html#acae35ae175738513673089d2f1ba1a25">IOE_N_SSSTRT</a>    = 0;
+
+        <a class="code" href="ioexpander_8h.html#a6e274e3efab0a66119017ef1211eeea7">IOE_N_OE</a>                = 0;
+        <a class="code" href="ioexpander_8h.html#a609df0ac6190bbeb6cbd65217b8b2e7b">IOE_N_RE</a>                = 0;
+        <a class="code" href="ioexpander_8h.html#acebb8c262e649480d8c19c0ecd2bb211">IOE_N_WRST</a>              = 0;
+        <a class="code" href="ioexpander_8h.html#a065f1e9407c7d12a81f7c425c6780860">IOE_N_RRST</a>              = 0;
+
+        <a class="code" href="ioexpander_8h.html#ab34f2b72758575a307d757606566f04c">IOE_N_WE_OBC</a>    = 0;
+        <a class="code" href="ioexpander_8h.html#a75dcd23953562461b0b1dd3c2e73d0a6">IOE_INA</a>                 = 0;
+        <a class="code" href="ioexpander_8h.html#ac2eda6b89e2e770a683bb71315c83ea9">IOE_INB</a>                 = 0;
+        <a class="code" href="ioexpander_8h.html#aa54f2f7ad288e2847948947445aa0188">IOE_O_LIMIT</a>             = 0;
+        <a class="code" href="ioexpander_8h.html#a65c88718190dad704927f6b844f138ef">IOE_L_LIMIT</a>             = 0;
+        
+        <span class="keywordflow">for</span>(i=0;i&lt;ioetime_nac*30;i++)
+        {
+                
+        }
+        
+        <a class="code" href="7040_s_8_h.html#a211238ffe3627f42ca7b04bc96cc8fa6">PE</a>.DRL.BIT.B10                  =        0; <span class="comment">//2008 11/22 NSDATAÇÃèàóù</span>
+        <a class="code" href="7040_s_8_h.html#a211238ffe3627f42ca7b04bc96cc8fa6">PE</a>.DRL.BIT.B8                   =        0; <span class="comment">//2008 11/22 N-SCLKÇÃèàóù</span>
+        <a class="code" href="7040_s_8_h.html#a74cb3af6041b109c53743b600ebbcf4c">PA</a>.DR.BIT.B18                   =    0; <span class="comment">//2008 11/22 N-SRCKÇÃèàóù</span>
+        
+        <span class="keywordflow">for</span>(i=0;i&lt;10000;i++)
+        {
+        }
+        
+        <a class="code" href="ioexpander_8h.html#a5fd6045e9c90ce9811545b1d5f3a89b9">IOE_SW_NAC3</a>  = 1;                       <span class="comment">// NAC 3.3V Off Active Low</span>
+        <a class="code" href="ioexpander_8h.html#a6853f3eaa9ac3a24d87fcbc1b0773be3">IOE_SWO5</a>         = 0;                   <span class="comment">// NAC 5V       Off     Active High</span>
+        
+        <span class="keywordflow">return</span> 1;
+}
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="acff41123f7b3d910dc9d4b6d7c0b6162"></a><!-- doxytag: member="ioexpander.c::ioe_nachtr_init" ref="acff41123f7b3d910dc9d4b6d7c0b6162" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned char ioe_nachtr_init </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">ioexpander.c</a> „ÅÆ <a class="el" href="#L214">214</a> Ë°å„ÅßÂÆöÁæ©„Åï„Çå„Å¶„ÅÑ„Åæ„Åô„ÄÇ</p>
+<div class="fragment"><pre class="fragment">{
+        <a class="code" href="ioexpander_8h.html#a6c60109da62a4859a4763dd1bb9bc1ce">IOE_SW_NHTR</a>             = 0;<span class="comment">//NACÉqÅ[É^ópêMçÜÇÕÉfÉtÉHÉãÉgÇ≈OFF</span>
+        <span class="comment">//SWä÷åWÇÃÉsÉìÇÕëSÇƒèoóÕÇ…ê›íËÇ≥ÇÍÇƒÇ¢ÇÈ</span>
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P2IOR.BIT.B4 = <a class="code" href="ioexpander_8c.html#a61a3c9a18380aafb6e430e79bf596557">OUTPUT</a>;
+        <span class="keywordflow">return</span> 1;
+}
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="ae391400c332d439a4ab19fa560e65dd7"></a><!-- doxytag: member="ioexpander.c::ioe_nachtr_init2" ref="ae391400c332d439a4ab19fa560e65dd7" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned char ioe_nachtr_init2 </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">ioexpander.c</a> „ÅÆ <a class="el" href="#L592">592</a> Ë°å„ÅßÂÆöÁæ©„Åï„Çå„Å¶„ÅÑ„Åæ„Åô„ÄÇ</p>
+<div class="fragment"><pre class="fragment">{
+        <span class="keywordtype">int</span> i=0;
+        
+        <a class="code" href="ioexpander_8h.html#a6c60109da62a4859a4763dd1bb9bc1ce">IOE_SW_NHTR</a>             = 0;<span class="comment">//NACÉqÅ[É^ópêMçÜÇÕÉfÉtÉHÉãÉgÇ≈OFF</span>
+        
+        <span class="keywordflow">for</span>(i=0;i&lt;ioetime_nhtr*30;i++)
+        {
+                
+        }
+        
+        <span class="comment">//SWä÷åWÇÃÉsÉìÇÕëSÇƒèoóÕÇ…ê›íËÇ≥ÇÍÇƒÇ¢ÇÈ</span>
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P2IOR.BIT.B4 = <a class="code" href="ioexpander_8c.html#a61a3c9a18380aafb6e430e79bf596557">OUTPUT</a>;
+        <span class="keywordflow">return</span> 1;
+}
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="ab5622f15c0f9fade6f305e6594c7cdba"></a><!-- doxytag: member="ioexpander.c::ioe_nand_init" ref="ab5622f15c0f9fade6f305e6594c7cdba" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned char ioe_nand_init </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">ioexpander.c</a> „ÅÆ <a class="el" href="#L222">222</a> Ë°å„ÅßÂÆöÁæ©„Åï„Çå„Å¶„ÅÑ„Åæ„Åô„ÄÇ</p>
+<div class="fragment"><pre class="fragment">{
+        <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> i;
+        
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.ODCTL.BIT.B0     = 0;
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.ODCTL.BIT.B6     = 0;
+
+        <a class="code" href="ioexpander_8h.html#a62988b9ea021c65ef781e42fb5826d5a">IOE_NAND_CE</a> = 1;
+        <a class="code" href="ioexpander_8h.html#a5e4c431cfc9b4b37f65193ba94d499e9">IOE_NAND_WP</a> = 1;
+        
+        <span class="keywordflow">for</span>(i=0;i&lt;1000;i++)
+        {
+                
+        }
+        
+        <span class="comment">//debug_puts((unsigned char*)&quot;ioe nand init...&quot;);</span>
+
+        <span class="comment">//ì¸èoóÕê›íË</span>
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P6IOR.BIT.B0 = 1;<span class="comment">//NAND-CE</span>
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P6IOR.BIT.B1 = 1;<span class="comment">//NAND-WP</span>
+
+        <a class="code" href="ioexpander_8h.html#a62988b9ea021c65ef781e42fb5826d5a">IOE_NAND_CE</a> = 1;
+        <a class="code" href="ioexpander_8h.html#a5e4c431cfc9b4b37f65193ba94d499e9">IOE_NAND_WP</a> = 1;
+        
+        <span class="keywordflow">for</span>(i=0;i&lt;1000;i++)
+        {
+                <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> j;
+                <span class="keywordflow">for</span>(j=0;j&lt;4000;j++)
+                {
+                }
+        }
+        
+        <span class="comment">//debug_puts((unsigned char*)&quot;finished.\r\n&quot;);</span>
+        
+        <span class="keywordflow">return</span> 1;
+}
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="aae6f122dcb4b74743853a60f12d55487"></a><!-- doxytag: member="ioexpander.c::ioe_nand_init2" ref="aae6f122dcb4b74743853a60f12d55487" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned char ioe_nand_init2 </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">ioexpander.c</a> „ÅÆ <a class="el" href="#L608">608</a> Ë°å„ÅßÂÆöÁæ©„Åï„Çå„Å¶„ÅÑ„Åæ„Åô„ÄÇ</p>
+<div class="fragment"><pre class="fragment">{
+        <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> i;
+        
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.ODCTL.BIT.B0     = 0;
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.ODCTL.BIT.B6     = 0;
+
+        <a class="code" href="ioexpander_8h.html#a62988b9ea021c65ef781e42fb5826d5a">IOE_NAND_CE</a> = 1;
+        <a class="code" href="ioexpander_8h.html#a5e4c431cfc9b4b37f65193ba94d499e9">IOE_NAND_WP</a> = 1;
+        
+        <span class="keywordflow">for</span>(i=0;i&lt;ioetime_nand*30;i++)
+        {
+                
+        }
+        
+        <span class="comment">//debug_puts((unsigned char*)&quot;ioe nand init...&quot;);</span>
+
+        <span class="comment">//ì¸èoóÕê›íË</span>
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P6IOR.BIT.B0 = 1;<span class="comment">//NAND-CE</span>
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P6IOR.BIT.B1 = 1;<span class="comment">//NAND-WP</span>
+
+        <a class="code" href="ioexpander_8h.html#a62988b9ea021c65ef781e42fb5826d5a">IOE_NAND_CE</a> = 1;
+        <a class="code" href="ioexpander_8h.html#a5e4c431cfc9b4b37f65193ba94d499e9">IOE_NAND_WP</a> = 1;
+        
+        <span class="keywordflow">for</span>(i=0;i&lt;1000;i++)
+        {
+                <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> j;
+                <span class="keywordflow">for</span>(j=0;j&lt;4000;j++)
+                {
+                }
+        }
+        
+        <span class="comment">//debug_puts((unsigned char*)&quot;finished.\r\n&quot;);</span>
+        
+        <span class="keywordflow">return</span> 1;
+}
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="a90895289113eb5bf87d271deca119ae2"></a><!-- doxytag: member="ioexpander.c::ioe_power_off" ref="a90895289113eb5bf87d271deca119ae2" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned char ioe_power_off </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">ioexpander.c</a> „ÅÆ <a class="el" href="#L28">28</a> Ë°å„ÅßÂÆöÁæ©„Åï„Çå„Å¶„ÅÑ„Åæ„Åô„ÄÇ</p>
+<div class="fragment"><pre class="fragment">{
+        <a class="code" href="ioexpander_8c.html#affad48e781a610073c5ddb15bd52c77f">IOE_SW</a> = 1;<span class="comment">//ïâò_óù(Active low)</span>
+        <span class="comment">//Ç±ÇÃå„ÅAäeIOEÇÃêÊì™ÉAÉhÉåÉXÇ÷ÇÃèëÇ´çûÇ›ÉTÉCÉNÉãÇé¿çsÇ∑ÇÈÇ±Ç∆ÅB</span>
+        <span class="comment">//ÇΩÇæÇµèëÇ´çûÇﬁÉfÅ[É^ÇÕ0x00Ç≈Ç†ÇÈïKóvÇ™Ç†ÇÈÅB</span>
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P0DR.BYTE = 0x00;
+        <a class="code" href="ioexpander_8h.html#aed308aab7f9988edd6064722334863cc">IOEWAC</a>.P0DR.BYTE = 0x00;
+        
+        <span class="keywordflow">return</span> 1;
+}
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="ae19fedd5b404d24e96f628e8c802a7a8"></a><!-- doxytag: member="ioexpander.c::ioe_power_off_2" ref="ae19fedd5b404d24e96f628e8c802a7a8" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned char ioe_power_off_2 </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">ioexpander.c</a> „ÅÆ <a class="el" href="#L39">39</a> Ë°å„ÅßÂÆöÁæ©„Åï„Çå„Å¶„ÅÑ„Åæ„Åô„ÄÇ</p>
+<div class="fragment"><pre class="fragment">{
+        <a class="code" href="ioexpander_8c.html#affad48e781a610073c5ddb15bd52c77f">IOE_SW</a> = 1;<span class="comment">//ïâò_óù(Active low)</span>
+        <span class="comment">//Ç±ÇÃå„ÅAäeIOEÇÃêÊì™ÉAÉhÉåÉXÇ÷ÇÃèëÇ´çûÇ›ÉTÉCÉNÉãÇé¿çsÇ∑ÇÈÇ±Ç∆ÅB</span>
+        <span class="comment">//ÇΩÇæÇµèëÇ´çûÇﬁÉfÅ[É^ÇÕ0x00Ç≈Ç†ÇÈïKóvÇ™Ç†ÇÈÅB</span>
+<span class="comment">//      IOENAC.P0DR.BYTE = 0x00;</span>
+<span class="comment">//      IOEWAC.P0DR.BYTE = 0x00;</span>
+        
+        <span class="keywordflow">return</span> 1;
+}
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="a204e6220665173c8d68ed5a39ecbd779"></a><!-- doxytag: member="ioexpander.c::ioe_power_on" ref="a204e6220665173c8d68ed5a39ecbd779" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned char ioe_power_on </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>see PR1-FMT-M-07007 </p>
+
+<p> <a class="el" href="">ioexpander.c</a> „ÅÆ <a class="el" href="#L19">19</a> Ë°å„ÅßÂÆöÁæ©„Åï„Çå„Å¶„ÅÑ„Åæ„Åô„ÄÇ</p>
+<div class="fragment"><pre class="fragment">{
+        <a class="code" href="ioexpander_8c.html#affad48e781a610073c5ddb15bd52c77f">IOE_SW</a> = 0;<span class="comment">//ïâò_óù(Active low)</span>
+        NAND_WP = 1;
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P6IOR.BIT.B1 = <a class="code" href="ioexpander_8c.html#a61a3c9a18380aafb6e430e79bf596557">OUTPUT</a>;<span class="comment">//NAND-WP</span>
+        NAND_WP = 1;
+        <span class="keywordflow">return</span> 1;
+}
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="a357660c72c1c0a2fa8da063d76d367ff"></a><!-- doxytag: member="ioexpander.c::ioe_sunsensor_init" ref="a357660c72c1c0a2fa8da063d76d367ff" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned char ioe_sunsensor_init </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">ioexpander.c</a> „ÅÆ <a class="el" href="#L173">173</a> Ë°å„ÅßÂÆöÁæ©„Åï„Çå„Å¶„ÅÑ„Åæ„Åô„ÄÇ</p>
+<div class="fragment"><pre class="fragment">{
+        <a class="code" href="ioexpander_8h.html#a89c5ac911f5807197ac17c4e6a3c0fb0">IOE_SS_MPX0</a> = 0;<span class="comment">// SS_MPX*ÇÕÉfÉtÉHÉãÉgÇ≈É[Éç</span>
+        <a class="code" href="ioexpander_8h.html#a1aa1a4d13cabffb19887278035a25f6b">IOE_SS_MPX1</a> = 0;
+        <a class="code" href="ioexpander_8h.html#a34d19b391f89ad2713786eb3d5db316a">IOE_SS_MPX2</a> = 0;
+        <a class="code" href="ioexpander_8h.html#a5e330954f58b2994d905b288c4b2140c">IOE_SS_MPX3</a> = 0;
+        <a class="code" href="ioexpander_8h.html#a71b0e8598a6c168880aeff106b23c59e">IOE_SS_MPX4</a> = 0;<span class="comment">// SS_MPX*ÇÕÉfÉtÉHÉãÉgÇ≈É[Éç</span>
+        <a class="code" href="ioexpander_8h.html#a267ff3a0278baa889e70f2bec774c2f5">IOE_SS_MPX5</a> = 0;
+        <a class="code" href="ioexpander_8h.html#a13b0402db4411056c73198b8e18daa95">IOE_SS_MPX6</a> = 0;
+        <a class="code" href="ioexpander_8h.html#ae2ea3404426d0a34b0a9f3283aedc167">IOE_SS_MPX7</a> = 0;
+        <a class="code" href="ioexpander_8h.html#a3ef4901efb02f363fb1d7acaecd79076">IOE_SW_SUN</a> = 1;<span class="comment">//ÉTÉìÉZÉìÉTìdåπÇÕÉfÉtÉHÉãÉgÇ≈OFF (Active low) Å® PR1-DRW-E-07001G.xlsÇÃèÓïÒÇ…äÓÇ√Ç≠</span>
+        
+        <span class="comment">//ì¸èoóÕÇåàíË</span>
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P0IOR.BIT.B3 = <a class="code" href="ioexpander_8c.html#a61a3c9a18380aafb6e430e79bf596557">OUTPUT</a>;<span class="comment">//SS-MPX0</span>
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P0IOR.BIT.B4 = <a class="code" href="ioexpander_8c.html#a61a3c9a18380aafb6e430e79bf596557">OUTPUT</a>;<span class="comment">//SS-MPX1</span>
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P0IOR.BIT.B5 = <a class="code" href="ioexpander_8c.html#a61a3c9a18380aafb6e430e79bf596557">OUTPUT</a>;<span class="comment">//SS-MPX2</span>
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P0IOR.BIT.B6 = <a class="code" href="ioexpander_8c.html#a61a3c9a18380aafb6e430e79bf596557">OUTPUT</a>;<span class="comment">//SS-MPX3</span>
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P2IOR.BIT.B2 = <a class="code" href="ioexpander_8c.html#a61a3c9a18380aafb6e430e79bf596557">OUTPUT</a>;<span class="comment">//SS-MPX4</span>
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P2IOR.BIT.B6 = <a class="code" href="ioexpander_8c.html#a61a3c9a18380aafb6e430e79bf596557">OUTPUT</a>;<span class="comment">//SS-MPX5</span>
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P5IOR.BIT.B6 = <a class="code" href="ioexpander_8c.html#a61a3c9a18380aafb6e430e79bf596557">OUTPUT</a>;<span class="comment">//SS-MPX6</span>
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P6IOR.BIT.B3 = <a class="code" href="ioexpander_8c.html#a61a3c9a18380aafb6e430e79bf596557">OUTPUT</a>;<span class="comment">//SS-MPX7</span>
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P0IOR.BIT.B7 = <a class="code" href="ioexpander_8c.html#a61a3c9a18380aafb6e430e79bf596557">OUTPUT</a>;<span class="comment">//SW-SUN</span>
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P2IOR.BIT.B2 = <a class="code" href="ioexpander_8c.html#a61a3c9a18380aafb6e430e79bf596557">OUTPUT</a>;<span class="comment">//SS-MPX4</span>
+        
+        <span class="keywordflow">return</span> 1;
+}
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="a9079e9082845dccda786e0554af3bc06"></a><!-- doxytag: member="ioexpander.c::ioe_sunsensor_init2" ref="a9079e9082845dccda786e0554af3bc06" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned char ioe_sunsensor_init2 </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">ioexpander.c</a> „ÅÆ <a class="el" href="#L543">543</a> Ë°å„ÅßÂÆöÁæ©„Åï„Çå„Å¶„ÅÑ„Åæ„Åô„ÄÇ</p>
+<div class="fragment"><pre class="fragment">{
+        <span class="keywordtype">int</span> i=0;
+        
+        <a class="code" href="ioexpander_8h.html#a89c5ac911f5807197ac17c4e6a3c0fb0">IOE_SS_MPX0</a> = 0;<span class="comment">// SS_MPX*ÇÕÉfÉtÉHÉãÉgÇ≈É[Éç</span>
+        <a class="code" href="ioexpander_8h.html#a1aa1a4d13cabffb19887278035a25f6b">IOE_SS_MPX1</a> = 0;
+        <a class="code" href="ioexpander_8h.html#a34d19b391f89ad2713786eb3d5db316a">IOE_SS_MPX2</a> = 0;
+        <a class="code" href="ioexpander_8h.html#a5e330954f58b2994d905b288c4b2140c">IOE_SS_MPX3</a> = 0;
+        <a class="code" href="ioexpander_8h.html#a71b0e8598a6c168880aeff106b23c59e">IOE_SS_MPX4</a> = 0;<span class="comment">// SS_MPX*ÇÕÉfÉtÉHÉãÉgÇ≈É[Éç</span>
+        <a class="code" href="ioexpander_8h.html#a267ff3a0278baa889e70f2bec774c2f5">IOE_SS_MPX5</a> = 0;
+        <a class="code" href="ioexpander_8h.html#a13b0402db4411056c73198b8e18daa95">IOE_SS_MPX6</a> = 0;
+        <a class="code" href="ioexpander_8h.html#ae2ea3404426d0a34b0a9f3283aedc167">IOE_SS_MPX7</a> = 0;
+        <a class="code" href="ioexpander_8h.html#a3ef4901efb02f363fb1d7acaecd79076">IOE_SW_SUN</a> = 1;<span class="comment">//ÉTÉìÉZÉìÉTìdåπÇÕÉfÉtÉHÉãÉgÇ≈OFF (Active low) Å® PR1-DRW-E-07001G.xlsÇÃèÓïÒÇ…äÓÇ√Ç≠</span>
+        
+        <span class="keywordflow">for</span>(i=0;i&lt;ioetime_ss*30;i++)
+        {
+                
+        }
+        
+        <span class="comment">//ì¸èoóÕÇåàíË</span>
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P0IOR.BIT.B3 = <a class="code" href="ioexpander_8c.html#a61a3c9a18380aafb6e430e79bf596557">OUTPUT</a>;<span class="comment">//SS-MPX0</span>
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P0IOR.BIT.B4 = <a class="code" href="ioexpander_8c.html#a61a3c9a18380aafb6e430e79bf596557">OUTPUT</a>;<span class="comment">//SS-MPX1</span>
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P0IOR.BIT.B5 = <a class="code" href="ioexpander_8c.html#a61a3c9a18380aafb6e430e79bf596557">OUTPUT</a>;<span class="comment">//SS-MPX2</span>
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P0IOR.BIT.B6 = <a class="code" href="ioexpander_8c.html#a61a3c9a18380aafb6e430e79bf596557">OUTPUT</a>;<span class="comment">//SS-MPX3</span>
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P2IOR.BIT.B2 = <a class="code" href="ioexpander_8c.html#a61a3c9a18380aafb6e430e79bf596557">OUTPUT</a>;<span class="comment">//SS-MPX4</span>
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P2IOR.BIT.B6 = <a class="code" href="ioexpander_8c.html#a61a3c9a18380aafb6e430e79bf596557">OUTPUT</a>;<span class="comment">//SS-MPX5</span>
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P5IOR.BIT.B6 = <a class="code" href="ioexpander_8c.html#a61a3c9a18380aafb6e430e79bf596557">OUTPUT</a>;<span class="comment">//SS-MPX6</span>
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P6IOR.BIT.B3 = <a class="code" href="ioexpander_8c.html#a61a3c9a18380aafb6e430e79bf596557">OUTPUT</a>;<span class="comment">//SS-MPX7</span>
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P0IOR.BIT.B7 = <a class="code" href="ioexpander_8c.html#a61a3c9a18380aafb6e430e79bf596557">OUTPUT</a>;<span class="comment">//SW-SUN</span>
+        <a class="code" href="ioexpander_8h.html#ab2511d4b5f86fe14263a377100e81b41">IOENAC</a>.P2IOR.BIT.B2 = <a class="code" href="ioexpander_8c.html#a61a3c9a18380aafb6e430e79bf596557">OUTPUT</a>;<span class="comment">//SS-MPX4</span>
+        
+        <span class="keywordflow">return</span> 1;
+}
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="aa94fc66cb9687ae1fc244f440b112616"></a><!-- doxytag: member="ioexpander.c::ioe_sw_init" ref="aa94fc66cb9687ae1fc244f440b112616" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned char ioe_sw_init </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">ioexpander.c</a> „ÅÆ <a class="el" href="#L200">200</a> Ë°å„ÅßÂÆöÁæ©„Åï„Çå„Å¶„ÅÑ„Åæ„Åô„ÄÇ</p>
+<div class="fragment"><pre class="fragment">{
+
+
+        <span class="keywordflow">return</span> 1;
+}
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="ab04534e3ca206982b2f457d181eb5beb"></a><!-- doxytag: member="ioexpander.c::ioe_wac_init" ref="ab04534e3ca206982b2f457d181eb5beb" args="(unsigned char index)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned char ioe_wac_init </td>
+          <td>(</td>
+          <td class="paramtype">unsigned char&#160;</td>
+          <td class="paramname"><em>index</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">ioexpander.c</a> „ÅÆ <a class="el" href="#L259">259</a> Ë°å„ÅßÂÆöÁæ©„Åï„Çå„Å¶„ÅÑ„Åæ„Åô„ÄÇ</p>
+<div class="fragment"><pre class="fragment">{
+        <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> flag = 1;
+        
+        <span class="keywordflow">switch</span>(index)
+        {
+                <span class="keywordflow">case</span> 0:
+                        <a class="code" href="ioexpander_8h.html#aed308aab7f9988edd6064722334863cc">IOEWAC</a>.P0IOR.BYTE       = 0x00; <span class="comment">// W1_DATA,             Input</span>
+
+                        <a class="code" href="ioexpander_8h.html#aed308aab7f9988edd6064722334863cc">IOEWAC</a>.P3IOR.BIT.B0     = 1;    <span class="comment">// W1_RCK,              Output</span>
+                        <a class="code" href="ioexpander_8h.html#aed308aab7f9988edd6064722334863cc">IOEWAC</a>.P3IOR.BIT.B1     = 1;    <span class="comment">// W1_RSTW,             Output</span>
+                        <a class="code" href="ioexpander_8h.html#aed308aab7f9988edd6064722334863cc">IOEWAC</a>.P3IOR.BIT.B2     = 1;    <span class="comment">// W1_RE,               Output</span>
+                        <a class="code" href="ioexpander_8h.html#aed308aab7f9988edd6064722334863cc">IOEWAC</a>.P3IOR.BIT.B3     = 1;    <span class="comment">// W1_WEOBC,    Output</span>
+                        <a class="code" href="ioexpander_8h.html#aed308aab7f9988edd6064722334863cc">IOEWAC</a>.P3IOR.BIT.B4     = 1;    <span class="comment">// W1_OE,               Output</span>
+                        <a class="code" href="ioexpander_8h.html#aed308aab7f9988edd6064722334863cc">IOEWAC</a>.P3IOR.BIT.B5     = 1;    <span class="comment">// W1_RSTR,             Output</span>
+                        <a class="code" href="ioexpander_8h.html#aed308aab7f9988edd6064722334863cc">IOEWAC</a>.P3IOR.BIT.B6     = 0;    <span class="comment">// W1_VSYN,             Input</span>
+                        <a class="code" href="ioexpander_8h.html#aed308aab7f9988edd6064722334863cc">IOEWAC</a>.P3IOR.BIT.B7     = 1;    <span class="comment">// W1_SDA,              Output</span>
+                        <a class="code" href="ioexpander_8h.html#aed308aab7f9988edd6064722334863cc">IOEWAC</a>.P4IOR.BIT.B0     = 1;    <span class="comment">// W1_SCL,              Output</span>
+                        <a class="code" href="ioexpander_8h.html#aed308aab7f9988edd6064722334863cc">IOEWAC</a>.P4IOR.BIT.B1     = 1;    <span class="comment">// W1_PWDN,             Output</span>
+                        
+                        <a class="code" href="ioexpander_8h.html#afb3ce27c79a9966173f2449500756697">IOE_W_1_PWDN</a>    = 1;            
+
+                        <a class="code" href="ioexpander_8h.html#a5093975049f05cbba30eac1cb20f92c8">IOE_W_1_RCK</a>             = 0;
+                        <a class="code" href="ioexpander_8h.html#af86cf199ee116045a3a5a30d4cd054dd">IOE_W_1_RSTW</a>    = 0;
+                        <a class="code" href="ioexpander_8h.html#aa4253213c73a9385bf8bfb72191f3487">IOE_W_1_RE</a>              = 0;
+                        <a class="code" href="ioexpander_8h.html#a5e21fc8faac5f696d1889ea5b36c70d5">IOE_W_1_WEOBC</a>   = 0;
+                        <a class="code" href="ioexpander_8h.html#aa54af2f484ce19bea0d27d5a6b796384">IOE_W_1_OE</a>              = 0;
+                        <a class="code" href="ioexpander_8h.html#a8eee691bccca393a0033da6a30a4ce98">IOE_W_1_RSTR</a>    = 0;
+                        <a class="code" href="ioexpander_8h.html#a4e11b939331feefcbbd3e4b2993f0b5d">IOE_W_1_SDA</a>             = 0;
+                        <a class="code" href="ioexpander_8h.html#a8d8e4e68a50bf2155443895b37c1ceee">IOE_W_1_SCL</a>             = 0;
+                        
+                        <span class="keywordflow">break</span>;
+                <span class="keywordflow">case</span> 1:
+                        <a class="code" href="ioexpander_8h.html#aed308aab7f9988edd6064722334863cc">IOEWAC</a>.P1IOR.BYTE       = 0x00; <span class="comment">// W2_DATA,             Input</span>
+
+                        <a class="code" href="ioexpander_8h.html#aed308aab7f9988edd6064722334863cc">IOEWAC</a>.P4IOR.BIT.B4     = 1;    <span class="comment">// W2_RCK,              Output</span>
+                        <a class="code" href="ioexpander_8h.html#aed308aab7f9988edd6064722334863cc">IOEWAC</a>.P4IOR.BIT.B5     = 1;    <span class="comment">// W2_RSTW,             Output</span>
+                        <a class="code" href="ioexpander_8h.html#aed308aab7f9988edd6064722334863cc">IOEWAC</a>.P4IOR.BIT.B6     = 1;    <span class="comment">// W2_RE,               Output</span>
+                        <a class="code" href="ioexpander_8h.html#aed308aab7f9988edd6064722334863cc">IOEWAC</a>.P4IOR.BIT.B7     = 1;    <span class="comment">// W2_WEOBC,    Output</span>
+                        <a class="code" href="ioexpander_8h.html#aed308aab7f9988edd6064722334863cc">IOEWAC</a>.P5IOR.BIT.B0     = 1;    <span class="comment">// W2_OE,               Output</span>
+                        <a class="code" href="ioexpander_8h.html#aed308aab7f9988edd6064722334863cc">IOEWAC</a>.P5IOR.BIT.B1     = 1;    <span class="comment">// W2_RSTR,             Output</span>
+                        <a class="code" href="ioexpander_8h.html#aed308aab7f9988edd6064722334863cc">IOEWAC</a>.P5IOR.BIT.B2     = 0;    <span class="comment">// W2_VSYN,             Input</span>
+                        <a class="code" href="ioexpander_8h.html#aed308aab7f9988edd6064722334863cc">IOEWAC</a>.P5IOR.BIT.B3     = 1;    <span class="comment">// W2_SDA,              Output</span>
+                        <a class="code" href="ioexpander_8h.html#aed308aab7f9988edd6064722334863cc">IOEWAC</a>.P5IOR.BIT.B4     = 1;    <span class="comment">// W2_SCL,              Output</span>
+                        <a class="code" href="ioexpander_8h.html#aed308aab7f9988edd6064722334863cc">IOEWAC</a>.P5IOR.BIT.B5     = 1;    <span class="comment">// W2_PWDN,             Output</span>
+                        
+                        <a class="code" href="ioexpander_8h.html#abfc58a8aab6f35081b0dea9b70bc6140">IOE_W_2_PWDN</a>    = 1;            
+        
+                        <a class="code" href="ioexpander_8h.html#a9666285f91086b684476f720f7c4fc75">IOE_W_2_RCK</a>             = 0;
+                        <a class="code" href="ioexpander_8h.html#ac950cf01f6b63fdbc86237b753d6c674">IOE_W_2_RSTW</a>    = 0;
+                        <a class="code" href="ioexpander_8h.html#aa48035f9bf8a7e370f25e2bb25cb5e9c">IOE_W_2_RE</a>              = 0;
+                        <a class="code" href="ioexpander_8h.html#acc145071552b9de914adb8e687d4895a">IOE_W_2_WEOBC</a>   = 0;
+                        <a class="code" href="ioexpander_8h.html#a7e0d03aed23248365be43444ba2ce63c">IOE_W_2_OE</a>              = 0;
+                        <a class="code" href="ioexpander_8h.html#aeffb79532874184b885e78461e98a22b">IOE_W_2_RSTR</a>    = 0;
+                        <a class="code" href="ioexpander_8h.html#a3e3c1364924902bb85ebca41e45e1703">IOE_W_2_SDA</a>             = 0;
+                        <a class="code" href="ioexpander_8h.html#afce79a3f896b5d57638158899f0f8265">IOE_W_2_SCL</a>             = 0;
+                        
+                        <span class="keywordflow">break</span>;
+                <span class="keywordflow">case</span> 2:
+                        <a class="code" href="ioexpander_8h.html#aed308aab7f9988edd6064722334863cc">IOEWAC</a>.P2IOR.BYTE       = 0x00; <span class="comment">// W3_DATA,             Input</span>
+
+                        <a class="code" href="ioexpander_8h.html#aed308aab7f9988edd6064722334863cc">IOEWAC</a>.P6IOR.BIT.B0     = 1;    <span class="comment">// W2_RCK,              Output</span>
+                        <a class="code" href="ioexpander_8h.html#aed308aab7f9988edd6064722334863cc">IOEWAC</a>.P6IOR.BIT.B1     = 1;    <span class="comment">// W2_RSTW,             Output</span>
+                        <a class="code" href="ioexpander_8h.html#aed308aab7f9988edd6064722334863cc">IOEWAC</a>.P6IOR.BIT.B2     = 1;    <span class="comment">// W2_RE,               Output</span>
+                        <a class="code" href="ioexpander_8h.html#aed308aab7f9988edd6064722334863cc">IOEWAC</a>.P6IOR.BIT.B3     = 1;    <span class="comment">// W2_WEOBC,    Output</span>
+                        <a class="code" href="ioexpander_8h.html#aed308aab7f9988edd6064722334863cc">IOEWAC</a>.P6IOR.BIT.B4     = 1;    <span class="comment">// W2_OE,               Output</span>
+                        <a class="code" href="ioexpander_8h.html#aed308aab7f9988edd6064722334863cc">IOEWAC</a>.P6IOR.BIT.B5     = 1;    <span class="comment">// W2_RSTR,             Output</span>
+                        <a class="code" href="ioexpander_8h.html#aed308aab7f9988edd6064722334863cc">IOEWAC</a>.P6IOR.BIT.B6     = 0;    <span class="comment">// W2_VSYN,             Input</span>
+                        <a class="code" href="ioexpander_8h.html#aed308aab7f9988edd6064722334863cc">IOEWAC</a>.P6IOR.BIT.B7     = 1;    <span class="comment">// W2_SDA,              Output</span>
+                        <a class="code" href="ioexpander_8h.html#aed308aab7f9988edd6064722334863cc">IOEWAC</a>.P7DIOR.BIT.B0IO  = 1;    <span class="comment">// W2_SCL,              Output</span>
+                        <a class="code" href="ioexpander_8h.html#aed308aab7f9988edd6064722334863cc">IOEWAC</a>.P7DIOR.BIT.B1IO  = 1;    <span class="comment">// W2_PWDN,             Output</span>
+        
+                        <a class="code" href="ioexpander_8h.html#aed308aab7f9988edd6064722334863cc">IOEWAC</a>.ODCTL.BIT.B0     = 0;
+                        <a class="code" href="ioexpander_8h.html#aed308aab7f9988edd6064722334863cc">IOEWAC</a>.ODCTL.BIT.B6     = 0;
+                        
+                        <a class="code" href="ioexpander_8h.html#aafd551bc09370677215086026b723019">IOE_W_3_PWDN</a>    = 1;            
+
+                        <a class="code" href="ioexpander_8h.html#aa93e3d685ef4e0ccc2b3b034be0ca7d5">IOE_W_3_RCK</a>             = 0;
+                        <a class="code" href="ioexpander_8h.html#a0028d4600a3b99e3ea58605dfa105ca0">IOE_W_3_RSTW</a>    = 0;
+                        <a class="code" href="ioexpander_8h.html#a1dcfbf000050da3a564954dcfc667e23">IOE_W_3_RE</a>              = 0;
+                        <a class="code" href="ioexpander_8h.html#a48f06290c7ea9ebadef65570cc0eb0b7">IOE_W_3_WEOBC</a>   = 0;
+                        <a class="code" href="ioexpander_8h.html#aa94105f094b08dc0d80b90b17dd82940">IOE_W_3_OE</a>              = 0;
+                        <a class="code" href="ioexpander_8h.html#ad97f41821c84e62c7f198d8bc80b6fb3">IOE_W_3_RSTR</a>    = 0;
+                        <a class="code" href="ioexpander_8h.html#aca0f3fd1ab48b1de063c1678d0347d32">IOE_W_3_SDA</a>             = 0;
+                        <a class="code" href="ioexpander_8h.html#ac538c5829a3f7e807ad10dc80c74760d">IOE_W_3_SCL</a>             = 0;                    
+                        
+                        <span class="keywordflow">break</span>;
+                <span class="keywordflow">default</span>:
+                        flag = 0;
+                        <span class="keywordflow">break</span>;
+        }
+        
+        <a class="code" href="ioexpander_8h.html#afb3ce27c79a9966173f2449500756697">IOE_W_1_PWDN</a>    = 1;    <span class="comment">// Turn off the power</span>
+        <a class="code" href="ioexpander_8h.html#abfc58a8aab6f35081b0dea9b70bc6140">IOE_W_2_PWDN</a>    = 1;    <span class="comment">// Turn off the power</span>
+        <a class="code" href="ioexpander_8h.html#aafd551bc09370677215086026b723019">IOE_W_3_PWDN</a>    = 1;    <span class="comment">// Turn off the power</span>
+                                
+        <span class="keywordflow">return</span> flag;    
+}
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="a032585aeb6f6977e9f0d3bae820a7e97"></a><!-- doxytag: member="ioexpander.c::ioe_wac_init2" ref="a032585aeb6f6977e9f0d3bae820a7e97" args="(unsigned char index)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned char ioe_wac_init2 </td>
+          <td>(</td>
+          <td class="paramtype">unsigned char&#160;</td>
+          <td class="paramname"><em>index</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">ioexpander.c</a> „ÅÆ <a class="el" href="#L645">645</a> Ë°å„ÅßÂÆöÁæ©„Åï„Çå„Å¶„ÅÑ„Åæ„Åô„ÄÇ</p>
+<div class="fragment"><pre class="fragment">{
+        <span class="keywordtype">int</span> i=0;
+        
+        <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> flag = 1;
+        
+        <span class="keywordflow">switch</span>(index)
+        {
+                <span class="keywordflow">case</span> 0:
+                        <a class="code" href="ioexpander_8h.html#aed308aab7f9988edd6064722334863cc">IOEWAC</a>.P0IOR.BYTE       = 0x00; <span class="comment">// W1_DATA,             Input</span>
+
+                        <a class="code" href="ioexpander_8h.html#aed308aab7f9988edd6064722334863cc">IOEWAC</a>.P3IOR.BIT.B0     = 1;    <span class="comment">// W1_RCK,              Output</span>
+                        <a class="code" href="ioexpander_8h.html#aed308aab7f9988edd6064722334863cc">IOEWAC</a>.P3IOR.BIT.B1     = 1;    <span class="comment">// W1_RSTW,             Output</span>
+                        <a class="code" href="ioexpander_8h.html#aed308aab7f9988edd6064722334863cc">IOEWAC</a>.P3IOR.BIT.B2     = 1;    <span class="comment">// W1_RE,               Output</span>
+                        <a class="code" href="ioexpander_8h.html#aed308aab7f9988edd6064722334863cc">IOEWAC</a>.P3IOR.BIT.B3     = 1;    <span class="comment">// W1_WEOBC,    Output</span>
+                        <a class="code" href="ioexpander_8h.html#aed308aab7f9988edd6064722334863cc">IOEWAC</a>.P3IOR.BIT.B4     = 1;    <span class="comment">// W1_OE,               Output</span>
+                        <a class="code" href="ioexpander_8h.html#aed308aab7f9988edd6064722334863cc">IOEWAC</a>.P3IOR.BIT.B5     = 1;    <span class="comment">// W1_RSTR,             Output</span>
+                        <a class="code" href="ioexpander_8h.html#aed308aab7f9988edd6064722334863cc">IOEWAC</a>.P3IOR.BIT.B6     = 0;    <span class="comment">// W1_VSYN,             Input</span>
+                        <a class="code" href="ioexpander_8h.html#aed308aab7f9988edd6064722334863cc">IOEWAC</a>.P3IOR.BIT.B7     = 1;    <span class="comment">// W1_SDA,              Output</span>
+                        <a class="code" href="ioexpander_8h.html#aed308aab7f9988edd6064722334863cc">IOEWAC</a>.P4IOR.BIT.B0     = 1;    <span class="comment">// W1_SCL,              Output</span>
+                        <a class="code" href="ioexpander_8h.html#aed308aab7f9988edd6064722334863cc">IOEWAC</a>.P4IOR.BIT.B1     = 1;    <span class="comment">// W1_PWDN,             Output</span>
+                        
+                        <span class="keywordflow">for</span>(i=0;i&lt;ioetime_wac*30;i++)
+                        {
+                
+                        }
+        
+                        <a class="code" href="ioexpander_8h.html#afb3ce27c79a9966173f2449500756697">IOE_W_1_PWDN</a>    = 1;            
+
+                        <a class="code" href="ioexpander_8h.html#a5093975049f05cbba30eac1cb20f92c8">IOE_W_1_RCK</a>             = 0;
+                        <a class="code" href="ioexpander_8h.html#af86cf199ee116045a3a5a30d4cd054dd">IOE_W_1_RSTW</a>    = 0;
+                        <a class="code" href="ioexpander_8h.html#aa4253213c73a9385bf8bfb72191f3487">IOE_W_1_RE</a>              = 0;
+                        <a class="code" href="ioexpander_8h.html#a5e21fc8faac5f696d1889ea5b36c70d5">IOE_W_1_WEOBC</a>   = 0;
+                        <a class="code" href="ioexpander_8h.html#aa54af2f484ce19bea0d27d5a6b796384">IOE_W_1_OE</a>              = 0;
+                        <a class="code" href="ioexpander_8h.html#a8eee691bccca393a0033da6a30a4ce98">IOE_W_1_RSTR</a>    = 0;
+                        <a class="code" href="ioexpander_8h.html#a4e11b939331feefcbbd3e4b2993f0b5d">IOE_W_1_SDA</a>             = 0;
+                        <a class="code" href="ioexpander_8h.html#a8d8e4e68a50bf2155443895b37c1ceee">IOE_W_1_SCL</a>             = 0;
+                        
+                        <span class="keywordflow">break</span>;
+                <span class="keywordflow">case</span> 1:
+                        <a class="code" href="ioexpander_8h.html#aed308aab7f9988edd6064722334863cc">IOEWAC</a>.P1IOR.BYTE       = 0x00; <span class="comment">// W2_DATA,             Input</span>
+
+                        <a class="code" href="ioexpander_8h.html#aed308aab7f9988edd6064722334863cc">IOEWAC</a>.P4IOR.BIT.B4     = 1;    <span class="comment">// W2_RCK,              Output</span>
+                        <a class="code" href="ioexpander_8h.html#aed308aab7f9988edd6064722334863cc">IOEWAC</a>.P4IOR.BIT.B5     = 1;    <span class="comment">// W2_RSTW,             Output</span>
+                        <a class="code" href="ioexpander_8h.html#aed308aab7f9988edd6064722334863cc">IOEWAC</a>.P4IOR.BIT.B6     = 1;    <span class="comment">// W2_RE,               Output</span>
+                        <a class="code" href="ioexpander_8h.html#aed308aab7f9988edd6064722334863cc">IOEWAC</a>.P4IOR.BIT.B7     = 1;    <span class="comment">// W2_WEOBC,    Output</span>
+                        <a class="code" href="ioexpander_8h.html#aed308aab7f9988edd6064722334863cc">IOEWAC</a>.P5IOR.BIT.B0     = 1;    <span class="comment">// W2_OE,               Output</span>
+                        <a class="code" href="ioexpander_8h.html#aed308aab7f9988edd6064722334863cc">IOEWAC</a>.P5IOR.BIT.B1     = 1;    <span class="comment">// W2_RSTR,             Output</span>
+                        <a class="code" href="ioexpander_8h.html#aed308aab7f9988edd6064722334863cc">IOEWAC</a>.P5IOR.BIT.B2     = 0;    <span class="comment">// W2_VSYN,             Input</span>
+                        <a class="code" href="ioexpander_8h.html#aed308aab7f9988edd6064722334863cc">IOEWAC</a>.P5IOR.BIT.B3     = 1;    <span class="comment">// W2_SDA,              Output</span>
+                        <a class="code" href="ioexpander_8h.html#aed308aab7f9988edd6064722334863cc">IOEWAC</a>.P5IOR.BIT.B4     = 1;    <span class="comment">// W2_SCL,              Output</span>
+                        <a class="code" href="ioexpander_8h.html#aed308aab7f9988edd6064722334863cc">IOEWAC</a>.P5IOR.BIT.B5     = 1;    <span class="comment">// W2_PWDN,             Output</span>
+                        
+                        <span class="keywordflow">for</span>(i=0;i&lt;ioetime_wac*30;i++)
+                        {
+                
+                        }
+        
+                        <a class="code" href="ioexpander_8h.html#abfc58a8aab6f35081b0dea9b70bc6140">IOE_W_2_PWDN</a>    = 1;            
+        
+                        <a class="code" href="ioexpander_8h.html#a9666285f91086b684476f720f7c4fc75">IOE_W_2_RCK</a>             = 0;
+                        <a class="code" href="ioexpander_8h.html#ac950cf01f6b63fdbc86237b753d6c674">IOE_W_2_RSTW</a>    = 0;
+                        <a class="code" href="ioexpander_8h.html#aa48035f9bf8a7e370f25e2bb25cb5e9c">IOE_W_2_RE</a>              = 0;
+                        <a class="code" href="ioexpander_8h.html#acc145071552b9de914adb8e687d4895a">IOE_W_2_WEOBC</a>   = 0;
+                        <a class="code" href="ioexpander_8h.html#a7e0d03aed23248365be43444ba2ce63c">IOE_W_2_OE</a>              = 0;
+                        <a class="code" href="ioexpander_8h.html#aeffb79532874184b885e78461e98a22b">IOE_W_2_RSTR</a>    = 0;
+                        <a class="code" href="ioexpander_8h.html#a3e3c1364924902bb85ebca41e45e1703">IOE_W_2_SDA</a>             = 0;
+                        <a class="code" href="ioexpander_8h.html#afce79a3f896b5d57638158899f0f8265">IOE_W_2_SCL</a>             = 0;
+                        
+                        <span class="keywordflow">break</span>;
+                <span class="keywordflow">case</span> 2:
+                        <a class="code" href="ioexpander_8h.html#aed308aab7f9988edd6064722334863cc">IOEWAC</a>.P2IOR.BYTE       = 0x00; <span class="comment">// W3_DATA,             Input</span>
+
+                        <a class="code" href="ioexpander_8h.html#aed308aab7f9988edd6064722334863cc">IOEWAC</a>.P6IOR.BIT.B0     = 1;    <span class="comment">// W2_RCK,              Output</span>
+                        <a class="code" href="ioexpander_8h.html#aed308aab7f9988edd6064722334863cc">IOEWAC</a>.P6IOR.BIT.B1     = 1;    <span class="comment">// W2_RSTW,             Output</span>
+                        <a class="code" href="ioexpander_8h.html#aed308aab7f9988edd6064722334863cc">IOEWAC</a>.P6IOR.BIT.B2     = 1;    <span class="comment">// W2_RE,               Output</span>
+                        <a class="code" href="ioexpander_8h.html#aed308aab7f9988edd6064722334863cc">IOEWAC</a>.P6IOR.BIT.B3     = 1;    <span class="comment">// W2_WEOBC,    Output</span>
+                        <a class="code" href="ioexpander_8h.html#aed308aab7f9988edd6064722334863cc">IOEWAC</a>.P6IOR.BIT.B4     = 1;    <span class="comment">// W2_OE,               Output</span>
+                        <a class="code" href="ioexpander_8h.html#aed308aab7f9988edd6064722334863cc">IOEWAC</a>.P6IOR.BIT.B5     = 1;    <span class="comment">// W2_RSTR,             Output</span>
+                        <a class="code" href="ioexpander_8h.html#aed308aab7f9988edd6064722334863cc">IOEWAC</a>.P6IOR.BIT.B6     = 0;    <span class="comment">// W2_VSYN,             Input</span>
+                        <a class="code" href="ioexpander_8h.html#aed308aab7f9988edd6064722334863cc">IOEWAC</a>.P6IOR.BIT.B7     = 1;    <span class="comment">// W2_SDA,              Output</span>
+                        <a class="code" href="ioexpander_8h.html#aed308aab7f9988edd6064722334863cc">IOEWAC</a>.P7DIOR.BIT.B0IO  = 1;    <span class="comment">// W2_SCL,              Output</span>
+                        <a class="code" href="ioexpander_8h.html#aed308aab7f9988edd6064722334863cc">IOEWAC</a>.P7DIOR.BIT.B1IO  = 1;    <span class="comment">// W2_PWDN,             Output</span>
+        
+                        <a class="code" href="ioexpander_8h.html#aed308aab7f9988edd6064722334863cc">IOEWAC</a>.ODCTL.BIT.B0     = 0;
+                        <a class="code" href="ioexpander_8h.html#aed308aab7f9988edd6064722334863cc">IOEWAC</a>.ODCTL.BIT.B6     = 0;
+                        
+                        <span class="keywordflow">for</span>(i=0;i&lt;ioetime_wac*30;i++)
+                        {
+                
+                        }
+        
+                        <a class="code" href="ioexpander_8h.html#aafd551bc09370677215086026b723019">IOE_W_3_PWDN</a>    = 1;            
+
+                        <a class="code" href="ioexpander_8h.html#aa93e3d685ef4e0ccc2b3b034be0ca7d5">IOE_W_3_RCK</a>             = 0;
+                        <a class="code" href="ioexpander_8h.html#a0028d4600a3b99e3ea58605dfa105ca0">IOE_W_3_RSTW</a>    = 0;
+                        <a class="code" href="ioexpander_8h.html#a1dcfbf000050da3a564954dcfc667e23">IOE_W_3_RE</a>              = 0;
+                        <a class="code" href="ioexpander_8h.html#a48f06290c7ea9ebadef65570cc0eb0b7">IOE_W_3_WEOBC</a>   = 0;
+                        <a class="code" href="ioexpander_8h.html#aa94105f094b08dc0d80b90b17dd82940">IOE_W_3_OE</a>              = 0;
+                        <a class="code" href="ioexpander_8h.html#ad97f41821c84e62c7f198d8bc80b6fb3">IOE_W_3_RSTR</a>    = 0;
+                        <a class="code" href="ioexpander_8h.html#aca0f3fd1ab48b1de063c1678d0347d32">IOE_W_3_SDA</a>             = 0;
+                        <a class="code" href="ioexpander_8h.html#ac538c5829a3f7e807ad10dc80c74760d">IOE_W_3_SCL</a>             = 0;                    
+                        
+                        <span class="keywordflow">break</span>;
+                <span class="keywordflow">default</span>:
+                        flag = 0;
+                        <span class="keywordflow">break</span>;
+        }
+
+        <span class="keywordflow">for</span>(i=0;i&lt;ioetime_wac*30;i++)
+        {
+
+        }
+        
+        <a class="code" href="ioexpander_8h.html#afb3ce27c79a9966173f2449500756697">IOE_W_1_PWDN</a>    = 1;    <span class="comment">// Turn off the power</span>
+        <a class="code" href="ioexpander_8h.html#abfc58a8aab6f35081b0dea9b70bc6140">IOE_W_2_PWDN</a>    = 1;    <span class="comment">// Turn off the power</span>
+        <a class="code" href="ioexpander_8h.html#aafd551bc09370677215086026b723019">IOE_W_3_PWDN</a>    = 1;    <span class="comment">// Turn off the power</span>
+                                
+        <span class="keywordflow">return</span> flag;    
+}
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="acb4ff80a419def6bcac6a35a3ae51f10"></a><!-- doxytag: member="ioexpander.c::ioe_wac_set_sda_io" ref="acb4ff80a419def6bcac6a35a3ae51f10" args="(unsigned char index, unsigned char io)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned char ioe_wac_set_sda_io </td>
+          <td>(</td>
+          <td class="paramtype">unsigned char&#160;</td>
+          <td class="paramname"><em>index</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned char&#160;</td>
+          <td class="paramname"><em>io</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">ioexpander.c</a> „ÅÆ <a class="el" href="#L363">363</a> Ë°å„ÅßÂÆöÁæ©„Åï„Çå„Å¶„ÅÑ„Åæ„Åô„ÄÇ</p>
+<div class="fragment"><pre class="fragment">{
+        <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> flag = 1;
+        
+        <span class="keywordflow">if</span>(io&gt;1)
+        {
+                flag = 0;
+        }
+        <span class="keywordflow">else</span>
+        {
+                <span class="keywordflow">switch</span>(index)
+                {
+                        <span class="keywordflow">case</span> 0:
+                                <a class="code" href="ioexpander_8h.html#aed308aab7f9988edd6064722334863cc">IOEWAC</a>.P3IOR.BIT.B7 = io;
+                                <span class="keywordflow">break</span>;
+                        <span class="keywordflow">case</span> 1:
+                                <a class="code" href="ioexpander_8h.html#aed308aab7f9988edd6064722334863cc">IOEWAC</a>.P5IOR.BIT.B3 = io;
+                                <span class="keywordflow">break</span>;
+                        <span class="keywordflow">case</span> 2:
+                                <a class="code" href="ioexpander_8h.html#aed308aab7f9988edd6064722334863cc">IOEWAC</a>.P6IOR.BIT.B7 = io;
+                                <span class="keywordflow">break</span>;
+                        <span class="keywordflow">default</span>:
+                                flag = 0;
+                                <span class="keywordflow">break</span>;
+                }
+        }
+        
+        <span class="keywordflow">return</span> flag;
+}
+</pre></div>
+</div>
+</div>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>ÂÖ®„Å¶</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>„ÇØ„É©„Çπ</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>„Éç„Éº„É†„Çπ„Éö„Éº„Çπ</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>„Éï„Ç°„Ç§„É´</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Èñ¢Êï∞</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Â§âÊï∞</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>ÂûãÂÆöÁæ©</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>ÂàóÊåôÂûã</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>ÂàóÊåôÂûã„ÅÆÂÄ§</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>„Éï„É¨„É≥„Éâ</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>„Éû„ÇØ„É≠ÂÆöÁæ©</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>STF„Å´ÂØæ„Åó„Å¶Wed Mar 23 2011 05:32:41„Å´ÁîüÊàê„Åï„Çå„Åæ„Åó„Åü„ÄÇ&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
+</body>
+</html>

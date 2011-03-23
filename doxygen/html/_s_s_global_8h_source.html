@@ -1,0 +1,175 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>STF: stf/satellite/simplesatellite/SSGlobal.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.3 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">STF</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="pages.html"><span>関連ページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>ファイルメンバ</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<h1>stf/satellite/simplesatellite/SSGlobal.h</h1>  </div>
+</div>
+<div class="contents">
+<a href="_s_s_global_8h.html">説明を見る。</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<a name="l00008"></a>00008 <span class="preprocessor">#ifndef satellite_simplesatellite_SSGlobal_h</span>
+<a name="l00009"></a>00009 <span class="preprocessor"></span><span class="preprocessor">#define satellite_simplesatellite_SSGlobal_h</span>
+<a name="l00010"></a>00010 <span class="preprocessor"></span><span class="preprocessor">#include &quot;<a class="code" href="_global_object_8h.html" title="RTOSとのインターフェースとなる，衛星アプリケーションが生成するオブジェクト群の基底クラス．">../../GlobalObject.h</a>&quot;</span>
+<a name="l00011"></a>00011 <span class="preprocessor">#include &quot;<a class="code" href="manager_2_includes_8h.html">../../core/manager/Includes.h</a>&quot;</span>
+<a name="l00012"></a>00012 <span class="preprocessor">#include &quot;<a class="code" href="devicedriver_2_includes_8h.html">../../core/devicedriver/Includes.h</a>&quot;</span>
+<a name="l00013"></a>00013 <span class="preprocessor">#include &quot;<a class="code" href="_mode_base_8h.html" title="モードの基底クラス．">../../core/mode/ModeBase.h</a>&quot;</span>
+<a name="l00014"></a>00014 <span class="preprocessor">#include &quot;<a class="code" href="_satellite_model_8h.html" title="衛星質量特性を表現するクラス．">../../datatype/SatelliteModel.h</a>&quot;</span>
+<a name="l00015"></a>00015 
+<a name="l00016"></a>00016 
+<a name="l00017"></a>00017 <span class="keyword">namespace </span>stf {
+<a name="l00018"></a>00018 <span class="keyword">namespace </span>factory {
+<a name="l00019"></a>00019 <span class="keyword">template</span> &lt;<span class="keyword">class</span> Env&gt; <span class="keyword">class </span>SSFactory;
+<a name="l00020"></a>00020 }
+<a name="l00021"></a>00021 
+<a name="l00022"></a>00022 <span class="keyword">template</span> &lt;<span class="keyword">class</span> Env&gt;
+<a name="l00023"></a><a class="code" href="structstf_1_1_s_s_global.html">00023</a> <span class="keyword">struct </span><a class="code" href="structstf_1_1_s_s_global.html">SSGlobal</a> : <span class="keyword">public</span> <a class="code" href="classstf_1_1_global.html" title="RTOSとのインターフェースとなる，衛星アプリケーションが生成するオブジェクト群の基底クラス．">Global</a>&lt;Env&gt;{
+<a name="l00024"></a>00024         
+<a name="l00025"></a><a class="code" href="structstf_1_1_s_s_global.html#a5df3f2b8110f80163a42fbb7726615f6">00025</a>         <span class="keyword">virtual</span> <span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_time.html" title="経過時間を表すクラス．">datatype::Time</a> <a class="code" href="structstf_1_1_s_s_global.html#a5df3f2b8110f80163a42fbb7726615f6" title="衛星のOBC時刻を取得">get_global_time</a>(){
+<a name="l00026"></a>00026                 <span class="keywordflow">return</span> this-&gt;<a class="code" href="structstf_1_1_s_s_global.html#a6ef2f8f376c37b92b9987bda662c97c3">ss_clock</a>-&gt;<a class="code" href="classstf_1_1core_1_1devicedriver_1_1clock_1_1_dummy_clock.html#afb0cee1757c940636e502afa163d8aa0">get_time</a>();
+<a name="l00027"></a>00027         }
+<a name="l00028"></a><a class="code" href="structstf_1_1_s_s_global.html#a33c67783c88531106ce16af5f4e3b6dd">00028</a>         <span class="keyword">virtual</span> <span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_date_time.html" title="ユリウス暦による絶対時刻を秒精度で保持する．">datatype::DateTime</a> <a class="code" href="structstf_1_1_s_s_global.html#a33c67783c88531106ce16af5f4e3b6dd" title="衛星のRTC時刻を取得">get_global_datetime</a>(){
+<a name="l00029"></a>00029                 <span class="keywordflow">return</span> this-&gt;<a class="code" href="structstf_1_1_s_s_global.html#a6ef2f8f376c37b92b9987bda662c97c3">ss_clock</a>-&gt;<a class="code" href="classstf_1_1core_1_1devicedriver_1_1clock_1_1_dummy_clock.html#ac1ac749c827db78da3c9d5593cb26f44">get_datetime</a>();
+<a name="l00030"></a>00030         }
+<a name="l00031"></a><a class="code" href="structstf_1_1_s_s_global.html#af5d38ea5d4c6ec0b619314ad18a1eda3">00031</a>         <span class="keyword">virtual</span> <span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_satellite_model.html" title="衛星質量特性を表現するクラス．">datatype::SatelliteModel</a> <a class="code" href="structstf_1_1_s_s_global.html#af5d38ea5d4c6ec0b619314ad18a1eda3" title="衛星の質量特性モデルを取得">get_satellitemodel</a>()<span class="keyword"> const</span>{
+<a name="l00032"></a>00032                 <span class="keywordflow">return</span> this-&gt;<a class="code" href="structstf_1_1_s_s_global.html#a42e6644e1cc6e60e3a318052c83075d8">ss_body_</a>;
+<a name="l00033"></a>00033         }
+<a name="l00034"></a><a class="code" href="structstf_1_1_s_s_global.html#a47cb766b795f699ab235fb37708771ad">00034</a>         <span class="keyword">virtual</span> <span class="keyword">const</span> <a class="code" href="classstf_1_1core_1_1datapool_1_1_aocs_data_pool.html" title="IAocsDataのデータプール．">core::datapool::AocsDataPool</a>* <a class="code" href="structstf_1_1_s_s_global.html#a47cb766b795f699ab235fb37708771ad" title="Aocsデータプールのハンドラを取得．">get_datapool</a>()<span class="keyword"> const </span>{
+<a name="l00035"></a>00035                 <span class="keywordflow">return</span> this-&gt;<a class="code" href="structstf_1_1_s_s_global.html#aeae23fb6dd17715f0985cbb122ff58f3">ss_aocsdatapool</a>;
+<a name="l00036"></a>00036         }
+<a name="l00037"></a><a class="code" href="structstf_1_1_s_s_global.html#a48bd3a0185fe05c23d59e95afd50ab96">00037</a>         <span class="keyword">virtual</span> <span class="keyword">const</span> <a class="code" href="classstf_1_1core_1_1datapool_1_1_event_data_pool.html" title="Eventのデータプール．">core::datapool::EventDataPool</a>* <a class="code" href="structstf_1_1_s_s_global.html#a48bd3a0185fe05c23d59e95afd50ab96" title="Eventデータプールのハンドラを取得．">get_eventdatapool</a>()<span class="keyword"> const </span>{
+<a name="l00038"></a>00038                 <span class="keywordflow">return</span> this-&gt;<a class="code" href="structstf_1_1_s_s_global.html#a9510a0f61946f76c824aa9c07de1abbf">ss_eventdatapool</a>;
+<a name="l00039"></a>00039         }
+<a name="l00040"></a>00040 
+<a name="l00041"></a>00041         <span class="comment">// Satellite Body</span>
+<a name="l00042"></a><a class="code" href="structstf_1_1_s_s_global.html#a42e6644e1cc6e60e3a318052c83075d8">00042</a>         <a class="code" href="classstf_1_1datatype_1_1_satellite_model.html" title="衛星質量特性を表現するクラス．">datatype::SatelliteModel</a> <a class="code" href="structstf_1_1_s_s_global.html#a42e6644e1cc6e60e3a318052c83075d8">ss_body_</a>;
+<a name="l00043"></a>00043 
+<a name="l00044"></a>00044         <span class="comment">// DataPool</span>
+<a name="l00045"></a><a class="code" href="structstf_1_1_s_s_global.html#aeae23fb6dd17715f0985cbb122ff58f3">00045</a>         <a class="code" href="classstf_1_1core_1_1datapool_1_1_aocs_data_pool.html" title="IAocsDataのデータプール．">datapool::AocsDataPool</a>* <a class="code" href="structstf_1_1_s_s_global.html#aeae23fb6dd17715f0985cbb122ff58f3">ss_aocsdatapool</a>;
+<a name="l00046"></a><a class="code" href="structstf_1_1_s_s_global.html#a9510a0f61946f76c824aa9c07de1abbf">00046</a>         <a class="code" href="classstf_1_1core_1_1datapool_1_1_event_data_pool.html" title="Eventのデータプール．">datapool::EventDataPool</a>* <a class="code" href="structstf_1_1_s_s_global.html#a9510a0f61946f76c824aa9c07de1abbf">ss_eventdatapool</a>;
+<a name="l00047"></a>00047 
+<a name="l00048"></a>00048         <span class="comment">// Mode</span>
+<a name="l00049"></a><a class="code" href="structstf_1_1_s_s_global.html#ae1cf85fed622775026a494103c0f3ba8">00049</a>         <a class="code" href="classstf_1_1core_1_1mode_1_1_mode_base.html" title="モードの基底クラス．">mode::ModeBase</a>* <a class="code" href="structstf_1_1_s_s_global.html#ae1cf85fed622775026a494103c0f3ba8">ss_safemode</a>;
+<a name="l00050"></a><a class="code" href="structstf_1_1_s_s_global.html#a2b1adb8c7e8f5c12766d2993152eb115">00050</a>         <a class="code" href="classstf_1_1core_1_1mode_1_1_mode_base.html" title="モードの基底クラス．">mode::ModeBase</a>* <a class="code" href="structstf_1_1_s_s_global.html#a2b1adb8c7e8f5c12766d2993152eb115">ss_missionmode</a>;
+<a name="l00051"></a>00051 
+<a name="l00052"></a>00052         <span class="comment">//Clock</span>
+<a name="l00053"></a><a class="code" href="structstf_1_1_s_s_global.html#a6ef2f8f376c37b92b9987bda662c97c3">00053</a>         <a class="code" href="classstf_1_1core_1_1devicedriver_1_1clock_1_1_dummy_clock.html">devicedriver::clock::DummyClock&lt;Env, 100&gt;</a>* <a class="code" href="structstf_1_1_s_s_global.html#a6ef2f8f376c37b92b9987bda662c97c3">ss_clock</a>;
+<a name="l00054"></a>00054 
+<a name="l00055"></a>00055         <span class="comment">//Manager</span>
+<a name="l00056"></a><a class="code" href="structstf_1_1_s_s_global.html#aacb6f611ffce5eaee00ad0626d92a235">00056</a>         <a class="code" href="classstf_1_1core_1_1manager_1_1_mode_manager.html" title="モードの管理を行う機能マネージャ．">manager::ModeManager</a>* <a class="code" href="structstf_1_1_s_s_global.html#aacb6f611ffce5eaee00ad0626d92a235">ss_modemanager</a>;
+<a name="l00057"></a><a class="code" href="structstf_1_1_s_s_global.html#a795c10595d259dc4c9fe3782ea8c619f">00057</a>         <a class="code" href="classstf_1_1core_1_1manager_1_1_control_manager.html" title="制御ブロックの実行を行う機能マネージャ．">manager::ControlManager</a>* <a class="code" href="structstf_1_1_s_s_global.html#a795c10595d259dc4c9fe3782ea8c619f">ss_controlmanager</a>;
+<a name="l00058"></a><a class="code" href="structstf_1_1_s_s_global.html#abf0cc4afc1571b00bb97b7d95f1fdf5e">00058</a>         <a class="code" href="classstf_1_1core_1_1manager_1_1_telemetry_manager.html" title="テレメトリ生成を行う機能マネージャ．">manager::TelemetryManager</a>* <a class="code" href="structstf_1_1_s_s_global.html#abf0cc4afc1571b00bb97b7d95f1fdf5e">ss_telemetrymanager</a>;
+<a name="l00059"></a><a class="code" href="structstf_1_1_s_s_global.html#a2d30cca8ec27768226b2feb527a380fe">00059</a>         <a class="code" href="classstf_1_1core_1_1manager_1_1_command_manager.html" title="コマンドの処理を行う機能マネージャ．">manager::CommandManager</a>* <a class="code" href="structstf_1_1_s_s_global.html#a2d30cca8ec27768226b2feb527a380fe">ss_commandmanager</a>;
+<a name="l00060"></a><a class="code" href="structstf_1_1_s_s_global.html#a556252720bb9b06e3ab21d5fa0321d3e">00060</a>         <a class="code" href="classstf_1_1core_1_1manager_1_1_unit_manager.html" title="機器の定期データ取得・更新を行う機能マネージャ．">manager::UnitManager</a>* <a class="code" href="structstf_1_1_s_s_global.html#a556252720bb9b06e3ab21d5fa0321d3e">ss_unitmanager</a>;
+<a name="l00061"></a><a class="code" href="structstf_1_1_s_s_global.html#a24f45c44e459a02bb03b670e6ff55a9d">00061</a>         <a class="code" href="classstf_1_1core_1_1manager_1_1_system_manager.html" title="条件判定や異常対応を行う機能マネージャ．">manager::SystemManager</a>* <a class="code" href="structstf_1_1_s_s_global.html#a24f45c44e459a02bb03b670e6ff55a9d">ss_systemmanager</a>;
+<a name="l00062"></a>00062 
+<a name="l00063"></a>00063         <span class="comment">// Command / Telemetry Handler </span>
+<a name="l00064"></a><a class="code" href="structstf_1_1_s_s_global.html#a295cc750ec1cb97034be5698e602c5ea">00064</a>         <a class="code" href="classstf_1_1core_1_1devicedriver_1_1cmhandler_1_1_i_command_receiver.html" title="受信機からコマンドを受け取り，応答を返却するデバイスの抽象インターフェース．">devicedriver::cmhandler::ICommandReceiver</a>* <a class="code" href="structstf_1_1_s_s_global.html#a295cc750ec1cb97034be5698e602c5ea">ss_commandreceiver</a>;
+<a name="l00065"></a><a class="code" href="structstf_1_1_s_s_global.html#a43bae6c44bf115e360310fca9a8323b7">00065</a>         <a class="code" href="classstf_1_1core_1_1devicedriver_1_1tmhandler_1_1_i_telemetry_storagable.html" title="テレメトリデータのストレージに対する抽象インターフェース．">devicedriver::tmhandler::ITelemetryStoragable</a>* <a class="code" href="structstf_1_1_s_s_global.html#a43bae6c44bf115e360310fca9a8323b7">ss_tmhandler</a>;
+<a name="l00066"></a>00066 
+<a name="l00067"></a>00067         <span class="comment">//Control Strategy</span>
+<a name="l00068"></a><a class="code" href="structstf_1_1_s_s_global.html#a810c103c20d6a1ea2384c24cf2249b2f">00068</a>         <a class="code" href="classstf_1_1core_1_1strategy_1_1control_1_1_i_control_strategy.html" title="制御ブロックの抽象インターフェース．">core::strategy::control::IControlStrategy</a>* <a class="code" href="structstf_1_1_s_s_global.html#a810c103c20d6a1ea2384c24cf2249b2f">ss_controlstrategy</a>;
+<a name="l00069"></a><a class="code" href="structstf_1_1_s_s_global.html#ae36bb6fa8bd73828a2da83207c1c0568">00069</a>         <a class="code" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_i_telemetry_strategy.html" title="テレメトリ生成ストラテジの抽象インターフェース．">core::strategy::telemetry::ITelemetryStrategy</a>* <a class="code" href="structstf_1_1_s_s_global.html#ae36bb6fa8bd73828a2da83207c1c0568">ss_tmstrategy</a>;
+<a name="l00070"></a>00070 
+<a name="l00071"></a>00071 
+<a name="l00072"></a>00072         <span class="comment">//Gyro</span>
+<a name="l00073"></a><a class="code" href="structstf_1_1_s_s_global.html#a7fc19f5eaf7412d644b168241ac41fa5">00073</a>         <span class="keyword">typedef</span> <a class="code" href="classstf_1_1core_1_1devicedriver_1_1gyro_1_1_gyro.html" title="ソフトウェアシミュレーションレベルで動作するジャイロセンサドライバ．">devicedriver::gyro::Gyro&lt;Env&gt;</a> <a class="code" href="structstf_1_1_s_s_global.html#a7fc19f5eaf7412d644b168241ac41fa5">Gyro</a>;
+<a name="l00074"></a><a class="code" href="structstf_1_1_s_s_global.html#aefa893cae015df68cb10488304dff712">00074</a>         <span class="keyword">typedef</span> <a class="code" href="classstf_1_1core_1_1devicedriver_1_1_composite_input.html" title="AOCSSensorの集合体を表すクラス．">devicedriver::CompositeInput&lt;Gyro, 3&gt;</a> <a class="code" href="structstf_1_1_s_s_global.html#aefa893cae015df68cb10488304dff712">ThreeAxisGyro</a>;
+<a name="l00075"></a>00075 
+<a name="l00076"></a><a class="code" href="structstf_1_1_s_s_global.html#ae8ad7307a4e28fcd58e4b5c4b9470183">00076</a>         <a class="code" href="classstf_1_1core_1_1devicedriver_1_1gyro_1_1_gyro.html" title="ソフトウェアシミュレーションレベルで動作するジャイロセンサドライバ．">Gyro</a>* <a class="code" href="structstf_1_1_s_s_global.html#ae8ad7307a4e28fcd58e4b5c4b9470183">ss_gyrox</a>;
+<a name="l00077"></a><a class="code" href="structstf_1_1_s_s_global.html#aabd746280affae63d6fa7610c91a22ea">00077</a>         <a class="code" href="classstf_1_1core_1_1devicedriver_1_1gyro_1_1_gyro.html" title="ソフトウェアシミュレーションレベルで動作するジャイロセンサドライバ．">Gyro</a>* <a class="code" href="structstf_1_1_s_s_global.html#aabd746280affae63d6fa7610c91a22ea">ss_gyroy</a>;
+<a name="l00078"></a><a class="code" href="structstf_1_1_s_s_global.html#a06d0bba01aa4ff73567f79ce1cc6ac52">00078</a>         <a class="code" href="classstf_1_1core_1_1devicedriver_1_1gyro_1_1_gyro.html" title="ソフトウェアシミュレーションレベルで動作するジャイロセンサドライバ．">Gyro</a>* <a class="code" href="structstf_1_1_s_s_global.html#a06d0bba01aa4ff73567f79ce1cc6ac52">ss_gyroz</a>;
+<a name="l00079"></a><a class="code" href="structstf_1_1_s_s_global.html#a09bee3be6bd6907f902fa3aec429d10d">00079</a>         <a class="code" href="classstf_1_1core_1_1devicedriver_1_1_composite_input.html" title="AOCSSensorの集合体を表すクラス．">ThreeAxisGyro</a>* <a class="code" href="structstf_1_1_s_s_global.html#a09bee3be6bd6907f902fa3aec429d10d">ss_gyro</a>;
+<a name="l00080"></a>00080 
+<a name="l00081"></a>00081         <span class="comment">//Reaction Wheel</span>
+<a name="l00082"></a><a class="code" href="structstf_1_1_s_s_global.html#af34f23e401113ee8b62442488bb84264">00082</a>         <span class="keyword">typedef</span> <a class="code" href="classstf_1_1core_1_1devicedriver_1_1rw_1_1_r_w.html" title="ソフトウェアシミュレーションレベルで動作するRWドライバ．">devicedriver::rw::RW&lt;Env&gt;</a> <a class="code" href="structstf_1_1_s_s_global.html#af34f23e401113ee8b62442488bb84264">RW</a>;
+<a name="l00083"></a><a class="code" href="structstf_1_1_s_s_global.html#a9409987214ed4ca1ee1cc14bd887efc0">00083</a>         <span class="keyword">typedef</span> <a class="code" href="classstf_1_1core_1_1devicedriver_1_1_composite_output.html" title="AOCSActuatorの集合体を表すクラス．">devicedriver::CompositeOutput&lt;RW, 4&gt;</a> <a class="code" href="structstf_1_1_s_s_global.html#a9409987214ed4ca1ee1cc14bd887efc0">SkewRW</a>;
+<a name="l00084"></a>00084 
+<a name="l00085"></a><a class="code" href="structstf_1_1_s_s_global.html#ae9b37f3432207c09a5e0191af6cfd96e">00085</a>         <a class="code" href="classstf_1_1core_1_1devicedriver_1_1rw_1_1_r_w.html" title="ソフトウェアシミュレーションレベルで動作するRWドライバ．">RW</a>* <a class="code" href="structstf_1_1_s_s_global.html#ae9b37f3432207c09a5e0191af6cfd96e">ss_rw1</a>;
+<a name="l00086"></a><a class="code" href="structstf_1_1_s_s_global.html#a671946c7a1f728e344c3b059b52716d9">00086</a>         <a class="code" href="classstf_1_1core_1_1devicedriver_1_1rw_1_1_r_w.html" title="ソフトウェアシミュレーションレベルで動作するRWドライバ．">RW</a>* <a class="code" href="structstf_1_1_s_s_global.html#a671946c7a1f728e344c3b059b52716d9">ss_rw2</a>;
+<a name="l00087"></a><a class="code" href="structstf_1_1_s_s_global.html#a5644bc0cd2f0c2d015f4281ee54eff9d">00087</a>         <a class="code" href="classstf_1_1core_1_1devicedriver_1_1rw_1_1_r_w.html" title="ソフトウェアシミュレーションレベルで動作するRWドライバ．">RW</a>* <a class="code" href="structstf_1_1_s_s_global.html#a5644bc0cd2f0c2d015f4281ee54eff9d">ss_rw3</a>;
+<a name="l00088"></a><a class="code" href="structstf_1_1_s_s_global.html#acfa4188fe0dfc6afecae8c8e404c5661">00088</a>         <a class="code" href="classstf_1_1core_1_1devicedriver_1_1rw_1_1_r_w.html" title="ソフトウェアシミュレーションレベルで動作するRWドライバ．">RW</a>* <a class="code" href="structstf_1_1_s_s_global.html#acfa4188fe0dfc6afecae8c8e404c5661">ss_rw4</a>;
+<a name="l00089"></a><a class="code" href="structstf_1_1_s_s_global.html#a787277a0463e0da226cfc04e53b9eeb8">00089</a>         <a class="code" href="classstf_1_1core_1_1devicedriver_1_1_composite_output.html" title="AOCSActuatorの集合体を表すクラス．">SkewRW</a>* <a class="code" href="structstf_1_1_s_s_global.html#a787277a0463e0da226cfc04e53b9eeb8">ss_rw</a>;
+<a name="l00090"></a>00090 };
+<a name="l00091"></a>00091 
+<a name="l00092"></a>00092 } <span class="comment">/* End of namespace stf */</span>
+<a name="l00093"></a>00093 
+<a name="l00094"></a>00094 
+<a name="l00095"></a>00095 
+<a name="l00096"></a>00096 
+<a name="l00097"></a>00097 <span class="preprocessor">#endif // satellite_simplesatellite_SSGlobal_h</span>
+</pre></div></div>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>フレンド</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>マクロ定義</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>STFに対してTue Mar 1 2011 03:45:42に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
+</body>
+</html>

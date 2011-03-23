@@ -1,0 +1,570 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>STF: クラス stf::environment::Orbit</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.3 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">STF</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="pages.html"><span>関連ページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li class="current"><a href="annotated.html"><span>クラス</span></a></li>
+      <li><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>構成</span></a></li>
+      <li><a href="classes.html"><span>構成索引</span></a></li>
+      <li><a href="inherits.html"><span>クラス階層</span></a></li>
+      <li><a href="functions.html"><span>構成メンバ</span></a></li>
+    </ul>
+  </div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="namespacestf.html">stf</a>      </li>
+      <li class="navelem"><a class="el" href="namespacestf_1_1environment.html">environment</a>      </li>
+      <li class="navelem"><a class="el" href="classstf_1_1environment_1_1_orbit.html">Orbit</a>      </li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public メソッド</a>  </div>
+  <div class="headertitle">
+<h1>クラス stf::environment::Orbit</h1>  </div>
+</div>
+<div class="contents">
+<!-- doxytag: class="stf::environment::Orbit" -->
+<p>軌道計算を行う，sgp4のラッパークラス．  
+<a href="#_details">[詳細]</a></p>
+
+<p><code>#include &lt;<a class="el" href="">Orbit.h</a>&gt;</code></p>
+<div class="dynheader">
+stf::environment::Orbitのコラボレーション図</div>
+<div class="dyncontent">
+<div class="center"><img src="classstf_1_1environment_1_1_orbit__coll__graph.png" border="0" usemap="#stf_1_1environment_1_1_orbit_coll__map" alt="Collaboration graph"/></div>
+<map name="stf_1_1environment_1_1_orbit_coll__map" id="stf_1_1environment_1_1_orbit_coll__map">
+<area shape="rect" id="node2" href="classstf_1_1datatype_1_1_date_time.html" title="グレゴリオ暦による絶対時刻を秒精度で保持する．" alt="" coords="5,5,163,35"/><area shape="rect" id="node4" href="classstf_1_1datatype_1_1_time.html" title="経過時間を表すクラス．" alt="" coords="187,5,317,35"/><area shape="rect" id="node6" href="structstf_1_1datatype_1_1_orbit_info.html" title="軌道6要素を保持するクラス．サイズ肥大化を避けるため，主要な計算はOrbitImplのstaticなメソッドに投げることで行う" alt="" coords="341,5,491,35"/></map>
+<center><span class="legend">[<a href="graph_legend.html">凡例</a>]</span></center></div>
+
+<p><a href="classstf_1_1environment_1_1_orbit-members.html">すべてのメンバ一覧</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="pub-methods"></a>
+Public メソッド</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1environment_1_1_orbit.html#a19153bff6cda4f558b91997eb6b58e40">Orbit</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1environment_1_1_orbit.html#adab8fd937248207a03ac97ef6f61f0f5">Orbit</a> (double a, double e, double i, double Omega, double omega, int year, int month, int day, int hour=0, int minutes=0, int second=0)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1environment_1_1_orbit.html#a49835f069e2d90a9f537a4e02b1094dd">~Orbit</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1environment_1_1_orbit.html#aa2b5fb0ea2151def83b2edc2172e60d1">set_orbitElement</a> (double a, double e, double i, double Omega, double omega)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1environment_1_1_orbit.html#a72f4d71adcb858b45a3a5c1d0aa48652">set_orbitElement</a> (const <a class="el" href="structstf_1_1datatype_1_1_orbit_info.html">datatype::OrbitInfo</a> &amp;orbit)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1environment_1_1_orbit.html#a1276f1785eec4fe68fca190e15ac89e8">addTime</a> (const <a class="el" href="classstf_1_1datatype_1_1_time.html">datatype::Time</a> &amp;dt)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1environment_1_1_orbit.html#a86345eb1546f7bde297c3e587218a8c3">addSecond</a> (int seconds)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1environment_1_1_orbit.html#aa942c7d8a37af08a8b8b53206ec0c58b">resetDateTime</a> (const <a class="el" href="classstf_1_1datatype_1_1_date_time.html">datatype::DateTime</a> &amp;time)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classstf_1_1datatype_1_1_date_time.html">datatype::DateTime</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1environment_1_1_orbit.html#aec10bd4912d125f79c617cc9de43407a">get_time</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structstf_1_1datatype_1_1_position_info.html">datatype::PositionInfo</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1environment_1_1_orbit.html#a0ebf792ace655cf513b6fbf75fc6ca4d">getSatellitePosition</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structstf_1_1datatype_1_1_orbit_info.html">datatype::OrbitInfo</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1environment_1_1_orbit.html#a4d46308a1b138e55f0a90b054a86119b">getSatelliteOrbit</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classstf_1_1datatype_1_1_static_vector.html">datatype::StaticVector</a>&lt; 2 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1environment_1_1_orbit.html#af7c479da69edfb28b12ec2521a8d6422">getSunVector2D</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classstf_1_1datatype_1_1_static_vector.html">datatype::StaticVector</a>&lt; 3 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1environment_1_1_orbit.html#ac27822447688f878f544bd66b0b86407">getSunVector3D</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classstf_1_1datatype_1_1_static_vector.html">datatype::StaticVector</a>&lt; 2 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1environment_1_1_orbit.html#a354649684dc023d6280346c2d3416e54">getEarthVector2D</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classstf_1_1datatype_1_1_static_vector.html">datatype::StaticVector</a>&lt; 3 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1environment_1_1_orbit.html#a9d5d1f04c36d9e071d8c45d748d74cb0">getEarthVector3D</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classstf_1_1datatype_1_1_magnetic_field.html">datatype::MagneticField</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1environment_1_1_orbit.html#abe3c70f9d6751df3c11ff13086a67a46">getMagneticField</a> () const </td></tr>
+</table>
+<hr/><a name="_details"></a><h2>説明</h2>
+<div class="textblock"><p>軌道計算を行う，sgp4のラッパークラス． </p>
+
+<p> <a class="el" href="">Orbit.h</a> の <a class="el" href="#L23">23</a> 行で定義されています。</p>
+</div><hr/><h2>コンストラクタとデストラクタ</h2>
+<a class="anchor" id="a19153bff6cda4f558b91997eb6b58e40"></a><!-- doxytag: member="stf::environment::Orbit::Orbit" ref="a19153bff6cda4f558b91997eb6b58e40" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">stf::environment::Orbit::Orbit </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">Orbit.h</a> の <a class="el" href="#L25">25</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">                : orbit_(7100000, 0.0, 0.0, util::math::PI / 2, 0.0, 0.0), starttime_(<a class="code" href="_config_8h.html#a5871356500f559add06ea81d60331b1b">YEAR</a>, <a class="code" href="_config_8h.html#a3729d06495d9713592f79f3122c9e677">MONTH</a>, <a class="code" href="_config_8h.html#a30b328ca499f27b3d0f8111b495834ca">DATE</a>){}
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="adab8fd937248207a03ac97ef6f61f0f5"></a><!-- doxytag: member="stf::environment::Orbit::Orbit" ref="adab8fd937248207a03ac97ef6f61f0f5" args="(double a, double e, double i, double Omega, double omega, int year, int month, int day, int hour=0, int minutes=0, int second=0)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">stf::environment::Orbit::Orbit </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>e</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>Omega</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>omega</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>year</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>month</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>day</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>hour</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>minutes</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>second</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">Orbit.h</a> の <a class="el" href="#L27">27</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">                : orbit_(a, e, 0, i, Omega, omega), starttime_(year, month, day, hour, minutes, second){}
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="a49835f069e2d90a9f537a4e02b1094dd"></a><!-- doxytag: member="stf::environment::Orbit::~Orbit" ref="a49835f069e2d90a9f537a4e02b1094dd" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">stf::environment::Orbit::~Orbit </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">Orbit.h</a> の <a class="el" href="#L29">29</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">{}
+</pre></div>
+</div>
+</div>
+<hr/><h2>関数</h2>
+<a class="anchor" id="a86345eb1546f7bde297c3e587218a8c3"></a><!-- doxytag: member="stf::environment::Orbit::addSecond" ref="a86345eb1546f7bde297c3e587218a8c3" args="(int seconds)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stf::environment::Orbit::addSecond </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>seconds</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">Orbit.cpp</a> の <a class="el" href="#L38">38</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">{
+        this-&gt;localtime_.add_seconds(seconds);
+        updateOrbit_();
+}
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="a1276f1785eec4fe68fca190e15ac89e8"></a><!-- doxytag: member="stf::environment::Orbit::addTime" ref="a1276f1785eec4fe68fca190e15ac89e8" args="(const datatype::Time &amp;dt)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stf::environment::Orbit::addTime </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classstf_1_1datatype_1_1_time.html">datatype::Time</a> &amp;&#160;</td>
+          <td class="paramname"><em>dt</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">Orbit.cpp</a> の <a class="el" href="#L44">44</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">{
+        this-&gt;localtime_ += t;
+        updateOrbit_();
+}
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="aec10bd4912d125f79c617cc9de43407a"></a><!-- doxytag: member="stf::environment::Orbit::get_time" ref="aec10bd4912d125f79c617cc9de43407a" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classstf_1_1datatype_1_1_date_time.html">datatype::DateTime</a> stf::environment::Orbit::get_time </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">Orbit.h</a> の <a class="el" href="#L35">35</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">{ <span class="keywordflow">return</span> this-&gt;starttime_ + localtime_; }
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="a354649684dc023d6280346c2d3416e54"></a><!-- doxytag: member="stf::environment::Orbit::getEarthVector2D" ref="a354649684dc023d6280346c2d3416e54" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classstf_1_1datatype_1_1_static_vector.html">StaticVector</a>&lt; 2 &gt; stf::environment::Orbit::getEarthVector2D </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">Orbit.cpp</a> の <a class="el" href="#L71">71</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">                                                    {
+        <span class="keywordflow">return</span> OrbitCalc::getEarthDirection2D(TypeConverter::toPositionInfo(this-&gt;orbit_));
+}
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="a9d5d1f04c36d9e071d8c45d748d74cb0"></a><!-- doxytag: member="stf::environment::Orbit::getEarthVector3D" ref="a9d5d1f04c36d9e071d8c45d748d74cb0" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classstf_1_1datatype_1_1_static_vector.html">StaticVector</a>&lt; 3 &gt; stf::environment::Orbit::getEarthVector3D </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">Orbit.cpp</a> の <a class="el" href="#L75">75</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">                                                    {
+        <span class="keywordflow">return</span> OrbitCalc::getEarthDirection3D(TypeConverter::toPositionInfo(this-&gt;orbit_));
+}
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="abe3c70f9d6751df3c11ff13086a67a46"></a><!-- doxytag: member="stf::environment::Orbit::getMagneticField" ref="abe3c70f9d6751df3c11ff13086a67a46" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classstf_1_1datatype_1_1_magnetic_field.html">MagneticField</a> stf::environment::Orbit::getMagneticField </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">Orbit.cpp</a> の <a class="el" href="#L79">79</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">                                                  {
+        <span class="comment">//外部のigrf.hを使って磁場計算．外部ファイルigrf10.coefが無いとプログラムが停止するので注意．</span>
+        <span class="keywordflow">return</span> OrbitCalc::getMagneticFieldDirection(this-&gt;<a class="code" href="classstf_1_1environment_1_1_orbit.html#a0ebf792ace655cf513b6fbf75fc6ca4d">getSatellitePosition</a>(), this-&gt;starttime_ + this-&gt;localtime_);
+}
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="a4d46308a1b138e55f0a90b054a86119b"></a><!-- doxytag: member="stf::environment::Orbit::getSatelliteOrbit" ref="a4d46308a1b138e55f0a90b054a86119b" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="structstf_1_1datatype_1_1_orbit_info.html">OrbitInfo</a> &amp; stf::environment::Orbit::getSatelliteOrbit </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">Orbit.cpp</a> の <a class="el" href="#L59">59</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">                                                { 
+        <span class="keywordflow">return</span> orbit_; 
+} 
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="a0ebf792ace655cf513b6fbf75fc6ca4d"></a><!-- doxytag: member="stf::environment::Orbit::getSatellitePosition" ref="a0ebf792ace655cf513b6fbf75fc6ca4d" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="structstf_1_1datatype_1_1_position_info.html">PositionInfo</a> stf::environment::Orbit::getSatellitePosition </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">Orbit.cpp</a> の <a class="el" href="#L55">55</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">                                                     {
+        <span class="keywordflow">return</span> TypeConverter::toPositionInfo(this-&gt;orbit_); 
+}
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="af7c479da69edfb28b12ec2521a8d6422"></a><!-- doxytag: member="stf::environment::Orbit::getSunVector2D" ref="af7c479da69edfb28b12ec2521a8d6422" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classstf_1_1datatype_1_1_static_vector.html">StaticVector</a>&lt; 2 &gt; stf::environment::Orbit::getSunVector2D </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">Orbit.cpp</a> の <a class="el" href="#L63">63</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">                                                  { 
+        <span class="keywordflow">return</span> OrbitCalc::getSunDirection2D(this-&gt;starttime_ + this-&gt;localtime_); 
+}
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="ac27822447688f878f544bd66b0b86407"></a><!-- doxytag: member="stf::environment::Orbit::getSunVector3D" ref="ac27822447688f878f544bd66b0b86407" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classstf_1_1datatype_1_1_static_vector.html">StaticVector</a>&lt; 3 &gt; stf::environment::Orbit::getSunVector3D </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">Orbit.cpp</a> の <a class="el" href="#L67">67</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">                                                  { 
+        <span class="keywordflow">return</span> OrbitCalc::getSunDirection3D(this-&gt;starttime_ + this-&gt;localtime_); 
+}
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="aa942c7d8a37af08a8b8b53206ec0c58b"></a><!-- doxytag: member="stf::environment::Orbit::resetDateTime" ref="aa942c7d8a37af08a8b8b53206ec0c58b" args="(const datatype::DateTime &amp;time)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stf::environment::Orbit::resetDateTime </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classstf_1_1datatype_1_1_date_time.html">datatype::DateTime</a> &amp;&#160;</td>
+          <td class="paramname"><em>time</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a72f4d71adcb858b45a3a5c1d0aa48652"></a><!-- doxytag: member="stf::environment::Orbit::set_orbitElement" ref="a72f4d71adcb858b45a3a5c1d0aa48652" args="(const datatype::OrbitInfo &amp;orbit)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stf::environment::Orbit::set_orbitElement </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structstf_1_1datatype_1_1_orbit_info.html">datatype::OrbitInfo</a> &amp;&#160;</td>
+          <td class="paramname"><em>orbit</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">Orbit.cpp</a> の <a class="el" href="#L32">32</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">{
+        this-&gt;orbit_ = orbit;
+        updateOrbit_();
+}
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="aa2b5fb0ea2151def83b2edc2172e60d1"></a><!-- doxytag: member="stf::environment::Orbit::set_orbitElement" ref="aa2b5fb0ea2151def83b2edc2172e60d1" args="(double a, double e, double i, double Omega, double omega)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stf::environment::Orbit::set_orbitElement </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>e</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>Omega</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>omega</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">Orbit.cpp</a> の <a class="el" href="#L21">21</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">{
+        this-&gt;orbit_.a = a;
+        this-&gt;orbit_.e = e;
+        this-&gt;orbit_.i = i;
+        this-&gt;orbit_.Omega = Omega;
+        this-&gt;orbit_.omega = omega;
+        this-&gt;orbit_.n = <a class="code" href="namespacestf_1_1util_1_1math.html#aaeb9c85b00f8c1afc33f9009e902e0d4" title="平方根を求める，cmathのラッパ．">sqrt</a>( util::math::MU / (a * a * a) );
+        this-&gt;orbit_.M = this-&gt;orbit_.n * this-&gt;localtime_.total_seconds();
+}
+</pre></div>
+</div>
+</div>
+<hr/>このクラスの説明は次のファイルから生成されました:<ul>
+<li>stf/environment/<a class="el" href="">Orbit.h</a></li>
+<li>stf/environment/<a class="el" href="">Orbit.cpp</a></li>
+</ul>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>フレンド</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>マクロ定義</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>STFに対してWed Mar 23 2011 05:33:37に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
+</body>
+</html>

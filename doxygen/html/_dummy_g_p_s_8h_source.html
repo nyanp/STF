@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>STF: stf/core/devicedriver/gps/DummyGPS.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.3 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">STF</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="pages.html"><span>関連ページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>ファイルメンバ</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<h1>stf/core/devicedriver/gps/DummyGPS.h</h1>  </div>
+</div>
+<div class="contents">
+<a href="_dummy_g_p_s_8h.html">説明を見る。</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<a name="l00008"></a>00008 <span class="preprocessor">#ifndef stf_core_devicedriver_gps_DummyGPS_h</span>
+<a name="l00009"></a>00009 <span class="preprocessor"></span><span class="preprocessor">#define stf_core_devicedriver_gps_DummyGPS_h</span>
+<a name="l00010"></a>00010 <span class="preprocessor"></span>
+<a name="l00011"></a>00011 <span class="preprocessor">#include &quot;<a class="code" href="_g_p_s_base_8h.html" title="GPSセンサの基底クラス．">GPSBase.h</a>&quot;</span>
+<a name="l00012"></a>00012 <span class="preprocessor">#include &quot;<a class="code" href="_orbit_info_8h.html" title="軌道情報関係の量を表す">../../../datatype/OrbitInfo.h</a>&quot;</span>
+<a name="l00013"></a>00013 <span class="preprocessor">#include &quot;<a class="code" href="_type_converter_8h.html" title="単位や姿勢表現の相互変換を行うユーティリティ．">../../../datatype/TypeConverter.h</a>&quot;</span>
+<a name="l00014"></a>00014 
+<a name="l00015"></a>00015 <span class="keyword">namespace </span>stf {
+<a name="l00016"></a>00016 <span class="keyword">namespace </span>core {
+<a name="l00017"></a>00017 <span class="keyword">namespace </span>devicedriver {
+<a name="l00018"></a>00018 <span class="keyword">namespace </span>gps {
+<a name="l00019"></a>00019 
+<a name="l00021"></a>00021 
+<a name="l00024"></a>00024 <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;
+<a name="l00025"></a><a class="code" href="classstf_1_1core_1_1devicedriver_1_1gps_1_1_dummy_g_p_s.html">00025</a> <span class="keyword">class </span><a class="code" href="classstf_1_1core_1_1devicedriver_1_1gps_1_1_dummy_g_p_s.html" title="TLEのアップリンクで軌道情報を保持するGPSダミー．">DummyGPS</a> : <span class="keyword">public</span> <a class="code" href="classstf_1_1core_1_1devicedriver_1_1gps_1_1_g_p_s_base.html" title="GPSセンサの基底クラス．">GPSBase</a>&lt;T&gt; {
+<a name="l00026"></a>00026 <span class="keyword">public</span>:
+<a name="l00027"></a><a class="code" href="classstf_1_1core_1_1devicedriver_1_1gps_1_1_dummy_g_p_s.html#aa5ed8e30d8f94da230985c72a6504353">00027</a>         <a class="code" href="classstf_1_1core_1_1devicedriver_1_1gps_1_1_dummy_g_p_s.html#aa5ed8e30d8f94da230985c72a6504353">DummyGPS</a>(){}
+<a name="l00028"></a>00028         <span class="comment">//Sigma =0.02, tau(ECRV)=1000sec</span>
+<a name="l00029"></a><a class="code" href="classstf_1_1core_1_1devicedriver_1_1gps_1_1_dummy_g_p_s.html#acdb7596806cd58b93f7de6a083cb3be0">00029</a>         <a class="code" href="classstf_1_1core_1_1devicedriver_1_1gps_1_1_dummy_g_p_s.html#acdb7596806cd58b93f7de6a083cb3be0">DummyGPS</a>(<span class="keywordtype">int</span> <a class="code" href="classstf_1_1_root_object.html#a233a3fbd4d53b7a8eaa5d2edab4cf75b">instance_id</a>) : <a class="code" href="classstf_1_1core_1_1devicedriver_1_1gps_1_1_g_p_s_base.html" title="GPSセンサの基底クラス．">GPSBase</a>(instance_id){}
+<a name="l00030"></a><a class="code" href="classstf_1_1core_1_1devicedriver_1_1gps_1_1_dummy_g_p_s.html#abc66e78f293e01745524edf571c75a92">00030</a>         <span class="keywordtype">void</span> <a class="code" href="classstf_1_1core_1_1devicedriver_1_1gps_1_1_dummy_g_p_s.html#abc66e78f293e01745524edf571c75a92">set_orbit</a>(<span class="keyword">const</span> <a class="code" href="structstf_1_1datatype_1_1_orbit_info.html" title="軌道6要素を保持するクラス．サイズ肥大化を避けるため，主要な計算はOrbitImplのstaticなメソッドに投げることで行う">datatype::OrbitInfo</a>&amp; orbit){
+<a name="l00031"></a>00031                 this-&gt;<a class="code" href="namespacenj.html#afdc034986b3ea23dc5385263205e44f4" title="DAC出力値指定メソッド">set_value</a>(<a class="code" href="classstf_1_1datatype_1_1_type_converter.html#ad5ed5f6b8217faf97e008cdec13d09a7">datatype::TypeConverter::toPositionInfo</a>(orbit));<span class="comment">//軌道要素を衛星の6次元状態量に変換</span>
+<a name="l00032"></a>00032         }
+<a name="l00033"></a><a class="code" href="classstf_1_1core_1_1devicedriver_1_1gps_1_1_dummy_g_p_s.html#a9436e6a7025fcf4f13ab677cd301d724">00033</a>         <a class="code" href="classstf_1_1core_1_1devicedriver_1_1gps_1_1_dummy_g_p_s.html#a9436e6a7025fcf4f13ab677cd301d724">~DummyGPS</a>(){}
+<a name="l00034"></a>00034 <span class="keyword">private</span>:
+<a name="l00035"></a>00035 };
+<a name="l00036"></a>00036 
+<a name="l00037"></a>00037 
+<a name="l00038"></a>00038 
+<a name="l00039"></a>00039 } <span class="comment">/* End of namespace stf::core::devicedriver::gps */</span>
+<a name="l00040"></a>00040 } <span class="comment">/* End of namespace stf::core::devicedriver */</span>
+<a name="l00041"></a>00041 } <span class="comment">/* End of namespace stf::core */</span>
+<a name="l00042"></a>00042 } <span class="comment">/* End of namespace stf */</span>
+<a name="l00043"></a>00043 
+<a name="l00044"></a>00044 <span class="preprocessor">#endif // stf_core_devicedriver_gps_GPS_h</span>
+</pre></div></div>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>フレンド</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>マクロ定義</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>STFに対してTue Mar 1 2011 03:45:36に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
+</body>
+</html>

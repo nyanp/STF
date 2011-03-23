@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>STF: stf/core/devicedriver/clock/ITimeClock.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.3 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">STF</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="pages.html"><span>関連ページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>ファイルメンバ</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">構成</a> &#124;
+<a href="#namespaces">ネームスペース</a>  </div>
+  <div class="headertitle">
+<h1>stf/core/devicedriver/clock/ITimeClock.h</h1>  </div>
+</div>
+<div class="contents">
+
+<p>Time型のカウントが可能であることを示す抽象インターフェース．  
+<a href="#_details">[詳細]</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="">../../../datatype/Time.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="">../IDataUpdatable.h</a>&quot;</code><br/>
+</div><div class="textblock"><div class="dynheader">
+ITimeClock.hのインクルード依存関係図</div>
+<div class="dyncontent">
+<div class="center"><img src="_i_time_clock_8h__incl.png" border="0" usemap="#stf_2core_2devicedriver_2clock_2_i_time_clock_8h" alt=""/></div>
+<map name="stf_2core_2devicedriver_2clock_2_i_time_clock_8h" id="stf_2core_2devicedriver_2clock_2_i_time_clock_8h">
+<area shape="rect" id="node3" href="_time_8h.html" title="経過時間を表すクラス．" alt="" coords="5,83,155,112"/><area shape="rect" id="node7" href="_i_data_updatable_8h.html" title="周期的にデータを取得，送信するコンポーネントに対する抽象インターフェース．" alt="" coords="179,83,312,112"/><area shape="rect" id="node5" href="stfassert_8h.html" title="assertラッパ．" alt="" coords="23,160,137,189"/></map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+このグラフは、どのファイルから直接、間接的にインクルードされているかを示しています。</div>
+<div class="dyncontent">
+<div class="center"><img src="_i_time_clock_8h__dep__incl.png" border="0" usemap="#stf_2core_2devicedriver_2clock_2_i_time_clock_8hdep" alt=""/></div>
+<map name="stf_2core_2devicedriver_2clock_2_i_time_clock_8hdep" id="stf_2core_2devicedriver_2clock_2_i_time_clock_8hdep">
+<area shape="rect" id="node3" href="_datapool_8h.html" title="STF生成データにタイムタグを付加して格納するデータプール． データの配列を保持するTupleと，Tupleの配列を保持するデータプールによって テーブル形式のデータ構造を表現する．" alt="" coords="872,83,1056,112"/><area shape="rect" id="node66" href="_dummy_clock_8h.html" title="ダミーの時刻計算を行うコンポーネントドライバ．" alt="" coords="1556,160,1817,189"/><area shape="rect" id="node70" href="_strategy_base_8h.html" title="ストラテジの共通基底クラス．" alt="" coords="4360,83,4571,112"/><area shape="rect" id="node117" href="_n_j_r_t_c_8h.html" title="stf/satellite/nj/NJRTC.h" alt="" coords="4595,83,4749,112"/><area shape="rect" id="node122" href="_dummy_command_receiver_8cpp.html" title="コマンドレシーバのデバッグ用クラス．外部テキストファイルからコマンドを読み込む" alt="" coords="4773,83,5155,112"/><area shape="rect" id="node124" href="_command_manager_base_8cpp.html" title="コマンドの処理を行う機能マネージャ基底クラス．" alt="" coords="5179,83,5464,112"/><area shape="rect" id="node126" href="_root_object_8cpp.html" title="数値型を除いた全クラスの基本となるクラス．" alt="" coords="5488,83,5619,112"/><area shape="rect" id="node5" href="_input_functor_8h.html" title="入力ファンクタ群．STFではFunctorのコンストラクタに渡して使用される" alt="" coords="648,392,843,421"/><area shape="rect" id="node9" href="main_8cpp.html" title="main.cpp" alt="" coords="835,624,909,653"/><area shape="rect" id="node11" href="_system_manager_base_8cpp.html" title="条件判定や異常対応を行う機能マネージャ基底クラス．" alt="" coords="99,547,371,576"/><area shape="rect" id="node13" href="_p_r_i_s_m_factory_8h.html" title="stf/satellite/PRISMFactory.h" alt="" coords="876,547,1060,576"/><area shape="rect" id="node16" href="_n_j_factory_8h.html" title="stf/satellite/NJFactory.h" alt="" coords="1344,547,1501,576"/><area shape="rect" id="node19" href="_simple_satellite_factory_8h.html" title="SimpleSatellite�p�̋�ۃt�@�N�g���D" alt="" coords="600,469,829,499"/><area shape="rect" id="node25" href="_a_o_c_s_component_8h.html" title="センサおよびアクチュエータの基底クラス．" alt="" coords="1077,160,1331,189"/><area shape="rect" id="node29" href="_composite_input_8h.html" title="AOCSSensorの集合体を表現するクラス群．" alt="" coords="1063,315,1303,344"/><area shape="rect" id="node35" href="_p_r_i_s_m_global_8h.html" title="stf/satellite/prism/PRISMGlobal.h" alt="" coords="1005,469,1219,499"/><area shape="rect" id="node45" href="_composite_output_8h.html" title="AOCSActuatorの集合体を表現するクラス．" alt="" coords="1327,315,1577,344"/><area shape="rect" id="node51" href="_output_all_8h.html" title="データプールの内容を全て出力するテレメトリ生成ストラテジ．" alt="" coords="2157,237,2400,267"/><area shape="rect" id="node53" href="_selecting_output_8h.html" title="指定したイテレータをテレメトリとして整形するテレメトリ生成ストラテジ．" alt="" coords="1739,237,2021,267"/><area shape="rect" id="node59" href="_datapool_8cpp.html" title="STF生成データにタイムタグを付加して格納するデータプール．" alt="" coords="93,160,291,189"/><area shape="rect" id="node61" href="_subject_base_8cpp.html" title="Observerパターンの構成テンプレートクラス群．" alt="" coords="315,160,517,189"/><area shape="rect" id="node63" href="_mode_manager_base_8cpp.html" title="モードの管理を行う機能マネージャ基底クラス．" alt="" coords="541,160,800,189"/><area shape="rect" id="node7" href="core_2functor_2_functor_8h.html" title="stf/core/functor/Functor.h" alt="" coords="179,469,344,499"/><area shape="rect" id="node22" href="_input_functor_8cpp.html" title="入力ファンクタ群．STFではFunctorのコンストラクタに渡して使用される" alt="" coords="368,469,576,499"/><area shape="rect" id="node27" href="_a_o_c_s_sensor_8h.html" title="センサの基底クラス．" alt="" coords="1077,237,1304,267"/><area shape="rect" id="node43" href="_a_o_c_s_actuator_8h.html" title="アクチュエータの基底クラス．" alt="" coords="1328,237,1563,267"/><area shape="rect" id="node31" href="devicedriver_2_includes_8h.html" title="stf/core/devicedriver/Includes.h" alt="" coords="1208,392,1405,421"/><area shape="rect" id="node39" href="_n_j_global_8h.html" title="stf/satellite/nj/NJGlobal.h" alt="" coords="1791,469,1956,499"/><area shape="rect" id="node72" href="_control_block_8h.html" title="制御ネットワークのラッパーとなるスーパーブロック．" alt="" coords="3145,160,3393,189"/><area shape="rect" id="node74" href="_bdot_8h.html" title="B&#45;Dot則を計算する制御ブロック．" alt="" coords="3417,160,3617,189"/><area shape="rect" id="node76" href="_combining_8h.html" title="任意の物理量を単純加算で合成する制御ブロック群．" alt="" coords="3641,160,3876,189"/><area shape="rect" id="node78" href="_coupling_compensation_8h.html" title="3軸独立に制御則を適用した際に生じるカップリング項Iωを，フィードフォワードに打ち消すために使う制御ブロック．" alt="" coords="3900,160,4207,189"/><area shape="rect" id="node80" href="_e_k_f_8h.html" title="ジャイロバイアス推定を行う拡張カルマンフィルタ制御ブロック．" alt="" coords="4231,160,4431,189"/><area shape="rect" id="node82" href="_first_order_correction_8h.html" title="TをT*Uに変換して出力する制御ブロック．" alt="" coords="4455,160,4745,189"/><area shape="rect" id="node84" href="_liniar_correction_8h.html" title="TをaT+bに変換して出力する制御ブロック" alt="" coords="4769,160,5033,189"/><area shape="rect" id="node86" href="_magnetic_moment_to_torque_8h.html" title="磁気モーメントをトルクに変換する制御ブロック．" alt="" coords="5057,160,5383,189"/><area shape="rect" id="node88" href="_no_control_8h.html" title="制御を行わない制御ブロック．" alt="" coords="5407,160,5636,189"/><area shape="rect" id="node90" href="_p_i_d_8h.html" title="PID制御を行う制御ブロック群．" alt="" coords="5660,160,5855,189"/><area shape="rect" id="node92" href="_q_u_e_s_t_8h.html" title="Quaternion Estimatorによる姿勢決定を行う制御ブロック．未実装．" alt="" coords="5879,160,6097,189"/><area shape="rect" id="node94" href="_rate_dumping_8h.html" title="レートダンピング則による3軸独立のトルク計算を行う制御ブロック．" alt="" coords="6121,160,6372,189"/><area shape="rect" id="node96" href="_single_axis_p_i_d_8h.html" title="Scalarを目標値に近づける単純な1次元PID制御ブロック．" alt="" coords="6396,160,6652,189"/><area shape="rect" id="node98" href="_cross_product_8h.html" title="クロスプロダクト則を用いて要求出力トルクを磁気モーメントに変換する制御ブロック．" alt="" coords="6676,160,6929,189"/><area shape="rect" id="node100" href="_g_g_compensation_8h.html" title="重力傾斜トルクを計算し，逆符号のトルクを出力する制御ブロック．" alt="" coords="6953,160,7231,189"/><area shape="rect" id="node102" href="_solar_pointing_8h.html" title="MTQで太陽指向制御を行うための制御ブロック．" alt="" coords="7255,160,7505,189"/><area shape="rect" id="node104" href="_r_m_m_e_k_f_8h.html" title="残留磁気モーメントの推定を行う拡張カルマンフィルタ制御ブロック．未実装．" alt="" coords="2316,160,2545,189"/><area shape="rect" id="node106" href="_t_r_i_a_d_8h.html" title="TRIAD則で姿勢決定を行う制御ブロック群．" alt="" coords="2569,160,2780,189"/><area shape="rect" id="node108" href="_wheel_unloading_8h.html" title="RWのアンローディングをMTQを使用して行うための制御ブロック．" alt="" coords="2804,160,3071,189"/><area shape="rect" id="node110" href="_i_telemetry_strategy_8h.html" title="テレメトリ生成ストラテジの抽象インターフェース．" alt="" coords="1943,160,2241,189"/><area shape="rect" id="node120" href="_n_j_r_t_c_8cpp.html" title="stf/satellite/nj/NJRTC.cpp" alt="" coords="7580,160,7748,189"/></map>
+</div>
+</div>
+<p><a href="">ソースコードを見る。</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="nested-classes"></a>
+構成</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1core_1_1devicedriver_1_1clock_1_1_i_time_clock.html">stf::core::devicedriver::clock::ITimeClock</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Time型のカウントが可能であることを示す抽象インターフェース．  <a href="classstf_1_1core_1_1devicedriver_1_1clock_1_1_i_time_clock.html#_details">[詳細]</a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="namespaces"></a>
+ネームスペース</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf.html">stf</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf_1_1core.html">stf::core</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf_1_1core_1_1devicedriver.html">stf::core::devicedriver</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf_1_1core_1_1devicedriver_1_1clock.html">stf::core::devicedriver::clock</a></td></tr>
+</table>
+<hr/><a name="_details"></a><h2>説明</h2>
+<div class="textblock"><p>Time型のカウントが可能であることを示す抽象インターフェース． </p>
+<dl class="author"><dt><b>作者:</b></dt><dd>Taiga Nomi </dd></dl>
+<dl class="date"><dt><b>日付:</b></dt><dd>2011.02.16 </dd></dl>
+
+<p> <a class="el" href="">ITimeClock.h</a> で定義されています。</p>
+</div></div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>フレンド</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>マクロ定義</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>STFに対してWed Mar 23 2011 05:32:33に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
+</body>
+</html>

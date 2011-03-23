@@ -1,0 +1,213 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>STF: stf/datatype/List.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.3 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">STF</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="pages.html"><span>関連ページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>ファイルメンバ</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<h1>stf/datatype/List.h</h1>  </div>
+</div>
+<div class="contents">
+<a href="_list_8h.html">説明を見る。</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<a name="l00010"></a>00010 <span class="preprocessor">#ifndef stf_datatype_List_h</span>
+<a name="l00011"></a>00011 <span class="preprocessor"></span><span class="preprocessor">#define stf_datatype_List_h</span>
+<a name="l00012"></a>00012 <span class="preprocessor"></span><span class="preprocessor">#include&lt;assert.h&gt;</span>
+<a name="l00013"></a>00013 
+<a name="l00014"></a>00014 <span class="keyword">namespace </span>stf { 
+<a name="l00015"></a>00015 <span class="keyword">namespace </span>datatype {
+<a name="l00016"></a>00016 
+<a name="l00048"></a>00048 <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;
+<a name="l00049"></a><a class="code" href="classstf_1_1datatype_1_1_list.html">00049</a> <span class="keyword">class </span><a class="code" href="classstf_1_1datatype_1_1_list.html" title="機能を最小限に絞ったコンテナクラス． ・assertが有効ならば[]演算子に範囲外チェックが入る ・データの追加は末尾のみ対応，データの削除は任意位置に対して可能 ・適合する最初の要素を削除するremo...">List</a> {
+<a name="l00050"></a>00050 <span class="keyword">public</span>:
+<a name="l00051"></a><a class="code" href="classstf_1_1datatype_1_1_list.html#ab8a8dd5f1a8996f5a31612186c11d463">00051</a>         <span class="keyword">explicit</span> <a class="code" href="classstf_1_1datatype_1_1_list.html#ab8a8dd5f1a8996f5a31612186c11d463">List</a>() : size_(0), capacity_(3){ data_ = <span class="keyword">new</span> T*[capacity_];};
+<a name="l00052"></a><a class="code" href="classstf_1_1datatype_1_1_list.html#a9da5a6082d2e280b480f47bb2f989b18">00052</a>         <a class="code" href="classstf_1_1datatype_1_1_list.html#a9da5a6082d2e280b480f47bb2f989b18">~List</a>(){};
+<a name="l00056"></a><a class="code" href="classstf_1_1datatype_1_1_list_1_1__iterator.html">00056</a>         <span class="keyword">class </span><a class="code" href="classstf_1_1datatype_1_1_list_1_1__iterator.html" title="Listのイテレータとなる内部クラス">_iterator</a>{
+<a name="l00057"></a>00057         <span class="keyword">private</span>:
+<a name="l00058"></a>00058                 T *point_;
+<a name="l00059"></a>00059                 <span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_list.html" title="機能を最小限に絞ったコンテナクラス． ・assertが有効ならば[]演算子に範囲外チェックが入る ・データの追加は末尾のみ対応，データの削除は任意位置に対して可能 ・適合する最初の要素を削除するremo...">List&lt;T&gt;</a> *list_;
+<a name="l00060"></a>00060                 <span class="keywordtype">int</span> index_;
+<a name="l00061"></a>00061         <span class="keyword">public</span>:
+<a name="l00062"></a><a class="code" href="classstf_1_1datatype_1_1_list_1_1__iterator.html#ac450948433531f00b19005506eb20a49">00062</a>                 <a class="code" href="classstf_1_1datatype_1_1_list_1_1__iterator.html#ac450948433531f00b19005506eb20a49">_iterator</a>(<span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_list_1_1__iterator.html" title="Listのイテレータとなる内部クラス">_iterator</a> &amp;rhs): point_(rhs.point_), list_(rhs.list_), index_(rhs.index_){};
+<a name="l00063"></a><a class="code" href="classstf_1_1datatype_1_1_list_1_1__iterator.html#a7fb97889c48e8a2d0866d13da7c48ad5">00063</a>                 <a class="code" href="classstf_1_1datatype_1_1_list_1_1__iterator.html#a7fb97889c48e8a2d0866d13da7c48ad5">_iterator</a>(): point_(0), list_(0), index_(0) {};
+<a name="l00064"></a><a class="code" href="classstf_1_1datatype_1_1_list_1_1__iterator.html#a57881c31ee655a37c91a7e815899ca2d">00064</a>                 <a class="code" href="classstf_1_1datatype_1_1_list_1_1__iterator.html#a57881c31ee655a37c91a7e815899ca2d">_iterator</a>(<span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_list.html" title="機能を最小限に絞ったコンテナクラス． ・assertが有効ならば[]演算子に範囲外チェックが入る ・データの追加は末尾のみ対応，データの削除は任意位置に対して可能 ・適合する最初の要素を削除するremo...">List&lt;T&gt;</a>* container, <span class="keywordtype">int</span> <a class="code" href="classstf_1_1datatype_1_1_list_1_1__iterator.html#ab978b1babaf6ca94722481d65b9c80ce">index</a>=0): point_((*container).data_[<a class="code" href="classstf_1_1datatype_1_1_list_1_1__iterator.html#ab978b1babaf6ca94722481d65b9c80ce">index</a>]), list_(container), index_(<a class="code" href="classstf_1_1datatype_1_1_list_1_1__iterator.html#ab978b1babaf6ca94722481d65b9c80ce">index</a>) {};
+<a name="l00065"></a><a class="code" href="classstf_1_1datatype_1_1_list_1_1__iterator.html#af769920bcb947263eb620876f70e0993">00065</a>                 <a class="code" href="classstf_1_1datatype_1_1_list_1_1__iterator.html#af769920bcb947263eb620876f70e0993">~_iterator</a>(){};
+<a name="l00066"></a><a class="code" href="classstf_1_1datatype_1_1_list_1_1__iterator.html#ab978b1babaf6ca94722481d65b9c80ce">00066</a>                 <span class="keywordtype">int</span> <a class="code" href="classstf_1_1datatype_1_1_list_1_1__iterator.html#ab978b1babaf6ca94722481d65b9c80ce">index</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> index_; }
+<a name="l00067"></a><a class="code" href="classstf_1_1datatype_1_1_list_1_1__iterator.html#a888cca0f67619c610bf8f192c6ed511f">00067</a>         T&amp; <a class="code" href="classstf_1_1datatype_1_1_list_1_1__iterator.html#a888cca0f67619c610bf8f192c6ed511f">operator *</a>(){<span class="keywordflow">return</span> *point_;}
+<a name="l00068"></a><a class="code" href="classstf_1_1datatype_1_1_list_1_1__iterator.html#a51b9584e96d0d8ab4b3d48361ee2b57c">00068</a>         <span class="keywordtype">bool</span> <a class="code" href="classstf_1_1datatype_1_1_list_1_1__iterator.html#a51b9584e96d0d8ab4b3d48361ee2b57c">operator==</a>(<span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_list_1_1__iterator.html" title="Listのイテレータとなる内部クラス">_iterator</a> &amp;rhs){
+<a name="l00069"></a>00069                         <span class="keywordflow">if</span>(point_ == rhs.point_)  <span class="comment">//指しているオブジェクトが同一で</span>
+<a name="l00070"></a>00070               <span class="keywordflow">if</span>(index_ == rhs.index_)<span class="comment">//インデックスも一緒の場合</span>
+<a name="l00071"></a>00071                 <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00072"></a>00072                         <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00073"></a>00073                 }
+<a name="l00074"></a><a class="code" href="classstf_1_1datatype_1_1_list_1_1__iterator.html#ad2f38c4d51d9c6921627faab3f527894">00074</a>                 <span class="keywordtype">bool</span> <a class="code" href="classstf_1_1datatype_1_1_list_1_1__iterator.html#ad2f38c4d51d9c6921627faab3f527894">operator!=</a>(<span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_list_1_1__iterator.html" title="Listのイテレータとなる内部クラス">_iterator</a> &amp;rhs){<span class="keywordflow">return</span> !(*<span class="keyword">this</span> == rhs);}
+<a name="l00076"></a><a class="code" href="classstf_1_1datatype_1_1_list_1_1__iterator.html#aca3d1ac0fa665220888296aced4e0a0e">00076</a>                 <a class="code" href="classstf_1_1datatype_1_1_list_1_1__iterator.html" title="Listのイテレータとなる内部クラス">_iterator</a> &amp;<a class="code" href="classstf_1_1datatype_1_1_list_1_1__iterator.html#aca3d1ac0fa665220888296aced4e0a0e" title="前置インクリメント">operator++</a>(){ 
+<a name="l00077"></a>00077                         index_++;
+<a name="l00078"></a>00078                         point_ = list_-&gt;data_[index_];
+<a name="l00079"></a>00079                         <span class="keywordflow">return</span> *<span class="keyword">this</span>;
+<a name="l00080"></a>00080                 }
+<a name="l00082"></a><a class="code" href="classstf_1_1datatype_1_1_list_1_1__iterator.html#aa942eaee89ff1bb2d426ea4343ebe034">00082</a>                 <a class="code" href="classstf_1_1datatype_1_1_list_1_1__iterator.html" title="Listのイテレータとなる内部クラス">_iterator</a> <a class="code" href="classstf_1_1datatype_1_1_list_1_1__iterator.html#aa942eaee89ff1bb2d426ea4343ebe034" title="後置インクリメント">operator++</a>(<span class="keywordtype">int</span> dummy){                
+<a name="l00083"></a>00083                         <span class="keywordflow">return</span> (*<span class="keyword">this</span>)++;
+<a name="l00084"></a>00084                 }
+<a name="l00086"></a><a class="code" href="classstf_1_1datatype_1_1_list_1_1__iterator.html#a1fd3cc3d23b2bc8db271ad4fcb494bcc">00086</a>         <a class="code" href="classstf_1_1datatype_1_1_list_1_1__iterator.html" title="Listのイテレータとなる内部クラス">_iterator</a> &amp;<a class="code" href="classstf_1_1datatype_1_1_list_1_1__iterator.html#a1fd3cc3d23b2bc8db271ad4fcb494bcc" title="前置デクリメント">operator--</a>(){
+<a name="l00087"></a>00087             <a class="code" href="classstf_1_1datatype_1_1_list_1_1__iterator.html#ab978b1babaf6ca94722481d65b9c80ce">index</a>--;
+<a name="l00088"></a>00088             point_ = list_-&gt;data_[index_];
+<a name="l00089"></a>00089             <span class="keywordflow">return</span> *<span class="keyword">this</span>;
+<a name="l00090"></a>00090         }
+<a name="l00092"></a><a class="code" href="classstf_1_1datatype_1_1_list_1_1__iterator.html#aff060d58c02f74ec30a133377e978156">00092</a>         <a class="code" href="classstf_1_1datatype_1_1_list_1_1__iterator.html" title="Listのイテレータとなる内部クラス">_iterator</a> &amp;<a class="code" href="classstf_1_1datatype_1_1_list_1_1__iterator.html#aff060d58c02f74ec30a133377e978156" title="後置デクリメント">operator--</a>(<span class="keywordtype">int</span> dummy){
+<a name="l00093"></a>00093             <span class="keywordflow">return</span> (*<span class="keyword">this</span>)--;
+<a name="l00094"></a>00094         }
+<a name="l00095"></a>00095         };
+<a name="l00096"></a><a class="code" href="classstf_1_1datatype_1_1_list.html#a0710a1bc11c265bb67113d6e2cb22b62">00096</a>         <span class="keyword">typedef</span> <span class="keyword">typename</span> <a class="code" href="classstf_1_1datatype_1_1_list_1_1__iterator.html" title="Listのイテレータとなる内部クラス">List&lt;T&gt;::_iterator</a> <a class="code" href="classstf_1_1datatype_1_1_list.html#a0710a1bc11c265bb67113d6e2cb22b62">iterator</a>;
+<a name="l00097"></a>00097         <span class="comment">// public methods</span>
+<a name="l00098"></a><a class="code" href="classstf_1_1datatype_1_1_list.html#aafa868e89c2529eac2aa2c99c0cc2895">00098</a>         T&amp; <a class="code" href="classstf_1_1datatype_1_1_list.html#aafa868e89c2529eac2aa2c99c0cc2895">operator []</a>(<span class="keywordtype">int</span> index){assert(index &lt; size_ &amp;&amp; index &gt;= 0); <span class="keywordflow">return</span> *(data_[index]);}
+<a name="l00099"></a><a class="code" href="classstf_1_1datatype_1_1_list.html#a8cadd1984f3257c32884e6b2b687600f">00099</a>         <span class="keyword">const</span> T&amp; <a class="code" href="classstf_1_1datatype_1_1_list.html#aafa868e89c2529eac2aa2c99c0cc2895">operator []</a>(<span class="keywordtype">int</span> index)<span class="keyword"> const </span>{assert(index &lt; size_ &amp;&amp; index &gt;= 0); <span class="keywordflow">return</span> *(data_[index]);}
+<a name="l00100"></a><a class="code" href="classstf_1_1datatype_1_1_list.html#ab5bca799c82f8912d4b2457b57469bd2">00100</a>         _iterator <a class="code" href="classstf_1_1datatype_1_1_list.html#ab5bca799c82f8912d4b2457b57469bd2">begin</a>()<span class="keyword"> const</span>{<span class="keywordflow">return</span> _iterator(<span class="keyword">this</span>, 0);}
+<a name="l00101"></a><a class="code" href="classstf_1_1datatype_1_1_list.html#a3ff24c785c8c0cc2af1d6d50d5bbce1e">00101</a>         _iterator <a class="code" href="classstf_1_1datatype_1_1_list.html#a3ff24c785c8c0cc2af1d6d50d5bbce1e">end</a>()<span class="keyword"> const</span>{<span class="keywordflow">return</span> _iterator(<span class="keyword">this</span>, size_);}
+<a name="l00102"></a><a class="code" href="classstf_1_1datatype_1_1_list.html#aefebd1f593376ddecc434c900de8ded6">00102</a>         <span class="keywordtype">int</span> <a class="code" href="classstf_1_1datatype_1_1_list.html#aefebd1f593376ddecc434c900de8ded6">size</a>()<span class="keyword"> const</span>{<span class="keywordflow">return</span> size_;}
+<a name="l00103"></a><a class="code" href="classstf_1_1datatype_1_1_list.html#aacd21b95a5c5b1513e463edfe46e8abe">00103</a>         <span class="keywordtype">int</span> <a class="code" href="classstf_1_1datatype_1_1_list.html#aacd21b95a5c5b1513e463edfe46e8abe">capacity</a>()<span class="keyword"> const</span>{<span class="keywordflow">return</span> capacity_;}
+<a name="l00104"></a><a class="code" href="classstf_1_1datatype_1_1_list.html#a12e0c32fc59fb83ff96d1330c59cc371">00104</a>         <span class="keywordtype">void</span> <a class="code" href="classstf_1_1datatype_1_1_list.html#a12e0c32fc59fb83ff96d1330c59cc371">clear</a>(){
+<a name="l00105"></a>00105                 <span class="keyword">delete</span> [] data_;
+<a name="l00106"></a>00106                 data_ = <span class="keyword">new</span> T*[3];
+<a name="l00107"></a>00107                 size_ = 0;
+<a name="l00108"></a>00108                 capacity_ = 3;
+<a name="l00109"></a>00109         }
+<a name="l00110"></a><a class="code" href="classstf_1_1datatype_1_1_list.html#abe6c602f5a6104ef478907b2b51ff02c">00110</a>         <span class="keywordtype">void</span> <a class="code" href="classstf_1_1datatype_1_1_list.html#abe6c602f5a6104ef478907b2b51ff02c">add</a>(T&amp; <a class="code" href="namespacenj.html#a54b165e7142279e06643f15f96fb3385">data</a>){
+<a name="l00111"></a>00111         size_++;
+<a name="l00112"></a>00112         <span class="comment">//常に1個以上の空きスロットが出来るようにcapacity_を確保する</span>
+<a name="l00113"></a>00113                 <span class="keywordflow">if</span>(size_ &lt; capacity_){
+<a name="l00114"></a>00114                         data_[size_-1] = &amp;<a class="code" href="namespacenj.html#a54b165e7142279e06643f15f96fb3385">data</a>;
+<a name="l00115"></a>00115             data_[size_] = 0;<span class="comment">//最後のポインタをNULLで埋める</span>
+<a name="l00116"></a>00116                 }<span class="keywordflow">else</span>{
+<a name="l00117"></a>00117                         T** tempdata = <span class="keyword">new</span> T*[2 * capacity_];
+<a name="l00118"></a>00118                         <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; capacity_; i++)
+<a name="l00119"></a>00119                                 tempdata[i] = data_[i];<span class="comment">//ポインタをコピー</span>
+<a name="l00120"></a>00120                         <span class="keyword">delete</span> [] data_;
+<a name="l00121"></a>00121                         data_ = tempdata;
+<a name="l00122"></a>00122                         data_[size_-1] = &amp;<a class="code" href="namespacenj.html#a54b165e7142279e06643f15f96fb3385">data</a>;
+<a name="l00123"></a>00123             data_[size_] = 0;<span class="comment">//最後のポインタをNULLで埋める</span>
+<a name="l00124"></a>00124                         capacity_ *= 2;
+<a name="l00125"></a>00125                 }
+<a name="l00126"></a>00126         }
+<a name="l00127"></a><a class="code" href="classstf_1_1datatype_1_1_list.html#abb140025a5458b1e65309424ab5b390b">00127</a>     <span class="keywordtype">void</span> <a class="code" href="classstf_1_1datatype_1_1_list.html#abb140025a5458b1e65309424ab5b390b">push_back</a>(T&amp; <a class="code" href="namespacenj.html#a54b165e7142279e06643f15f96fb3385">data</a>){<span class="comment">//std::vectorと互換性を持たせるための関数</span>
+<a name="l00128"></a>00128         <a class="code" href="classstf_1_1datatype_1_1_list.html#abe6c602f5a6104ef478907b2b51ff02c">add</a>(data);
+<a name="l00129"></a>00129     }
+<a name="l00130"></a><a class="code" href="classstf_1_1datatype_1_1_list.html#a2cf2e5ce162a4c558bc4a8da70f799ca">00130</a>     <span class="keywordtype">void</span> <span class="keyword">remove</span>(T&amp; <a class="code" href="namespacenj.html#a54b165e7142279e06643f15f96fb3385">data</a>){
+<a name="l00131"></a>00131         <span class="keywordtype">int</span> i = 0;
+<a name="l00132"></a>00132         <span class="keywordflow">while</span>(i &lt; size_){
+<a name="l00133"></a>00133             <span class="keywordflow">if</span>(data_[i] == &amp;<a class="code" href="namespacenj.html#a54b165e7142279e06643f15f96fb3385">data</a>){
+<a name="l00134"></a>00134                 removeat_(i);
+<a name="l00135"></a>00135                 <span class="keywordflow">return</span>;
+<a name="l00136"></a>00136             }
+<a name="l00137"></a>00137             i++;
+<a name="l00138"></a>00138         }
+<a name="l00139"></a>00139     }
+<a name="l00140"></a><a class="code" href="classstf_1_1datatype_1_1_list.html#a66f0cc6f8656d127c4b7b51a77db12ad">00140</a>     <span class="keywordtype">void</span> <a class="code" href="classstf_1_1datatype_1_1_list.html#a66f0cc6f8656d127c4b7b51a77db12ad">remove_all</a>(T&amp; <a class="code" href="namespacenj.html#a54b165e7142279e06643f15f96fb3385">data</a>){
+<a name="l00141"></a>00141         <span class="keywordtype">int</span> i = 0;
+<a name="l00142"></a>00142         <span class="keywordflow">while</span>(i &lt; size_){
+<a name="l00143"></a>00143           <span class="keywordflow">if</span>(data_[i] == &amp;data) removeat_(i);
+<a name="l00144"></a>00144           <span class="keywordflow">else</span> i++;
+<a name="l00145"></a>00145         }
+<a name="l00146"></a>00146     }
+<a name="l00147"></a><a class="code" href="classstf_1_1datatype_1_1_list.html#ab7e2bfd97cb66def064b5a1d66593b09">00147</a>         <a class="code" href="classstf_1_1datatype_1_1_list.html#ab7e2bfd97cb66def064b5a1d66593b09">List</a>(<span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_list.html" title="機能を最小限に絞ったコンテナクラス． ・assertが有効ならば[]演算子に範囲外チェックが入る ・データの追加は末尾のみ対応，データの削除は任意位置に対して可能 ・適合する最初の要素を削除するremo...">List&lt;T&gt;</a>&amp; rhs){}<span class="comment">//コピーコンストラクタ，実行されない</span>
+<a name="l00148"></a>00148 <span class="keyword">private</span>:
+<a name="l00149"></a>00149         T** data_;
+<a name="l00150"></a>00150         <span class="keywordtype">int</span> capacity_;<span class="comment">//現在確保されている配列サイズ</span>
+<a name="l00151"></a>00151         <span class="keywordtype">int</span> size_;<span class="comment">//使用されている配列サイズ</span>
+<a name="l00152"></a>00152     T&amp; operator =(<span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_list.html" title="機能を最小限に絞ったコンテナクラス． ・assertが有効ならば[]演算子に範囲外チェックが入る ・データの追加は末尾のみ対応，データの削除は任意位置に対して可能 ・適合する最初の要素を削除するremo...">List&lt;T&gt;</a>&amp; rhs){}<span class="comment">//コピー，実行されない</span>
+<a name="l00153"></a>00153     <span class="comment">//i番目の要素を削除</span>
+<a name="l00154"></a>00154     <span class="keywordtype">void</span> removeat_(<span class="keywordtype">int</span> index){
+<a name="l00155"></a>00155         assert(size_ != 0);
+<a name="l00156"></a>00156         size_ --;
+<a name="l00157"></a>00157         <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = index; i &lt; size_; i++)
+<a name="l00158"></a>00158           data_[i] = data_[i+1];
+<a name="l00159"></a>00159         data_[size_] = 0;
+<a name="l00160"></a>00160         <span class="keywordflow">if</span>(size_ * 3 &lt; capacity_){
+<a name="l00161"></a>00161             capacity_ /= 2;
+<a name="l00162"></a>00162                         T** tempdata = <span class="keyword">new</span> T*[capacity_];
+<a name="l00163"></a>00163                         <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; size_; i++)
+<a name="l00164"></a>00164                           tempdata[i] = data_[i];<span class="comment">//ポインタをコピー</span>
+<a name="l00165"></a>00165                         <span class="keyword">delete</span> [] data_;
+<a name="l00166"></a>00166                         data_ = tempdata;
+<a name="l00167"></a>00167             data_[size_] = 0;<span class="comment">//最後のポインタをNULLで埋める</span>
+<a name="l00168"></a>00168         }
+<a name="l00169"></a>00169     }
+<a name="l00170"></a>00170 };
+<a name="l00171"></a>00171 
+<a name="l00172"></a>00172 } <span class="comment">/* End of namespace stf::datatype */</span>
+<a name="l00173"></a>00173 } <span class="comment">/* End of namespace stf */</span>
+<a name="l00174"></a>00174 
+<a name="l00175"></a>00175 <span class="preprocessor">#endif // stf_datatype_List_h</span>
+</pre></div></div>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>フレンド</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>マクロ定義</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>STFに対してTue Mar 1 2011 03:45:40に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
+</body>
+</html>

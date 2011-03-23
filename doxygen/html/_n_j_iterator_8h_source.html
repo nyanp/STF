@@ -1,0 +1,147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>STF: stf/satellite/nj/NJIterator.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.3 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">STF</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="pages.html"><span>関連ページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>ファイルメンバ</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<h1>stf/satellite/nj/NJIterator.h</h1>  </div>
+</div>
+<div class="contents">
+<a href="_n_j_iterator_8h.html">説明を見る。</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<a name="l00008"></a>00008 <span class="preprocessor">#ifndef stf_satellite_nj_NJIterator_h</span>
+<a name="l00009"></a>00009 <span class="preprocessor"></span><span class="preprocessor">#define stf_satellite_nj_NJIterator_h</span>
+<a name="l00010"></a>00010 <span class="preprocessor"></span>
+<a name="l00011"></a>00011 <span class="preprocessor">#include &quot;<a class="code" href="_iterator_8h.html" title="STFが提供するイテレータとその抽象インターフェース．">../../interface/Iterator.h</a>&quot;</span>
+<a name="l00012"></a>00012 <span class="preprocessor">#include &quot;<a class="code" href="_n_j_e_k_f_8h.html">NJEKF.h</a>&quot;</span>
+<a name="l00013"></a>00013 <span class="preprocessor">#include &quot;<a class="code" href="_n_j_r_m_m_e_k_f_8h.html">NJRMMEKF.h</a>&quot;</span>
+<a name="l00014"></a>00014 <span class="preprocessor">#include &quot;<a class="code" href="_n_j_t_r_i_a_d_8h.html">NJTRIAD.h</a>&quot;</span>
+<a name="l00015"></a>00015 
+<a name="l00016"></a>00016 <span class="keyword">namespace </span>stf {
+<a name="l00017"></a>00017 <span class="keyword">namespace </span>interface {
+<a name="l00018"></a>00018 
+<a name="l00019"></a>00019 <span class="keyword">template</span>&lt;<span class="keywordtype">int</span> SCALE, <span class="keywordtype">int</span> SIZE, <span class="keyword">class</span> BASE&gt;
+<a name="l00020"></a><a class="code" href="classstf_1_1interface_1_1_n_j_iterator_base.html">00020</a> <span class="keyword">class </span><a class="code" href="classstf_1_1interface_1_1_n_j_iterator_base.html">NJIteratorBase</a> : <span class="keyword">public</span> <a class="code" href="classstf_1_1interface_1_1_iterator.html" title="イテレータの抽象インターフェース．">Iterator</a> {
+<a name="l00021"></a>00021 <span class="keyword">public</span>:
+<a name="l00022"></a><a class="code" href="classstf_1_1interface_1_1_n_j_iterator_base.html#a71695e83299f2fdc49d49e407cbf292b">00022</a>         <a class="code" href="classstf_1_1interface_1_1_n_j_iterator_base.html#a71695e83299f2fdc49d49e407cbf292b">NJIteratorBase</a>(<span class="keyword">const</span> BASE* <a class="code" href="namespacenj.html#a54b165e7142279e06643f15f96fb3385">data</a>) : <a class="code" href="classstf_1_1interface_1_1_n_j_iterator_base.html#ae5674d7b39fea6e1d1d7e17f5ad44623">data_</a>(data), <a class="code" href="classstf_1_1interface_1_1_n_j_iterator_base.html#abb9c8945d6cce90b571f590b8d3c282e">index_</a>(0) {}
+<a name="l00023"></a><a class="code" href="classstf_1_1interface_1_1_n_j_iterator_base.html#a1bd725a9944b208d96aae7a95aa2c8da">00023</a>         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classstf_1_1interface_1_1_n_j_iterator_base.html#a1bd725a9944b208d96aae7a95aa2c8da">init</a>(){ <a class="code" href="classstf_1_1interface_1_1_n_j_iterator_base.html#abb9c8945d6cce90b571f590b8d3c282e">index_</a> = 0;}
+<a name="l00024"></a><a class="code" href="classstf_1_1interface_1_1_n_j_iterator_base.html#aa1eb362fb7244e91862295a541f89f97">00024</a>         <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classstf_1_1interface_1_1_n_j_iterator_base.html#aa1eb362fb7244e91862295a541f89f97">end</a>(){ <span class="keywordflow">if</span>(<a class="code" href="classstf_1_1interface_1_1_n_j_iterator_base.html#abb9c8945d6cce90b571f590b8d3c282e">index_</a> == SIZE) <span class="keywordflow">return</span> <span class="keyword">true</span>; <span class="keywordflow">return</span> <span class="keyword">false</span>;}
+<a name="l00025"></a><a class="code" href="classstf_1_1interface_1_1_n_j_iterator_base.html#a4b430080137e2f4a74b114ccfd7fef99">00025</a>         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classstf_1_1interface_1_1_n_j_iterator_base.html#a4b430080137e2f4a74b114ccfd7fef99">operator ++</a>() { <a class="code" href="classstf_1_1interface_1_1_n_j_iterator_base.html#abb9c8945d6cce90b571f590b8d3c282e">index_</a> ++; }
+<a name="l00026"></a>00026 <span class="keyword">protected</span>:
+<a name="l00027"></a><a class="code" href="classstf_1_1interface_1_1_n_j_iterator_base.html#abb9c8945d6cce90b571f590b8d3c282e">00027</a>         <span class="keywordtype">int</span> <a class="code" href="classstf_1_1interface_1_1_n_j_iterator_base.html#abb9c8945d6cce90b571f590b8d3c282e">index_</a>;
+<a name="l00028"></a><a class="code" href="classstf_1_1interface_1_1_n_j_iterator_base.html#ae5674d7b39fea6e1d1d7e17f5ad44623">00028</a>         <span class="keyword">const</span> BASE* <a class="code" href="classstf_1_1interface_1_1_n_j_iterator_base.html#ae5674d7b39fea6e1d1d7e17f5ad44623">data_</a>;
+<a name="l00029"></a>00029 };
+<a name="l00030"></a>00030 
+<a name="l00031"></a>00031 <span class="comment">// NJ�̃e�����g���ɕK�v��EKF�̃e�����g���o�͂��`�B</span>
+<a name="l00032"></a>00032 <span class="keyword">template</span>&lt;<span class="keywordtype">int</span> SCALE&gt;
+<a name="l00033"></a><a class="code" href="classstf_1_1interface_1_1_n_j_e_k_f_iterator.html">00033</a> <span class="keyword">class </span><a class="code" href="classstf_1_1interface_1_1_n_j_e_k_f_iterator.html">NJEKFIterator</a> : <span class="keyword">public</span> <a class="code" href="classstf_1_1interface_1_1_n_j_iterator_base.html">NJIteratorBase</a>&lt;SCALE, 13, core::strategy::control::NJEKF&gt; {
+<a name="l00034"></a>00034 <span class="keyword">public</span>:
+<a name="l00035"></a><a class="code" href="classstf_1_1interface_1_1_n_j_e_k_f_iterator.html#a6f78ce22ce5ccce200da31e5c6c26853">00035</a>         <a class="code" href="classstf_1_1interface_1_1_n_j_e_k_f_iterator.html#a6f78ce22ce5ccce200da31e5c6c26853">NJEKFIterator</a>(<span class="keyword">const</span> <a class="code" href="classstf_1_1core_1_1strategy_1_1control_1_1_n_j_e_k_f.html">core::strategy::control::NJEKF</a>* <a class="code" href="namespacenj.html#a54b165e7142279e06643f15f96fb3385">data</a>): <a class="code" href="classstf_1_1interface_1_1_n_j_iterator_base.html">NJIteratorBase</a>&lt;SCALE, 13, core::strategy::control::NJEKF&gt;(data) {}
+<a name="l00036"></a><a class="code" href="classstf_1_1interface_1_1_n_j_e_k_f_iterator.html#ab1f5f3b07337d17465d9734245890c84">00036</a>         <span class="keyword">virtual</span> <span class="keywordtype">double</span> <a class="code" href="classstf_1_1interface_1_1_n_j_e_k_f_iterator.html#ab1f5f3b07337d17465d9734245890c84">operator()</a>() {
+<a name="l00037"></a>00037                 <span class="keywordflow">if</span>(<a class="code" href="classstf_1_1interface_1_1_n_j_iterator_base.html#abb9c8945d6cce90b571f590b8d3c282e">index_</a> &lt; 4) <span class="keywordflow">return</span> (SCALE * <a class="code" href="classstf_1_1interface_1_1_n_j_iterator_base.html#ae5674d7b39fea6e1d1d7e17f5ad44623">data_</a>-&gt;<a class="code" href="classstf_1_1core_1_1strategy_1_1control_1_1_e_k_f.html#ac5a6ef23a9f8adc2b4586a01122eaf4c" title="オイラーパラメータ推定値">q_</a>[<a class="code" href="classstf_1_1interface_1_1_n_j_iterator_base.html#abb9c8945d6cce90b571f590b8d3c282e">index_</a>]);
+<a name="l00038"></a>00038                 <span class="keywordflow">if</span>(index_ &lt; 7) <span class="keywordflow">return</span> (SCALE * <a class="code" href="classstf_1_1interface_1_1_n_j_iterator_base.html#ae5674d7b39fea6e1d1d7e17f5ad44623">data_</a>-&gt;<a class="code" href="classstf_1_1core_1_1strategy_1_1control_1_1_e_k_f.html#af6a0f8f7779c587e9deb11d7770547d8" title="ジャイロバイアス推定値">bref_</a>[index_ - 4]);
+<a name="l00039"></a>00039                 <span class="keywordflow">return</span> (SCALE * <a class="code" href="classstf_1_1interface_1_1_n_j_iterator_base.html#ae5674d7b39fea6e1d1d7e17f5ad44623">data_</a>-&gt;<a class="code" href="classstf_1_1core_1_1strategy_1_1control_1_1_e_k_f.html#acf00dd98e3b7e0aa481c086be62855d1" title="共分散行列">P_</a>[index_ - 7][index_ - 7]);
+<a name="l00040"></a>00040         }
+<a name="l00041"></a>00041 <span class="keyword">private</span>:
+<a name="l00042"></a>00042 };
+<a name="l00043"></a>00043 
+<a name="l00044"></a>00044 <span class="comment">// NJ�̃e�����g���ɕK�v��EKF�̃e�����g���o�͂��`�B</span>
+<a name="l00045"></a>00045 <span class="keyword">template</span>&lt;<span class="keywordtype">int</span> SCALE&gt;
+<a name="l00046"></a><a class="code" href="classstf_1_1interface_1_1_n_j_r_m_m_e_k_f_iterator.html">00046</a> <span class="keyword">class </span><a class="code" href="classstf_1_1interface_1_1_n_j_r_m_m_e_k_f_iterator.html">NJRMMEKFIterator</a> : <span class="keyword">public</span> <a class="code" href="classstf_1_1interface_1_1_n_j_iterator_base.html">NJIteratorBase</a>&lt;SCALE, 3, core::strategy::control::NJRMMEKF&gt; {
+<a name="l00047"></a>00047 <span class="keyword">public</span>:
+<a name="l00048"></a><a class="code" href="classstf_1_1interface_1_1_n_j_r_m_m_e_k_f_iterator.html#a1272e28c87e95436fde3079f893fbb0c">00048</a>         <a class="code" href="classstf_1_1interface_1_1_n_j_r_m_m_e_k_f_iterator.html#a1272e28c87e95436fde3079f893fbb0c">NJRMMEKFIterator</a>(<span class="keyword">const</span> <a class="code" href="classstf_1_1core_1_1strategy_1_1control_1_1_n_j_r_m_m_e_k_f.html">core::strategy::control::NJRMMEKF</a>* <a class="code" href="namespacenj.html#a54b165e7142279e06643f15f96fb3385">data</a>): <a class="code" href="classstf_1_1interface_1_1_n_j_iterator_base.html">NJIteratorBase</a>&lt;SCALE, 3, core::strategy::control::NJRMMEKF&gt;(data) {}
+<a name="l00049"></a><a class="code" href="classstf_1_1interface_1_1_n_j_r_m_m_e_k_f_iterator.html#ada8c77995869113404ff8980c256b5f9">00049</a>         <span class="keyword">virtual</span> <span class="keywordtype">double</span> <a class="code" href="classstf_1_1interface_1_1_n_j_r_m_m_e_k_f_iterator.html#ada8c77995869113404ff8980c256b5f9">operator()</a>() {           
+<a name="l00050"></a>00050                 <span class="keywordflow">return</span> <a class="code" href="classstf_1_1interface_1_1_n_j_iterator_base.html#ae5674d7b39fea6e1d1d7e17f5ad44623">data_</a>-&gt;value_[<a class="code" href="classstf_1_1interface_1_1_n_j_iterator_base.html#abb9c8945d6cce90b571f590b8d3c282e">index_</a>];
+<a name="l00051"></a>00051         }
+<a name="l00052"></a>00052 <span class="keyword">private</span>:
+<a name="l00053"></a>00053 };
+<a name="l00054"></a>00054 
+<a name="l00055"></a>00055 <span class="comment">// TRIAD����Quaternion�̐���l���e�����g���Ƃ��ďo�́D</span>
+<a name="l00056"></a>00056 <span class="keyword">template</span>&lt;<span class="keywordtype">int</span> SCALE&gt;
+<a name="l00057"></a><a class="code" href="classstf_1_1interface_1_1_n_j_sun_mag_t_r_i_a_d_iterator.html">00057</a> <span class="keyword">class </span><a class="code" href="classstf_1_1interface_1_1_n_j_sun_mag_t_r_i_a_d_iterator.html">NJSunMagTRIADIterator</a> : <span class="keyword">public</span> <a class="code" href="classstf_1_1interface_1_1_n_j_iterator_base.html">NJIteratorBase</a>&lt;SCALE, 4, core::strategy::control::NJSunMagTRIAD&gt; {
+<a name="l00058"></a>00058 <span class="keyword">public</span>:
+<a name="l00059"></a><a class="code" href="classstf_1_1interface_1_1_n_j_sun_mag_t_r_i_a_d_iterator.html#a8ccbe93de9d2550797a989a61762624e">00059</a>         <a class="code" href="classstf_1_1interface_1_1_n_j_sun_mag_t_r_i_a_d_iterator.html#a8ccbe93de9d2550797a989a61762624e">NJSunMagTRIADIterator</a>(<span class="keyword">const</span> <a class="code" href="classstf_1_1core_1_1strategy_1_1control_1_1_n_j_sun_mag_t_r_i_a_d.html">core::strategy::control::NJSunMagTRIAD</a>* <a class="code" href="namespacenj.html#a54b165e7142279e06643f15f96fb3385">data</a>): <a class="code" href="classstf_1_1interface_1_1_n_j_iterator_base.html">NJIteratorBase</a>&lt;SCALE, 4, core::strategy::control::NJSunMagTRIAD&gt;(data) {}
+<a name="l00060"></a><a class="code" href="classstf_1_1interface_1_1_n_j_sun_mag_t_r_i_a_d_iterator.html#ac2e9036d20c8b9d9c4dec68ed240ac88">00060</a>         <span class="keyword">virtual</span> <span class="keywordtype">double</span> <a class="code" href="classstf_1_1interface_1_1_n_j_sun_mag_t_r_i_a_d_iterator.html#ac2e9036d20c8b9d9c4dec68ed240ac88">operator()</a>() {
+<a name="l00061"></a>00061                 <span class="keywordflow">return</span> <a class="code" href="classstf_1_1interface_1_1_n_j_iterator_base.html#ae5674d7b39fea6e1d1d7e17f5ad44623">data_</a>-&gt;value_[<a class="code" href="classstf_1_1interface_1_1_n_j_iterator_base.html#abb9c8945d6cce90b571f590b8d3c282e">index_</a>];
+<a name="l00062"></a>00062         }
+<a name="l00063"></a>00063 <span class="keyword">private</span>:
+<a name="l00064"></a>00064 };
+<a name="l00065"></a>00065 
+<a name="l00066"></a>00066 } <span class="comment">/* End of namespace stf::interface */</span>
+<a name="l00067"></a>00067 } <span class="comment">/* End of namespace stf */</span>
+<a name="l00068"></a>00068 
+<a name="l00069"></a>00069 <span class="preprocessor">#endif //  stf_satellite_prism_NJIterator_h</span>
+</pre></div></div>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>フレンド</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>マクロ定義</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>STFに対してTue Mar 1 2011 03:45:42に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
+</body>
+</html>

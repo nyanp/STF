@@ -1,0 +1,309 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>STF: stf/util/loki/TypeTraits.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.3 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">STF</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="pages.html"><span>関連ページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>ファイルメンバ</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<h1>stf/util/loki/TypeTraits.h</h1>  </div>
+</div>
+<div class="contents">
+<a href="_type_traits_8h.html">説明を見る。</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<a name="l00008"></a>00008 <span class="preprocessor">#ifndef TYPETRAITS_INC_</span>
+<a name="l00009"></a>00009 <span class="preprocessor"></span><span class="preprocessor">#define TYPETRAITS_INC_</span>
+<a name="l00010"></a>00010 <span class="preprocessor"></span>
+<a name="l00011"></a>00011 <span class="preprocessor">#include &quot;<a class="code" href="_typelist_8h.html">Typelist.h</a>&quot;</span>
+<a name="l00012"></a>00012 
+<a name="l00013"></a>00013 <span class="keyword">namespace </span>Loki
+<a name="l00014"></a>00014 {
+<a name="l00016"></a>00016 <span class="comment">// class template IsCustomUnsignedInt</span>
+<a name="l00017"></a>00017 <span class="comment">// Offers a means to integrate nonstandard built-in unsigned integral types</span>
+<a name="l00018"></a>00018 <span class="comment">// (such as unsigned __int64 or unsigned long long int) with the TypeTraits </span>
+<a name="l00019"></a>00019 <span class="comment">//     class template defined below.</span>
+<a name="l00020"></a>00020 <span class="comment">// Invocation: IsCustomUnsignedInt&lt;T&gt; where T is any type</span>
+<a name="l00021"></a>00021 <span class="comment">// Defines &#39;value&#39;, an enum that is 1 iff T is a custom built-in unsigned</span>
+<a name="l00022"></a>00022 <span class="comment">//     integral type</span>
+<a name="l00023"></a>00023 <span class="comment">// Specialize this class template for nonstandard unsigned integral types</span>
+<a name="l00024"></a>00024 <span class="comment">//     and define value = 1 in those specializations</span>
+<a name="l00026"></a>00026 <span class="comment"></span>
+<a name="l00027"></a>00027     <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;
+<a name="l00028"></a><a class="code" href="struct_loki_1_1_is_custom_unsigned_int.html">00028</a>     <span class="keyword">struct </span><a class="code" href="struct_loki_1_1_is_custom_unsigned_int.html">IsCustomUnsignedInt</a>
+<a name="l00029"></a>00029     {
+<a name="l00030"></a><a class="code" href="struct_loki_1_1_is_custom_unsigned_int.html#a39ed861aabb82a1394c621c79fdbcd27a7537ae43678b2f04f7fe26f56af5f507">00030</a>         <span class="keyword">enum</span> { <a class="code" href="struct_loki_1_1_is_custom_unsigned_int.html#a39ed861aabb82a1394c621c79fdbcd27a7537ae43678b2f04f7fe26f56af5f507">value</a> = 0 };
+<a name="l00031"></a>00031     };        
+<a name="l00032"></a>00032 
+<a name="l00034"></a>00034 <span class="comment">// class template IsCustomSignedInt</span>
+<a name="l00035"></a>00035 <span class="comment">// Offers a means to integrate nonstandard built-in unsigned integral types</span>
+<a name="l00036"></a>00036 <span class="comment">// (such as unsigned __int64 or unsigned long long int) with the TypeTraits </span>
+<a name="l00037"></a>00037 <span class="comment">//     class template defined below.</span>
+<a name="l00038"></a>00038 <span class="comment">// Invocation: IsCustomSignedInt&lt;T&gt; where T is any type</span>
+<a name="l00039"></a>00039 <span class="comment">// Defines &#39;value&#39;, an enum that is 1 iff T is a custom built-in signed</span>
+<a name="l00040"></a>00040 <span class="comment">//     integral type</span>
+<a name="l00041"></a>00041 <span class="comment">// Specialize this class template for nonstandard unsigned integral types</span>
+<a name="l00042"></a>00042 <span class="comment">//     and define value = 1 in those specializations</span>
+<a name="l00044"></a>00044 <span class="comment"></span>
+<a name="l00045"></a>00045     <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;
+<a name="l00046"></a><a class="code" href="struct_loki_1_1_is_custom_signed_int.html">00046</a>     <span class="keyword">struct </span><a class="code" href="struct_loki_1_1_is_custom_signed_int.html">IsCustomSignedInt</a>
+<a name="l00047"></a>00047     {
+<a name="l00048"></a><a class="code" href="struct_loki_1_1_is_custom_signed_int.html#a10a64bcd709bca63cff62bfbb029a4daa760d74f23045a7aed3f7166d558d895c">00048</a>         <span class="keyword">enum</span> { <a class="code" href="struct_loki_1_1_is_custom_signed_int.html#a10a64bcd709bca63cff62bfbb029a4daa760d74f23045a7aed3f7166d558d895c">value</a> = 0 };
+<a name="l00049"></a>00049     };        
+<a name="l00050"></a>00050 
+<a name="l00052"></a>00052 <span class="comment">// class template IsCustomFloat</span>
+<a name="l00053"></a>00053 <span class="comment">// Offers a means to integrate nonstandard floating point types with the</span>
+<a name="l00054"></a>00054 <span class="comment">//     TypeTraits class template defined below.</span>
+<a name="l00055"></a>00055 <span class="comment">// Invocation: IsCustomFloat&lt;T&gt; where T is any type</span>
+<a name="l00056"></a>00056 <span class="comment">// Defines &#39;value&#39;, an enum that is 1 iff T is a custom built-in</span>
+<a name="l00057"></a>00057 <span class="comment">//     floating point type</span>
+<a name="l00058"></a>00058 <span class="comment">// Specialize this class template for nonstandard unsigned integral types</span>
+<a name="l00059"></a>00059 <span class="comment">//     and define value = 1 in those specializations</span>
+<a name="l00061"></a>00061 <span class="comment"></span>
+<a name="l00062"></a>00062     <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;
+<a name="l00063"></a><a class="code" href="struct_loki_1_1_is_custom_float.html">00063</a>     <span class="keyword">struct </span><a class="code" href="struct_loki_1_1_is_custom_float.html">IsCustomFloat</a>
+<a name="l00064"></a>00064     {
+<a name="l00065"></a><a class="code" href="struct_loki_1_1_is_custom_float.html#ae2cbe9f82c152c6185fae07bdbb9596aa3f0442f9a060f51b1c763f51fdad7942">00065</a>         <span class="keyword">enum</span> { <a class="code" href="struct_loki_1_1_is_custom_float.html#ae2cbe9f82c152c6185fae07bdbb9596aa3f0442f9a060f51b1c763f51fdad7942">value</a> = 0 };
+<a name="l00066"></a>00066     };        
+<a name="l00067"></a>00067 
+<a name="l00069"></a>00069 <span class="comment">// Helper types for class template TypeTraits defined below</span>
+<a name="l00071"></a>00071 <span class="comment"></span>
+<a name="l00072"></a>00072     <span class="keyword">namespace </span>Private
+<a name="l00073"></a>00073     {
+<a name="l00074"></a>00074         <span class="keyword">typedef</span> <a class="code" href="namespace_loki_1_1_private.html#ad4bb24fa0be2841b468b2818c1d9a73d">TYPELIST_4</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>, <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <span class="keywordtype">int</span>,
+<a name="l00075"></a>00075            <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>, <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">int</span>) StdUnsignedInts;
+<a name="l00076"></a>00076         <span class="keyword">typedef</span> <a class="code" href="namespace_loki_1_1_private.html#ad4bb24fa0be2841b468b2818c1d9a73d">TYPELIST_4</a>(<span class="keywordtype">signed</span> <span class="keywordtype">char</span>, <span class="keywordtype">short</span> <span class="keywordtype">int</span>,
+<a name="l00077"></a>00077            <span class="keywordtype">int</span>, <span class="keywordtype">long</span> <span class="keywordtype">int</span>) StdSignedInts;
+<a name="l00078"></a>00078         <span class="keyword">typedef</span> <a class="code" href="namespace_loki_1_1_private.html#acaab2c6722b58041bda1c4d87b5f0024">TYPELIST_3</a>(<span class="keywordtype">bool</span>, <span class="keywordtype">char</span>, <span class="keywordtype">wchar_t</span>) StdOtherInts;
+<a name="l00079"></a>00079         typedef <a class="code" href="namespace_loki_1_1_private.html#acaab2c6722b58041bda1c4d87b5f0024">TYPELIST_3</a>(<span class="keywordtype">float</span>, <span class="keywordtype">double</span>, <span class="keywordtype">long</span> <span class="keywordtype">double</span>) StdFloats;
+<a name="l00080"></a>00080     }
+<a name="l00081"></a>00081         
+<a name="l00083"></a>00083 <span class="comment">// class template TypeTraits</span>
+<a name="l00084"></a>00084 <span class="comment">// Figures out various properties of any given type</span>
+<a name="l00085"></a>00085 <span class="comment">// Invocations (T is a type):</span>
+<a name="l00086"></a>00086 <span class="comment">// a) TypeTraits&lt;T&gt;::isPointer</span>
+<a name="l00087"></a>00087 <span class="comment">// returns (at compile time) true if T is a pointer type</span>
+<a name="l00088"></a>00088 <span class="comment">// b) TypeTraits&lt;T&gt;::PointeeType</span>
+<a name="l00089"></a>00089 <span class="comment">// returns the type to which T points is T is a pointer type, NullType otherwise</span>
+<a name="l00090"></a>00090 <span class="comment">// a) TypeTraits&lt;T&gt;::isReference</span>
+<a name="l00091"></a>00091 <span class="comment">// returns (at compile time) true if T is a reference type</span>
+<a name="l00092"></a>00092 <span class="comment">// b) TypeTraits&lt;T&gt;::ReferredType</span>
+<a name="l00093"></a>00093 <span class="comment">// returns the type to which T refers is T is a reference type, NullType</span>
+<a name="l00094"></a>00094 <span class="comment">// otherwise</span>
+<a name="l00095"></a>00095 <span class="comment">// c) TypeTraits&lt;T&gt;::isMemberPointer</span>
+<a name="l00096"></a>00096 <span class="comment">// returns (at compile time) true if T is a pointer to member type</span>
+<a name="l00097"></a>00097 <span class="comment">// d) TypeTraits&lt;T&gt;::isStdUnsignedInt</span>
+<a name="l00098"></a>00098 <span class="comment">// returns (at compile time) true if T is a standard unsigned integral type</span>
+<a name="l00099"></a>00099 <span class="comment">// e) TypeTraits&lt;T&gt;::isStdSignedInt</span>
+<a name="l00100"></a>00100 <span class="comment">// returns (at compile time) true if T is a standard signed integral type</span>
+<a name="l00101"></a>00101 <span class="comment">// f) TypeTraits&lt;T&gt;::isStdIntegral</span>
+<a name="l00102"></a>00102 <span class="comment">// returns (at compile time) true if T is a standard integral type</span>
+<a name="l00103"></a>00103 <span class="comment">// g) TypeTraits&lt;T&gt;::isStdFloat</span>
+<a name="l00104"></a>00104 <span class="comment">// returns (at compile time) true if T is a standard floating-point type</span>
+<a name="l00105"></a>00105 <span class="comment">// h) TypeTraits&lt;T&gt;::isStdArith</span>
+<a name="l00106"></a>00106 <span class="comment">// returns (at compile time) true if T is a standard arithmetic type</span>
+<a name="l00107"></a>00107 <span class="comment">// i) TypeTraits&lt;T&gt;::isStdFundamental</span>
+<a name="l00108"></a>00108 <span class="comment">// returns (at compile time) true if T is a standard fundamental type</span>
+<a name="l00109"></a>00109 <span class="comment">// j) TypeTraits&lt;T&gt;::isUnsignedInt</span>
+<a name="l00110"></a>00110 <span class="comment">// returns (at compile time) true if T is a unsigned integral type</span>
+<a name="l00111"></a>00111 <span class="comment">// k) TypeTraits&lt;T&gt;::isSignedInt</span>
+<a name="l00112"></a>00112 <span class="comment">// returns (at compile time) true if T is a signed integral type</span>
+<a name="l00113"></a>00113 <span class="comment">// l) TypeTraits&lt;T&gt;::isIntegral</span>
+<a name="l00114"></a>00114 <span class="comment">// returns (at compile time) true if T is a integral type</span>
+<a name="l00115"></a>00115 <span class="comment">// m) TypeTraits&lt;T&gt;::isFloat</span>
+<a name="l00116"></a>00116 <span class="comment">// returns (at compile time) true if T is a floating-point type</span>
+<a name="l00117"></a>00117 <span class="comment">// n) TypeTraits&lt;T&gt;::isArith</span>
+<a name="l00118"></a>00118 <span class="comment">// returns (at compile time) true if T is a arithmetic type</span>
+<a name="l00119"></a>00119 <span class="comment">// o) TypeTraits&lt;T&gt;::isFundamental</span>
+<a name="l00120"></a>00120 <span class="comment">// returns (at compile time) true if T is a fundamental type</span>
+<a name="l00121"></a>00121 <span class="comment">// p) TypeTraits&lt;T&gt;::ParameterType</span>
+<a name="l00122"></a>00122 <span class="comment">// returns the optimal type to be used as a parameter for functions that take Ts</span>
+<a name="l00123"></a>00123 <span class="comment">// q) TypeTraits&lt;T&gt;::isConst</span>
+<a name="l00124"></a>00124 <span class="comment">// returns (at compile time) true if T is a const-qualified type</span>
+<a name="l00125"></a>00125 <span class="comment">// r) TypeTraits&lt;T&gt;::NonConstType</span>
+<a name="l00126"></a>00126 <span class="comment">// removes the &#39;const&#39; qualifier from T, if any</span>
+<a name="l00127"></a>00127 <span class="comment">// s) TypeTraits&lt;T&gt;::isVolatile</span>
+<a name="l00128"></a>00128 <span class="comment">// returns (at compile time) true if T is a volatile-qualified type</span>
+<a name="l00129"></a>00129 <span class="comment">// t) TypeTraits&lt;T&gt;::NonVolatileType</span>
+<a name="l00130"></a>00130 <span class="comment">// removes the &#39;volatile&#39; qualifier from T, if any</span>
+<a name="l00131"></a>00131 <span class="comment">// u) TypeTraits&lt;T&gt;::UnqualifiedType</span>
+<a name="l00132"></a>00132 <span class="comment">// removes both the &#39;const&#39; and &#39;volatile&#39; qualifiers from T, if any</span>
+<a name="l00134"></a>00134 <span class="comment"></span>
+<a name="l00135"></a>00135     template &lt;typename T&gt;
+<a name="l00136"></a><a class="code" href="class_loki_1_1_type_traits.html">00136</a>     class <a class="code" href="class_loki_1_1_type_traits.html">TypeTraits</a>
+<a name="l00137"></a>00137     {
+<a name="l00138"></a>00138     <span class="keyword">private</span>:
+<a name="l00139"></a>00139         <span class="keyword">template</span> &lt;<span class="keyword">class</span> U&gt; <span class="keyword">struct </span>PointerTraits
+<a name="l00140"></a>00140         {
+<a name="l00141"></a>00141             <span class="keyword">enum</span> { result = <span class="keyword">false</span> };
+<a name="l00142"></a>00142             <span class="keyword">typedef</span> <a class="code" href="class_loki_1_1_null_type.html">NullType</a> <a class="code" href="class_loki_1_1_null_type.html">PointeeType</a>;
+<a name="l00143"></a>00143         };
+<a name="l00144"></a>00144         
+<a name="l00145"></a>00145         <span class="keyword">template</span> &lt;<span class="keyword">class</span> U&gt; <span class="keyword">struct </span>PointerTraits&lt;U*&gt;
+<a name="l00146"></a>00146         {
+<a name="l00147"></a>00147             <span class="keyword">enum</span> { result = <span class="keyword">true</span> };
+<a name="l00148"></a>00148             <span class="keyword">typedef</span> U <a class="code" href="class_loki_1_1_null_type.html">PointeeType</a>;
+<a name="l00149"></a>00149         };
+<a name="l00150"></a>00150         
+<a name="l00151"></a>00151         <span class="keyword">template</span> &lt;<span class="keyword">class</span> U&gt; <span class="keyword">struct </span>ReferenceTraits
+<a name="l00152"></a>00152         {
+<a name="l00153"></a>00153             <span class="keyword">enum</span> { result = <span class="keyword">false</span> };
+<a name="l00154"></a>00154             <span class="keyword">typedef</span> U <a class="code" href="class_loki_1_1_type_traits.html#ab1701f60e9aef13d81b6106d3c2bd541">ReferredType</a>;
+<a name="l00155"></a>00155         };
+<a name="l00156"></a>00156         
+<a name="l00157"></a>00157         <span class="keyword">template</span> &lt;<span class="keyword">class</span> U&gt; <span class="keyword">struct </span>ReferenceTraits&lt;U&amp;&gt;
+<a name="l00158"></a>00158         {
+<a name="l00159"></a>00159             <span class="keyword">enum</span> { result = <span class="keyword">true</span> };
+<a name="l00160"></a>00160             <span class="keyword">typedef</span> U <a class="code" href="class_loki_1_1_type_traits.html#ab1701f60e9aef13d81b6106d3c2bd541">ReferredType</a>;
+<a name="l00161"></a>00161         };
+<a name="l00162"></a>00162         
+<a name="l00163"></a>00163         <span class="keyword">template</span> &lt;<span class="keyword">class</span> U&gt; <span class="keyword">struct </span>PToMTraits
+<a name="l00164"></a>00164         {
+<a name="l00165"></a>00165             <span class="keyword">enum</span> { result = <span class="keyword">false</span> };
+<a name="l00166"></a>00166         };
+<a name="l00167"></a>00167         
+<a name="l00168"></a>00168         <span class="keyword">template</span> &lt;<span class="keyword">class</span> U, <span class="keyword">class</span> V&gt;
+<a name="l00169"></a>00169         <span class="keyword">struct </span>PToMTraits&lt;U V::*&gt;
+<a name="l00170"></a>00170         {
+<a name="l00171"></a>00171             <span class="keyword">enum</span> { result = <span class="keyword">true</span> };
+<a name="l00172"></a>00172         };
+<a name="l00173"></a>00173 
+<a name="l00174"></a>00174         <span class="keyword">template</span> &lt;<span class="keyword">class</span> U&gt; <span class="keyword">struct </span>UnConst
+<a name="l00175"></a>00175         {
+<a name="l00176"></a>00176             <span class="keyword">typedef</span> U <a class="code" href="classtypename_01_distribution_selector_1_1_result.html">Result</a>;
+<a name="l00177"></a>00177             <span class="keyword">enum</span> { isConst = 0 };
+<a name="l00178"></a>00178         };
+<a name="l00179"></a>00179         
+<a name="l00180"></a>00180         <span class="keyword">template</span> &lt;<span class="keyword">class</span> U&gt; <span class="keyword">struct </span>UnConst&lt;const U&gt;
+<a name="l00181"></a>00181         {
+<a name="l00182"></a>00182             <span class="keyword">typedef</span> U <a class="code" href="classtypename_01_distribution_selector_1_1_result.html">Result</a>;
+<a name="l00183"></a>00183             <span class="keyword">enum</span> { isConst = 1 };
+<a name="l00184"></a>00184         };
+<a name="l00185"></a>00185 
+<a name="l00186"></a>00186         <span class="keyword">template</span> &lt;<span class="keyword">class</span> U&gt; <span class="keyword">struct </span>UnVolatile
+<a name="l00187"></a>00187         {
+<a name="l00188"></a>00188             <span class="keyword">typedef</span> U <a class="code" href="classtypename_01_distribution_selector_1_1_result.html">Result</a>;
+<a name="l00189"></a>00189             <span class="keyword">enum</span> { isVolatile = 0 };
+<a name="l00190"></a>00190         };
+<a name="l00191"></a>00191         
+<a name="l00192"></a>00192         <span class="keyword">template</span> &lt;<span class="keyword">class</span> U&gt; <span class="keyword">struct </span>UnVolatile&lt;volatile U&gt;
+<a name="l00193"></a>00193         {
+<a name="l00194"></a>00194             <span class="keyword">typedef</span> U <a class="code" href="classtypename_01_distribution_selector_1_1_result.html">Result</a>;
+<a name="l00195"></a>00195             <span class="keyword">enum</span> { isVolatile = 1 };
+<a name="l00196"></a>00196         };
+<a name="l00197"></a>00197 
+<a name="l00198"></a>00198     <span class="keyword">public</span>:
+<a name="l00199"></a><a class="code" href="class_loki_1_1_type_traits.html#a21b1dce940576fdbd5b104e6da0433eaa612042d0e1cd2e24bd645d6630f4a02c">00199</a>         <span class="keyword">enum</span> { isPointer = PointerTraits&lt;T&gt;::result };
+<a name="l00200"></a><a class="code" href="class_loki_1_1_type_traits.html#a3bf9b009af8fc02eb828d79767fdedd5">00200</a>         <span class="keyword">typedef</span> <span class="keyword">typename</span> <a class="code" href="class_loki_1_1_null_type.html">PointerTraits&lt;T&gt;::PointeeType</a> <a class="code" href="class_loki_1_1_type_traits.html#a3bf9b009af8fc02eb828d79767fdedd5">PointeeType</a>;
+<a name="l00201"></a>00201 
+<a name="l00202"></a><a class="code" href="class_loki_1_1_type_traits.html#af1a2209453ea7657c4980f7c17e15ad8a7c62602fab9e3bcdc30c5dfc9822093f">00202</a>         <span class="keyword">enum</span> { isReference = ReferenceTraits&lt;T&gt;::result };
+<a name="l00203"></a><a class="code" href="class_loki_1_1_type_traits.html#ab1701f60e9aef13d81b6106d3c2bd541">00203</a>         <span class="keyword">typedef</span> <span class="keyword">typename</span> ReferenceTraits&lt;T&gt;::ReferredType <a class="code" href="class_loki_1_1_type_traits.html#ab1701f60e9aef13d81b6106d3c2bd541">ReferredType</a>;
+<a name="l00204"></a>00204         
+<a name="l00205"></a><a class="code" href="class_loki_1_1_type_traits.html#a4ddc40d2ee6b78de186128a18f5badd4a596e1292714ed0c1cdcb166948c39fe6">00205</a>         <span class="keyword">enum</span> { isMemberPointer = PToMTraits&lt;T&gt;::result };
+<a name="l00206"></a>00206     
+<a name="l00207"></a><a class="code" href="class_loki_1_1_type_traits.html#a9d2b324dd22b36347660c7a14cbb4749a4018e0ba0d3e7a8a32f9ea837da8a720">00207</a>         <span class="keyword">enum</span> { isStdUnsignedInt = 
+<a name="l00208"></a><a class="code" href="class_loki_1_1_type_traits.html#a9826e1cbaa7c95fcbe581d902bf16502ad4c184210bdca1daddbd3951df8150cd">00208</a>             TL::IndexOf&lt;Private::StdUnsignedInts, T&gt;::value &gt;= 0 };
+<a name="l00209"></a><a class="code" href="class_loki_1_1_type_traits.html#a093087ecddd576ae558be7de2fb9576ea91ed3ac7f0491f84ede17916ed61c608">00209</a>         <span class="keyword">enum</span> { isStdSignedInt = 
+<a name="l00210"></a>00210             TL::IndexOf&lt;Private::StdSignedInts, T&gt;::value &gt;= 0 };
+<a name="l00211"></a><a class="code" href="class_loki_1_1_type_traits.html#a2c9d622e5be019ed2b94e38cbe68a90faece72bdf5ffa7a4a063bf218749098cf">00211</a>         <span class="keyword">enum</span> { isStdIntegral = isStdUnsignedInt || isStdSignedInt ||
+<a name="l00212"></a>00212             TL::IndexOf&lt;Private::StdOtherInts, T&gt;::value &gt;= 0 };
+<a name="l00213"></a><a class="code" href="class_loki_1_1_type_traits.html#a9826e1cbaa7c95fcbe581d902bf16502af769c002c28a8b2bb548be69a8c7ff0b">00213</a>         <span class="keyword">enum</span> { isStdFloat = TL::IndexOf&lt;Private::StdFloats, T&gt;::value &gt;= 0 };
+<a name="l00214"></a><a class="code" href="class_loki_1_1_type_traits.html#a28250c0f72d83eadb06c4956832b7380a2c277115ffa4d37b3f4211a839f9a8c6">00214</a>         <span class="keyword">enum</span> { isStdArith = isStdIntegral || isStdFloat };
+<a name="l00215"></a><a class="code" href="class_loki_1_1_type_traits.html#aa3141bebbbbb963dce1f2bb60c90acb5a322b6c37a8b3449d5ef7105e9f898d60">00215</a>         <span class="keyword">enum</span> { isStdFundamental = isStdArith || isStdFloat || 
+<a name="l00216"></a><a class="code" href="class_loki_1_1_type_traits.html#aa3141bebbbbb963dce1f2bb60c90acb5a96d776642524cad4ba9137a470a26617">00216</a>             <a class="code" href="struct_loki_1_1_conversion.html">Conversion&lt;T, void&gt;::sameType</a> };
+<a name="l00217"></a>00217             
+<a name="l00218"></a><a class="code" href="class_loki_1_1_type_traits.html#a81942b194c90d0445e347ddaa2f00e27a5adef0bd3c79d4d94f062977ac449294">00218</a>         <span class="keyword">enum</span> { isUnsignedInt = isStdUnsignedInt || <a class="code" href="struct_loki_1_1_is_custom_unsigned_int.html">IsCustomUnsignedInt&lt;T&gt;::value</a> };
+<a name="l00219"></a><a class="code" href="class_loki_1_1_type_traits.html#ae8b96a72f4312c3b26389b5ab5351b78a3a6a8ba876f7664c970131e85d30896f">00219</a>         <span class="keyword">enum</span> { isSignedInt = isStdSignedInt || <a class="code" href="struct_loki_1_1_is_custom_signed_int.html">IsCustomSignedInt&lt;T&gt;::value</a> };
+<a name="l00220"></a><a class="code" href="class_loki_1_1_type_traits.html#a325233d111d9aa930e92bdd73cd6ec3da5fe870412da7b803cbac3c1c54d53c2a">00220</a>         <span class="keyword">enum</span> { isIntegral = isStdIntegral || isUnsignedInt || isSignedInt };
+<a name="l00221"></a><a class="code" href="class_loki_1_1_type_traits.html#a3db9c92b2ca0891f2631dbc60940d620a5f81ec897a77a32d94e77b3e5df2af84">00221</a>         <span class="keyword">enum</span> { isFloat = isStdFloat || <a class="code" href="struct_loki_1_1_is_custom_float.html">IsCustomFloat&lt;T&gt;::value</a> };
+<a name="l00222"></a><a class="code" href="class_loki_1_1_type_traits.html#accfc40b8c91469a5eb7b9b90cfd1fabaa3e180d29dd5b2d00fc5726a33626a4e1">00222</a>         <span class="keyword">enum</span> { isArith = isIntegral || isFloat };
+<a name="l00223"></a><a class="code" href="class_loki_1_1_type_traits.html#a80833c11da4e8b6582c424be07cad39da2aa0a7b562062225b81904bf5558a1f1">00223</a>         <span class="keyword">enum</span> { isFundamental = isStdFundamental || isArith || isFloat };
+<a name="l00224"></a>00224         
+<a name="l00225"></a>00225         <span class="keyword">typedef</span> <span class="keyword">typename</span> <a class="code" href="struct_loki_1_1_select.html">Select</a>&lt;isStdArith || isPointer || isMemberPointer,
+<a name="l00226"></a>00226                 T, ReferredType&amp;&gt;<a class="code" href="classtypename_01_distribution_selector_1_1_result.html">::Result</a>
+<a name="l00227"></a><a class="code" href="class_loki_1_1_type_traits.html#a12589c35d819ee57e4eb81811c94ee59">00227</a>             <a class="code" href="class_loki_1_1_type_traits.html#a12589c35d819ee57e4eb81811c94ee59">ParameterType</a>;
+<a name="l00228"></a>00228         
+<a name="l00229"></a><a class="code" href="class_loki_1_1_type_traits.html#adf5e0e273fc05eab658fae211dadb527a399b9eec75e048ce3d1978c3447580e6">00229</a>         <span class="keyword">enum</span> { isConst = UnConst&lt;T&gt;::isConst };
+<a name="l00230"></a><a class="code" href="class_loki_1_1_type_traits.html#ad249cd5af1b44aaffa03b64ef3159379">00230</a>         <span class="keyword">typedef</span> <span class="keyword">typename</span> UnConst&lt;T&gt;::Result <a class="code" href="class_loki_1_1_type_traits.html#ad249cd5af1b44aaffa03b64ef3159379">NonConstType</a>;
+<a name="l00231"></a><a class="code" href="class_loki_1_1_type_traits.html#a15f19a3a36a71991a740b57520952db3a983d31fc260eee3dafeecbecb5ffc582">00231</a>         <span class="keyword">enum</span> { isVolatile = UnVolatile&lt;T&gt;::isVolatile };
+<a name="l00232"></a><a class="code" href="class_loki_1_1_type_traits.html#a9f2171e886c8f6c9a048dc71b2c4cb45">00232</a>         <span class="keyword">typedef</span> <span class="keyword">typename</span> UnVolatile&lt;T&gt;::Result <a class="code" href="class_loki_1_1_type_traits.html#a9f2171e886c8f6c9a048dc71b2c4cb45">NonVolatileType</a>;
+<a name="l00233"></a>00233         <span class="keyword">typedef</span> <span class="keyword">typename</span> UnVolatile&lt;typename UnConst&lt;T&gt;::Result&gt;<a class="code" href="classtypename_01_distribution_selector_1_1_result.html">::Result</a> 
+<a name="l00234"></a><a class="code" href="class_loki_1_1_type_traits.html#ab4a0da265760a5ca751f965eb3f2429b">00234</a>             <a class="code" href="class_loki_1_1_type_traits.html#ab4a0da265760a5ca751f965eb3f2429b">UnqualifiedType</a>;
+<a name="l00235"></a>00235     };
+<a name="l00236"></a>00236 }
+<a name="l00237"></a>00237 
+<a name="l00239"></a>00239 <span class="comment">// Change log:</span>
+<a name="l00240"></a>00240 <span class="comment">// June 20, 2001: ported by Nick Thurn to gcc 2.95.3. Kudos, Nick!!!</span>
+<a name="l00242"></a>00242 <span class="comment"></span>
+<a name="l00243"></a>00243 <span class="preprocessor">#endif // TYPETRAITS_INC_</span>
+</pre></div></div>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>フレンド</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>マクロ定義</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>STFに対してTue Mar 1 2011 03:45:43に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>STF: stf/core/devicedriver/cmhandler/DummyCommandReceiver.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.3 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">STF</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="pages.html"><span>関連ページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>ファイルメンバ</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#namespaces">ネームスペース</a>  </div>
+  <div class="headertitle">
+<h1>stf/core/devicedriver/cmhandler/DummyCommandReceiver.cpp</h1>  </div>
+</div>
+<div class="contents">
+
+<p>コマンドレシーバのデバッグ用クラス．外部テキストファイルからコマンドを読み込む  
+<a href="#_details">[詳細]</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="">DummyCommandReceiver.h</a>&quot;</code><br/>
+<code>#include &lt;iostream&gt;</code><br/>
+<code>#include &quot;<a class="el" href="">../../command/Command.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="">../../manager/CommandManagerBase.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="">../../../datatype/String.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="">../../../util/Ostream.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="">../../devicedriver/clock/ITimeClock.h</a>&quot;</code><br/>
+</div><div class="textblock"><div class="dynheader">
+DummyCommandReceiver.cppのインクルード依存関係図</div>
+<div class="dyncontent">
+<div class="center"><img src="_dummy_command_receiver_8cpp__incl.png" border="0" usemap="#stf_2core_2devicedriver_2cmhandler_2_dummy_command_receiver_8cpp" alt=""/></div>
+<map name="stf_2core_2devicedriver_2cmhandler_2_dummy_command_receiver_8cpp" id="stf_2core_2devicedriver_2cmhandler_2_dummy_command_receiver_8cpp">
+<area shape="rect" id="node3" href="_dummy_command_receiver_8h.html" title="コマンドレシーバのデバッグ用クラス．外部テキストファイルからコマンドを読み込む" alt="" coords="73,237,260,267"/><area shape="rect" id="node15" href="_string_8h.html" title="std::stringの簡略版クラス．" alt="" coords="329,392,449,421"/><area shape="rect" id="node21" href="_command_8h.html" title="衛星コマンドの抽象インターフェースと共通の実装．" alt="" coords="604,237,780,267"/><area shape="rect" id="node29" href="_command_manager_base_8h.html" title="コマンドの処理を行う機能マネージャ基底クラス．" alt="" coords="761,160,1012,189"/><area shape="rect" id="node46" href="_ostream_8h.html" title="標準出力のラッパ．" alt="" coords="1628,83,1767,112"/><area shape="rect" id="node106" href="_i_time_clock_8h.html" title="Time型のカウントが可能であることを示す抽象インターフェース．" alt="" coords="1003,83,1229,112"/><area shape="rect" id="node9" href="_i_command_receiver_8h.html" title="受信機からコマンドを受け取り，応答を返却するデバイスの抽象インターフェース．" alt="" coords="5,315,149,344"/><area shape="rect" id="node11" href="_root_object_8h.html" title="数値型を除いた全クラスの基本となるクラス．" alt="" coords="457,315,591,344"/><area shape="rect" id="node13" href="_instance_i_d_8h.html" title="インスタンスIDの定義を行うマクロ群．" alt="" coords="477,392,571,421"/><area shape="rect" id="node17" href="_macros_8h.html" title="STF全体で使用する簡単なマクロ関数を記述する．" alt="" coords="655,392,729,421"/><area shape="rect" id="node25" href="_time_8h.html" title="経過時間を表すクラス．" alt="" coords="1465,392,1604,421"/><area shape="rect" id="node27" href="stfassert_8h.html" title="assertラッパ．" alt="" coords="1740,469,1855,499"/><area shape="rect" id="node32" href="_manager_base_8h.html" title="機能マネージャの基底クラス．" alt="" coords="468,237,580,267"/><area shape="rect" id="node35" href="_event_8h.html" title="全イベントの基底クラス．" alt="" coords="335,237,444,267"/><area shape="rect" id="node38" href="_subject_base_8h.html" title="Observerパターンの構成テンプレートクラス群．" alt="" coords="1044,237,1196,267"/><area shape="rect" id="node43" href="_type_manip_8h.html" title="../../util/loki/TypeManip.h" alt="" coords="804,237,969,267"/><area shape="rect" id="node40" href="_list_8h.html" title="Simple Template Container." alt="" coords="1183,315,1313,344"/><area shape="rect" id="node50" href="_static_vector_8h.html" title="テンプレートを用いた固定要素数のベクトル計算クラス" alt="" coords="2295,392,2465,421"/><area shape="rect" id="node59" href="_static_matrix_8h.html" title="テンプレートを用いた固定要素数の行列計算クラス" alt="" coords="2545,315,2713,344"/><area shape="rect" id="node63" href="_config_8h.html" title="../Config.h" alt="" coords="1707,160,1787,189"/><area shape="rect" id="node53" href="_i_aocs_data_8h.html" title="AOCS使用系列のデータ共通の抽象インターフェース．" alt="" coords="1988,469,2081,499"/><area shape="rect" id="node57" href="math_8h.html" title="数学系関数のラッパと算術定数の定義．" alt="" coords="2499,469,2592,499"/><area shape="rect" id="node55" href="_i_telemetable_8h.html" title="テレメトリを生成可能なオブジェクトに対するインターフェース．" alt="" coords="1949,547,2120,576"/><area shape="rect" id="node65" href="_simulator_8h.html" title="ソフトウェアシミュレータ環境クラス．" alt="" coords="1752,237,1912,267"/><area shape="rect" id="node73" href="_vector_8h.html" title="可変要素数のベクトル演算を行うクラス．STFではStaticVectorが推奨される" alt="" coords="1729,392,1865,421"/><area shape="rect" id="node77" href="_matrix_8h.html" title="可変要素数の行列計算を行うクラス．STFではStaticMatrixが推奨される．" alt="" coords="1895,315,2028,344"/><area shape="rect" id="node83" href="_quaternion_8h.html" title="4元数を表現するクラス．" alt="" coords="2359,315,2521,344"/><area shape="rect" id="node87" href="_date_time_8h.html" title="ユリウス暦による絶対時刻を保持するクラス．時間間隔などの計算にはTimeを使う．" alt="" coords="1615,315,1769,344"/><area shape="rect" id="node91" href="_orbit_info_8h.html" title="軌道情報関係の量を表す" alt="" coords="2788,315,2935,344"/><area shape="rect" id="node95" href="_magnetic_8h.html" title="磁気関係の物理量を表す" alt="" coords="2132,315,2284,344"/><area shape="rect" id="node98" href="_scalar_8h.html" title="スカラー物理量を表現するクラス．" alt="" coords="1889,392,2025,421"/><area shape="rect" id="node103" href="_i_o_driver_base_8h.html" title="環境クラス共通の基底IOドライバ． 各環境クラスにおけるIOはこの基底ドライバを使用するか，ここから派生させることを基本とする．" alt="" coords="1433,315,1540,344"/><area shape="rect" id="node109" href="_i_data_updatable_8h.html" title="周期的にデータを取得，送信するコンポーネントに対する抽象インターフェース．" alt="" coords="1049,160,1183,189"/></map>
+</div>
+</div>
+<p><a href="">ソースコードを見る。</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="namespaces"></a>
+ネームスペース</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf.html">stf</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf_1_1core.html">stf::core</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf_1_1core_1_1devicedriver.html">stf::core::devicedriver</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf_1_1core_1_1devicedriver_1_1cmhandler.html">stf::core::devicedriver::cmhandler</a></td></tr>
+</table>
+<hr/><a name="_details"></a><h2>説明</h2>
+<div class="textblock"><p>コマンドレシーバのデバッグ用クラス．外部テキストファイルからコマンドを読み込む </p>
+<dl class="author"><dt><b>作者:</b></dt><dd>Taiga Nomi </dd></dl>
+<dl class="date"><dt><b>日付:</b></dt><dd>2011.02.16 </dd></dl>
+
+<p> <a class="el" href="">DummyCommandReceiver.cpp</a> で定義されています。</p>
+</div></div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>フレンド</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>マクロ定義</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>STFに対してWed Mar 23 2011 05:32:33に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
+</body>
+</html>

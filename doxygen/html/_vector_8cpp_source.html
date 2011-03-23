@@ -1,0 +1,201 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>STF: stf/datatype/Vector.cpp ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.3 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">STF</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="pages.html"><span>関連ページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>ファイルメンバ</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<h1>stf/datatype/Vector.cpp</h1>  </div>
+</div>
+<div class="contents">
+<a href="_vector_8cpp.html">説明を見る。</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<a name="l00008"></a>00008 <span class="preprocessor">#include &quot;<a class="code" href="_vector_8h.html" title="可変要素数のベクトル演算を行うクラス．STFではStaticVectorが推奨される">Vector.h</a>&quot;</span>
+<a name="l00009"></a>00009 <span class="preprocessor">#include &quot;<a class="code" href="math_8h.html" title="数学系関数のラッパと算術定数の定義．">../util/math.h</a>&quot;</span>
+<a name="l00010"></a>00010 <span class="preprocessor">#include &quot;<a class="code" href="_ostream_8h.html" title="標準出力のラッパ．">../util/Ostream.h</a>&quot;</span>
+<a name="l00011"></a>00011 <span class="keyword">namespace </span>stf { 
+<a name="l00012"></a>00012 <span class="keyword">namespace </span>datatype {
+<a name="l00013"></a>00013 
+<a name="l00014"></a><a class="code" href="classstf_1_1datatype_1_1_vector.html#a59645ad9ae0f6fbdbbcb73af637cbd8f">00014</a> <a class="code" href="classstf_1_1datatype_1_1_vector.html#a59645ad9ae0f6fbdbbcb73af637cbd8f">Vector::Vector</a>()
+<a name="l00015"></a>00015 {
+<a name="l00016"></a>00016         <a class="code" href="classstf_1_1datatype_1_1_vector.html#a7ed6e0914ed0ac4385074d819e971aa7">initVector</a>(1, 0.0);
+<a name="l00017"></a>00017 }
+<a name="l00018"></a>00018 
+<a name="l00019"></a><a class="code" href="classstf_1_1datatype_1_1_vector.html#a3680b4ba18f017de792ce2d0d6356805">00019</a> <a class="code" href="classstf_1_1datatype_1_1_vector.html#a59645ad9ae0f6fbdbbcb73af637cbd8f">Vector::Vector</a>(<span class="keywordtype">int</span> dim)
+<a name="l00020"></a>00020 {
+<a name="l00021"></a>00021         <a class="code" href="classstf_1_1datatype_1_1_vector.html#a7ed6e0914ed0ac4385074d819e971aa7">initVector</a>(dim, 0.0);
+<a name="l00022"></a>00022 }
+<a name="l00023"></a>00023 
+<a name="l00024"></a><a class="code" href="classstf_1_1datatype_1_1_vector.html#ace80afca6d058db86c915530f7e30029">00024</a> <span class="keywordtype">void</span> <a class="code" href="classstf_1_1datatype_1_1_vector.html#ace80afca6d058db86c915530f7e30029">Vector::normalize</a>()
+<a name="l00025"></a>00025 {
+<a name="l00026"></a>00026 <span class="comment">//単なる物理量のセットなので一般的なnormalizeは実装できない</span>
+<a name="l00027"></a>00027 <span class="comment">//ノルムで割るような操作はサブクラスで実装すること</span>
+<a name="l00028"></a>00028 }
+<a name="l00029"></a>00029 
+<a name="l00030"></a><a class="code" href="classstf_1_1datatype_1_1_vector.html#a39cc0ddcd9ee78a51b5522a06ab4ec96">00030</a> <span class="keywordtype">double</span> <a class="code" href="classstf_1_1datatype_1_1_vector.html#a39cc0ddcd9ee78a51b5522a06ab4ec96">Vector::norm</a>(<span class="keywordtype">int</span> n)<span class="keyword"> const</span>
+<a name="l00031"></a>00031 <span class="keyword"></span>{
+<a name="l00032"></a>00032         assert((n == 1) || (n == 2));<span class="comment">//計算負荷の問題から今は1，2次のノルムしかとらない</span>
+<a name="l00033"></a>00033         <span class="keywordtype">double</span> value = 0.0;
+<a name="l00034"></a>00034         <span class="keywordflow">if</span>(n == 1){
+<a name="l00035"></a>00035                 <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; this-&gt;<a class="code" href="classstf_1_1datatype_1_1_vector.html#a02039c525ee42d08b0733f8d773da7a2">dimension_</a>; i++)
+<a name="l00036"></a>00036                         value += <a class="code" href="namespacestf_1_1util_1_1math.html#a5546a47b1a92211fdd4e421b376faa85" title="絶対値を求める，cmathのラッパ．">util::math::abs</a>(<a class="code" href="classstf_1_1datatype_1_1_vector.html#a6c4b22c2a001790300d514501c54cc17">value_</a>[i]);
+<a name="l00037"></a>00037         }<span class="keywordflow">else</span> <span class="keywordflow">if</span>(n ==2){
+<a name="l00038"></a>00038                 <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; this-&gt;<a class="code" href="classstf_1_1datatype_1_1_vector.html#a02039c525ee42d08b0733f8d773da7a2">dimension_</a>; i++)
+<a name="l00039"></a>00039                         value += <a class="code" href="classstf_1_1datatype_1_1_vector.html#a6c4b22c2a001790300d514501c54cc17">value_</a>[i] * <a class="code" href="classstf_1_1datatype_1_1_vector.html#a6c4b22c2a001790300d514501c54cc17">value_</a>[i];
+<a name="l00040"></a>00040                 value = <a class="code" href="namespacestf_1_1util_1_1math.html#aaeb9c85b00f8c1afc33f9009e902e0d4" title="平方根を求める，cmathのラッパ．">util::math::sqrt</a>(value);
+<a name="l00041"></a>00041         }
+<a name="l00042"></a>00042         <span class="keywordflow">return</span> value;
+<a name="l00043"></a>00043 }
+<a name="l00044"></a>00044 
+<a name="l00045"></a><a class="code" href="classstf_1_1datatype_1_1_vector.html#a5239ef0859eca353675803a7f187b704">00045</a> <a class="code" href="classstf_1_1datatype_1_1_vector.html#a59645ad9ae0f6fbdbbcb73af637cbd8f">Vector::Vector</a>(<span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_vector.html" title="可変要素数のベクトル演算を行う．">Vector</a> &amp;rhs)
+<a name="l00046"></a>00046 {
+<a name="l00047"></a>00047 
+<a name="l00048"></a>00048         <a class="code" href="classstf_1_1datatype_1_1_vector.html#a7ed6e0914ed0ac4385074d819e971aa7">initVector</a>(rhs.<a class="code" href="classstf_1_1datatype_1_1_vector.html#a02039c525ee42d08b0733f8d773da7a2">dimension_</a>, 0.0);
+<a name="l00049"></a>00049         <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; <a class="code" href="classstf_1_1datatype_1_1_vector.html#a02039c525ee42d08b0733f8d773da7a2">dimension_</a>; i++)
+<a name="l00050"></a>00050                 this-&gt;<a class="code" href="classstf_1_1datatype_1_1_vector.html#a6c4b22c2a001790300d514501c54cc17">value_</a>[i] = rhs[i];
+<a name="l00051"></a>00051 }
+<a name="l00052"></a>00052 
+<a name="l00053"></a><a class="code" href="classstf_1_1datatype_1_1_vector.html#ab95503bb6246db8f3d07c1cfa754054a">00053</a> <a class="code" href="classstf_1_1datatype_1_1_vector.html#ab95503bb6246db8f3d07c1cfa754054a">Vector::~Vector</a>()
+<a name="l00054"></a>00054 {
+<a name="l00055"></a>00055         <span class="keyword">delete</span>[] this-&gt;<a class="code" href="classstf_1_1datatype_1_1_vector.html#a6c4b22c2a001790300d514501c54cc17">value_</a>;
+<a name="l00056"></a>00056 }
+<a name="l00057"></a>00057 
+<a name="l00058"></a>00058 
+<a name="l00059"></a><a class="code" href="classstf_1_1datatype_1_1_vector.html#aa898f0c76ef313ab0f18dffefce642a8">00059</a> <a class="code" href="classstf_1_1datatype_1_1_vector.html" title="可変要素数のベクトル演算を行う．">Vector</a> &amp;<a class="code" href="classstf_1_1datatype_1_1_vector.html#aa898f0c76ef313ab0f18dffefce642a8">Vector::operator=</a>(<span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_vector.html" title="可変要素数のベクトル演算を行う．">Vector</a> &amp;rhs)
+<a name="l00060"></a>00060 {
+<a name="l00061"></a>00061         assert(rhs.<a class="code" href="classstf_1_1datatype_1_1_vector.html#a02039c525ee42d08b0733f8d773da7a2">dimension_</a> == <a class="code" href="classstf_1_1datatype_1_1_vector.html#a02039c525ee42d08b0733f8d773da7a2">dimension_</a>);
+<a name="l00062"></a>00062         <span class="comment">//delete[] this-&gt;value_;</span>
+<a name="l00063"></a>00063         <span class="comment">//initVector(rhs.dimension_, 0.0);</span>
+<a name="l00064"></a>00064         <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; <a class="code" href="classstf_1_1datatype_1_1_vector.html#a02039c525ee42d08b0733f8d773da7a2">dimension_</a>; i++)
+<a name="l00065"></a>00065                 this-&gt;<a class="code" href="classstf_1_1datatype_1_1_vector.html#a6c4b22c2a001790300d514501c54cc17">value_</a>[i] = rhs[i];
+<a name="l00066"></a>00066         <span class="keywordflow">return</span> *<span class="keyword">this</span>;
+<a name="l00067"></a>00067 }
+<a name="l00068"></a>00068 
+<a name="l00069"></a><a class="code" href="classstf_1_1datatype_1_1_vector.html#a7ed6e0914ed0ac4385074d819e971aa7">00069</a> <span class="keywordtype">void</span> <a class="code" href="classstf_1_1datatype_1_1_vector.html#a7ed6e0914ed0ac4385074d819e971aa7">Vector::initVector</a>(<span class="keywordtype">int</span> dim, <span class="keywordtype">double</span> value)
+<a name="l00070"></a>00070 {
+<a name="l00071"></a>00071     assert(dim &gt; 0);
+<a name="l00072"></a>00072         this-&gt;<a class="code" href="classstf_1_1datatype_1_1_vector.html#a6c4b22c2a001790300d514501c54cc17">value_</a> = <span class="keyword">new</span> <span class="keywordtype">double</span>[dim];
+<a name="l00073"></a>00073         this-&gt;<a class="code" href="classstf_1_1datatype_1_1_vector.html#a02039c525ee42d08b0733f8d773da7a2">dimension_</a> = dim;
+<a name="l00074"></a>00074         assert(this-&gt;<a class="code" href="classstf_1_1datatype_1_1_vector.html#a6c4b22c2a001790300d514501c54cc17">value_</a> != 0);<span class="comment">//メモリが確保できないときにvalue_==0となって終了</span>
+<a name="l00075"></a>00075         <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; dim; i++)
+<a name="l00076"></a>00076                 this-&gt;<a class="code" href="classstf_1_1datatype_1_1_vector.html#a6c4b22c2a001790300d514501c54cc17">value_</a>[i] = value;
+<a name="l00077"></a>00077 }
+<a name="l00078"></a>00078 
+<a name="l00079"></a><a class="code" href="classstf_1_1datatype_1_1_vector.html#a2d22dbb9343454da9b6f4e34732b62b0">00079</a> <span class="keywordtype">bool</span> <a class="code" href="classstf_1_1datatype_1_1_vector.html#a2d22dbb9343454da9b6f4e34732b62b0">Vector::operator==</a>(<span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_vector.html" title="可変要素数のベクトル演算を行う．">Vector</a> &amp;rhs)<span class="keyword"> const </span>
+<a name="l00080"></a>00080 <span class="keyword"></span>{
+<a name="l00081"></a>00081     <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00082"></a>00082 }
+<a name="l00083"></a>00083 
+<a name="l00084"></a><a class="code" href="classstf_1_1datatype_1_1_vector.html#a1db20ca700726227f350dfe009b6457a">00084</a> <span class="keywordtype">bool</span> <a class="code" href="classstf_1_1datatype_1_1_vector.html#a1db20ca700726227f350dfe009b6457a">Vector::operator!=</a>(<span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_vector.html" title="可変要素数のベクトル演算を行う．">Vector</a> &amp;rhs)<span class="keyword"> const </span>
+<a name="l00085"></a>00085 <span class="keyword"></span>{
+<a name="l00086"></a>00086     <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00087"></a>00087 }
+<a name="l00088"></a>00088 
+<a name="l00089"></a><a class="code" href="classstf_1_1datatype_1_1_vector.html#afc4976a9fcee9e04a3b9720d2518e9ff">00089</a> <a class="code" href="classstf_1_1datatype_1_1_vector.html" title="可変要素数のベクトル演算を行う．">Vector</a> &amp;<a class="code" href="classstf_1_1datatype_1_1_vector.html#afc4976a9fcee9e04a3b9720d2518e9ff">Vector::operator+=</a>(<span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_vector.html" title="可変要素数のベクトル演算を行う．">Vector</a> &amp;rhs)
+<a name="l00090"></a>00090 {
+<a name="l00091"></a>00091         assert(<a class="code" href="classstf_1_1datatype_1_1_vector.html#a02039c525ee42d08b0733f8d773da7a2">dimension_</a> == rhs.<a class="code" href="classstf_1_1datatype_1_1_vector.html#a02039c525ee42d08b0733f8d773da7a2">dimension_</a>);
+<a name="l00092"></a>00092         <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; <a class="code" href="classstf_1_1datatype_1_1_vector.html#a02039c525ee42d08b0733f8d773da7a2">dimension_</a>; i++)
+<a name="l00093"></a>00093                 <a class="code" href="classstf_1_1datatype_1_1_vector.html#a6c4b22c2a001790300d514501c54cc17">value_</a>[i] += rhs[i];
+<a name="l00094"></a>00094         <span class="keywordflow">return</span> *<span class="keyword">this</span>;
+<a name="l00095"></a>00095 }
+<a name="l00096"></a>00096 
+<a name="l00097"></a><a class="code" href="classstf_1_1datatype_1_1_vector.html#a9702cc7bb0fb1a839995d1aa2058eb3c">00097</a> <a class="code" href="classstf_1_1datatype_1_1_vector.html" title="可変要素数のベクトル演算を行う．">Vector</a> &amp;<a class="code" href="classstf_1_1datatype_1_1_vector.html#a9702cc7bb0fb1a839995d1aa2058eb3c">Vector::operator-=</a>(<span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_vector.html" title="可変要素数のベクトル演算を行う．">Vector</a> &amp;rhs)
+<a name="l00098"></a>00098 {
+<a name="l00099"></a>00099         assert(<a class="code" href="classstf_1_1datatype_1_1_vector.html#a02039c525ee42d08b0733f8d773da7a2">dimension_</a> == rhs.<a class="code" href="classstf_1_1datatype_1_1_vector.html#a02039c525ee42d08b0733f8d773da7a2">dimension_</a>);
+<a name="l00100"></a>00100         <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; <a class="code" href="classstf_1_1datatype_1_1_vector.html#a02039c525ee42d08b0733f8d773da7a2">dimension_</a> ; i++)
+<a name="l00101"></a>00101                 <a class="code" href="classstf_1_1datatype_1_1_vector.html#a6c4b22c2a001790300d514501c54cc17">value_</a>[i] -= rhs[i];
+<a name="l00102"></a>00102         <span class="keywordflow">return</span> *<span class="keyword">this</span>;
+<a name="l00103"></a>00103 }
+<a name="l00104"></a>00104 
+<a name="l00105"></a><a class="code" href="classstf_1_1datatype_1_1_vector.html#a94d0838ffe19d874a844075b7853c411">00105</a> <a class="code" href="classstf_1_1datatype_1_1_vector.html" title="可変要素数のベクトル演算を行う．">Vector</a> &amp;<a class="code" href="classstf_1_1datatype_1_1_vector.html#a94d0838ffe19d874a844075b7853c411">Vector::operator*=</a>(<span class="keywordtype">double</span> rhs)
+<a name="l00106"></a>00106 {
+<a name="l00107"></a>00107         <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; <a class="code" href="classstf_1_1datatype_1_1_vector.html#a02039c525ee42d08b0733f8d773da7a2">dimension_</a> ; i++)
+<a name="l00108"></a>00108                 <a class="code" href="classstf_1_1datatype_1_1_vector.html#a6c4b22c2a001790300d514501c54cc17">value_</a>[i] *= rhs;
+<a name="l00109"></a>00109         <span class="keywordflow">return</span> *<span class="keyword">this</span>;
+<a name="l00110"></a>00110 }
+<a name="l00111"></a>00111 
+<a name="l00112"></a><a class="code" href="classstf_1_1datatype_1_1_vector.html#a2acd4073ff5f6d690e108b3c6840293d">00112</a> <a class="code" href="classstf_1_1datatype_1_1_vector.html" title="可変要素数のベクトル演算を行う．">Vector</a> &amp;<a class="code" href="classstf_1_1datatype_1_1_vector.html#a2acd4073ff5f6d690e108b3c6840293d">Vector::operator/=</a>(<span class="keywordtype">double</span> rhs)
+<a name="l00113"></a>00113 {
+<a name="l00114"></a>00114         <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; <a class="code" href="classstf_1_1datatype_1_1_vector.html#a02039c525ee42d08b0733f8d773da7a2">dimension_</a> ; i++)
+<a name="l00115"></a>00115                 <a class="code" href="classstf_1_1datatype_1_1_vector.html#a6c4b22c2a001790300d514501c54cc17">value_</a>[i] /= rhs;
+<a name="l00116"></a>00116         <span class="keywordflow">return</span> *<span class="keyword">this</span>;
+<a name="l00117"></a>00117 }
+<a name="l00118"></a>00118 
+<a name="l00119"></a>00119 
+<a name="l00120"></a>00120 
+<a name="l00121"></a>00121 } <span class="comment">/* End of namespace stf::datatype */</span>
+<a name="l00122"></a>00122 } <span class="comment">/* End of namespace stf */</span>
+<a name="l00123"></a>00123 
+</pre></div></div>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>フレンド</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>マクロ定義</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>STFに対してTue Mar 1 2011 03:45:40に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
+</body>
+</html>

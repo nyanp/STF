@@ -1,0 +1,240 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>STF: stf/util/loki/TypeManip.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.3 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">STF</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="pages.html"><span>関連ページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>ファイルメンバ</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<h1>stf/util/loki/TypeManip.h</h1>  </div>
+</div>
+<div class="contents">
+<a href="_type_manip_8h.html">説明を見る。</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<a name="l00008"></a>00008 
+<a name="l00009"></a>00009 <span class="comment">// The Loki Library</span>
+<a name="l00010"></a>00010 <span class="comment">// Copyright (c) 2001 by Andrei Alexandrescu</span>
+<a name="l00011"></a>00011 <span class="comment">// This code accompanies the book:</span>
+<a name="l00012"></a>00012 <span class="comment">// Alexandrescu, Andrei. &quot;Modern C++ Design: Generic Programming and Design </span>
+<a name="l00013"></a>00013 <span class="comment">//     Patterns Applied&quot;. Copyright (c) 2001. Addison-Wesley.</span>
+<a name="l00014"></a>00014 <span class="comment">// Permission to use, copy, modify, distribute and sell this software for any </span>
+<a name="l00015"></a>00015 <span class="comment">//     purpose is hereby granted without fee, provided that the above copyright </span>
+<a name="l00016"></a>00016 <span class="comment">//     notice appear in all copies and that both that copyright notice and this </span>
+<a name="l00017"></a>00017 <span class="comment">//     permission notice appear in supporting documentation.</span>
+<a name="l00018"></a>00018 <span class="comment">// The author or Addison-Welsey Longman make no representations about the </span>
+<a name="l00019"></a>00019 <span class="comment">//     suitability of this software for any purpose. It is provided &quot;as is&quot; </span>
+<a name="l00020"></a>00020 <span class="comment">//     without express or implied warranty.</span>
+<a name="l00022"></a>00022 <span class="comment"></span>
+<a name="l00023"></a>00023 <span class="comment">// Last update: June 20, 2001</span>
+<a name="l00024"></a>00024 
+<a name="l00025"></a>00025 <span class="preprocessor">#ifndef TYPEMANIP_INC_</span>
+<a name="l00026"></a>00026 <span class="preprocessor"></span><span class="preprocessor">#define TYPEMANIP_INC_</span>
+<a name="l00027"></a>00027 <span class="preprocessor"></span>
+<a name="l00028"></a>00028 <span class="keyword">namespace </span>Loki
+<a name="l00029"></a>00029 {
+<a name="l00031"></a>00031 <span class="comment">// class template Int2Type</span>
+<a name="l00032"></a>00032 <span class="comment">// Converts each integral constant into a unique type</span>
+<a name="l00033"></a>00033 <span class="comment">// Invocation: Int2Type&lt;v&gt; where v is a compile-time constant integral</span>
+<a name="l00034"></a>00034 <span class="comment">// Defines &#39;value&#39;, an enum that evaluates to v</span>
+<a name="l00036"></a>00036 <span class="comment"></span>
+<a name="l00037"></a>00037     <span class="keyword">template</span> &lt;<span class="keywordtype">int</span> v&gt;
+<a name="l00038"></a><a class="code" href="struct_loki_1_1_int2_type.html">00038</a>     <span class="keyword">struct </span><a class="code" href="struct_loki_1_1_int2_type.html">Int2Type</a>
+<a name="l00039"></a>00039     {
+<a name="l00040"></a><a class="code" href="struct_loki_1_1_int2_type.html#ada9b8669c65ebde9f55b8a863415324fae4dcb936f68fc1aaa0071e694fdde76f">00040</a>         <span class="keyword">enum</span> { <a class="code" href="struct_loki_1_1_int2_type.html#ada9b8669c65ebde9f55b8a863415324fae4dcb936f68fc1aaa0071e694fdde76f">value</a> = <a class="code" href="namespacestf.html#afa89a4a0c80d3727c2f396aa3ead41cd">v</a> };
+<a name="l00041"></a>00041     };
+<a name="l00042"></a>00042     
+<a name="l00044"></a>00044 <span class="comment">// class template Type2Type</span>
+<a name="l00045"></a>00045 <span class="comment">// Converts each type into a unique, insipid type</span>
+<a name="l00046"></a>00046 <span class="comment">// Invocation Type2Type&lt;T&gt; where T is a type</span>
+<a name="l00047"></a>00047 <span class="comment">// Defines the type OriginalType which maps back to T</span>
+<a name="l00049"></a>00049 <span class="comment"></span>
+<a name="l00050"></a>00050     <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;
+<a name="l00051"></a><a class="code" href="struct_loki_1_1_type2_type.html">00051</a>     <span class="keyword">struct </span><a class="code" href="struct_loki_1_1_type2_type.html">Type2Type</a>
+<a name="l00052"></a>00052     {
+<a name="l00053"></a><a class="code" href="struct_loki_1_1_type2_type.html#a9da7076cf69d25312bf289e744cb1a21">00053</a>         <span class="keyword">typedef</span> T <a class="code" href="struct_loki_1_1_type2_type.html#a9da7076cf69d25312bf289e744cb1a21">OriginalType</a>;
+<a name="l00054"></a>00054     };
+<a name="l00055"></a>00055     
+<a name="l00057"></a>00057 <span class="comment">// class template Select</span>
+<a name="l00058"></a>00058 <span class="comment">// Selects one of two types based upon a boolean constant</span>
+<a name="l00059"></a>00059 <span class="comment">// Invocation: Select&lt;flag, T, U&gt;::Result</span>
+<a name="l00060"></a>00060 <span class="comment">// where:</span>
+<a name="l00061"></a>00061 <span class="comment">// flag is a compile-time boolean constant</span>
+<a name="l00062"></a>00062 <span class="comment">// T and U are types</span>
+<a name="l00063"></a>00063 <span class="comment">// Result evaluates to T if flag is true, and to U otherwise.</span>
+<a name="l00065"></a>00065 <span class="comment"></span>
+<a name="l00066"></a>00066     <span class="keyword">template</span> &lt;<span class="keywordtype">bool</span> flag, <span class="keyword">typename</span> T, <span class="keyword">typename</span> U&gt;
+<a name="l00067"></a><a class="code" href="struct_loki_1_1_select.html">00067</a>     <span class="keyword">struct </span><a class="code" href="struct_loki_1_1_select.html">Select</a>
+<a name="l00068"></a>00068     {
+<a name="l00069"></a><a class="code" href="struct_loki_1_1_select.html#ace0706309a81d4cca07350ef85c31ce2">00069</a>         <span class="keyword">typedef</span> T <a class="code" href="struct_loki_1_1_select.html#ace0706309a81d4cca07350ef85c31ce2">Result</a>;
+<a name="l00070"></a>00070     };
+<a name="l00071"></a>00071     <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> U&gt;
+<a name="l00072"></a><a class="code" href="struct_loki_1_1_select_3_01false_00_01_t_00_01_u_01_4.html">00072</a>     <span class="keyword">struct </span><a class="code" href="struct_loki_1_1_select.html">Select</a>&lt;false, T, U&gt;
+<a name="l00073"></a>00073     {
+<a name="l00074"></a><a class="code" href="struct_loki_1_1_select_3_01false_00_01_t_00_01_u_01_4.html#a03c1e6a8c921afc21aff68bd78cf9314">00074</a>         <span class="keyword">typedef</span> U <a class="code" href="struct_loki_1_1_select_3_01false_00_01_t_00_01_u_01_4.html#a03c1e6a8c921afc21aff68bd78cf9314">Result</a>;
+<a name="l00075"></a>00075     };
+<a name="l00076"></a>00076     
+<a name="l00078"></a>00078 <span class="comment">// Helper types Small and Big - guarantee that sizeof(Small) &lt; sizeof(Big)</span>
+<a name="l00080"></a>00080 <span class="comment"></span>
+<a name="l00081"></a>00081     <span class="keyword">namespace </span>Private
+<a name="l00082"></a>00082     {
+<a name="l00083"></a>00083         <span class="keyword">template</span> &lt;<span class="keyword">class</span> T, <span class="keyword">class</span> U&gt;
+<a name="l00084"></a><a class="code" href="struct_loki_1_1_private_1_1_conversion_helper.html">00084</a>         <span class="keyword">struct </span><a class="code" href="struct_loki_1_1_private_1_1_conversion_helper.html">ConversionHelper</a>
+<a name="l00085"></a>00085         {
+<a name="l00086"></a><a class="code" href="struct_loki_1_1_private_1_1_conversion_helper.html#a5188bdadbb0038011781cbb4f3828855">00086</a>             <span class="keyword">typedef</span> <span class="keywordtype">char</span> <a class="code" href="struct_loki_1_1_private_1_1_conversion_helper.html#a5188bdadbb0038011781cbb4f3828855">Small</a>;
+<a name="l00087"></a><a class="code" href="struct_loki_1_1_private_1_1_conversion_helper_1_1_big.html#a58c63ac7e3902931b7747405d51d8d40">00087</a>             <span class="keyword">struct </span><a class="code" href="struct_loki_1_1_private_1_1_conversion_helper_1_1_big.html">Big</a> { <span class="keywordtype">char</span> <a class="code" href="struct_loki_1_1_private_1_1_conversion_helper_1_1_big.html#a58c63ac7e3902931b7747405d51d8d40">dummy</a>[2]; };
+<a name="l00088"></a>00088             <span class="keyword">static</span> <a class="code" href="struct_loki_1_1_private_1_1_conversion_helper_1_1_big.html">Big</a>   <a class="code" href="struct_loki_1_1_private_1_1_conversion_helper.html#a14799ff48b59a040fafe10d7eaa62822">Test</a>(...);
+<a name="l00089"></a>00089             <span class="keyword">static</span> <a class="code" href="struct_loki_1_1_private_1_1_conversion_helper.html#a5188bdadbb0038011781cbb4f3828855">Small</a> <a class="code" href="struct_loki_1_1_private_1_1_conversion_helper.html#a14799ff48b59a040fafe10d7eaa62822">Test</a>(U);
+<a name="l00090"></a>00090             <span class="keyword">static</span> T <a class="code" href="struct_loki_1_1_private_1_1_conversion_helper.html#a5ee001f877f02bb7b0def90ae206bd15">MakeT</a>();
+<a name="l00091"></a>00091         };
+<a name="l00092"></a>00092     }
+<a name="l00093"></a>00093 
+<a name="l00095"></a>00095 <span class="comment">// class template Conversion</span>
+<a name="l00096"></a>00096 <span class="comment">// Figures out the conversion relationships between two types</span>
+<a name="l00097"></a>00097 <span class="comment">// Invocations (T and U are types):</span>
+<a name="l00098"></a>00098 <span class="comment">// a) Conversion&lt;T, U&gt;::exists</span>
+<a name="l00099"></a>00099 <span class="comment">// returns (at compile time) true if there is an implicit conversion from T</span>
+<a name="l00100"></a>00100 <span class="comment">// to U (example: Derived to Base)</span>
+<a name="l00101"></a>00101 <span class="comment">// b) Conversion&lt;T, U&gt;::exists2Way</span>
+<a name="l00102"></a>00102 <span class="comment">// returns (at compile time) true if there are both conversions from T</span>
+<a name="l00103"></a>00103 <span class="comment">// to U and from U to T (example: int to char and back)</span>
+<a name="l00104"></a>00104 <span class="comment">// c) Conversion&lt;T, U&gt;::sameType</span>
+<a name="l00105"></a>00105 <span class="comment">// returns (at compile time) true if T and U represent the same type</span>
+<a name="l00106"></a>00106 <span class="comment">//</span>
+<a name="l00107"></a>00107 <span class="comment">// Caveat: might not work if T and U are in a private inheritance hierarchy.</span>
+<a name="l00109"></a>00109 <span class="comment"></span>
+<a name="l00110"></a>00110     <span class="keyword">template</span> &lt;<span class="keyword">class</span> T, <span class="keyword">class</span> U&gt;
+<a name="l00111"></a><a class="code" href="struct_loki_1_1_conversion.html">00111</a>     <span class="keyword">struct </span><a class="code" href="struct_loki_1_1_conversion.html">Conversion</a>
+<a name="l00112"></a>00112     {
+<a name="l00113"></a><a class="code" href="struct_loki_1_1_conversion.html#af6a74d9111b39ad502c1c300e57c7d7c">00113</a>         <span class="keyword">typedef</span> <a class="code" href="struct_loki_1_1_private_1_1_conversion_helper.html">Private::ConversionHelper&lt;T, U&gt;</a> <a class="code" href="struct_loki_1_1_conversion.html#af6a74d9111b39ad502c1c300e57c7d7c">H</a>;
+<a name="l00114"></a>00114 <span class="preprocessor">#ifndef __MWERKS__</span>
+<a name="l00115"></a><a class="code" href="struct_loki_1_1_conversion.html#af48b94dbd4cc1d1ed00bac923a1e81d6a87cebe612a094c03650d4995198c586c">00115</a> <span class="preprocessor"></span>        <span class="keyword">enum</span> { <a class="code" href="struct_loki_1_1_conversion.html#af48b94dbd4cc1d1ed00bac923a1e81d6a87cebe612a094c03650d4995198c586c">exists</a> = <span class="keyword">sizeof</span>(<span class="keyword">typename</span> <a class="code" href="struct_loki_1_1_private_1_1_conversion_helper.html#a5188bdadbb0038011781cbb4f3828855">H::Small</a>) == <span class="keyword">sizeof</span>(<a class="code" href="struct_loki_1_1_private_1_1_conversion_helper.html#a14799ff48b59a040fafe10d7eaa62822">H::Test</a>(<a class="code" href="struct_loki_1_1_private_1_1_conversion_helper.html#a5ee001f877f02bb7b0def90ae206bd15">H::MakeT</a>())) };
+<a name="l00116"></a>00116 <span class="preprocessor">#else</span>
+<a name="l00117"></a>00117 <span class="preprocessor"></span>        <span class="keyword">enum</span> { <a class="code" href="struct_loki_1_1_conversion.html#af48b94dbd4cc1d1ed00bac923a1e81d6a87cebe612a094c03650d4995198c586c">exists</a> = <span class="keyword">false</span> };
+<a name="l00118"></a>00118 <span class="preprocessor">#endif</span>
+<a name="l00119"></a><a class="code" href="struct_loki_1_1_conversion.html#af48b94dbd4cc1d1ed00bac923a1e81d6a28fecc3020779ff182833909e38896d5">00119</a> <span class="preprocessor"></span>        <span class="keyword">enum</span> { <a class="code" href="struct_loki_1_1_conversion.html#af48b94dbd4cc1d1ed00bac923a1e81d6a28fecc3020779ff182833909e38896d5">exists2Way</a> = <a class="code" href="struct_loki_1_1_conversion.html#af48b94dbd4cc1d1ed00bac923a1e81d6a87cebe612a094c03650d4995198c586c">exists</a> &amp;&amp; <a class="code" href="struct_loki_1_1_conversion.html">Conversion&lt;U, T&gt;::exists</a> };
+<a name="l00120"></a><a class="code" href="struct_loki_1_1_conversion.html#a335eba742b05e7e40b491e75b5383e6aa37a69a58959c2f67cf40348342a3dfc4">00120</a>         <span class="keyword">enum</span> { <a class="code" href="struct_loki_1_1_conversion.html#a335eba742b05e7e40b491e75b5383e6aa37a69a58959c2f67cf40348342a3dfc4">sameType</a> = <span class="keyword">false</span> };
+<a name="l00121"></a>00121     };
+<a name="l00122"></a>00122     
+<a name="l00123"></a>00123     <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;
+<a name="l00124"></a><a class="code" href="struct_loki_1_1_conversion_3_01_t_00_01_t_01_4.html">00124</a>     <span class="keyword">struct </span><a class="code" href="struct_loki_1_1_conversion.html">Conversion</a>&lt;T, T&gt;    
+<a name="l00125"></a>00125     {
+<a name="l00126"></a><a class="code" href="struct_loki_1_1_conversion_3_01_t_00_01_t_01_4.html#ae9e47fb44c79f25300bf482ba48d46c9a6f9ee954a4f4a4d8948da467780b0375">00126</a>         <span class="keyword">enum</span> { <a class="code" href="struct_loki_1_1_conversion.html#af48b94dbd4cc1d1ed00bac923a1e81d6a87cebe612a094c03650d4995198c586c">exists</a> = 1, <a class="code" href="struct_loki_1_1_conversion.html#af48b94dbd4cc1d1ed00bac923a1e81d6a28fecc3020779ff182833909e38896d5">exists2Way</a> = 1,<a class="code" href="struct_loki_1_1_conversion.html#a335eba742b05e7e40b491e75b5383e6aa37a69a58959c2f67cf40348342a3dfc4">sameType</a> = 1 };
+<a name="l00127"></a>00127     };
+<a name="l00128"></a>00128     
+<a name="l00129"></a>00129     <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;
+<a name="l00130"></a><a class="code" href="struct_loki_1_1_conversion_3_01void_00_01_t_01_4.html">00130</a>     <span class="keyword">struct </span><a class="code" href="struct_loki_1_1_conversion.html">Conversion</a>&lt;void, T&gt;    
+<a name="l00131"></a>00131     {
+<a name="l00132"></a><a class="code" href="struct_loki_1_1_conversion_3_01void_00_01_t_01_4.html#a9a17fbe445e523394a8780c95f5a1247a716822170d43e13e536bf64e97b0a1f4">00132</a>         <span class="keyword">enum</span> { <a class="code" href="struct_loki_1_1_conversion.html#af48b94dbd4cc1d1ed00bac923a1e81d6a87cebe612a094c03650d4995198c586c">exists</a> = 1, <a class="code" href="struct_loki_1_1_conversion.html#af48b94dbd4cc1d1ed00bac923a1e81d6a28fecc3020779ff182833909e38896d5">exists2Way</a> = 0,<a class="code" href="struct_loki_1_1_conversion.html#a335eba742b05e7e40b491e75b5383e6aa37a69a58959c2f67cf40348342a3dfc4">sameType</a> = 0 };
+<a name="l00133"></a>00133     };
+<a name="l00134"></a>00134     
+<a name="l00135"></a>00135     <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;
+<a name="l00136"></a><a class="code" href="struct_loki_1_1_conversion_3_01_t_00_01void_01_4.html">00136</a>     <span class="keyword">struct </span><a class="code" href="struct_loki_1_1_conversion.html">Conversion</a>&lt;T, void&gt;    
+<a name="l00137"></a>00137     {
+<a name="l00138"></a><a class="code" href="struct_loki_1_1_conversion_3_01_t_00_01void_01_4.html#a32dc3699bf087fa67d87029866732d43ab40d67683b9afffddadbf84381ade876">00138</a>         <span class="keyword">enum</span> { <a class="code" href="struct_loki_1_1_conversion.html#af48b94dbd4cc1d1ed00bac923a1e81d6a87cebe612a094c03650d4995198c586c">exists</a> = 1, <a class="code" href="struct_loki_1_1_conversion.html#af48b94dbd4cc1d1ed00bac923a1e81d6a28fecc3020779ff182833909e38896d5">exists2Way</a> = 0,<a class="code" href="struct_loki_1_1_conversion.html#a335eba742b05e7e40b491e75b5383e6aa37a69a58959c2f67cf40348342a3dfc4">sameType</a> = 0 };
+<a name="l00139"></a>00139     };
+<a name="l00140"></a>00140     
+<a name="l00141"></a>00141     <span class="keyword">template</span> &lt;&gt;
+<a name="l00142"></a><a class="code" href="class_loki_1_1_conversion_3_01void_00_01void_01_4.html">00142</a>     <span class="keyword">class </span><a class="code" href="struct_loki_1_1_conversion.html">Conversion</a>&lt;void, void&gt;    
+<a name="l00143"></a>00143     {
+<a name="l00144"></a>00144     <span class="keyword">public</span>:
+<a name="l00145"></a><a class="code" href="class_loki_1_1_conversion_3_01void_00_01void_01_4.html#a6e59dce4d13480d3dccf22299bebc5d7aefafffbae3d65c5f50d62e96add698ad">00145</a>         <span class="keyword">enum</span> { <a class="code" href="struct_loki_1_1_conversion.html#af48b94dbd4cc1d1ed00bac923a1e81d6a87cebe612a094c03650d4995198c586c">exists</a> = 1, <a class="code" href="struct_loki_1_1_conversion.html#af48b94dbd4cc1d1ed00bac923a1e81d6a28fecc3020779ff182833909e38896d5">exists2Way</a> = 1,<a class="code" href="struct_loki_1_1_conversion.html#a335eba742b05e7e40b491e75b5383e6aa37a69a58959c2f67cf40348342a3dfc4">sameType</a> = 1 };
+<a name="l00146"></a>00146     };    
+<a name="l00147"></a>00147 }
+<a name="l00148"></a>00148 
+<a name="l00150"></a>00150 <span class="comment">// macro SUPERSUBCLASS</span>
+<a name="l00151"></a>00151 <span class="comment">// Invocation: SUPERSUBCLASS(B, D) where B and D are types. </span>
+<a name="l00152"></a>00152 <span class="comment">// Returns true if B is a public base of D, or if B and D are aliases of the </span>
+<a name="l00153"></a>00153 <span class="comment">// same type.</span>
+<a name="l00154"></a>00154 <span class="comment">//</span>
+<a name="l00155"></a>00155 <span class="comment">// Caveat: might not work if T and U are in a private inheritance hierarchy.</span>
+<a name="l00157"></a>00157 <span class="comment"></span>
+<a name="l00158"></a><a class="code" href="_type_manip_8h.html#a2820bb39352560126da663542139bd9b">00158</a> <span class="preprocessor">#define SUPERSUBCLASS(T, U) \</span>
+<a name="l00159"></a>00159 <span class="preprocessor">    (::Loki::Conversion&lt;const U*, const T*&gt;::exists &amp;&amp; \</span>
+<a name="l00160"></a>00160 <span class="preprocessor">    !::Loki::Conversion&lt;const T*, const void*&gt;::sameType)</span>
+<a name="l00161"></a>00161 <span class="preprocessor"></span>
+<a name="l00163"></a>00163 <span class="comment">// macro SUPERSUBCLASS</span>
+<a name="l00164"></a>00164 <span class="comment">// Invocation: SUPERSUBCLASS(B, D) where B and D are types. </span>
+<a name="l00165"></a>00165 <span class="comment">// Returns true if B is a public base of D.</span>
+<a name="l00166"></a>00166 <span class="comment">//</span>
+<a name="l00167"></a>00167 <span class="comment">// Caveat: might not work if T and U are in a private inheritance hierarchy.</span>
+<a name="l00169"></a>00169 <span class="comment"></span>
+<a name="l00170"></a><a class="code" href="_type_manip_8h.html#a1fc3ad32150bb48c1b2053d488b5f46f">00170</a> <span class="preprocessor">#define SUPERSUBCLASS_STRICT(T, U) \</span>
+<a name="l00171"></a>00171 <span class="preprocessor">    (SUPERSUBCLASS(T, U) &amp;&amp; \</span>
+<a name="l00172"></a>00172 <span class="preprocessor">    !::Loki::Conversion&lt;const T, const U&gt;::sameType)</span>
+<a name="l00173"></a>00173 <span class="preprocessor"></span>
+<a name="l00175"></a>00175 <span class="comment">// Change log:</span>
+<a name="l00176"></a>00176 <span class="comment">// June 20, 2001: ported by Nick Thurn to gcc 2.95.3. Kudos, Nick!!!</span>
+<a name="l00178"></a>00178 <span class="comment"></span>
+<a name="l00179"></a>00179 <span class="preprocessor">#endif // TYPEMANIP_INC_</span>
+</pre></div></div>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>フレンド</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>マクロ定義</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>STFに対してTue Mar 1 2011 03:45:43に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<map id="G" name="G">
+<area shape="rect" id="node8" href="$classstf_1_1core_1_1datapool_1_1_data_pool_base.html" title="Tupleを複数個保持するデータプールの基底クラス．" alt="" coords="1852,100,2068,129"/>
+<area shape="rect" id="node21" href="$classstf_1_1core_1_1datapool_1_1_event_data_pool.html" title="Eventのデータプール．" alt="" coords="1851,237,2069,267"/>
+<area shape="rect" id="node2" href="$classstf_1_1core_1_1devicedriver_1_1clock_1_1_i_time_clock.html" title="Time型のカウントが可能であることを示す抽象インターフェース．" alt="" coords="853,191,1107,220"/>
+<area shape="rect" id="node4" href="$classstf_1_1core_1_1devicedriver_1_1_i_data_updatable.html" title="周期的にデータを取得，送信するコンポーネントに対するインターフェース" alt="" coords="307,191,544,220"/>
+<area shape="rect" id="node6" href="$classstf_1_1core_1_1datapool_1_1_aocs_data_pool.html" title="IAocsDataのデータプール．" alt="" coords="2121,100,2337,129"/>
+<area shape="rect" id="node11" href="$classstf_1_1core_1_1datapool_1_1_tuple.html" title="stf::core::datapool::Tuple\&lt; datatype::IAocsData \&gt;" alt="" coords="1372,44,1679,73"/>
+<area shape="rect" id="node13" href="$classstf_1_1datatype_1_1_i_aocs_data.html" title="AOCS使用系列のデータ共通の抽象インターフェース．" alt="" coords="899,5,1061,35"/>
+<area shape="rect" id="node15" href="$classstf_1_1interface_1_1_i_telemetable.html" title="テレメトリを生成可能なオブジェクトに対するインターフェース．" alt="" coords="339,5,512,35"/>
+<area shape="rect" id="node17" href="$classstf_1_1datatype_1_1_time.html" title="経過時間を表すクラス．" alt="" coords="5,113,136,143"/>
+<area shape="rect" id="node28" href="$struct_loki_1_1_tuple_unit.html" title="Loki::TupleUnit\&lt; TYPELIST_2(event::EventType, datatype::Time) \&gt;" alt="" coords="223,244,628,273"/>
+<area shape="rect" id="node19" href="$classstf_1_1datatype_1_1_string.html" title="std::stringの簡略版．" alt="" coords="912,123,1048,152"/>
+<area shape="rect" id="node24" href="$struct_loki_1_1_tuple.html" title="Loki::Tuple\&lt; TYPELIST_2(event::EventType, datatype::Time)\&gt;" alt="" coords="1336,268,1715,297"/>
+<area shape="rect" id="node26" href="$class_loki_1_1_gen_scatter_hierarchy.html" title="Loki::GenScatterHierarchy\&lt; TYPELIST_2(event::EventType, datatype::Time), TupleUnit \&gt;" alt="" coords="713,257,1247,287"/>
+</map>

@@ -1,0 +1,398 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>STF: stf/core/datapool/Datapool.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.3 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">STF</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="pages.html"><span>関連ページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>ファイルメンバ</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<h1>stf/core/datapool/Datapool.h</h1>  </div>
+</div>
+<div class="contents">
+<a href="_datapool_8h.html">説明を見る。</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<a name="l00011"></a>00011 <span class="preprocessor">#ifndef stf_core_datapool_Datapool_h</span>
+<a name="l00012"></a>00012 <span class="preprocessor"></span><span class="preprocessor">#define stf_core_datapool_Datapool_h</span>
+<a name="l00013"></a>00013 <span class="preprocessor"></span><span class="preprocessor">#include&lt;assert.h&gt;</span>
+<a name="l00014"></a>00014 <span class="preprocessor">#include &quot;<a class="code" href="_root_object_8h.html" title="数値型を除いた全クラスの基本となるクラス．">../../RootObject.h</a>&quot;</span>
+<a name="l00015"></a>00015 <span class="preprocessor">#include &quot;<a class="code" href="_i_aocs_data_8h.html" title="AOCS使用系列のデータ共通の抽象インターフェース．">../../datatype/IAocsData.h</a>&quot;</span>
+<a name="l00016"></a>00016 <span class="preprocessor">#include &quot;<a class="code" href="_list_8h.html" title="Simple Template Container.">../../datatype/List.h</a>&quot;</span>
+<a name="l00017"></a>00017 <span class="preprocessor">#include &quot;<a class="code" href="_time_8h.html" title="経過時間を表すクラス．">../../datatype/Time.h</a>&quot;</span>
+<a name="l00018"></a>00018 <span class="preprocessor">#include &quot;<a class="code" href="_string_8h.html" title="std::stringの簡略版クラス．">../../datatype/String.h</a>&quot;</span>
+<a name="l00019"></a>00019 <span class="preprocessor">#include &quot;<a class="code" href="_i_time_clock_8h.html" title="Time型のカウントが可能であることを示す抽象インターフェース．">../devicedriver/clock/ITimeClock.h</a>&quot;</span>
+<a name="l00020"></a>00020 <span class="preprocessor">#include &quot;<a class="code" href="_iterator_8h.html" title="STFが提供するイテレータとその抽象インターフェース．">../../interface/Iterator.h</a>&quot;</span>
+<a name="l00021"></a>00021 <span class="preprocessor">#include &quot;<a class="code" href="_type_manip_8h.html">../../util/loki/TypeManip.h</a>&quot;</span>
+<a name="l00022"></a>00022 <span class="preprocessor">#include &quot;<a class="code" href="_trace_8h.html" title="STFの内部状態を外部ファイルに書き出すためのトレースオブジェクト．">../../util/Trace.h</a>&quot;</span>
+<a name="l00023"></a>00023 
+<a name="l00024"></a>00024 <span class="keyword">namespace </span>stf {
+<a name="l00025"></a>00025 <span class="keyword">namespace </span>core {
+<a name="l00026"></a>00026 <span class="keyword">namespace </span>datapool {
+<a name="l00028"></a>00028 
+<a name="l00031"></a>00031 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Base&gt;
+<a name="l00032"></a><a class="code" href="classstf_1_1core_1_1datapool_1_1_tuple.html">00032</a> <span class="keyword">class </span><a class="code" href="classstf_1_1core_1_1datapool_1_1_tuple.html" title="時刻とデータポインタのペアを一定要素数のリングバッファで保持する．">Tuple</a>
+<a name="l00033"></a>00033 {
+<a name="l00034"></a>00034 <span class="keyword">public</span>:
+<a name="l00035"></a>00035         <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;
+<a name="l00036"></a><a class="code" href="classstf_1_1core_1_1datapool_1_1_tuple.html#adae381c61dc96b21a608711c6e9449c0">00036</a>         <a class="code" href="classstf_1_1core_1_1datapool_1_1_tuple.html#adae381c61dc96b21a608711c6e9449c0">Tuple</a>(<span class="keywordtype">int</span> capacity, <a class="code" href="struct_loki_1_1_type2_type.html">Loki::Type2Type&lt;T&gt;</a>, <span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_string.html" title="std::stringの簡略版．">datatype::String</a>&amp; <a class="code" href="classstf_1_1core_1_1datapool_1_1_tuple.html#adbbb0804856d715c1e3ddf95e9fbc01b">name</a>) : capacity_(capacity), index_(0), name_(name){
+<a name="l00037"></a>00037                 assert(capacity &gt; 0);
+<a name="l00038"></a>00038                 this-&gt;data_ = <span class="keyword">new</span> Base*[capacity];
+<a name="l00039"></a>00039                 <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; capacity; i++)
+<a name="l00040"></a>00040                         this-&gt;data_[i] = <span class="keyword">new</span> T;
+<a name="l00041"></a>00041                 this-&gt;time_ = <span class="keyword">new</span> <a class="code" href="classstf_1_1datatype_1_1_time.html" title="経過時間を表すクラス．">datatype::Time</a>[capacity];
+<a name="l00042"></a>00042         }
+<a name="l00043"></a><a class="code" href="classstf_1_1core_1_1datapool_1_1_tuple.html#a125c6e2c224d2a7644c425e453a170bd">00043</a>         <a class="code" href="classstf_1_1core_1_1datapool_1_1_tuple.html#a125c6e2c224d2a7644c425e453a170bd">~Tuple</a>(){
+<a name="l00044"></a>00044                 <span class="keyword">delete</span>[] data_;
+<a name="l00045"></a>00045                 <span class="keyword">delete</span>[] time_;
+<a name="l00046"></a>00046         }
+<a name="l00047"></a>00047 
+<a name="l00048"></a>00048         <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;
+<a name="l00049"></a><a class="code" href="classstf_1_1core_1_1datapool_1_1_tuple.html#a89a1afae3a60083a9cdf497090b46b54">00049</a>         <span class="keywordtype">void</span> <span class="keyword">set</span>(<span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_time.html" title="経過時間を表すクラス．">datatype::Time</a>&amp; time, <span class="keyword">const</span> T&amp; value){
+<a name="l00050"></a>00050                 <a class="code" href="classstf_1_1util_1_1_trace.html" title="標準出力のラッパ．">util::Trace</a> trace(<a class="code" href="classstf_1_1util_1_1_trace.html#a7cce9d9f41332a3fd076bd10605f0139a2047dcafc0b8eafc0a970c21f5386105" title="データプール書き込み">util::Trace::kDataPool</a>, <span class="stringliteral">&quot;set Tuple&quot;</span>);
+<a name="l00051"></a>00051                 index_ ++;
+<a name="l00052"></a>00052                 index_ %= capacity_;
+<a name="l00053"></a>00053                 *(<span class="keyword">static_cast&lt;</span>T*<span class="keyword">&gt;</span>(data_[index_])) = value;<span class="comment">//copy</span>
+<a name="l00054"></a>00054                 time_[index_] = time;<span class="comment">//copy</span>
+<a name="l00055"></a>00055                 Base* d = data_[index_];
+<a name="l00056"></a>00056         }
+<a name="l00057"></a>00057 
+<a name="l00058"></a>00058         <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;
+<a name="l00059"></a><a class="code" href="classstf_1_1core_1_1datapool_1_1_tuple.html#a4c2618960b11136f0cebce2402f7794d">00059</a>         <span class="keyword">const</span> T&amp; <span class="keyword">get</span>(){
+<a name="l00060"></a>00060                 <span class="keywordflow">return</span> *(<span class="keyword">static_cast&lt;</span>T*<span class="keyword">&gt;</span>(data_[index_]));
+<a name="l00061"></a>00061         }
+<a name="l00062"></a>00062 
+<a name="l00063"></a><a class="code" href="classstf_1_1core_1_1datapool_1_1_tuple.html#a3b5dcec755e12a48f36b326c8888ee65">00063</a>         <span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_time.html" title="経過時間を表すクラス．">datatype::Time</a>&amp; <a class="code" href="classstf_1_1core_1_1datapool_1_1_tuple.html#a3b5dcec755e12a48f36b326c8888ee65">gettime</a>(){
+<a name="l00064"></a>00064                 <span class="keywordflow">return</span> time_[index_];
+<a name="l00065"></a>00065         }
+<a name="l00066"></a>00066 
+<a name="l00067"></a>00067         <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;
+<a name="l00068"></a><a class="code" href="classstf_1_1core_1_1datapool_1_1_tuple.html#a5d2dea92f35a75ab0cb964420f1410a0">00068</a>         <span class="keywordtype">void</span> <a class="code" href="classstf_1_1core_1_1datapool_1_1_tuple.html#a5d2dea92f35a75ab0cb964420f1410a0">print</a>(){
+<a name="l00069"></a>00069                 <a class="code" href="namespacestf_1_1util.html#abc86bcf81e6b88adfc6625c3f0645d03">util::cout</a> &lt;&lt; <span class="stringliteral">&quot;Index:&quot;</span> &lt;&lt; this-&gt;index_ &lt;&lt; <a class="code" href="namespacestf_1_1util.html#a057756069e48d361fcd1748792afe316">util::endl</a>;
+<a name="l00070"></a>00070                 <a class="code" href="namespacestf_1_1util.html#abc86bcf81e6b88adfc6625c3f0645d03">util::cout</a> &lt;&lt; <span class="stringliteral">&quot;Time  /  Record&quot;</span> &lt;&lt; <a class="code" href="namespacestf_1_1util.html#a057756069e48d361fcd1748792afe316">util::endl</a>;
+<a name="l00071"></a>00071                 <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; capacity_; i++){
+<a name="l00072"></a>00072                         <a class="code" href="namespacestf_1_1util.html#abc86bcf81e6b88adfc6625c3f0645d03">util::cout</a> &lt;&lt; time_[i] &lt;&lt; <span class="stringliteral">&quot;   &quot;</span> &lt;&lt;(<span class="keyword">static_cast&lt;</span>T*<span class="keyword">&gt;</span>(data_))[i] &lt;&lt; <a class="code" href="namespacestf_1_1util.html#a057756069e48d361fcd1748792afe316">util::endl</a>;
+<a name="l00073"></a>00073                 }
+<a name="l00074"></a>00074         }
+<a name="l00075"></a>00075 
+<a name="l00076"></a><a class="code" href="classstf_1_1core_1_1datapool_1_1_tuple.html#a5e604ef6abf56b17ee60d950a2f00794">00076</a>         <span class="keywordtype">int</span> <a class="code" href="classstf_1_1core_1_1datapool_1_1_tuple.html#a5e604ef6abf56b17ee60d950a2f00794">size</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> capacity_; }
+<a name="l00077"></a>00077 
+<a name="l00078"></a><a class="code" href="classstf_1_1core_1_1datapool_1_1_tuple.html#a5b32f76dd2dde2edeb873d7ebe4fcb5c">00078</a>         <span class="keywordtype">int</span> <a class="code" href="classstf_1_1core_1_1datapool_1_1_tuple.html#a5b32f76dd2dde2edeb873d7ebe4fcb5c">index</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> index_; }
+<a name="l00079"></a>00079 
+<a name="l00080"></a><a class="code" href="classstf_1_1core_1_1datapool_1_1_tuple.html#af867c61ced9a0244cc3ddf472f93676a">00080</a>         <span class="keyword">const</span> Base* <a class="code" href="classstf_1_1core_1_1datapool_1_1_tuple.html#af867c61ced9a0244cc3ddf472f93676a">get_data_at</a>(<span class="keywordtype">int</span> <a class="code" href="classstf_1_1core_1_1datapool_1_1_tuple.html#a5b32f76dd2dde2edeb873d7ebe4fcb5c">index</a>)<span class="keyword"> const</span>{ 
+<a name="l00081"></a>00081                 assert(index &lt; capacity_); 
+<a name="l00082"></a>00082 
+<a name="l00083"></a>00083                 <span class="keywordflow">return</span> (data_)[index_]; 
+<a name="l00084"></a>00084         }
+<a name="l00085"></a>00085 
+<a name="l00086"></a><a class="code" href="classstf_1_1core_1_1datapool_1_1_tuple.html#a4a76810d14d8782d03f26043ce5fe5c0">00086</a>         <span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_time.html" title="経過時間を表すクラス．">datatype::Time</a>&amp; <a class="code" href="classstf_1_1core_1_1datapool_1_1_tuple.html#a4a76810d14d8782d03f26043ce5fe5c0">get_time_at</a>(<span class="keywordtype">int</span> <a class="code" href="classstf_1_1core_1_1datapool_1_1_tuple.html#a5b32f76dd2dde2edeb873d7ebe4fcb5c">index</a>)<span class="keyword"> const</span>{ assert(index &lt; capacity_); <span class="keywordflow">return</span> time_[<a class="code" href="classstf_1_1core_1_1datapool_1_1_tuple.html#a5b32f76dd2dde2edeb873d7ebe4fcb5c">index</a>]; }
+<a name="l00087"></a>00087 
+<a name="l00088"></a><a class="code" href="classstf_1_1core_1_1datapool_1_1_tuple.html#adbbb0804856d715c1e3ddf95e9fbc01b">00088</a>         <span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_string.html" title="std::stringの簡略版．">datatype::String</a>&amp; <a class="code" href="classstf_1_1core_1_1datapool_1_1_tuple.html#adbbb0804856d715c1e3ddf95e9fbc01b">name</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> name_; }
+<a name="l00089"></a>00089 
+<a name="l00090"></a>00090 <span class="keyword">private</span>:
+<a name="l00091"></a>00091         <span class="keywordtype">int</span> capacity_;
+<a name="l00092"></a>00092         <span class="keywordtype">int</span> index_;
+<a name="l00093"></a>00093         Base** data_;
+<a name="l00094"></a>00094         <a class="code" href="classstf_1_1datatype_1_1_string.html" title="std::stringの簡略版．">datatype::String</a> name_; 
+<a name="l00095"></a>00095         <a class="code" href="classstf_1_1datatype_1_1_time.html" title="経過時間を表すクラス．">datatype::Time</a>* time_; 
+<a name="l00096"></a>00096 };
+<a name="l00097"></a>00097 
+<a name="l00099"></a>00099 
+<a name="l00101"></a><a class="code" href="classstf_1_1core_1_1datapool_1_1_data_pool_base.html">00101</a> <span class="keyword">class </span><a class="code" href="classstf_1_1core_1_1datapool_1_1_data_pool_base.html" title="Tupleを複数個保持するデータプールの基底クラス．">DataPoolBase</a> : <span class="keyword">public</span> <a class="code" href="classstf_1_1_root_object.html" title="数値型を除いた全クラスの基本となるクラス．">RootObject</a>
+<a name="l00102"></a>00102 {
+<a name="l00103"></a>00103 <span class="keyword">public</span>:
+<a name="l00104"></a><a class="code" href="classstf_1_1core_1_1datapool_1_1_data_pool_base.html#a05de6efb74790b289759f0f5eda7743e">00104</a>         <a class="code" href="classstf_1_1core_1_1datapool_1_1_data_pool_base.html#a05de6efb74790b289759f0f5eda7743e">DataPoolBase</a>(<span class="keywordtype">int</span> <a class="code" href="classstf_1_1_root_object.html#a233a3fbd4d53b7a8eaa5d2edab4cf75b">instance_id</a>): <a class="code" href="classstf_1_1core_1_1datapool_1_1_data_pool_base.html#acf0f50a77400dc968efbe853c90bb8b8">createdindex_</a>(-1) , <a class="code" href="classstf_1_1_root_object.html" title="数値型を除いた全クラスの基本となるクラス．">RootObject</a>(instance_id, <span class="stringliteral">&quot;DataPoolBase&quot;</span>){}
+<a name="l00105"></a><a class="code" href="classstf_1_1core_1_1datapool_1_1_data_pool_base.html#ad897b8fb3b43e2be79992568fcbcce15">00105</a>         <a class="code" href="classstf_1_1core_1_1datapool_1_1_data_pool_base.html#ad897b8fb3b43e2be79992568fcbcce15">~DataPoolBase</a>(<span class="keywordtype">void</span>){}
+<a name="l00106"></a><a class="code" href="classstf_1_1core_1_1datapool_1_1_data_pool_base.html#a253878c3af9983ac3e58844449c6f2ea">00106</a>         <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="classstf_1_1core_1_1datapool_1_1_data_pool_base.html#a253878c3af9983ac3e58844449c6f2ea">rows</a> ()<span class="keyword"> const</span>{ <span class="keywordflow">return</span> this-&gt;<a class="code" href="classstf_1_1core_1_1datapool_1_1_data_pool_base.html#a7d344cc79e39146e9f29cdd34441b6cc">kMaxDataPoolRows</a>; }
+<a name="l00107"></a><a class="code" href="classstf_1_1core_1_1datapool_1_1_data_pool_base.html#a56e3b0915dfbda629300e2cb9a7f2354">00107</a>         <span class="keywordtype">bool</span> <a class="code" href="classstf_1_1core_1_1datapool_1_1_data_pool_base.html#a56e3b0915dfbda629300e2cb9a7f2354">is_created</a>(<span class="keywordtype">int</span> index)<span class="keyword"> const</span>{ 
+<a name="l00108"></a>00108                 assert( index &lt; kMaxDataPoolRows &amp;&amp; index &gt;= 0); 
+<a name="l00109"></a>00109                 <span class="keywordflow">if</span>(index &lt;= <a class="code" href="classstf_1_1core_1_1datapool_1_1_data_pool_base.html#acf0f50a77400dc968efbe853c90bb8b8">createdindex_</a>) <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00110"></a>00110                 <span class="keywordflow">else</span> <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00111"></a>00111         }
+<a name="l00112"></a>00112 <span class="keyword">protected</span>:
+<a name="l00113"></a><a class="code" href="classstf_1_1core_1_1datapool_1_1_data_pool_base.html#a7d344cc79e39146e9f29cdd34441b6cc">00113</a>         <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="classstf_1_1core_1_1datapool_1_1_data_pool_base.html#a7d344cc79e39146e9f29cdd34441b6cc">kMaxDataPoolRows</a> = 255;
+<a name="l00114"></a><a class="code" href="classstf_1_1core_1_1datapool_1_1_data_pool_base.html#acf0f50a77400dc968efbe853c90bb8b8">00114</a>         <span class="keywordtype">int</span> <a class="code" href="classstf_1_1core_1_1datapool_1_1_data_pool_base.html#acf0f50a77400dc968efbe853c90bb8b8">createdindex_</a>;
+<a name="l00115"></a>00115 };
+<a name="l00116"></a>00116 
+<a name="l00117"></a>00117 <span class="comment">//イテレータの前方宣言</span>
+<a name="l00118"></a>00118 <span class="keyword">class </span><a class="code" href="classstf_1_1core_1_1datapool_1_1_aocs_data_pool_iterator.html" title="AocsDataPoolの各列の最新データをなめるイテレータ．">AocsDataPoolIterator</a>;
+<a name="l00119"></a>00119 
+<a name="l00121"></a>00121 
+<a name="l00123"></a><a class="code" href="classstf_1_1core_1_1datapool_1_1_aocs_data_pool.html">00123</a> <span class="keyword">class </span><a class="code" href="classstf_1_1core_1_1datapool_1_1_aocs_data_pool.html" title="IAocsDataのデータプール．">AocsDataPool</a> : <span class="keyword">public</span> <a class="code" href="classstf_1_1core_1_1datapool_1_1_data_pool_base.html" title="Tupleを複数個保持するデータプールの基底クラス．">DataPoolBase</a><span class="comment">//: public RootObject</span>
+<a name="l00124"></a>00124 {
+<a name="l00125"></a>00125 <span class="keyword">public</span>:
+<a name="l00126"></a>00126         <a class="code" href="classstf_1_1core_1_1datapool_1_1_aocs_data_pool.html#ae648b22fe0dd497496e45896ab8df8e3">AocsDataPool</a>(<span class="keywordtype">int</span> <a class="code" href="classstf_1_1_root_object.html#a233a3fbd4d53b7a8eaa5d2edab4cf75b">instance_id</a>);
+<a name="l00127"></a><a class="code" href="classstf_1_1core_1_1datapool_1_1_aocs_data_pool.html#ac4ae3bff91a8a4ff97e81f41d1ff9a6b">00127</a>         <a class="code" href="classstf_1_1core_1_1datapool_1_1_aocs_data_pool.html#ac4ae3bff91a8a4ff97e81f41d1ff9a6b">~AocsDataPool</a>(<span class="keywordtype">void</span>){}
+<a name="l00128"></a>00128 
+<a name="l00129"></a>00129         <span class="comment">// 最新の値を元の型として取る</span>
+<a name="l00130"></a><a class="code" href="classstf_1_1core_1_1datapool_1_1_aocs_data_pool.html#ab83a6242ac4263a0fa51cc5a35fcae07">00130</a>         <span class="keyword">template</span>&lt;<span class="keyword">class</span> Producer&gt; <span class="keyword">typename</span> Producer::Hold <span class="keyword">get</span>(<span class="keywordtype">int</span> index) <span class="keyword">const</span>{
+<a name="l00131"></a>00131                 <span class="keywordflow">return</span> table_[index]-&gt;<a class="code" href="classstf_1_1core_1_1datapool_1_1_tuple.html#a4c2618960b11136f0cebce2402f7794d">get</a>&lt;Producer::Hold&gt;();<span class="comment">//copy</span>
+<a name="l00132"></a>00132         }
+<a name="l00133"></a>00133 
+<a name="l00134"></a>00134         <span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_i_aocs_data.html" title="AOCS使用系列のデータ共通の抽象インターフェース．">datatype::IAocsData</a>* <span class="keyword">get</span>(<span class="keywordtype">int</span> <a class="code" href="classstf_1_1core_1_1datapool_1_1_data_pool_base.html#a253878c3af9983ac3e58844449c6f2ea">rows</a>) <span class="keyword">const</span>;
+<a name="l00135"></a>00135 
+<a name="l00136"></a>00136         <span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_i_aocs_data.html" title="AOCS使用系列のデータ共通の抽象インターフェース．">datatype::IAocsData</a>* <span class="keyword">get</span>(<span class="keywordtype">int</span> <a class="code" href="classstf_1_1core_1_1datapool_1_1_data_pool_base.html#a253878c3af9983ac3e58844449c6f2ea">rows</a>, <span class="keywordtype">int</span> cols) <span class="keyword">const</span>;
+<a name="l00137"></a>00137 
+<a name="l00138"></a><a class="code" href="classstf_1_1core_1_1datapool_1_1_aocs_data_pool.html#a012873194ae7e2a3d2a5560d06813e92">00138</a>         <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;<span class="keyword">const</span> T&amp; <span class="keyword">get</span>(<span class="keywordtype">int</span> <a class="code" href="classstf_1_1core_1_1datapool_1_1_data_pool_base.html#a253878c3af9983ac3e58844449c6f2ea">rows</a>){
+<a name="l00139"></a>00139                 <span class="keywordflow">return</span> this-&gt;table_[<a class="code" href="classstf_1_1core_1_1datapool_1_1_data_pool_base.html#a253878c3af9983ac3e58844449c6f2ea">rows</a>]-&gt;<a class="code" href="classstf_1_1core_1_1datapool_1_1_tuple.html#a4c2618960b11136f0cebce2402f7794d">get</a>&lt;T&gt;();
+<a name="l00140"></a>00140         }
+<a name="l00141"></a>00141 
+<a name="l00142"></a>00142         <span class="comment">// 最新の値を取る</span>
+<a name="l00143"></a>00143         <a class="code" href="classstf_1_1datatype_1_1_time.html" title="経過時間を表すクラス．">datatype::Time</a> <a class="code" href="classstf_1_1core_1_1datapool_1_1_aocs_data_pool.html#ad8d7b393464bac68534f8f50a1a7cd1f">gettime</a>(<span class="keywordtype">int</span> index) <span class="keyword">const</span>;
+<a name="l00144"></a>00144 
+<a name="l00145"></a>00145         <span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_string.html" title="std::stringの簡略版．">datatype::String</a>&amp; <a class="code" href="classstf_1_1core_1_1datapool_1_1_aocs_data_pool.html#a348231ea1b36d46d0caf4f6924a9b699">getname</a>(<span class="keywordtype">int</span> index) <span class="keyword">const</span>;
+<a name="l00146"></a>00146 
+<a name="l00147"></a>00147         <span class="comment">// 値をセット</span>
+<a name="l00148"></a><a class="code" href="classstf_1_1core_1_1datapool_1_1_aocs_data_pool.html#acc5d0a88c17fc9dc0d2c16a5a0d2e90a">00148</a>         <span class="keyword">template</span>&lt;<span class="keyword">class</span> Producer&gt; <span class="keywordtype">void</span> <span class="keyword">set</span>(<span class="keywordtype">int</span> index, <span class="keyword">const</span> <span class="keyword">typename</span> Producer::Hold&amp; value){
+<a name="l00149"></a>00149                 table_[index]-&gt;<a class="code" href="classstf_1_1core_1_1datapool_1_1_tuple.html#a89a1afae3a60083a9cdf497090b46b54">set</a>&lt;<span class="keyword">typename</span> Producer::Hold&gt;(this-&gt;<a class="code" href="classstf_1_1_root_object.html#aa017b38716ed6c01dc754e6f003d6656">clock_</a>-&gt;<a class="code" href="classstf_1_1core_1_1devicedriver_1_1clock_1_1_i_time_clock.html#aad52e94f03e018c2bce6caf8577487a3">get_time</a>(), value);
+<a name="l00150"></a>00150         }
+<a name="l00151"></a>00151 
+<a name="l00152"></a><a class="code" href="classstf_1_1core_1_1datapool_1_1_aocs_data_pool.html#aae0567a212913473b743605ce5ef5d25">00152</a>         <span class="keyword">template</span>&lt;<span class="keyword">class</span> Producer&gt; <span class="keyword">typename</span> Producer::Hold&amp; <a class="code" href="classstf_1_1core_1_1datapool_1_1_aocs_data_pool.html#aae0567a212913473b743605ce5ef5d25">get_at</a>(<span class="keywordtype">int</span> index, <span class="keywordtype">int</span> <a class="code" href="classstf_1_1core_1_1datapool_1_1_data_pool_base.html#a253878c3af9983ac3e58844449c6f2ea">rows</a>)<span class="keyword"> const </span>{
+<a name="l00153"></a>00153                 <span class="keywordflow">return</span> table_[index]-&gt;get_at&lt;Producer::Hold&gt;(<a class="code" href="classstf_1_1core_1_1datapool_1_1_data_pool_base.html#a253878c3af9983ac3e58844449c6f2ea">rows</a>);<span class="comment">//copy</span>
+<a name="l00154"></a>00154         }
+<a name="l00155"></a>00155 
+<a name="l00156"></a>00156         <span class="comment">//初期化時にのみ使用．動的生成</span>
+<a name="l00157"></a>00157         <span class="comment">//IAocsDataをHoldしているRoot配下のクラスであれば何でも取れる</span>
+<a name="l00158"></a><a class="code" href="classstf_1_1core_1_1datapool_1_1_aocs_data_pool.html#adec589d84bad9eabab2c19ed2ec041c5">00158</a>         <span class="keyword">template</span>&lt;<span class="keyword">class</span> Producer&gt; <span class="keywordtype">int</span> <a class="code" href="classstf_1_1core_1_1datapool_1_1_aocs_data_pool.html#adec589d84bad9eabab2c19ed2ec041c5">create</a>(Producer* producer, <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> capacity, <span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_string.html" title="std::stringの簡略版．">datatype::String</a>&amp; <a class="code" href="classstf_1_1_root_object.html#ad900efc99d9557877cdd83dcb06a52eb">name</a> = <span class="stringliteral">&quot;unknown&quot;</span>){
+<a name="l00159"></a>00159                 this-&gt;<a class="code" href="classstf_1_1core_1_1datapool_1_1_data_pool_base.html#acf0f50a77400dc968efbe853c90bb8b8">createdindex_</a>++;
+<a name="l00160"></a>00160                 this-&gt;table_[<a class="code" href="classstf_1_1core_1_1datapool_1_1_data_pool_base.html#acf0f50a77400dc968efbe853c90bb8b8">createdindex_</a>] = <span class="keyword">new</span> <a class="code" href="classstf_1_1core_1_1datapool_1_1_tuple.html">Tuple&lt;datatype::IAocsData&gt;</a>(capacity, <a class="code" href="struct_loki_1_1_type2_type.html">Loki::Type2Type&lt;Producer::Hold&gt;</a>(), <a class="code" href="classstf_1_1_root_object.html#ad900efc99d9557877cdd83dcb06a52eb">name</a>);
+<a name="l00161"></a>00161                 <span class="keywordflow">return</span> <a class="code" href="classstf_1_1core_1_1datapool_1_1_data_pool_base.html#acf0f50a77400dc968efbe853c90bb8b8">createdindex_</a> ;
+<a name="l00162"></a>00162         }
+<a name="l00163"></a>00163 
+<a name="l00164"></a>00164         <span class="comment">//初期化時にのみ使用．動的生成</span>
+<a name="l00165"></a>00165         <span class="comment">//IAocsDataをHoldしているRoot配下のクラスであれば何でも取れる</span>
+<a name="l00166"></a><a class="code" href="classstf_1_1core_1_1datapool_1_1_aocs_data_pool.html#a22f4463ac78e793fd221a64666771b86">00166</a>         <span class="keyword">template</span>&lt;<span class="keyword">class</span> Datatype&gt; <span class="keywordtype">int</span> <a class="code" href="classstf_1_1core_1_1datapool_1_1_aocs_data_pool.html#a22f4463ac78e793fd221a64666771b86">create</a>(<a class="code" href="struct_loki_1_1_type2_type.html">Loki::Type2Type&lt;Datatype&gt;</a>, <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> capacity, <span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_string.html" title="std::stringの簡略版．">datatype::String</a>&amp; <a class="code" href="classstf_1_1_root_object.html#ad900efc99d9557877cdd83dcb06a52eb">name</a> = <span class="stringliteral">&quot;unknown&quot;</span>){
+<a name="l00167"></a>00167                 this-&gt;<a class="code" href="classstf_1_1core_1_1datapool_1_1_data_pool_base.html#acf0f50a77400dc968efbe853c90bb8b8">createdindex_</a>++;
+<a name="l00168"></a>00168                 this-&gt;table_[<a class="code" href="classstf_1_1core_1_1datapool_1_1_data_pool_base.html#acf0f50a77400dc968efbe853c90bb8b8">createdindex_</a>] = <span class="keyword">new</span> <a class="code" href="classstf_1_1core_1_1datapool_1_1_tuple.html">Tuple&lt;datatype::IAocsData&gt;</a>(capacity, <a class="code" href="struct_loki_1_1_type2_type.html">Loki::Type2Type&lt;Datatype&gt;</a>(), <a class="code" href="classstf_1_1_root_object.html#ad900efc99d9557877cdd83dcb06a52eb">name</a>);
+<a name="l00169"></a>00169                 <span class="keywordflow">return</span> <a class="code" href="classstf_1_1core_1_1datapool_1_1_data_pool_base.html#acf0f50a77400dc968efbe853c90bb8b8">createdindex_</a> ;
+<a name="l00170"></a>00170         }
+<a name="l00171"></a>00171 
+<a name="l00172"></a>00172         <span class="comment">//初期化時にのみ使用．動的生成</span>
+<a name="l00173"></a>00173         <span class="comment">//IAocsDataをHoldしているRoot配下のクラスであれば何でも取れる</span>
+<a name="l00174"></a><a class="code" href="classstf_1_1core_1_1datapool_1_1_aocs_data_pool.html#a2e933152e9d8f14aaae152334e2ba811">00174</a>         <span class="keyword">template</span>&lt;<span class="keyword">class</span> Producer&gt; <span class="keywordtype">int</span> <a class="code" href="classstf_1_1core_1_1datapool_1_1_aocs_data_pool.html#a2e933152e9d8f14aaae152334e2ba811">create</a>(<span class="keywordtype">int</span> <span class="keywordtype">id</span>, <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> capacity, <span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_string.html" title="std::stringの簡略版．">datatype::String</a>&amp; <a class="code" href="classstf_1_1_root_object.html#ad900efc99d9557877cdd83dcb06a52eb">name</a> = <span class="stringliteral">&quot;unknown&quot;</span>){
+<a name="l00175"></a>00175                 this-&gt;<a class="code" href="classstf_1_1core_1_1datapool_1_1_data_pool_base.html#acf0f50a77400dc968efbe853c90bb8b8">createdindex_</a>++;
+<a name="l00176"></a>00176                 this-&gt;table_[<a class="code" href="classstf_1_1core_1_1datapool_1_1_data_pool_base.html#acf0f50a77400dc968efbe853c90bb8b8">createdindex_</a>] = <span class="keyword">new</span> <a class="code" href="classstf_1_1core_1_1datapool_1_1_tuple.html">Tuple&lt;datatype::IAocsData&gt;</a>(capacity, <a class="code" href="struct_loki_1_1_type2_type.html">Loki::Type2Type&lt;Producer::Hold&gt;</a>(), <a class="code" href="classstf_1_1_root_object.html#ad900efc99d9557877cdd83dcb06a52eb">name</a>);
+<a name="l00177"></a>00177                 <span class="keywordflow">return</span> <a class="code" href="classstf_1_1core_1_1datapool_1_1_data_pool_base.html#acf0f50a77400dc968efbe853c90bb8b8">createdindex_</a> ;
+<a name="l00178"></a>00178         }
+<a name="l00179"></a>00179 
+<a name="l00180"></a><a class="code" href="classstf_1_1core_1_1datapool_1_1_aocs_data_pool.html#a41cf65a7d62c6ea02c560928c20b141a">00180</a>         <span class="keyword">template</span>&lt;<span class="keyword">class</span> Producer&gt; <span class="keywordtype">void</span> <a class="code" href="classstf_1_1core_1_1datapool_1_1_aocs_data_pool.html#a41cf65a7d62c6ea02c560928c20b141a">show</a>(<span class="keywordtype">int</span> index)<span class="keyword"> const</span>{
+<a name="l00181"></a>00181                 table_[index]-&gt;<a class="code" href="classstf_1_1core_1_1datapool_1_1_tuple.html#a5d2dea92f35a75ab0cb964420f1410a0">print</a>&lt;Producer::Hold&gt;();
+<a name="l00182"></a>00182         }
+<a name="l00183"></a>00183 
+<a name="l00184"></a>00184         <span class="comment">// 指定したインスタンスIDが生成したタプルへのポインタを取得（テレメトリ用）</span>
+<a name="l00185"></a>00185         <a class="code" href="classstf_1_1core_1_1datapool_1_1_tuple.html">Tuple&lt;datatype::IAocsData&gt;</a>* <a class="code" href="classstf_1_1core_1_1datapool_1_1_aocs_data_pool.html#a5c902e2282b9f698cc6dba1c16eb9e46">get_ptr</a>(<span class="keywordtype">int</span> index) ;
+<a name="l00186"></a>00186 
+<a name="l00187"></a>00187 <span class="keyword">private</span>:
+<a name="l00188"></a>00188         <a class="code" href="classstf_1_1core_1_1datapool_1_1_tuple.html">Tuple&lt;datatype::IAocsData&gt;</a>** table_;
+<a name="l00189"></a>00189 };
+<a name="l00190"></a>00190 
+<a name="l00192"></a>00192 
+<a name="l00194"></a><a class="code" href="classstf_1_1core_1_1datapool_1_1_event_data_pool.html">00194</a> <span class="keyword">class </span><a class="code" href="classstf_1_1core_1_1datapool_1_1_event_data_pool.html" title="Eventのデータプール．">EventDataPool</a> : <span class="keyword">public</span> <a class="code" href="classstf_1_1core_1_1datapool_1_1_data_pool_base.html" title="Tupleを複数個保持するデータプールの基底クラス．">DataPoolBase</a><span class="comment">//: public RootObject</span>
+<a name="l00195"></a>00195 {
+<a name="l00196"></a>00196 <span class="keyword">public</span>:
+<a name="l00197"></a>00197         <a class="code" href="classstf_1_1core_1_1datapool_1_1_event_data_pool.html#abfa9ad33d3c92ca72ae94c22646d824c">EventDataPool</a>(<span class="keywordtype">int</span> <a class="code" href="classstf_1_1_root_object.html#a233a3fbd4d53b7a8eaa5d2edab4cf75b">instance_id</a>);
+<a name="l00198"></a><a class="code" href="classstf_1_1core_1_1datapool_1_1_event_data_pool.html#ac30e438ad0be58e74eae72f7e2d24f20">00198</a>         <a class="code" href="classstf_1_1core_1_1datapool_1_1_event_data_pool.html#ac30e438ad0be58e74eae72f7e2d24f20">~EventDataPool</a>(<span class="keywordtype">void</span>){}
+<a name="l00199"></a>00199 
+<a name="l00200"></a>00200         <span class="comment">// 最新の値を元の型として取る</span>
+<a name="l00201"></a><a class="code" href="classstf_1_1core_1_1datapool_1_1_event_data_pool.html#a5bef9c4eac0cdf674d524deddeb11fc3">00201</a>         <span class="keyword">template</span>&lt;<span class="keyword">class</span> Producer&gt; <span class="keyword">typename</span> Producer::Hold <span class="keyword">get</span>(<span class="keywordtype">int</span> index) <span class="keyword">const</span>{
+<a name="l00202"></a>00202                 <span class="keywordflow">return</span> table_[index]-&gt;<a class="code" href="classstf_1_1core_1_1datapool_1_1_tuple.html#a4c2618960b11136f0cebce2402f7794d">get</a>&lt;Producer::Hold&gt;();<span class="comment">//copy</span>
+<a name="l00203"></a>00203         }
+<a name="l00204"></a>00204 
+<a name="l00205"></a>00205         <span class="keyword">const</span> <a class="code" href="classstf_1_1core_1_1event_1_1_event_base.html" title="全イベントの基底クラス．">core::event::EventBase</a>* <span class="keyword">get</span>(<span class="keywordtype">int</span> <a class="code" href="classstf_1_1core_1_1datapool_1_1_data_pool_base.html#a253878c3af9983ac3e58844449c6f2ea">rows</a>) <span class="keyword">const</span>;
+<a name="l00206"></a>00206 
+<a name="l00207"></a>00207         <span class="keyword">const</span> <a class="code" href="classstf_1_1core_1_1event_1_1_event_base.html" title="全イベントの基底クラス．">core::event::EventBase</a>* <span class="keyword">get</span>(<span class="keywordtype">int</span> <a class="code" href="classstf_1_1core_1_1datapool_1_1_data_pool_base.html#a253878c3af9983ac3e58844449c6f2ea">rows</a>, <span class="keywordtype">int</span> cols) <span class="keyword">const</span>;
+<a name="l00208"></a>00208 
+<a name="l00209"></a>00209         <span class="comment">// 最新の値を取る</span>
+<a name="l00210"></a>00210         <a class="code" href="classstf_1_1datatype_1_1_time.html" title="経過時間を表すクラス．">datatype::Time</a> <a class="code" href="classstf_1_1core_1_1datapool_1_1_event_data_pool.html#ad1cfa766a398b10463763dfb47f7ea2a">gettime</a>(<span class="keywordtype">int</span> index) <span class="keyword">const</span>;
+<a name="l00211"></a>00211 
+<a name="l00212"></a>00212         <span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_string.html" title="std::stringの簡略版．">datatype::String</a>&amp; <a class="code" href="classstf_1_1core_1_1datapool_1_1_event_data_pool.html#a701312e7803df59ec19795cf7ffc7cc7">getname</a>(<span class="keywordtype">int</span> index) <span class="keyword">const</span>;
+<a name="l00213"></a>00213 
+<a name="l00214"></a>00214         <span class="comment">// 値をセット</span>
+<a name="l00215"></a><a class="code" href="classstf_1_1core_1_1datapool_1_1_event_data_pool.html#a1638e60b0c21ffbb5d06e8ff7b4b5fbf">00215</a>         <span class="keyword">template</span>&lt;<span class="keyword">class</span> Producer&gt; <span class="keywordtype">void</span> <span class="keyword">set</span>(<span class="keywordtype">int</span> index, <span class="keyword">const</span> <span class="keyword">typename</span> Producer::Hold&amp; value){
+<a name="l00216"></a>00216                 table_[index]-&gt;<a class="code" href="classstf_1_1core_1_1datapool_1_1_tuple.html#a89a1afae3a60083a9cdf497090b46b54">set</a>&lt;<span class="keyword">typename</span> Producer::Hold&gt;(this-&gt;<a class="code" href="classstf_1_1_root_object.html#aa017b38716ed6c01dc754e6f003d6656">clock_</a>-&gt;<a class="code" href="classstf_1_1core_1_1devicedriver_1_1clock_1_1_i_time_clock.html#aad52e94f03e018c2bce6caf8577487a3">get_time</a>(), value);
+<a name="l00217"></a>00217         }
+<a name="l00218"></a>00218 
+<a name="l00219"></a><a class="code" href="classstf_1_1core_1_1datapool_1_1_event_data_pool.html#a5c2e948ceb5602e58cb0450331463a5c">00219</a>         <span class="keyword">template</span>&lt;<span class="keyword">class</span> Producer&gt; <span class="keyword">typename</span> Producer::Hold&amp; <a class="code" href="classstf_1_1core_1_1datapool_1_1_event_data_pool.html#a5c2e948ceb5602e58cb0450331463a5c">get_at</a>(<span class="keywordtype">int</span> index, <span class="keywordtype">int</span> <a class="code" href="classstf_1_1core_1_1datapool_1_1_data_pool_base.html#a253878c3af9983ac3e58844449c6f2ea">rows</a>)<span class="keyword"> const </span>{
+<a name="l00220"></a>00220                 <span class="keywordflow">return</span> table_[index]-&gt;get_at&lt;Producer::Hold&gt;(<a class="code" href="classstf_1_1core_1_1datapool_1_1_data_pool_base.html#a253878c3af9983ac3e58844449c6f2ea">rows</a>);<span class="comment">//copy</span>
+<a name="l00221"></a>00221         }
+<a name="l00222"></a>00222 
+<a name="l00223"></a><a class="code" href="classstf_1_1core_1_1datapool_1_1_event_data_pool.html#a4d64178ff18ffd6273e260dbed349032">00223</a>         <span class="keyword">template</span>&lt;<span class="keyword">class</span> Producer&gt; <span class="keywordtype">int</span> <a class="code" href="classstf_1_1core_1_1datapool_1_1_event_data_pool.html#a4d64178ff18ffd6273e260dbed349032">create</a>(Producer* producer, <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> capacity, <span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_string.html" title="std::stringの簡略版．">datatype::String</a>&amp; <a class="code" href="classstf_1_1_root_object.html#ad900efc99d9557877cdd83dcb06a52eb">name</a> = <span class="stringliteral">&quot;unknown&quot;</span>){
+<a name="l00224"></a>00224                 this-&gt;<a class="code" href="classstf_1_1core_1_1datapool_1_1_data_pool_base.html#acf0f50a77400dc968efbe853c90bb8b8">createdindex_</a>++;
+<a name="l00225"></a>00225                 this-&gt;table_[<a class="code" href="classstf_1_1core_1_1datapool_1_1_data_pool_base.html#acf0f50a77400dc968efbe853c90bb8b8">createdindex_</a>] = <span class="keyword">new</span> <a class="code" href="classstf_1_1core_1_1datapool_1_1_tuple.html">Tuple&lt;core::event::EventBase&gt;</a>(capacity, <a class="code" href="struct_loki_1_1_type2_type.html">Loki::Type2Type&lt;Producer::Hold&gt;</a>(), <a class="code" href="classstf_1_1_root_object.html#ad900efc99d9557877cdd83dcb06a52eb">name</a>);
+<a name="l00226"></a>00226                 <span class="keywordflow">return</span> <a class="code" href="classstf_1_1core_1_1datapool_1_1_data_pool_base.html#acf0f50a77400dc968efbe853c90bb8b8">createdindex_</a> ;
+<a name="l00227"></a>00227         }
+<a name="l00228"></a>00228 
+<a name="l00229"></a><a class="code" href="classstf_1_1core_1_1datapool_1_1_event_data_pool.html#ad9109867df8c03a6032770eb46073c89">00229</a>         <span class="keyword">template</span>&lt;<span class="keyword">class</span> Datatype&gt; <span class="keywordtype">int</span> <a class="code" href="classstf_1_1core_1_1datapool_1_1_event_data_pool.html#ad9109867df8c03a6032770eb46073c89">create</a>(<a class="code" href="struct_loki_1_1_type2_type.html">Loki::Type2Type&lt;Datatype&gt;</a>, <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> capacity, <span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_string.html" title="std::stringの簡略版．">datatype::String</a>&amp; <a class="code" href="classstf_1_1_root_object.html#ad900efc99d9557877cdd83dcb06a52eb">name</a> = <span class="stringliteral">&quot;unknown&quot;</span>){
+<a name="l00230"></a>00230                 this-&gt;<a class="code" href="classstf_1_1core_1_1datapool_1_1_data_pool_base.html#acf0f50a77400dc968efbe853c90bb8b8">createdindex_</a>++;
+<a name="l00231"></a>00231                 this-&gt;table_[<a class="code" href="classstf_1_1core_1_1datapool_1_1_data_pool_base.html#acf0f50a77400dc968efbe853c90bb8b8">createdindex_</a>] = <span class="keyword">new</span> <a class="code" href="classstf_1_1core_1_1datapool_1_1_tuple.html">Tuple&lt;core::event::EventBase&gt;</a>(capacity, <a class="code" href="struct_loki_1_1_type2_type.html">Loki::Type2Type&lt;Datatype&gt;</a>(), <a class="code" href="classstf_1_1_root_object.html#ad900efc99d9557877cdd83dcb06a52eb">name</a>);
+<a name="l00232"></a>00232                 <span class="keywordflow">return</span> <a class="code" href="classstf_1_1core_1_1datapool_1_1_data_pool_base.html#acf0f50a77400dc968efbe853c90bb8b8">createdindex_</a> ;
+<a name="l00233"></a>00233         }
+<a name="l00234"></a>00234 
+<a name="l00235"></a><a class="code" href="classstf_1_1core_1_1datapool_1_1_event_data_pool.html#a7bc3dab0d6fdd22746e4e21a3d3c8996">00235</a>         <span class="keyword">template</span>&lt;<span class="keyword">class</span> Producer&gt; <span class="keywordtype">int</span> <a class="code" href="classstf_1_1core_1_1datapool_1_1_event_data_pool.html#a7bc3dab0d6fdd22746e4e21a3d3c8996">create</a>(<span class="keywordtype">int</span> <span class="keywordtype">id</span>, <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> capacity, <span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_string.html" title="std::stringの簡略版．">datatype::String</a>&amp; <a class="code" href="classstf_1_1_root_object.html#ad900efc99d9557877cdd83dcb06a52eb">name</a> = <span class="stringliteral">&quot;unknown&quot;</span>){
+<a name="l00236"></a>00236                 this-&gt;<a class="code" href="classstf_1_1core_1_1datapool_1_1_data_pool_base.html#acf0f50a77400dc968efbe853c90bb8b8">createdindex_</a>++;
+<a name="l00237"></a>00237                 this-&gt;table_[<a class="code" href="classstf_1_1core_1_1datapool_1_1_data_pool_base.html#acf0f50a77400dc968efbe853c90bb8b8">createdindex_</a>] = <span class="keyword">new</span> <a class="code" href="classstf_1_1core_1_1datapool_1_1_tuple.html">Tuple&lt;core::event::EventBase&gt;</a>(capacity, <a class="code" href="struct_loki_1_1_type2_type.html">Loki::Type2Type&lt;Producer::Hold&gt;</a>(), <a class="code" href="classstf_1_1_root_object.html#ad900efc99d9557877cdd83dcb06a52eb">name</a>);
+<a name="l00238"></a>00238                 <span class="keywordflow">return</span> <a class="code" href="classstf_1_1core_1_1datapool_1_1_data_pool_base.html#acf0f50a77400dc968efbe853c90bb8b8">createdindex_</a> ;
+<a name="l00239"></a>00239         }
+<a name="l00240"></a>00240 
+<a name="l00241"></a><a class="code" href="classstf_1_1core_1_1datapool_1_1_event_data_pool.html#aad6dfb40a5a8f1d8d0e1bb1906eae874">00241</a>         <span class="keyword">template</span>&lt;<span class="keyword">class</span> Producer&gt; <span class="keywordtype">void</span> <a class="code" href="classstf_1_1core_1_1datapool_1_1_event_data_pool.html#aad6dfb40a5a8f1d8d0e1bb1906eae874">show</a>(<span class="keywordtype">int</span> index)<span class="keyword"> const</span>{
+<a name="l00242"></a>00242                 table_[index]-&gt;<a class="code" href="classstf_1_1core_1_1datapool_1_1_tuple.html#a5d2dea92f35a75ab0cb964420f1410a0">print</a>&lt;Producer::Hold&gt;();
+<a name="l00243"></a>00243         }
+<a name="l00244"></a>00244 
+<a name="l00245"></a>00245         <span class="comment">// 指定したインスタンスIDが生成したタプルへのポインタを取得（テレメトリ用）</span>
+<a name="l00246"></a>00246         <a class="code" href="classstf_1_1core_1_1datapool_1_1_tuple.html">Tuple&lt;core::event::EventBase&gt;</a>* <a class="code" href="classstf_1_1core_1_1datapool_1_1_event_data_pool.html#aad2c38a68e2a6ccc305c6ccd1afe401e">get_ptr</a>(<span class="keywordtype">int</span> index) ;
+<a name="l00247"></a>00247 <span class="keyword">private</span>:
+<a name="l00248"></a>00248         <a class="code" href="classstf_1_1core_1_1datapool_1_1_tuple.html">Tuple&lt;core::event::EventBase&gt;</a>** table_;
+<a name="l00249"></a>00249 };
+<a name="l00250"></a>00250 
+<a name="l00252"></a>00252 
+<a name="l00254"></a><a class="code" href="classstf_1_1core_1_1datapool_1_1_aocs_data_pool_iterator.html">00254</a> <span class="keyword">class </span><a class="code" href="classstf_1_1core_1_1datapool_1_1_aocs_data_pool_iterator.html" title="AocsDataPoolの各列の最新データをなめるイテレータ．">AocsDataPoolIterator</a> : <span class="keyword">public</span> interface::Iterator {
+<a name="l00255"></a>00255 <span class="keyword">public</span>:
+<a name="l00256"></a><a class="code" href="classstf_1_1core_1_1datapool_1_1_aocs_data_pool_iterator.html#a7d1ad07c2ee48518926519c001b472f8">00256</a>         <a class="code" href="classstf_1_1core_1_1datapool_1_1_aocs_data_pool_iterator.html#a7d1ad07c2ee48518926519c001b472f8">AocsDataPoolIterator</a>(<span class="keyword">const</span> <a class="code" href="classstf_1_1core_1_1datapool_1_1_aocs_data_pool.html" title="IAocsDataのデータプール．">AocsDataPool</a>* pool) : pool_(pool), index_(0), rows_(0) {
+<a name="l00257"></a>00257                 focusrow_(0);
+<a name="l00258"></a>00258         }
+<a name="l00259"></a><a class="code" href="classstf_1_1core_1_1datapool_1_1_aocs_data_pool_iterator.html#a2e8811651eb5256b9433002e5a8b1c81">00259</a>         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classstf_1_1core_1_1datapool_1_1_aocs_data_pool_iterator.html#a2e8811651eb5256b9433002e5a8b1c81">init</a>(){
+<a name="l00260"></a>00260                 rows_ = 0;
+<a name="l00261"></a>00261                 focusrow_(rows_);
+<a name="l00262"></a>00262         }
+<a name="l00263"></a><a class="code" href="classstf_1_1core_1_1datapool_1_1_aocs_data_pool_iterator.html#a3b7242bed8b927ee5bd0df386ca889d7">00263</a>         <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classstf_1_1core_1_1datapool_1_1_aocs_data_pool_iterator.html#a3b7242bed8b927ee5bd0df386ca889d7">end</a>(){
+<a name="l00264"></a>00264                 <span class="keywordflow">if</span>(pool_-&gt;<a class="code" href="classstf_1_1core_1_1datapool_1_1_data_pool_base.html#a56e3b0915dfbda629300e2cb9a7f2354">is_created</a>(rows_)) <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00265"></a>00265                 <span class="keywordflow">else</span> <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00266"></a>00266         }
+<a name="l00267"></a><a class="code" href="classstf_1_1core_1_1datapool_1_1_aocs_data_pool_iterator.html#a11a6bba7ab010abd1022d75a83b19dc9">00267</a>         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classstf_1_1core_1_1datapool_1_1_aocs_data_pool_iterator.html#a11a6bba7ab010abd1022d75a83b19dc9">operator ++</a>() { 
+<a name="l00268"></a>00268                 index_ ++;
+<a name="l00269"></a>00269                 <span class="keywordflow">if</span>(index_ &gt;= localstreamsize_){<span class="comment">//次の列へ</span>
+<a name="l00270"></a>00270                         rows_++;
+<a name="l00271"></a>00271                         focusrow_(rows_);
+<a name="l00272"></a>00272                 }
+<a name="l00273"></a>00273         }
+<a name="l00274"></a><a class="code" href="classstf_1_1core_1_1datapool_1_1_aocs_data_pool_iterator.html#ab42f4badaf5a3f31429b71969c0083a3">00274</a>         <span class="keyword">virtual</span> <span class="keywordtype">double</span> <a class="code" href="classstf_1_1core_1_1datapool_1_1_aocs_data_pool_iterator.html#ab42f4badaf5a3f31429b71969c0083a3">operator()</a>() {
+<a name="l00275"></a>00275                 <span class="keywordflow">return</span> this-&gt;localstream_[index_] ;             
+<a name="l00276"></a>00276         }
+<a name="l00277"></a>00277 <span class="keyword">private</span>:
+<a name="l00278"></a>00278         <span class="keywordtype">void</span> focusrow_(<span class="keywordtype">int</span> row){
+<a name="l00279"></a>00279                 <span class="keywordflow">if</span>(!pool_-&gt;<a class="code" href="classstf_1_1core_1_1datapool_1_1_data_pool_base.html#a56e3b0915dfbda629300e2cb9a7f2354">is_created</a>(rows_)) <span class="keywordflow">return</span>;
+<a name="l00280"></a>00280                 <span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_i_aocs_data.html" title="AOCS使用系列のデータ共通の抽象インターフェース．">datatype::IAocsData</a>* d = pool_-&gt;<a class="code" href="classstf_1_1core_1_1datapool_1_1_aocs_data_pool.html#ab83a6242ac4263a0fa51cc5a35fcae07">get</a>(row);
+<a name="l00281"></a>00281                 localstream_ = d-&gt;<a class="code" href="classstf_1_1interface_1_1_i_telemetable.html#aae7274474f0c73b5c28fcb54bea078f7">to_stream</a>();
+<a name="l00282"></a>00282                 localstreamsize_ = d-&gt;<a class="code" href="classstf_1_1interface_1_1_i_telemetable.html#a35cd8ff52a3b76a33647c920568a3f20">stream_length</a>();
+<a name="l00283"></a>00283                 index_ = 0;
+<a name="l00284"></a>00284         }
+<a name="l00285"></a>00285         <span class="keyword">const</span> AocsDataPool* pool_;
+<a name="l00286"></a>00286         <span class="keyword">const</span> <span class="keywordtype">double</span>* localstream_;
+<a name="l00287"></a>00287         <span class="keywordtype">int</span> localstreamsize_;
+<a name="l00288"></a>00288         <span class="keywordtype">int</span> index_;
+<a name="l00289"></a>00289         <span class="keywordtype">int</span> rows_;
+<a name="l00290"></a>00290 };
+<a name="l00291"></a>00291 
+<a name="l00293"></a>00293 
+<a name="l00296"></a><a class="code" href="classstf_1_1core_1_1datapool_1_1_event_data_pool_iterator.html">00296</a> <span class="keyword">class </span><a class="code" href="classstf_1_1core_1_1datapool_1_1_event_data_pool_iterator.html" title="EventDataPoolの各列の最新データをなめるイテレータ．">EventDataPoolIterator</a> : <span class="keyword">public</span> interface::Iterator {
+<a name="l00297"></a>00297 <span class="keyword">public</span>:
+<a name="l00298"></a><a class="code" href="classstf_1_1core_1_1datapool_1_1_event_data_pool_iterator.html#a8b4db70485f3c3873b13d938f40de81f">00298</a>         <a class="code" href="classstf_1_1core_1_1datapool_1_1_event_data_pool_iterator.html#a8b4db70485f3c3873b13d938f40de81f">EventDataPoolIterator</a>(<span class="keyword">const</span> <a class="code" href="classstf_1_1core_1_1datapool_1_1_event_data_pool.html" title="Eventのデータプール．">EventDataPool</a>* pool) : pool_(pool), index_(0), rows_(0) {
+<a name="l00299"></a>00299                 focusrow_(0);
+<a name="l00300"></a>00300         }
+<a name="l00301"></a><a class="code" href="classstf_1_1core_1_1datapool_1_1_event_data_pool_iterator.html#ac767fa167490f221198eec7f08de2355">00301</a>         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classstf_1_1core_1_1datapool_1_1_event_data_pool_iterator.html#ac767fa167490f221198eec7f08de2355">init</a>(){
+<a name="l00302"></a>00302                 rows_ = 0;
+<a name="l00303"></a>00303                 focusrow_(rows_);
+<a name="l00304"></a>00304         }
+<a name="l00305"></a><a class="code" href="classstf_1_1core_1_1datapool_1_1_event_data_pool_iterator.html#a2e5f1836eb2df2652b819bc1e566163a">00305</a>         <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classstf_1_1core_1_1datapool_1_1_event_data_pool_iterator.html#a2e5f1836eb2df2652b819bc1e566163a">end</a>(){
+<a name="l00306"></a>00306                 <span class="keywordflow">if</span>(pool_-&gt;<a class="code" href="classstf_1_1core_1_1datapool_1_1_data_pool_base.html#a56e3b0915dfbda629300e2cb9a7f2354">is_created</a>(rows_)) <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00307"></a>00307                 <span class="keywordflow">else</span> <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00308"></a>00308         }
+<a name="l00309"></a><a class="code" href="classstf_1_1core_1_1datapool_1_1_event_data_pool_iterator.html#a7c788e831224ae038c57fdfd3ebc1465">00309</a>         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classstf_1_1core_1_1datapool_1_1_event_data_pool_iterator.html#a7c788e831224ae038c57fdfd3ebc1465">operator ++</a>() { 
+<a name="l00310"></a>00310                 index_ ++;
+<a name="l00311"></a>00311                 <span class="keywordflow">if</span>(index_ &gt;= localstreamsize_){<span class="comment">//次の列へ</span>
+<a name="l00312"></a>00312                         rows_++;
+<a name="l00313"></a>00313                         focusrow_(rows_);
+<a name="l00314"></a>00314                 }
+<a name="l00315"></a>00315         }
+<a name="l00316"></a><a class="code" href="classstf_1_1core_1_1datapool_1_1_event_data_pool_iterator.html#a94e4f6d0a8aee9861791b1a3facc0919">00316</a>         <span class="keyword">virtual</span> <span class="keywordtype">double</span> <a class="code" href="classstf_1_1core_1_1datapool_1_1_event_data_pool_iterator.html#a94e4f6d0a8aee9861791b1a3facc0919">operator()</a>() {
+<a name="l00317"></a>00317                 <span class="keywordflow">return</span> 0;<span class="comment">//not implemented yet  </span>
+<a name="l00318"></a>00318         }
+<a name="l00319"></a>00319 <span class="keyword">private</span>:
+<a name="l00320"></a>00320         <span class="keywordtype">void</span> focusrow_(<span class="keywordtype">int</span> row){
+<a name="l00321"></a>00321                 <span class="keywordflow">if</span>(!pool_-&gt;<a class="code" href="classstf_1_1core_1_1datapool_1_1_data_pool_base.html#a56e3b0915dfbda629300e2cb9a7f2354">is_created</a>(rows_)) <span class="keywordflow">return</span>;
+<a name="l00322"></a>00322                 <span class="keyword">const</span> <a class="code" href="classstf_1_1core_1_1event_1_1_event_base.html" title="全イベントの基底クラス．">core::event::EventBase</a>* d = pool_-&gt;<a class="code" href="classstf_1_1core_1_1datapool_1_1_event_data_pool.html#a5bef9c4eac0cdf674d524deddeb11fc3">get</a>(row);
+<a name="l00323"></a>00323                 <span class="comment">//d-&gt;</span>
+<a name="l00324"></a>00324                 index_ = 0;
+<a name="l00325"></a>00325         }
+<a name="l00326"></a>00326         <span class="keyword">const</span> EventDataPool* pool_;
+<a name="l00327"></a>00327         <span class="keywordtype">int</span> localstreamsize_;
+<a name="l00328"></a>00328         <span class="keywordtype">int</span> index_;
+<a name="l00329"></a>00329         <span class="keywordtype">int</span> rows_;
+<a name="l00330"></a>00330 };
+<a name="l00331"></a>00331 
+<a name="l00332"></a>00332 } <span class="comment">/* End of namespace stf::core::datapool */</span>
+<a name="l00333"></a>00333 } <span class="comment">/* End of namespace stf::core */</span>
+<a name="l00334"></a>00334 } <span class="comment">/* End of namespace stf */</span>
+<a name="l00335"></a>00335 
+<a name="l00336"></a>00336 <span class="preprocessor">#endif // stf_core_datapool_Datapool_h</span>
+<a name="l00337"></a>00337 <span class="preprocessor"></span>
+</pre></div></div>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>フレンド</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>マクロ定義</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>STFに対してTue Mar 1 2011 03:45:36に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
+</body>
+</html>

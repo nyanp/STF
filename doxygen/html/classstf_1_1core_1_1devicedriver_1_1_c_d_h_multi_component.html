@@ -1,0 +1,292 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>STF: クラス テンプレート stf::core::devicedriver::CDHMultiComponent&lt; TList, Env &gt;</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.3 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">STF</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="pages.html"><span>関連ページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li class="current"><a href="annotated.html"><span>クラス</span></a></li>
+      <li><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>構成</span></a></li>
+      <li><a href="classes.html"><span>構成索引</span></a></li>
+      <li><a href="inherits.html"><span>クラス階層</span></a></li>
+      <li><a href="functions.html"><span>構成メンバ</span></a></li>
+    </ul>
+  </div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="namespacestf.html">stf</a>      </li>
+      <li class="navelem"><a class="el" href="namespacestf_1_1core.html">core</a>      </li>
+      <li class="navelem"><a class="el" href="namespacestf_1_1core_1_1devicedriver.html">devicedriver</a>      </li>
+      <li class="navelem"><a class="el" href="classstf_1_1core_1_1devicedriver_1_1_c_d_h_multi_component.html">CDHMultiComponent</a>      </li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#pub-types">Public 型</a> &#124;
+<a href="#pub-methods">Public メソッド</a> &#124;
+<a href="#pro-attribs">Protected 変数</a>  </div>
+  <div class="headertitle">
+<h1>クラス テンプレート stf::core::devicedriver::CDHMultiComponent&lt; TList, Env &gt;</h1>  </div>
+</div>
+<div class="contents">
+<!-- doxytag: class="stf::core::devicedriver::CDHMultiComponent" --><!-- doxytag: inherits="stf::RootObject,stf::core::devicedriver::OutputPorts,stf::core::devicedriver::IDataUpdatable,stf::core::devicedriver::ISwitchable" -->
+<p>電圧と電流など，異なる物理量を複合的に取り扱うコンポーネントの基底クラス．  
+<a href="#_details">[詳細]</a></p>
+
+<p><code>#include &lt;<a class="el" href="">CDHComponent.h</a>&gt;</code></p>
+<div class="dynheader">
+stf::core::devicedriver::CDHMultiComponent&lt; TList, Env &gt;に対する継承グラフ</div>
+<div class="dyncontent">
+<div class="center"><img src="classstf_1_1core_1_1devicedriver_1_1_c_d_h_multi_component__inherit__graph.png" border="0" usemap="#stf_1_1core_1_1devicedriver_1_1_c_d_h_multi_component_3_01_t_list_00_01_env_01_4_inherit__map" alt="Inheritance graph"/></div>
+<map name="stf_1_1core_1_1devicedriver_1_1_c_d_h_multi_component_3_01_t_list_00_01_env_01_4_inherit__map" id="stf_1_1core_1_1devicedriver_1_1_c_d_h_multi_component_3_01_t_list_00_01_env_01_4_inherit__map">
+<area shape="rect" id="node2" href="classstf_1_1_root_object.html" title="数値型を除いた全クラスの基本となるクラス．" alt="" coords="621,5,731,35"/><area shape="rect" id="node4" href="classstf_1_1core_1_1devicedriver_1_1_output_ports.html" title="出力ポートを纏め，インターフェースを提供するクラス．" alt="" coords="540,59,812,88"/><area shape="rect" id="node6" href="class_loki_1_1_gen_scatter_hierarchy.html" title="Loki::GenScatterHierarchy\&lt; TList, OutputPort \&gt;" alt="" coords="192,59,491,88"/><area shape="rect" id="node8" href="class_output_port.html" title="OutputPort\&lt; TList \&gt;" alt="" coords="7,59,143,88"/><area shape="rect" id="node10" href="classstf_1_1core_1_1devicedriver_1_1_i_data_updatable.html" title="周期的にデータを取得，送信するコンポーネントに対するインターフェース" alt="" coords="557,112,795,141"/><area shape="rect" id="node12" href="classstf_1_1core_1_1devicedriver_1_1_i_switchable.html" title="電源のオンオフ制御が可能なコンポーネントに対するインターフェース．" alt="" coords="568,165,784,195"/></map>
+<center><span class="legend">[<a href="graph_legend.html">凡例</a>]</span></center></div>
+<div class="dynheader">
+stf::core::devicedriver::CDHMultiComponent&lt; TList, Env &gt;のコラボレーション図</div>
+<div class="dyncontent">
+<div class="center"><img src="classstf_1_1core_1_1devicedriver_1_1_c_d_h_multi_component__coll__graph.png" border="0" usemap="#stf_1_1core_1_1devicedriver_1_1_c_d_h_multi_component_3_01_t_list_00_01_env_01_4_coll__map" alt="Collaboration graph"/></div>
+<map name="stf_1_1core_1_1devicedriver_1_1_c_d_h_multi_component_3_01_t_list_00_01_env_01_4_coll__map" id="stf_1_1core_1_1devicedriver_1_1_c_d_h_multi_component_3_01_t_list_00_01_env_01_4_coll__map">
+<area shape="rect" id="node2" href="classstf_1_1_root_object.html" title="数値型を除いた全クラスの基本となるクラス．" alt="" coords="1471,208,1580,237"/><area shape="rect" id="node10" href="classstf_1_1core_1_1datapool_1_1_data_pool_base.html" title="Tupleを複数個保持するデータプールの基底クラス．" alt="" coords="1920,185,2136,215"/><area shape="rect" id="node23" href="classstf_1_1core_1_1datapool_1_1_event_data_pool.html" title="Eventのデータプール．" alt="" coords="1919,131,2137,160"/><area shape="rect" id="node4" href="classstf_1_1core_1_1devicedriver_1_1clock_1_1_i_time_clock.html" title="Time型のカウントが可能であることを示す抽象インターフェース．" alt="" coords="853,255,1107,284"/><area shape="rect" id="node6" href="classstf_1_1core_1_1devicedriver_1_1_i_data_updatable.html" title="周期的にデータを取得，送信するコンポーネントに対するインターフェース" alt="" coords="307,289,544,319"/><area shape="rect" id="node8" href="classstf_1_1core_1_1datapool_1_1_aocs_data_pool.html" title="IAocsDataのデータプール．" alt="" coords="2257,185,2473,215"/><area shape="rect" id="node13" href="classstf_1_1core_1_1datapool_1_1_tuple.html" title="stf::core::datapool::Tuple\&lt; datatype::IAocsData \&gt;" alt="" coords="1372,45,1679,75"/><area shape="rect" id="node15" href="classstf_1_1datatype_1_1_i_aocs_data.html" title="AOCS使用系列のデータ共通の抽象インターフェース．" alt="" coords="899,45,1061,75"/><area shape="rect" id="node17" href="classstf_1_1interface_1_1_i_telemetable.html" title="テレメトリを生成可能なオブジェクトに対するインターフェース．" alt="" coords="339,45,512,75"/><area shape="rect" id="node19" href="classstf_1_1datatype_1_1_time.html" title="経過時間を表すクラス．" alt="" coords="5,29,136,59"/><area shape="rect" id="node30" href="struct_loki_1_1_tuple_unit.html" title="Loki::TupleUnit\&lt; TYPELIST_2(event::EventType, datatype::Time) \&gt;" alt="" coords="223,99,628,128"/><area shape="rect" id="node21" href="classstf_1_1datatype_1_1_string.html" title="std::stringの簡略版．" alt="" coords="912,153,1048,183"/><area shape="rect" id="node26" href="struct_loki_1_1_tuple.html" title="Loki::Tuple\&lt; TYPELIST_2(event::EventType, datatype::Time)\&gt;" alt="" coords="1336,99,1715,128"/><area shape="rect" id="node28" href="class_loki_1_1_gen_scatter_hierarchy.html" title="Loki::GenScatterHierarchy\&lt; TYPELIST_2(event::EventType, datatype::Time), TupleUnit \&gt;" alt="" coords="713,99,1247,128"/><area shape="rect" id="node34" href="classstf_1_1core_1_1devicedriver_1_1_output_ports.html" title="出力ポートを纏め，インターフェースを提供するクラス．" alt="" coords="1389,360,1661,389"/><area shape="rect" id="node36" href="class_loki_1_1_gen_scatter_hierarchy.html" title="Loki::GenScatterHierarchy\&lt; TList, OutputPort \&gt;" alt="" coords="831,360,1129,389"/><area shape="rect" id="node38" href="class_output_port.html" title="OutputPort\&lt; TList \&gt;" alt="" coords="357,360,493,389"/><area shape="rect" id="node41" href="classstf_1_1core_1_1devicedriver_1_1_i_switchable.html" title="電源のオンオフ制御が可能なコンポーネントに対するインターフェース．" alt="" coords="1417,413,1633,443"/></map>
+<center><span class="legend">[<a href="graph_legend.html">凡例</a>]</span></center></div>
+
+<p><a href="classstf_1_1core_1_1devicedriver_1_1_c_d_h_multi_component-members.html">すべてのメンバ一覧</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="pub-types"></a>
+Public 型</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef Env&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1core_1_1devicedriver_1_1_c_d_h_multi_component.html#ab14ca75e94d92a270960ce42466cff75">Environment</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">環境クラス．  <a href="#ab14ca75e94d92a270960ce42466cff75"></a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="pub-methods"></a>
+Public メソッド</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1core_1_1devicedriver_1_1_c_d_h_multi_component.html#afe8046def4bc0d7557b90ad72fea11f8">CDHMultiComponent</a> (int instance_id, const <a class="el" href="classstf_1_1datatype_1_1_string.html">datatype::String</a> &amp;name)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1core_1_1devicedriver_1_1_c_d_h_multi_component.html#a338dfc64ec3f4a877ddc1ec574660a64">on</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1core_1_1devicedriver_1_1_c_d_h_multi_component.html#a552959c1789e9a89bbbd49ee45781338">off</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1core_1_1devicedriver_1_1_c_d_h_multi_component.html#a0045a489800d54dae7aa6a0f138e5439">is_on</a> () const </td></tr>
+<tr><td colspan="2"><h2><a name="pro-attribs"></a>
+Protected 変数</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1core_1_1devicedriver_1_1_c_d_h_multi_component.html#a8ed17910a2ffd0e1ca6ed8bc4be1e81a">is_on_</a></td></tr>
+</table>
+<hr/><a name="_details"></a><h2>説明</h2>
+<div class="textblock"><h3>template&lt;class TList, class Env&gt;<br/>
+ class stf::core::devicedriver::CDHMultiComponent&lt; TList, Env &gt;</h3>
+
+<p>電圧と電流など，異なる物理量を複合的に取り扱うコンポーネントの基底クラス． </p>
+<dl><dt><b>Template Parameters:</b></dt><dd>
+  <table class="">
+    <tr><td class="paramname">TList</td><td>測定している物理量を表す型．LokiのTypelistを与える </td></tr>
+    <tr><td class="paramname">Env</td><td>コンポーネントの環境クラス． </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p> <a class="el" href="">CDHComponent.h</a> の <a class="el" href="#L67">67</a> 行で定義されています。</p>
+</div><hr/><h2>型定義</h2>
+<a class="anchor" id="ab14ca75e94d92a270960ce42466cff75"></a><!-- doxytag: member="stf::core::devicedriver::CDHMultiComponent::Environment" ref="ab14ca75e94d92a270960ce42466cff75" args="" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class TList, class Env&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef Env <a class="el" href="classstf_1_1core_1_1devicedriver_1_1_c_d_h_multi_component.html">stf::core::devicedriver::CDHMultiComponent</a>&lt; TList, Env &gt;::<a class="el" href="classstf_1_1core_1_1devicedriver_1_1_c_d_h_multi_component.html#ab14ca75e94d92a270960ce42466cff75">Environment</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>環境クラス． </p>
+
+<p> <a class="el" href="">CDHComponent.h</a> の <a class="el" href="#L69">69</a> 行で定義されています。</p>
+
+</div>
+</div>
+<hr/><h2>コンストラクタとデストラクタ</h2>
+<a class="anchor" id="afe8046def4bc0d7557b90ad72fea11f8"></a><!-- doxytag: member="stf::core::devicedriver::CDHMultiComponent::CDHMultiComponent" ref="afe8046def4bc0d7557b90ad72fea11f8" args="(int instance_id, const datatype::String &amp;name)" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class TList, class Env&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classstf_1_1core_1_1devicedriver_1_1_c_d_h_multi_component.html">stf::core::devicedriver::CDHMultiComponent</a>&lt; TList, Env &gt;::<a class="el" href="classstf_1_1core_1_1devicedriver_1_1_c_d_h_multi_component.html">CDHMultiComponent</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>instance_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classstf_1_1datatype_1_1_string.html">datatype::String</a> &amp;&#160;</td>
+          <td class="paramname"><em>name</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">CDHComponent.h</a> の <a class="el" href="#L71">71</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">: <a class="code" href="classstf_1_1_root_object.html#a16410f7e3007286680f7b52e5a2de9e7">RootObject</a>(<a class="code" href="classstf_1_1_root_object.html#a233a3fbd4d53b7a8eaa5d2edab4cf75b">instance_id</a>, <a class="code" href="classstf_1_1_root_object.html#ad900efc99d9557877cdd83dcb06a52eb">name</a>) {}
+</pre></div>
+</div>
+</div>
+<hr/><h2>関数</h2>
+<a class="anchor" id="a0045a489800d54dae7aa6a0f138e5439"></a><!-- doxytag: member="stf::core::devicedriver::CDHMultiComponent::is_on" ref="a0045a489800d54dae7aa6a0f138e5439" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class TList, class Env&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool <a class="el" href="classstf_1_1core_1_1devicedriver_1_1_c_d_h_multi_component.html">stf::core::devicedriver::CDHMultiComponent</a>&lt; TList, Env &gt;::is_on </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline, virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p><a class="el" href="classstf_1_1core_1_1devicedriver_1_1_i_switchable.html#aba71af9ada8e248dc8355077640a40ed">stf::core::devicedriver::ISwitchable</a>を実装しています。</p>
+
+<p> <a class="el" href="">CDHComponent.h</a> の <a class="el" href="#L74">74</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">{ <span class="keywordflow">return</span> <a class="code" href="classstf_1_1core_1_1devicedriver_1_1_c_d_h_multi_component.html#a8ed17910a2ffd0e1ca6ed8bc4be1e81a">is_on_</a>; }
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="a552959c1789e9a89bbbd49ee45781338"></a><!-- doxytag: member="stf::core::devicedriver::CDHMultiComponent::off" ref="a552959c1789e9a89bbbd49ee45781338" args="()" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class TList, class Env&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void <a class="el" href="classstf_1_1core_1_1devicedriver_1_1_c_d_h_multi_component.html">stf::core::devicedriver::CDHMultiComponent</a>&lt; TList, Env &gt;::off </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inline, virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p><a class="el" href="classstf_1_1core_1_1devicedriver_1_1_i_switchable.html#a94d51c6d06c658a61bd1e4444f326365">stf::core::devicedriver::ISwitchable</a>を実装しています。</p>
+
+<p> <a class="el" href="">CDHComponent.h</a> の <a class="el" href="#L73">73</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">{ <a class="code" href="classstf_1_1core_1_1devicedriver_1_1_c_d_h_multi_component.html#a8ed17910a2ffd0e1ca6ed8bc4be1e81a">is_on_</a> = <span class="keyword">false</span>;}
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="a338dfc64ec3f4a877ddc1ec574660a64"></a><!-- doxytag: member="stf::core::devicedriver::CDHMultiComponent::on" ref="a338dfc64ec3f4a877ddc1ec574660a64" args="()" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class TList, class Env&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void <a class="el" href="classstf_1_1core_1_1devicedriver_1_1_c_d_h_multi_component.html">stf::core::devicedriver::CDHMultiComponent</a>&lt; TList, Env &gt;::on </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inline, virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p><a class="el" href="classstf_1_1core_1_1devicedriver_1_1_i_switchable.html#a31ea4d950d0735264b8e635f90690fe2">stf::core::devicedriver::ISwitchable</a>を実装しています。</p>
+
+<p> <a class="el" href="">CDHComponent.h</a> の <a class="el" href="#L72">72</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">{ <a class="code" href="classstf_1_1core_1_1devicedriver_1_1_c_d_h_multi_component.html#a8ed17910a2ffd0e1ca6ed8bc4be1e81a">is_on_</a> = <span class="keyword">true</span>;}
+</pre></div>
+</div>
+</div>
+<hr/><h2>変数</h2>
+<a class="anchor" id="a8ed17910a2ffd0e1ca6ed8bc4be1e81a"></a><!-- doxytag: member="stf::core::devicedriver::CDHMultiComponent::is_on_" ref="a8ed17910a2ffd0e1ca6ed8bc4be1e81a" args="" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class TList, class Env&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classstf_1_1core_1_1devicedriver_1_1_c_d_h_multi_component.html">stf::core::devicedriver::CDHMultiComponent</a>&lt; TList, Env &gt;::<a class="el" href="classstf_1_1core_1_1devicedriver_1_1_c_d_h_multi_component.html#a8ed17910a2ffd0e1ca6ed8bc4be1e81a">is_on_</a><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">CDHComponent.h</a> の <a class="el" href="#L76">76</a> 行で定義されています。</p>
+
+</div>
+</div>
+<hr/>このクラスの説明は次のファイルから生成されました:<ul>
+<li>stf/core/devicedriver/<a class="el" href="">CDHComponent.h</a></li>
+</ul>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>フレンド</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>マクロ定義</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>STFに対してWed Mar 23 2011 05:33:08に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
+</body>
+</html>

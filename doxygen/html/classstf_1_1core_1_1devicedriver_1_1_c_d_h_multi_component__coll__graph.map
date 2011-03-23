@@ -1,0 +1,20 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$classstf_1_1_root_object.html" title="数値型を除いた全クラスの基本となるクラス．" alt="" coords="1471,208,1580,237"/>
+<area shape="rect" id="node10" href="$classstf_1_1core_1_1datapool_1_1_data_pool_base.html" title="Tupleを複数個保持するデータプールの基底クラス．" alt="" coords="1920,185,2136,215"/>
+<area shape="rect" id="node23" href="$classstf_1_1core_1_1datapool_1_1_event_data_pool.html" title="Eventのデータプール．" alt="" coords="1919,131,2137,160"/>
+<area shape="rect" id="node4" href="$classstf_1_1core_1_1devicedriver_1_1clock_1_1_i_time_clock.html" title="Time型のカウントが可能であることを示す抽象インターフェース．" alt="" coords="853,255,1107,284"/>
+<area shape="rect" id="node6" href="$classstf_1_1core_1_1devicedriver_1_1_i_data_updatable.html" title="周期的にデータを取得，送信するコンポーネントに対するインターフェース" alt="" coords="307,289,544,319"/>
+<area shape="rect" id="node8" href="$classstf_1_1core_1_1datapool_1_1_aocs_data_pool.html" title="IAocsDataのデータプール．" alt="" coords="2257,185,2473,215"/>
+<area shape="rect" id="node13" href="$classstf_1_1core_1_1datapool_1_1_tuple.html" title="stf::core::datapool::Tuple\&lt; datatype::IAocsData \&gt;" alt="" coords="1372,45,1679,75"/>
+<area shape="rect" id="node15" href="$classstf_1_1datatype_1_1_i_aocs_data.html" title="AOCS使用系列のデータ共通の抽象インターフェース．" alt="" coords="899,45,1061,75"/>
+<area shape="rect" id="node17" href="$classstf_1_1interface_1_1_i_telemetable.html" title="テレメトリを生成可能なオブジェクトに対するインターフェース．" alt="" coords="339,45,512,75"/>
+<area shape="rect" id="node19" href="$classstf_1_1datatype_1_1_time.html" title="経過時間を表すクラス．" alt="" coords="5,29,136,59"/>
+<area shape="rect" id="node30" href="$struct_loki_1_1_tuple_unit.html" title="Loki::TupleUnit\&lt; TYPELIST_2(event::EventType, datatype::Time) \&gt;" alt="" coords="223,99,628,128"/>
+<area shape="rect" id="node21" href="$classstf_1_1datatype_1_1_string.html" title="std::stringの簡略版．" alt="" coords="912,153,1048,183"/>
+<area shape="rect" id="node26" href="$struct_loki_1_1_tuple.html" title="Loki::Tuple\&lt; TYPELIST_2(event::EventType, datatype::Time)\&gt;" alt="" coords="1336,99,1715,128"/>
+<area shape="rect" id="node28" href="$class_loki_1_1_gen_scatter_hierarchy.html" title="Loki::GenScatterHierarchy\&lt; TYPELIST_2(event::EventType, datatype::Time), TupleUnit \&gt;" alt="" coords="713,99,1247,128"/>
+<area shape="rect" id="node34" href="$classstf_1_1core_1_1devicedriver_1_1_output_ports.html" title="出力ポートを纏め，インターフェースを提供するクラス．" alt="" coords="1389,360,1661,389"/>
+<area shape="rect" id="node36" href="$class_loki_1_1_gen_scatter_hierarchy.html" title="Loki::GenScatterHierarchy\&lt; TList, OutputPort \&gt;" alt="" coords="831,360,1129,389"/>
+<area shape="rect" id="node38" href="$class_output_port.html" title="OutputPort\&lt; TList \&gt;" alt="" coords="357,360,493,389"/>
+<area shape="rect" id="node41" href="$classstf_1_1core_1_1devicedriver_1_1_i_switchable.html" title="電源のオンオフ制御が可能なコンポーネントに対するインターフェース．" alt="" coords="1417,413,1633,443"/>
+</map>

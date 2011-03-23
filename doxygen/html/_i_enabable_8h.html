@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>STF: stf/interface/IEnabable.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.3 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">STF</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="pages.html"><span>関連ページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>ファイルメンバ</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">構成</a> &#124;
+<a href="#namespaces">ネームスペース</a>  </div>
+  <div class="headertitle">
+<h1>stf/interface/IEnabable.h</h1>  </div>
+</div>
+<div class="contents">
+
+<p>有効化・無効化制御が可能なコンポーネントに対するインターフェース．  
+<a href="#_details">[詳細]</a></p>
+<div class="textblock"><div class="dynheader">
+このグラフは、どのファイルから直接、間接的にインクルードされているかを示しています。</div>
+<div class="dyncontent">
+<div class="center"><img src="_i_enabable_8h__dep__incl.png" border="0" usemap="#stf_2interface_2_i_enabable_8hdep" alt=""/></div>
+<map name="stf_2interface_2_i_enabable_8hdep" id="stf_2interface_2_i_enabable_8hdep">
+<area shape="rect" id="node3" href="_strategy_base_8h.html" title="ストラテジの共通基底クラス．" alt="" coords="3384,83,3595,112"/><area shape="rect" id="node5" href="_control_block_8h.html" title="制御ネットワークのラッパーとなるスーパーブロック．" alt="" coords="513,160,761,189"/><area shape="rect" id="node17" href="_bdot_8h.html" title="B&#45;Dot則を計算する制御ブロック．" alt="" coords="789,160,989,189"/><area shape="rect" id="node22" href="_combining_8h.html" title="任意の物理量を単純加算で合成する制御ブロック群．" alt="" coords="2992,160,3227,189"/><area shape="rect" id="node25" href="_coupling_compensation_8h.html" title="3軸独立に制御則を適用した際に生じるカップリング項Iωを，フィードフォワードに打ち消すために使う制御ブロック．" alt="" coords="1805,160,2112,189"/><area shape="rect" id="node28" href="_e_k_f_8h.html" title="ジャイロバイアス推定を行う拡張カルマンフィルタ制御ブロック．" alt="" coords="1013,160,1213,189"/><area shape="rect" id="node38" href="_first_order_correction_8h.html" title="TをT*Uに変換して出力する制御ブロック．" alt="" coords="2136,160,2427,189"/><area shape="rect" id="node41" href="_liniar_correction_8h.html" title="TをaT+bに変換して出力する制御ブロック" alt="" coords="2451,160,2715,189"/><area shape="rect" id="node44" href="_magnetic_moment_to_torque_8h.html" title="磁気モーメントをトルクに変換する制御ブロック．" alt="" coords="1237,160,1563,189"/><area shape="rect" id="node49" href="_no_control_8h.html" title="制御を行わない制御ブロック．" alt="" coords="2739,160,2968,189"/><area shape="rect" id="node52" href="_p_i_d_8h.html" title="PID制御を行う制御ブロック群．" alt="" coords="1587,160,1781,189"/><area shape="rect" id="node57" href="_q_u_e_s_t_8h.html" title="Quaternion Estimatorによる姿勢決定を行う制御ブロック．未実装．" alt="" coords="3251,160,3469,189"/><area shape="rect" id="node62" href="_rate_dumping_8h.html" title="レートダンピング則による3軸独立のトルク計算を行う制御ブロック．" alt="" coords="3493,160,3744,189"/><area shape="rect" id="node67" href="_single_axis_p_i_d_8h.html" title="Scalarを目標値に近づける単純な1次元PID制御ブロック．" alt="" coords="3768,160,4024,189"/><area shape="rect" id="node72" href="_cross_product_8h.html" title="クロスプロダクト則を用いて要求出力トルクを磁気モーメントに変換する制御ブロック．" alt="" coords="4048,160,4301,189"/><area shape="rect" id="node77" href="_g_g_compensation_8h.html" title="重力傾斜トルクを計算し，逆符号のトルクを出力する制御ブロック．" alt="" coords="4325,160,4603,189"/><area shape="rect" id="node82" href="_solar_pointing_8h.html" title="MTQで太陽指向制御を行うための制御ブロック．" alt="" coords="4627,160,4877,189"/><area shape="rect" id="node87" href="_r_m_m_e_k_f_8h.html" title="残留磁気モーメントの推定を行う拡張カルマンフィルタ制御ブロック．未実装．" alt="" coords="4901,160,5131,189"/><area shape="rect" id="node97" href="_t_r_i_a_d_8h.html" title="TRIAD則で姿勢決定を行う制御ブロック群．" alt="" coords="5279,160,5489,189"/><area shape="rect" id="node107" href="_wheel_unloading_8h.html" title="RWのアンローディングをMTQを使用して行うための制御ブロック．" alt="" coords="5513,160,5780,189"/><area shape="rect" id="node112" href="_i_telemetry_strategy_8h.html" title="テレメトリ生成ストラテジの抽象インターフェース．" alt="" coords="6428,160,6727,189"/><area shape="rect" id="node114" href="_output_all_8h.html" title="データプールの内容を全て出力するテレメトリ生成ストラテジ．" alt="" coords="7051,237,7293,267"/><area shape="rect" id="node118" href="_selecting_output_8h.html" title="指定したイテレータをテレメトリとして整形するテレメトリ生成ストラテジ．" alt="" coords="6744,237,7027,267"/><area shape="rect" id="node7" href="strategy_2control_2_includes_8h.html" title="stf/core/strategy/control/Includes.h" alt="" coords="2685,237,2907,267"/><area shape="rect" id="node9" href="_p_r_i_s_m_control_block_8h.html" title="stf/satellite/prism/PRISMControlBlock.h" alt="" coords="512,237,763,267"/><area shape="rect" id="node13" href="_n_j_controllers_8h.html" title="stf/satellite/nj/NJControllers.h" alt="" coords="5,237,195,267"/><area shape="rect" id="node15" href="_control_manager_base_8cpp.html" title="制御ブロックの実行を行う機能マネージャ基底クラス．" alt="" coords="219,237,488,267"/><area shape="rect" id="node11" href="_p_r_i_s_m_global_8h.html" title="stf/satellite/prism/PRISMGlobal.h" alt="" coords="4675,315,4888,344"/><area shape="rect" id="node20" href="_bdot_8cpp.html" title="B&#45;Dot則を計算する制御ブロック．" alt="" coords="787,237,1000,267"/><area shape="rect" id="node31" href="_p_r_i_s_m_e_k_f_8h.html" title="stf/satellite/prism/PRISMEKF.h" alt="" coords="1440,237,1643,267"/><area shape="rect" id="node34" href="_n_j_e_k_f_8h.html" title="stf/satellite/nj/NJEKF.h" alt="" coords="1024,237,1179,267"/><area shape="rect" id="node36" href="_e_k_f_8cpp.html" title="ジャイロバイアス推定を行う拡張カルマンフィルタ制御ブロック．" alt="" coords="1203,237,1416,267"/><area shape="rect" id="node47" href="_magnetic_moment_to_torque_8cpp.html" title="磁気モーメントをトルクに変換する制御ブロック．" alt="" coords="1667,237,2008,267"/><area shape="rect" id="node55" href="_p_i_d_8cpp.html" title="PID制御を行う制御ブロック群．" alt="" coords="2032,237,2240,267"/><area shape="rect" id="node60" href="_q_u_e_s_t_8cpp.html" title="Quaternion Estimatorによる姿勢決定を行う制御ブロック．未実装．" alt="" coords="2931,237,3163,267"/><area shape="rect" id="node65" href="_rate_dumping_8cpp.html" title="レートダンピング則による3軸独立のトルク計算を行う制御ブロック．" alt="" coords="3187,237,3453,267"/><area shape="rect" id="node70" href="_single_axis_p_i_d_8cpp.html" title="Scalarを目標値に近づける単純な1次元PID制御ブロック．" alt="" coords="3477,237,3747,267"/><area shape="rect" id="node75" href="_cross_product_8cpp.html" title="クロスプロダクト則を用いて要求出力トルクを磁気モーメントに変換する制御ブロック．" alt="" coords="3771,237,4037,267"/><area shape="rect" id="node80" href="_g_g_compensation_8cpp.html" title="重力傾斜トルクを計算し，逆符号のトルクを出力する制御ブロック．" alt="" coords="4061,237,4352,267"/><area shape="rect" id="node85" href="_solar_pointing_8cpp.html" title="MTQで太陽指向制御を行うための制御ブロック．" alt="" coords="4376,237,4640,267"/><area shape="rect" id="node90" href="_p_r_i_s_m_r_m_m_e_k_f_8h.html" title="stf/satellite/prism/PRISMRMMEKF.h" alt="" coords="4664,237,4899,267"/><area shape="rect" id="node93" href="_n_j_r_m_m_e_k_f_8h.html" title="stf/satellite/nj/NJRMMEKF.h" alt="" coords="4923,237,5109,267"/><area shape="rect" id="node95" href="_r_m_m_e_k_f_8cpp.html" title="残留磁気モーメントの推定を行う拡張カルマンフィルタ制御ブロック．未実装．" alt="" coords="5133,237,5379,267"/><area shape="rect" id="node100" href="_p_r_i_s_m_t_r_i_a_d_8h.html" title="stf/satellite/prism/PRISMTRIAD.h" alt="" coords="5403,237,5616,267"/><area shape="rect" id="node103" href="_n_j_t_r_i_a_d_8h.html" title="stf/satellite/nj/NJTRIAD.h" alt="" coords="5640,237,5805,267"/><area shape="rect" id="node105" href="_t_r_i_a_d_8cpp.html" title="TRIAD則で姿勢決定を行う制御ブロック群．" alt="" coords="5829,237,6053,267"/><area shape="rect" id="node110" href="_wheel_unloading_8cpp.html" title="RWのアンローディングをMTQを使用して行うための制御ブロック．" alt="" coords="6077,237,6360,267"/><area shape="rect" id="node122" href="_telemetry_manager_base_8cpp.html" title="テレメトリ生成を行う機能マネージャ基底クラス．" alt="" coords="6435,237,6720,267"/><area shape="rect" id="node116" href="strategy_2telemetry_2_includes_8h.html" title="stf/core/strategy/telemetry/Includes.h" alt="" coords="6909,315,7147,344"/></map>
+</div>
+</div>
+<p><a href="">ソースコードを見る。</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="nested-classes"></a>
+構成</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1interface_1_1_i_enabable.html">stf::interface::IEnabable</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">有効化・無効化制御が可能なコンポーネントに対するインターフェース．  <a href="classstf_1_1interface_1_1_i_enabable.html#_details">[詳細]</a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="namespaces"></a>
+ネームスペース</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf.html">stf</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf_1_1interface.html">stf::interface</a></td></tr>
+</table>
+<hr/><a name="_details"></a><h2>説明</h2>
+<div class="textblock"><p>有効化・無効化制御が可能なコンポーネントに対するインターフェース． </p>
+<dl class="author"><dt><b>作者:</b></dt><dd>Taiga Nomi </dd></dl>
+<dl class="date"><dt><b>日付:</b></dt><dd>2011.02.16 </dd></dl>
+
+<p> <a class="el" href="">IEnabable.h</a> で定義されています。</p>
+</div></div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>フレンド</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>マクロ定義</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>STFに対してWed Mar 23 2011 05:32:43に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
+</body>
+</html>

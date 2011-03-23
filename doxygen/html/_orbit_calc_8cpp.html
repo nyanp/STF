@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>STF: stf/datatype/OrbitCalc.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.3 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">STF</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="pages.html"><span>関連ページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>ファイルメンバ</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#namespaces">ネームスペース</a> &#124;
+<a href="#var-members">変数</a>  </div>
+  <div class="headertitle">
+<h1>stf/datatype/OrbitCalc.cpp</h1>  </div>
+</div>
+<div class="contents">
+
+<p>軌道関係情報を計算するメソッドをstaticメンバとしてまとめたクラス．  
+<a href="#_details">[詳細]</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="">../util/stfassert.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="">OrbitCalc.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="">../util/math.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="">TypeConverter.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="">OrbitInfo.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="">Magnetic.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="">StaticVector.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="">DateTime.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="">Quaternion.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="">../environment/sgp4/sgp4ext.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="">../environment/sgp4/sgp4unit.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="">../environment/sgp4/orbitutil.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="">../environment/models/igrf.h</a>&quot;</code><br/>
+</div><div class="textblock"><div class="dynheader">
+OrbitCalc.cppのインクルード依存関係図</div>
+<div class="dyncontent">
+<div class="center"><img src="_orbit_calc_8cpp__incl.png" border="0" usemap="#stf_2datatype_2_orbit_calc_8cpp" alt=""/></div>
+<map name="stf_2datatype_2_orbit_calc_8cpp" id="stf_2datatype_2_orbit_calc_8cpp">
+<area shape="rect" id="node3" href="stfassert_8h.html" title="assertラッパ．" alt="" coords="670,392,784,421"/><area shape="rect" id="node5" href="_orbit_calc_8h.html" title="軌道関係情報を計算するメソッドをstaticメンバとしてまとめたクラス．" alt="" coords="44,83,130,112"/><area shape="rect" id="node7" href="math_8h.html" title="数学系関数のラッパと算術定数の定義．" alt="" coords="136,392,230,421"/><area shape="rect" id="node9" href="_type_converter_8h.html" title="単位や姿勢表現の相互変換を行うユーティリティ．" alt="" coords="287,83,402,112"/><area shape="rect" id="node16" href="_static_vector_8h.html" title="テンプレートを用いた固定要素数のベクトル計算クラス" alt="" coords="344,315,448,344"/><area shape="rect" id="node27" href="_quaternion_8h.html" title="4元数を表現するクラス．" alt="" coords="127,160,223,189"/><area shape="rect" id="node31" href="_orbit_info_8h.html" title="軌道情報関係の量を表す" alt="" coords="143,237,223,267"/><area shape="rect" id="node36" href="_magnetic_8h.html" title="磁気関係の物理量を表す" alt="" coords="604,160,690,189"/><area shape="rect" id="node40" href="_date_time_8h.html" title="ユリウス暦による絶対時刻を保持するクラス．時間間隔などの計算にはTimeを使う．" alt="" coords="764,237,852,267"/><area shape="rect" id="node47" href="sgp4ext_8h.html" title="NJHILSから持ってきた軌道計算関係モジュールを，sgp4名前空間でラップして使用．" alt="" coords="815,83,1010,112"/><area shape="rect" id="node53" href="sgp4unit_8h.html" title="NJHILSから持ってきた軌道計算関係モジュールを，sgp4名前空間でラップして使用．" alt="" coords="1031,160,1228,189"/><area shape="rect" id="node58" href="orbitutil_8h.html" title="NJHILSから持ってきた軌道計算関係モジュールを，sgp4名前空間でラップして使用．" alt="" coords="1034,83,1226,112"/><area shape="rect" id="node61" href="igrf_8h.html" title="NJHILSから持ってきたIGRF計算モジュールを，igrf名前空間でラップして使用．" alt="" coords="1300,83,1482,112"/><area shape="rect" id="node11" href="_d_c_m_8h.html" title="Z&#45;Y&#45;Xの順で回転させる回転行列（DCM）．" alt="" coords="519,160,580,189"/><area shape="rect" id="node24" href="_euler_angle_8h.html" title="z&#45;y&#45;xオイラー角(rad)．" alt="" coords="348,160,444,189"/><area shape="rect" id="node13" href="_static_matrix_8h.html" title="テンプレートを用いた固定要素数の行列計算クラス" alt="" coords="514,237,615,267"/><area shape="rect" id="node19" href="_i_aocs_data_8h.html" title="AOCS使用系列のデータ共通の抽象インターフェース．" alt="" coords="350,392,443,421"/><area shape="rect" id="node21" href="_i_telemetable_8h.html" title="テレメトリを生成可能なオブジェクトに対するインターフェース．" alt="" coords="311,469,482,499"/><area shape="rect" id="node43" href="_time_8h.html" title="経過時間を表すクラス．" alt="" coords="764,315,826,344"/></map>
+</div>
+</div>
+<p><a href="">ソースコードを見る。</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="namespaces"></a>
+ネームスペース</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf.html">stf</a></td></tr>
+<tr><td colspan="2"><h2><a name="var-members"></a>
+変数</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf.html#ad7471a4270f1cdbad42fa8e81854f9fe">stf::M</a> = util::math::DEG2RAD * (357.5256 + 35999.045 * T)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf.html#adfa79b168df93761f1b4d618580a19df">stf::lambda</a> = util::math::DEG2RAD * (282.94 + M + (6892 / 3600) * sin(M) + (72/3600) * sin(2*M) - (0.002652 - (1250.09115 / 3600) * T))</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf.html#aa85de960f27da8bb71b5ca1a62849038">stf::eta</a> = util::math::DEG2RAD * 23.43929111</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">StaticVector&lt; 3 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf.html#afa89a4a0c80d3727c2f396aa3ead41cd">stf::v</a> = cos(lambda)</td></tr>
+</table>
+<hr/><a name="_details"></a><h2>説明</h2>
+<div class="textblock"><p>軌道関係情報を計算するメソッドをstaticメンバとしてまとめたクラス． </p>
+<dl class="author"><dt><b>作者:</b></dt><dd>Taiga Nomi </dd></dl>
+<dl class="date"><dt><b>日付:</b></dt><dd>2011.02.16 </dd></dl>
+
+<p> <a class="el" href="">OrbitCalc.cpp</a> で定義されています。</p>
+</div></div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>フレンド</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>マクロ定義</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>STFに対してWed Mar 23 2011 05:32:40に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
+</body>
+</html>

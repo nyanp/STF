@@ -1,0 +1,51 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$classstf_1_1core_1_1devicedriver_1_1cmhandler_1_1_i_command_receiver.html" title="受信機からコマンドを受け取り，応答を返却するデバイスの抽象インターフェース．" alt="" coords="1547,179,1877,208"/>
+<area shape="rect" id="node27" href="$classstf_1_1core_1_1manager_1_1_command_manager_base.html" title="コマンドの処理を行う機能マネージャ基底クラス．" alt="" coords="2701,201,2976,231"/>
+<area shape="rect" id="node38" href="$classstf_1_1core_1_1command_1_1_command.html" title="衛星コマンドの抽象インターフェースと共通の実装を行う基底クラス．" alt="" coords="2065,260,2265,289"/>
+<area shape="rect" id="node4" href="$classstf_1_1_root_object.html" title="数値型を除いた全クラスの基本となるクラス．" alt="" coords="1128,876,1237,905"/>
+<area shape="rect" id="node12" href="$classstf_1_1core_1_1datapool_1_1_data_pool_base.html" title="Tupleを複数個保持するデータプールの基底クラス．" alt="" coords="1604,1607,1820,1636"/>
+<area shape="rect" id="node21" href="$classstf_1_1core_1_1datapool_1_1_event_data_pool.html" title="Eventのデータプール．" alt="" coords="1603,921,1821,951"/>
+<area shape="rect" id="node29" href="$classstf_1_1core_1_1manager_1_1_manager_base.html" title="機能マネージャの基底クラス．" alt="" coords="2059,591,2272,620"/>
+<area shape="rect" id="node32" href="$classstf_1_1core_1_1mode_1_1_mode_base.html" title="モードの基底クラス．" alt="" coords="1623,808,1801,837"/>
+<area shape="rect" id="node6" href="$classstf_1_1core_1_1devicedriver_1_1clock_1_1_i_time_clock.html" title="Time型のカウントが可能であることを示す抽象インターフェース．" alt="" coords="625,603,879,632"/>
+<area shape="rect" id="node93" href="$classstf_1_1core_1_1devicedriver_1_1clock_1_1_p_r_i_s_m_dummy_clock.html" title="stf::core::devicedriver::clock::PRISMDummyClock" alt="" coords="1028,441,1337,471"/>
+<area shape="rect" id="node8" href="$classstf_1_1core_1_1devicedriver_1_1_i_data_updatable.html" title="周期的にデータを取得，送信するコンポーネントに対するインターフェース" alt="" coords="264,603,501,632"/>
+<area shape="rect" id="node10" href="$classstf_1_1core_1_1datapool_1_1_aocs_data_pool.html" title="IAocsDataのデータプール．" alt="" coords="644,908,860,937"/>
+<area shape="rect" id="node43" href="$structstf_1_1_p_r_i_s_m_global.html" title="stf::PRISMGlobal\&lt; T \&gt;" alt="" coords="4097,767,4249,796"/>
+<area shape="rect" id="node90" href="$classstf_1_1core_1_1strategy_1_1telemetry_1_1_selecting_output.html" title="stf::core::strategy::telemetry::SelectingOutput\&lt; short, SCALE \&gt;" alt="" coords="988,511,1377,540"/>
+<area shape="rect" id="node15" href="$classstf_1_1core_1_1datapool_1_1_tuple.html" title="stf::core::datapool::Tuple\&lt; datatype::IAocsData \&gt;" alt="" coords="229,908,536,937"/>
+<area shape="rect" id="node17" href="$classstf_1_1datatype_1_1_time.html" title="経過時間を表すクラス．" alt="" coords="8,315,139,344"/>
+<area shape="rect" id="node88" href="$classstf_1_1core_1_1strategy_1_1telemetry_1_1_p_r_i_s_m_telemetry_strategy.html" title="stf::core::strategy::telemetry::PRISMTelemetryStrategy\&lt; 1000 \&gt;" alt="" coords="1516,441,1908,471"/>
+<area shape="rect" id="node19" href="$classstf_1_1datatype_1_1_string.html" title="std::stringの簡略版．" alt="" coords="5,877,141,907"/>
+<area shape="rect" id="node24" href="$struct_loki_1_1_tuple.html" title="Loki::Tuple\&lt; TYPELIST_2(event::EventType, datatype::Time)\&gt;" alt="" coords="993,1012,1372,1041"/>
+<area shape="rect" id="node120" href="$classstf_1_1core_1_1manager_1_1_command_manager.html" title="コマンドの処理を行う機能マネージャ．" alt="" coords="3505,151,3748,180"/>
+<area shape="rect" id="node47" href="$classstf_1_1datatype_1_1_list.html" title="stf::datatype::List\&lt; core::manager::ManagerBase \&gt;" alt="" coords="2680,529,2997,559"/>
+<area shape="rect" id="node60" href="$classstf_1_1core_1_1manager_1_1_system_manager_base.html" title="条件判定や異常対応を行う機能マネージャ基底クラス．" alt="" coords="2709,631,2968,660"/>
+<area shape="rect" id="node76" href="$classstf_1_1core_1_1manager_1_1_telemetry_manager_base.html" title="テレメトリ生成を行う機能マネージャ基底クラス．" alt="" coords="2703,684,2975,713"/>
+<area shape="rect" id="node35" href="$classstf_1_1core_1_1event_1_1_observer.html" title="stf::core::event::Observer\&lt; event::ModeChangeEvent \&gt;" alt="" coords="1997,651,2333,680"/>
+<area shape="rect" id="node45" href="$classstf_1_1_global.html" title="stf::Global\&lt; T \&gt;" alt="" coords="3571,524,3683,553"/>
+<area shape="rect" id="node50" href="$classstf_1_1core_1_1devicedriver_1_1_p_r_i_s_m_voltage_sensor.html" title="stf::core::devicedriver::PRISMVoltageSensor\&lt; T \&gt;" alt="" coords="3473,945,3780,975"/>
+<area shape="rect" id="node52" href="$classstf_1_1core_1_1devicedriver_1_1_multi_sensor.html" title="stf::core::devicedriver::MultiSensor\&lt; datatype::Voltage, PRISM__VOLTAGE__CHANNELS, PRISM__ADC__CHANNELS, T \&gt;" alt="" coords="2468,956,3209,985"/>
+<area shape="rect" id="node54" href="$classstf_1_1core_1_1devicedriver_1_1_p_r_i_s_m_a_d_c.html" title="stf::core::devicedriver::PRISMADC\&lt; T \&gt;" alt="" coords="3501,999,3752,1028"/>
+<area shape="rect" id="node56" href="$classstf_1_1core_1_1devicedriver_1_1_a_d_c_base.html" title="stf::core::devicedriver::ADCBase\&lt; PRISM__ADC__CHANNELS, T \&gt;" alt="" coords="2632,1009,3045,1039"/>
+<area shape="rect" id="node58" href="$classstf_1_1core_1_1manager_1_1_system_manager.html" title="条件判定や異常対応を行う機能マネージャ．" alt="" coords="3512,631,3741,660"/>
+<area shape="rect" id="node64" href="$classstf_1_1core_1_1devicedriver_1_1_p_r_i_s_m_current_sensor.html" title="stf::core::devicedriver::PRISMCurrentSensor\&lt; T \&gt;" alt="" coords="3473,1052,3780,1081"/>
+<area shape="rect" id="node66" href="$classstf_1_1core_1_1devicedriver_1_1_multi_sensor.html" title="stf::core::devicedriver::MultiSensor\&lt; datatype::Current, PRISM__CURRENT__CHANNELS, PRISM__ADC__CHANNELS, T \&gt;" alt="" coords="2468,1063,3209,1092"/>
+<area shape="rect" id="node70" href="$classstf_1_1datatype_1_1_satellite_model.html" title="衛星質量特性を表現するクラス．" alt="" coords="3535,1105,3719,1135"/>
+<area shape="rect" id="node72" href="$classstf_1_1datatype_1_1_static_matrix.html" title="stf::datatype::StaticMatrix\&lt; 3, 3 \&gt;" alt="" coords="2729,1116,2948,1145"/>
+<area shape="rect" id="node74" href="$classstf_1_1core_1_1manager_1_1_telemetry_manager.html" title="テレメトリ生成を行う機能マネージャ．" alt="" coords="3505,791,3748,820"/>
+<area shape="rect" id="node80" href="$classstf_1_1core_1_1strategy_1_1control_1_1_i_control_strategy.html" title="制御ブロックの抽象インターフェース．" alt="" coords="3491,1159,3763,1188"/>
+<area shape="rect" id="node82" href="$classstf_1_1core_1_1manager_1_1_heater_control.html" title="stf::core::manager::HeaterControl\&lt; T \&gt;" alt="" coords="2716,1343,2961,1372"/>
+<area shape="rect" id="node101" href="$classstf_1_1core_1_1manager_1_1_p_r_i_s_m_custom_manager.html" title="stf::core::manager::PRISMCustomManager\&lt; T \&gt;" alt="" coords="3476,1399,3777,1428"/>
+<area shape="rect" id="node84" href="$classstf_1_1core_1_1devicedriver_1_1_p_r_i_s_m_temp_sensor.html" title="stf::core::devicedriver::PRISMTempSensor\&lt; T \&gt;" alt="" coords="2017,1280,2313,1309"/>
+<area shape="rect" id="node86" href="$classstf_1_1datatype_1_1_temperature.html" title="温度を表すクラス．" alt="" coords="2079,1349,2252,1379"/>
+<area shape="rect" id="node97" href="$classstf_1_1interface_1_1_p_r_i_s_m_telemetry_iterator.html" title="stf::interface::PRISMTelemetryIterator\&lt; 100, 4 \&gt;" alt="" coords="3477,1452,3776,1481"/>
+<area shape="rect" id="node99" href="$classstf_1_1core_1_1devicedriver_1_1_composite_input.html" title="stf::core::devicedriver::CompositeInput\&lt; devicedriver::gyro::PRISMGyro\&lt; T \&gt;, 3 \&gt;" alt="" coords="3384,97,3869,127"/>
+<area shape="rect" id="node104" href="$classstf_1_1core_1_1manager_1_1_unit_manager.html" title="機器の定期データ取得・更新を行う機能マネージャ．" alt="" coords="3523,212,3731,241"/>
+<area shape="rect" id="node106" href="$classstf_1_1core_1_1manager_1_1_mode_manager.html" title="モードの管理を行う機能マネージャ．" alt="" coords="3519,316,3735,345"/>
+<area shape="rect" id="node109" href="$classstf_1_1interface_1_1_p_r_i_s_m_telemetry_iterator.html" title="stf::interface::PRISMTelemetryIterator\&lt; 100, 1 \&gt;" alt="" coords="3477,471,3776,500"/>
+<area shape="rect" id="node113" href="$classstf_1_1core_1_1devicedriver_1_1_composite_input.html" title="stf::core::devicedriver::CompositeInput\&lt; devicedriver::sunsensor::PRISMSunSensor\&lt; T \&gt;, 6 \&gt;" alt="" coords="3348,684,3905,713"/>
+<area shape="rect" id="node115" href="$classstf_1_1core_1_1devicedriver_1_1_composite_output.html" title="stf::core::devicedriver::CompositeOutput\&lt; devicedriver::mtq::PRISMMTQ\&lt; T \&gt;, 3 \&gt;" alt="" coords="3380,737,3873,767"/>
+<area shape="rect" id="node117" href="$classstf_1_1core_1_1manager_1_1_control_manager.html" title="制御ブロックの実行を行う機能マネージャ．" alt="" coords="3513,577,3740,607"/>
+<area shape="rect" id="node123" href="$classstf_1_1core_1_1manager_1_1_custom_manager.html" title="カスタムコードの実行を行う機能マネージャ．" alt="" coords="3512,1212,3741,1241"/>
+</map>

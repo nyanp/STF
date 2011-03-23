@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>STF: stf/core/command/Command.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.3 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">STF</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="pages.html"><span>関連ページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>ファイルメンバ</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<h1>stf/core/command/Command.h</h1>  </div>
+</div>
+<div class="contents">
+<a href="_command_8h.html">説明を見る。</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<a name="l00008"></a>00008 <span class="preprocessor">#ifndef stf_core_command_Command_h</span>
+<a name="l00009"></a>00009 <span class="preprocessor"></span><span class="preprocessor">#define stf_core_command_Command_h</span>
+<a name="l00010"></a>00010 <span class="preprocessor"></span>
+<a name="l00011"></a>00011 <span class="preprocessor">#include &quot;<a class="code" href="_root_object_8h.html" title="数値型を除いた全クラスの基本となるクラス．">../../RootObject.h</a>&quot;</span>
+<a name="l00012"></a>00012 <span class="preprocessor">#include &quot;<a class="code" href="_macros_8h.html" title="STF全体で使用する簡単なマクロ関数を記述する．">../../Macros.h</a>&quot;</span>
+<a name="l00013"></a>00013 <span class="preprocessor">#include &quot;<a class="code" href="_time_8h.html" title="経過時間を表すクラス．">../../datatype/Time.h</a>&quot;</span>
+<a name="l00014"></a>00014 
+<a name="l00015"></a><a class="code" href="namespacestf.html">00015</a> <span class="keyword">namespace </span>stf {
+<a name="l00016"></a><a class="code" href="namespacestf_1_1datatype.html">00016</a> <span class="keyword">namespace </span>datatype {
+<a name="l00017"></a>00017 <span class="keyword">class </span><a class="code" href="classstf_1_1datatype_1_1_string.html" title="std::stringの簡略版．">String</a>;
+<a name="l00018"></a>00018 }
+<a name="l00019"></a><a class="code" href="namespacestf_1_1core.html">00019</a> <span class="keyword">namespace </span>core {
+<a name="l00020"></a><a class="code" href="namespacestf_1_1core_1_1devicedriver.html">00020</a> <span class="keyword">namespace </span>devicedriver {
+<a name="l00021"></a><a class="code" href="namespacestf_1_1core_1_1devicedriver_1_1cmhandler.html">00021</a> <span class="keyword">namespace </span>cmhandler {
+<a name="l00022"></a>00022 <span class="keyword">class </span><a class="code" href="classstf_1_1core_1_1devicedriver_1_1cmhandler_1_1_i_command_receiver.html" title="受信機からコマンドを受け取り，応答を返却するデバイスの抽象インターフェース．">ICommandReceiver</a>;
+<a name="l00023"></a>00023 }
+<a name="l00024"></a>00024 }
+<a name="l00025"></a><a class="code" href="namespacestf_1_1core_1_1command.html">00025</a> <span class="keyword">namespace </span>command {
+<a name="l00026"></a>00026 
+<a name="l00028"></a>00028 
+<a name="l00029"></a><a class="code" href="classstf_1_1core_1_1command_1_1_command.html">00029</a> <span class="keyword">class </span><a class="code" href="classstf_1_1core_1_1command_1_1_command.html" title="衛星コマンドの抽象インターフェースと共通の実装を行う基底クラス．">Command</a> : <span class="keyword">public</span> <a class="code" href="classstf_1_1_root_object.html" title="数値型を除いた全クラスの基本となるクラス．">RootObject</a> {
+<a name="l00030"></a>00030 <span class="keyword">public</span>:
+<a name="l00031"></a><a class="code" href="classstf_1_1core_1_1command_1_1_command.html#a686beeaec11afa88dbb5011bcdd96528">00031</a>         <a class="code" href="classstf_1_1core_1_1command_1_1_command.html#a686beeaec11afa88dbb5011bcdd96528">Command</a>(<span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_time.html" title="経過時間を表すクラス．">datatype::Time</a>&amp; t, <span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_string.html" title="std::stringの簡略版．">datatype::String</a>&amp; <a class="code" href="classstf_1_1_root_object.html#ad900efc99d9557877cdd83dcb06a52eb">name</a>) : <a class="code" href="classstf_1_1_root_object.html" title="数値型を除いた全クラスの基本となるクラス．">RootObject</a>(0, name), <a class="code" href="classstf_1_1core_1_1command_1_1_command.html#ae3c34acfbfa1a7f6f7e7af6143263579">rcv_</a>(0), <a class="code" href="classstf_1_1core_1_1command_1_1_command.html#ab329dd3d49cb7b7516bd973d653b02fa">time_</a>(t) {}
+<a name="l00032"></a><a class="code" href="classstf_1_1core_1_1command_1_1_command.html#a5acb639efd97bf1cd8a714fbdf022fa5">00032</a>         <span class="keyword">virtual</span> <a class="code" href="classstf_1_1core_1_1command_1_1_command.html#a5acb639efd97bf1cd8a714fbdf022fa5">~Command</a>(){}
+<a name="l00033"></a><a class="code" href="classstf_1_1core_1_1command_1_1_command.html#a4bdf4692ba7e67917fd95fd0a7b52e66">00033</a>         <span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_time.html" title="経過時間を表すクラス．">datatype::Time</a>&amp; <a class="code" href="classstf_1_1core_1_1command_1_1_command.html#a4bdf4692ba7e67917fd95fd0a7b52e66">get_time</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="classstf_1_1core_1_1command_1_1_command.html#ab329dd3d49cb7b7516bd973d653b02fa">time_</a>; }
+<a name="l00034"></a><a class="code" href="classstf_1_1core_1_1command_1_1_command.html#adf25a7cf537a71d18a528a0c07ade65c">00034</a>         <span class="keywordtype">void</span>  <a class="code" href="classstf_1_1core_1_1command_1_1_command.html#adf25a7cf537a71d18a528a0c07ade65c">connectReceiver</a>(<a class="code" href="classstf_1_1core_1_1devicedriver_1_1cmhandler_1_1_i_command_receiver.html" title="受信機からコマンドを受け取り，応答を返却するデバイスの抽象インターフェース．">devicedriver::cmhandler::ICommandReceiver</a>* rcv) { <a class="code" href="classstf_1_1core_1_1command_1_1_command.html#ae3c34acfbfa1a7f6f7e7af6143263579">rcv_</a> = rcv; }
+<a name="l00035"></a>00035         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classstf_1_1core_1_1command_1_1_command.html#abbfe49e7fbf486b19736ff3092209d54">execute</a>() = 0;
+<a name="l00036"></a>00036         <span class="keyword">virtual</span> <a class="code" href="classstf_1_1core_1_1command_1_1_command.html" title="衛星コマンドの抽象インターフェースと共通の実装を行う基底クラス．">Command</a>* <a class="code" href="classstf_1_1core_1_1command_1_1_command.html#afd3d83e3f70a0bab40771b1b075410b9">clone</a>(<span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_time.html" title="経過時間を表すクラス．">datatype::Time</a>&amp; t) = 0;
+<a name="l00037"></a>00037         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classstf_1_1core_1_1command_1_1_command.html#a0553fc0fcfdc4f641b2279aeac6739d5">init</a>(<span class="keywordtype">int</span>* params, <span class="keywordtype">int</span> paramsize) = 0;
+<a name="l00038"></a><a class="code" href="classstf_1_1core_1_1command_1_1_command.html#a615428eaabd50e38d23f5631711b3bb5">00038</a>         <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classstf_1_1core_1_1command_1_1_command.html#a615428eaabd50e38d23f5631711b3bb5">can_execute</a>(<span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_time.html" title="経過時間を表すクラス．">datatype::Time</a>&amp; t) { <span class="keywordflow">if</span>(t &gt;= <a class="code" href="classstf_1_1core_1_1command_1_1_command.html#ab329dd3d49cb7b7516bd973d653b02fa">time_</a> ) <span class="keywordflow">return</span> <span class="keyword">true</span>; <span class="keywordflow">return</span> <span class="keyword">false</span>; }<span class="comment">//デフォルトの実装．時刻以外で判断してもよい</span>
+<a name="l00039"></a>00039 <span class="keyword">protected</span>:
+<a name="l00040"></a><a class="code" href="classstf_1_1core_1_1command_1_1_command.html#ab329dd3d49cb7b7516bd973d653b02fa">00040</a>         <a class="code" href="classstf_1_1datatype_1_1_time.html" title="経過時間を表すクラス．">datatype::Time</a> <a class="code" href="classstf_1_1core_1_1command_1_1_command.html#ab329dd3d49cb7b7516bd973d653b02fa">time_</a>;
+<a name="l00041"></a><a class="code" href="classstf_1_1core_1_1command_1_1_command.html#ae3c34acfbfa1a7f6f7e7af6143263579">00041</a>         <a class="code" href="classstf_1_1core_1_1devicedriver_1_1cmhandler_1_1_i_command_receiver.html" title="受信機からコマンドを受け取り，応答を返却するデバイスの抽象インターフェース．">devicedriver::cmhandler::ICommandReceiver</a>* <a class="code" href="classstf_1_1core_1_1command_1_1_command.html#ae3c34acfbfa1a7f6f7e7af6143263579">rcv_</a>;
+<a name="l00042"></a>00042 <span class="keyword">private</span>:
+<a name="l00043"></a>00043         DISALLOW_COPY_AND_ASSIGN(<a class="code" href="classstf_1_1core_1_1command_1_1_command.html" title="衛星コマンドの抽象インターフェースと共通の実装を行う基底クラス．">Command</a>);
+<a name="l00044"></a>00044 };
+<a name="l00045"></a>00045 
+<a name="l00046"></a>00046 } <span class="comment">/* End of namespace stf::core::command */</span>
+<a name="l00047"></a>00047 } <span class="comment">/* End of namespace stf::core */</span>
+<a name="l00048"></a>00048 } <span class="comment">/* End of namespace stf */</span>
+<a name="l00049"></a>00049 
+<a name="l00050"></a>00050 <span class="preprocessor">#endif // stf_core_command_Command_h</span>
+</pre></div></div>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>フレンド</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>マクロ定義</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>STFに対してTue Mar 1 2011 03:45:36に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
+</body>
+</html>

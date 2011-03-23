@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>STF: stf/environment/Orbit.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.3 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">STF</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="pages.html"><span>関連ページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>ファイルメンバ</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<h1>stf/environment/Orbit.h</h1>  </div>
+</div>
+<div class="contents">
+<a href="_orbit_8h.html">説明を見る。</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<a name="l00008"></a>00008 <span class="preprocessor">#ifndef stf_environment_Orbit_h</span>
+<a name="l00009"></a>00009 <span class="preprocessor"></span><span class="preprocessor">#define stf_environment_Orbit_h</span>
+<a name="l00010"></a>00010 <span class="preprocessor"></span>
+<a name="l00011"></a>00011 <span class="preprocessor">#include &quot;<a class="code" href="_orbit_info_8h.html" title="軌道情報関係の量を表す">../datatype/OrbitInfo.h</a>&quot;</span>
+<a name="l00012"></a>00012 <span class="preprocessor">#include &quot;<a class="code" href="_orbit_calc_8h.html" title="軌道関係情報を計算するメソッドをstaticメンバとしてまとめたクラス．">../datatype/OrbitCalc.h</a>&quot;</span>
+<a name="l00013"></a>00013 <span class="preprocessor">#include &quot;<a class="code" href="_date_time_8h.html" title="ユリウス暦による絶対時刻を保持するクラス．時間間隔などの計算にはTimeを使う．">../datatype/DateTime.h</a>&quot;</span>
+<a name="l00014"></a>00014 <span class="preprocessor">#include &quot;<a class="code" href="_magnetic_8h.html" title="磁気関係の物理量を表す">../datatype/Magnetic.h</a>&quot;</span>
+<a name="l00015"></a>00015 <span class="preprocessor">#include &quot;<a class="code" href="_instance_i_d_8h.html" title="インスタンスIDの定義を行うマクロ群．">../InstanceID.h</a>&quot;</span>
+<a name="l00016"></a>00016 
+<a name="l00017"></a>00017 <span class="keyword">namespace </span>stf {
+<a name="l00018"></a>00018 <span class="keyword">namespace </span>environment {
+<a name="l00019"></a>00019 
+<a name="l00021"></a>00021 
+<a name="l00022"></a><a class="code" href="classstf_1_1environment_1_1_orbit.html">00022</a> <span class="keyword">class </span><a class="code" href="classstf_1_1environment_1_1_orbit.html" title="軌道計算を行う，sgp4のラッパークラス．">Orbit</a> {
+<a name="l00023"></a>00023 <span class="keyword">public</span>:
+<a name="l00024"></a><a class="code" href="classstf_1_1environment_1_1_orbit.html#a19153bff6cda4f558b91997eb6b58e40">00024</a>         <a class="code" href="classstf_1_1environment_1_1_orbit.html#a19153bff6cda4f558b91997eb6b58e40">Orbit</a>()
+<a name="l00025"></a>00025                 : orbit_(7100000, 0.0, 0.0, util::math::<a class="code" href="igrf_8cpp.html#a598a3330b3c21701223ee0ca14316eca">PI</a> / 2, 0.0, 0.0), starttime_(<a class="code" href="_instance_i_d_8h.html#a5871356500f559add06ea81d60331b1b">YEAR</a>, <a class="code" href="_instance_i_d_8h.html#a3729d06495d9713592f79f3122c9e677">MONTH</a>, <a class="code" href="_instance_i_d_8h.html#a30b328ca499f27b3d0f8111b495834ca">DATE</a>){}
+<a name="l00026"></a><a class="code" href="classstf_1_1environment_1_1_orbit.html#adab8fd937248207a03ac97ef6f61f0f5">00026</a>         <a class="code" href="classstf_1_1environment_1_1_orbit.html#a19153bff6cda4f558b91997eb6b58e40">Orbit</a>(<span class="keywordtype">double</span> a, <span class="keywordtype">double</span> e, <span class="keywordtype">double</span> i, <span class="keywordtype">double</span> Omega, <span class="keywordtype">double</span> omega, <span class="keywordtype">int</span> year, <span class="keywordtype">int</span> month, <span class="keywordtype">int</span> day, <span class="keywordtype">int</span> hour = 0, <span class="keywordtype">int</span> minutes = 0, <span class="keywordtype">int</span> second = 0)
+<a name="l00027"></a>00027                 : orbit_(a, e, 0, i, Omega, omega), starttime_(year, month, day, hour, minutes, second){}
+<a name="l00028"></a><a class="code" href="classstf_1_1environment_1_1_orbit.html#a49835f069e2d90a9f537a4e02b1094dd">00028</a>         <a class="code" href="classstf_1_1environment_1_1_orbit.html#a49835f069e2d90a9f537a4e02b1094dd">~Orbit</a>(){}
+<a name="l00029"></a>00029         <span class="keywordtype">void</span> <a class="code" href="classstf_1_1environment_1_1_orbit.html#aa2b5fb0ea2151def83b2edc2172e60d1">set_orbitElement</a>(<span class="keywordtype">double</span> a, <span class="keywordtype">double</span> e, <span class="keywordtype">double</span> i, <span class="keywordtype">double</span> Omega, <span class="keywordtype">double</span> omega);
+<a name="l00030"></a>00030         <span class="keywordtype">void</span> <a class="code" href="classstf_1_1environment_1_1_orbit.html#aa2b5fb0ea2151def83b2edc2172e60d1">set_orbitElement</a>(<span class="keyword">const</span> <a class="code" href="structstf_1_1datatype_1_1_orbit_info.html" title="軌道6要素を保持するクラス．サイズ肥大化を避けるため，主要な計算はOrbitImplのstaticなメソッドに投げることで行う">datatype::OrbitInfo</a>&amp; orbit);
+<a name="l00031"></a>00031         <span class="keywordtype">void</span> <a class="code" href="classstf_1_1environment_1_1_orbit.html#a1276f1785eec4fe68fca190e15ac89e8">addTime</a>(<span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_time.html" title="経過時間を表すクラス．">datatype::Time</a>&amp; dt);
+<a name="l00032"></a>00032         <span class="keywordtype">void</span> <a class="code" href="classstf_1_1environment_1_1_orbit.html#a86345eb1546f7bde297c3e587218a8c3">addSecond</a>(<span class="keywordtype">int</span> seconds);
+<a name="l00033"></a>00033         <span class="keywordtype">void</span> <a class="code" href="classstf_1_1environment_1_1_orbit.html#aa942c7d8a37af08a8b8b53206ec0c58b">resetDateTime</a>(<span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_date_time.html" title="ユリウス暦による絶対時刻を秒精度で保持する．">datatype::DateTime</a>&amp; time);
+<a name="l00034"></a><a class="code" href="classstf_1_1environment_1_1_orbit.html#aec10bd4912d125f79c617cc9de43407a">00034</a>         <span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_date_time.html" title="ユリウス暦による絶対時刻を秒精度で保持する．">datatype::DateTime</a> <a class="code" href="classstf_1_1environment_1_1_orbit.html#aec10bd4912d125f79c617cc9de43407a">get_time</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> this-&gt;starttime_ + localtime_; }
+<a name="l00035"></a>00035         <span class="keyword">const</span> <a class="code" href="structstf_1_1datatype_1_1_position_info.html" title="衛星座標を地心慣性座標系における位置と速度の6次元ベクトルで保持するクラス．">datatype::PositionInfo</a> <a class="code" href="classstf_1_1environment_1_1_orbit.html#a0ebf792ace655cf513b6fbf75fc6ca4d">getSatellitePosition</a>() <span class="keyword">const</span> ;
+<a name="l00036"></a>00036         <span class="keyword">const</span> <a class="code" href="structstf_1_1datatype_1_1_orbit_info.html" title="軌道6要素を保持するクラス．サイズ肥大化を避けるため，主要な計算はOrbitImplのstaticなメソッドに投げることで行う">datatype::OrbitInfo</a>&amp; <a class="code" href="classstf_1_1environment_1_1_orbit.html#a4d46308a1b138e55f0a90b054a86119b">getSatelliteOrbit</a>() <span class="keyword">const</span> ;
+<a name="l00037"></a>00037         <span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_static_vector.html">datatype::StaticVector&lt;2&gt;</a> <a class="code" href="classstf_1_1environment_1_1_orbit.html#af7c479da69edfb28b12ec2521a8d6422">getSunVector2D</a>() <span class="keyword">const</span> ;
+<a name="l00038"></a>00038         <span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_static_vector.html">datatype::StaticVector&lt;3&gt;</a> <a class="code" href="classstf_1_1environment_1_1_orbit.html#ac27822447688f878f544bd66b0b86407">getSunVector3D</a>() <span class="keyword">const</span> ;
+<a name="l00039"></a>00039         <span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_static_vector.html">datatype::StaticVector&lt;2&gt;</a> <a class="code" href="classstf_1_1environment_1_1_orbit.html#a354649684dc023d6280346c2d3416e54">getEarthVector2D</a>() <span class="keyword">const</span> ;
+<a name="l00040"></a>00040         <span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_static_vector.html">datatype::StaticVector&lt;3&gt;</a> <a class="code" href="classstf_1_1environment_1_1_orbit.html#a9d5d1f04c36d9e071d8c45d748d74cb0">getEarthVector3D</a>() <span class="keyword">const</span> ;
+<a name="l00041"></a>00041         <span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_magnetic_field.html" title="3次元磁束密度(T)を表す．">datatype::MagneticField</a> <a class="code" href="classstf_1_1environment_1_1_orbit.html#abe3c70f9d6751df3c11ff13086a67a46">getMagneticField</a>() <span class="keyword">const</span> ;
+<a name="l00042"></a>00042 <span class="keyword">private</span>:
+<a name="l00043"></a>00043         <span class="keywordtype">void</span> updateOrbit_();
+<a name="l00044"></a>00044         <a class="code" href="structstf_1_1datatype_1_1_orbit_info.html" title="軌道6要素を保持するクラス．サイズ肥大化を避けるため，主要な計算はOrbitImplのstaticなメソッドに投げることで行う">datatype::OrbitInfo</a> orbit_;
+<a name="l00045"></a>00045         <span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_date_time.html" title="ユリウス暦による絶対時刻を秒精度で保持する．">datatype::DateTime</a> starttime_;
+<a name="l00046"></a>00046         <a class="code" href="classstf_1_1datatype_1_1_time.html" title="経過時間を表すクラス．">datatype::Time</a> localtime_;
+<a name="l00047"></a>00047 };
+<a name="l00048"></a>00048 
+<a name="l00049"></a>00049 } <span class="comment">/* End of namespace stf::environment */</span>
+<a name="l00050"></a>00050 } <span class="comment">/* End of namespace stf */</span>
+<a name="l00051"></a>00051 
+<a name="l00052"></a>00052 <span class="preprocessor">#endif // aocs_environment_Orbit_h</span>
+</pre></div></div>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>フレンド</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>マクロ定義</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>STFに対してTue Mar 1 2011 03:45:40に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
+</body>
+</html>

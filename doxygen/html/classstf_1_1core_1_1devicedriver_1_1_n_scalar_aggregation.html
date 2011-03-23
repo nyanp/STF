@@ -1,0 +1,227 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>STF: クラス テンプレート stf::core::devicedriver::NScalarAggregation&lt; To, N &gt;</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.3 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">STF</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="pages.html"><span>関連ページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li class="current"><a href="annotated.html"><span>クラス</span></a></li>
+      <li><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>構成</span></a></li>
+      <li><a href="classes.html"><span>構成索引</span></a></li>
+      <li><a href="inherits.html"><span>クラス階層</span></a></li>
+      <li><a href="functions.html"><span>構成メンバ</span></a></li>
+    </ul>
+  </div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="namespacestf.html">stf</a>      </li>
+      <li class="navelem"><a class="el" href="namespacestf_1_1core.html">core</a>      </li>
+      <li class="navelem"><a class="el" href="namespacestf_1_1core_1_1devicedriver.html">devicedriver</a>      </li>
+      <li class="navelem"><a class="el" href="classstf_1_1core_1_1devicedriver_1_1_n_scalar_aggregation.html">NScalarAggregation</a>      </li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public メソッド</a>  </div>
+  <div class="headertitle">
+<h1>クラス テンプレート stf::core::devicedriver::NScalarAggregation&lt; To, N &gt;</h1>  </div>
+</div>
+<div class="contents">
+<!-- doxytag: class="stf::core::devicedriver::NScalarAggregation" -->
+<p>子のScalar値を各要素に持ったVectorを親の値とする合成ポリシー．  
+<a href="#_details">[詳細]</a></p>
+
+<p><code>#include &lt;<a class="el" href="">AggregationPolicy.h</a>&gt;</code></p>
+
+<p><a href="classstf_1_1core_1_1devicedriver_1_1_n_scalar_aggregation-members.html">すべてのメンバ一覧</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="pub-methods"></a>
+Public メソッド</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1core_1_1devicedriver_1_1_n_scalar_aggregation.html#a55f05ef1f2fc17c5abd20220e8e2b3a2">MUST_BE_DERIVED_FROM</a> (To, <a class="el" href="classstf_1_1datatype_1_1_static_vector.html">datatype::StaticVector</a>&lt; N &gt;)</td></tr>
+<tr><td class="memTemplParams" colspan="2">template&lt;class Parent , class Child &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classstf_1_1core_1_1devicedriver_1_1_n_scalar_aggregation.html#aa47c60a6b09144fc19b1150f2dc2a54b">setup</a> (Parent *parent, Child(&amp;child)[N])</td></tr>
+<tr><td class="memTemplParams" colspan="2">template&lt;class Parent , class Child &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classstf_1_1core_1_1devicedriver_1_1_n_scalar_aggregation.html#a8202b7fcaaec80a5bf973096a34f100b">aggregate</a> (Parent *parent, Child(&amp;child)[N])</td></tr>
+</table>
+<hr/><a name="_details"></a><h2>説明</h2>
+<div class="textblock"><h3>template&lt;class To, int N&gt;<br/>
+ class stf::core::devicedriver::NScalarAggregation&lt; To, N &gt;</h3>
+
+<p>子のScalar値を各要素に持ったVectorを親の値とする合成ポリシー． </p>
+
+<p> <a class="el" href="">AggregationPolicy.h</a> の <a class="el" href="#L22">22</a> 行で定義されています。</p>
+</div><hr/><h2>関数</h2>
+<a class="anchor" id="a8202b7fcaaec80a5bf973096a34f100b"></a><!-- doxytag: member="stf::core::devicedriver::NScalarAggregation::aggregate" ref="a8202b7fcaaec80a5bf973096a34f100b" args="(Parent *parent, Child(&amp;child)[N])" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class To , int N&gt; </div>
+<div class="memtemplate">
+template&lt;class Parent , class Child &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classstf_1_1core_1_1devicedriver_1_1_n_scalar_aggregation.html">stf::core::devicedriver::NScalarAggregation</a>&lt; To, N &gt;::aggregate </td>
+          <td>(</td>
+          <td class="paramtype">Parent *&#160;</td>
+          <td class="paramname"><em>parent</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Child(&amp;)&#160;</td>
+          <td class="paramname"><em>child</em>[N]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">AggregationPolicy.h</a> の <a class="el" href="#L30">30</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">                                                         {
+                To value;
+                <span class="keyword">const</span> datatype::Time&amp; t = parent-&gt;get_lastupdate();
+                <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; <a class="code" href="_rand_8cpp.html#a0240ac851181b84ac374872dc5434ee4">N</a>; i++){
+                        value[i] += child[i]-&gt;get_value(t).value();
+                }
+                parent-&gt;set_value(value);
+        }
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="a55f05ef1f2fc17c5abd20220e8e2b3a2"></a><!-- doxytag: member="stf::core::devicedriver::NScalarAggregation::MUST_BE_DERIVED_FROM" ref="a55f05ef1f2fc17c5abd20220e8e2b3a2" args="(To, datatype::StaticVector&lt; N &gt;)" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class To , int N&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classstf_1_1core_1_1devicedriver_1_1_n_scalar_aggregation.html">stf::core::devicedriver::NScalarAggregation</a>&lt; To, N &gt;::MUST_BE_DERIVED_FROM </td>
+          <td>(</td>
+          <td class="paramtype">To&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classstf_1_1datatype_1_1_static_vector.html">datatype::StaticVector</a>&lt; N &gt;&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="aa47c60a6b09144fc19b1150f2dc2a54b"></a><!-- doxytag: member="stf::core::devicedriver::NScalarAggregation::setup" ref="aa47c60a6b09144fc19b1150f2dc2a54b" args="(Parent *parent, Child(&amp;child)[N])" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class To , int N&gt; </div>
+<div class="memtemplate">
+template&lt;class Parent , class Child &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classstf_1_1core_1_1devicedriver_1_1_n_scalar_aggregation.html">stf::core::devicedriver::NScalarAggregation</a>&lt; To, N &gt;::setup </td>
+          <td>(</td>
+          <td class="paramtype">Parent *&#160;</td>
+          <td class="paramname"><em>parent</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Child(&amp;)&#160;</td>
+          <td class="paramname"><em>child</em>[N]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">AggregationPolicy.h</a> の <a class="el" href="#L27">27</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">{}
+</pre></div>
+</div>
+</div>
+<hr/>このクラスの説明は次のファイルから生成されました:<ul>
+<li>stf/core/devicedriver/<a class="el" href="">AggregationPolicy.h</a></li>
+</ul>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>フレンド</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>マクロ定義</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>STFに対してWed Mar 23 2011 05:33:07に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
+</body>
+</html>

@@ -1,0 +1,584 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>STF: クラス テンプレート stf::core::strategy::telemetry::SelectingOutput&lt; T, SCALE &gt;</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.3 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">STF</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="pages.html"><span>関連ページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li class="current"><a href="annotated.html"><span>クラス</span></a></li>
+      <li><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>構成</span></a></li>
+      <li><a href="classes.html"><span>構成索引</span></a></li>
+      <li><a href="inherits.html"><span>クラス階層</span></a></li>
+      <li><a href="functions.html"><span>構成メンバ</span></a></li>
+    </ul>
+  </div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="namespacestf.html">stf</a>      </li>
+      <li class="navelem"><a class="el" href="namespacestf_1_1core.html">core</a>      </li>
+      <li class="navelem"><a class="el" href="namespacestf_1_1core_1_1strategy.html">strategy</a>      </li>
+      <li class="navelem"><a class="el" href="namespacestf_1_1core_1_1strategy_1_1telemetry.html">telemetry</a>      </li>
+      <li class="navelem"><a class="el" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_selecting_output.html">SelectingOutput</a>      </li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public メソッド</a> &#124;
+<a href="#pro-methods">Protected メソッド</a> &#124;
+<a href="#pro-attribs">Protected 変数</a>  </div>
+  <div class="headertitle">
+<h1>クラス テンプレート stf::core::strategy::telemetry::SelectingOutput&lt; T, SCALE &gt;</h1>  </div>
+</div>
+<div class="contents">
+<!-- doxytag: class="stf::core::strategy::telemetry::SelectingOutput" --><!-- doxytag: inherits="stf::core::strategy::StrategyBase,stf::core::strategy::telemetry::ITelemetryStrategy,stf::interface::Iterator" -->
+<p>指定したイテレータをテレメトリとして整形するテレメトリ生成ストラテジ．  
+<a href="#_details">[詳細]</a></p>
+
+<p><code>#include &lt;<a class="el" href="">SelectingOutput.h</a>&gt;</code></p>
+<div class="dynheader">
+stf::core::strategy::telemetry::SelectingOutput&lt; T, SCALE &gt;に対する継承グラフ</div>
+<div class="dyncontent">
+<div class="center"><img src="classstf_1_1core_1_1strategy_1_1telemetry_1_1_selecting_output__inherit__graph.png" border="0" usemap="#stf_1_1core_1_1strategy_1_1telemetry_1_1_selecting_output_3_01_t_00_01_s_c_a_l_e_01_4_inherit__map" alt="Inheritance graph"/></div>
+<map name="stf_1_1core_1_1strategy_1_1telemetry_1_1_selecting_output_3_01_t_00_01_s_c_a_l_e_01_4_inherit__map" id="stf_1_1core_1_1strategy_1_1telemetry_1_1_selecting_output_3_01_t_00_01_s_c_a_l_e_01_4_inherit__map">
+<area shape="rect" id="node2" href="classstf_1_1core_1_1strategy_1_1_strategy_base.html" title="ストラテジの共通基底クラス．" alt="" coords="260,32,471,61"/><area shape="rect" id="node4" href="classstf_1_1_root_object.html" title="数値型を除いた全クラスの基本となるクラス．" alt="" coords="31,5,140,35"/><area shape="rect" id="node6" href="classstf_1_1interface_1_1_i_enabable.html" title="有効化・無効化制御が可能なコンポーネントに対するインターフェース．" alt="" coords="7,59,164,88"/><area shape="rect" id="node8" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_i_telemetry_strategy.html" title="テレメトリ生成ストラテジの抽象インターフェース．" alt="" coords="215,85,516,115"/><area shape="rect" id="node10" href="classstf_1_1interface_1_1_iterator.html" title="イテレータの抽象インターフェース．" alt="" coords="295,139,436,168"/></map>
+<center><span class="legend">[<a href="graph_legend.html">凡例</a>]</span></center></div>
+<div class="dynheader">
+stf::core::strategy::telemetry::SelectingOutput&lt; T, SCALE &gt;のコラボレーション図</div>
+<div class="dyncontent">
+<div class="center"><img src="classstf_1_1core_1_1strategy_1_1telemetry_1_1_selecting_output__coll__graph.png" border="0" usemap="#stf_1_1core_1_1strategy_1_1telemetry_1_1_selecting_output_3_01_t_00_01_s_c_a_l_e_01_4_coll__map" alt="Collaboration graph"/></div>
+<map name="stf_1_1core_1_1strategy_1_1telemetry_1_1_selecting_output_3_01_t_00_01_s_c_a_l_e_01_4_coll__map" id="stf_1_1core_1_1strategy_1_1telemetry_1_1_selecting_output_3_01_t_00_01_s_c_a_l_e_01_4_coll__map">
+<area shape="rect" id="node2" href="classstf_1_1core_1_1strategy_1_1_strategy_base.html" title="ストラテジの共通基底クラス．" alt="" coords="1855,69,2065,99"/><area shape="rect" id="node4" href="classstf_1_1_root_object.html" title="数値型を除いた全クラスの基本となるクラス．" alt="" coords="1471,153,1580,183"/><area shape="rect" id="node12" href="classstf_1_1core_1_1datapool_1_1_data_pool_base.html" title="Tupleを複数個保持するデータプールの基底クラス．" alt="" coords="1852,123,2068,152"/><area shape="rect" id="node25" href="classstf_1_1core_1_1datapool_1_1_event_data_pool.html" title="Eventのデータプール．" alt="" coords="1851,176,2069,205"/><area shape="rect" id="node6" href="classstf_1_1core_1_1devicedriver_1_1clock_1_1_i_time_clock.html" title="Time型のカウントが可能であることを示す抽象インターフェース．" alt="" coords="853,133,1107,163"/><area shape="rect" id="node8" href="classstf_1_1core_1_1devicedriver_1_1_i_data_updatable.html" title="周期的にデータを取得，送信するコンポーネントに対するインターフェース" alt="" coords="307,133,544,163"/><area shape="rect" id="node10" href="classstf_1_1core_1_1datapool_1_1_aocs_data_pool.html" title="IAocsDataのデータプール．" alt="" coords="2213,231,2429,260"/><area shape="rect" id="node15" href="classstf_1_1core_1_1datapool_1_1_tuple.html" title="stf::core::datapool::Tuple\&lt; datatype::IAocsData \&gt;" alt="" coords="1372,279,1679,308"/><area shape="rect" id="node17" href="classstf_1_1datatype_1_1_i_aocs_data.html" title="AOCS使用系列のデータ共通の抽象インターフェース．" alt="" coords="899,269,1061,299"/><area shape="rect" id="node19" href="classstf_1_1interface_1_1_i_telemetable.html" title="テレメトリを生成可能なオブジェクトに対するインターフェース．" alt="" coords="339,269,512,299"/><area shape="rect" id="node21" href="classstf_1_1datatype_1_1_time.html" title="経過時間を表すクラス．" alt="" coords="5,251,136,280"/><area shape="rect" id="node32" href="struct_loki_1_1_tuple_unit.html" title="Loki::TupleUnit\&lt; TYPELIST_2(event::EventType, datatype::Time) \&gt;" alt="" coords="223,80,628,109"/><area shape="rect" id="node23" href="classstf_1_1datatype_1_1_string.html" title="std::stringの簡略版．" alt="" coords="912,201,1048,231"/><area shape="rect" id="node28" href="struct_loki_1_1_tuple.html" title="Loki::Tuple\&lt; TYPELIST_2(event::EventType, datatype::Time)\&gt;" alt="" coords="1336,64,1715,93"/><area shape="rect" id="node30" href="class_loki_1_1_gen_scatter_hierarchy.html" title="Loki::GenScatterHierarchy\&lt; TYPELIST_2(event::EventType, datatype::Time), TupleUnit \&gt;" alt="" coords="713,77,1247,107"/><area shape="rect" id="node36" href="classstf_1_1interface_1_1_i_enabable.html" title="有効化・無効化制御が可能なコンポーネントに対するインターフェース．" alt="" coords="1447,5,1604,35"/><area shape="rect" id="node38" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_i_telemetry_strategy.html" title="テレメトリ生成ストラテジの抽象インターフェース．" alt="" coords="2171,284,2472,313"/><area shape="rect" id="node40" href="classstf_1_1interface_1_1_iterator.html" title="イテレータの抽象インターフェース．" alt="" coords="1889,384,2031,413"/><area shape="rect" id="node45" href="classstf_1_1datatype_1_1_list.html" title="stf::datatype::List\&lt; interface::Iterator \&gt;" alt="" coords="2200,441,2443,471"/><area shape="rect" id="node42" href="classstf_1_1core_1_1devicedriver_1_1tmhandler_1_1_i_telemetry_storagable.html" title="テレメトリデータのストレージに対する抽象インターフェース．" alt="" coords="2152,388,2491,417"/></map>
+<center><span class="legend">[<a href="graph_legend.html">凡例</a>]</span></center></div>
+
+<p><a href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_selecting_output-members.html">すべてのメンバ一覧</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="pub-methods"></a>
+Public メソッド</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_selecting_output.html#afb5b3178f9db4a0a0c4f79d327609428">SelectingOutput</a> (int instance_id, <a class="el" href="classstf_1_1core_1_1devicedriver_1_1tmhandler_1_1_i_telemetry_storagable.html">devicedriver::tmhandler::ITelemetryStoragable</a> *storage, const <a class="el" href="classstf_1_1core_1_1datapool_1_1_aocs_data_pool.html">core::datapool::AocsDataPool</a> *pool, const <a class="el" href="classstf_1_1core_1_1datapool_1_1_event_data_pool.html">core::datapool::EventDataPool</a> *eventpool)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_selecting_output.html#a1f7c7914b14e0fa174800172dac69eda">~SelectingOutput</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_selecting_output.html#a062f21651a72159a989aca8297fa037e">write_to_telemetry</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_selecting_output.html#a739f9b070bf59686f0fe6f1303a83c27">add_tmlist</a> (<a class="el" href="classstf_1_1interface_1_1_iterator.html">interface::Iterator</a> *tm)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_selecting_output.html#af3cdf526f74a246945b5e2036f04d30d">set_tmlist_by_datapoolrows</a> (int index)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_selecting_output.html#aeb0daf2aa22b8270907304f48ff0f0e6">remove_tmlist</a> (<a class="el" href="classstf_1_1interface_1_1_iterator.html">interface::Iterator</a> *tm)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_selecting_output.html#acb47cefdea947392f7face70e0e6a2ba">init</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_selecting_output.html#a2aa8531d84804c2ab0222537f4383be8">end</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_selecting_output.html#a4c1019810c94d9321acf524e4f7f51bc">operator++</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_selecting_output.html#ab60f348ee74c46fa20ac6ae90c0eed4b">operator()</a> ()</td></tr>
+<tr><td colspan="2"><h2><a name="pro-methods"></a>
+Protected メソッド</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_selecting_output.html#a283d989851b63bc69da43e63c403450b">write_</a> (const double *data, int length)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_selecting_output.html#a8348967f5d7580840e745b81d2ece1bb">createindex_</a> (const <a class="el" href="classstf_1_1core_1_1datapool_1_1_aocs_data_pool.html">core::datapool::AocsDataPool</a> *pool)</td></tr>
+<tr><td colspan="2"><h2><a name="pro-attribs"></a>
+Protected 変数</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classstf_1_1datatype_1_1_list.html">datatype::List</a><br class="typebreak"/>
+&lt; <a class="el" href="classstf_1_1interface_1_1_iterator.html">interface::Iterator</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_selecting_output.html#a52edfcf6110f4e16003bcf29c7c1bb51">tmlist_</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classstf_1_1datatype_1_1_list.html">datatype::List</a><br class="typebreak"/>
+&lt; <a class="el" href="classstf_1_1interface_1_1_iterator.html">interface::Iterator</a> &gt;<br class="typebreak"/>
+::iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_selecting_output.html#ab5d0e1182716c6a5a9dbb13ceffedc8a">tmlistiter_</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classstf_1_1core_1_1devicedriver_1_1tmhandler_1_1_i_telemetry_storagable.html">devicedriver::tmhandler::ITelemetryStoragable</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_selecting_output.html#a8fc0622da75f982b7229399356c44f15">storage_</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const <br class="typebreak"/>
+<a class="el" href="classstf_1_1core_1_1datapool_1_1_aocs_data_pool.html">core::datapool::AocsDataPool</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_selecting_output.html#a810213e9bb59ed3ff0831ad2f10c0e94">pool_</a></td></tr>
+</table>
+<hr/><a name="_details"></a><h2>説明</h2>
+<div class="textblock"><h3>template&lt;class T, int SCALE&gt;<br/>
+ class stf::core::strategy::telemetry::SelectingOutput&lt; T, SCALE &gt;</h3>
+
+<p>指定したイテレータをテレメトリとして整形するテレメトリ生成ストラテジ． </p>
+<dl><dt><b>Template Parameters:</b></dt><dd>
+  <table class="">
+    <tr><td class="paramname">T</td><td>出力時にキャストする型． </td></tr>
+    <tr><td class="paramname">SCALE</td><td>キャスト前に掛ける係数．</td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="fragment"><pre class="fragment">        SelectingOutput&lt;unsigned short, 100&gt; output;<span class="comment">//データプールから取ったdouble値を100倍し，unsigned shortにキャストしてからストレージに渡す</span>
+        <a class="code" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_selecting_output.html#afb5b3178f9db4a0a0c4f79d327609428">SelectingOutput</a> output;<span class="comment">//データプールの値をそのままストレージに渡す</span>
+</pre></div> 
+<p> <a class="el" href="">SelectingOutput.h</a> の <a class="el" href="#L38">38</a> 行で定義されています。</p>
+</div><hr/><h2>コンストラクタとデストラクタ</h2>
+<a class="anchor" id="afb5b3178f9db4a0a0c4f79d327609428"></a><!-- doxytag: member="stf::core::strategy::telemetry::SelectingOutput::SelectingOutput" ref="afb5b3178f9db4a0a0c4f79d327609428" args="(int instance_id, devicedriver::tmhandler::ITelemetryStoragable *storage, const core::datapool::AocsDataPool *pool, const core::datapool::EventDataPool *eventpool)" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T, int SCALE&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_selecting_output.html">stf::core::strategy::telemetry::SelectingOutput</a>&lt; T, SCALE &gt;::<a class="el" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_selecting_output.html">SelectingOutput</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>instance_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classstf_1_1core_1_1devicedriver_1_1tmhandler_1_1_i_telemetry_storagable.html">devicedriver::tmhandler::ITelemetryStoragable</a> *&#160;</td>
+          <td class="paramname"><em>storage</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classstf_1_1core_1_1datapool_1_1_aocs_data_pool.html">core::datapool::AocsDataPool</a> *&#160;</td>
+          <td class="paramname"><em>pool</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classstf_1_1core_1_1datapool_1_1_event_data_pool.html">core::datapool::EventDataPool</a> *&#160;</td>
+          <td class="paramname"><em>eventpool</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">SelectingOutput.h</a> の <a class="el" href="#L40">40</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">                  : <a class="code" href="classstf_1_1core_1_1strategy_1_1_strategy_base.html#a84daac1b4bd3ecdd4c02ac89ae5a179d">StrategyBase</a>(<a class="code" href="classstf_1_1_root_object.html#a233a3fbd4d53b7a8eaa5d2edab4cf75b">instance_id</a>, <span class="stringliteral">&quot;SelectingOutput&quot;</span>), <a class="code" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_selecting_output.html#a8fc0622da75f982b7229399356c44f15">storage_</a>(storage), <a class="code" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_selecting_output.html#a810213e9bb59ed3ff0831ad2f10c0e94">pool_</a>(pool)
+        {
+                this-&gt;<a class="code" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_selecting_output.html#a8348967f5d7580840e745b81d2ece1bb">createindex_</a>(pool);
+                this-&gt;<a class="code" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_selecting_output.html#ab5d0e1182716c6a5a9dbb13ceffedc8a">tmlistiter_</a> = this-&gt;<a class="code" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_selecting_output.html#a52edfcf6110f4e16003bcf29c7c1bb51">tmlist_</a>.begin();
+        }
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="a1f7c7914b14e0fa174800172dac69eda"></a><!-- doxytag: member="stf::core::strategy::telemetry::SelectingOutput::~SelectingOutput" ref="a1f7c7914b14e0fa174800172dac69eda" args="()" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T, int SCALE&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_selecting_output.html">stf::core::strategy::telemetry::SelectingOutput</a>&lt; T, SCALE &gt;::~<a class="el" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_selecting_output.html">SelectingOutput</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">SelectingOutput.h</a> の <a class="el" href="#L48">48</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">{}
+</pre></div>
+</div>
+</div>
+<hr/><h2>関数</h2>
+<a class="anchor" id="a739f9b070bf59686f0fe6f1303a83c27"></a><!-- doxytag: member="stf::core::strategy::telemetry::SelectingOutput::add_tmlist" ref="a739f9b070bf59686f0fe6f1303a83c27" args="(interface::Iterator *tm)" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T, int SCALE&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void <a class="el" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_selecting_output.html">stf::core::strategy::telemetry::SelectingOutput</a>&lt; T, SCALE &gt;::add_tmlist </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classstf_1_1interface_1_1_iterator.html">interface::Iterator</a> *&#160;</td>
+          <td class="paramname"><em>tm</em></td><td>)</td>
+          <td><code> [inline, virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p><a class="el" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_i_telemetry_strategy.html#adab86988a6288021bd9a40f7bf4d7a72">stf::core::strategy::telemetry::ITelemetryStrategy</a>を実装しています。</p>
+
+<p> <a class="el" href="">SelectingOutput.h</a> の <a class="el" href="#L50">50</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">{ this-&gt;<a class="code" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_selecting_output.html#a52edfcf6110f4e16003bcf29c7c1bb51">tmlist_</a>.add(*tm);}
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="a8348967f5d7580840e745b81d2ece1bb"></a><!-- doxytag: member="stf::core::strategy::telemetry::SelectingOutput::createindex_" ref="a8348967f5d7580840e745b81d2ece1bb" args="(const core::datapool::AocsDataPool *pool)" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T , int SCALE&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_selecting_output.html">stf::core::strategy::telemetry::SelectingOutput</a>&lt; T, SCALE &gt;::createindex_ </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classstf_1_1core_1_1datapool_1_1_aocs_data_pool.html">core::datapool::AocsDataPool</a> *&#160;</td>
+          <td class="paramname"><em>pool</em></td><td>)</td>
+          <td><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">SelectingOutput.h</a> の <a class="el" href="#L112">112</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">{
+        (*this-&gt;<a class="code" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_selecting_output.html#a8fc0622da75f982b7229399356c44f15">storage_</a>) &lt;&lt; <span class="stringliteral">&quot;Time(ms)&quot;</span>;
+        <span class="comment">//TBD</span>
+        this-&gt;<a class="code" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_selecting_output.html#a8fc0622da75f982b7229399356c44f15">storage_</a>-&gt;endl();
+}
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="a2aa8531d84804c2ab0222537f4383be8"></a><!-- doxytag: member="stf::core::strategy::telemetry::SelectingOutput::end" ref="a2aa8531d84804c2ab0222537f4383be8" args="()" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T , int SCALE&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_selecting_output.html">stf::core::strategy::telemetry::SelectingOutput</a>&lt; T, SCALE &gt;::end </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p><a class="el" href="classstf_1_1interface_1_1_iterator.html#a6c1fe21426ad7cccfcf875c390135f7b">stf::interface::Iterator</a>を実装しています。</p>
+
+<p> <a class="el" href="">SelectingOutput.h</a> の <a class="el" href="#L82">82</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">                                   {
+        <a class="code" href="classstf_1_1datatype_1_1_list.html#a0710a1bc11c265bb67113d6e2cb22b62">datatype::List&lt;interface::Iterator&gt;::iterator</a> it = <a class="code" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_selecting_output.html#a52edfcf6110f4e16003bcf29c7c1bb51">tmlist_</a>.begin();
+        <span class="keywordflow">while</span>(it != <a class="code" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_selecting_output.html#a52edfcf6110f4e16003bcf29c7c1bb51">tmlist_</a>.end()){
+                <span class="keywordflow">if</span>(!(*it).end()) <span class="keywordflow">return</span> <span class="keyword">false</span>;
+                ++it;
+        }
+        <span class="keywordflow">return</span> <span class="keyword">true</span>;<span class="comment">//すべてのイテレータが走査完了していたときだけtrue</span>
+}
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="acb47cefdea947392f7face70e0e6a2ba"></a><!-- doxytag: member="stf::core::strategy::telemetry::SelectingOutput::init" ref="acb47cefdea947392f7face70e0e6a2ba" args="()" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T , int SCALE&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_selecting_output.html">stf::core::strategy::telemetry::SelectingOutput</a>&lt; T, SCALE &gt;::init </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p><a class="el" href="classstf_1_1interface_1_1_iterator.html#ad485bc2c2350fdfb05d7ac6938161f05">stf::interface::Iterator</a>を実装しています。</p>
+
+<p> <a class="el" href="">SelectingOutput.h</a> の <a class="el" href="#L72">72</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">                                    {
+        <a class="code" href="classstf_1_1datatype_1_1_list.html#a0710a1bc11c265bb67113d6e2cb22b62">datatype::List&lt;interface::Iterator&gt;::iterator</a> it = <a class="code" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_selecting_output.html#a52edfcf6110f4e16003bcf29c7c1bb51">tmlist_</a>.begin();
+        <span class="keywordflow">while</span>(it != <a class="code" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_selecting_output.html#a52edfcf6110f4e16003bcf29c7c1bb51">tmlist_</a>.end()){
+                (*it).init();
+                ++it;
+        }
+        this-&gt;<a class="code" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_selecting_output.html#ab5d0e1182716c6a5a9dbb13ceffedc8a">tmlistiter_</a> = this-&gt;<a class="code" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_selecting_output.html#a52edfcf6110f4e16003bcf29c7c1bb51">tmlist_</a>.begin();
+}
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="ab60f348ee74c46fa20ac6ae90c0eed4b"></a><!-- doxytag: member="stf::core::strategy::telemetry::SelectingOutput::operator()" ref="ab60f348ee74c46fa20ac6ae90c0eed4b" args="()" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T , int SCALE&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">double <a class="el" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_selecting_output.html">stf::core::strategy::telemetry::SelectingOutput</a>&lt; T, SCALE &gt;::operator() </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p><a class="el" href="classstf_1_1interface_1_1_iterator.html#ab56d21b954e9e744d57562e85380c55b">stf::interface::Iterator</a>を実装しています。</p>
+
+<p> <a class="el" href="">SelectingOutput.h</a> の <a class="el" href="#L100">100</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">                                            {
+        <span class="keywordflow">return</span> (*this-&gt;<a class="code" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_selecting_output.html#ab5d0e1182716c6a5a9dbb13ceffedc8a">tmlistiter_</a>)();
+}
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="a4c1019810c94d9321acf524e4f7f51bc"></a><!-- doxytag: member="stf::core::strategy::telemetry::SelectingOutput::operator++" ref="a4c1019810c94d9321acf524e4f7f51bc" args="()" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T , int SCALE&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_selecting_output.html">stf::core::strategy::telemetry::SelectingOutput</a>&lt; T, SCALE &gt;::operator++ </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p><a class="el" href="classstf_1_1interface_1_1_iterator.html#adb733e9491be7b21293fa8151042a0ec">stf::interface::Iterator</a>を実装しています。</p>
+
+<p> <a class="el" href="">SelectingOutput.h</a> の <a class="el" href="#L92">92</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">                                           {
+        ++(*this-&gt;<a class="code" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_selecting_output.html#ab5d0e1182716c6a5a9dbb13ceffedc8a">tmlistiter_</a>);
+        <span class="keywordflow">if</span>((*this-&gt;<a class="code" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_selecting_output.html#ab5d0e1182716c6a5a9dbb13ceffedc8a">tmlistiter_</a>).end()){
+                ++this-&gt;<a class="code" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_selecting_output.html#ab5d0e1182716c6a5a9dbb13ceffedc8a">tmlistiter_</a>;
+        }       
+}
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="aeb0daf2aa22b8270907304f48ff0f0e6"></a><!-- doxytag: member="stf::core::strategy::telemetry::SelectingOutput::remove_tmlist" ref="aeb0daf2aa22b8270907304f48ff0f0e6" args="(interface::Iterator *tm)" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T, int SCALE&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void <a class="el" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_selecting_output.html">stf::core::strategy::telemetry::SelectingOutput</a>&lt; T, SCALE &gt;::remove_tmlist </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classstf_1_1interface_1_1_iterator.html">interface::Iterator</a> *&#160;</td>
+          <td class="paramname"><em>tm</em></td><td>)</td>
+          <td><code> [inline, virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p><a class="el" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_i_telemetry_strategy.html#a8193455a2ff13f7e828019f0bff4a06e">stf::core::strategy::telemetry::ITelemetryStrategy</a>を実装しています。</p>
+
+<p> <a class="el" href="">SelectingOutput.h</a> の <a class="el" href="#L56">56</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">{ this-&gt;<a class="code" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_selecting_output.html#a52edfcf6110f4e16003bcf29c7c1bb51">tmlist_</a>.remove(*tm);}
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="af3cdf526f74a246945b5e2036f04d30d"></a><!-- doxytag: member="stf::core::strategy::telemetry::SelectingOutput::set_tmlist_by_datapoolrows" ref="af3cdf526f74a246945b5e2036f04d30d" args="(int index)" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T, int SCALE&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_selecting_output.html">stf::core::strategy::telemetry::SelectingOutput</a>&lt; T, SCALE &gt;::set_tmlist_by_datapoolrows </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>index</em></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">SelectingOutput.h</a> の <a class="el" href="#L52">52</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">                                                  {
+                interface::DataIterator* it = <span class="keyword">new</span> interface::DataIterator(this-&gt;<a class="code" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_selecting_output.html#a810213e9bb59ed3ff0831ad2f10c0e94">pool_</a>-&gt;get(index));
+                this-&gt;<a class="code" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_selecting_output.html#a52edfcf6110f4e16003bcf29c7c1bb51">tmlist_</a>.add(*it);
+        }
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="a283d989851b63bc69da43e63c403450b"></a><!-- doxytag: member="stf::core::strategy::telemetry::SelectingOutput::write_" ref="a283d989851b63bc69da43e63c403450b" args="(const double *data, int length)" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T , int SCALE&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_selecting_output.html">stf::core::strategy::telemetry::SelectingOutput</a>&lt; T, SCALE &gt;::write_ </td>
+          <td>(</td>
+          <td class="paramtype">const double *&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>length</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">SelectingOutput.h</a> の <a class="el" href="#L120">120</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">{
+        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; length; i++){
+                (*this-&gt;<a class="code" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_selecting_output.html#a8fc0622da75f982b7229399356c44f15">storage_</a>) &lt;&lt; <a class="code" href="namespacenj.html#a54b165e7142279e06643f15f96fb3385">data</a>[i];
+        }
+}
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="a062f21651a72159a989aca8297fa037e"></a><!-- doxytag: member="stf::core::strategy::telemetry::SelectingOutput::write_to_telemetry" ref="a062f21651a72159a989aca8297fa037e" args="()" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T , int SCALE&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_selecting_output.html">stf::core::strategy::telemetry::SelectingOutput</a>&lt; T, SCALE &gt;::write_to_telemetry </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p><a class="el" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_i_telemetry_strategy.html#aedcec22c113b57c1b48dae30bfe4dc02">stf::core::strategy::telemetry::ITelemetryStrategy</a>を実装しています。</p>
+
+<p><a class="el" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_p_r_i_s_m_telemetry_strategy.html#a358fad57aebdde055b50c2db0112649c">stf::core::strategy::telemetry::PRISMTelemetryStrategy&lt; SCALE &gt;</a>, と <a class="el" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_p_r_i_s_m_telemetry_strategy.html#a358fad57aebdde055b50c2db0112649c">stf::core::strategy::telemetry::PRISMTelemetryStrategy&lt; 1000 &gt;</a>で再定義されています。</p>
+
+<p> <a class="el" href="">SelectingOutput.h</a> の <a class="el" href="#L105">105</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">                                                  {
+        (*this-&gt;<a class="code" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_selecting_output.html#a8fc0622da75f982b7229399356c44f15">storage_</a>) &lt;&lt; this-&gt;<a class="code" href="classstf_1_1_root_object.html#aa017b38716ed6c01dc754e6f003d6656">clock_</a>-&gt;get_time().total_milliseconds();
+        <span class="comment">//TBD</span>
+        this-&gt;<a class="code" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_selecting_output.html#a8fc0622da75f982b7229399356c44f15">storage_</a>-&gt;endl(); 
+}
+</pre></div>
+</div>
+</div>
+<hr/><h2>変数</h2>
+<a class="anchor" id="a810213e9bb59ed3ff0831ad2f10c0e94"></a><!-- doxytag: member="stf::core::strategy::telemetry::SelectingOutput::pool_" ref="a810213e9bb59ed3ff0831ad2f10c0e94" args="" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T, int SCALE&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classstf_1_1core_1_1datapool_1_1_aocs_data_pool.html">core::datapool::AocsDataPool</a>* <a class="el" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_selecting_output.html">stf::core::strategy::telemetry::SelectingOutput</a>&lt; T, SCALE &gt;::<a class="el" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_selecting_output.html#a810213e9bb59ed3ff0831ad2f10c0e94">pool_</a><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">SelectingOutput.h</a> の <a class="el" href="#L65">65</a> 行で定義されています。</p>
+
+</div>
+</div>
+<a class="anchor" id="a8fc0622da75f982b7229399356c44f15"></a><!-- doxytag: member="stf::core::strategy::telemetry::SelectingOutput::storage_" ref="a8fc0622da75f982b7229399356c44f15" args="" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T, int SCALE&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classstf_1_1core_1_1devicedriver_1_1tmhandler_1_1_i_telemetry_storagable.html">devicedriver::tmhandler::ITelemetryStoragable</a>* <a class="el" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_selecting_output.html">stf::core::strategy::telemetry::SelectingOutput</a>&lt; T, SCALE &gt;::<a class="el" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_selecting_output.html#a8fc0622da75f982b7229399356c44f15">storage_</a><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">SelectingOutput.h</a> の <a class="el" href="#L64">64</a> 行で定義されています。</p>
+
+</div>
+</div>
+<a class="anchor" id="a52edfcf6110f4e16003bcf29c7c1bb51"></a><!-- doxytag: member="stf::core::strategy::telemetry::SelectingOutput::tmlist_" ref="a52edfcf6110f4e16003bcf29c7c1bb51" args="" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T, int SCALE&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classstf_1_1datatype_1_1_list.html">datatype::List</a>&lt;<a class="el" href="classstf_1_1interface_1_1_iterator.html">interface::Iterator</a>&gt; <a class="el" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_selecting_output.html">stf::core::strategy::telemetry::SelectingOutput</a>&lt; T, SCALE &gt;::<a class="el" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_selecting_output.html#a52edfcf6110f4e16003bcf29c7c1bb51">tmlist_</a><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">SelectingOutput.h</a> の <a class="el" href="#L62">62</a> 行で定義されています。</p>
+
+</div>
+</div>
+<a class="anchor" id="ab5d0e1182716c6a5a9dbb13ceffedc8a"></a><!-- doxytag: member="stf::core::strategy::telemetry::SelectingOutput::tmlistiter_" ref="ab5d0e1182716c6a5a9dbb13ceffedc8a" args="" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T, int SCALE&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classstf_1_1datatype_1_1_list.html">datatype::List</a>&lt;<a class="el" href="classstf_1_1interface_1_1_iterator.html">interface::Iterator</a>&gt;::iterator <a class="el" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_selecting_output.html">stf::core::strategy::telemetry::SelectingOutput</a>&lt; T, SCALE &gt;::<a class="el" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_selecting_output.html#ab5d0e1182716c6a5a9dbb13ceffedc8a">tmlistiter_</a><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">SelectingOutput.h</a> の <a class="el" href="#L63">63</a> 行で定義されています。</p>
+
+</div>
+</div>
+<hr/>このクラスの説明は次のファイルから生成されました:<ul>
+<li>stf/core/strategy/telemetry/<a class="el" href="">SelectingOutput.h</a></li>
+</ul>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>フレンド</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>マクロ定義</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>STFに対してWed Mar 23 2011 05:33:35に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
+</body>
+</html>

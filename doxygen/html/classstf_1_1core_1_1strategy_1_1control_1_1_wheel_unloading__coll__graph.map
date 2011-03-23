@@ -1,0 +1,36 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$classstf_1_1core_1_1strategy_1_1_strategy_base.html" title="ストラテジの共通基底クラス．" alt="" coords="2559,16,2769,45"/>
+<area shape="rect" id="node4" href="$classstf_1_1_root_object.html" title="数値型を除いた全クラスの基本となるクラス．" alt="" coords="1916,219,2025,248"/>
+<area shape="rect" id="node12" href="$classstf_1_1core_1_1datapool_1_1_data_pool_base.html" title="Tupleを複数個保持するデータプールの基底クラス．" alt="" coords="2556,212,2772,241"/>
+<area shape="rect" id="node25" href="$classstf_1_1core_1_1datapool_1_1_event_data_pool.html" title="Eventのデータプール．" alt="" coords="2555,157,2773,187"/>
+<area shape="rect" id="node56" href="$classstf_1_1core_1_1devicedriver_1_1_a_o_c_s_component.html" title="stf::core::devicedriver::AOCSComponent\&lt; datatype::StaticVector\&lt; 3 \&gt;, datatype::Scalar, Env \&gt;" alt="" coords="2379,395,2949,424"/>
+<area shape="rect" id="node6" href="$classstf_1_1core_1_1devicedriver_1_1clock_1_1_i_time_clock.html" title="Time型のカウントが可能であることを示す抽象インターフェース．" alt="" coords="1216,316,1469,345"/>
+<area shape="rect" id="node8" href="$classstf_1_1core_1_1devicedriver_1_1_i_data_updatable.html" title="周期的にデータを取得，送信するコンポーネントに対するインターフェース" alt="" coords="565,383,803,412"/>
+<area shape="rect" id="node10" href="$classstf_1_1core_1_1datapool_1_1_aocs_data_pool.html" title="IAocsDataのデータプール．" alt="" coords="3169,212,3385,241"/>
+<area shape="rect" id="node15" href="$classstf_1_1core_1_1datapool_1_1_tuple.html" title="stf::core::datapool::Tuple\&lt; datatype::IAocsData \&gt;" alt="" coords="1817,73,2124,103"/>
+<area shape="rect" id="node17" href="$classstf_1_1datatype_1_1_i_aocs_data.html" title="AOCS使用系列のデータ共通の抽象インターフェース．" alt="" coords="232,468,395,497"/>
+<area shape="rect" id="node66" href="$classstf_1_1datatype_1_1_static_vector.html" title="stf::datatype::StaticVector\&lt; cols \&gt;" alt="" coords="573,468,795,497"/>
+<area shape="rect" id="node77" href="$classstf_1_1datatype_1_1_scalar.html" title="スカラー物理量を表現するクラス．" alt="" coords="912,523,1051,552"/>
+<area shape="rect" id="node19" href="$classstf_1_1interface_1_1_i_telemetable.html" title="テレメトリを生成可能なオブジェクトに対するインターフェース．" alt="" coords="7,468,180,497"/>
+<area shape="rect" id="node21" href="$classstf_1_1datatype_1_1_time.html" title="経過時間を表すクラス．" alt="" coords="248,76,379,105"/>
+<area shape="rect" id="node32" href="$struct_loki_1_1_tuple_unit.html" title="Loki::TupleUnit\&lt; TYPELIST_2(event::EventType, datatype::Time) \&gt;" alt="" coords="481,140,887,169"/>
+<area shape="rect" id="node23" href="$classstf_1_1datatype_1_1_string.html" title="std::stringの簡略版．" alt="" coords="1275,127,1411,156"/>
+<area shape="rect" id="node28" href="$struct_loki_1_1_tuple.html" title="Loki::Tuple\&lt; TYPELIST_2(event::EventType, datatype::Time)\&gt;" alt="" coords="1781,147,2160,176"/>
+<area shape="rect" id="node30" href="$class_loki_1_1_gen_scatter_hierarchy.html" title="Loki::GenScatterHierarchy\&lt; TYPELIST_2(event::EventType, datatype::Time), TupleUnit \&gt;" alt="" coords="1076,180,1609,209"/>
+<area shape="rect" id="node36" href="$classstf_1_1interface_1_1_i_enabable.html" title="有効化・無効化制御が可能なコンポーネントに対するインターフェース．" alt="" coords="1892,5,2049,35"/>
+<area shape="rect" id="node38" href="$classstf_1_1core_1_1devicedriver_1_1_input_ports.html" title="stf::core::devicedriver::InputPorts\&lt; TYPELIST_1(datatype::PositionInfo) \&gt;" alt="" coords="4480,99,4920,128"/>
+<area shape="rect" id="node40" href="$class_loki_1_1_gen_scatter_hierarchy.html" title="Loki::GenScatterHierarchy\&lt; TYPELIST_1(datatype::PositionInfo), core::devicedriver::InputPort \&gt;" alt="" coords="3660,99,4233,128"/>
+<area shape="rect" id="node42" href="$classcore_1_1devicedriver_1_1_input_port.html" title="core::devicedriver::InputPort\&lt; TYPELIST_1(datatype::PositionInfo) \&gt;" alt="" coords="3072,99,3483,128"/>
+<area shape="rect" id="node44" href="$classstf_1_1core_1_1devicedriver_1_1_output_ports.html" title="stf::core::devicedriver::OutputPorts\&lt; TYPELIST_2(datatype::StaticVector\&lt; 3 \&gt;, datatype::StaticVector\&lt; 3 \&gt;) \&gt;" alt="" coords="4372,152,5028,181"/>
+<area shape="rect" id="node46" href="$class_loki_1_1_gen_scatter_hierarchy.html" title="Loki::GenScatterHierarchy\&lt; TYPELIST_2(datatype::StaticVector\&lt; 3 \&gt;, datatype::StaticVector\&lt; 3 \&gt;), OutputPort \&gt;" alt="" coords="3605,152,4288,181"/>
+<area shape="rect" id="node48" href="$class_output_port.html" title="OutputPort\&lt; TYPELIST_2(datatype::StaticVector\&lt; 3 \&gt;, datatype::StaticVector\&lt; 3 \&gt;) \&gt;" alt="" coords="3017,152,3537,181"/>
+<area shape="rect" id="node50" href="$classstf_1_1datatype_1_1_list.html" title="stf::datatype::List\&lt; core::devicedriver::rw::RWBase\&lt; Env \&gt; \&gt;" alt="" coords="4515,225,4885,255"/>
+<area shape="rect" id="node52" href="$classstf_1_1core_1_1devicedriver_1_1rw_1_1_r_w_base.html" title="stf::core::devicedriver::rw::RWBase\&lt; Env \&gt;" alt="" coords="3812,285,4081,315"/>
+<area shape="rect" id="node54" href="$classstf_1_1core_1_1devicedriver_1_1_a_o_c_s_actuator.html" title="stf::core::devicedriver::AOCSActuator\&lt; datatype::StaticVector\&lt; 3 \&gt;, datatype::Scalar, Env \&gt;" alt="" coords="3000,467,3555,496"/>
+<area shape="rect" id="node60" href="$classstf_1_1core_1_1devicedriver_1_1_i_switchable.html" title="電源のオンオフ制御が可能なコンポーネントに対するインターフェース．" alt="" coords="1863,311,2079,340"/>
+<area shape="rect" id="node62" href="$classstf_1_1datatype_1_1_d_c_m.html" title="Z&#45;Y&#45;Xの順で回転させる回転行列（DCM）．" alt="" coords="1905,468,2036,497"/>
+<area shape="rect" id="node64" href="$classstf_1_1datatype_1_1_static_matrix.html" title="stf::datatype::StaticMatrix\&lt; 3, 3 \&gt;" alt="" coords="1233,468,1452,497"/>
+<area shape="rect" id="node71" href="$classstf_1_1core_1_1devicedriver_1_1_input_ports.html" title="stf::core::devicedriver::InputPorts\&lt; TYPELIST_1(datatype::Scalar) \&gt;" alt="" coords="2459,581,2869,611"/>
+<area shape="rect" id="node73" href="$class_loki_1_1_gen_scatter_hierarchy.html" title="Loki::GenScatterHierarchy\&lt; TYPELIST_1(datatype::Scalar), core::devicedriver::InputPort \&gt;" alt="" coords="1700,587,2241,616"/>
+<area shape="rect" id="node75" href="$classcore_1_1devicedriver_1_1_input_port.html" title="core::devicedriver::InputPort\&lt; TYPELIST_1(datatype::Scalar) \&gt;" alt="" coords="1152,587,1533,616"/>
+</map>

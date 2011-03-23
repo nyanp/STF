@@ -1,0 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>STF: stf/satellite/prism/PRISMADC.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.3 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">STF</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="pages.html"><span>関連ページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>ファイルメンバ</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<h1>stf/satellite/prism/PRISMADC.h</h1>  </div>
+</div>
+<div class="contents">
+<a href="_p_r_i_s_m_a_d_c_8h.html">説明を見る。</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<a name="l00008"></a>00008 <span class="preprocessor">#ifndef stf_core_devicedriver_PRISMADC_h</span>
+<a name="l00009"></a>00009 <span class="preprocessor"></span><span class="preprocessor">#define stf_core_devicedriver_PRISMADC_h</span>
+<a name="l00010"></a>00010 <span class="preprocessor"></span>
+<a name="l00011"></a>00011 
+<a name="l00012"></a>00012 <span class="preprocessor">#include &quot;<a class="code" href="_c_d_h_component_8h.html" title="AD変換器や温度計など，複数のセンサを一括して取り扱うコンポーネントの基底クラス．">../../core/devicedriver/CDHComponent.h</a>&quot;</span>
+<a name="l00013"></a>00013 <span class="preprocessor">#include &quot;<a class="code" href="_a_d_c_base_8h.html" title="AD変換器ドライバの抽象クラス．">../../core/devicedriver/adc/ADCBase.h</a>&quot;</span>
+<a name="l00014"></a>00014 
+<a name="l00015"></a>00015 <span class="keyword">namespace </span>stf {
+<a name="l00016"></a>00016 <span class="keyword">namespace </span>core {
+<a name="l00017"></a>00017 <span class="keyword">namespace </span>devicedriver {
+<a name="l00018"></a>00018 
+<a name="l00019"></a><a class="code" href="_p_r_i_s_m_a_d_c_8h.html#a28f784ce718e71dd197264fc38caec41">00019</a> <span class="preprocessor">#define PRISM__ADC__CHANNELS      96</span>
+<a name="l00020"></a><a class="code" href="_p_r_i_s_m_a_d_c_8h.html#a4ca158fba6dff402beb7fe5067dfe800">00020</a> <span class="preprocessor"></span><span class="preprocessor">#define PRISM__VOLTAGE__CHANNELS  12</span>
+<a name="l00021"></a><a class="code" href="_p_r_i_s_m_a_d_c_8h.html#a74365412baa406ad9bb77d80f3247c11">00021</a> <span class="preprocessor"></span><span class="preprocessor">#define PRISM__CURRENT__CHANNELS  26</span>
+<a name="l00022"></a><a class="code" href="_p_r_i_s_m_a_d_c_8h.html#a802379587014f6c4d2f87150f791a1fb">00022</a> <span class="preprocessor"></span><span class="preprocessor">#define PRISM__TEMP__CHANNELS     22</span>
+<a name="l00023"></a><a class="code" href="_p_r_i_s_m_a_d_c_8h.html#ac4ba48dfa09870526eaad7bb8344101b">00023</a> <span class="preprocessor"></span><span class="preprocessor">#define PRISM__VOLTAGE__OFFSET     0</span>
+<a name="l00024"></a><a class="code" href="_p_r_i_s_m_a_d_c_8h.html#ab5d40b4406f12519aeb792a9255e8edf">00024</a> <span class="preprocessor"></span><span class="preprocessor">#define PRISM__CURRENT__OFFSET    23</span>
+<a name="l00025"></a><a class="code" href="_p_r_i_s_m_a_d_c_8h.html#a70f3ef023a94635bab34dfbf3a536469">00025</a> <span class="preprocessor"></span><span class="preprocessor">#define PRISM__TEMP__OFFSET       60</span>
+<a name="l00026"></a>00026 <span class="preprocessor"></span>
+<a name="l00027"></a>00027 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Env&gt;
+<a name="l00028"></a><a class="code" href="classstf_1_1core_1_1devicedriver_1_1_p_r_i_s_m_a_d_c.html">00028</a> <span class="keyword">class </span><a class="code" href="classstf_1_1core_1_1devicedriver_1_1_p_r_i_s_m_a_d_c.html">PRISMADC</a> : <span class="keyword">public</span> <a class="code" href="classstf_1_1core_1_1devicedriver_1_1_a_d_c_base.html" title="AD変換器ドライバの抽象クラス．">ADCBase</a>&lt;PRISM__ADC__CHANNELS, Env&gt;{
+<a name="l00029"></a>00029 <span class="keyword">public</span>:
+<a name="l00030"></a><a class="code" href="classstf_1_1core_1_1devicedriver_1_1_p_r_i_s_m_a_d_c.html#aa1437188539e81ac58cef0ef77a605de">00030</a>         <a class="code" href="classstf_1_1core_1_1devicedriver_1_1_p_r_i_s_m_a_d_c.html#aa1437188539e81ac58cef0ef77a605de">PRISMADC</a>(<span class="keywordtype">int</span> <a class="code" href="classstf_1_1_root_object.html#a233a3fbd4d53b7a8eaa5d2edab4cf75b">instance_id</a>) : <a class="code" href="classstf_1_1core_1_1devicedriver_1_1_a_d_c_base.html" title="AD変換器ドライバの抽象クラス．">ADCBase</a>&lt;<a class="code" href="_p_r_i_s_m_a_d_c_8h.html#a28f784ce718e71dd197264fc38caec41">PRISM__ADC__CHANNELS</a>, Env&gt;(instance_id){}
+<a name="l00031"></a><a class="code" href="classstf_1_1core_1_1devicedriver_1_1_p_r_i_s_m_a_d_c.html#ad05c10b4bdef73d38899e660c5c12577">00031</a>         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classstf_1_1core_1_1devicedriver_1_1_p_r_i_s_m_a_d_c.html#ad05c10b4bdef73d38899e660c5c12577">do_update</a>(){
+<a name="l00032"></a>00032                 <span class="comment">//TBD</span>
+<a name="l00033"></a>00033         }
+<a name="l00034"></a>00034 };
+<a name="l00035"></a>00035 
+<a name="l00036"></a>00036 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Env = ENV&gt;
+<a name="l00037"></a><a class="code" href="classstf_1_1core_1_1devicedriver_1_1_p_r_i_s_m_current_sensor.html">00037</a> <span class="keyword">class </span><a class="code" href="classstf_1_1core_1_1devicedriver_1_1_p_r_i_s_m_current_sensor.html">PRISMCurrentSensor</a> : <span class="keyword">public</span> <a class="code" href="classstf_1_1core_1_1devicedriver_1_1_multi_sensor.html" title="ADCのデジタル値を物理値に変換して保持するコンポーネント．">MultiSensor</a>&lt;datatype::Current, PRISM__CURRENT__CHANNELS, PRISM__ADC__CHANNELS, Env&gt; {
+<a name="l00038"></a>00038 <span class="keyword">public</span>:
+<a name="l00039"></a><a class="code" href="classstf_1_1core_1_1devicedriver_1_1_p_r_i_s_m_current_sensor.html#ad57a370e8c16df9727e0483fe6d205c2">00039</a>         <a class="code" href="classstf_1_1core_1_1devicedriver_1_1_p_r_i_s_m_current_sensor.html#ad57a370e8c16df9727e0483fe6d205c2">PRISMCurrentSensor</a>(<span class="keywordtype">int</span> <a class="code" href="classstf_1_1_root_object.html#a233a3fbd4d53b7a8eaa5d2edab4cf75b">instance_id</a>, <a class="code" href="classstf_1_1core_1_1devicedriver_1_1_a_d_c_base.html">ADCBase&lt;PRISM__ADC__CHANNELS, Env&gt;</a>* adc) 
+<a name="l00040"></a>00040                 : <a class="code" href="classstf_1_1core_1_1devicedriver_1_1_multi_sensor.html" title="ADCのデジタル値を物理値に変換して保持するコンポーネント．">MultiSensor</a>&lt;datatype::Current, <a class="code" href="_p_r_i_s_m_a_d_c_8h.html#a74365412baa406ad9bb77d80f3247c11">PRISM__CURRENT__CHANNELS</a>, <a class="code" href="_p_r_i_s_m_a_d_c_8h.html#a28f784ce718e71dd197264fc38caec41">PRISM__ADC__CHANNELS</a>, Env&gt;(instance_id, adc, <a class="code" href="_p_r_i_s_m_a_d_c_8h.html#ab5d40b4406f12519aeb792a9255e8edf">PRISM__CURRENT__OFFSET</a>){}
+<a name="l00041"></a>00041 };
+<a name="l00042"></a>00042 
+<a name="l00043"></a>00043 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Env = ENV&gt;
+<a name="l00044"></a><a class="code" href="classstf_1_1core_1_1devicedriver_1_1_p_r_i_s_m_voltage_sensor.html">00044</a> <span class="keyword">class </span><a class="code" href="classstf_1_1core_1_1devicedriver_1_1_p_r_i_s_m_voltage_sensor.html">PRISMVoltageSensor</a> : <span class="keyword">public</span>  <a class="code" href="classstf_1_1core_1_1devicedriver_1_1_multi_sensor.html" title="ADCのデジタル値を物理値に変換して保持するコンポーネント．">MultiSensor</a>&lt;datatype::Voltage, PRISM__VOLTAGE__CHANNELS, PRISM__ADC__CHANNELS, Env&gt; {
+<a name="l00045"></a>00045 <span class="keyword">public</span>:
+<a name="l00046"></a><a class="code" href="classstf_1_1core_1_1devicedriver_1_1_p_r_i_s_m_voltage_sensor.html#aae422e0b1cba416db1930ffa6f40eed1">00046</a>         <a class="code" href="classstf_1_1core_1_1devicedriver_1_1_p_r_i_s_m_voltage_sensor.html#aae422e0b1cba416db1930ffa6f40eed1">PRISMVoltageSensor</a>(<span class="keywordtype">int</span> <a class="code" href="classstf_1_1_root_object.html#a233a3fbd4d53b7a8eaa5d2edab4cf75b">instance_id</a>, <a class="code" href="classstf_1_1core_1_1devicedriver_1_1_a_d_c_base.html">ADCBase&lt;PRISM__ADC__CHANNELS, Env&gt;</a>* adc)
+<a name="l00047"></a>00047                 :  <a class="code" href="classstf_1_1core_1_1devicedriver_1_1_multi_sensor.html" title="ADCのデジタル値を物理値に変換して保持するコンポーネント．">MultiSensor</a>&lt;datatype::Voltage, <a class="code" href="_p_r_i_s_m_a_d_c_8h.html#a4ca158fba6dff402beb7fe5067dfe800">PRISM__VOLTAGE__CHANNELS</a>, <a class="code" href="_p_r_i_s_m_a_d_c_8h.html#a28f784ce718e71dd197264fc38caec41">PRISM__ADC__CHANNELS</a>, Env&gt;(instance_id, adc, <a class="code" href="_p_r_i_s_m_a_d_c_8h.html#ac4ba48dfa09870526eaad7bb8344101b">PRISM__VOLTAGE__OFFSET</a>){}
+<a name="l00048"></a>00048 };
+<a name="l00049"></a>00049 
+<a name="l00050"></a>00050 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Env = ENV&gt;
+<a name="l00051"></a><a class="code" href="classstf_1_1core_1_1devicedriver_1_1_p_r_i_s_m_temp_sensor.html">00051</a> <span class="keyword">class </span><a class="code" href="classstf_1_1core_1_1devicedriver_1_1_p_r_i_s_m_temp_sensor.html">PRISMTempSensor</a> : <span class="keyword">public</span>  <a class="code" href="classstf_1_1core_1_1devicedriver_1_1_multi_sensor.html" title="ADCのデジタル値を物理値に変換して保持するコンポーネント．">MultiSensor</a>&lt;datatype::Temperature, PRISM__TEMP__CHANNELS, PRISM__ADC__CHANNELS, Env&gt; {
+<a name="l00052"></a>00052 <span class="keyword">public</span>:
+<a name="l00053"></a><a class="code" href="classstf_1_1core_1_1devicedriver_1_1_p_r_i_s_m_temp_sensor.html#adbff21161b9f34823fcd2e336a546815">00053</a>         <a class="code" href="classstf_1_1core_1_1devicedriver_1_1_p_r_i_s_m_temp_sensor.html#adbff21161b9f34823fcd2e336a546815">PRISMTempSensor</a>(<span class="keywordtype">int</span> <a class="code" href="classstf_1_1_root_object.html#a233a3fbd4d53b7a8eaa5d2edab4cf75b">instance_id</a>, <a class="code" href="classstf_1_1core_1_1devicedriver_1_1_a_d_c_base.html">ADCBase&lt;PRISM__ADC__CHANNELS, Env&gt;</a>* adc)
+<a name="l00054"></a>00054                 :  <a class="code" href="classstf_1_1core_1_1devicedriver_1_1_multi_sensor.html" title="ADCのデジタル値を物理値に変換して保持するコンポーネント．">MultiSensor</a>&lt;datatype::Temperature, <a class="code" href="_p_r_i_s_m_a_d_c_8h.html#a802379587014f6c4d2f87150f791a1fb">PRISM__TEMP__CHANNELS</a>, <a class="code" href="_p_r_i_s_m_a_d_c_8h.html#a28f784ce718e71dd197264fc38caec41">PRISM__ADC__CHANNELS</a>, Env&gt;(instance_id, adc, <a class="code" href="_p_r_i_s_m_a_d_c_8h.html#a70f3ef023a94635bab34dfbf3a536469">PRISM__TEMP__OFFSET</a>){}
+<a name="l00055"></a>00055 };
+<a name="l00056"></a>00056 
+<a name="l00057"></a>00057 
+<a name="l00058"></a>00058 } <span class="comment">/* End of namespace stf::core::component */</span>
+<a name="l00059"></a>00059 } <span class="comment">/* End of namespace stf::core */</span>
+<a name="l00060"></a>00060 } <span class="comment">/* End of namespace stf */</span>
+<a name="l00061"></a>00061 
+<a name="l00062"></a>00062 <span class="preprocessor">#endif // stf_core_devicedriver_PRISMADC_h</span>
+</pre></div></div>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>フレンド</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>マクロ定義</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>STFに対してTue Mar 1 2011 03:45:42に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
+</body>
+</html>

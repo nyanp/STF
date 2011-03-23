@@ -1,0 +1,181 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>STF: stf/datatype/OrbitCalc.cpp ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.3 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">STF</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="pages.html"><span>関連ページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>ファイルメンバ</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<h1>stf/datatype/OrbitCalc.cpp</h1>  </div>
+</div>
+<div class="contents">
+<a href="_orbit_calc_8cpp.html">説明を見る。</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<a name="l00008"></a>00008 <span class="preprocessor">#include &lt;assert.h&gt;</span>
+<a name="l00009"></a>00009 <span class="preprocessor">#include &quot;<a class="code" href="_orbit_calc_8h.html" title="軌道関係情報を計算するメソッドをstaticメンバとしてまとめたクラス．">OrbitCalc.h</a>&quot;</span>
+<a name="l00010"></a>00010 <span class="preprocessor">#include &quot;<a class="code" href="math_8h.html" title="数学系関数のラッパと算術定数の定義．">../util/math.h</a>&quot;</span>
+<a name="l00011"></a>00011 <span class="preprocessor">#include &quot;<a class="code" href="_type_converter_8h.html" title="単位や姿勢表現の相互変換を行うユーティリティ．">TypeConverter.h</a>&quot;</span>
+<a name="l00012"></a>00012 <span class="preprocessor">#include &quot;<a class="code" href="_orbit_info_8h.html" title="軌道情報関係の量を表す">OrbitInfo.h</a>&quot;</span>
+<a name="l00013"></a>00013 <span class="preprocessor">#include &quot;<a class="code" href="_magnetic_8h.html" title="磁気関係の物理量を表す">Magnetic.h</a>&quot;</span>
+<a name="l00014"></a>00014 <span class="preprocessor">#include &quot;<a class="code" href="_static_vector_8h.html" title="テンプレートを用いた固定要素数のベクトル計算クラス">StaticVector.h</a>&quot;</span>
+<a name="l00015"></a>00015 <span class="preprocessor">#include &quot;<a class="code" href="_date_time_8h.html" title="ユリウス暦による絶対時刻を保持するクラス．時間間隔などの計算にはTimeを使う．">DateTime.h</a>&quot;</span>
+<a name="l00016"></a>00016 <span class="preprocessor">#include &quot;<a class="code" href="_quaternion_8h.html" title="4元数を表現するクラス．">Quaternion.h</a>&quot;</span>
+<a name="l00017"></a>00017 
+<a name="l00018"></a>00018 <span class="preprocessor">#include &quot;<a class="code" href="sgp4ext_8h.html" title="NJHILSから持ってきた軌道計算関係モジュールを，sgp4名前空間でラップして使用．">../environment/sgp4/sgp4ext.h</a>&quot;</span>
+<a name="l00019"></a>00019 <span class="preprocessor">#include &quot;<a class="code" href="sgp4unit_8h.html" title="NJHILSから持ってきた軌道計算関係モジュールを，sgp4名前空間でラップして使用．">../environment/sgp4/sgp4unit.h</a>&quot;</span>
+<a name="l00020"></a>00020 <span class="preprocessor">#include &quot;<a class="code" href="orbitutil_8h.html" title="NJHILSから持ってきた軌道計算関係モジュールを，sgp4名前空間でラップして使用．">../environment/sgp4/orbitutil.h</a>&quot;</span>
+<a name="l00021"></a>00021 <span class="preprocessor">#include &quot;<a class="code" href="igrf_8h.html" title="NJHILSから持ってきたIGRF計算モジュールを，igrf名前空間でラップして使用．">../environment/models/igrf.h</a>&quot;</span>
+<a name="l00022"></a>00022 
+<a name="l00023"></a>00023 <span class="keyword">namespace </span>stf {
+<a name="l00024"></a>00024 <span class="keyword">namespace </span>datatype {
+<a name="l00025"></a>00025 
+<a name="l00026"></a>00026 StaticVector&lt;2&gt; <a class="code" href="classstf_1_1datatype_1_1_orbit_calc.html#a8face057f39e1d7df7dce12587a30fe5" title="J2000座標系における太陽方向ベクトルを計算．">OrbitCalc::getSunDirection2D</a>(<span class="keyword">const</span> DateTime&amp; time){
+<a name="l00027"></a>00027         <span class="comment">//制御ハンドブックP.280. 地球中心からの太陽方向ベクトルを求める</span>
+<a name="l00028"></a>00028         <span class="keywordtype">double</span> T  = (time.get_julius() - 2451545.0) / 36525 ;
+<a name="l00029"></a>00029         <span class="keywordtype">double</span> <a class="code" href="namespacestf.html#ad7471a4270f1cdbad42fa8e81854f9fe">M</a> = util::math::DEG2RAD * (357.5256 + 35999.045 * T);
+<a name="l00030"></a>00030         <span class="keywordtype">double</span> <a class="code" href="namespacestf.html#adfa79b168df93761f1b4d618580a19df">lambda</a> = util::math::DEG2RAD * (282.94 + M + (6892 / 3600) * sin(M) + (72/3600) * sin(2*M) - (0.002652 - (1250.09115 / 3600) * T));
+<a name="l00031"></a>00031         <span class="keywordtype">double</span> <a class="code" href="namespacestf.html#aa85de960f27da8bb71b5ca1a62849038">eta</a> = util::math::DEG2RAD * 23.43929111;<span class="comment">//平均黄道傾角</span>
+<a name="l00032"></a>00032         StaticVector&lt;3&gt; <a class="code" href="namespacestf.html#afa89a4a0c80d3727c2f396aa3ead41cd">v</a>;
+<a name="l00033"></a><a class="code" href="namespacestf.html#ad7471a4270f1cdbad42fa8e81854f9fe">00033</a>         v[0] = cos(lambda);
+<a name="l00034"></a><a class="code" href="namespacestf.html#adfa79b168df93761f1b4d618580a19df">00034</a>         v[1] = sin(lambda) * cos(eta);
+<a name="l00035"></a><a class="code" href="namespacestf.html#aa85de960f27da8bb71b5ca1a62849038">00035</a>         v[2] = sin(lambda) * sin(eta);
+<a name="l00036"></a><a class="code" href="namespacestf.html#afa89a4a0c80d3727c2f396aa3ead41cd">00036</a>         <span class="keywordflow">return</span> <a class="code" href="classstf_1_1datatype_1_1_type_converter.html#a8b3c986f1e5f34d4de833b158cbdfb19">TypeConverter::toPolar</a>(v);
+<a name="l00037"></a>00037 }
+<a name="l00038"></a>00038 
+<a name="l00039"></a>00039 StaticVector&lt;2&gt; <a class="code" href="classstf_1_1datatype_1_1_orbit_calc.html#a7476bb59cb71d821cf64b33136824b96" title="J2000座標系における地球方向ベクトルを計算．">OrbitCalc::getEarthDirection2D</a>(<span class="keyword">const</span> PositionInfo&amp; <a class="code" href="namespaceigrf.html#a9b0d3a2208a4bd2bf3982ee85d905d5a">p</a>){
+<a name="l00040"></a>00040         <span class="keywordflow">return</span> <a class="code" href="classstf_1_1datatype_1_1_type_converter.html#a8b3c986f1e5f34d4de833b158cbdfb19">TypeConverter::toPolar</a>(-p.position);
+<a name="l00041"></a>00041 }
+<a name="l00042"></a>00042 
+<a name="l00043"></a><a class="code" href="classstf_1_1datatype_1_1_orbit_calc.html#a7476bb59cb71d821cf64b33136824b96">00043</a> 
+<a name="l00044"></a>00044 <a class="code" href="classstf_1_1datatype_1_1_static_vector.html">StaticVector&lt;3&gt;</a> <a class="code" href="classstf_1_1datatype_1_1_orbit_calc.html#a4b36078b9d6454c87f378678461337b4" title="J2000座標系における地球方向ベクトルを計算．">OrbitCalc::getEarthDirection3D</a>(<span class="keyword">const</span> <a class="code" href="structstf_1_1datatype_1_1_position_info.html" title="衛星座標を地心慣性座標系における位置と速度の6次元ベクトルで保持するクラス．">PositionInfo</a>&amp; <a class="code" href="namespaceigrf.html#a9b0d3a2208a4bd2bf3982ee85d905d5a">p</a>){
+<a name="l00045"></a>00045         <span class="keywordflow">return</span> (-p.<a class="code" href="structstf_1_1datatype_1_1_position_info.html#af602fc1d0a799af804271e54897e258a" title="地球中心からの位置(m)">position</a>) / (p.<a class="code" href="structstf_1_1datatype_1_1_position_info.html#af602fc1d0a799af804271e54897e258a" title="地球中心からの位置(m)">position</a>.<a class="code" href="classstf_1_1datatype_1_1_static_vector.html#ac3c36d6d69fd27f065a0afc06d0ca8d9">norm</a>(2));
+<a name="l00046"></a>00046 }
+<a name="l00047"></a>00047 
+<a name="l00048"></a><a class="code" href="classstf_1_1datatype_1_1_orbit_calc.html#a4b36078b9d6454c87f378678461337b4">00048</a> <a class="code" href="classstf_1_1datatype_1_1_static_vector.html">StaticVector&lt;3&gt;</a> <a class="code" href="classstf_1_1datatype_1_1_orbit_calc.html#a3b256b9f739dc1f8cb5d2f4b8e7c3a8b" title="J2000座標系における太陽方向ベクトルを計算．">OrbitCalc::getSunDirection3D</a>(<span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_date_time.html" title="ユリウス暦による絶対時刻を秒精度で保持する．">DateTime</a>&amp; time){
+<a name="l00049"></a>00049         <span class="comment">//制御ハンドブックP.280. 地球中心からの太陽方向ベクトルを求める</span>
+<a name="l00050"></a>00050         <span class="keywordtype">double</span> T  = (time.<a class="code" href="classstf_1_1datatype_1_1_date_time.html#a635fd4b4c90607e1612a1cf9d96617f4">get_julius</a>() - 2451545.0) / 36525 ;
+<a name="l00051"></a>00051         <span class="keywordtype">double</span> M = util::math::DEG2RAD * (357.5256 + 35999.045 * T);
+<a name="l00052"></a><a class="code" href="classstf_1_1datatype_1_1_orbit_calc.html#a3b256b9f739dc1f8cb5d2f4b8e7c3a8b">00052</a>         <span class="keywordtype">double</span> lambda = util::math::DEG2RAD * (282.94 + M + (6892 / 3600) * sin(M) + (72/3600) * sin(2*M) - (0.002652 - (1250.09115 / 3600) * T));
+<a name="l00053"></a>00053         <span class="keywordtype">double</span> <a class="code" href="namespacestf.html#aa85de960f27da8bb71b5ca1a62849038">eta</a> = util::math::DEG2RAD * 23.43929111;<span class="comment">//平均黄道傾角</span>
+<a name="l00054"></a>00054         <a class="code" href="classstf_1_1datatype_1_1_static_vector.html">StaticVector&lt;3&gt;</a> <a class="code" href="namespacestf.html#afa89a4a0c80d3727c2f396aa3ead41cd">v</a>;
+<a name="l00055"></a>00055         v[0] = cos(lambda);
+<a name="l00056"></a>00056         v[1] = sin(lambda) * cos(eta);
+<a name="l00057"></a>00057         v[2] = sin(lambda) * sin(eta);
+<a name="l00058"></a>00058         <span class="keywordflow">return</span> <a class="code" href="namespacestf.html#afa89a4a0c80d3727c2f396aa3ead41cd">v</a>;
+<a name="l00059"></a>00059 }
+<a name="l00060"></a>00060 
+<a name="l00061"></a>00061 <span class="comment">//衛星座標系における地球方向ベクトルを計算．</span>
+<a name="l00062"></a>00062 <a class="code" href="classstf_1_1datatype_1_1_static_vector.html">StaticVector&lt;3&gt;</a> <a class="code" href="classstf_1_1datatype_1_1_orbit_calc.html#ac1486ad9230251eab9bbe3890f3ef714" title="衛星座標系における地球方向ベクトルを計算．">OrbitCalc::getEarthDirectionInBodyFrame</a>(<span class="keyword">const</span> <a class="code" href="structstf_1_1datatype_1_1_position_info.html" title="衛星座標を地心慣性座標系における位置と速度の6次元ベクトルで保持するクラス．">PositionInfo</a>&amp; <a class="code" href="namespaceigrf.html#a9b0d3a2208a4bd2bf3982ee85d905d5a">p</a>, <span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_quaternion.html" title="4元数を表現するクラス．q0がcosと定義されている点に注意．">Quaternion</a>&amp; q){
+<a name="l00063"></a>00063         <span class="keywordflow">return</span> - (<a class="code" href="classstf_1_1datatype_1_1_type_converter.html#a85af9eb2766a25adeadb507332d01e73">datatype::TypeConverter::toDCM</a>(q) * p.<a class="code" href="structstf_1_1datatype_1_1_position_info.html#af602fc1d0a799af804271e54897e258a" title="地球中心からの位置(m)">position</a>) ;
+<a name="l00064"></a>00064 }
+<a name="l00065"></a>00065 
+<a name="l00066"></a><a class="code" href="classstf_1_1datatype_1_1_orbit_calc.html#ac1486ad9230251eab9bbe3890f3ef714">00066</a> <span class="comment">//衛星座標系における太陽方向ベクトルを計算．</span>
+<a name="l00067"></a>00067 <a class="code" href="classstf_1_1datatype_1_1_static_vector.html">StaticVector&lt;3&gt;</a> <a class="code" href="classstf_1_1datatype_1_1_orbit_calc.html#a17d94ab1cbea5d6fbec5f0a7f74b1a67" title="衛星座標系における太陽方向ベクトルを計算．">OrbitCalc::getSunDirectionInBodyFrame</a>(<span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_date_time.html" title="ユリウス暦による絶対時刻を秒精度で保持する．">DateTime</a>&amp; time, <span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_quaternion.html" title="4元数を表現するクラス．q0がcosと定義されている点に注意．">Quaternion</a>&amp; q){
+<a name="l00068"></a>00068         <span class="keywordflow">return</span> <a class="code" href="classstf_1_1datatype_1_1_type_converter.html#a85af9eb2766a25adeadb507332d01e73">datatype::TypeConverter::toDCM</a>(q) * <a class="code" href="classstf_1_1datatype_1_1_orbit_calc.html#a3b256b9f739dc1f8cb5d2f4b8e7c3a8b" title="J2000座標系における太陽方向ベクトルを計算．">getSunDirection3D</a>(time);
+<a name="l00069"></a>00069 }
+<a name="l00070"></a>00070 
+<a name="l00071"></a><a class="code" href="classstf_1_1datatype_1_1_orbit_calc.html#a17d94ab1cbea5d6fbec5f0a7f74b1a67">00071</a> 
+<a name="l00072"></a>00072 <a class="code" href="classstf_1_1datatype_1_1_magnetic_field.html" title="3次元磁束密度(T)を表す．">MagneticField</a> <a class="code" href="classstf_1_1datatype_1_1_orbit_calc.html#a5102db5b910421748f2561c01dfaff06" title="IGRFを使用して現在の衛星位置におけるJ2000座標系での磁場を計算．">OrbitCalc::getMagneticFieldDirection</a>(<span class="keyword">const</span> <a class="code" href="structstf_1_1datatype_1_1_position_info.html" title="衛星座標を地心慣性座標系における位置と速度の6次元ベクトルで保持するクラス．">PositionInfo</a>&amp; <a class="code" href="namespaceigrf.html#a9b0d3a2208a4bd2bf3982ee85d905d5a">p</a>, <span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_date_time.html" title="ユリウス暦による絶対時刻を秒精度で保持する．">DateTime</a>&amp; time){
+<a name="l00073"></a>00073         <span class="keywordtype">double</span> decyear = 0.0;
+<a name="l00074"></a>00074 
+<a name="l00075"></a>00075         <a class="code" href="namespacesgp4.html#a419dfa07666feea28b59f5959414bb1e">sgp4::JdToDecyear</a>(time.<a class="code" href="classstf_1_1datatype_1_1_date_time.html#a635fd4b4c90607e1612a1cf9d96617f4">get_julius</a>(), &amp;decyear);
+<a name="l00076"></a><a class="code" href="classstf_1_1datatype_1_1_orbit_calc.html#a5102db5b910421748f2561c01dfaff06">00076</a> 
+<a name="l00077"></a>00077         <span class="keywordtype">double</span> side = <a class="code" href="namespacesgp4.html#a865dc3d18e20afacb5bdf13a1e3a21cc">sgp4::gstime</a>(time.<a class="code" href="classstf_1_1datatype_1_1_date_time.html#a635fd4b4c90607e1612a1cf9d96617f4">get_julius</a>());
+<a name="l00078"></a>00078 
+<a name="l00079"></a>00079         <span class="keywordtype">double</span> pos[3];
+<a name="l00080"></a>00080         <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; 3; i++) pos[i] = p.<a class="code" href="structstf_1_1datatype_1_1_position_info.html#af602fc1d0a799af804271e54897e258a" title="地球中心からの位置(m)">position</a>[i] / 1000;
+<a name="l00081"></a>00081 
+<a name="l00082"></a>00082         <span class="keywordtype">double</span> lat, lon, alt;
+<a name="l00083"></a>00083         <a class="code" href="namespacesgp4.html#aaf7b0b8ca0b3373f4c447be71c5301f3">sgp4::TransECIToGeo</a>(side, pos, &amp;lon, &amp;lat, &amp;alt);
+<a name="l00084"></a>00084 
+<a name="l00085"></a>00085         <span class="keywordtype">double</span> <a class="code" href="namespacesgp4.html#ab3dbec9b4b204d257df654a8f600b15b">mag</a>[3];
+<a name="l00086"></a>00086         <a class="code" href="namespaceigrf.html#a9e7c2ebf30af9193a48f505977f46a93">igrf::IgrfCalc</a>(decyear, lat, lon, alt, side, mag);
+<a name="l00087"></a>00087         
+<a name="l00088"></a>00088         <a class="code" href="classstf_1_1datatype_1_1_magnetic_field.html" title="3次元磁束密度(T)を表す．">datatype::MagneticField</a> m;
+<a name="l00089"></a>00089         <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; 3; i++) m[i] = mag[i];
+<a name="l00090"></a>00090 
+<a name="l00091"></a>00091         <span class="comment">/*util::cout &lt;&lt; &quot;dec:&quot; &lt;&lt; decyear &lt;&lt; util::endl;        </span>
+<a name="l00092"></a>00092 <span class="comment">        util::cout &lt;&lt; &quot;side:&quot; &lt;&lt; side &lt;&lt; util::endl;    </span>
+<a name="l00093"></a>00093 <span class="comment">        util::cout &lt;&lt; &quot;pos:&quot; &lt;&lt; p.position &lt;&lt; util::endl; </span>
+<a name="l00094"></a>00094 <span class="comment">        util::cout &lt;&lt; &quot;lat:&quot; &lt;&lt; lat &lt;&lt; &quot;lon:&quot; &lt;&lt; lon &lt;&lt; &quot;alt:&quot; &lt;&lt; alt &lt;&lt; util::endl;    </span>
+<a name="l00095"></a>00095 <span class="comment">        util::cout &lt;&lt; &quot;mag:&quot; &lt;&lt; m &lt;&lt; util::endl; </span>
+<a name="l00096"></a>00096 <span class="comment">        util::cout &lt;&lt; util::endl;*/</span>
+<a name="l00097"></a>00097         <span class="keywordflow">return</span> m;
+<a name="l00098"></a>00098 }
+<a name="l00099"></a>00099 
+<a name="l00100"></a>00100 
+<a name="l00101"></a>00101 } <span class="comment">/* End of namespace stf::datatype */</span>
+<a name="l00102"></a>00102 } <span class="comment">/* End of namespace stf */</span>
+<a name="l00103"></a>00103 
+</pre></div></div>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>フレンド</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>マクロ定義</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>STFに対してTue Mar 1 2011 03:45:40に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
+</body>
+</html>

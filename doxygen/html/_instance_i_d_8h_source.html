@@ -1,0 +1,184 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>STF: stf/InstanceID.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.3 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">STF</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="pages.html"><span>関連ページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>ファイルメンバ</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<h1>stf/InstanceID.h</h1>  </div>
+</div>
+<div class="contents">
+<a href="_instance_i_d_8h.html">説明を見る。</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<a name="l00009"></a>00009 <span class="preprocessor">#ifndef InstanceID_h</span>
+<a name="l00010"></a>00010 <span class="preprocessor"></span><span class="preprocessor">#define InstanceID_h</span>
+<a name="l00011"></a>00011 <span class="preprocessor"></span>
+<a name="l00012"></a>00012 <span class="keyword">namespace </span>stf {
+<a name="l00013"></a>00013 
+<a name="l00014"></a>00014 <span class="keyword">template</span> &lt;<span class="keywordtype">int</span> ID&gt;
+<a name="l00015"></a><a class="code" href="structstf_1_1_instance_i_d.html">00015</a> <span class="keyword">struct </span><a class="code" href="structstf_1_1_instance_i_d.html">InstanceID</a> {
+<a name="l00016"></a><a class="code" href="structstf_1_1_instance_i_d.html#a1874b9ff2ab97cb4d271872d98760deea8208897516f3ff3637f210ef477a26a2">00016</a>         <span class="keyword">enum</span> { <a class="code" href="structstf_1_1_instance_i_d.html#a1874b9ff2ab97cb4d271872d98760deea8208897516f3ff3637f210ef477a26a2">value</a> = ID };
+<a name="l00017"></a>00017 };
+<a name="l00018"></a>00018 
+<a name="l00019"></a>00019 <span class="keyword">namespace </span>environment {
+<a name="l00020"></a>00020 <span class="keyword">class </span>Simulator;
+<a name="l00021"></a>00021 <span class="keyword">class </span>NullEnv;
+<a name="l00022"></a>00022 <span class="keyword">class </span>SH;
+<a name="l00023"></a>00023 }
+<a name="l00024"></a>00024 
+<a name="l00025"></a>00025 } <span class="comment">/* End of namespace stf */</span>
+<a name="l00026"></a>00026 
+<a name="l00027"></a><a class="code" href="_instance_i_d_8h.html#a54f361a080a2154f1314d25483c131b6">00027</a> <span class="keyword">typedef</span> <a class="code" href="classstf_1_1environment_1_1_simulator.html" title="ソフトウェアシミュレータ環境クラス．">stf::environment::Simulator</a> <a class="code" href="_instance_i_d_8h.html#a54f361a080a2154f1314d25483c131b6">ENV</a>;
+<a name="l00028"></a>00028 
+<a name="l00029"></a>00029 <span class="comment">//datetime settings</span>
+<a name="l00030"></a><a class="code" href="_instance_i_d_8h.html#a5871356500f559add06ea81d60331b1b">00030</a> <span class="preprocessor">#define YEAR 2005</span>
+<a name="l00031"></a><a class="code" href="_instance_i_d_8h.html#a3729d06495d9713592f79f3122c9e677">00031</a> <span class="preprocessor"></span><span class="preprocessor">#define MONTH 1</span>
+<a name="l00032"></a><a class="code" href="_instance_i_d_8h.html#a30b328ca499f27b3d0f8111b495834ca">00032</a> <span class="preprocessor"></span><span class="preprocessor">#define DATE 31</span>
+<a name="l00033"></a>00033 <span class="preprocessor"></span>
+<a name="l00034"></a>00034 <span class="comment">//satellite settings</span>
+<a name="l00035"></a><a class="code" href="_instance_i_d_8h.html#a57eeee07cb099c4c82318868006aa38f">00035</a> <span class="preprocessor">#define STEPTIME 0.1</span>
+<a name="l00036"></a><a class="code" href="_instance_i_d_8h.html#a040cc4de22fca0a26e0ce13c8cc23086">00036</a> <span class="preprocessor"></span><span class="preprocessor">#define GYROECRV 1000</span>
+<a name="l00037"></a>00037 <span class="preprocessor"></span>
+<a name="l00038"></a>00038 <span class="comment">//</span>
+<a name="l00039"></a><a class="code" href="_instance_i_d_8h.html#a3cdc8e9da8541a155643bec66cfff4e6">00039</a> <span class="preprocessor">#define ID_STT_X 1</span>
+<a name="l00040"></a><a class="code" href="_instance_i_d_8h.html#aa8f8e2a85a547be23c3ad837ac990b81">00040</a> <span class="preprocessor"></span><span class="preprocessor">#define ID_STT_Y 2</span>
+<a name="l00041"></a><a class="code" href="_instance_i_d_8h.html#af331f0d528d9fa6d2a40da9924b81793">00041</a> <span class="preprocessor"></span><span class="preprocessor">#define ID_STT 3</span>
+<a name="l00042"></a><a class="code" href="_instance_i_d_8h.html#ae5f07455e041d4d9711112047b91cbe3">00042</a> <span class="preprocessor"></span><span class="preprocessor">#define ID_MTQ_X 4</span>
+<a name="l00043"></a><a class="code" href="_instance_i_d_8h.html#a5af2a5e1739531c57bef2bfd59bdb192">00043</a> <span class="preprocessor"></span><span class="preprocessor">#define ID_MTQ_Y 5</span>
+<a name="l00044"></a><a class="code" href="_instance_i_d_8h.html#a1c0ae94e1937fdd7f38abd0b4734e6e1">00044</a> <span class="preprocessor"></span><span class="preprocessor">#define ID_MTQ_Z 6</span>
+<a name="l00045"></a><a class="code" href="_instance_i_d_8h.html#a25845024e4294baf55b2a670ce881593">00045</a> <span class="preprocessor"></span><span class="preprocessor">#define ID_MTQ 7</span>
+<a name="l00046"></a><a class="code" href="_instance_i_d_8h.html#a5a3d3ff981916ccedf30951a15588505">00046</a> <span class="preprocessor"></span><span class="preprocessor">#define ID_GYRO_X 8</span>
+<a name="l00047"></a><a class="code" href="_instance_i_d_8h.html#aff05cac7a9a535566bc202ccb8c671f3">00047</a> <span class="preprocessor"></span><span class="preprocessor">#define ID_GYRO_Y 9</span>
+<a name="l00048"></a><a class="code" href="_instance_i_d_8h.html#a1bd06a870ff7ede913c5f85915378766">00048</a> <span class="preprocessor"></span><span class="preprocessor">#define ID_GYRO_Z 10</span>
+<a name="l00049"></a><a class="code" href="_instance_i_d_8h.html#a4bc3d14ec0012ef5319d8dfbf1562978">00049</a> <span class="preprocessor"></span><span class="preprocessor">#define ID_GYRO 11</span>
+<a name="l00050"></a><a class="code" href="_instance_i_d_8h.html#af195b5b958905a17e1a519c8340ad759">00050</a> <span class="preprocessor"></span><span class="preprocessor">#define ID_SS_PX 12</span>
+<a name="l00051"></a><a class="code" href="_instance_i_d_8h.html#ad626a61a21f4d6aadd3b27e3abb052b1">00051</a> <span class="preprocessor"></span><span class="preprocessor">#define ID_SS_PY 13</span>
+<a name="l00052"></a><a class="code" href="_instance_i_d_8h.html#a1170ec23734054847c8cf8d23f0ab0b7">00052</a> <span class="preprocessor"></span><span class="preprocessor">#define ID_SS_PZ 14</span>
+<a name="l00053"></a><a class="code" href="_instance_i_d_8h.html#aded0bfc7c899e16b9ccddbcd2b4849c3">00053</a> <span class="preprocessor"></span><span class="preprocessor">#define ID_SS_MX 15</span>
+<a name="l00054"></a><a class="code" href="_instance_i_d_8h.html#ac64df324d41d613ef3dcb5e4667a89a0">00054</a> <span class="preprocessor"></span><span class="preprocessor">#define ID_SS_MY 16</span>
+<a name="l00055"></a><a class="code" href="_instance_i_d_8h.html#ac348aa6fc324c891885d8e0547d3626d">00055</a> <span class="preprocessor"></span><span class="preprocessor">#define ID_SS_MZ 17</span>
+<a name="l00056"></a><a class="code" href="_instance_i_d_8h.html#a7845bbc480dea971a892b76bfd16ce6e">00056</a> <span class="preprocessor"></span><span class="preprocessor">#define ID_SS   18</span>
+<a name="l00057"></a><a class="code" href="_instance_i_d_8h.html#adf61ed37bb9573875dc2f1c10521767e">00057</a> <span class="preprocessor"></span><span class="preprocessor">#define ID_RW_1 20</span>
+<a name="l00058"></a><a class="code" href="_instance_i_d_8h.html#a640a95db2f23556855e0c2dd95950546">00058</a> <span class="preprocessor"></span><span class="preprocessor">#define ID_RW_2 21</span>
+<a name="l00059"></a><a class="code" href="_instance_i_d_8h.html#a19ea69ff5624cc1bd71b3b97a2663302">00059</a> <span class="preprocessor"></span><span class="preprocessor">#define ID_RW_3 22</span>
+<a name="l00060"></a><a class="code" href="_instance_i_d_8h.html#a6ff66023b3cc023cd69f92aa9da32315">00060</a> <span class="preprocessor"></span><span class="preprocessor">#define ID_RW_4 23</span>
+<a name="l00061"></a><a class="code" href="_instance_i_d_8h.html#a3b967e98c9989cf68056bee04979c248">00061</a> <span class="preprocessor"></span><span class="preprocessor">#define ID_RW 24</span>
+<a name="l00062"></a><a class="code" href="_instance_i_d_8h.html#a6c3546f66a97667cb014a2e63e94d322">00062</a> <span class="preprocessor"></span><span class="preprocessor">#define ID_TAM 25</span>
+<a name="l00063"></a><a class="code" href="_instance_i_d_8h.html#a81ab2b5a521c78aa195a9bdbc0870b53">00063</a> <span class="preprocessor"></span><span class="preprocessor">#define ID_EARTH 26</span>
+<a name="l00064"></a><a class="code" href="_instance_i_d_8h.html#a27326ecfd22a02d25e0c27b10ed2d42e">00064</a> <span class="preprocessor"></span><span class="preprocessor">#define ID_GPS 27</span>
+<a name="l00065"></a><a class="code" href="_instance_i_d_8h.html#a7ef5cc32bb8c0040edac808486b8355d">00065</a> <span class="preprocessor"></span><span class="preprocessor">#define ID_RECEIVER 28</span>
+<a name="l00066"></a><a class="code" href="_instance_i_d_8h.html#a8c9593074e340c9bbdffcd5b2a224ff4">00066</a> <span class="preprocessor"></span><span class="preprocessor">#define ID_FOG_X 29</span>
+<a name="l00067"></a><a class="code" href="_instance_i_d_8h.html#a20a59951bc46992bfd9c55e06f9d4ec4">00067</a> <span class="preprocessor"></span><span class="preprocessor">#define ID_FOG_Y 30</span>
+<a name="l00068"></a><a class="code" href="_instance_i_d_8h.html#a2aae67aa234c4fc58020dd68028d0e11">00068</a> <span class="preprocessor"></span><span class="preprocessor">#define ID_FOG_Z 31</span>
+<a name="l00069"></a><a class="code" href="_instance_i_d_8h.html#a0a73e16de27c86cfb24c6cb6c4a554be">00069</a> <span class="preprocessor"></span><span class="preprocessor">#define ID_FOG 32</span>
+<a name="l00070"></a><a class="code" href="_instance_i_d_8h.html#a29e777dcb28fd328c34ee0a91f6dc532">00070</a> <span class="preprocessor"></span><span class="preprocessor">#define ID_RTC 33</span>
+<a name="l00071"></a><a class="code" href="_instance_i_d_8h.html#afb7efa537d1d64419483b97f642009fd">00071</a> <span class="preprocessor"></span><span class="preprocessor">#define ID_ADC 34</span>
+<a name="l00072"></a><a class="code" href="_instance_i_d_8h.html#afa61e456e84aca2cdce74e7b262d5d10">00072</a> <span class="preprocessor"></span><span class="preprocessor">#define ID_TEMPSENSOR 35</span>
+<a name="l00073"></a><a class="code" href="_instance_i_d_8h.html#ab0544a99c6fe84314b030f2a0ac9b3d5">00073</a> <span class="preprocessor"></span><span class="preprocessor">#define ID_CURRENTSENSOR 36</span>
+<a name="l00074"></a><a class="code" href="_instance_i_d_8h.html#aa9def5c8211552365f1fc1769d064ac3">00074</a> <span class="preprocessor"></span><span class="preprocessor">#define ID_VOLTAGESENSOR 37</span>
+<a name="l00075"></a>00075 <span class="preprocessor"></span>
+<a name="l00076"></a>00076 
+<a name="l00077"></a>00077 <span class="comment">//Modes</span>
+<a name="l00078"></a><a class="code" href="_instance_i_d_8h.html#a21a55cdf0ed2befe977c3c1979b5ddb9">00078</a> <span class="preprocessor">#define ID_SAFEMODE 30</span>
+<a name="l00079"></a><a class="code" href="_instance_i_d_8h.html#a8fedc29852861971864301e6f49152ec">00079</a> <span class="preprocessor"></span><span class="preprocessor">#define ID_MISSIONMODE 31</span>
+<a name="l00080"></a><a class="code" href="_instance_i_d_8h.html#a6e64ac375e9912f42145336fe0105cb5">00080</a> <span class="preprocessor"></span><span class="preprocessor">#define ID_UNLOADINGMODE 32</span>
+<a name="l00081"></a>00081 <span class="preprocessor"></span>
+<a name="l00082"></a>00082 <span class="comment">//Strategies</span>
+<a name="l00083"></a><a class="code" href="_instance_i_d_8h.html#a91e3dd9d012df20d2dc7991a500ec904">00083</a> <span class="preprocessor">#define ID_PID 40</span>
+<a name="l00084"></a><a class="code" href="_instance_i_d_8h.html#a36489dd79bcca99031ceec7ec7b382fd">00084</a> <span class="preprocessor"></span><span class="preprocessor">#define ID_NOCONTROL 41</span>
+<a name="l00085"></a><a class="code" href="_instance_i_d_8h.html#af4e266a7ca7fb9e5a7e02cb9204dd8a2">00085</a> <span class="preprocessor"></span><span class="preprocessor">#define ID_OUTPUTALLTM 42</span>
+<a name="l00086"></a><a class="code" href="_instance_i_d_8h.html#ad2e909122e08f431d037b0524b570512">00086</a> <span class="preprocessor"></span><span class="preprocessor">#define ID_PID2 43</span>
+<a name="l00087"></a><a class="code" href="_instance_i_d_8h.html#a5d4938bce74ec6f4a16d62ecad13bc5d">00087</a> <span class="preprocessor"></span><span class="preprocessor">#define ID_DUMPING 44</span>
+<a name="l00088"></a><a class="code" href="_instance_i_d_8h.html#a18355eb3c35c3ee236428b87964fcf6f">00088</a> <span class="preprocessor"></span><span class="preprocessor">#define ID_EKF 45</span>
+<a name="l00089"></a>00089 <span class="preprocessor"></span>
+<a name="l00090"></a>00090 <span class="comment">// Global Util</span>
+<a name="l00091"></a><a class="code" href="_instance_i_d_8h.html#a8be3116f4d097fd78fb0ee722bd2bc22">00091</a> <span class="preprocessor">#define ID_DATAPOOL 50</span>
+<a name="l00092"></a><a class="code" href="_instance_i_d_8h.html#ad4dd06098110f4431f196b99438e6f65">00092</a> <span class="preprocessor"></span><span class="preprocessor">#define ID_EVENTPOOL 51</span>
+<a name="l00093"></a><a class="code" href="_instance_i_d_8h.html#abf4de022a98219ef449f617f0eea19ff">00093</a> <span class="preprocessor"></span><span class="preprocessor">#define ID_CLOCK 52</span>
+<a name="l00094"></a><a class="code" href="_instance_i_d_8h.html#a17e3dc9aff9c35d1532a44ea5b262d66">00094</a> <span class="preprocessor"></span><span class="preprocessor">#define ID_MODEMANAGER 60</span>
+<a name="l00095"></a><a class="code" href="_instance_i_d_8h.html#aea0c3246d3447945c44fc2f4cc7df27c">00095</a> <span class="preprocessor"></span><span class="preprocessor">#define ID_CONTROLMANAGER 61</span>
+<a name="l00096"></a><a class="code" href="_instance_i_d_8h.html#a06b290f64a8e90ed7dbfb6253273ddb2">00096</a> <span class="preprocessor"></span><span class="preprocessor">#define ID_UNITMANAGER 62</span>
+<a name="l00097"></a><a class="code" href="_instance_i_d_8h.html#a51dfb12f8e4693acfe4d046a4c819220">00097</a> <span class="preprocessor"></span><span class="preprocessor">#define ID_TELEMETRYMANAGER 63</span>
+<a name="l00098"></a><a class="code" href="_instance_i_d_8h.html#a8b9f2c056cd4ff2705fb6622d47fa7a6">00098</a> <span class="preprocessor"></span><span class="preprocessor">#define ID_CUSTOMMANAGER 64</span>
+<a name="l00099"></a><a class="code" href="_instance_i_d_8h.html#ac0f28fe4a5142c59760399ae9172030e">00099</a> <span class="preprocessor"></span><span class="preprocessor">#define ID_SYSTEMMANAGER 65</span>
+<a name="l00100"></a><a class="code" href="_instance_i_d_8h.html#a269f7d993e258955b09a4f5607272333">00100</a> <span class="preprocessor"></span><span class="preprocessor">#define ID_COMMANDMANAGER 66</span>
+<a name="l00101"></a>00101 <span class="preprocessor"></span>
+<a name="l00102"></a>00102 <span class="comment">//EventID</span>
+<a name="l00103"></a><a class="code" href="_instance_i_d_8h.html#a553304237ccf78092e60de1175b29325">00103</a> <span class="preprocessor">#define ID_ModeChangeEvent 0</span>
+<a name="l00104"></a><a class="code" href="_instance_i_d_8h.html#a0e2cdbfebe720736fc2d4b9ad74eb070">00104</a> <span class="preprocessor"></span><span class="preprocessor">#define ID_COMMANDEVENT 1</span>
+<a name="l00105"></a>00105 <span class="preprocessor"></span>
+<a name="l00106"></a>00106 
+<a name="l00107"></a>00107 <span class="preprocessor">#endif // InstanceID_h</span>
+</pre></div></div>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>フレンド</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>マクロ定義</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>STFに対してTue Mar 1 2011 03:45:41に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
+</body>
+</html>

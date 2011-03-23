@@ -1,0 +1,170 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>STF: stf/core/command/UnaryFunctionCommand.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.3 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">STF</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="pages.html"><span>関連ページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>ファイルメンバ</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<h1>stf/core/command/UnaryFunctionCommand.h</h1>  </div>
+</div>
+<div class="contents">
+<a href="_unary_function_command_8h.html">説明を見る。</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<a name="l00008"></a>00008 <span class="preprocessor">#ifndef stf_core_command_UnaryFunctionCommand_h</span>
+<a name="l00009"></a>00009 <span class="preprocessor"></span><span class="preprocessor">#define stf_core_command_UnaryFunctionCommand_h</span>
+<a name="l00010"></a>00010 <span class="preprocessor"></span>
+<a name="l00011"></a>00011 <span class="preprocessor">#include &quot;<a class="code" href="_command_8h.html" title="衛星コマンドの抽象インターフェースと共通の実装．">Command.h</a>&quot;</span>
+<a name="l00012"></a>00012 <span class="preprocessor">#include &quot;<a class="code" href="core_2functor_2_functor_8h.html">../functor/Functor.h</a>&quot;</span>
+<a name="l00013"></a>00013 <span class="preprocessor">#include &quot;<a class="code" href="_trace_8h.html" title="STFの内部状態を外部ファイルに書き出すためのトレースオブジェクト．">../../util/Trace.h</a>&quot;</span>
+<a name="l00014"></a>00014 
+<a name="l00015"></a>00015 <span class="keyword">namespace </span>stf {
+<a name="l00016"></a>00016 <span class="keyword">namespace </span>core {
+<a name="l00017"></a>00017 <span class="keyword">namespace </span>command {
+<a name="l00018"></a>00018 
+<a name="l00020"></a>00020 
+<a name="l00031"></a>00031 <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;
+<a name="l00032"></a><a class="code" href="classstf_1_1core_1_1command_1_1_unary_functor_command.html">00032</a> <span class="keyword">class </span><a class="code" href="classstf_1_1core_1_1command_1_1_unary_functor_command.html" title="1引数のファンクタを起動するコマンド．">UnaryFunctorCommand</a> : <span class="keyword">public</span> <a class="code" href="classstf_1_1core_1_1command_1_1_command.html" title="衛星コマンドの抽象インターフェースと共通の実装を行う基底クラス．">Command</a> {
+<a name="l00033"></a>00033 <span class="keyword">public</span>:
+<a name="l00034"></a><a class="code" href="classstf_1_1core_1_1command_1_1_unary_functor_command.html#ab9b1b6a1d9f48e28ce6101cf451d869b">00034</a>         <a class="code" href="classstf_1_1core_1_1command_1_1_unary_functor_command.html#ab9b1b6a1d9f48e28ce6101cf451d869b">UnaryFunctorCommand</a>(<span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_time.html" title="経過時間を表すクラス．">datatype::Time</a>&amp; t, <a class="code" href="classstf_1_1core_1_1functor_1_1_i_un_ary_functor.html" title="1引数ファンクタの抽象インターフェース．">functor::IUnAryFunctor&lt;T&gt;</a>* func, T arg)
+<a name="l00035"></a>00035                 : func_(func), arg_(arg), <a class="code" href="classstf_1_1core_1_1command_1_1_command.html" title="衛星コマンドの抽象インターフェースと共通の実装を行う基底クラス．">Command</a>(t, <span class="stringliteral">&quot;UnaryFunctorCommand&quot;</span>) {}
+<a name="l00036"></a><a class="code" href="classstf_1_1core_1_1command_1_1_unary_functor_command.html#a809f0294002e71a45ad722999690bb24">00036</a>         <a class="code" href="classstf_1_1core_1_1command_1_1_unary_functor_command.html#a809f0294002e71a45ad722999690bb24">~UnaryFunctorCommand</a>(){}
+<a name="l00037"></a><a class="code" href="classstf_1_1core_1_1command_1_1_unary_functor_command.html#af63f83681c313a5b6934de81baa9afdc">00037</a>         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classstf_1_1core_1_1command_1_1_unary_functor_command.html#af63f83681c313a5b6934de81baa9afdc">init</a>(<span class="keywordtype">int</span>* params, <span class="keywordtype">int</span> paramsize){}
+<a name="l00038"></a><a class="code" href="classstf_1_1core_1_1command_1_1_unary_functor_command.html#a4ad820b15e570df4bb7d6b137ae65165">00038</a>         <span class="keyword">virtual</span> <a class="code" href="classstf_1_1core_1_1command_1_1_command.html" title="衛星コマンドの抽象インターフェースと共通の実装を行う基底クラス．">Command</a>* <a class="code" href="classstf_1_1core_1_1command_1_1_unary_functor_command.html#a4ad820b15e570df4bb7d6b137ae65165">clone</a>(<span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_time.html" title="経過時間を表すクラス．">datatype::Time</a>&amp; t){
+<a name="l00039"></a>00039                 <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code" href="classstf_1_1core_1_1command_1_1_unary_functor_command.html" title="1引数のファンクタを起動するコマンド．">UnaryFunctorCommand&lt;T&gt;</a>(t, func_, arg_);
+<a name="l00040"></a>00040         }
+<a name="l00041"></a><a class="code" href="classstf_1_1core_1_1command_1_1_unary_functor_command.html#ae957affa735b4b516786d9b5c2aaa6a8">00041</a>         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classstf_1_1core_1_1command_1_1_unary_functor_command.html#ae957affa735b4b516786d9b5c2aaa6a8">execute</a>(){
+<a name="l00042"></a>00042                 <a class="code" href="classstf_1_1util_1_1_trace.html" title="標準出力のラッパ．">util::Trace</a> trace(<a class="code" href="classstf_1_1util_1_1_trace.html#a7cce9d9f41332a3fd076bd10605f0139ae15ae4b9bbd28c37c2862f22aafb1814" title="コマンド処理">util::Trace::kCommand</a>, <a class="code" href="classstf_1_1_root_object.html#a3d8431fabde24417b346c0d36fdaeb93">name_</a>);
+<a name="l00043"></a>00043                 (*func_)(arg_);
+<a name="l00044"></a>00044         }
+<a name="l00045"></a>00045 <span class="keyword">private</span>:
+<a name="l00046"></a>00046         <a class="code" href="classstf_1_1core_1_1functor_1_1_i_un_ary_functor.html" title="1引数ファンクタの抽象インターフェース．">functor::IUnAryFunctor&lt;T&gt;</a>* func_;
+<a name="l00047"></a>00047         T arg_;
+<a name="l00048"></a>00048 };
+<a name="l00049"></a>00049 
+<a name="l00050"></a>00050 <span class="keyword">template</span>&lt;&gt;
+<a name="l00051"></a>00051 <span class="keywordtype">void</span> <a class="code" href="classstf_1_1core_1_1command_1_1_unary_functor_command.html#af63f83681c313a5b6934de81baa9afdc">UnaryFunctorCommand&lt;int&gt;::init</a>(<span class="keywordtype">int</span>* params, <span class="keywordtype">int</span> paramsize);
+<a name="l00052"></a>00052 
+<a name="l00054"></a>00054 
+<a name="l00059"></a>00059 <span class="keyword">template</span>&lt;<span class="keyword">class</span> T, <span class="keyword">class</span> U, <span class="keyword">class</span> ARG&gt;
+<a name="l00060"></a><a class="code" href="classstf_1_1core_1_1command_1_1_un_ary_member_function_command.html">00060</a> <span class="keyword">class </span><a class="code" href="classstf_1_1core_1_1command_1_1_un_ary_member_function_command.html" title="1引数のメンバ関数を起動するコマンド．">UnAryMemberFunctionCommand</a> : <span class="keyword">public</span> <a class="code" href="classstf_1_1core_1_1command_1_1_command.html" title="衛星コマンドの抽象インターフェースと共通の実装を行う基底クラス．">Command</a> {
+<a name="l00061"></a>00061         <span class="keyword">typedef</span> U (T::*Func)(ARG);
+<a name="l00062"></a>00062 <span class="keyword">public</span>:
+<a name="l00063"></a><a class="code" href="classstf_1_1core_1_1command_1_1_un_ary_member_function_command.html#af18b65c1c55fbb0ecf7101495b562aec">00063</a>         <a class="code" href="classstf_1_1core_1_1command_1_1_un_ary_member_function_command.html#af18b65c1c55fbb0ecf7101495b562aec">UnAryMemberFunctionCommand</a>(<span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_time.html" title="経過時間を表すクラス．">datatype::Time</a>&amp; t, T* obj, Func <a class="code" href="namespaceigrf.html#a804225ad2942311ba664c4a09e5cd887">f</a>, ARG arg)
+<a name="l00064"></a>00064     : <a class="code" href="classstf_1_1core_1_1command_1_1_command.html" title="衛星コマンドの抽象インターフェースと共通の実装を行う基底クラス．">Command</a>(t, <span class="stringliteral">&quot;UnAryMemberFuncCommand&quot;</span>), obj_(obj), f_(f), arg_(arg) {}
+<a name="l00065"></a><a class="code" href="classstf_1_1core_1_1command_1_1_un_ary_member_function_command.html#a2fb285900c3945af355731d2179a76cf">00065</a>         <a class="code" href="classstf_1_1core_1_1command_1_1_un_ary_member_function_command.html#a2fb285900c3945af355731d2179a76cf">~UnAryMemberFunctionCommand</a>(){}
+<a name="l00066"></a><a class="code" href="classstf_1_1core_1_1command_1_1_un_ary_member_function_command.html#a25840d4798e025072a2afd08f5df5eb9">00066</a>         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classstf_1_1core_1_1command_1_1_un_ary_member_function_command.html#a25840d4798e025072a2afd08f5df5eb9">init</a>(<span class="keywordtype">int</span>* params, <span class="keywordtype">int</span> paramsize){}
+<a name="l00067"></a><a class="code" href="classstf_1_1core_1_1command_1_1_un_ary_member_function_command.html#a3aa56655a43443ec81402517459ab69e">00067</a>         <span class="keyword">virtual</span> <a class="code" href="classstf_1_1core_1_1command_1_1_command.html" title="衛星コマンドの抽象インターフェースと共通の実装を行う基底クラス．">Command</a>* <a class="code" href="classstf_1_1core_1_1command_1_1_un_ary_member_function_command.html#a3aa56655a43443ec81402517459ab69e">clone</a>(<span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_time.html" title="経過時間を表すクラス．">datatype::Time</a>&amp; t){
+<a name="l00068"></a>00068                 <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code" href="classstf_1_1core_1_1command_1_1_un_ary_member_function_command.html" title="1引数のメンバ関数を起動するコマンド．">UnAryMemberFunctionCommand&lt;T, U, ARG&gt;</a>(t, obj_, f_, arg_);
+<a name="l00069"></a>00069         }
+<a name="l00070"></a><a class="code" href="classstf_1_1core_1_1command_1_1_un_ary_member_function_command.html#a2b4960b199439ecb9e4aac26c01a78e9">00070</a>         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classstf_1_1core_1_1command_1_1_un_ary_member_function_command.html#a2b4960b199439ecb9e4aac26c01a78e9">execute</a>(){
+<a name="l00071"></a>00071                 <a class="code" href="classstf_1_1util_1_1_trace.html" title="標準出力のラッパ．">util::Trace</a> trace(<a class="code" href="classstf_1_1util_1_1_trace.html#a7cce9d9f41332a3fd076bd10605f0139ae15ae4b9bbd28c37c2862f22aafb1814" title="コマンド処理">util::Trace::kCommand</a>, <a class="code" href="classstf_1_1_root_object.html#a3d8431fabde24417b346c0d36fdaeb93">name_</a>);
+<a name="l00072"></a>00072                 U response = (*obj_.*f_)(arg_);
+<a name="l00073"></a>00073                 this-&gt;<a class="code" href="classstf_1_1core_1_1command_1_1_command.html#ae3c34acfbfa1a7f6f7e7af6143263579">rcv_</a>-&gt;<a class="code" href="classstf_1_1core_1_1devicedriver_1_1cmhandler_1_1_i_command_receiver.html#ac132380772628af0b8f9f8708d587f75" title="外部通信機にコマンドの応答を送信する．">send_packet</a>(response);
+<a name="l00074"></a>00074         }
+<a name="l00075"></a>00075 <span class="keyword">private</span>:
+<a name="l00076"></a>00076         T* obj_;
+<a name="l00077"></a>00077         Func f_;
+<a name="l00078"></a>00078         ARG arg_;
+<a name="l00079"></a>00079 };
+<a name="l00080"></a>00080 
+<a name="l00082"></a>00082 
+<a name="l00086"></a>00086 <span class="keyword">template</span>&lt;<span class="keyword">class</span> T, <span class="keyword">class</span> ARG&gt;
+<a name="l00087"></a><a class="code" href="classstf_1_1core_1_1command_1_1_un_ary_member_function_command_3_01_t_00_01void_00_01_a_r_g_01_4.html">00087</a> <span class="keyword">class </span><a class="code" href="classstf_1_1core_1_1command_1_1_un_ary_member_function_command.html" title="1引数のメンバ関数を起動するコマンド．">UnAryMemberFunctionCommand</a>&lt;T, void, ARG&gt; : <span class="keyword">public</span> <a class="code" href="classstf_1_1core_1_1command_1_1_command.html" title="衛星コマンドの抽象インターフェースと共通の実装を行う基底クラス．">Command</a> {
+<a name="l00088"></a>00088         <span class="keyword">typedef</span> void (T::*Func)(ARG);
+<a name="l00089"></a>00089 <span class="keyword">public</span>:
+<a name="l00090"></a><a class="code" href="classstf_1_1core_1_1command_1_1_un_ary_member_function_command_3_01_t_00_01void_00_01_a_r_g_01_4.html#a9b715bcc0293ef0a862b3c0f3d1221ea">00090</a>         <a class="code" href="classstf_1_1core_1_1command_1_1_un_ary_member_function_command.html#af18b65c1c55fbb0ecf7101495b562aec">UnAryMemberFunctionCommand</a>(<span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_time.html" title="経過時間を表すクラス．">datatype::Time</a>&amp; t, T* obj, Func <a class="code" href="namespaceigrf.html#a804225ad2942311ba664c4a09e5cd887">f</a>, ARG arg)
+<a name="l00091"></a>00091     : <a class="code" href="classstf_1_1core_1_1command_1_1_command.html" title="衛星コマンドの抽象インターフェースと共通の実装を行う基底クラス．">Command</a>(t, <span class="stringliteral">&quot;UnAryMemberFuncCommand&quot;</span>), obj_(obj), f_(f), arg_(arg) {}
+<a name="l00092"></a><a class="code" href="classstf_1_1core_1_1command_1_1_un_ary_member_function_command_3_01_t_00_01void_00_01_a_r_g_01_4.html#a3c7ea071aef26499283ef754aae03c59">00092</a>         <a class="code" href="classstf_1_1core_1_1command_1_1_un_ary_member_function_command_3_01_t_00_01void_00_01_a_r_g_01_4.html#a3c7ea071aef26499283ef754aae03c59">~UnAryMemberFunctionCommand</a>(){}
+<a name="l00093"></a><a class="code" href="classstf_1_1core_1_1command_1_1_un_ary_member_function_command_3_01_t_00_01void_00_01_a_r_g_01_4.html#ac88acfc7e49bef5e85be2e04e4dc0091">00093</a>         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classstf_1_1core_1_1command_1_1_un_ary_member_function_command_3_01_t_00_01void_00_01_a_r_g_01_4.html#ac88acfc7e49bef5e85be2e04e4dc0091">init</a>(<span class="keywordtype">int</span>* params, <span class="keywordtype">int</span> paramsize){}
+<a name="l00094"></a><a class="code" href="classstf_1_1core_1_1command_1_1_un_ary_member_function_command_3_01_t_00_01void_00_01_a_r_g_01_4.html#a3589f3d3a291a0655836757d1c5350f2">00094</a>         <span class="keyword">virtual</span> <a class="code" href="classstf_1_1core_1_1command_1_1_command.html" title="衛星コマンドの抽象インターフェースと共通の実装を行う基底クラス．">Command</a>* <a class="code" href="classstf_1_1core_1_1command_1_1_un_ary_member_function_command_3_01_t_00_01void_00_01_a_r_g_01_4.html#a3589f3d3a291a0655836757d1c5350f2">clone</a>(<span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_time.html" title="経過時間を表すクラス．">datatype::Time</a>&amp; t){
+<a name="l00095"></a>00095                 <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code" href="classstf_1_1core_1_1command_1_1_un_ary_member_function_command_3_01_t_00_01void_00_01_a_r_g_01_4.html" title="1引数のメンバ関数を起動するコマンド．(void特殊化版)">UnAryMemberFunctionCommand&lt;T, void, ARG&gt;</a>(t, obj_, f_, arg_);
+<a name="l00096"></a>00096         }
+<a name="l00097"></a><a class="code" href="classstf_1_1core_1_1command_1_1_un_ary_member_function_command_3_01_t_00_01void_00_01_a_r_g_01_4.html#a416bd11e256670cd5677141c7ffa7294">00097</a>         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classstf_1_1core_1_1command_1_1_un_ary_member_function_command_3_01_t_00_01void_00_01_a_r_g_01_4.html#a416bd11e256670cd5677141c7ffa7294">execute</a>(){
+<a name="l00098"></a>00098                 <a class="code" href="classstf_1_1util_1_1_trace.html" title="標準出力のラッパ．">util::Trace</a> trace(<a class="code" href="classstf_1_1util_1_1_trace.html#a7cce9d9f41332a3fd076bd10605f0139ae15ae4b9bbd28c37c2862f22aafb1814" title="コマンド処理">util::Trace::kCommand</a>, <a class="code" href="classstf_1_1_root_object.html#a3d8431fabde24417b346c0d36fdaeb93">name_</a>);
+<a name="l00099"></a>00099                 (*obj_.*f_)(arg_);
+<a name="l00100"></a>00100         }
+<a name="l00101"></a>00101 <span class="keyword">private</span>:
+<a name="l00102"></a>00102         T* obj_;
+<a name="l00103"></a>00103         Func f_;
+<a name="l00104"></a>00104         ARG arg_;
+<a name="l00105"></a>00105 };
+<a name="l00106"></a>00106 
+<a name="l00107"></a>00107 
+<a name="l00108"></a>00108 } <span class="comment">/* End of namespace stf::core::command */</span>
+<a name="l00109"></a>00109 } <span class="comment">/* End of namespace stf::core */</span>
+<a name="l00110"></a>00110 } <span class="comment">/* End of namespace stf */</span>
+<a name="l00111"></a>00111 
+<a name="l00112"></a>00112 <span class="preprocessor">#endif // stf_core_command_UnaryFunctorCommand_h</span>
+</pre></div></div>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>フレンド</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>マクロ定義</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>STFに対してTue Mar 1 2011 03:45:36に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
+</body>
+</html>

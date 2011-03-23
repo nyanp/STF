@@ -1,0 +1,143 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>STF: stf/core/datapool/Datapool.cpp ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.3 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">STF</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="pages.html"><span>関連ページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>ファイルメンバ</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<h1>stf/core/datapool/Datapool.cpp</h1>  </div>
+</div>
+<div class="contents">
+<a href="_datapool_8cpp.html">説明を見る。</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<a name="l00008"></a>00008 <span class="preprocessor">#include &quot;<a class="code" href="_datapool_8h.html" title="STF生成データにタイムタグを付加して格納するデータプール． データの配列を保持するTupleと，Tupleの配列を保持するデータプールによって テーブル形式のデータ構造を表現する．">Datapool.h</a>&quot;</span>
+<a name="l00009"></a>00009 
+<a name="l00010"></a>00010 <span class="keyword">namespace </span>stf {
+<a name="l00011"></a>00011 <span class="keyword">namespace </span>core {
+<a name="l00012"></a><a class="code" href="namespacestf_1_1core_1_1datapool.html">00012</a> <span class="keyword">namespace </span>datapool {
+<a name="l00013"></a>00013 
+<a name="l00014"></a>00014 
+<a name="l00015"></a><a class="code" href="classstf_1_1core_1_1datapool_1_1_aocs_data_pool.html#ae648b22fe0dd497496e45896ab8df8e3">00015</a> <a class="code" href="classstf_1_1core_1_1datapool_1_1_aocs_data_pool.html#ae648b22fe0dd497496e45896ab8df8e3">AocsDataPool::AocsDataPool</a>(<span class="keywordtype">int</span> instance_id): <a class="code" href="classstf_1_1core_1_1datapool_1_1_data_pool_base.html" title="Tupleを複数個保持するデータプールの基底クラス．">DataPoolBase</a>(instance_id){
+<a name="l00016"></a>00016         this-&gt;table_ = <span class="keyword">new</span> <a class="code" href="classstf_1_1core_1_1datapool_1_1_tuple.html">Tuple&lt;datatype::IAocsData&gt;</a>*[<a class="code" href="classstf_1_1core_1_1datapool_1_1_data_pool_base.html#a7d344cc79e39146e9f29cdd34441b6cc">kMaxDataPoolRows</a>];
+<a name="l00017"></a>00017 }
+<a name="l00018"></a>00018 
+<a name="l00019"></a>00019 <span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_i_aocs_data.html" title="AOCS使用系列のデータ共通の抽象インターフェース．">datatype::IAocsData</a>* <a class="code" href="classstf_1_1core_1_1datapool_1_1_aocs_data_pool.html#ab83a6242ac4263a0fa51cc5a35fcae07">AocsDataPool::get</a>(<span class="keywordtype">int</span> rows)<span class="keyword"> const</span>{
+<a name="l00020"></a>00020         <span class="keywordflow">return</span> table_[<a class="code" href="classstf_1_1core_1_1datapool_1_1_data_pool_base.html#a253878c3af9983ac3e58844449c6f2ea">rows</a>]-&gt;<a class="code" href="classstf_1_1core_1_1datapool_1_1_tuple.html#af867c61ced9a0244cc3ddf472f93676a">get_data_at</a>(table_[rows]-&gt;index());
+<a name="l00021"></a>00021 }
+<a name="l00022"></a><a class="code" href="classstf_1_1core_1_1datapool_1_1_aocs_data_pool.html#a0d075227db965aefcd04cc920ffac260">00022</a> <span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_i_aocs_data.html" title="AOCS使用系列のデータ共通の抽象インターフェース．">datatype::IAocsData</a>* <a class="code" href="classstf_1_1core_1_1datapool_1_1_aocs_data_pool.html#ab83a6242ac4263a0fa51cc5a35fcae07">AocsDataPool::get</a>(<span class="keywordtype">int</span> rows, <span class="keywordtype">int</span> cols)<span class="keyword"> const</span>{
+<a name="l00023"></a>00023         <span class="keywordflow">return</span> table_[<a class="code" href="classstf_1_1core_1_1datapool_1_1_data_pool_base.html#a253878c3af9983ac3e58844449c6f2ea">rows</a>]-&gt;<a class="code" href="classstf_1_1core_1_1datapool_1_1_tuple.html#af867c61ced9a0244cc3ddf472f93676a">get_data_at</a>(cols);
+<a name="l00024"></a>00024 }
+<a name="l00025"></a>00025 
+<a name="l00026"></a><a class="code" href="classstf_1_1core_1_1datapool_1_1_aocs_data_pool.html#ad8d7b393464bac68534f8f50a1a7cd1f">00026</a> <a class="code" href="classstf_1_1datatype_1_1_time.html" title="経過時間を表すクラス．">datatype::Time</a> <a class="code" href="classstf_1_1core_1_1datapool_1_1_aocs_data_pool.html#ad8d7b393464bac68534f8f50a1a7cd1f">AocsDataPool::gettime</a>(<span class="keywordtype">int</span> index)<span class="keyword"> const</span>{
+<a name="l00027"></a>00027         <span class="keywordflow">return</span> table_[index]-&gt;<a class="code" href="classstf_1_1core_1_1datapool_1_1_tuple.html#a3b5dcec755e12a48f36b326c8888ee65">gettime</a>();<span class="comment">//copy</span>
+<a name="l00028"></a>00028 }
+<a name="l00029"></a><a class="code" href="classstf_1_1core_1_1datapool_1_1_aocs_data_pool.html#a348231ea1b36d46d0caf4f6924a9b699">00029</a> <span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_string.html" title="std::stringの簡略版．">datatype::String</a>&amp; <a class="code" href="classstf_1_1core_1_1datapool_1_1_aocs_data_pool.html#a348231ea1b36d46d0caf4f6924a9b699">AocsDataPool::getname</a>(<span class="keywordtype">int</span> index)<span class="keyword"> const</span>{
+<a name="l00030"></a>00030         <span class="keywordflow">return</span> table_[index]-&gt;<a class="code" href="classstf_1_1core_1_1datapool_1_1_tuple.html#adbbb0804856d715c1e3ddf95e9fbc01b">name</a>();
+<a name="l00031"></a>00031 }
+<a name="l00032"></a>00032 
+<a name="l00033"></a>00033 <span class="comment">// 指定したインスタンスIDが生成したタプルへのポインタを取得（テレメトリ用）</span>
+<a name="l00034"></a><a class="code" href="classstf_1_1core_1_1datapool_1_1_aocs_data_pool.html#a5c902e2282b9f698cc6dba1c16eb9e46">00034</a> <a class="code" href="classstf_1_1core_1_1datapool_1_1_tuple.html">Tuple&lt;datatype::IAocsData&gt;</a>* <a class="code" href="classstf_1_1core_1_1datapool_1_1_aocs_data_pool.html#a5c902e2282b9f698cc6dba1c16eb9e46">AocsDataPool::get_ptr</a>(<span class="keywordtype">int</span> index) {
+<a name="l00035"></a>00035         assert( index &lt; <a class="code" href="classstf_1_1core_1_1datapool_1_1_data_pool_base.html#a7d344cc79e39146e9f29cdd34441b6cc">kMaxDataPoolRows</a> );
+<a name="l00036"></a>00036         <span class="keywordflow">return</span> table_[index];
+<a name="l00037"></a>00037 }
+<a name="l00038"></a>00038 
+<a name="l00039"></a><a class="code" href="classstf_1_1core_1_1datapool_1_1_event_data_pool.html#abfa9ad33d3c92ca72ae94c22646d824c">00039</a> <a class="code" href="classstf_1_1core_1_1datapool_1_1_event_data_pool.html#abfa9ad33d3c92ca72ae94c22646d824c">EventDataPool::EventDataPool</a>(<span class="keywordtype">int</span> instance_id): <a class="code" href="classstf_1_1core_1_1datapool_1_1_data_pool_base.html" title="Tupleを複数個保持するデータプールの基底クラス．">DataPoolBase</a>(instance_id){
+<a name="l00040"></a>00040         this-&gt;table_ = <span class="keyword">new</span> <a class="code" href="classstf_1_1core_1_1datapool_1_1_tuple.html">Tuple&lt;core::event::EventBase&gt;</a>*[<a class="code" href="classstf_1_1core_1_1datapool_1_1_data_pool_base.html#a7d344cc79e39146e9f29cdd34441b6cc">kMaxDataPoolRows</a>];
+<a name="l00041"></a>00041 }
+<a name="l00042"></a>00042 
+<a name="l00043"></a>00043 <span class="keyword">const</span> <a class="code" href="classstf_1_1core_1_1event_1_1_event_base.html" title="全イベントの基底クラス．">core::event::EventBase</a>* <a class="code" href="classstf_1_1core_1_1datapool_1_1_event_data_pool.html#a5bef9c4eac0cdf674d524deddeb11fc3">EventDataPool::get</a>(<span class="keywordtype">int</span> rows)<span class="keyword"> const</span>{
+<a name="l00044"></a>00044         <span class="keywordflow">return</span> table_[<a class="code" href="classstf_1_1core_1_1datapool_1_1_data_pool_base.html#a253878c3af9983ac3e58844449c6f2ea">rows</a>]-&gt;<a class="code" href="classstf_1_1core_1_1datapool_1_1_tuple.html#af867c61ced9a0244cc3ddf472f93676a">get_data_at</a>(table_[rows]-&gt;index());
+<a name="l00045"></a>00045 }
+<a name="l00046"></a><a class="code" href="classstf_1_1core_1_1datapool_1_1_event_data_pool.html#a93352d9196f61d20ae0e4b83472e1782">00046</a> <span class="keyword">const</span> <a class="code" href="classstf_1_1core_1_1event_1_1_event_base.html" title="全イベントの基底クラス．">core::event::EventBase</a>* <a class="code" href="classstf_1_1core_1_1datapool_1_1_event_data_pool.html#a5bef9c4eac0cdf674d524deddeb11fc3">EventDataPool::get</a>(<span class="keywordtype">int</span> rows, <span class="keywordtype">int</span> cols)<span class="keyword"> const</span>{
+<a name="l00047"></a>00047         <span class="keywordflow">return</span> table_[<a class="code" href="classstf_1_1core_1_1datapool_1_1_data_pool_base.html#a253878c3af9983ac3e58844449c6f2ea">rows</a>]-&gt;<a class="code" href="classstf_1_1core_1_1datapool_1_1_tuple.html#af867c61ced9a0244cc3ddf472f93676a">get_data_at</a>(cols);
+<a name="l00048"></a>00048 }
+<a name="l00049"></a>00049 
+<a name="l00050"></a><a class="code" href="classstf_1_1core_1_1datapool_1_1_event_data_pool.html#ad1cfa766a398b10463763dfb47f7ea2a">00050</a> <a class="code" href="classstf_1_1datatype_1_1_time.html" title="経過時間を表すクラス．">datatype::Time</a> <a class="code" href="classstf_1_1core_1_1datapool_1_1_event_data_pool.html#ad1cfa766a398b10463763dfb47f7ea2a">EventDataPool::gettime</a>(<span class="keywordtype">int</span> index)<span class="keyword"> const</span>{
+<a name="l00051"></a>00051         <span class="keywordflow">return</span> table_[index]-&gt;<a class="code" href="classstf_1_1core_1_1datapool_1_1_tuple.html#a3b5dcec755e12a48f36b326c8888ee65">gettime</a>();<span class="comment">//copy</span>
+<a name="l00052"></a>00052 }
+<a name="l00053"></a><a class="code" href="classstf_1_1core_1_1datapool_1_1_event_data_pool.html#a701312e7803df59ec19795cf7ffc7cc7">00053</a> <span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_string.html" title="std::stringの簡略版．">datatype::String</a>&amp; <a class="code" href="classstf_1_1core_1_1datapool_1_1_event_data_pool.html#a701312e7803df59ec19795cf7ffc7cc7">EventDataPool::getname</a>(<span class="keywordtype">int</span> index)<span class="keyword"> const</span>{
+<a name="l00054"></a>00054         <span class="keywordflow">return</span> table_[index]-&gt;<a class="code" href="classstf_1_1core_1_1datapool_1_1_tuple.html#adbbb0804856d715c1e3ddf95e9fbc01b">name</a>();
+<a name="l00055"></a>00055 }
+<a name="l00056"></a>00056 
+<a name="l00057"></a>00057 <span class="comment">// 指定したインスタンスIDが生成したタプルへのポインタを取得（テレメトリ用）</span>
+<a name="l00058"></a><a class="code" href="classstf_1_1core_1_1datapool_1_1_event_data_pool.html#aad2c38a68e2a6ccc305c6ccd1afe401e">00058</a> <a class="code" href="classstf_1_1core_1_1datapool_1_1_tuple.html">Tuple&lt;core::event::EventBase&gt;</a>* <a class="code" href="classstf_1_1core_1_1datapool_1_1_event_data_pool.html#aad2c38a68e2a6ccc305c6ccd1afe401e">EventDataPool::get_ptr</a>(<span class="keywordtype">int</span> index) {
+<a name="l00059"></a>00059         assert( index &lt; <a class="code" href="classstf_1_1core_1_1datapool_1_1_data_pool_base.html#a7d344cc79e39146e9f29cdd34441b6cc">kMaxDataPoolRows</a> );
+<a name="l00060"></a>00060         <span class="keywordflow">return</span> table_[index];
+<a name="l00061"></a>00061 }
+<a name="l00062"></a>00062 
+<a name="l00063"></a>00063 } <span class="comment">/* End of namespace stf::core::datapool */</span>
+<a name="l00064"></a>00064 } <span class="comment">/* End of namespace stf::core */</span>
+<a name="l00065"></a>00065 } <span class="comment">/* End of namespace stf */</span>
+</pre></div></div>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>フレンド</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>マクロ定義</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>STFに対してTue Mar 1 2011 03:45:36に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
+</body>
+</html>

@@ -1,0 +1,208 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>STF: stf/environment/virtex/IPCoreLibrary/SDC.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.3 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">STF</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="pages.html"><span>関連ページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>ファイルメンバ</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#namespaces">ネームスペース</a> &#124;
+<a href="#func-members">関数</a> &#124;
+<a href="#var-members">変数</a>  </div>
+  <div class="headertitle">
+<h1>stf/environment/virtex/IPCoreLibrary/SDC.hpp</h1>  </div>
+</div>
+<div class="contents">
+
+<p>SDcard IPCore ドライバ  
+<a href="#_details">[詳細]</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="">./AccessControl/AccessControl.hpp</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="">SPIParams.hpp</a>&quot;</code><br/>
+<code>#include &lt;cstdio&gt;</code><br/>
+</div><div class="textblock"><div class="dynheader">
+SDC.hppのインクルード依存関係図</div>
+<div class="dyncontent">
+<div class="center"><img src="_s_d_c_8hpp__incl.png" border="0" usemap="#stf_2environment_2virtex_2_i_p_core_library_2_s_d_c_8hpp" alt=""/></div>
+<map name="stf_2environment_2virtex_2_i_p_core_library_2_s_d_c_8hpp" id="stf_2environment_2virtex_2_i_p_core_library_2_s_d_c_8hpp">
+<area shape="rect" id="node3" href="_access_control_8hpp.html" title="リソース管理用テンプレートクラス" alt="" coords="5,83,235,112"/><area shape="rect" id="node5" href="_s_p_i_params_8hpp.html" title="SPI用パラメータ管理クラス" alt="" coords="259,83,371,112"/></map>
+</div>
+</div>
+<p><a href="">ソースコードを見る。</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="namespaces"></a>
+ネームスペース</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenj.html">nj</a></td></tr>
+<tr><td colspan="2"><h2><a name="func-members"></a>
+関数</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenj.html#a5ca40babf8bc1a81506f5a92e9952dcd">nj::~SDC</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">デストラクタ  <a href="#a5ca40babf8bc1a81506f5a92e9952dcd"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenj.html#ad89182f5ad1e3ace266fcac6128945b1">nj::putchar</a> (int c)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">1Byte送信メソッド  <a href="#ad89182f5ad1e3ace266fcac6128945b1"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenj.html#a87b6405104cfc125723a171b4629abda">nj::puts</a> (const unsigned char s[], const unsigned int len)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenj.html#ad75da83c6be3c262a1adcd0c864bc8f0">nj::getchar</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">1Byte受信メソッド  <a href="#ad75da83c6be3c262a1adcd0c864bc8f0"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">unsigned char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenj.html#a7e9f3f2187f8acf45cfc5ca5861b9059">nj::gets</a> (unsigned char s[], const unsigned int len)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenj.html#a3592b585a8efbe83297b0f730d334861">nj::select_slave</a> (unsigned int id)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenj.html#a056d52d61e1ab7d5f5121c8b76c6fe2a">nj::release_slave</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenj.html#a7bca626bce29c752f3db40477402e13a">nj::is_mode_fault_error</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Mode-Faultが検知された場合真を返す。このメソッドを呼び出すことで、エラーはクリアされる。  <a href="#a7bca626bce29c752f3db40477402e13a"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenj.html#ab2b6dfba1dab94e925c0254de42acaeb">nj::is_tx_fifo_full</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Tx FIFOが満杯の場合trueを返す。  <a href="#ab2b6dfba1dab94e925c0254de42acaeb"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenj.html#a0c501bfe42fcbbc6a1e0d82613dbec70">nj::is_tx_fifo_empty</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Tx FIFOが空の場合trueを返す。  <a href="#a0c501bfe42fcbbc6a1e0d82613dbec70"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenj.html#a4bc7e6977a86b170706efc05e5d2d5ab">nj::is_rx_fifo_full</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Rx FIFOが満杯の場合trueを返す。  <a href="#a4bc7e6977a86b170706efc05e5d2d5ab"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenj.html#a14b886464947a873abd6c31faa803c83">nj::is_rx_fifo_empty</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Rx FIFOが空の場合trueを返す。  <a href="#a14b886464947a873abd6c31faa803c83"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenj.html#a9175a9cb4ca4f6fca5c36223b06568ec">nj::reset</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">SPIコアのソフトウェアリセットを行うメソッド  <a href="#a9175a9cb4ca4f6fca5c36223b06568ec"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenj.html#a5c9de8b8acc80585711b6a306c357272">nj::reset_tx_fifo</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Tx FIFOのリセットを行う。  <a href="#a5c9de8b8acc80585711b6a306c357272"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenj.html#aa50d6f3cc6c1050e258f83f0429b0956">nj::reset_rx_fifo</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Rx FIFOのリセットを行う。  <a href="#aa50d6f3cc6c1050e258f83f0429b0956"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenj.html#ab38f923a680420cb66fc40aab5d7e913">nj::calc_crc7</a> (unsigned char *data, unsigned int len)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">CRC7を計算する  <a href="#ab38f923a680420cb66fc40aab5d7e913"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">unsigned short&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenj.html#ab64d2bcad1b900246b390d848b11c03d">nj::calc_crc16</a> (unsigned char *data, unsigned int len)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">CRC16を計算する  <a href="#ab64d2bcad1b900246b390d848b11c03d"></a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="var-members"></a>
+変数</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_c.html">C</a> SPIParams::OPERATION_MODE&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenj.html#a5ff675c2521e44d40530ddfdb7661279">nj::mode</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_c.html">C</a> SPIParams::OPERATION_MODE <br class="typebreak"/>
+SPIParams::DUPLEX_MODE&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenj.html#a4b332204a47f6d6aa43566f6bc2319db">nj::d_mode</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_c.html">C</a> SPIParams::OPERATION_MODE <br class="typebreak"/>
+SPIParams::DUPLEX_MODE <br class="typebreak"/>
+SPIParams::MANUAL_SLAVE_SELECT_ASSERTION&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenj.html#a6c142735321b854496a712a91c1254fc">nj::mssa</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_c.html">C</a> SPIParams::OPERATION_MODE <br class="typebreak"/>
+SPIParams::DUPLEX_MODE <br class="typebreak"/>
+SPIParams::MANUAL_SLAVE_SELECT_ASSERTION <br class="typebreak"/>
+SPIParams::CLOCK_POLARITY&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenj.html#a721d99266cb86b6158a0ebe546f12bed">nj::polar</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_c.html">C</a> SPIParams::OPERATION_MODE <br class="typebreak"/>
+SPIParams::DUPLEX_MODE <br class="typebreak"/>
+SPIParams::MANUAL_SLAVE_SELECT_ASSERTION <br class="typebreak"/>
+SPIParams::CLOCK_POLARITY <br class="typebreak"/>
+SPIParams::CLOCK_PHASE&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenj.html#a27dc3c70734cc9424dea1a81d7cf2a31">nj::phase</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_c.html">C</a> SPIParams::OPERATION_MODE <br class="typebreak"/>
+SPIParams::DUPLEX_MODE <br class="typebreak"/>
+SPIParams::MANUAL_SLAVE_SELECT_ASSERTION <br class="typebreak"/>
+SPIParams::CLOCK_POLARITY <br class="typebreak"/>
+SPIParams::CLOCK_PHASE <br class="typebreak"/>
+SPIParams::TRANSMISSION_ORDER&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenj.html#a9ca25d654a76e6de763ebac8d304591f">nj::order</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_c.html">C</a> SPIParams::OPERATION_MODE <br class="typebreak"/>
+SPIParams::DUPLEX_MODE <br class="typebreak"/>
+SPIParams::MANUAL_SLAVE_SELECT_ASSERTION <br class="typebreak"/>
+SPIParams::CLOCK_POLARITY <br class="typebreak"/>
+SPIParams::CLOCK_PHASE <br class="typebreak"/>
+SPIParams::TRANSMISSION_ORDER <br class="typebreak"/>
+SPIParams::LOOPBACK_MODE&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenj.html#a0cf1f824012586f20eac85f13f587dc6">nj::loopback</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">volatile unsigned int &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenj.html#a4873192d37a4f006441a129c39365942">nj::SRR_</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">volatile unsigned int &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenj.html#afee5523b4769b9fa60208f43360628e7">nj::SPICR_</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">SPI Control Register.  <a href="#afee5523b4769b9fa60208f43360628e7"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">volatile unsigned int &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenj.html#a72e37c61f9897fd21a43da88c4c0448b">nj::SPISR_</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">SPI Status Register.  <a href="#a72e37c61f9897fd21a43da88c4c0448b"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">volatile unsigned int &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenj.html#af4617ba79eaf911da2e143d7960bb1e4">nj::SPIDTR_</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">SPI Data Transmit Register.  <a href="#af4617ba79eaf911da2e143d7960bb1e4"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">volatile unsigned int &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenj.html#ac3f3c2dea6c284354b9904f802084ad8">nj::SPIDRR_</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">SPI Data Receive Register.  <a href="#ac3f3c2dea6c284354b9904f802084ad8"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">volatile unsigned int &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenj.html#a798e0e86ff8ba9594db1fbeed7dfa0b0">nj::SPISSR_</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">SPI Slave Select Register.  <a href="#a798e0e86ff8ba9594db1fbeed7dfa0b0"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">volatile unsigned int &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenj.html#a780edec0f000f9d2693f68ed9df92395">nj::SPITFOR_</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">SPI Transmit FIFO Occupancy Register.  <a href="#a780edec0f000f9d2693f68ed9df92395"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">volatile unsigned int &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenj.html#ad5ed252b54b204b40c58473f597e26ee">nj::SPIRFOR_</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">SPI Receive FIFO Occupancy Register.  <a href="#ad5ed252b54b204b40c58473f597e26ee"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">volatile unsigned int &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenj.html#a6028491e8c396558cba1992733d97a52">nj::DGIER_</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Device Global Interrupt Enable Register.  <a href="#a6028491e8c396558cba1992733d97a52"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">volatile unsigned int &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenj.html#ad8b482ac34a08f4c6f5fbee318601422">nj::IPISR_</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">IP Interrupt Status Register.  <a href="#ad8b482ac34a08f4c6f5fbee318601422"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">volatile unsigned int &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenj.html#a11222700ce8a9d7cc662649ca37553eb">nj::IPIER_</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">IP Interrupt Enable Register.  <a href="#a11222700ce8a9d7cc662649ca37553eb"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">volatile unsigned int &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenj.html#a5e2ab15a1be06ba6702ddc606093f2e1">nj::CRCIR_</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">CRC Input Register.  <a href="#a5e2ab15a1be06ba6702ddc606093f2e1"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">volatile unsigned int &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenj.html#a3b017c5c46324df20c2b1f8e64f1bbab">nj::CRCOR_</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">CRC Output Register.  <a href="#a3b017c5c46324df20c2b1f8e64f1bbab"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">SPIParams::DUPLEX_MODE&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenj.html#a0f2960f0dd87b6ec2e3edbd3eb4cd800">nj::d_mode_</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">データ転送モード(全二重/半二重)保持メンバ  <a href="#a0f2960f0dd87b6ec2e3edbd3eb4cd800"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenj.html#ac5ed4a109a8cf7cc2275a35b345c2e83">nj::transmitted_</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">転送したバイト数を数えるカウンタ。 Half duplexでの処理向け。  <a href="#ac5ed4a109a8cf7cc2275a35b345c2e83"></a><br/></td></tr>
+</table>
+<hr/><a name="_details"></a><h2>説明</h2>
+<div class="textblock"><p>SDcard IPCore ドライバ </p>
+<dl class="author"><dt><b>作者:</b></dt><dd>IDOBATA Hiroaki </dd></dl>
+<dl class="date"><dt><b>日付:</b></dt><dd>Sun July 11 00:59:?? 2010</dd></dl>
+<p>XILINX社から提供されるSPI通信IPCoreにCRC計算の機能を付け加えた自作コアを Microblazeから操作する際に必要となるプログラムをまとめる。</p>
+<p>このドライバではSPIでの通信方式として全二重(Full Duplex)と半二重(Half Duplex) を選択可能である。全二重とはMaster側のデータの送信と同時にSlave側からデータが Master側へ送信される通信モードであり、半二重とはMaster側がデータを送信する際には Slave側は意味のあるデータを送信せず、Master側からのデータ送信後、Master側が クロックを送信するのに合わせてSlave側がデータを送信してくるモードである。 このモード指定はこのクラスのコンストラクタで行う。</p>
+<p>MUTEX等を用いた排他制御に対応するためテンプレートクラスとして実装している。 </p>
+
+<p> <a class="el" href="">SDC.hpp</a> で定義されています。</p>
+</div></div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>フレンド</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>マクロ定義</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>STFに対してWed Mar 23 2011 05:32:43に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
+</body>
+</html>

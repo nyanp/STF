@@ -1,0 +1,180 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>STF: stf/util/Ostream.cpp ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.3 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">STF</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="pages.html"><span>関連ページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>ファイルメンバ</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<h1>stf/util/Ostream.cpp</h1>  </div>
+</div>
+<div class="contents">
+<a href="_ostream_8cpp.html">説明を見る。</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<a name="l00008"></a>00008 <span class="preprocessor">#include &quot;<a class="code" href="_ostream_8h.html" title="標準出力のラッパ．">Ostream.h</a>&quot;</span>
+<a name="l00009"></a>00009 <span class="preprocessor">#include&quot;<a class="code" href="math_8h.html" title="数学系関数のラッパと算術定数の定義．">../util/math.h</a>&quot;</span>
+<a name="l00010"></a>00010 <span class="preprocessor">#include&quot;<a class="code" href="_string_8h.html" title="std::stringの簡略版クラス．">../datatype/String.h</a>&quot;</span>
+<a name="l00011"></a>00011 <span class="preprocessor">#include&quot;<a class="code" href="_vector_8h.html" title="可変要素数のベクトル演算を行うクラス．STFではStaticVectorが推奨される">../datatype/Vector.h</a>&quot;</span>
+<a name="l00012"></a>00012 <span class="preprocessor">#include&quot;<a class="code" href="_matrix_8h.html" title="可変要素数の行列計算を行うクラス．STFではStaticMatrixが推奨される．">../datatype/Matrix.h</a>&quot;</span>
+<a name="l00013"></a>00013 <span class="preprocessor">#include&quot;<a class="code" href="_scalar_8h.html" title="スカラー物理量を表現するクラス．">../datatype/Scalar.h</a>&quot;</span>
+<a name="l00014"></a>00014 <span class="preprocessor">#include&quot;<a class="code" href="_time_8h.html" title="経過時間を表すクラス．">../datatype/Time.h</a>&quot;</span>
+<a name="l00015"></a>00015 <span class="preprocessor">#include&quot;<a class="code" href="_date_time_8h.html" title="ユリウス暦による絶対時刻を保持するクラス．時間間隔などの計算にはTimeを使う．">../datatype/DateTime.h</a>&quot;</span>
+<a name="l00016"></a>00016 <span class="preprocessor">#include&quot;<a class="code" href="_orbit_info_8h.html" title="軌道情報関係の量を表す">../datatype/OrbitInfo.h</a>&quot;</span>
+<a name="l00017"></a>00017 
+<a name="l00018"></a>00018 <span class="keyword">namespace </span>{
+<a name="l00019"></a>00019         std::string toString_(<span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_string.html" title="std::stringの簡略版．">stf::datatype::String</a>&amp; str){
+<a name="l00020"></a>00020                 std::string s(str.<a class="code" href="classstf_1_1datatype_1_1_string.html#ae3d0fd5ccd5d6bfae8f9c03859535679">to_char</a>());
+<a name="l00021"></a>00021                 <span class="keywordflow">return</span> s;
+<a name="l00022"></a>00022         }
+<a name="l00023"></a>00023 }
+<a name="l00024"></a>00024 
+<a name="l00026"></a>00026 <span class="comment">// Global OverLoad for std::ostream //</span>
+<a name="l00028"></a>00028 <span class="comment"></span>
+<a name="l00029"></a>00029 <span class="comment">// datatype::Scalar</span>
+<a name="l00030"></a><a class="code" href="_ostream_8h.html#acd30fda18db4afe3fd80ab042719e7b9">00030</a> std::ostream &amp;<a class="code" href="_ostream_8cpp.html#acd30fda18db4afe3fd80ab042719e7b9">operator &lt;&lt; </a>(std::ostream&amp; out_file, <span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_scalar.html" title="スカラー物理量を表現するクラス．">stf::datatype::Scalar</a>&amp; scalar){
+<a name="l00031"></a>00031         out_file &lt;&lt; scalar.<a class="code" href="classstf_1_1datatype_1_1_scalar.html#ad35e692db6f0e511d29b072cfabeae6f">value</a>();
+<a name="l00032"></a>00032         <span class="keywordflow">return</span> out_file;
+<a name="l00033"></a>00033 }
+<a name="l00034"></a>00034 
+<a name="l00035"></a>00035 <span class="comment">// datatype::String</span>
+<a name="l00036"></a><a class="code" href="_ostream_8h.html#a76b7ce8eed0329e2195bf130b89659a7">00036</a> std::ostream &amp;<a class="code" href="_ostream_8cpp.html#acd30fda18db4afe3fd80ab042719e7b9">operator &lt;&lt; </a>(std::ostream&amp; out_file, <span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_string.html" title="std::stringの簡略版．">stf::datatype::String</a>&amp; str){
+<a name="l00037"></a>00037         out_file &lt;&lt; str.<a class="code" href="classstf_1_1datatype_1_1_string.html#ae3d0fd5ccd5d6bfae8f9c03859535679">to_char</a>();
+<a name="l00038"></a>00038         <span class="keywordflow">return</span> out_file;
+<a name="l00039"></a>00039 }
+<a name="l00040"></a>00040 
+<a name="l00041"></a>00041 <span class="comment">// datatype::Vector</span>
+<a name="l00042"></a><a class="code" href="_ostream_8h.html#a0b57785cc90bc77634df10d19d75f8c7">00042</a> std::ostream &amp;<a class="code" href="_ostream_8cpp.html#acd30fda18db4afe3fd80ab042719e7b9">operator &lt;&lt; </a>(std::ostream&amp; out_file, <span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_vector.html" title="可変要素数のベクトル演算を行う．">stf::datatype::Vector</a>&amp; vec){
+<a name="l00043"></a>00043         <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; vec.<a class="code" href="classstf_1_1datatype_1_1_vector.html#a70c1a35c9695eaec6bb65a133b7a9d8c">dimension</a>(); i++){
+<a name="l00044"></a>00044                 out_file.width(6);
+<a name="l00045"></a>00045                 out_file &lt;&lt; vec[i] &lt;&lt; <span class="stringliteral">&quot; &quot;</span>;
+<a name="l00046"></a>00046         }
+<a name="l00047"></a>00047         <span class="comment">//out_file &lt;&lt; &quot;\n&quot;;</span>
+<a name="l00048"></a>00048         <span class="keywordflow">return</span> out_file;
+<a name="l00049"></a>00049 }
+<a name="l00050"></a>00050 
+<a name="l00051"></a><a class="code" href="_ostream_8h.html#ace549547958300382d5a5030fb1f8e07">00051</a> std::ostream &amp;<a class="code" href="_ostream_8cpp.html#acd30fda18db4afe3fd80ab042719e7b9">operator &lt;&lt; </a>(std::ostream&amp; out_file, <span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_time.html" title="経過時間を表すクラス．">stf::datatype::Time</a>&amp; time){
+<a name="l00052"></a>00052         out_file &lt;&lt; time.<a class="code" href="classstf_1_1datatype_1_1_time.html#a44223b9f1355db669cb372543571e222">seconds</a>() &lt;&lt; <span class="stringliteral">&quot;:&quot;</span> &lt;&lt; time.<a class="code" href="classstf_1_1datatype_1_1_time.html#ad96aa08e4e29cc871fb26e8d1c3c6832">milliseconds</a>();
+<a name="l00053"></a>00053         <span class="keywordflow">return</span> out_file;
+<a name="l00054"></a>00054 }
+<a name="l00055"></a>00055 
+<a name="l00056"></a>00056 <span class="comment">// std::ostreamクラスの演算子に対するグローバルな演算子オーバーロード</span>
+<a name="l00057"></a><a class="code" href="_ostream_8h.html#aa3da4b8582c895b30037244c875ecd13">00057</a> std::ostream &amp;<a class="code" href="_ostream_8cpp.html#acd30fda18db4afe3fd80ab042719e7b9">operator &lt;&lt; </a>(std::ostream&amp; out_file, <span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_date_time.html" title="ユリウス暦による絶対時刻を秒精度で保持する．">stf::datatype::DateTime</a>&amp; time){
+<a name="l00058"></a>00058         out_file &lt;&lt; time.<a class="code" href="classstf_1_1datatype_1_1_date_time.html#a196fba9ceebe2d01e5e61df08204dfbb">dates</a>() &lt;&lt; <span class="stringliteral">&quot;/&quot;</span> &lt;&lt; time.<a class="code" href="classstf_1_1datatype_1_1_date_time.html#ab08e305262648036525632fcbb61c698">hours</a>() &lt;&lt; <span class="stringliteral">&quot;:&quot;</span> &lt;&lt; time.<a class="code" href="classstf_1_1datatype_1_1_date_time.html#a6160b1c3d19175881dd519b1572c4beb">minutes</a>() &lt;&lt; <span class="stringliteral">&quot;:&quot;</span> &lt;&lt; time.<a class="code" href="classstf_1_1datatype_1_1_date_time.html#a1ba94eb2aeab4eb693b07b0b359b7ff9">seconds</a>();
+<a name="l00059"></a>00059         <span class="keywordflow">return</span> out_file;
+<a name="l00060"></a>00060 }
+<a name="l00061"></a>00061 
+<a name="l00062"></a>00062 <span class="comment">// datatype::Matrix</span>
+<a name="l00063"></a><a class="code" href="_ostream_8h.html#a7c17ef4cc73c07298a0becfc7ef228d0">00063</a> std::ostream &amp;<a class="code" href="_ostream_8cpp.html#acd30fda18db4afe3fd80ab042719e7b9">operator &lt;&lt; </a>(std::ostream&amp; out_file, <span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_matrix.html" title="可変要素数の行列計算を行うクラス．STFではStaticMatrixが推奨される．">stf::datatype::Matrix</a>&amp; mat){
+<a name="l00064"></a>00064         out_file &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;
+<a name="l00065"></a>00065         <span class="keywordflow">for</span>(<span class="keywordtype">int</span> rows = 0;rows &lt; mat.<a class="code" href="classstf_1_1datatype_1_1_matrix.html#a90bdadcaa553594d3debc6573bb00433">rows</a>(); rows++){
+<a name="l00066"></a>00066                 <span class="keywordflow">for</span>(<span class="keywordtype">int</span> cols = 0;cols &lt; mat.<a class="code" href="classstf_1_1datatype_1_1_matrix.html#a9d4f9d4d3aa49d8fc4a4513e2333b4d4">cols</a>(); cols++){
+<a name="l00067"></a>00067                         out_file.width(11);
+<a name="l00068"></a>00068                         out_file &lt;&lt; mat[rows][cols];
+<a name="l00069"></a>00069                 }
+<a name="l00070"></a>00070                 out_file &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;
+<a name="l00071"></a>00071         }
+<a name="l00072"></a>00072         <span class="keywordflow">return</span> out_file;
+<a name="l00073"></a>00073 }
+<a name="l00074"></a>00074 
+<a name="l00075"></a>00075 <span class="comment">//Orbit Element</span>
+<a name="l00076"></a><a class="code" href="_ostream_8h.html#ae4e6240359e4427aee457c7b7c9f76fd">00076</a> std::ostream &amp;<a class="code" href="_ostream_8cpp.html#acd30fda18db4afe3fd80ab042719e7b9">operator &lt;&lt; </a>(std::ostream&amp; out_file, <span class="keyword">const</span> <a class="code" href="structstf_1_1datatype_1_1_orbit_info.html" title="軌道6要素を保持するクラス．サイズ肥大化を避けるため，主要な計算はOrbitImplのstaticなメソッドに投げることで行う">stf::datatype::OrbitInfo</a>&amp; orbit){
+<a name="l00077"></a>00077         out_file &lt;&lt; <span class="stringliteral">&quot;orbit element:\n&quot;</span>;
+<a name="l00078"></a>00078         out_file &lt;&lt; <span class="stringliteral">&quot;a(km):&quot;</span> &lt;&lt; orbit.<a class="code" href="structstf_1_1datatype_1_1_orbit_info.html#ab2440dbc71b420490a7285f0f633d7f6" title="長半径(m)">a</a> / 1000 &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;
+<a name="l00079"></a>00079         out_file &lt;&lt; <span class="stringliteral">&quot;e:&quot;</span> &lt;&lt; orbit.<a class="code" href="structstf_1_1datatype_1_1_orbit_info.html#a11d68e4a0553a08b48d9a5c7fa7ea672" title="離心率">e</a> &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;
+<a name="l00080"></a>00080         out_file &lt;&lt; <span class="stringliteral">&quot;i(deg):&quot;</span> &lt;&lt; orbit.<a class="code" href="structstf_1_1datatype_1_1_orbit_info.html#a05bbb32b3f873d342bd9fa5996eb0a01" title="軌道傾斜角(rad)">i</a> * stf::util::math::RAD2DEG &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;
+<a name="l00081"></a>00081         out_file &lt;&lt; <span class="stringliteral">&quot;M(deg):&quot;</span> &lt;&lt; orbit.<a class="code" href="structstf_1_1datatype_1_1_orbit_info.html#aa6f50262a993aca6954a4038f57ce451" title="平均近点離角">M</a> * stf::util::math::RAD2DEG &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;
+<a name="l00082"></a>00082         out_file &lt;&lt; <span class="stringliteral">&quot;omega(deg):&quot;</span> &lt;&lt; orbit.<a class="code" href="structstf_1_1datatype_1_1_orbit_info.html#afc82eab997e50afdf0b6ab913f5f37ba" title="近地点引数">omega</a> * stf::util::math::RAD2DEG &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;
+<a name="l00083"></a>00083         out_file &lt;&lt; <span class="stringliteral">&quot;Omega(deg):&quot;</span> &lt;&lt; orbit.<a class="code" href="structstf_1_1datatype_1_1_orbit_info.html#a2c14a7a6eab564f6e53d577194cf2918" title="昇交点赤経(rad)">Omega</a> * stf::util::math::RAD2DEG &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;
+<a name="l00084"></a>00084         out_file &lt;&lt; <span class="stringliteral">&quot;n:&quot;</span> &lt;&lt; orbit.<a class="code" href="structstf_1_1datatype_1_1_orbit_info.html#aadd96fd1974357a4d7313a5be790a6c0">n</a> &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;
+<a name="l00085"></a>00085         <span class="keywordflow">return</span> out_file;
+<a name="l00086"></a>00086 }
+<a name="l00087"></a>00087 
+<a name="l00088"></a>00088 <span class="comment">//Satellite Position</span>
+<a name="l00089"></a><a class="code" href="_ostream_8h.html#a033f8498c217c895e50ba3d0826b9e01">00089</a> std::ostream &amp;<a class="code" href="_ostream_8cpp.html#acd30fda18db4afe3fd80ab042719e7b9">operator &lt;&lt; </a>(std::ostream&amp; out_file, <span class="keyword">const</span> <a class="code" href="structstf_1_1datatype_1_1_position_info.html" title="衛星座標を地心慣性座標系における位置と速度の6次元ベクトルで保持するクラス．">stf::datatype::PositionInfo</a>&amp; pos){
+<a name="l00090"></a>00090         out_file &lt;&lt; <span class="stringliteral">&quot;orbit element:\n&quot;</span>;
+<a name="l00091"></a>00091         out_file &lt;&lt; <span class="stringliteral">&quot;velocity(m/s):&quot;</span> &lt;&lt; pos.<a class="code" href="structstf_1_1datatype_1_1_position_info.html#aa93c6e3a18ac999fcffdd0e534128215" title="速度ベクトル(m/s)">velocity</a> &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;
+<a name="l00092"></a>00092         out_file &lt;&lt; <span class="stringliteral">&quot;position(m):&quot;</span> &lt;&lt; pos.<a class="code" href="structstf_1_1datatype_1_1_position_info.html#af602fc1d0a799af804271e54897e258a" title="地球中心からの位置(m)">position</a> &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;
+<a name="l00093"></a>00093         <span class="keywordflow">return</span> out_file;
+<a name="l00094"></a>00094 }
+<a name="l00095"></a>00095 
+<a name="l00096"></a>00096 <span class="keyword">namespace </span>stf { 
+<a name="l00097"></a>00097 <span class="keyword">namespace </span>util {
+<a name="l00098"></a><a class="code" href="namespacestf_1_1util.html#af48f51352c134786c6526842cb85a54e">00098</a> <a class="code" href="classstf_1_1util_1_1_no_output.html">NoOutput</a> <a class="code" href="namespacestf_1_1util.html#af48f51352c134786c6526842cb85a54e">none</a>;
+<a name="l00099"></a>00099 std::ofstream <a class="code" href="namespacestf_1_1util.html#aacd8f9eeac95bad7d1c75654c038c984">log</a>(<span class="stringliteral">&quot;log.csv&quot;</span>);
+<a name="l00100"></a>00100 <a class="code" href="classstf_1_1util_1_1_ostream.html" title="標準出力のラッパ．">Ostream&lt;std::ostream&gt;</a> <a class="code" href="namespacestf_1_1util.html#abc86bcf81e6b88adfc6625c3f0645d03">cout</a>(<a class="code" href="namespacestf_1_1util.html#abc86bcf81e6b88adfc6625c3f0645d03">std::cout</a>);
+<a name="l00101"></a>00101 <a class="code" href="classstf_1_1util_1_1_ostream.html" title="標準出力のラッパ．">Ostream&lt;std::ofstream&gt;</a> <a class="code" href="namespacestf_1_1util.html#a1d6a244159425d54a0edbc6f1bc6bc16">clog</a>(<a class="code" href="namespacestf_1_1util.html#aacd8f9eeac95bad7d1c75654c038c984">log</a>);
+<a name="l00102"></a>00102 <span class="comment">//Ostream&lt;NoOutput&gt; cout(none);</span>
+<a name="l00103"></a>00103 } <span class="comment">/* End of namespace stf::util */</span>
+<a name="l00104"></a>00104 } <span class="comment">/* End of namespace stf */</span>
+</pre></div></div>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>フレンド</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>マクロ定義</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>STFに対してTue Mar 1 2011 03:45:43に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
+</body>
+</html>

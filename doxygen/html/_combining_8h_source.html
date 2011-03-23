@@ -1,0 +1,322 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>STF: stf/core/strategy/control/Combining.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.3 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">STF</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="pages.html"><span>関連ページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>ファイルメンバ</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<h1>stf/core/strategy/control/Combining.h</h1>  </div>
+</div>
+<div class="contents">
+<a href="_combining_8h.html">説明を見る。</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<a name="l00009"></a>00009 <span class="preprocessor">#ifndef stf_core_strategy_control_Combining_h</span>
+<a name="l00010"></a>00010 <span class="preprocessor"></span><span class="preprocessor">#define stf_core_strategy_control_Combining_h</span>
+<a name="l00011"></a>00011 <span class="preprocessor"></span><span class="preprocessor">#include &lt;assert.h&gt;</span>
+<a name="l00012"></a>00012 <span class="preprocessor">#include &quot;<a class="code" href="_i_o_port_8h.html" title="他機器との接続を型に基づいて行うための入出力ポート．">../../devicedriver/IOPort.h</a>&quot;</span>
+<a name="l00013"></a>00013 <span class="preprocessor">#include &quot;<a class="code" href="_strategy_base_8h.html" title="ストラテジの共通基底クラス．">../StrategyBase.h</a>&quot;</span>
+<a name="l00014"></a>00014 <span class="preprocessor">#include &quot;<a class="code" href="_trace_8h.html" title="STFの内部状態を外部ファイルに書き出すためのトレースオブジェクト．">../../../util/Trace.h</a>&quot;</span>
+<a name="l00015"></a>00015 
+<a name="l00016"></a>00016 <span class="keyword">namespace </span>stf {
+<a name="l00017"></a>00017 <span class="keyword">namespace </span>core {
+<a name="l00018"></a>00018 <span class="keyword">namespace </span>strategy {
+<a name="l00019"></a>00019 <span class="keyword">namespace </span>control {
+<a name="l00020"></a>00020 
+<a name="l00022"></a>00022 
+<a name="l00025"></a>00025 <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;
+<a name="l00026"></a><a class="code" href="classstf_1_1core_1_1strategy_1_1control_1_1_combining__2.html">00026</a> <span class="keyword">class </span><a class="code" href="classstf_1_1core_1_1strategy_1_1control_1_1_combining__2.html" title="2つの物理量を加算して1つに纏める制御ブロック．">Combining_2</a> : <span class="keyword">public</span> devicedriver::InputPorts&lt; TYPELIST_2(T, T) &gt;, 
+<a name="l00027"></a>00027                 <span class="keyword">public</span> devicedriver::OutputPorts &lt; TYPELIST_1(T) &gt; ,
+<a name="l00028"></a>00028                 <span class="keyword">public</span> <a class="code" href="classstf_1_1core_1_1strategy_1_1_strategy_base.html" title="ストラテジの共通基底クラス．">StrategyBase</a>
+<a name="l00029"></a>00029 {
+<a name="l00030"></a>00030 <span class="keyword">public</span>:
+<a name="l00031"></a><a class="code" href="classstf_1_1core_1_1strategy_1_1control_1_1_combining__2.html#a24590e8f43ae53c82cf2d0e7ce1fab12">00031</a>         <a class="code" href="classstf_1_1core_1_1strategy_1_1control_1_1_combining__2.html#a24590e8f43ae53c82cf2d0e7ce1fab12">Combining_2</a>(<span class="keywordtype">int</span> <a class="code" href="classstf_1_1_root_object.html#a233a3fbd4d53b7a8eaa5d2edab4cf75b">instance_id</a>) : <a class="code" href="classstf_1_1core_1_1strategy_1_1_strategy_base.html" title="ストラテジの共通基底クラス．">StrategyBase</a>(instance_id, <span class="stringliteral">&quot;Combining_2&quot;</span>){}
+<a name="l00032"></a>00032 
+<a name="l00033"></a><a class="code" href="classstf_1_1core_1_1strategy_1_1control_1_1_combining__2.html#a9c4a13da2d81cf33cec086551b2df4e1">00033</a>         <a class="code" href="classstf_1_1core_1_1strategy_1_1control_1_1_combining__2.html#a24590e8f43ae53c82cf2d0e7ce1fab12">Combining_2</a>(<span class="keywordtype">int</span> <a class="code" href="classstf_1_1_root_object.html#a233a3fbd4d53b7a8eaa5d2edab4cf75b">instance_id</a>,
+<a name="l00034"></a>00034                 <a class="code" href="structstf_1_1core_1_1devicedriver_1_1_output_port.html" title="データの出力を表明するポート．">devicedriver::OutputPort&lt;T&gt;</a>* source_1, 
+<a name="l00035"></a>00035                 <a class="code" href="structstf_1_1core_1_1devicedriver_1_1_output_port.html" title="データの出力を表明するポート．">devicedriver::OutputPort&lt;T&gt;</a>* source_2,
+<a name="l00036"></a>00036                 <a class="code" href="structstf_1_1core_1_1devicedriver_1_1_input_port.html" title="データの入力を表明するポート．">devicedriver::InputPort&lt;T&gt;</a>* torque_out) : <a class="code" href="classstf_1_1core_1_1strategy_1_1_strategy_base.html" title="ストラテジの共通基底クラス．">StrategyBase</a>(instance_id, <span class="stringliteral">&quot;Combining_2&quot;</span>) 
+<a name="l00037"></a>00037         {
+<a name="l00038"></a>00038                 this-&gt;connect_source&lt;0&gt;(source_1);
+<a name="l00039"></a>00039                 this-&gt;connect_source&lt;1&gt;(source_2);
+<a name="l00040"></a>00040                 torque_out-&gt;<a class="code" href="structstf_1_1core_1_1devicedriver_1_1_input_port.html#a233beb1e2b9111ac6212f1b7a6afb191" title="双方向のリンクリストを形成することで，出力ポートとの接続を確立する．">connect_source_</a>(<span class="keyword">this</span>);
+<a name="l00041"></a>00041         }
+<a name="l00042"></a>00042 
+<a name="l00043"></a><a class="code" href="classstf_1_1core_1_1strategy_1_1control_1_1_combining__2.html#ab6e3a5b9a3d0108b3233d2279dc21234">00043</a>         <a class="code" href="classstf_1_1core_1_1strategy_1_1control_1_1_combining__2.html#ab6e3a5b9a3d0108b3233d2279dc21234">~Combining_2</a>(){}
+<a name="l00044"></a>00044 
+<a name="l00046"></a>00046 
+<a name="l00050"></a><a class="code" href="classstf_1_1core_1_1strategy_1_1control_1_1_combining__2.html#ad24e86390d428c4f04952055b0062a81">00050</a>         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classstf_1_1core_1_1strategy_1_1control_1_1_combining__2.html#ad24e86390d428c4f04952055b0062a81" title="制御アルゴリズム本体．">do_compute</a>(<span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_time.html" title="経過時間を表すクラス．">datatype::Time</a>&amp; t){
+<a name="l00051"></a>00051                 <span class="keywordflow">if</span>(t &gt; this-&gt;last_update_){<span class="comment">//既に別のブロック経由で更新済みなら再計算しない</span>
+<a name="l00052"></a>00052                         <a class="code" href="classstf_1_1util_1_1_trace.html" title="標準出力のラッパ．">util::Trace</a> trace(<a class="code" href="classstf_1_1util_1_1_trace.html#a7cce9d9f41332a3fd076bd10605f0139a6bc94181cbe2d8decbe2b44b8cf8d5c9" title="姿勢制御ブロック">util::Trace::kControlBlock</a>, <a class="code" href="classstf_1_1_root_object.html#a3d8431fabde24417b346c0d36fdaeb93">name_</a>);
+<a name="l00053"></a>00053 
+<a name="l00054"></a>00054                         this-&gt;value_.reset();
+<a name="l00055"></a>00055                         <span class="keywordflow">if</span>(this-&gt;input_isconnected&lt;0&gt;()) this-&gt;value_ += this-&gt;source&lt;0, T&gt;().<a class="code" href="namespacenj.html#a93ff4f00907e0b0c128a323d60378511" title="DAC出力値取得メソッド">get_value</a>(t);
+<a name="l00056"></a>00056                         <span class="keywordflow">if</span>(this-&gt;input_isconnected&lt;1&gt;()) this-&gt;value_ += this-&gt;source&lt;1, T&gt;().<a class="code" href="namespacenj.html#a93ff4f00907e0b0c128a323d60378511" title="DAC出力値取得メソッド">get_value</a>(t);
+<a name="l00057"></a>00057 
+<a name="l00058"></a>00058                         trace.<a class="code" href="classstf_1_1util_1_1_trace.html#ad51282274fd004bda7247908f685e4fc" title="関数内部で生じたイベントのログ．">debug</a>(value_);
+<a name="l00059"></a>00059 
+<a name="l00060"></a>00060                         this-&gt;last_update_ = t;
+<a name="l00061"></a>00061                 }
+<a name="l00062"></a>00062         }
+<a name="l00063"></a>00063 };
+<a name="l00064"></a>00064 
+<a name="l00065"></a>00065 
+<a name="l00067"></a>00067 
+<a name="l00070"></a>00070 <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;
+<a name="l00071"></a><a class="code" href="classstf_1_1core_1_1strategy_1_1control_1_1_combining__3.html">00071</a> <span class="keyword">class </span><a class="code" href="classstf_1_1core_1_1strategy_1_1control_1_1_combining__3.html" title="3つの物理量を加算して1つに纏める制御ブロック．">Combining_3</a> : <span class="keyword">public</span> devicedriver::InputPorts&lt; TYPELIST_3(T, T, T) &gt;, 
+<a name="l00072"></a>00072                 <span class="keyword">public</span> devicedriver::OutputPorts &lt; TYPELIST_1(T) &gt; ,
+<a name="l00073"></a>00073                 <span class="keyword">public</span> <a class="code" href="classstf_1_1core_1_1strategy_1_1_strategy_base.html" title="ストラテジの共通基底クラス．">StrategyBase</a>
+<a name="l00074"></a>00074 {
+<a name="l00075"></a>00075 <span class="keyword">public</span>:
+<a name="l00076"></a><a class="code" href="classstf_1_1core_1_1strategy_1_1control_1_1_combining__3.html#a3893af38158aa7afeca189b3352b7113">00076</a>         <a class="code" href="classstf_1_1core_1_1strategy_1_1control_1_1_combining__3.html#a3893af38158aa7afeca189b3352b7113">Combining_3</a>(<span class="keywordtype">int</span> <a class="code" href="classstf_1_1_root_object.html#a233a3fbd4d53b7a8eaa5d2edab4cf75b">instance_id</a>) : <a class="code" href="classstf_1_1core_1_1strategy_1_1_strategy_base.html" title="ストラテジの共通基底クラス．">StrategyBase</a>(instance_id, <span class="stringliteral">&quot;Combining_3&quot;</span>){}
+<a name="l00077"></a>00077 
+<a name="l00078"></a><a class="code" href="classstf_1_1core_1_1strategy_1_1control_1_1_combining__3.html#ad33cf2409029afbda4f22309f0cc4c16">00078</a>         <a class="code" href="classstf_1_1core_1_1strategy_1_1control_1_1_combining__3.html#a3893af38158aa7afeca189b3352b7113">Combining_3</a>(<span class="keywordtype">int</span> <a class="code" href="classstf_1_1_root_object.html#a233a3fbd4d53b7a8eaa5d2edab4cf75b">instance_id</a>,
+<a name="l00079"></a>00079                 <a class="code" href="structstf_1_1core_1_1devicedriver_1_1_output_port.html" title="データの出力を表明するポート．">devicedriver::OutputPort&lt;T&gt;</a>* source_1, 
+<a name="l00080"></a>00080                 <a class="code" href="structstf_1_1core_1_1devicedriver_1_1_output_port.html" title="データの出力を表明するポート．">devicedriver::OutputPort&lt;T&gt;</a>* source_2,
+<a name="l00081"></a>00081                 <a class="code" href="structstf_1_1core_1_1devicedriver_1_1_output_port.html" title="データの出力を表明するポート．">devicedriver::OutputPort&lt;T&gt;</a>* source_3,
+<a name="l00082"></a>00082                 <a class="code" href="structstf_1_1core_1_1devicedriver_1_1_input_port.html" title="データの入力を表明するポート．">devicedriver::InputPort&lt;T&gt;</a>* torque_out) : <a class="code" href="classstf_1_1core_1_1strategy_1_1_strategy_base.html" title="ストラテジの共通基底クラス．">StrategyBase</a>(instance_id, <span class="stringliteral">&quot;Combining_3&quot;</span>) 
+<a name="l00083"></a>00083         {
+<a name="l00084"></a>00084                 this-&gt;connect_source&lt;0&gt;(source_1);
+<a name="l00085"></a>00085                 this-&gt;connect_source&lt;1&gt;(source_2);
+<a name="l00086"></a>00086                 this-&gt;connect_source&lt;2&gt;(source_3);
+<a name="l00087"></a>00087                 torque_out-&gt;<a class="code" href="structstf_1_1core_1_1devicedriver_1_1_input_port.html#a233beb1e2b9111ac6212f1b7a6afb191" title="双方向のリンクリストを形成することで，出力ポートとの接続を確立する．">connect_source_</a>(<span class="keyword">this</span>);
+<a name="l00088"></a>00088         }
+<a name="l00089"></a>00089 
+<a name="l00090"></a><a class="code" href="classstf_1_1core_1_1strategy_1_1control_1_1_combining__3.html#a7631f7a5fa3a3fb86c63aa015c17baf4">00090</a>         <a class="code" href="classstf_1_1core_1_1strategy_1_1control_1_1_combining__3.html#a7631f7a5fa3a3fb86c63aa015c17baf4">~Combining_3</a>(){}
+<a name="l00091"></a>00091 
+<a name="l00093"></a>00093 
+<a name="l00097"></a><a class="code" href="classstf_1_1core_1_1strategy_1_1control_1_1_combining__3.html#ac6f6336aa82bf96f0e9d1d3ada84ef23">00097</a>         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classstf_1_1core_1_1strategy_1_1control_1_1_combining__3.html#ac6f6336aa82bf96f0e9d1d3ada84ef23" title="制御アルゴリズム本体．">do_compute</a>(<span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_time.html" title="経過時間を表すクラス．">datatype::Time</a>&amp; t){
+<a name="l00098"></a>00098                 <span class="keywordflow">if</span>(t &gt; this-&gt;last_update_){<span class="comment">//既に別のブロック経由で更新済みなら再計算しない</span>
+<a name="l00099"></a>00099                         <a class="code" href="classstf_1_1util_1_1_trace.html" title="標準出力のラッパ．">util::Trace</a> trace(<a class="code" href="classstf_1_1util_1_1_trace.html#a7cce9d9f41332a3fd076bd10605f0139a6bc94181cbe2d8decbe2b44b8cf8d5c9" title="姿勢制御ブロック">util::Trace::kControlBlock</a>, <a class="code" href="classstf_1_1_root_object.html#a3d8431fabde24417b346c0d36fdaeb93">name_</a>);
+<a name="l00100"></a>00100 
+<a name="l00101"></a>00101                         this-&gt;value_.reset();
+<a name="l00102"></a>00102                         <span class="keywordflow">if</span>(this-&gt;input_isconnected&lt;0&gt;()) this-&gt;value_ += this-&gt;source&lt;0, T&gt;().<a class="code" href="namespacenj.html#a93ff4f00907e0b0c128a323d60378511" title="DAC出力値取得メソッド">get_value</a>(t);
+<a name="l00103"></a>00103                         <span class="keywordflow">if</span>(this-&gt;input_isconnected&lt;1&gt;()) this-&gt;value_ += this-&gt;source&lt;1, T&gt;().<a class="code" href="namespacenj.html#a93ff4f00907e0b0c128a323d60378511" title="DAC出力値取得メソッド">get_value</a>(t);
+<a name="l00104"></a>00104                         <span class="keywordflow">if</span>(this-&gt;input_isconnected&lt;2&gt;()) this-&gt;value_ += this-&gt;source&lt;2, T&gt;().<a class="code" href="namespacenj.html#a93ff4f00907e0b0c128a323d60378511" title="DAC出力値取得メソッド">get_value</a>(t);
+<a name="l00105"></a>00105 
+<a name="l00106"></a>00106                         trace.<a class="code" href="classstf_1_1util_1_1_trace.html#ad51282274fd004bda7247908f685e4fc" title="関数内部で生じたイベントのログ．">debug</a>(value_);
+<a name="l00107"></a>00107 
+<a name="l00108"></a>00108                         this-&gt;last_update_ = t;
+<a name="l00109"></a>00109                 }
+<a name="l00110"></a>00110         }
+<a name="l00111"></a>00111 };
+<a name="l00112"></a>00112 
+<a name="l00113"></a>00113 
+<a name="l00115"></a>00115 
+<a name="l00118"></a>00118 <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;
+<a name="l00119"></a><a class="code" href="classstf_1_1core_1_1strategy_1_1control_1_1_combining__4.html">00119</a> <span class="keyword">class </span><a class="code" href="classstf_1_1core_1_1strategy_1_1control_1_1_combining__4.html" title="4つの物理量を加算して1つに纏める制御ブロック．">Combining_4</a> : <span class="keyword">public</span> devicedriver::InputPorts&lt; TYPELIST_4(T, T, T, T) &gt;, 
+<a name="l00120"></a>00120                 <span class="keyword">public</span> devicedriver::OutputPorts &lt; TYPELIST_1(T) &gt; ,
+<a name="l00121"></a>00121                 <span class="keyword">public</span> <a class="code" href="classstf_1_1core_1_1strategy_1_1_strategy_base.html" title="ストラテジの共通基底クラス．">StrategyBase</a>
+<a name="l00122"></a>00122 {
+<a name="l00123"></a>00123 <span class="keyword">public</span>:
+<a name="l00124"></a><a class="code" href="classstf_1_1core_1_1strategy_1_1control_1_1_combining__4.html#abf91c06036919e4ab8e831acbb156101">00124</a>         <a class="code" href="classstf_1_1core_1_1strategy_1_1control_1_1_combining__4.html#abf91c06036919e4ab8e831acbb156101">Combining_4</a>(<span class="keywordtype">int</span> <a class="code" href="classstf_1_1_root_object.html#a233a3fbd4d53b7a8eaa5d2edab4cf75b">instance_id</a>) : <a class="code" href="classstf_1_1core_1_1strategy_1_1_strategy_base.html" title="ストラテジの共通基底クラス．">StrategyBase</a>(instance_id, <span class="stringliteral">&quot;Combining_4&quot;</span>){}
+<a name="l00125"></a>00125 
+<a name="l00126"></a><a class="code" href="classstf_1_1core_1_1strategy_1_1control_1_1_combining__4.html#a21e929678f4e884f7745bcd225e95e0b">00126</a>         <a class="code" href="classstf_1_1core_1_1strategy_1_1control_1_1_combining__4.html#abf91c06036919e4ab8e831acbb156101">Combining_4</a>(<span class="keywordtype">int</span> <a class="code" href="classstf_1_1_root_object.html#a233a3fbd4d53b7a8eaa5d2edab4cf75b">instance_id</a>,
+<a name="l00127"></a>00127                 <a class="code" href="structstf_1_1core_1_1devicedriver_1_1_output_port.html" title="データの出力を表明するポート．">devicedriver::OutputPort&lt;T&gt;</a>* source_1, 
+<a name="l00128"></a>00128                 <a class="code" href="structstf_1_1core_1_1devicedriver_1_1_output_port.html" title="データの出力を表明するポート．">devicedriver::OutputPort&lt;T&gt;</a>* source_2,
+<a name="l00129"></a>00129                 <a class="code" href="structstf_1_1core_1_1devicedriver_1_1_output_port.html" title="データの出力を表明するポート．">devicedriver::OutputPort&lt;T&gt;</a>* source_3,
+<a name="l00130"></a>00130                 <a class="code" href="structstf_1_1core_1_1devicedriver_1_1_output_port.html" title="データの出力を表明するポート．">devicedriver::OutputPort&lt;T&gt;</a>* source_4,
+<a name="l00131"></a>00131                 <a class="code" href="structstf_1_1core_1_1devicedriver_1_1_input_port.html" title="データの入力を表明するポート．">devicedriver::InputPort&lt;T&gt;</a>* torque_out) : <a class="code" href="classstf_1_1core_1_1strategy_1_1_strategy_base.html" title="ストラテジの共通基底クラス．">StrategyBase</a>(instance_id, <span class="stringliteral">&quot;Combining_4&quot;</span>) 
+<a name="l00132"></a>00132         {
+<a name="l00133"></a>00133                 this-&gt;connect_source&lt;0&gt;(source_1);
+<a name="l00134"></a>00134                 this-&gt;connect_source&lt;1&gt;(source_2);
+<a name="l00135"></a>00135                 this-&gt;connect_source&lt;2&gt;(source_3);
+<a name="l00136"></a>00136                 this-&gt;connect_source&lt;3&gt;(source_4);
+<a name="l00137"></a>00137                 torque_out-&gt;<a class="code" href="structstf_1_1core_1_1devicedriver_1_1_input_port.html#a233beb1e2b9111ac6212f1b7a6afb191" title="双方向のリンクリストを形成することで，出力ポートとの接続を確立する．">connect_source_</a>(<span class="keyword">this</span>);
+<a name="l00138"></a>00138         }
+<a name="l00139"></a>00139 
+<a name="l00140"></a><a class="code" href="classstf_1_1core_1_1strategy_1_1control_1_1_combining__4.html#a26e65eb38719407d87e3b2e646c2282e">00140</a>         <a class="code" href="classstf_1_1core_1_1strategy_1_1control_1_1_combining__4.html#a26e65eb38719407d87e3b2e646c2282e">~Combining_4</a>(){}
+<a name="l00141"></a>00141 
+<a name="l00143"></a>00143 
+<a name="l00147"></a><a class="code" href="classstf_1_1core_1_1strategy_1_1control_1_1_combining__4.html#ad4bbf07852c81fd2ae3fc04cb82e856a">00147</a>         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classstf_1_1core_1_1strategy_1_1control_1_1_combining__4.html#ad4bbf07852c81fd2ae3fc04cb82e856a" title="制御アルゴリズム本体．">do_compute</a>(<span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_time.html" title="経過時間を表すクラス．">datatype::Time</a>&amp; t){
+<a name="l00148"></a>00148                 <span class="keywordflow">if</span>(t &gt; this-&gt;last_update_){<span class="comment">//既に別のブロック経由で更新済みなら再計算しない</span>
+<a name="l00149"></a>00149                         <a class="code" href="classstf_1_1util_1_1_trace.html" title="標準出力のラッパ．">util::Trace</a> trace(<a class="code" href="classstf_1_1util_1_1_trace.html#a7cce9d9f41332a3fd076bd10605f0139a6bc94181cbe2d8decbe2b44b8cf8d5c9" title="姿勢制御ブロック">util::Trace::kControlBlock</a>, <a class="code" href="classstf_1_1_root_object.html#a3d8431fabde24417b346c0d36fdaeb93">name_</a>);
+<a name="l00150"></a>00150 
+<a name="l00151"></a>00151                         this-&gt;value_.reset();
+<a name="l00152"></a>00152                         <span class="keywordflow">if</span>(this-&gt;input_isconnected&lt;0&gt;()) this-&gt;value_ += this-&gt;source&lt;0, T&gt;().<a class="code" href="namespacenj.html#a93ff4f00907e0b0c128a323d60378511" title="DAC出力値取得メソッド">get_value</a>(t);
+<a name="l00153"></a>00153                         <span class="keywordflow">if</span>(this-&gt;input_isconnected&lt;1&gt;()) this-&gt;value_ += this-&gt;source&lt;1, T&gt;().<a class="code" href="namespacenj.html#a93ff4f00907e0b0c128a323d60378511" title="DAC出力値取得メソッド">get_value</a>(t);
+<a name="l00154"></a>00154                         <span class="keywordflow">if</span>(this-&gt;input_isconnected&lt;2&gt;()) this-&gt;value_ += this-&gt;source&lt;2, T&gt;().<a class="code" href="namespacenj.html#a93ff4f00907e0b0c128a323d60378511" title="DAC出力値取得メソッド">get_value</a>(t);
+<a name="l00155"></a>00155                         <span class="keywordflow">if</span>(this-&gt;input_isconnected&lt;3&gt;()) this-&gt;value_ += this-&gt;source&lt;3, T&gt;().<a class="code" href="namespacenj.html#a93ff4f00907e0b0c128a323d60378511" title="DAC出力値取得メソッド">get_value</a>(t);
+<a name="l00156"></a>00156 
+<a name="l00157"></a>00157                         trace.<a class="code" href="classstf_1_1util_1_1_trace.html#ad51282274fd004bda7247908f685e4fc" title="関数内部で生じたイベントのログ．">debug</a>(value_);
+<a name="l00158"></a>00158 
+<a name="l00159"></a>00159                         this-&gt;last_update_ = t;
+<a name="l00160"></a>00160                 }
+<a name="l00161"></a>00161         }
+<a name="l00162"></a>00162 };
+<a name="l00163"></a>00163 
+<a name="l00164"></a>00164 
+<a name="l00166"></a>00166 
+<a name="l00169"></a>00169 <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;
+<a name="l00170"></a><a class="code" href="classstf_1_1core_1_1strategy_1_1control_1_1_combining__5.html">00170</a> <span class="keyword">class </span><a class="code" href="classstf_1_1core_1_1strategy_1_1control_1_1_combining__5.html" title="5つの物理量を加算して1つに纏める制御ブロック．">Combining_5</a> : <span class="keyword">public</span> devicedriver::InputPorts&lt; TYPELIST_5(T, T, T, T, T) &gt;, 
+<a name="l00171"></a>00171                 <span class="keyword">public</span> devicedriver::OutputPorts &lt; TYPELIST_1(T) &gt; ,
+<a name="l00172"></a>00172                 <span class="keyword">public</span> <a class="code" href="classstf_1_1core_1_1strategy_1_1_strategy_base.html" title="ストラテジの共通基底クラス．">StrategyBase</a>
+<a name="l00173"></a>00173 {
+<a name="l00174"></a>00174 <span class="keyword">public</span>:
+<a name="l00175"></a><a class="code" href="classstf_1_1core_1_1strategy_1_1control_1_1_combining__5.html#adfc52bc820f10556d5cd5aee444a8058">00175</a>         <a class="code" href="classstf_1_1core_1_1strategy_1_1control_1_1_combining__5.html#adfc52bc820f10556d5cd5aee444a8058">Combining_5</a>(<span class="keywordtype">int</span> <a class="code" href="classstf_1_1_root_object.html#a233a3fbd4d53b7a8eaa5d2edab4cf75b">instance_id</a>) : <a class="code" href="classstf_1_1core_1_1strategy_1_1_strategy_base.html" title="ストラテジの共通基底クラス．">StrategyBase</a>(instance_id, <span class="stringliteral">&quot;Combining_5&quot;</span>){}
+<a name="l00176"></a>00176 
+<a name="l00177"></a><a class="code" href="classstf_1_1core_1_1strategy_1_1control_1_1_combining__5.html#aec9eb0168031f02c8c34274c238a750b">00177</a>         <a class="code" href="classstf_1_1core_1_1strategy_1_1control_1_1_combining__5.html#adfc52bc820f10556d5cd5aee444a8058">Combining_5</a>(<span class="keywordtype">int</span> <a class="code" href="classstf_1_1_root_object.html#a233a3fbd4d53b7a8eaa5d2edab4cf75b">instance_id</a>,
+<a name="l00178"></a>00178                 <a class="code" href="structstf_1_1core_1_1devicedriver_1_1_output_port.html" title="データの出力を表明するポート．">devicedriver::OutputPort&lt;T&gt;</a>* source_1, 
+<a name="l00179"></a>00179                 <a class="code" href="structstf_1_1core_1_1devicedriver_1_1_output_port.html" title="データの出力を表明するポート．">devicedriver::OutputPort&lt;T&gt;</a>* source_2,
+<a name="l00180"></a>00180                 <a class="code" href="structstf_1_1core_1_1devicedriver_1_1_output_port.html" title="データの出力を表明するポート．">devicedriver::OutputPort&lt;T&gt;</a>* source_3,
+<a name="l00181"></a>00181                 <a class="code" href="structstf_1_1core_1_1devicedriver_1_1_output_port.html" title="データの出力を表明するポート．">devicedriver::OutputPort&lt;T&gt;</a>* source_4,
+<a name="l00182"></a>00182                 <a class="code" href="structstf_1_1core_1_1devicedriver_1_1_output_port.html" title="データの出力を表明するポート．">devicedriver::OutputPort&lt;T&gt;</a>* source_5,
+<a name="l00183"></a>00183                 <a class="code" href="structstf_1_1core_1_1devicedriver_1_1_input_port.html" title="データの入力を表明するポート．">devicedriver::InputPort&lt;T&gt;</a>* torque_out) : <a class="code" href="classstf_1_1core_1_1strategy_1_1_strategy_base.html" title="ストラテジの共通基底クラス．">StrategyBase</a>(instance_id, <span class="stringliteral">&quot;Combining_5&quot;</span>) 
+<a name="l00184"></a>00184         {
+<a name="l00185"></a>00185                 this-&gt;connect_source&lt;0&gt;(source_1);
+<a name="l00186"></a>00186                 this-&gt;connect_source&lt;1&gt;(source_2);
+<a name="l00187"></a>00187                 this-&gt;connect_source&lt;2&gt;(source_3);
+<a name="l00188"></a>00188                 this-&gt;connect_source&lt;3&gt;(source_4);
+<a name="l00189"></a>00189                 this-&gt;connect_source&lt;4&gt;(source_5);
+<a name="l00190"></a>00190                 torque_out-&gt;<a class="code" href="structstf_1_1core_1_1devicedriver_1_1_input_port.html#a233beb1e2b9111ac6212f1b7a6afb191" title="双方向のリンクリストを形成することで，出力ポートとの接続を確立する．">connect_source_</a>(<span class="keyword">this</span>);
+<a name="l00191"></a>00191         }
+<a name="l00192"></a>00192 
+<a name="l00193"></a><a class="code" href="classstf_1_1core_1_1strategy_1_1control_1_1_combining__5.html#a623a2e0010e0e3089263e158445c4067">00193</a>         <a class="code" href="classstf_1_1core_1_1strategy_1_1control_1_1_combining__5.html#a623a2e0010e0e3089263e158445c4067">~Combining_5</a>(){}
+<a name="l00194"></a>00194 
+<a name="l00196"></a>00196 
+<a name="l00200"></a><a class="code" href="classstf_1_1core_1_1strategy_1_1control_1_1_combining__5.html#a50b3f32923efd9115995b5465586a4cf">00200</a>         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classstf_1_1core_1_1strategy_1_1control_1_1_combining__5.html#a50b3f32923efd9115995b5465586a4cf" title="制御アルゴリズム本体．">do_compute</a>(<span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_time.html" title="経過時間を表すクラス．">datatype::Time</a>&amp; t){
+<a name="l00201"></a>00201                 <span class="keywordflow">if</span>(t &gt; this-&gt;last_update_){<span class="comment">//既に別のブロック経由で更新済みなら再計算しない</span>
+<a name="l00202"></a>00202                         <a class="code" href="classstf_1_1util_1_1_trace.html" title="標準出力のラッパ．">util::Trace</a> trace(<a class="code" href="classstf_1_1util_1_1_trace.html#a7cce9d9f41332a3fd076bd10605f0139a6bc94181cbe2d8decbe2b44b8cf8d5c9" title="姿勢制御ブロック">util::Trace::kControlBlock</a>, <a class="code" href="classstf_1_1_root_object.html#a3d8431fabde24417b346c0d36fdaeb93">name_</a>);
+<a name="l00203"></a>00203 
+<a name="l00204"></a>00204                         this-&gt;value_.reset();
+<a name="l00205"></a>00205                         <span class="keywordflow">if</span>(this-&gt;input_isconnected&lt;0&gt;()) this-&gt;value_ += this-&gt;source&lt;0, T&gt;().<a class="code" href="namespacenj.html#a93ff4f00907e0b0c128a323d60378511" title="DAC出力値取得メソッド">get_value</a>(t);
+<a name="l00206"></a>00206                         <span class="keywordflow">if</span>(this-&gt;input_isconnected&lt;1&gt;()) this-&gt;value_ += this-&gt;source&lt;1, T&gt;().<a class="code" href="namespacenj.html#a93ff4f00907e0b0c128a323d60378511" title="DAC出力値取得メソッド">get_value</a>(t);
+<a name="l00207"></a>00207                         <span class="keywordflow">if</span>(this-&gt;input_isconnected&lt;2&gt;()) this-&gt;value_ += this-&gt;source&lt;2, T&gt;().<a class="code" href="namespacenj.html#a93ff4f00907e0b0c128a323d60378511" title="DAC出力値取得メソッド">get_value</a>(t);
+<a name="l00208"></a>00208                         <span class="keywordflow">if</span>(this-&gt;input_isconnected&lt;3&gt;()) this-&gt;value_ += this-&gt;source&lt;3, T&gt;().<a class="code" href="namespacenj.html#a93ff4f00907e0b0c128a323d60378511" title="DAC出力値取得メソッド">get_value</a>(t);
+<a name="l00209"></a>00209                         <span class="keywordflow">if</span>(this-&gt;input_isconnected&lt;4&gt;()) this-&gt;value_ += this-&gt;source&lt;4, T&gt;().<a class="code" href="namespacenj.html#a93ff4f00907e0b0c128a323d60378511" title="DAC出力値取得メソッド">get_value</a>(t);
+<a name="l00210"></a>00210 
+<a name="l00211"></a>00211                         trace.<a class="code" href="classstf_1_1util_1_1_trace.html#ad51282274fd004bda7247908f685e4fc" title="関数内部で生じたイベントのログ．">debug</a>(value_);
+<a name="l00212"></a>00212 
+<a name="l00213"></a>00213                         this-&gt;last_update_ = t;
+<a name="l00214"></a>00214                 }
+<a name="l00215"></a>00215         }
+<a name="l00216"></a>00216 };
+<a name="l00217"></a>00217 
+<a name="l00218"></a>00218 
+<a name="l00220"></a>00220 
+<a name="l00223"></a>00223 <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;
+<a name="l00224"></a><a class="code" href="classstf_1_1core_1_1strategy_1_1control_1_1_combining__6.html">00224</a> <span class="keyword">class </span><a class="code" href="classstf_1_1core_1_1strategy_1_1control_1_1_combining__6.html" title="6つの物理量を加算して1つに纏める制御ブロック．">Combining_6</a> : <span class="keyword">public</span> devicedriver::InputPorts&lt; TYPELIST_6(T, T, T, T, T, T) &gt;, 
+<a name="l00225"></a>00225                 <span class="keyword">public</span> devicedriver::OutputPorts &lt; TYPELIST_1(T) &gt; ,
+<a name="l00226"></a>00226                 <span class="keyword">public</span> <a class="code" href="classstf_1_1core_1_1strategy_1_1_strategy_base.html" title="ストラテジの共通基底クラス．">StrategyBase</a>
+<a name="l00227"></a>00227 {
+<a name="l00228"></a>00228 <span class="keyword">public</span>:
+<a name="l00229"></a><a class="code" href="classstf_1_1core_1_1strategy_1_1control_1_1_combining__6.html#a3f7fc488ceb27554c57920901d5902b9">00229</a>         <a class="code" href="classstf_1_1core_1_1strategy_1_1control_1_1_combining__6.html#a3f7fc488ceb27554c57920901d5902b9">Combining_6</a>(<span class="keywordtype">int</span> <a class="code" href="classstf_1_1_root_object.html#a233a3fbd4d53b7a8eaa5d2edab4cf75b">instance_id</a>) : <a class="code" href="classstf_1_1core_1_1strategy_1_1_strategy_base.html" title="ストラテジの共通基底クラス．">StrategyBase</a>(instance_id, <span class="stringliteral">&quot;Combining_6&quot;</span>){}
+<a name="l00230"></a>00230 
+<a name="l00231"></a><a class="code" href="classstf_1_1core_1_1strategy_1_1control_1_1_combining__6.html#aac63692c0aea96841b103e6bcae495db">00231</a>         <a class="code" href="classstf_1_1core_1_1strategy_1_1control_1_1_combining__6.html#a3f7fc488ceb27554c57920901d5902b9">Combining_6</a>(<span class="keywordtype">int</span> <a class="code" href="classstf_1_1_root_object.html#a233a3fbd4d53b7a8eaa5d2edab4cf75b">instance_id</a>,
+<a name="l00232"></a>00232                 <a class="code" href="structstf_1_1core_1_1devicedriver_1_1_output_port.html" title="データの出力を表明するポート．">devicedriver::OutputPort&lt;T&gt;</a>* source_1, 
+<a name="l00233"></a>00233                 <a class="code" href="structstf_1_1core_1_1devicedriver_1_1_output_port.html" title="データの出力を表明するポート．">devicedriver::OutputPort&lt;T&gt;</a>* source_2,
+<a name="l00234"></a>00234                 <a class="code" href="structstf_1_1core_1_1devicedriver_1_1_output_port.html" title="データの出力を表明するポート．">devicedriver::OutputPort&lt;T&gt;</a>* source_3,
+<a name="l00235"></a>00235                 <a class="code" href="structstf_1_1core_1_1devicedriver_1_1_output_port.html" title="データの出力を表明するポート．">devicedriver::OutputPort&lt;T&gt;</a>* source_4,
+<a name="l00236"></a>00236                 <a class="code" href="structstf_1_1core_1_1devicedriver_1_1_output_port.html" title="データの出力を表明するポート．">devicedriver::OutputPort&lt;T&gt;</a>* source_5,
+<a name="l00237"></a>00237                 <a class="code" href="structstf_1_1core_1_1devicedriver_1_1_output_port.html" title="データの出力を表明するポート．">devicedriver::OutputPort&lt;T&gt;</a>* source_6,
+<a name="l00238"></a>00238                 <a class="code" href="structstf_1_1core_1_1devicedriver_1_1_input_port.html" title="データの入力を表明するポート．">devicedriver::InputPort&lt;T&gt;</a>* torque_out) : <a class="code" href="classstf_1_1core_1_1strategy_1_1_strategy_base.html" title="ストラテジの共通基底クラス．">StrategyBase</a>(instance_id, <span class="stringliteral">&quot;Combining_6&quot;</span>) 
+<a name="l00239"></a>00239         {
+<a name="l00240"></a>00240                 this-&gt;connect_source&lt;0&gt;(source_1);
+<a name="l00241"></a>00241                 this-&gt;connect_source&lt;1&gt;(source_2);
+<a name="l00242"></a>00242                 this-&gt;connect_source&lt;2&gt;(source_3);
+<a name="l00243"></a>00243                 this-&gt;connect_source&lt;3&gt;(source_4);
+<a name="l00244"></a>00244                 this-&gt;connect_source&lt;4&gt;(source_5);
+<a name="l00245"></a>00245                 this-&gt;connect_source&lt;5&gt;(source_6);
+<a name="l00246"></a>00246                 torque_out-&gt;<a class="code" href="structstf_1_1core_1_1devicedriver_1_1_input_port.html#a233beb1e2b9111ac6212f1b7a6afb191" title="双方向のリンクリストを形成することで，出力ポートとの接続を確立する．">connect_source_</a>(<span class="keyword">this</span>);
+<a name="l00247"></a>00247         }
+<a name="l00248"></a>00248 
+<a name="l00249"></a><a class="code" href="classstf_1_1core_1_1strategy_1_1control_1_1_combining__6.html#a55cb94869f36b9fc1488f950966945fc">00249</a>         <a class="code" href="classstf_1_1core_1_1strategy_1_1control_1_1_combining__6.html#a55cb94869f36b9fc1488f950966945fc">~Combining_6</a>(){}
+<a name="l00250"></a>00250 
+<a name="l00252"></a>00252 
+<a name="l00256"></a><a class="code" href="classstf_1_1core_1_1strategy_1_1control_1_1_combining__6.html#a7ffdaff5b5bb6edee54b05c269274c8e">00256</a>         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classstf_1_1core_1_1strategy_1_1control_1_1_combining__6.html#a7ffdaff5b5bb6edee54b05c269274c8e" title="制御アルゴリズム本体．">do_compute</a>(<span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_time.html" title="経過時間を表すクラス．">datatype::Time</a>&amp; t){
+<a name="l00257"></a>00257                 <span class="keywordflow">if</span>(t &gt; this-&gt;last_update_){<span class="comment">//既に別のブロック経由で更新済みなら再計算しない</span>
+<a name="l00258"></a>00258                         <a class="code" href="classstf_1_1util_1_1_trace.html" title="標準出力のラッパ．">util::Trace</a> trace(<a class="code" href="classstf_1_1util_1_1_trace.html#a7cce9d9f41332a3fd076bd10605f0139a6bc94181cbe2d8decbe2b44b8cf8d5c9" title="姿勢制御ブロック">util::Trace::kControlBlock</a>, <a class="code" href="classstf_1_1_root_object.html#a3d8431fabde24417b346c0d36fdaeb93">name_</a>);
+<a name="l00259"></a>00259 
+<a name="l00260"></a>00260                         this-&gt;value_.reset();
+<a name="l00261"></a>00261                         <span class="keywordflow">if</span>(this-&gt;input_isconnected&lt;0&gt;()) this-&gt;value_ += this-&gt;source&lt;0, T&gt;().<a class="code" href="namespacenj.html#a93ff4f00907e0b0c128a323d60378511" title="DAC出力値取得メソッド">get_value</a>(t);
+<a name="l00262"></a>00262                         <span class="keywordflow">if</span>(this-&gt;input_isconnected&lt;1&gt;()) this-&gt;value_ += this-&gt;source&lt;1, T&gt;().<a class="code" href="namespacenj.html#a93ff4f00907e0b0c128a323d60378511" title="DAC出力値取得メソッド">get_value</a>(t);
+<a name="l00263"></a>00263                         <span class="keywordflow">if</span>(this-&gt;input_isconnected&lt;2&gt;()) this-&gt;value_ += this-&gt;source&lt;2, T&gt;().<a class="code" href="namespacenj.html#a93ff4f00907e0b0c128a323d60378511" title="DAC出力値取得メソッド">get_value</a>(t);
+<a name="l00264"></a>00264                         <span class="keywordflow">if</span>(this-&gt;input_isconnected&lt;3&gt;()) this-&gt;value_ += this-&gt;source&lt;3, T&gt;().<a class="code" href="namespacenj.html#a93ff4f00907e0b0c128a323d60378511" title="DAC出力値取得メソッド">get_value</a>(t);
+<a name="l00265"></a>00265                         <span class="keywordflow">if</span>(this-&gt;input_isconnected&lt;4&gt;()) this-&gt;value_ += this-&gt;source&lt;4, T&gt;().<a class="code" href="namespacenj.html#a93ff4f00907e0b0c128a323d60378511" title="DAC出力値取得メソッド">get_value</a>(t);
+<a name="l00266"></a>00266                         <span class="keywordflow">if</span>(this-&gt;input_isconnected&lt;5&gt;()) this-&gt;value_ += this-&gt;source&lt;5, T&gt;().<a class="code" href="namespacenj.html#a93ff4f00907e0b0c128a323d60378511" title="DAC出力値取得メソッド">get_value</a>(t);
+<a name="l00267"></a>00267 
+<a name="l00268"></a>00268                         trace.<a class="code" href="classstf_1_1util_1_1_trace.html#ad51282274fd004bda7247908f685e4fc" title="関数内部で生じたイベントのログ．">debug</a>(value_);
+<a name="l00269"></a>00269 
+<a name="l00270"></a>00270                         this-&gt;last_update_ = t;
+<a name="l00271"></a>00271                 }
+<a name="l00272"></a>00272         }
+<a name="l00273"></a>00273 };
+<a name="l00274"></a>00274 
+<a name="l00275"></a>00275 } <span class="comment">/* End of namespace stf::core::mode::strategy::control */</span>
+<a name="l00276"></a>00276 } <span class="comment">/* End of namespace stf::core::mode::strategy */</span>
+<a name="l00277"></a>00277 } <span class="comment">/* End of namespace stf::core */</span>
+<a name="l00278"></a>00278 } <span class="comment">/* End of namespace stf */</span>
+<a name="l00279"></a>00279 
+<a name="l00280"></a>00280 <span class="preprocessor">#endif // stf_core_mode_storategy_control_Combining_h</span>
+</pre></div></div>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>フレンド</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>マクロ定義</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>STFに対してTue Mar 1 2011 03:45:38に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
+</body>
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>STF: stf/environment/Simulator.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.3 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">STF</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="pages.html"><span>関連ページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>ファイルメンバ</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#namespaces">ネームスペース</a> &#124;
+<a href="#typedef-members">型定義</a> &#124;
+<a href="#func-members">関数</a> &#124;
+<a href="#var-members">変数</a>  </div>
+  <div class="headertitle">
+<h1>stf/environment/Simulator.cpp</h1>  </div>
+</div>
+<div class="contents">
+
+<p>ソフトウェアシミュレータ環境クラス．  
+<a href="#_details">[詳細]</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="">Simulator.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="">../datatype/EulerAngle.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="">../datatype/TypeConverter.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="">../util/math/Rand.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="">../util/math/RungeKutta.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="">../datatype/OrbitCalc.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="">../core/devicedriver/AOCSActuator.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="">../core/devicedriver/AOCSSensor.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="">../core/manager/ManagerBase.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="">../core/devicedriver/gyro/GyroBase.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="">../core/devicedriver/earthsensor/EarthSensorBase.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="">../core/devicedriver/gps/GPSBase.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="">../core/devicedriver/magnetometer/TAMBase.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="">../core/devicedriver/mtq/MTQBase.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="">../core/devicedriver/rw/RWBase.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="">../core/devicedriver/stt/STTBase.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="">../core/devicedriver/sunsensor/SunSensorBase.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="">Orbit.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="">torquesource/NoiseBase.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="">../GlobalObject.h</a>&quot;</code><br/>
+</div><div class="textblock"><div class="dynheader">
+Simulator.cppのインクルード依存関係図</div>
+<div class="dyncontent">
+<div class="center"><img src="_simulator_8cpp__incl.png" border="0" usemap="#stf_2environment_2_simulator_8cpp" alt=""/></div>
+<map name="stf_2environment_2_simulator_8cpp" id="stf_2environment_2_simulator_8cpp">
+<area shape="rect" id="node3" href="_simulator_8h.html" title="ソフトウェアシミュレータ環境クラス．" alt="" coords="1005,237,1093,267"/><area shape="rect" id="node59" href="_euler_angle_8h.html" title="z&#45;y&#45;xオイラー角(rad)．" alt="" coords="1203,392,1365,421"/><area shape="rect" id="node62" href="_type_converter_8h.html" title="単位や姿勢表現の相互変換を行うユーティリティ．" alt="" coords="1283,315,1464,344"/><area shape="rect" id="node71" href="_rand_8h.html" title="メルセンヌツイスタで乱数計算を行うライブラリ．" alt="" coords="88,83,216,112"/><area shape="rect" id="node79" href="_runge_kutta_8h.html" title="4次のルンゲクッタ計算を行う関数群" alt="" coords="676,83,841,112"/><area shape="rect" id="node81" href="_orbit_calc_8h.html" title="軌道関係情報を計算するメソッドをstaticメンバとしてまとめたクラス．" alt="" coords="1524,160,1676,189"/><area shape="rect" id="node83" href="_a_o_c_s_actuator_8h.html" title="アクチュエータの基底クラス．" alt="" coords="1119,160,1348,189"/><area shape="rect" id="node102" href="_a_o_c_s_sensor_8h.html" title="センサの基底クラス．" alt="" coords="2112,160,2333,189"/><area shape="rect" id="node106" href="_manager_base_8h.html" title="機能マネージャの基底クラス．" alt="" coords="2661,237,2869,267"/><area shape="rect" id="node109" href="_gyro_base_8h.html" title="ジャイロセンサの基底クラス．" alt="" coords="865,83,1095,112"/><area shape="rect" id="node115" href="_earth_sensor_base_8h.html" title="地球センサの基底クラス" alt="" coords="2585,83,2903,112"/><area shape="rect" id="node120" href="_g_p_s_base_8h.html" title="GPSセンサの基底クラス．" alt="" coords="3160,83,3387,112"/><area shape="rect" id="node129" href="_t_a_m_base_8h.html" title="3軸磁気センサの基底クラス．" alt="" coords="1897,83,2185,112"/><area shape="rect" id="node134" href="_m_t_q_base_8h.html" title="磁気トルカの基底クラス．" alt="" coords="1271,83,1497,112"/><area shape="rect" id="node140" href="_r_w_base_8h.html" title="リアクションホイールの基底クラス．" alt="" coords="271,83,484,112"/><area shape="rect" id="node146" href="_s_t_t_base_8h.html" title="スターセンサの基底クラス．" alt="" coords="1657,83,1873,112"/><area shape="rect" id="node151" href="_sun_sensor_base_8h.html" title="太陽センサの基底クラス．" alt="" coords="2260,83,2561,112"/><area shape="rect" id="node156" href="_orbit_8h.html" title="軌道計算を行う，sgp4のラッパークラス．" alt="" coords="1572,83,1633,112"/><area shape="rect" id="node165" href="_noise_base_8h.html" title="ノイズ源クラスの抽象インターフェース．" alt="" coords="773,469,947,499"/><area shape="rect" id="node168" href="_global_object_8h.html" title="RTOSとのインターフェースとなる，衛星アプリケーションが生成するオブジェクト群の基底クラス．" alt="" coords="2893,237,3013,267"/><area shape="rect" id="node11" href="_static_vector_8h.html" title="テンプレートを用いた固定要素数のベクトル計算クラス" alt="" coords="1529,547,1700,576"/><area shape="rect" id="node19" href="_static_matrix_8h.html" title="テンプレートを用いた固定要素数の行列計算クラス" alt="" coords="1728,469,1896,499"/><area shape="rect" id="node23" href="_vector_8h.html" title="可変要素数のベクトル演算を行うクラス．STFではStaticVectorが推奨される" alt="" coords="461,547,597,576"/><area shape="rect" id="node27" href="_matrix_8h.html" title="可変要素数の行列計算を行うクラス．STFではStaticMatrixが推奨される．" alt="" coords="464,469,597,499"/><area shape="rect" id="node33" href="_quaternion_8h.html" title="4元数を表現するクラス．" alt="" coords="1389,392,1552,421"/><area shape="rect" id="node36" href="_time_8h.html" title="経過時間を表すクラス．" alt="" coords="2309,392,2435,421"/><area shape="rect" id="node39" href="_date_time_8h.html" title="ユリウス暦による絶対時刻を保持するクラス．時間間隔などの計算にはTimeを使う．" alt="" coords="3099,315,3253,344"/><area shape="rect" id="node43" href="_orbit_info_8h.html" title="軌道情報関係の量を表す" alt="" coords="1860,392,2007,421"/><area shape="rect" id="node47" href="_magnetic_8h.html" title="磁気関係の物理量を表す" alt="" coords="1640,315,1792,344"/><area shape="rect" id="node50" href="_scalar_8h.html" title="スカラー物理量を表現するクラス．" alt="" coords="461,315,597,344"/><area shape="rect" id="node54" href="_list_8h.html" title="Simple Template Container." alt="" coords="2365,315,2485,344"/><area shape="rect" id="node57" href="_i_o_driver_base_8h.html" title="環境クラス共通の基底IOドライバ． 各環境クラスにおけるIOはこの基底ドライバを使用するか，ここから派生させることを基本とする．" alt="" coords="1101,315,1208,344"/><area shape="rect" id="node13" href="stfassert_8h.html" title="assertラッパ．" alt="" coords="2137,624,2252,653"/><area shape="rect" id="node15" href="_i_aocs_data_8h.html" title="AOCS使用系列のデータ共通の抽象インターフェース．" alt="" coords="429,624,523,653"/><area shape="rect" id="node17" href="math_8h.html" title="数学系関数のラッパと算術定数の定義．" alt="" coords="1752,624,1845,653"/><area shape="rect" id="node64" href="_d_c_m_8h.html" title="Z&#45;Y&#45;Xの順で回転させる回転行列（DCM）．" alt="" coords="1724,392,1785,421"/><area shape="rect" id="node85" href="_a_o_c_s_component_8h.html" title="センサおよびアクチュエータの基底クラス．" alt="" coords="1859,237,1995,267"/><area shape="rect" id="node87" href="_i_o_port_8h.html" title="他機器との接続を型に基づいて行うための入出力ポート．" alt="" coords="2171,315,2240,344"/><area shape="rect" id="node90" href="_root_object_8h.html" title="数値型を除いた全クラスの基本となるクラス．" alt="" coords="2712,315,2835,344"/><area shape="rect" id="node92" href="_instance_i_d_8h.html" title="インスタンスIDの定義を行うマクロ群．" alt="" coords="2743,392,2836,421"/><area shape="rect" id="node125" href="_i_absolute_time_clock_8h.html" title="DateTime型のカウントが可能であることを示す抽象インターフェース．" alt="" coords="3088,237,3283,267"/><area shape="rect" id="node162" href="_config_8h.html" title="../Config.h" alt="" coords="1700,160,1780,189"/><area shape="rect" id="node175" href="_satellite_model_8h.html" title="衛星質量特性を表現するクラス．" alt="" coords="2876,392,3044,421"/></map>
+</div>
+</div>
+<p><a href="">ソースコードを見る。</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="namespaces"></a>
+ネームスペース</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf.html">stf</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf_1_1core.html">stf::core</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf_1_1core_1_1devicedriver.html">stf::core::devicedriver</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf_1_1core_1_1devicedriver_1_1gyro.html">stf::core::devicedriver::gyro</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf_1_1core_1_1devicedriver_1_1earthsensor.html">stf::core::devicedriver::earthsensor</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf_1_1core_1_1devicedriver_1_1gps.html">stf::core::devicedriver::gps</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf_1_1core_1_1devicedriver_1_1magnetometer.html">stf::core::devicedriver::magnetometer</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf_1_1core_1_1devicedriver_1_1mtq.html">stf::core::devicedriver::mtq</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf_1_1core_1_1devicedriver_1_1rw.html">stf::core::devicedriver::rw</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf_1_1core_1_1devicedriver_1_1stt.html">stf::core::devicedriver::stt</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf_1_1core_1_1devicedriver_1_1sunsensor.html">stf::core::devicedriver::sunsensor</a></td></tr>
+<tr><td colspan="2"><h2><a name="typedef-members"></a>
+型定義</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef <br class="typebreak"/>
+core::devicedriver::AOCSSensor<br class="typebreak"/>
+&lt; datatype::StaticVector<br class="typebreak"/>
+&lt; 3 &gt;, datatype::Scalar, <br class="typebreak"/>
+Simulator &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf.html#ad5a1e5938ae78332926e718804f6f43d">stf::Gyro</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef <br class="typebreak"/>
+core::devicedriver::AOCSSensor<br class="typebreak"/>
+&lt; datatype::Quaternion, <br class="typebreak"/>
+datatype::Quaternion, <br class="typebreak"/>
+Simulator &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf.html#a26b5f9fb29e7e2ac0342f47b615c8056">stf::STT</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef <br class="typebreak"/>
+core::devicedriver::AOCSSensor<br class="typebreak"/>
+&lt; datatype::StaticVector<br class="typebreak"/>
+&lt; 2 &gt;, datatype::StaticVector<br class="typebreak"/>
+&lt; 2 &gt;, Simulator &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf.html#ae0b82bc810ea17b180b085f56e47067d">stf::Vectorsensor</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef <br class="typebreak"/>
+core::devicedriver::AOCSSensor<br class="typebreak"/>
+&lt; datatype::MagneticField, <br class="typebreak"/>
+datatype::MagneticField, <br class="typebreak"/>
+Simulator &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf.html#a633d27370b04f663536013a2459268f4">stf::Magnetometer</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef <br class="typebreak"/>
+core::devicedriver::clock::ITimeClock&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf.html#affcf5a5b67114055d72a3a24e07b5987">stf::Clock</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef <br class="typebreak"/>
+core::devicedriver::AOCSActuator<br class="typebreak"/>
+&lt; datatype::StaticVector<br class="typebreak"/>
+&lt; 3 &gt;, datatype::Scalar, <br class="typebreak"/>
+Simulator &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf.html#a1abb5dfb59db11ecf0e62e24e74837b1">stf::TorqueSource</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef <br class="typebreak"/>
+core::devicedriver::AOCSActuator<br class="typebreak"/>
+&lt; datatype::MagneticMoment, <br class="typebreak"/>
+datatype::Scalar, Simulator &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf.html#af8e69a69e2ab7a4f0732ccf7f24b09ef">stf::MagneticSource</a></td></tr>
+<tr><td colspan="2"><h2><a name="func-members"></a>
+関数</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf.html#a852bee4df1ea58f482b3fbccd4a4c803">stf::SimulatorImpl</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf.html#afe47de4cd73ace9d5bed4fda9674b19e">stf::~SimulatorImpl</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf.html#a5241f6e9db36de01d09d355bfa97ae9e">stf::step_</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf.html#a4f2052ff655593a1b1b6753b8ce7a9dd">stf::init</a> (Global&lt; Simulator &gt; *global, double stepTimeInSecond, double maxTimeInSecond, const datatype::OrbitInfo &amp;orbit, std::ofstream *ostream)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">datatype::StaticVector&lt; 3 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf.html#ad4221b18924fbaf644251379659c31b3">stf::getAngularVelocity</a> (const MultiGyro &amp;component) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">datatype::Scalar&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf.html#aab359f4369a43c10045ae395e3683758">stf::getAngularVelocity</a> (const Gyro &amp;component) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">datatype::Quaternion&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf.html#acd44243b3e1770dc5cab8c8fe079312b">stf::getQuaternion</a> (const STT &amp;component) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">datatype::StaticVector&lt; 2 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf.html#ad40c7bea68eb9f13d4bd9ecac8244ba7">stf::getSunDirection</a> (const Vectorsensor &amp;component) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">datatype::StaticVector&lt; 2 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf.html#ab5e0fa33494d736ce9edb33da4a39668">stf::getEarthDirection</a> (const Vectorsensor &amp;component) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">datatype::MagneticField&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf.html#a18c99c45d13c700c85ec98be058ab089">stf::getMagneticField</a> (const Magnetometer &amp;component) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">datatype::Time&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf.html#a6c63aee7f5b3cd5a8b215e22903071cd">stf::get_time</a> (const Clock &amp;component) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const datatype::Time &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf.html#a62578acc40cac5809ff27462ccd3a960">stf::getTrueTime</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const datatype::Quaternion &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf.html#a1e1d86e5f4b1655675cb999c157e0a20">stf::getTrueQuaternion</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const datatype::StaticVector&lt; 3 &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf.html#a4610042fd98abfc43a19e7f1b9dcea61">stf::getTrueAngular</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const datatype::PositionInfo&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf.html#ac752ef66bac908c2b81057fb8c8530a1">stf::getTrueSatellitePosition</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf.html#a2ccec02903e2fd56d6deb9b751de8cb5">stf::start</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf.html#a25d7215aa2da60c7ac674ee0fa6a75ae">stf::runOneCycle</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf.html#ac123e4c00fe80bc415831fcde8f84119">stf::attachTorqueSource</a> (TorqueSource *source)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf.html#aaaff434470515b80267d4e9577643761">stf::attachMagneticSource</a> (MagneticSource *source)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf.html#acedb3ce2b1d0cafc9247ccdbc09d5d03">stf::attachNoiseSource</a> (torquesource::NoiseBase *source)</td></tr>
+<tr><td colspan="2"><h2><a name="var-members"></a>
+変数</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_c.html">C</a> Simulator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf.html#a1353f32dc59d6cd060f97a665c571db2">stf::MultiGyro</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">Orbit&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf.html#a9617060a9efba81719e679a9918d8fed">stf::orbit_</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">datatype::StaticVector&lt; 3 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf.html#a9215e4de0cad0e9dd783eda2890dd7de">stf::true_angular_velocity_</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">datatype::Quaternion&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf.html#aebcd275ab2a3c793b87e7c0b3c38a32d">stf::true_quaternion_</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">datatype::StaticVector&lt; 3 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf.html#a3195a9abc04fc741893f77b505985f2a">stf::true_torque_</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">datatype::Time&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf.html#a3e683f4676358b490905a30d732679af">stf::true_time_</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">datatype::Time&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf.html#a74b71cc72479d2835f315814f3d66435">stf::timestep_</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">datatype::StaticVector&lt; 3 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf.html#a2b0128a7a7c169261c0f731a49c3fad6">stf::noise_torque_</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">std::vector&lt; TorqueSource * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf.html#abe3d722edc9b481360d092ac9ae7ff3c">stf::torque_sources_</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">std::vector<br class="typebreak"/>
+&lt; torquesource::NoiseBase * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf.html#ad1040e6e42da5d6e74066ce935f5f206">stf::noise_sources_</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">std::vector&lt; MagneticSource * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf.html#ae3e6943bc598ed26a92a48be465a8601">stf::mag_sources_</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">datatype::StaticMatrix&lt; 4, 4 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf.html#a736424d6f18cfc15a43603bd3c9fab42">stf::Omega_</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">Global&lt; Simulator &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf.html#ad24a9f04a7ad0cd60c1dc022e883e6aa">stf::global_</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">datatype::Time&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf.html#a906a96a09163bed89c33aafc2ca1265a">stf::max_time_</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">std::ofstream *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf.html#aa6c72437a307788d90b0ee33f3273f06">stf::ofstream_</a></td></tr>
+</table>
+<hr/><a name="_details"></a><h2>説明</h2>
+<div class="textblock"><p>ソフトウェアシミュレータ環境クラス． </p>
+<dl class="author"><dt><b>作者:</b></dt><dd>Taiga Nomi </dd></dl>
+<dl class="date"><dt><b>日付:</b></dt><dd>2011.02.16 </dd></dl>
+
+<p> <a class="el" href="">Simulator.cpp</a> で定義されています。</p>
+</div></div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>フレンド</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>マクロ定義</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>STFに対してWed Mar 23 2011 05:32:42に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
+</body>
+</html>

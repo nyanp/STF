@@ -1,0 +1,1691 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>STF: クラス テンプレート Loki::Functor&lt; R, TList, ThreadingModel &gt;</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.3 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">STF</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="pages.html"><span>関連ページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li class="current"><a href="annotated.html"><span>クラス</span></a></li>
+      <li><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>構成</span></a></li>
+      <li><a href="classes.html"><span>構成索引</span></a></li>
+      <li><a href="inherits.html"><span>クラス階層</span></a></li>
+      <li><a href="functions.html"><span>構成メンバ</span></a></li>
+    </ul>
+  </div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="namespace_loki.html">Loki</a>      </li>
+      <li class="navelem"><a class="el" href="class_loki_1_1_functor.html">Functor</a>      </li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#pub-types">Public 型</a> &#124;
+<a href="#pub-methods">Public メソッド</a>  </div>
+  <div class="headertitle">
+<h1>クラス テンプレート Loki::Functor&lt; R, TList, ThreadingModel &gt;</h1>  </div>
+</div>
+<div class="contents">
+<!-- doxytag: class="Loki::Functor" -->
+<p><code>#include &lt;<a class="el" href="">Functor.h</a>&gt;</code></p>
+
+<p><a href="class_loki_1_1_functor-members.html">すべてのメンバ一覧</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="pub-types"></a>
+Public 型</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef FunctorImpl&lt; R, TList, <br class="typebreak"/>
+<a class="el" href="class_threading_model.html">ThreadingModel</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_loki_1_1_functor.html#a469c91f010e9dbfe005c7f39bd629532">Impl</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef R&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_loki_1_1_functor.html#aab1674f9e7992111585edcc08c054c3b">ResultType</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef TList&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_loki_1_1_functor.html#a6cd8634373d48cddd07fab3af36a6279">ParmList</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef Impl::Parm1&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_loki_1_1_functor.html#a045d5c968bdd63f343b544c0ea0d7a6f">Parm1</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef Impl::Parm2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_loki_1_1_functor.html#a640d485c38b777e0cfec8bb3bc338bf5">Parm2</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef Impl::Parm3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_loki_1_1_functor.html#a4510c821c3b2e618bfb2f8cbe02595bd">Parm3</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef Impl::Parm4&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_loki_1_1_functor.html#a8673526f4dacd4422c5ca244bc5741fb">Parm4</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef Impl::Parm5&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_loki_1_1_functor.html#aea364a78c56dcebeb9ec7409de5e0da1">Parm5</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef Impl::Parm6&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_loki_1_1_functor.html#ab06e3bdf61397fd84e984e5168722ff9">Parm6</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef Impl::Parm7&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_loki_1_1_functor.html#aab5ee7fd35cf323f8dca110e93eb80ba">Parm7</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef Impl::Parm8&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_loki_1_1_functor.html#a2d997a91357dfb969aed7024872ed742">Parm8</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef Impl::Parm9&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_loki_1_1_functor.html#aeaf24b289db13359375b65618594864f">Parm9</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef Impl::Parm10&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_loki_1_1_functor.html#a3737d6d33f30f93b495b736eddd6dfbc">Parm10</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef Impl::Parm11&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_loki_1_1_functor.html#ad2a56df2277423342e6ad32b7b8ee5eb">Parm11</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef Impl::Parm12&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_loki_1_1_functor.html#addaff575d8563e7e95b019eae9966d70">Parm12</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef Impl::Parm13&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_loki_1_1_functor.html#ab1314bcd2d2598990f77f559cf2e3aa4">Parm13</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef Impl::Parm14&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_loki_1_1_functor.html#afaaa55a230bf521b9bd5c4ecb9385889">Parm14</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef Impl::Parm15&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_loki_1_1_functor.html#a1efbf17924c5e0283e12c730f2bae945">Parm15</a></td></tr>
+<tr><td colspan="2"><h2><a name="pub-methods"></a>
+Public メソッド</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_loki_1_1_functor.html#ac4ff65be190c6e7c534ce785d965850b">Functor</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_loki_1_1_functor.html#aae62415b5a4a3bdd6dc7c0337ec3b71c">Functor</a> (const <a class="el" href="class_loki_1_1_functor.html">Functor</a> &amp;rhs)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_loki_1_1_functor.html#ac7cd37018d688d04ebdc1723c7e518c0">Functor</a> (std::auto_ptr&lt; <a class="el" href="class_loki_1_1_functor.html#a469c91f010e9dbfe005c7f39bd629532">Impl</a> &gt; spImpl)</td></tr>
+<tr><td class="memTemplParams" colspan="2">template&lt;typename Fun &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_loki_1_1_functor.html#ae5aa71441dc41f57bc17eb22a655e624">Functor</a> (Fun fun)</td></tr>
+<tr><td class="memTemplParams" colspan="2">template&lt;class PtrObj , typename MemFn &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_loki_1_1_functor.html#a2ac610f9da524bbe9ffbbb483bf18f04">Functor</a> (const PtrObj &amp;p, MemFn memFn)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_loki_1_1_functor.html">Functor</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_loki_1_1_functor.html#ac051d50ce31c4375384bda90db062c29">operator=</a> (const <a class="el" href="class_loki_1_1_functor.html">Functor</a> &amp;rhs)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_loki_1_1_functor.html#aab1674f9e7992111585edcc08c054c3b">ResultType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_loki_1_1_functor.html#a7f3bc0e098822e31fe09ae8924fcd2fa">operator()</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_loki_1_1_functor.html#aab1674f9e7992111585edcc08c054c3b">ResultType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_loki_1_1_functor.html#a7a27f379ade6815135c0d372776041dc">operator()</a> (<a class="el" href="class_loki_1_1_functor.html#a045d5c968bdd63f343b544c0ea0d7a6f">Parm1</a> p1)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_loki_1_1_functor.html#aab1674f9e7992111585edcc08c054c3b">ResultType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_loki_1_1_functor.html#a5c40274fe65a9c31fed27732c7f3acf0">operator()</a> (<a class="el" href="class_loki_1_1_functor.html#a045d5c968bdd63f343b544c0ea0d7a6f">Parm1</a> p1, <a class="el" href="class_loki_1_1_functor.html#a640d485c38b777e0cfec8bb3bc338bf5">Parm2</a> p2)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_loki_1_1_functor.html#aab1674f9e7992111585edcc08c054c3b">ResultType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_loki_1_1_functor.html#acfcd3caddde9e2da4a171ea14f8e5467">operator()</a> (<a class="el" href="class_loki_1_1_functor.html#a045d5c968bdd63f343b544c0ea0d7a6f">Parm1</a> p1, <a class="el" href="class_loki_1_1_functor.html#a640d485c38b777e0cfec8bb3bc338bf5">Parm2</a> p2, <a class="el" href="class_loki_1_1_functor.html#a4510c821c3b2e618bfb2f8cbe02595bd">Parm3</a> p3)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_loki_1_1_functor.html#aab1674f9e7992111585edcc08c054c3b">ResultType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_loki_1_1_functor.html#acc07058bbd4e851cac922c41ed905aa4">operator()</a> (<a class="el" href="class_loki_1_1_functor.html#a045d5c968bdd63f343b544c0ea0d7a6f">Parm1</a> p1, <a class="el" href="class_loki_1_1_functor.html#a640d485c38b777e0cfec8bb3bc338bf5">Parm2</a> p2, <a class="el" href="class_loki_1_1_functor.html#a4510c821c3b2e618bfb2f8cbe02595bd">Parm3</a> p3, <a class="el" href="class_loki_1_1_functor.html#a8673526f4dacd4422c5ca244bc5741fb">Parm4</a> p4)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_loki_1_1_functor.html#aab1674f9e7992111585edcc08c054c3b">ResultType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_loki_1_1_functor.html#a550b24faf793200ed2c397a70eb2254b">operator()</a> (<a class="el" href="class_loki_1_1_functor.html#a045d5c968bdd63f343b544c0ea0d7a6f">Parm1</a> p1, <a class="el" href="class_loki_1_1_functor.html#a640d485c38b777e0cfec8bb3bc338bf5">Parm2</a> p2, <a class="el" href="class_loki_1_1_functor.html#a4510c821c3b2e618bfb2f8cbe02595bd">Parm3</a> p3, <a class="el" href="class_loki_1_1_functor.html#a8673526f4dacd4422c5ca244bc5741fb">Parm4</a> p4, <a class="el" href="class_loki_1_1_functor.html#aea364a78c56dcebeb9ec7409de5e0da1">Parm5</a> p5)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_loki_1_1_functor.html#aab1674f9e7992111585edcc08c054c3b">ResultType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_loki_1_1_functor.html#a9f0f984fc0a993a38dcdb9d4041f50e8">operator()</a> (<a class="el" href="class_loki_1_1_functor.html#a045d5c968bdd63f343b544c0ea0d7a6f">Parm1</a> p1, <a class="el" href="class_loki_1_1_functor.html#a640d485c38b777e0cfec8bb3bc338bf5">Parm2</a> p2, <a class="el" href="class_loki_1_1_functor.html#a4510c821c3b2e618bfb2f8cbe02595bd">Parm3</a> p3, <a class="el" href="class_loki_1_1_functor.html#a8673526f4dacd4422c5ca244bc5741fb">Parm4</a> p4, <a class="el" href="class_loki_1_1_functor.html#aea364a78c56dcebeb9ec7409de5e0da1">Parm5</a> p5, <a class="el" href="class_loki_1_1_functor.html#ab06e3bdf61397fd84e984e5168722ff9">Parm6</a> p6)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_loki_1_1_functor.html#aab1674f9e7992111585edcc08c054c3b">ResultType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_loki_1_1_functor.html#a37184792372e9f28b6fd6b968579f1dd">operator()</a> (<a class="el" href="class_loki_1_1_functor.html#a045d5c968bdd63f343b544c0ea0d7a6f">Parm1</a> p1, <a class="el" href="class_loki_1_1_functor.html#a640d485c38b777e0cfec8bb3bc338bf5">Parm2</a> p2, <a class="el" href="class_loki_1_1_functor.html#a4510c821c3b2e618bfb2f8cbe02595bd">Parm3</a> p3, <a class="el" href="class_loki_1_1_functor.html#a8673526f4dacd4422c5ca244bc5741fb">Parm4</a> p4, <a class="el" href="class_loki_1_1_functor.html#aea364a78c56dcebeb9ec7409de5e0da1">Parm5</a> p5, <a class="el" href="class_loki_1_1_functor.html#ab06e3bdf61397fd84e984e5168722ff9">Parm6</a> p6, <a class="el" href="class_loki_1_1_functor.html#aab5ee7fd35cf323f8dca110e93eb80ba">Parm7</a> p7)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_loki_1_1_functor.html#aab1674f9e7992111585edcc08c054c3b">ResultType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_loki_1_1_functor.html#a8a6bd13f6da2108836a7a8c7041c6990">operator()</a> (<a class="el" href="class_loki_1_1_functor.html#a045d5c968bdd63f343b544c0ea0d7a6f">Parm1</a> p1, <a class="el" href="class_loki_1_1_functor.html#a640d485c38b777e0cfec8bb3bc338bf5">Parm2</a> p2, <a class="el" href="class_loki_1_1_functor.html#a4510c821c3b2e618bfb2f8cbe02595bd">Parm3</a> p3, <a class="el" href="class_loki_1_1_functor.html#a8673526f4dacd4422c5ca244bc5741fb">Parm4</a> p4, <a class="el" href="class_loki_1_1_functor.html#aea364a78c56dcebeb9ec7409de5e0da1">Parm5</a> p5, <a class="el" href="class_loki_1_1_functor.html#ab06e3bdf61397fd84e984e5168722ff9">Parm6</a> p6, <a class="el" href="class_loki_1_1_functor.html#aab5ee7fd35cf323f8dca110e93eb80ba">Parm7</a> p7, <a class="el" href="class_loki_1_1_functor.html#a2d997a91357dfb969aed7024872ed742">Parm8</a> p8)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_loki_1_1_functor.html#aab1674f9e7992111585edcc08c054c3b">ResultType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_loki_1_1_functor.html#a703caae95baefbdab2f52a1864037956">operator()</a> (<a class="el" href="class_loki_1_1_functor.html#a045d5c968bdd63f343b544c0ea0d7a6f">Parm1</a> p1, <a class="el" href="class_loki_1_1_functor.html#a640d485c38b777e0cfec8bb3bc338bf5">Parm2</a> p2, <a class="el" href="class_loki_1_1_functor.html#a4510c821c3b2e618bfb2f8cbe02595bd">Parm3</a> p3, <a class="el" href="class_loki_1_1_functor.html#a8673526f4dacd4422c5ca244bc5741fb">Parm4</a> p4, <a class="el" href="class_loki_1_1_functor.html#aea364a78c56dcebeb9ec7409de5e0da1">Parm5</a> p5, <a class="el" href="class_loki_1_1_functor.html#ab06e3bdf61397fd84e984e5168722ff9">Parm6</a> p6, <a class="el" href="class_loki_1_1_functor.html#aab5ee7fd35cf323f8dca110e93eb80ba">Parm7</a> p7, <a class="el" href="class_loki_1_1_functor.html#a2d997a91357dfb969aed7024872ed742">Parm8</a> p8, <a class="el" href="class_loki_1_1_functor.html#aeaf24b289db13359375b65618594864f">Parm9</a> p9)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_loki_1_1_functor.html#aab1674f9e7992111585edcc08c054c3b">ResultType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_loki_1_1_functor.html#a628e249db26d1b8b395500d38b49cbe3">operator()</a> (<a class="el" href="class_loki_1_1_functor.html#a045d5c968bdd63f343b544c0ea0d7a6f">Parm1</a> p1, <a class="el" href="class_loki_1_1_functor.html#a640d485c38b777e0cfec8bb3bc338bf5">Parm2</a> p2, <a class="el" href="class_loki_1_1_functor.html#a4510c821c3b2e618bfb2f8cbe02595bd">Parm3</a> p3, <a class="el" href="class_loki_1_1_functor.html#a8673526f4dacd4422c5ca244bc5741fb">Parm4</a> p4, <a class="el" href="class_loki_1_1_functor.html#aea364a78c56dcebeb9ec7409de5e0da1">Parm5</a> p5, <a class="el" href="class_loki_1_1_functor.html#ab06e3bdf61397fd84e984e5168722ff9">Parm6</a> p6, <a class="el" href="class_loki_1_1_functor.html#aab5ee7fd35cf323f8dca110e93eb80ba">Parm7</a> p7, <a class="el" href="class_loki_1_1_functor.html#a2d997a91357dfb969aed7024872ed742">Parm8</a> p8, <a class="el" href="class_loki_1_1_functor.html#aeaf24b289db13359375b65618594864f">Parm9</a> p9, <a class="el" href="class_loki_1_1_functor.html#a3737d6d33f30f93b495b736eddd6dfbc">Parm10</a> p10)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_loki_1_1_functor.html#aab1674f9e7992111585edcc08c054c3b">ResultType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_loki_1_1_functor.html#a2bc2921434a57477a832e694db879bce">operator()</a> (<a class="el" href="class_loki_1_1_functor.html#a045d5c968bdd63f343b544c0ea0d7a6f">Parm1</a> p1, <a class="el" href="class_loki_1_1_functor.html#a640d485c38b777e0cfec8bb3bc338bf5">Parm2</a> p2, <a class="el" href="class_loki_1_1_functor.html#a4510c821c3b2e618bfb2f8cbe02595bd">Parm3</a> p3, <a class="el" href="class_loki_1_1_functor.html#a8673526f4dacd4422c5ca244bc5741fb">Parm4</a> p4, <a class="el" href="class_loki_1_1_functor.html#aea364a78c56dcebeb9ec7409de5e0da1">Parm5</a> p5, <a class="el" href="class_loki_1_1_functor.html#ab06e3bdf61397fd84e984e5168722ff9">Parm6</a> p6, <a class="el" href="class_loki_1_1_functor.html#aab5ee7fd35cf323f8dca110e93eb80ba">Parm7</a> p7, <a class="el" href="class_loki_1_1_functor.html#a2d997a91357dfb969aed7024872ed742">Parm8</a> p8, <a class="el" href="class_loki_1_1_functor.html#aeaf24b289db13359375b65618594864f">Parm9</a> p9, <a class="el" href="class_loki_1_1_functor.html#a3737d6d33f30f93b495b736eddd6dfbc">Parm10</a> p10, <a class="el" href="class_loki_1_1_functor.html#ad2a56df2277423342e6ad32b7b8ee5eb">Parm11</a> p11)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_loki_1_1_functor.html#aab1674f9e7992111585edcc08c054c3b">ResultType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_loki_1_1_functor.html#ae955a4100b8a9ddda5b55b2d57add678">operator()</a> (<a class="el" href="class_loki_1_1_functor.html#a045d5c968bdd63f343b544c0ea0d7a6f">Parm1</a> p1, <a class="el" href="class_loki_1_1_functor.html#a640d485c38b777e0cfec8bb3bc338bf5">Parm2</a> p2, <a class="el" href="class_loki_1_1_functor.html#a4510c821c3b2e618bfb2f8cbe02595bd">Parm3</a> p3, <a class="el" href="class_loki_1_1_functor.html#a8673526f4dacd4422c5ca244bc5741fb">Parm4</a> p4, <a class="el" href="class_loki_1_1_functor.html#aea364a78c56dcebeb9ec7409de5e0da1">Parm5</a> p5, <a class="el" href="class_loki_1_1_functor.html#ab06e3bdf61397fd84e984e5168722ff9">Parm6</a> p6, <a class="el" href="class_loki_1_1_functor.html#aab5ee7fd35cf323f8dca110e93eb80ba">Parm7</a> p7, <a class="el" href="class_loki_1_1_functor.html#a2d997a91357dfb969aed7024872ed742">Parm8</a> p8, <a class="el" href="class_loki_1_1_functor.html#aeaf24b289db13359375b65618594864f">Parm9</a> p9, <a class="el" href="class_loki_1_1_functor.html#a3737d6d33f30f93b495b736eddd6dfbc">Parm10</a> p10, <a class="el" href="class_loki_1_1_functor.html#ad2a56df2277423342e6ad32b7b8ee5eb">Parm11</a> p11, <a class="el" href="class_loki_1_1_functor.html#addaff575d8563e7e95b019eae9966d70">Parm12</a> p12)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_loki_1_1_functor.html#aab1674f9e7992111585edcc08c054c3b">ResultType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_loki_1_1_functor.html#ade870300d7435328e7429280935a0e92">operator()</a> (<a class="el" href="class_loki_1_1_functor.html#a045d5c968bdd63f343b544c0ea0d7a6f">Parm1</a> p1, <a class="el" href="class_loki_1_1_functor.html#a640d485c38b777e0cfec8bb3bc338bf5">Parm2</a> p2, <a class="el" href="class_loki_1_1_functor.html#a4510c821c3b2e618bfb2f8cbe02595bd">Parm3</a> p3, <a class="el" href="class_loki_1_1_functor.html#a8673526f4dacd4422c5ca244bc5741fb">Parm4</a> p4, <a class="el" href="class_loki_1_1_functor.html#aea364a78c56dcebeb9ec7409de5e0da1">Parm5</a> p5, <a class="el" href="class_loki_1_1_functor.html#ab06e3bdf61397fd84e984e5168722ff9">Parm6</a> p6, <a class="el" href="class_loki_1_1_functor.html#aab5ee7fd35cf323f8dca110e93eb80ba">Parm7</a> p7, <a class="el" href="class_loki_1_1_functor.html#a2d997a91357dfb969aed7024872ed742">Parm8</a> p8, <a class="el" href="class_loki_1_1_functor.html#aeaf24b289db13359375b65618594864f">Parm9</a> p9, <a class="el" href="class_loki_1_1_functor.html#a3737d6d33f30f93b495b736eddd6dfbc">Parm10</a> p10, <a class="el" href="class_loki_1_1_functor.html#ad2a56df2277423342e6ad32b7b8ee5eb">Parm11</a> p11, <a class="el" href="class_loki_1_1_functor.html#addaff575d8563e7e95b019eae9966d70">Parm12</a> p12, <a class="el" href="class_loki_1_1_functor.html#ab1314bcd2d2598990f77f559cf2e3aa4">Parm13</a> p13)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_loki_1_1_functor.html#aab1674f9e7992111585edcc08c054c3b">ResultType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_loki_1_1_functor.html#a32a26fd5c28a176de3f6a836cfbf7f73">operator()</a> (<a class="el" href="class_loki_1_1_functor.html#a045d5c968bdd63f343b544c0ea0d7a6f">Parm1</a> p1, <a class="el" href="class_loki_1_1_functor.html#a640d485c38b777e0cfec8bb3bc338bf5">Parm2</a> p2, <a class="el" href="class_loki_1_1_functor.html#a4510c821c3b2e618bfb2f8cbe02595bd">Parm3</a> p3, <a class="el" href="class_loki_1_1_functor.html#a8673526f4dacd4422c5ca244bc5741fb">Parm4</a> p4, <a class="el" href="class_loki_1_1_functor.html#aea364a78c56dcebeb9ec7409de5e0da1">Parm5</a> p5, <a class="el" href="class_loki_1_1_functor.html#ab06e3bdf61397fd84e984e5168722ff9">Parm6</a> p6, <a class="el" href="class_loki_1_1_functor.html#aab5ee7fd35cf323f8dca110e93eb80ba">Parm7</a> p7, <a class="el" href="class_loki_1_1_functor.html#a2d997a91357dfb969aed7024872ed742">Parm8</a> p8, <a class="el" href="class_loki_1_1_functor.html#aeaf24b289db13359375b65618594864f">Parm9</a> p9, <a class="el" href="class_loki_1_1_functor.html#a3737d6d33f30f93b495b736eddd6dfbc">Parm10</a> p10, <a class="el" href="class_loki_1_1_functor.html#ad2a56df2277423342e6ad32b7b8ee5eb">Parm11</a> p11, <a class="el" href="class_loki_1_1_functor.html#addaff575d8563e7e95b019eae9966d70">Parm12</a> p12, <a class="el" href="class_loki_1_1_functor.html#ab1314bcd2d2598990f77f559cf2e3aa4">Parm13</a> p13, <a class="el" href="class_loki_1_1_functor.html#afaaa55a230bf521b9bd5c4ecb9385889">Parm14</a> p14)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_loki_1_1_functor.html#aab1674f9e7992111585edcc08c054c3b">ResultType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_loki_1_1_functor.html#a3406e12e3c5b9a9c8010a7208c628619">operator()</a> (<a class="el" href="class_loki_1_1_functor.html#a045d5c968bdd63f343b544c0ea0d7a6f">Parm1</a> p1, <a class="el" href="class_loki_1_1_functor.html#a640d485c38b777e0cfec8bb3bc338bf5">Parm2</a> p2, <a class="el" href="class_loki_1_1_functor.html#a4510c821c3b2e618bfb2f8cbe02595bd">Parm3</a> p3, <a class="el" href="class_loki_1_1_functor.html#a8673526f4dacd4422c5ca244bc5741fb">Parm4</a> p4, <a class="el" href="class_loki_1_1_functor.html#aea364a78c56dcebeb9ec7409de5e0da1">Parm5</a> p5, <a class="el" href="class_loki_1_1_functor.html#ab06e3bdf61397fd84e984e5168722ff9">Parm6</a> p6, <a class="el" href="class_loki_1_1_functor.html#aab5ee7fd35cf323f8dca110e93eb80ba">Parm7</a> p7, <a class="el" href="class_loki_1_1_functor.html#a2d997a91357dfb969aed7024872ed742">Parm8</a> p8, <a class="el" href="class_loki_1_1_functor.html#aeaf24b289db13359375b65618594864f">Parm9</a> p9, <a class="el" href="class_loki_1_1_functor.html#a3737d6d33f30f93b495b736eddd6dfbc">Parm10</a> p10, <a class="el" href="class_loki_1_1_functor.html#ad2a56df2277423342e6ad32b7b8ee5eb">Parm11</a> p11, <a class="el" href="class_loki_1_1_functor.html#addaff575d8563e7e95b019eae9966d70">Parm12</a> p12, <a class="el" href="class_loki_1_1_functor.html#ab1314bcd2d2598990f77f559cf2e3aa4">Parm13</a> p13, <a class="el" href="class_loki_1_1_functor.html#afaaa55a230bf521b9bd5c4ecb9385889">Parm14</a> p14, <a class="el" href="class_loki_1_1_functor.html#a1efbf17924c5e0283e12c730f2bae945">Parm15</a> p15)</td></tr>
+</table>
+<hr/><a name="_details"></a><h2>説明</h2>
+<div class="textblock"><h3>template&lt;typename R, class TList = NullType, template&lt; class &gt; class ThreadingModel = DEFAULT_THREADING&gt;<br/>
+ class Loki::Functor&lt; R, TList, ThreadingModel &gt;</h3>
+
+
+<p> <a class="el" href="">Functor.h</a> の <a class="el" href="#L729">729</a> 行で定義されています。</p>
+</div><hr/><h2>型定義</h2>
+<a class="anchor" id="a469c91f010e9dbfe005c7f39bd629532"></a><!-- doxytag: member="Loki::Functor::Impl" ref="a469c91f010e9dbfe005c7f39bd629532" args="" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename R , class TList  = NullType, template&lt; class &gt; class ThreadingModel = DEFAULT_THREADING&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef FunctorImpl&lt;R, TList, <a class="el" href="class_threading_model.html">ThreadingModel</a>&gt; <a class="el" href="class_loki_1_1_functor.html">Loki::Functor</a>&lt; R, TList, <a class="el" href="class_threading_model.html">ThreadingModel</a> &gt;::<a class="el" href="class_loki_1_1_functor.html#a469c91f010e9dbfe005c7f39bd629532">Impl</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">Functor.h</a> の <a class="el" href="#L733">733</a> 行で定義されています。</p>
+
+</div>
+</div>
+<a class="anchor" id="a045d5c968bdd63f343b544c0ea0d7a6f"></a><!-- doxytag: member="Loki::Functor::Parm1" ref="a045d5c968bdd63f343b544c0ea0d7a6f" args="" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename R , class TList  = NullType, template&lt; class &gt; class ThreadingModel = DEFAULT_THREADING&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef Impl::Parm1 <a class="el" href="class_loki_1_1_functor.html">Loki::Functor</a>&lt; R, TList, <a class="el" href="class_threading_model.html">ThreadingModel</a> &gt;::<a class="el" href="class_loki_1_1_functor.html#a045d5c968bdd63f343b544c0ea0d7a6f">Parm1</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">Functor.h</a> の <a class="el" href="#L736">736</a> 行で定義されています。</p>
+
+</div>
+</div>
+<a class="anchor" id="a3737d6d33f30f93b495b736eddd6dfbc"></a><!-- doxytag: member="Loki::Functor::Parm10" ref="a3737d6d33f30f93b495b736eddd6dfbc" args="" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename R , class TList  = NullType, template&lt; class &gt; class ThreadingModel = DEFAULT_THREADING&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef Impl::Parm10 <a class="el" href="class_loki_1_1_functor.html">Loki::Functor</a>&lt; R, TList, <a class="el" href="class_threading_model.html">ThreadingModel</a> &gt;::<a class="el" href="class_loki_1_1_functor.html#a3737d6d33f30f93b495b736eddd6dfbc">Parm10</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">Functor.h</a> の <a class="el" href="#L745">745</a> 行で定義されています。</p>
+
+</div>
+</div>
+<a class="anchor" id="ad2a56df2277423342e6ad32b7b8ee5eb"></a><!-- doxytag: member="Loki::Functor::Parm11" ref="ad2a56df2277423342e6ad32b7b8ee5eb" args="" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename R , class TList  = NullType, template&lt; class &gt; class ThreadingModel = DEFAULT_THREADING&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef Impl::Parm11 <a class="el" href="class_loki_1_1_functor.html">Loki::Functor</a>&lt; R, TList, <a class="el" href="class_threading_model.html">ThreadingModel</a> &gt;::<a class="el" href="class_loki_1_1_functor.html#ad2a56df2277423342e6ad32b7b8ee5eb">Parm11</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">Functor.h</a> の <a class="el" href="#L746">746</a> 行で定義されています。</p>
+
+</div>
+</div>
+<a class="anchor" id="addaff575d8563e7e95b019eae9966d70"></a><!-- doxytag: member="Loki::Functor::Parm12" ref="addaff575d8563e7e95b019eae9966d70" args="" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename R , class TList  = NullType, template&lt; class &gt; class ThreadingModel = DEFAULT_THREADING&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef Impl::Parm12 <a class="el" href="class_loki_1_1_functor.html">Loki::Functor</a>&lt; R, TList, <a class="el" href="class_threading_model.html">ThreadingModel</a> &gt;::<a class="el" href="class_loki_1_1_functor.html#addaff575d8563e7e95b019eae9966d70">Parm12</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">Functor.h</a> の <a class="el" href="#L747">747</a> 行で定義されています。</p>
+
+</div>
+</div>
+<a class="anchor" id="ab1314bcd2d2598990f77f559cf2e3aa4"></a><!-- doxytag: member="Loki::Functor::Parm13" ref="ab1314bcd2d2598990f77f559cf2e3aa4" args="" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename R , class TList  = NullType, template&lt; class &gt; class ThreadingModel = DEFAULT_THREADING&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef Impl::Parm13 <a class="el" href="class_loki_1_1_functor.html">Loki::Functor</a>&lt; R, TList, <a class="el" href="class_threading_model.html">ThreadingModel</a> &gt;::<a class="el" href="class_loki_1_1_functor.html#ab1314bcd2d2598990f77f559cf2e3aa4">Parm13</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">Functor.h</a> の <a class="el" href="#L748">748</a> 行で定義されています。</p>
+
+</div>
+</div>
+<a class="anchor" id="afaaa55a230bf521b9bd5c4ecb9385889"></a><!-- doxytag: member="Loki::Functor::Parm14" ref="afaaa55a230bf521b9bd5c4ecb9385889" args="" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename R , class TList  = NullType, template&lt; class &gt; class ThreadingModel = DEFAULT_THREADING&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef Impl::Parm14 <a class="el" href="class_loki_1_1_functor.html">Loki::Functor</a>&lt; R, TList, <a class="el" href="class_threading_model.html">ThreadingModel</a> &gt;::<a class="el" href="class_loki_1_1_functor.html#afaaa55a230bf521b9bd5c4ecb9385889">Parm14</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">Functor.h</a> の <a class="el" href="#L749">749</a> 行で定義されています。</p>
+
+</div>
+</div>
+<a class="anchor" id="a1efbf17924c5e0283e12c730f2bae945"></a><!-- doxytag: member="Loki::Functor::Parm15" ref="a1efbf17924c5e0283e12c730f2bae945" args="" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename R , class TList  = NullType, template&lt; class &gt; class ThreadingModel = DEFAULT_THREADING&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef Impl::Parm15 <a class="el" href="class_loki_1_1_functor.html">Loki::Functor</a>&lt; R, TList, <a class="el" href="class_threading_model.html">ThreadingModel</a> &gt;::<a class="el" href="class_loki_1_1_functor.html#a1efbf17924c5e0283e12c730f2bae945">Parm15</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">Functor.h</a> の <a class="el" href="#L750">750</a> 行で定義されています。</p>
+
+</div>
+</div>
+<a class="anchor" id="a640d485c38b777e0cfec8bb3bc338bf5"></a><!-- doxytag: member="Loki::Functor::Parm2" ref="a640d485c38b777e0cfec8bb3bc338bf5" args="" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename R , class TList  = NullType, template&lt; class &gt; class ThreadingModel = DEFAULT_THREADING&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef Impl::Parm2 <a class="el" href="class_loki_1_1_functor.html">Loki::Functor</a>&lt; R, TList, <a class="el" href="class_threading_model.html">ThreadingModel</a> &gt;::<a class="el" href="class_loki_1_1_functor.html#a640d485c38b777e0cfec8bb3bc338bf5">Parm2</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">Functor.h</a> の <a class="el" href="#L737">737</a> 行で定義されています。</p>
+
+</div>
+</div>
+<a class="anchor" id="a4510c821c3b2e618bfb2f8cbe02595bd"></a><!-- doxytag: member="Loki::Functor::Parm3" ref="a4510c821c3b2e618bfb2f8cbe02595bd" args="" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename R , class TList  = NullType, template&lt; class &gt; class ThreadingModel = DEFAULT_THREADING&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef Impl::Parm3 <a class="el" href="class_loki_1_1_functor.html">Loki::Functor</a>&lt; R, TList, <a class="el" href="class_threading_model.html">ThreadingModel</a> &gt;::<a class="el" href="class_loki_1_1_functor.html#a4510c821c3b2e618bfb2f8cbe02595bd">Parm3</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">Functor.h</a> の <a class="el" href="#L738">738</a> 行で定義されています。</p>
+
+</div>
+</div>
+<a class="anchor" id="a8673526f4dacd4422c5ca244bc5741fb"></a><!-- doxytag: member="Loki::Functor::Parm4" ref="a8673526f4dacd4422c5ca244bc5741fb" args="" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename R , class TList  = NullType, template&lt; class &gt; class ThreadingModel = DEFAULT_THREADING&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef Impl::Parm4 <a class="el" href="class_loki_1_1_functor.html">Loki::Functor</a>&lt; R, TList, <a class="el" href="class_threading_model.html">ThreadingModel</a> &gt;::<a class="el" href="class_loki_1_1_functor.html#a8673526f4dacd4422c5ca244bc5741fb">Parm4</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">Functor.h</a> の <a class="el" href="#L739">739</a> 行で定義されています。</p>
+
+</div>
+</div>
+<a class="anchor" id="aea364a78c56dcebeb9ec7409de5e0da1"></a><!-- doxytag: member="Loki::Functor::Parm5" ref="aea364a78c56dcebeb9ec7409de5e0da1" args="" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename R , class TList  = NullType, template&lt; class &gt; class ThreadingModel = DEFAULT_THREADING&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef Impl::Parm5 <a class="el" href="class_loki_1_1_functor.html">Loki::Functor</a>&lt; R, TList, <a class="el" href="class_threading_model.html">ThreadingModel</a> &gt;::<a class="el" href="class_loki_1_1_functor.html#aea364a78c56dcebeb9ec7409de5e0da1">Parm5</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">Functor.h</a> の <a class="el" href="#L740">740</a> 行で定義されています。</p>
+
+</div>
+</div>
+<a class="anchor" id="ab06e3bdf61397fd84e984e5168722ff9"></a><!-- doxytag: member="Loki::Functor::Parm6" ref="ab06e3bdf61397fd84e984e5168722ff9" args="" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename R , class TList  = NullType, template&lt; class &gt; class ThreadingModel = DEFAULT_THREADING&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef Impl::Parm6 <a class="el" href="class_loki_1_1_functor.html">Loki::Functor</a>&lt; R, TList, <a class="el" href="class_threading_model.html">ThreadingModel</a> &gt;::<a class="el" href="class_loki_1_1_functor.html#ab06e3bdf61397fd84e984e5168722ff9">Parm6</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">Functor.h</a> の <a class="el" href="#L741">741</a> 行で定義されています。</p>
+
+</div>
+</div>
+<a class="anchor" id="aab5ee7fd35cf323f8dca110e93eb80ba"></a><!-- doxytag: member="Loki::Functor::Parm7" ref="aab5ee7fd35cf323f8dca110e93eb80ba" args="" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename R , class TList  = NullType, template&lt; class &gt; class ThreadingModel = DEFAULT_THREADING&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef Impl::Parm7 <a class="el" href="class_loki_1_1_functor.html">Loki::Functor</a>&lt; R, TList, <a class="el" href="class_threading_model.html">ThreadingModel</a> &gt;::<a class="el" href="class_loki_1_1_functor.html#aab5ee7fd35cf323f8dca110e93eb80ba">Parm7</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">Functor.h</a> の <a class="el" href="#L742">742</a> 行で定義されています。</p>
+
+</div>
+</div>
+<a class="anchor" id="a2d997a91357dfb969aed7024872ed742"></a><!-- doxytag: member="Loki::Functor::Parm8" ref="a2d997a91357dfb969aed7024872ed742" args="" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename R , class TList  = NullType, template&lt; class &gt; class ThreadingModel = DEFAULT_THREADING&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef Impl::Parm8 <a class="el" href="class_loki_1_1_functor.html">Loki::Functor</a>&lt; R, TList, <a class="el" href="class_threading_model.html">ThreadingModel</a> &gt;::<a class="el" href="class_loki_1_1_functor.html#a2d997a91357dfb969aed7024872ed742">Parm8</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">Functor.h</a> の <a class="el" href="#L743">743</a> 行で定義されています。</p>
+
+</div>
+</div>
+<a class="anchor" id="aeaf24b289db13359375b65618594864f"></a><!-- doxytag: member="Loki::Functor::Parm9" ref="aeaf24b289db13359375b65618594864f" args="" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename R , class TList  = NullType, template&lt; class &gt; class ThreadingModel = DEFAULT_THREADING&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef Impl::Parm9 <a class="el" href="class_loki_1_1_functor.html">Loki::Functor</a>&lt; R, TList, <a class="el" href="class_threading_model.html">ThreadingModel</a> &gt;::<a class="el" href="class_loki_1_1_functor.html#aeaf24b289db13359375b65618594864f">Parm9</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">Functor.h</a> の <a class="el" href="#L744">744</a> 行で定義されています。</p>
+
+</div>
+</div>
+<a class="anchor" id="a6cd8634373d48cddd07fab3af36a6279"></a><!-- doxytag: member="Loki::Functor::ParmList" ref="a6cd8634373d48cddd07fab3af36a6279" args="" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename R , class TList  = NullType, template&lt; class &gt; class ThreadingModel = DEFAULT_THREADING&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef TList <a class="el" href="class_loki_1_1_functor.html">Loki::Functor</a>&lt; R, TList, <a class="el" href="class_threading_model.html">ThreadingModel</a> &gt;::<a class="el" href="class_loki_1_1_functor.html#a6cd8634373d48cddd07fab3af36a6279">ParmList</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">Functor.h</a> の <a class="el" href="#L735">735</a> 行で定義されています。</p>
+
+</div>
+</div>
+<a class="anchor" id="aab1674f9e7992111585edcc08c054c3b"></a><!-- doxytag: member="Loki::Functor::ResultType" ref="aab1674f9e7992111585edcc08c054c3b" args="" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename R , class TList  = NullType, template&lt; class &gt; class ThreadingModel = DEFAULT_THREADING&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef R <a class="el" href="class_loki_1_1_functor.html">Loki::Functor</a>&lt; R, TList, <a class="el" href="class_threading_model.html">ThreadingModel</a> &gt;::<a class="el" href="class_loki_1_1_functor.html#aab1674f9e7992111585edcc08c054c3b">ResultType</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">Functor.h</a> の <a class="el" href="#L734">734</a> 行で定義されています。</p>
+
+</div>
+</div>
+<hr/><h2>コンストラクタとデストラクタ</h2>
+<a class="anchor" id="ac4ff65be190c6e7c534ce785d965850b"></a><!-- doxytag: member="Loki::Functor::Functor" ref="ac4ff65be190c6e7c534ce785d965850b" args="()" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename R , class TList  = NullType, template&lt; class &gt; class ThreadingModel = DEFAULT_THREADING&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_loki_1_1_functor.html">Loki::Functor</a>&lt; R, TList, <a class="el" href="class_threading_model.html">ThreadingModel</a> &gt;::<a class="el" href="class_loki_1_1_functor.html">Functor</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">Functor.h</a> の <a class="el" href="#L754">754</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">        {}
+        
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="aae62415b5a4a3bdd6dc7c0337ec3b71c"></a><!-- doxytag: member="Loki::Functor::Functor" ref="aae62415b5a4a3bdd6dc7c0337ec3b71c" args="(const Functor &amp;rhs)" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename R , class TList  = NullType, template&lt; class &gt; class ThreadingModel = DEFAULT_THREADING&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_loki_1_1_functor.html">Loki::Functor</a>&lt; R, TList, <a class="el" href="class_threading_model.html">ThreadingModel</a> &gt;::<a class="el" href="class_loki_1_1_functor.html">Functor</a> </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_loki_1_1_functor.html">Functor</a>&lt; R, TList, <a class="el" href="class_threading_model.html">ThreadingModel</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">Functor.h</a> の <a class="el" href="#L757">757</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">        {}
+        
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="ac7cd37018d688d04ebdc1723c7e518c0"></a><!-- doxytag: member="Loki::Functor::Functor" ref="ac7cd37018d688d04ebdc1723c7e518c0" args="(std::auto_ptr&lt; Impl &gt; spImpl)" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename R , class TList  = NullType, template&lt; class &gt; class ThreadingModel = DEFAULT_THREADING&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_loki_1_1_functor.html">Loki::Functor</a>&lt; R, TList, <a class="el" href="class_threading_model.html">ThreadingModel</a> &gt;::<a class="el" href="class_loki_1_1_functor.html">Functor</a> </td>
+          <td>(</td>
+          <td class="paramtype">std::auto_ptr&lt; <a class="el" href="class_loki_1_1_functor.html#a469c91f010e9dbfe005c7f39bd629532">Impl</a> &gt;&#160;</td>
+          <td class="paramname"><em>spImpl</em></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">Functor.h</a> の <a class="el" href="#L760">760</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">        {}
+        
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="ae5aa71441dc41f57bc17eb22a655e624"></a><!-- doxytag: member="Loki::Functor::Functor" ref="ae5aa71441dc41f57bc17eb22a655e624" args="(Fun fun)" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename R , class TList  = NullType, template&lt; class &gt; class ThreadingModel = DEFAULT_THREADING&gt; </div>
+<div class="memtemplate">
+template&lt;typename Fun &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_loki_1_1_functor.html">Loki::Functor</a>&lt; R, TList, <a class="el" href="class_threading_model.html">ThreadingModel</a> &gt;::<a class="el" href="class_loki_1_1_functor.html">Functor</a> </td>
+          <td>(</td>
+          <td class="paramtype">Fun&#160;</td>
+          <td class="paramname"><em>fun</em></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">Functor.h</a> の <a class="el" href="#L764">764</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">        : spImpl_(<span class="keyword">new</span> FunctorHandler&lt;Functor, Fun&gt;(fun))
+        {}
+
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="a2ac610f9da524bbe9ffbbb483bf18f04"></a><!-- doxytag: member="Loki::Functor::Functor" ref="a2ac610f9da524bbe9ffbbb483bf18f04" args="(const PtrObj &amp;p, MemFn memFn)" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename R , class TList  = NullType, template&lt; class &gt; class ThreadingModel = DEFAULT_THREADING&gt; </div>
+<div class="memtemplate">
+template&lt;class PtrObj , typename MemFn &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_loki_1_1_functor.html">Loki::Functor</a>&lt; R, TList, <a class="el" href="class_threading_model.html">ThreadingModel</a> &gt;::<a class="el" href="class_loki_1_1_functor.html">Functor</a> </td>
+          <td>(</td>
+          <td class="paramtype">const PtrObj &amp;&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">MemFn&#160;</td>
+          <td class="paramname"><em>memFn</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">Functor.h</a> の <a class="el" href="#L769">769</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">        : spImpl_(<span class="keyword">new</span> MemFunHandler&lt;Functor, PtrObj, MemFn&gt;(<a class="code" href="namespaceigrf.html#a9b0d3a2208a4bd2bf3982ee85d905d5a">p</a>, memFn))
+        {}
+
+</pre></div>
+</div>
+</div>
+<hr/><h2>関数</h2>
+<a class="anchor" id="a7f3bc0e098822e31fe09ae8924fcd2fa"></a><!-- doxytag: member="Loki::Functor::operator()" ref="a7f3bc0e098822e31fe09ae8924fcd2fa" args="()" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename R , class TList  = NullType, template&lt; class &gt; class ThreadingModel = DEFAULT_THREADING&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_loki_1_1_functor.html#aab1674f9e7992111585edcc08c054c3b">ResultType</a> <a class="el" href="class_loki_1_1_functor.html">Loki::Functor</a>&lt; R, TList, <a class="el" href="class_threading_model.html">ThreadingModel</a> &gt;::operator() </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">Functor.h</a> の <a class="el" href="#L783">783</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">        { <span class="keywordflow">return</span> (*spImpl_)(); }
+
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="a3406e12e3c5b9a9c8010a7208c628619"></a><!-- doxytag: member="Loki::Functor::operator()" ref="a3406e12e3c5b9a9c8010a7208c628619" args="(Parm1 p1, Parm2 p2, Parm3 p3, Parm4 p4, Parm5 p5, Parm6 p6, Parm7 p7, Parm8 p8, Parm9 p9, Parm10 p10, Parm11 p11, Parm12 p12, Parm13 p13, Parm14 p14, Parm15 p15)" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename R , class TList  = NullType, template&lt; class &gt; class ThreadingModel = DEFAULT_THREADING&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_loki_1_1_functor.html#aab1674f9e7992111585edcc08c054c3b">ResultType</a> <a class="el" href="class_loki_1_1_functor.html">Loki::Functor</a>&lt; R, TList, <a class="el" href="class_threading_model.html">ThreadingModel</a> &gt;::operator() </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#a045d5c968bdd63f343b544c0ea0d7a6f">Parm1</a>&#160;</td>
+          <td class="paramname"><em>p1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#a640d485c38b777e0cfec8bb3bc338bf5">Parm2</a>&#160;</td>
+          <td class="paramname"><em>p2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#a4510c821c3b2e618bfb2f8cbe02595bd">Parm3</a>&#160;</td>
+          <td class="paramname"><em>p3</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#a8673526f4dacd4422c5ca244bc5741fb">Parm4</a>&#160;</td>
+          <td class="paramname"><em>p4</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#aea364a78c56dcebeb9ec7409de5e0da1">Parm5</a>&#160;</td>
+          <td class="paramname"><em>p5</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#ab06e3bdf61397fd84e984e5168722ff9">Parm6</a>&#160;</td>
+          <td class="paramname"><em>p6</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#aab5ee7fd35cf323f8dca110e93eb80ba">Parm7</a>&#160;</td>
+          <td class="paramname"><em>p7</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#a2d997a91357dfb969aed7024872ed742">Parm8</a>&#160;</td>
+          <td class="paramname"><em>p8</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#aeaf24b289db13359375b65618594864f">Parm9</a>&#160;</td>
+          <td class="paramname"><em>p9</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#a3737d6d33f30f93b495b736eddd6dfbc">Parm10</a>&#160;</td>
+          <td class="paramname"><em>p10</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#ad2a56df2277423342e6ad32b7b8ee5eb">Parm11</a>&#160;</td>
+          <td class="paramname"><em>p11</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#addaff575d8563e7e95b019eae9966d70">Parm12</a>&#160;</td>
+          <td class="paramname"><em>p12</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#ab1314bcd2d2598990f77f559cf2e3aa4">Parm13</a>&#160;</td>
+          <td class="paramname"><em>p13</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#afaaa55a230bf521b9bd5c4ecb9385889">Parm14</a>&#160;</td>
+          <td class="paramname"><em>p14</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#a1efbf17924c5e0283e12c730f2bae945">Parm15</a>&#160;</td>
+          <td class="paramname"><em>p15</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">Functor.h</a> の <a class="el" href="#L849">849</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">        {
+            <span class="keywordflow">return</span> (*spImpl_)(p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, 
+                p12, p13, p14, p15);
+        }
+
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="a5c40274fe65a9c31fed27732c7f3acf0"></a><!-- doxytag: member="Loki::Functor::operator()" ref="a5c40274fe65a9c31fed27732c7f3acf0" args="(Parm1 p1, Parm2 p2)" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename R , class TList  = NullType, template&lt; class &gt; class ThreadingModel = DEFAULT_THREADING&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_loki_1_1_functor.html#aab1674f9e7992111585edcc08c054c3b">ResultType</a> <a class="el" href="class_loki_1_1_functor.html">Loki::Functor</a>&lt; R, TList, <a class="el" href="class_threading_model.html">ThreadingModel</a> &gt;::operator() </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#a045d5c968bdd63f343b544c0ea0d7a6f">Parm1</a>&#160;</td>
+          <td class="paramname"><em>p1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#a640d485c38b777e0cfec8bb3bc338bf5">Parm2</a>&#160;</td>
+          <td class="paramname"><em>p2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">Functor.h</a> の <a class="el" href="#L789">789</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">        { <span class="keywordflow">return</span> (*spImpl_)(p1, p2); }
+        
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="ade870300d7435328e7429280935a0e92"></a><!-- doxytag: member="Loki::Functor::operator()" ref="ade870300d7435328e7429280935a0e92" args="(Parm1 p1, Parm2 p2, Parm3 p3, Parm4 p4, Parm5 p5, Parm6 p6, Parm7 p7, Parm8 p8, Parm9 p9, Parm10 p10, Parm11 p11, Parm12 p12, Parm13 p13)" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename R , class TList  = NullType, template&lt; class &gt; class ThreadingModel = DEFAULT_THREADING&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_loki_1_1_functor.html#aab1674f9e7992111585edcc08c054c3b">ResultType</a> <a class="el" href="class_loki_1_1_functor.html">Loki::Functor</a>&lt; R, TList, <a class="el" href="class_threading_model.html">ThreadingModel</a> &gt;::operator() </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#a045d5c968bdd63f343b544c0ea0d7a6f">Parm1</a>&#160;</td>
+          <td class="paramname"><em>p1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#a640d485c38b777e0cfec8bb3bc338bf5">Parm2</a>&#160;</td>
+          <td class="paramname"><em>p2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#a4510c821c3b2e618bfb2f8cbe02595bd">Parm3</a>&#160;</td>
+          <td class="paramname"><em>p3</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#a8673526f4dacd4422c5ca244bc5741fb">Parm4</a>&#160;</td>
+          <td class="paramname"><em>p4</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#aea364a78c56dcebeb9ec7409de5e0da1">Parm5</a>&#160;</td>
+          <td class="paramname"><em>p5</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#ab06e3bdf61397fd84e984e5168722ff9">Parm6</a>&#160;</td>
+          <td class="paramname"><em>p6</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#aab5ee7fd35cf323f8dca110e93eb80ba">Parm7</a>&#160;</td>
+          <td class="paramname"><em>p7</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#a2d997a91357dfb969aed7024872ed742">Parm8</a>&#160;</td>
+          <td class="paramname"><em>p8</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#aeaf24b289db13359375b65618594864f">Parm9</a>&#160;</td>
+          <td class="paramname"><em>p9</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#a3737d6d33f30f93b495b736eddd6dfbc">Parm10</a>&#160;</td>
+          <td class="paramname"><em>p10</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#ad2a56df2277423342e6ad32b7b8ee5eb">Parm11</a>&#160;</td>
+          <td class="paramname"><em>p11</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#addaff575d8563e7e95b019eae9966d70">Parm12</a>&#160;</td>
+          <td class="paramname"><em>p12</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#ab1314bcd2d2598990f77f559cf2e3aa4">Parm13</a>&#160;</td>
+          <td class="paramname"><em>p13</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">Functor.h</a> の <a class="el" href="#L833">833</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">        {
+            <span class="keywordflow">return</span> (*spImpl_)(p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11,
+            p12, p13);
+        }
+        
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="ae955a4100b8a9ddda5b55b2d57add678"></a><!-- doxytag: member="Loki::Functor::operator()" ref="ae955a4100b8a9ddda5b55b2d57add678" args="(Parm1 p1, Parm2 p2, Parm3 p3, Parm4 p4, Parm5 p5, Parm6 p6, Parm7 p7, Parm8 p8, Parm9 p9, Parm10 p10, Parm11 p11, Parm12 p12)" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename R , class TList  = NullType, template&lt; class &gt; class ThreadingModel = DEFAULT_THREADING&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_loki_1_1_functor.html#aab1674f9e7992111585edcc08c054c3b">ResultType</a> <a class="el" href="class_loki_1_1_functor.html">Loki::Functor</a>&lt; R, TList, <a class="el" href="class_threading_model.html">ThreadingModel</a> &gt;::operator() </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#a045d5c968bdd63f343b544c0ea0d7a6f">Parm1</a>&#160;</td>
+          <td class="paramname"><em>p1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#a640d485c38b777e0cfec8bb3bc338bf5">Parm2</a>&#160;</td>
+          <td class="paramname"><em>p2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#a4510c821c3b2e618bfb2f8cbe02595bd">Parm3</a>&#160;</td>
+          <td class="paramname"><em>p3</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#a8673526f4dacd4422c5ca244bc5741fb">Parm4</a>&#160;</td>
+          <td class="paramname"><em>p4</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#aea364a78c56dcebeb9ec7409de5e0da1">Parm5</a>&#160;</td>
+          <td class="paramname"><em>p5</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#ab06e3bdf61397fd84e984e5168722ff9">Parm6</a>&#160;</td>
+          <td class="paramname"><em>p6</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#aab5ee7fd35cf323f8dca110e93eb80ba">Parm7</a>&#160;</td>
+          <td class="paramname"><em>p7</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#a2d997a91357dfb969aed7024872ed742">Parm8</a>&#160;</td>
+          <td class="paramname"><em>p8</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#aeaf24b289db13359375b65618594864f">Parm9</a>&#160;</td>
+          <td class="paramname"><em>p9</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#a3737d6d33f30f93b495b736eddd6dfbc">Parm10</a>&#160;</td>
+          <td class="paramname"><em>p10</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#ad2a56df2277423342e6ad32b7b8ee5eb">Parm11</a>&#160;</td>
+          <td class="paramname"><em>p11</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#addaff575d8563e7e95b019eae9966d70">Parm12</a>&#160;</td>
+          <td class="paramname"><em>p12</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">Functor.h</a> の <a class="el" href="#L825">825</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">        {
+            <span class="keywordflow">return</span> (*spImpl_)(p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, 
+                p12);
+        }
+        
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="a2bc2921434a57477a832e694db879bce"></a><!-- doxytag: member="Loki::Functor::operator()" ref="a2bc2921434a57477a832e694db879bce" args="(Parm1 p1, Parm2 p2, Parm3 p3, Parm4 p4, Parm5 p5, Parm6 p6, Parm7 p7, Parm8 p8, Parm9 p9, Parm10 p10, Parm11 p11)" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename R , class TList  = NullType, template&lt; class &gt; class ThreadingModel = DEFAULT_THREADING&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_loki_1_1_functor.html#aab1674f9e7992111585edcc08c054c3b">ResultType</a> <a class="el" href="class_loki_1_1_functor.html">Loki::Functor</a>&lt; R, TList, <a class="el" href="class_threading_model.html">ThreadingModel</a> &gt;::operator() </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#a045d5c968bdd63f343b544c0ea0d7a6f">Parm1</a>&#160;</td>
+          <td class="paramname"><em>p1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#a640d485c38b777e0cfec8bb3bc338bf5">Parm2</a>&#160;</td>
+          <td class="paramname"><em>p2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#a4510c821c3b2e618bfb2f8cbe02595bd">Parm3</a>&#160;</td>
+          <td class="paramname"><em>p3</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#a8673526f4dacd4422c5ca244bc5741fb">Parm4</a>&#160;</td>
+          <td class="paramname"><em>p4</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#aea364a78c56dcebeb9ec7409de5e0da1">Parm5</a>&#160;</td>
+          <td class="paramname"><em>p5</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#ab06e3bdf61397fd84e984e5168722ff9">Parm6</a>&#160;</td>
+          <td class="paramname"><em>p6</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#aab5ee7fd35cf323f8dca110e93eb80ba">Parm7</a>&#160;</td>
+          <td class="paramname"><em>p7</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#a2d997a91357dfb969aed7024872ed742">Parm8</a>&#160;</td>
+          <td class="paramname"><em>p8</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#aeaf24b289db13359375b65618594864f">Parm9</a>&#160;</td>
+          <td class="paramname"><em>p9</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#a3737d6d33f30f93b495b736eddd6dfbc">Parm10</a>&#160;</td>
+          <td class="paramname"><em>p10</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#ad2a56df2277423342e6ad32b7b8ee5eb">Parm11</a>&#160;</td>
+          <td class="paramname"><em>p11</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">Functor.h</a> の <a class="el" href="#L821">821</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">        { <span class="keywordflow">return</span> (*spImpl_)(p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11); }
+        
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="a628e249db26d1b8b395500d38b49cbe3"></a><!-- doxytag: member="Loki::Functor::operator()" ref="a628e249db26d1b8b395500d38b49cbe3" args="(Parm1 p1, Parm2 p2, Parm3 p3, Parm4 p4, Parm5 p5, Parm6 p6, Parm7 p7, Parm8 p8, Parm9 p9, Parm10 p10)" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename R , class TList  = NullType, template&lt; class &gt; class ThreadingModel = DEFAULT_THREADING&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_loki_1_1_functor.html#aab1674f9e7992111585edcc08c054c3b">ResultType</a> <a class="el" href="class_loki_1_1_functor.html">Loki::Functor</a>&lt; R, TList, <a class="el" href="class_threading_model.html">ThreadingModel</a> &gt;::operator() </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#a045d5c968bdd63f343b544c0ea0d7a6f">Parm1</a>&#160;</td>
+          <td class="paramname"><em>p1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#a640d485c38b777e0cfec8bb3bc338bf5">Parm2</a>&#160;</td>
+          <td class="paramname"><em>p2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#a4510c821c3b2e618bfb2f8cbe02595bd">Parm3</a>&#160;</td>
+          <td class="paramname"><em>p3</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#a8673526f4dacd4422c5ca244bc5741fb">Parm4</a>&#160;</td>
+          <td class="paramname"><em>p4</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#aea364a78c56dcebeb9ec7409de5e0da1">Parm5</a>&#160;</td>
+          <td class="paramname"><em>p5</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#ab06e3bdf61397fd84e984e5168722ff9">Parm6</a>&#160;</td>
+          <td class="paramname"><em>p6</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#aab5ee7fd35cf323f8dca110e93eb80ba">Parm7</a>&#160;</td>
+          <td class="paramname"><em>p7</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#a2d997a91357dfb969aed7024872ed742">Parm8</a>&#160;</td>
+          <td class="paramname"><em>p8</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#aeaf24b289db13359375b65618594864f">Parm9</a>&#160;</td>
+          <td class="paramname"><em>p9</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#a3737d6d33f30f93b495b736eddd6dfbc">Parm10</a>&#160;</td>
+          <td class="paramname"><em>p10</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">Functor.h</a> の <a class="el" href="#L817">817</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">        { <span class="keywordflow">return</span> (*spImpl_)(p1, p2, p3, p4, p5, p6, p7, p8, p9, p10); }
+        
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="a703caae95baefbdab2f52a1864037956"></a><!-- doxytag: member="Loki::Functor::operator()" ref="a703caae95baefbdab2f52a1864037956" args="(Parm1 p1, Parm2 p2, Parm3 p3, Parm4 p4, Parm5 p5, Parm6 p6, Parm7 p7, Parm8 p8, Parm9 p9)" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename R , class TList  = NullType, template&lt; class &gt; class ThreadingModel = DEFAULT_THREADING&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_loki_1_1_functor.html#aab1674f9e7992111585edcc08c054c3b">ResultType</a> <a class="el" href="class_loki_1_1_functor.html">Loki::Functor</a>&lt; R, TList, <a class="el" href="class_threading_model.html">ThreadingModel</a> &gt;::operator() </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#a045d5c968bdd63f343b544c0ea0d7a6f">Parm1</a>&#160;</td>
+          <td class="paramname"><em>p1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#a640d485c38b777e0cfec8bb3bc338bf5">Parm2</a>&#160;</td>
+          <td class="paramname"><em>p2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#a4510c821c3b2e618bfb2f8cbe02595bd">Parm3</a>&#160;</td>
+          <td class="paramname"><em>p3</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#a8673526f4dacd4422c5ca244bc5741fb">Parm4</a>&#160;</td>
+          <td class="paramname"><em>p4</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#aea364a78c56dcebeb9ec7409de5e0da1">Parm5</a>&#160;</td>
+          <td class="paramname"><em>p5</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#ab06e3bdf61397fd84e984e5168722ff9">Parm6</a>&#160;</td>
+          <td class="paramname"><em>p6</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#aab5ee7fd35cf323f8dca110e93eb80ba">Parm7</a>&#160;</td>
+          <td class="paramname"><em>p7</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#a2d997a91357dfb969aed7024872ed742">Parm8</a>&#160;</td>
+          <td class="paramname"><em>p8</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#aeaf24b289db13359375b65618594864f">Parm9</a>&#160;</td>
+          <td class="paramname"><em>p9</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">Functor.h</a> の <a class="el" href="#L813">813</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">        { <span class="keywordflow">return</span> (*spImpl_)(p1, p2, p3, p4, p5, p6, p7, p8, p9); }
+        
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="a8a6bd13f6da2108836a7a8c7041c6990"></a><!-- doxytag: member="Loki::Functor::operator()" ref="a8a6bd13f6da2108836a7a8c7041c6990" args="(Parm1 p1, Parm2 p2, Parm3 p3, Parm4 p4, Parm5 p5, Parm6 p6, Parm7 p7, Parm8 p8)" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename R , class TList  = NullType, template&lt; class &gt; class ThreadingModel = DEFAULT_THREADING&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_loki_1_1_functor.html#aab1674f9e7992111585edcc08c054c3b">ResultType</a> <a class="el" href="class_loki_1_1_functor.html">Loki::Functor</a>&lt; R, TList, <a class="el" href="class_threading_model.html">ThreadingModel</a> &gt;::operator() </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#a045d5c968bdd63f343b544c0ea0d7a6f">Parm1</a>&#160;</td>
+          <td class="paramname"><em>p1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#a640d485c38b777e0cfec8bb3bc338bf5">Parm2</a>&#160;</td>
+          <td class="paramname"><em>p2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#a4510c821c3b2e618bfb2f8cbe02595bd">Parm3</a>&#160;</td>
+          <td class="paramname"><em>p3</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#a8673526f4dacd4422c5ca244bc5741fb">Parm4</a>&#160;</td>
+          <td class="paramname"><em>p4</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#aea364a78c56dcebeb9ec7409de5e0da1">Parm5</a>&#160;</td>
+          <td class="paramname"><em>p5</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#ab06e3bdf61397fd84e984e5168722ff9">Parm6</a>&#160;</td>
+          <td class="paramname"><em>p6</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#aab5ee7fd35cf323f8dca110e93eb80ba">Parm7</a>&#160;</td>
+          <td class="paramname"><em>p7</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#a2d997a91357dfb969aed7024872ed742">Parm8</a>&#160;</td>
+          <td class="paramname"><em>p8</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">Functor.h</a> の <a class="el" href="#L809">809</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">        { <span class="keywordflow">return</span> (*spImpl_)(p1, p2, p3, p4, p5, p6, p7, p8); }
+        
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="a37184792372e9f28b6fd6b968579f1dd"></a><!-- doxytag: member="Loki::Functor::operator()" ref="a37184792372e9f28b6fd6b968579f1dd" args="(Parm1 p1, Parm2 p2, Parm3 p3, Parm4 p4, Parm5 p5, Parm6 p6, Parm7 p7)" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename R , class TList  = NullType, template&lt; class &gt; class ThreadingModel = DEFAULT_THREADING&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_loki_1_1_functor.html#aab1674f9e7992111585edcc08c054c3b">ResultType</a> <a class="el" href="class_loki_1_1_functor.html">Loki::Functor</a>&lt; R, TList, <a class="el" href="class_threading_model.html">ThreadingModel</a> &gt;::operator() </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#a045d5c968bdd63f343b544c0ea0d7a6f">Parm1</a>&#160;</td>
+          <td class="paramname"><em>p1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#a640d485c38b777e0cfec8bb3bc338bf5">Parm2</a>&#160;</td>
+          <td class="paramname"><em>p2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#a4510c821c3b2e618bfb2f8cbe02595bd">Parm3</a>&#160;</td>
+          <td class="paramname"><em>p3</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#a8673526f4dacd4422c5ca244bc5741fb">Parm4</a>&#160;</td>
+          <td class="paramname"><em>p4</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#aea364a78c56dcebeb9ec7409de5e0da1">Parm5</a>&#160;</td>
+          <td class="paramname"><em>p5</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#ab06e3bdf61397fd84e984e5168722ff9">Parm6</a>&#160;</td>
+          <td class="paramname"><em>p6</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#aab5ee7fd35cf323f8dca110e93eb80ba">Parm7</a>&#160;</td>
+          <td class="paramname"><em>p7</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">Functor.h</a> の <a class="el" href="#L805">805</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">        { <span class="keywordflow">return</span> (*spImpl_)(p1, p2, p3, p4, p5, p6, p7); }
+        
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="a9f0f984fc0a993a38dcdb9d4041f50e8"></a><!-- doxytag: member="Loki::Functor::operator()" ref="a9f0f984fc0a993a38dcdb9d4041f50e8" args="(Parm1 p1, Parm2 p2, Parm3 p3, Parm4 p4, Parm5 p5, Parm6 p6)" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename R , class TList  = NullType, template&lt; class &gt; class ThreadingModel = DEFAULT_THREADING&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_loki_1_1_functor.html#aab1674f9e7992111585edcc08c054c3b">ResultType</a> <a class="el" href="class_loki_1_1_functor.html">Loki::Functor</a>&lt; R, TList, <a class="el" href="class_threading_model.html">ThreadingModel</a> &gt;::operator() </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#a045d5c968bdd63f343b544c0ea0d7a6f">Parm1</a>&#160;</td>
+          <td class="paramname"><em>p1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#a640d485c38b777e0cfec8bb3bc338bf5">Parm2</a>&#160;</td>
+          <td class="paramname"><em>p2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#a4510c821c3b2e618bfb2f8cbe02595bd">Parm3</a>&#160;</td>
+          <td class="paramname"><em>p3</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#a8673526f4dacd4422c5ca244bc5741fb">Parm4</a>&#160;</td>
+          <td class="paramname"><em>p4</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#aea364a78c56dcebeb9ec7409de5e0da1">Parm5</a>&#160;</td>
+          <td class="paramname"><em>p5</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#ab06e3bdf61397fd84e984e5168722ff9">Parm6</a>&#160;</td>
+          <td class="paramname"><em>p6</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">Functor.h</a> の <a class="el" href="#L801">801</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">        { <span class="keywordflow">return</span> (*spImpl_)(p1, p2, p3, p4, p5, p6); }
+        
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="a550b24faf793200ed2c397a70eb2254b"></a><!-- doxytag: member="Loki::Functor::operator()" ref="a550b24faf793200ed2c397a70eb2254b" args="(Parm1 p1, Parm2 p2, Parm3 p3, Parm4 p4, Parm5 p5)" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename R , class TList  = NullType, template&lt; class &gt; class ThreadingModel = DEFAULT_THREADING&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_loki_1_1_functor.html#aab1674f9e7992111585edcc08c054c3b">ResultType</a> <a class="el" href="class_loki_1_1_functor.html">Loki::Functor</a>&lt; R, TList, <a class="el" href="class_threading_model.html">ThreadingModel</a> &gt;::operator() </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#a045d5c968bdd63f343b544c0ea0d7a6f">Parm1</a>&#160;</td>
+          <td class="paramname"><em>p1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#a640d485c38b777e0cfec8bb3bc338bf5">Parm2</a>&#160;</td>
+          <td class="paramname"><em>p2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#a4510c821c3b2e618bfb2f8cbe02595bd">Parm3</a>&#160;</td>
+          <td class="paramname"><em>p3</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#a8673526f4dacd4422c5ca244bc5741fb">Parm4</a>&#160;</td>
+          <td class="paramname"><em>p4</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#aea364a78c56dcebeb9ec7409de5e0da1">Parm5</a>&#160;</td>
+          <td class="paramname"><em>p5</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">Functor.h</a> の <a class="el" href="#L798">798</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">        { <span class="keywordflow">return</span> (*spImpl_)(p1, p2, p3, p4, p5); }
+        
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="acc07058bbd4e851cac922c41ed905aa4"></a><!-- doxytag: member="Loki::Functor::operator()" ref="acc07058bbd4e851cac922c41ed905aa4" args="(Parm1 p1, Parm2 p2, Parm3 p3, Parm4 p4)" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename R , class TList  = NullType, template&lt; class &gt; class ThreadingModel = DEFAULT_THREADING&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_loki_1_1_functor.html#aab1674f9e7992111585edcc08c054c3b">ResultType</a> <a class="el" href="class_loki_1_1_functor.html">Loki::Functor</a>&lt; R, TList, <a class="el" href="class_threading_model.html">ThreadingModel</a> &gt;::operator() </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#a045d5c968bdd63f343b544c0ea0d7a6f">Parm1</a>&#160;</td>
+          <td class="paramname"><em>p1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#a640d485c38b777e0cfec8bb3bc338bf5">Parm2</a>&#160;</td>
+          <td class="paramname"><em>p2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#a4510c821c3b2e618bfb2f8cbe02595bd">Parm3</a>&#160;</td>
+          <td class="paramname"><em>p3</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#a8673526f4dacd4422c5ca244bc5741fb">Parm4</a>&#160;</td>
+          <td class="paramname"><em>p4</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">Functor.h</a> の <a class="el" href="#L795">795</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">        { <span class="keywordflow">return</span> (*spImpl_)(p1, p2, p3, p4); }
+        
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="acfcd3caddde9e2da4a171ea14f8e5467"></a><!-- doxytag: member="Loki::Functor::operator()" ref="acfcd3caddde9e2da4a171ea14f8e5467" args="(Parm1 p1, Parm2 p2, Parm3 p3)" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename R , class TList  = NullType, template&lt; class &gt; class ThreadingModel = DEFAULT_THREADING&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_loki_1_1_functor.html#aab1674f9e7992111585edcc08c054c3b">ResultType</a> <a class="el" href="class_loki_1_1_functor.html">Loki::Functor</a>&lt; R, TList, <a class="el" href="class_threading_model.html">ThreadingModel</a> &gt;::operator() </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#a045d5c968bdd63f343b544c0ea0d7a6f">Parm1</a>&#160;</td>
+          <td class="paramname"><em>p1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#a640d485c38b777e0cfec8bb3bc338bf5">Parm2</a>&#160;</td>
+          <td class="paramname"><em>p2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#a4510c821c3b2e618bfb2f8cbe02595bd">Parm3</a>&#160;</td>
+          <td class="paramname"><em>p3</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">Functor.h</a> の <a class="el" href="#L792">792</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">        { <span class="keywordflow">return</span> (*spImpl_)(p1, p2, p3); }
+        
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="a32a26fd5c28a176de3f6a836cfbf7f73"></a><!-- doxytag: member="Loki::Functor::operator()" ref="a32a26fd5c28a176de3f6a836cfbf7f73" args="(Parm1 p1, Parm2 p2, Parm3 p3, Parm4 p4, Parm5 p5, Parm6 p6, Parm7 p7, Parm8 p8, Parm9 p9, Parm10 p10, Parm11 p11, Parm12 p12, Parm13 p13, Parm14 p14)" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename R , class TList  = NullType, template&lt; class &gt; class ThreadingModel = DEFAULT_THREADING&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_loki_1_1_functor.html#aab1674f9e7992111585edcc08c054c3b">ResultType</a> <a class="el" href="class_loki_1_1_functor.html">Loki::Functor</a>&lt; R, TList, <a class="el" href="class_threading_model.html">ThreadingModel</a> &gt;::operator() </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#a045d5c968bdd63f343b544c0ea0d7a6f">Parm1</a>&#160;</td>
+          <td class="paramname"><em>p1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#a640d485c38b777e0cfec8bb3bc338bf5">Parm2</a>&#160;</td>
+          <td class="paramname"><em>p2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#a4510c821c3b2e618bfb2f8cbe02595bd">Parm3</a>&#160;</td>
+          <td class="paramname"><em>p3</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#a8673526f4dacd4422c5ca244bc5741fb">Parm4</a>&#160;</td>
+          <td class="paramname"><em>p4</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#aea364a78c56dcebeb9ec7409de5e0da1">Parm5</a>&#160;</td>
+          <td class="paramname"><em>p5</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#ab06e3bdf61397fd84e984e5168722ff9">Parm6</a>&#160;</td>
+          <td class="paramname"><em>p6</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#aab5ee7fd35cf323f8dca110e93eb80ba">Parm7</a>&#160;</td>
+          <td class="paramname"><em>p7</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#a2d997a91357dfb969aed7024872ed742">Parm8</a>&#160;</td>
+          <td class="paramname"><em>p8</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#aeaf24b289db13359375b65618594864f">Parm9</a>&#160;</td>
+          <td class="paramname"><em>p9</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#a3737d6d33f30f93b495b736eddd6dfbc">Parm10</a>&#160;</td>
+          <td class="paramname"><em>p10</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#ad2a56df2277423342e6ad32b7b8ee5eb">Parm11</a>&#160;</td>
+          <td class="paramname"><em>p11</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#addaff575d8563e7e95b019eae9966d70">Parm12</a>&#160;</td>
+          <td class="paramname"><em>p12</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#ab1314bcd2d2598990f77f559cf2e3aa4">Parm13</a>&#160;</td>
+          <td class="paramname"><em>p13</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#afaaa55a230bf521b9bd5c4ecb9385889">Parm14</a>&#160;</td>
+          <td class="paramname"><em>p14</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">Functor.h</a> の <a class="el" href="#L841">841</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">        {
+            <span class="keywordflow">return</span> (*spImpl_)(p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, 
+                p12, p13, p14);
+        }
+        
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="a7a27f379ade6815135c0d372776041dc"></a><!-- doxytag: member="Loki::Functor::operator()" ref="a7a27f379ade6815135c0d372776041dc" args="(Parm1 p1)" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename R , class TList  = NullType, template&lt; class &gt; class ThreadingModel = DEFAULT_THREADING&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_loki_1_1_functor.html#aab1674f9e7992111585edcc08c054c3b">ResultType</a> <a class="el" href="class_loki_1_1_functor.html">Loki::Functor</a>&lt; R, TList, <a class="el" href="class_threading_model.html">ThreadingModel</a> &gt;::operator() </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_loki_1_1_functor.html#a045d5c968bdd63f343b544c0ea0d7a6f">Parm1</a>&#160;</td>
+          <td class="paramname"><em>p1</em></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">Functor.h</a> の <a class="el" href="#L786">786</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">        { <span class="keywordflow">return</span> (*spImpl_)(p1); }
+        
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="ac051d50ce31c4375384bda90db062c29"></a><!-- doxytag: member="Loki::Functor::operator=" ref="ac051d50ce31c4375384bda90db062c29" args="(const Functor &amp;rhs)" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename R , class TList  = NullType, template&lt; class &gt; class ThreadingModel = DEFAULT_THREADING&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_loki_1_1_functor.html">Functor</a>&amp; <a class="el" href="class_loki_1_1_functor.html">Loki::Functor</a>&lt; R, TList, <a class="el" href="class_threading_model.html">ThreadingModel</a> &gt;::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_loki_1_1_functor.html">Functor</a>&lt; R, TList, <a class="el" href="class_threading_model.html">ThreadingModel</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">Functor.h</a> の <a class="el" href="#L773">773</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">        {
+            <a class="code" href="class_loki_1_1_functor.html#ac4ff65be190c6e7c534ce785d965850b">Functor</a> copy(rhs);
+            <span class="comment">// swap auto_ptrs by hand</span>
+            <a class="code" href="class_loki_1_1_functor.html#a469c91f010e9dbfe005c7f39bd629532">Impl</a>* <a class="code" href="namespaceigrf.html#a9b0d3a2208a4bd2bf3982ee85d905d5a">p</a> = spImpl_.release();
+            spImpl_.reset(copy.spImpl_.release());
+            copy.spImpl_.reset(p);
+            <span class="keywordflow">return</span> *<span class="keyword">this</span>;
+        }
+        
+</pre></div>
+</div>
+</div>
+<hr/>このクラスの説明は次のファイルから生成されました:<ul>
+<li>stf/util/loki/<a class="el" href="">Functor.h</a></li>
+</ul>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>フレンド</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>マクロ定義</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>STFに対してWed Mar 23 2011 05:32:58に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
+</body>
+</html>

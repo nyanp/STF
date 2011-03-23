@@ -1,0 +1,25 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$classstf_1_1core_1_1devicedriver_1_1_multi_sensor.html" title="stf::core::devicedriver::MultiSensor\&lt; datatype::Current, NJ__CURRENT__CHANNELS, NJ__ADC__CHANNELS, Env \&gt;" alt="" coords="2825,192,3527,222"/>
+<area shape="rect" id="node4" href="$classstf_1_1core_1_1devicedriver_1_1_c_d_h_component.html" title="stf::core::devicedriver::CDHComponent\&lt; datatype::Current, NUM, Env \&gt;" alt="" coords="1903,192,2337,222"/>
+<area shape="rect" id="node6" href="$classstf_1_1_root_object.html" title="数値型を除いた全クラスの基本となるクラス．" alt="" coords="1521,307,1631,336"/>
+<area shape="rect" id="node14" href="$classstf_1_1core_1_1datapool_1_1_data_pool_base.html" title="Tupleを複数個保持するデータプールの基底クラス．" alt="" coords="2012,426,2228,455"/>
+<area shape="rect" id="node27" href="$classstf_1_1core_1_1datapool_1_1_event_data_pool.html" title="Eventのデータプール．" alt="" coords="2011,306,2229,335"/>
+<area shape="rect" id="node50" href="$classstf_1_1core_1_1devicedriver_1_1_c_d_h_component.html" title="stf::core::devicedriver::CDHComponent\&lt; datatype::Voltage, NUM, Env \&gt;" alt="" coords="1903,66,2337,95"/>
+<area shape="rect" id="node8" href="$classstf_1_1core_1_1devicedriver_1_1clock_1_1_i_time_clock.html" title="Time型のカウントが可能であることを示す抽象インターフェース．" alt="" coords="904,258,1157,287"/>
+<area shape="rect" id="node10" href="$classstf_1_1core_1_1devicedriver_1_1_i_data_updatable.html" title="周期的にデータを取得，送信するコンポーネントに対するインターフェース" alt="" coords="352,132,589,162"/>
+<area shape="rect" id="node12" href="$classstf_1_1core_1_1datapool_1_1_aocs_data_pool.html" title="IAocsDataのデータプール．" alt="" coords="2440,378,2656,407"/>
+<area shape="rect" id="node17" href="$classstf_1_1core_1_1datapool_1_1_tuple.html" title="stf::core::datapool::Tuple\&lt; datatype::IAocsData \&gt;" alt="" coords="877,376,1184,406"/>
+<area shape="rect" id="node19" href="$classstf_1_1datatype_1_1_i_aocs_data.html" title="AOCS使用系列のデータ共通の抽象インターフェース．" alt="" coords="389,242,552,271"/>
+<area shape="rect" id="node43" href="$classstf_1_1datatype_1_1_scalar.html" title="スカラー物理量を表現するクラス．" alt="" coords="961,203,1100,232"/>
+<area shape="rect" id="node21" href="$classstf_1_1interface_1_1_i_telemetable.html" title="テレメトリを生成可能なオブジェクトに対するインターフェース．" alt="" coords="7,242,180,271"/>
+<area shape="rect" id="node23" href="$classstf_1_1datatype_1_1_time.html" title="経過時間を表すクラス．" alt="" coords="28,328,159,358"/>
+<area shape="rect" id="node34" href="$struct_loki_1_1_tuple_unit.html" title="Loki::TupleUnit\&lt; TYPELIST_2(event::EventType, datatype::Time) \&gt;" alt="" coords="268,295,673,324"/>
+<area shape="rect" id="node25" href="$classstf_1_1datatype_1_1_string.html" title="std::stringの簡略版．" alt="" coords="403,435,539,464"/>
+<area shape="rect" id="node30" href="$struct_loki_1_1_tuple.html" title="Loki::Tuple\&lt; TYPELIST_2(event::EventType, datatype::Time)\&gt;" alt="" coords="1387,380,1765,410"/>
+<area shape="rect" id="node32" href="$class_loki_1_1_gen_scatter_hierarchy.html" title="Loki::GenScatterHierarchy\&lt; TYPELIST_2(event::EventType, datatype::Time), TupleUnit \&gt;" alt="" coords="764,315,1297,344"/>
+<area shape="rect" id="node39" href="$classstf_1_1core_1_1devicedriver_1_1_i_switchable.html" title="電源のオンオフ制御が可能なコンポーネントに対するインターフェース．" alt="" coords="1468,80,1684,110"/>
+<area shape="rect" id="node41" href="$classstf_1_1datatype_1_1_current.html" title="電流を表すクラス．" alt="" coords="1504,203,1648,232"/>
+<area shape="rect" id="node55" href="$classstf_1_1datatype_1_1_voltage.html" title="電圧を表すクラス．" alt="" coords="1503,27,1649,56"/>
+<area shape="rect" id="node46" href="$classstf_1_1core_1_1devicedriver_1_1_first_order_convert.html" title="1次関数による変換を行うポリシークラス" alt="" coords="2423,431,2673,460"/>
+<area shape="rect" id="node48" href="$classstf_1_1core_1_1devicedriver_1_1_a_d_c_base.html" title="stf::core::devicedriver::ADCBase\&lt; ADCNUM, Env \&gt;" alt="" coords="2389,98,2707,127"/>
+</map>

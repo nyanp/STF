@@ -1,0 +1,350 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>STF: クラス stf::core::command::Command</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.3 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">STF</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="pages.html"><span>関連ページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li class="current"><a href="annotated.html"><span>クラス</span></a></li>
+      <li><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>構成</span></a></li>
+      <li><a href="classes.html"><span>構成索引</span></a></li>
+      <li><a href="inherits.html"><span>クラス階層</span></a></li>
+      <li><a href="functions.html"><span>構成メンバ</span></a></li>
+    </ul>
+  </div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="namespacestf.html">stf</a>      </li>
+      <li class="navelem"><a class="el" href="namespacestf_1_1core.html">core</a>      </li>
+      <li class="navelem"><a class="el" href="namespacestf_1_1core_1_1command.html">command</a>      </li>
+      <li class="navelem"><a class="el" href="classstf_1_1core_1_1command_1_1_command.html">Command</a>      </li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public メソッド</a> &#124;
+<a href="#pro-attribs">Protected 変数</a>  </div>
+  <div class="headertitle">
+<h1>クラス stf::core::command::Command</h1>  </div>
+</div>
+<div class="contents">
+<!-- doxytag: class="stf::core::command::Command" --><!-- doxytag: inherits="stf::RootObject" -->
+<p>衛星コマンドの抽象インターフェースと共通の実装を行う基底クラス．  
+<a href="#_details">[詳細]</a></p>
+
+<p><code>#include &lt;<a class="el" href="">Command.h</a>&gt;</code></p>
+<div class="dynheader">
+stf::core::command::Commandに対する継承グラフ</div>
+<div class="dyncontent">
+<div class="center"><img src="classstf_1_1core_1_1command_1_1_command__inherit__graph.png" border="0" usemap="#stf_1_1core_1_1command_1_1_command_inherit__map" alt="Inheritance graph"/></div>
+<map name="stf_1_1core_1_1command_1_1_command_inherit__map" id="stf_1_1core_1_1command_1_1_command_inherit__map">
+<area shape="rect" id="node5" href="classstf_1_1core_1_1command_1_1_get_command.html" title="引数無しのメンバ関数を起動し，戻り値をパケット送出するコマンド．" alt="" coords="495,5,764,35"/><area shape="rect" id="node7" href="classstf_1_1core_1_1command_1_1_get_iterator_command.html" title="イテレータを取得するメンバ関数を起動し，得られたイテレータを使って内部状態をパケットに送出するコマンド．" alt="" coords="417,59,841,88"/><area shape="rect" id="node9" href="classstf_1_1core_1_1command_1_1_iterator_stream_command.html" title="コンストラクタで引き渡したイテレータを使い，オブジェクトの内部状態をパケットに送出するコマンド．" alt="" coords="455,112,804,141"/><area shape="rect" id="node11" href="classstf_1_1core_1_1command_1_1_message_command.html" title="予め決められたメッセージを出力するコマンド．" alt="" coords="503,165,756,195"/><area shape="rect" id="node13" href="classstf_1_1core_1_1command_1_1mode_change_command.html" title="モード変更を行うコマンド" alt="" coords="491,219,768,248"/><area shape="rect" id="node15" href="classstf_1_1core_1_1command_1_1_sequence_command.html" title="複数個のコマンドをシーケンシャルに実行するコマンド．" alt="" coords="475,272,784,301"/><area shape="rect" id="node17" href="classstf_1_1core_1_1command_1_1_simple_functor_command.html" title="引数なしファンクタを起動するコマンド．" alt="" coords="487,325,772,355"/><area shape="rect" id="node19" href="classstf_1_1core_1_1command_1_1_simple_member_function_command.html" title="引数なし，戻り値型Uのメンバ関数を呼び出し，返答をコマンドパケットに送出する" alt="" coords="436,379,823,408"/><area shape="rect" id="node21" href="classstf_1_1core_1_1command_1_1_simple_member_function_command_3_01_t_00_01void_01_4.html" title="引数なし，戻り値voidのメンバ関数を呼び出す" alt="" coords="431,432,828,461"/><area shape="rect" id="node23" href="classstf_1_1core_1_1command_1_1_switch_command.html" title="機器のスイッチングを行うコマンド．" alt="" coords="509,485,749,515"/><area shape="rect" id="node25" href="classstf_1_1core_1_1command_1_1_type_list_member_function_command.html" title="N引数のメンバ関数を起動するコマンド．" alt="" coords="415,539,844,568"/><area shape="rect" id="node27" href="classstf_1_1core_1_1command_1_1_type_list_member_function_command_3_01_t_00_01_a_r_g_00_012_01_4.html" title="2引数のメンバ関数を起動するコマンド．" alt="" coords="415,592,844,621"/><area shape="rect" id="node29" href="classstf_1_1core_1_1command_1_1_type_list_member_function_command_3_01_t_00_01_a_r_g_00_013_01_4.html" title="3引数のメンバ関数を起動するコマンド．" alt="" coords="415,645,844,675"/><area shape="rect" id="node31" href="classstf_1_1core_1_1command_1_1_type_list_member_function_command_3_01_t_00_01_a_r_g_00_014_01_4.html" title="4引数のメンバ関数を起動するコマンド．" alt="" coords="415,699,844,728"/><area shape="rect" id="node33" href="classstf_1_1core_1_1command_1_1_type_list_member_function_command_3_01_t_00_01_a_r_g_00_015_01_4.html" title="5引数のメンバ関数を起動するコマンド．" alt="" coords="415,752,844,781"/><area shape="rect" id="node35" href="classstf_1_1core_1_1command_1_1_type_list_member_function_command_3_01_t_00_01_a_r_g_00_016_01_4.html" title="6引数のメンバ関数を起動するコマンド．" alt="" coords="415,805,844,835"/><area shape="rect" id="node37" href="classstf_1_1core_1_1command_1_1_unary_functor_command.html" title="1引数のファンクタを起動するコマンド．" alt="" coords="475,859,784,888"/><area shape="rect" id="node39" href="classstf_1_1core_1_1command_1_1_un_ary_member_function_command.html" title="1引数のメンバ関数を起動するコマンド．" alt="" coords="420,912,839,941"/><area shape="rect" id="node41" href="classstf_1_1core_1_1command_1_1_un_ary_member_function_command_3_01_t_00_01void_00_01_a_r_g_01_4.html" title="1引数のメンバ関数を起動するコマンド．(void特殊化版)" alt="" coords="415,965,844,995"/><area shape="rect" id="node2" href="classstf_1_1_root_object.html" title="数値型を除いた全クラスの基本となるクラス．" alt="" coords="5,485,115,515"/></map>
+<center><span class="legend">[<a href="graph_legend.html">凡例</a>]</span></center></div>
+<div class="dynheader">
+stf::core::command::Commandのコラボレーション図</div>
+<div class="dyncontent">
+<div class="center"><img src="classstf_1_1core_1_1command_1_1_command__coll__graph.png" border="0" usemap="#stf_1_1core_1_1command_1_1_command_coll__map" alt="Collaboration graph"/></div>
+<map name="stf_1_1core_1_1command_1_1_command_coll__map" id="stf_1_1core_1_1command_1_1_command_coll__map">
+<area shape="rect" id="node2" href="classstf_1_1_root_object.html" title="数値型を除いた全クラスの基本となるクラス．" alt="" coords="789,167,899,196"/><area shape="rect" id="node10" href="classstf_1_1core_1_1datapool_1_1_data_pool_base.html" title="Tupleを複数個保持するデータプールの基底クラス．" alt="" coords="1280,115,1496,144"/><area shape="rect" id="node23" href="classstf_1_1core_1_1datapool_1_1_event_data_pool.html" title="Eventのデータプール．" alt="" coords="2256,217,2475,247"/><area shape="rect" id="node4" href="classstf_1_1core_1_1devicedriver_1_1clock_1_1_i_time_clock.html" title="Time型のカウントが可能であることを示す抽象インターフェース．" alt="" coords="297,249,551,279"/><area shape="rect" id="node6" href="classstf_1_1core_1_1devicedriver_1_1_i_data_updatable.html" title="周期的にデータを取得，送信するコンポーネントに対するインターフェース" alt="" coords="7,249,244,279"/><area shape="rect" id="node8" href="classstf_1_1core_1_1datapool_1_1_aocs_data_pool.html" title="IAocsDataのデータプール．" alt="" coords="1873,52,2089,81"/><area shape="rect" id="node13" href="classstf_1_1core_1_1datapool_1_1_tuple.html" title="stf::core::datapool::Tuple\&lt; datatype::IAocsData \&gt;" alt="" coords="691,92,997,121"/><area shape="rect" id="node15" href="classstf_1_1datatype_1_1_i_aocs_data.html" title="AOCS使用系列のデータ共通の抽象インターフェース．" alt="" coords="343,57,505,87"/><area shape="rect" id="node17" href="classstf_1_1interface_1_1_i_telemetable.html" title="テレメトリを生成可能なオブジェクトに対するインターフェース．" alt="" coords="39,57,212,87"/><area shape="rect" id="node19" href="classstf_1_1datatype_1_1_time.html" title="経過時間を表すクラス．" alt="" coords="359,315,489,344"/><area shape="rect" id="node30" href="struct_loki_1_1_tuple_unit.html" title="Loki::TupleUnit\&lt; TYPELIST_2(event::EventType, datatype::Time) \&gt;" alt="" coords="641,377,1047,407"/><area shape="rect" id="node21" href="classstf_1_1datatype_1_1_string.html" title="std::stringの簡略版．" alt="" coords="356,132,492,161"/><area shape="rect" id="node26" href="struct_loki_1_1_tuple.html" title="Loki::Tuple\&lt; TYPELIST_2(event::EventType, datatype::Time)\&gt;" alt="" coords="1792,288,2171,317"/><area shape="rect" id="node28" href="class_loki_1_1_gen_scatter_hierarchy.html" title="Loki::GenScatterHierarchy\&lt; TYPELIST_2(event::EventType, datatype::Time), TupleUnit \&gt;" alt="" coords="1121,343,1655,372"/><area shape="rect" id="node34" href="classstf_1_1core_1_1devicedriver_1_1cmhandler_1_1_i_command_receiver.html" title="受信機からコマンドを受け取り，応答を返却するデバイスの抽象インターフェース．" alt="" coords="679,259,1009,288"/></map>
+<center><span class="legend">[<a href="graph_legend.html">凡例</a>]</span></center></div>
+
+<p><a href="classstf_1_1core_1_1command_1_1_command-members.html">すべてのメンバ一覧</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="pub-methods"></a>
+Public メソッド</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1core_1_1command_1_1_command.html#a686beeaec11afa88dbb5011bcdd96528">Command</a> (const <a class="el" href="classstf_1_1datatype_1_1_time.html">datatype::Time</a> &amp;t, const <a class="el" href="classstf_1_1datatype_1_1_string.html">datatype::String</a> &amp;name)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1core_1_1command_1_1_command.html#a5acb639efd97bf1cd8a714fbdf022fa5">~Command</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classstf_1_1datatype_1_1_time.html">datatype::Time</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1core_1_1command_1_1_command.html#a4bdf4692ba7e67917fd95fd0a7b52e66">get_time</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1core_1_1command_1_1_command.html#adf25a7cf537a71d18a528a0c07ade65c">connectReceiver</a> (<a class="el" href="classstf_1_1core_1_1devicedriver_1_1cmhandler_1_1_i_command_receiver.html">devicedriver::cmhandler::ICommandReceiver</a> *rcv)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1core_1_1command_1_1_command.html#abbfe49e7fbf486b19736ff3092209d54">execute</a> ()=0</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classstf_1_1core_1_1command_1_1_command.html">Command</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1core_1_1command_1_1_command.html#afd3d83e3f70a0bab40771b1b075410b9">clone</a> (const <a class="el" href="classstf_1_1datatype_1_1_time.html">datatype::Time</a> &amp;t)=0</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1core_1_1command_1_1_command.html#a0553fc0fcfdc4f641b2279aeac6739d5">init</a> (int *<a class="el" href="namespacestf.html#a642e021fd1fe7b4e143b7e848a9f8357">params</a>, int paramsize)=0</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1core_1_1command_1_1_command.html#a615428eaabd50e38d23f5631711b3bb5">can_execute</a> (const <a class="el" href="classstf_1_1datatype_1_1_time.html">datatype::Time</a> &amp;t)</td></tr>
+<tr><td colspan="2"><h2><a name="pro-attribs"></a>
+Protected 変数</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classstf_1_1datatype_1_1_time.html">datatype::Time</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1core_1_1command_1_1_command.html#ab329dd3d49cb7b7516bd973d653b02fa">time_</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classstf_1_1core_1_1devicedriver_1_1cmhandler_1_1_i_command_receiver.html">devicedriver::cmhandler::ICommandReceiver</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1core_1_1command_1_1_command.html#ae3c34acfbfa1a7f6f7e7af6143263579">rcv_</a></td></tr>
+</table>
+<hr/><a name="_details"></a><h2>説明</h2>
+<div class="textblock"><p>衛星コマンドの抽象インターフェースと共通の実装を行う基底クラス． </p>
+
+<p> <a class="el" href="">Command.h</a> の <a class="el" href="#L29">29</a> 行で定義されています。</p>
+</div><hr/><h2>コンストラクタとデストラクタ</h2>
+<a class="anchor" id="a686beeaec11afa88dbb5011bcdd96528"></a><!-- doxytag: member="stf::core::command::Command::Command" ref="a686beeaec11afa88dbb5011bcdd96528" args="(const datatype::Time &amp;t, const datatype::String &amp;name)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">stf::core::command::Command::Command </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classstf_1_1datatype_1_1_time.html">datatype::Time</a> &amp;&#160;</td>
+          <td class="paramname"><em>t</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classstf_1_1datatype_1_1_string.html">datatype::String</a> &amp;&#160;</td>
+          <td class="paramname"><em>name</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">Command.h</a> の <a class="el" href="#L31">31</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">: <a class="code" href="classstf_1_1_root_object.html#a16410f7e3007286680f7b52e5a2de9e7">RootObject</a>(0, <a class="code" href="classstf_1_1_root_object.html#ad900efc99d9557877cdd83dcb06a52eb">name</a>), <a class="code" href="classstf_1_1core_1_1command_1_1_command.html#ae3c34acfbfa1a7f6f7e7af6143263579">rcv_</a>(0), <a class="code" href="classstf_1_1core_1_1command_1_1_command.html#ab329dd3d49cb7b7516bd973d653b02fa">time_</a>(t) {}
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="a5acb639efd97bf1cd8a714fbdf022fa5"></a><!-- doxytag: member="stf::core::command::Command::~Command" ref="a5acb639efd97bf1cd8a714fbdf022fa5" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual stf::core::command::Command::~Command </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inline, virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">Command.h</a> の <a class="el" href="#L32">32</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">{}
+</pre></div>
+</div>
+</div>
+<hr/><h2>関数</h2>
+<a class="anchor" id="a615428eaabd50e38d23f5631711b3bb5"></a><!-- doxytag: member="stf::core::command::Command::can_execute" ref="a615428eaabd50e38d23f5631711b3bb5" args="(const datatype::Time &amp;t)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool stf::core::command::Command::can_execute </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classstf_1_1datatype_1_1_time.html">datatype::Time</a> &amp;&#160;</td>
+          <td class="paramname"><em>t</em></td><td>)</td>
+          <td><code> [inline, virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p><a class="el" href="classstf_1_1core_1_1command_1_1_sequence_command.html#a37ef12331aa41554d69c358f15eb698a">stf::core::command::SequenceCommand&lt; Num &gt;</a>で再定義されています。</p>
+
+<p> <a class="el" href="">Command.h</a> の <a class="el" href="#L38">38</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">{ <span class="keywordflow">if</span>(t &gt;= <a class="code" href="classstf_1_1core_1_1command_1_1_command.html#ab329dd3d49cb7b7516bd973d653b02fa">time_</a> ) <span class="keywordflow">return</span> <span class="keyword">true</span>; <span class="keywordflow">return</span> <span class="keyword">false</span>; }<span class="comment">//デフォルトの実装．時刻以外で判断してもよい</span>
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="afd3d83e3f70a0bab40771b1b075410b9"></a><!-- doxytag: member="stf::core::command::Command::clone" ref="afd3d83e3f70a0bab40771b1b075410b9" args="(const datatype::Time &amp;t)=0" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="classstf_1_1core_1_1command_1_1_command.html">Command</a>* stf::core::command::Command::clone </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classstf_1_1datatype_1_1_time.html">datatype::Time</a> &amp;&#160;</td>
+          <td class="paramname"><em>t</em></td><td>)</td>
+          <td><code> [pure virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p><a class="el" href="classstf_1_1core_1_1command_1_1_get_command.html#ab81cb1d3fbb199cfa48d1cb8dbcaafac">stf::core::command::GetCommand&lt; T, U &gt;</a>, <a class="el" href="classstf_1_1core_1_1command_1_1_get_iterator_command.html#aebec4e9a5284abfa6aaf9c5abdb3060e">stf::core::command::GetIteratorCommand&lt; T, Iterator, Targ, SCALE &gt;</a>, <a class="el" href="classstf_1_1core_1_1command_1_1_iterator_stream_command.html#a1e0ca43028e4571b92c96378d8460fee">stf::core::command::IteratorStreamCommand&lt; SCALE &gt;</a>, <a class="el" href="classstf_1_1core_1_1command_1_1_message_command.html#aa6901e650ec4939218937d64407b9c83">stf::core::command::MessageCommand</a>, <a class="el" href="classstf_1_1core_1_1command_1_1mode_change_command.html#a6978ed939d651ecb368a976ef8870612">stf::core::command::modeChangeCommand</a>, <a class="el" href="classstf_1_1core_1_1command_1_1_simple_functor_command.html#a8123374a4ef54e43d49f846486e07a59">stf::core::command::SimpleFunctorCommand</a>, <a class="el" href="classstf_1_1core_1_1command_1_1_simple_member_function_command.html#a0d18d5aef52fbb39146d102af4323fc6">stf::core::command::SimpleMemberFunctionCommand&lt; T, U &gt;</a>, <a class="el" href="classstf_1_1core_1_1command_1_1_simple_member_function_command_3_01_t_00_01void_01_4.html#a647ea575c8229f117cb4f6c5012daac2">stf::core::command::SimpleMemberFunctionCommand&lt; T, void &gt;</a>, <a class="el" href="classstf_1_1core_1_1command_1_1_type_list_member_function_command.html#a9ec4975f0ef67f9be07f23b5ff3f9071">stf::core::command::TypeListMemberFunctionCommand&lt; T, ARG, N &gt;</a>, <a class="el" href="classstf_1_1core_1_1command_1_1_type_list_member_function_command_3_01_t_00_01_a_r_g_00_012_01_4.html#a47a1c82868c7916df22941df6d47a106">stf::core::command::TypeListMemberFunctionCommand&lt; T, ARG, 2 &gt;</a>, <a class="el" href="classstf_1_1core_1_1command_1_1_type_list_member_function_command_3_01_t_00_01_a_r_g_00_013_01_4.html#a461dde52c0cb4367431918b1826193d3">stf::core::command::TypeListMemberFunctionCommand&lt; T, ARG, 3 &gt;</a>, <a class="el" href="classstf_1_1core_1_1command_1_1_type_list_member_function_command_3_01_t_00_01_a_r_g_00_014_01_4.html#a45170c84168be1cbe8f7c705465f463e">stf::core::command::TypeListMemberFunctionCommand&lt; T, ARG, 4 &gt;</a>, <a class="el" href="classstf_1_1core_1_1command_1_1_type_list_member_function_command_3_01_t_00_01_a_r_g_00_015_01_4.html#a128c90a312d7fb430b4403858ea58c8a">stf::core::command::TypeListMemberFunctionCommand&lt; T, ARG, 5 &gt;</a>, <a class="el" href="classstf_1_1core_1_1command_1_1_type_list_member_function_command_3_01_t_00_01_a_r_g_00_016_01_4.html#a753c045075e0faad60d7af9daac77d01">stf::core::command::TypeListMemberFunctionCommand&lt; T, ARG, 6 &gt;</a>, <a class="el" href="classstf_1_1core_1_1command_1_1_unary_functor_command.html#a4ad820b15e570df4bb7d6b137ae65165">stf::core::command::UnaryFunctorCommand&lt; T &gt;</a>, <a class="el" href="classstf_1_1core_1_1command_1_1_un_ary_member_function_command.html#a3aa56655a43443ec81402517459ab69e">stf::core::command::UnAryMemberFunctionCommand&lt; T, U, ARG &gt;</a>, と <a class="el" href="classstf_1_1core_1_1command_1_1_un_ary_member_function_command_3_01_t_00_01void_00_01_a_r_g_01_4.html#a3589f3d3a291a0655836757d1c5350f2">stf::core::command::UnAryMemberFunctionCommand&lt; T, void, ARG &gt;</a>で実装されています。</p>
+
+</div>
+</div>
+<a class="anchor" id="adf25a7cf537a71d18a528a0c07ade65c"></a><!-- doxytag: member="stf::core::command::Command::connectReceiver" ref="adf25a7cf537a71d18a528a0c07ade65c" args="(devicedriver::cmhandler::ICommandReceiver *rcv)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stf::core::command::Command::connectReceiver </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classstf_1_1core_1_1devicedriver_1_1cmhandler_1_1_i_command_receiver.html">devicedriver::cmhandler::ICommandReceiver</a> *&#160;</td>
+          <td class="paramname"><em>rcv</em></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">Command.h</a> の <a class="el" href="#L34">34</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">{ <a class="code" href="classstf_1_1core_1_1command_1_1_command.html#ae3c34acfbfa1a7f6f7e7af6143263579">rcv_</a> = rcv; }
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="abbfe49e7fbf486b19736ff3092209d54"></a><!-- doxytag: member="stf::core::command::Command::execute" ref="abbfe49e7fbf486b19736ff3092209d54" args="()=0" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void stf::core::command::Command::execute </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [pure virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p><a class="el" href="classstf_1_1core_1_1command_1_1_get_command.html#a472c4d29cbda99df873462911bfe0622">stf::core::command::GetCommand&lt; T, U &gt;</a>, <a class="el" href="classstf_1_1core_1_1command_1_1_get_iterator_command.html#a6bfd91f4d9dbc1dc12e0267859139bdd">stf::core::command::GetIteratorCommand&lt; T, Iterator, Targ, SCALE &gt;</a>, <a class="el" href="classstf_1_1core_1_1command_1_1_iterator_stream_command.html#a0b373bd3dac09d799f70a9877ecd4a9e">stf::core::command::IteratorStreamCommand&lt; SCALE &gt;</a>, <a class="el" href="classstf_1_1core_1_1command_1_1_message_command.html#a3f547a7212ef439ff3968d5616af4143">stf::core::command::MessageCommand</a>, <a class="el" href="classstf_1_1core_1_1command_1_1mode_change_command.html#ac05ae7dbd5e6118565ead6f3e620f33d">stf::core::command::modeChangeCommand</a>, <a class="el" href="classstf_1_1core_1_1command_1_1_sequence_command.html#ac0d5e8f71b9b89bcf751070e166eda38">stf::core::command::SequenceCommand&lt; Num &gt;</a>, <a class="el" href="classstf_1_1core_1_1command_1_1_simple_functor_command.html#a25594677fa9c6bb4b8ee1536f7cae97a">stf::core::command::SimpleFunctorCommand</a>, <a class="el" href="classstf_1_1core_1_1command_1_1_simple_member_function_command.html#ac422402b271d5609826597883f1c6c00">stf::core::command::SimpleMemberFunctionCommand&lt; T, U &gt;</a>, <a class="el" href="classstf_1_1core_1_1command_1_1_simple_member_function_command_3_01_t_00_01void_01_4.html#ac25c04ea173e9591f627d9edf1ab4c4e">stf::core::command::SimpleMemberFunctionCommand&lt; T, void &gt;</a>, <a class="el" href="classstf_1_1core_1_1command_1_1_switch_command.html#ad24229e3f6f39cf7682aa436a77fa831">stf::core::command::SwitchCommand</a>, <a class="el" href="classstf_1_1core_1_1command_1_1_type_list_member_function_command.html#a147ea9d6ba630947c09b37658c4ec4db">stf::core::command::TypeListMemberFunctionCommand&lt; T, ARG, N &gt;</a>, <a class="el" href="classstf_1_1core_1_1command_1_1_type_list_member_function_command_3_01_t_00_01_a_r_g_00_012_01_4.html#a0672230b9ac4c42a8e88ae4f9a3a64a1">stf::core::command::TypeListMemberFunctionCommand&lt; T, ARG, 2 &gt;</a>, <a class="el" href="classstf_1_1core_1_1command_1_1_type_list_member_function_command_3_01_t_00_01_a_r_g_00_013_01_4.html#a9c2b34a1112b1e9cc90f03d99e62300b">stf::core::command::TypeListMemberFunctionCommand&lt; T, ARG, 3 &gt;</a>, <a class="el" href="classstf_1_1core_1_1command_1_1_type_list_member_function_command_3_01_t_00_01_a_r_g_00_014_01_4.html#a318a05637a6d5ebde82065e0056f8db6">stf::core::command::TypeListMemberFunctionCommand&lt; T, ARG, 4 &gt;</a>, <a class="el" href="classstf_1_1core_1_1command_1_1_type_list_member_function_command_3_01_t_00_01_a_r_g_00_015_01_4.html#a1d49db4f3e5292ffec222184d56fb141">stf::core::command::TypeListMemberFunctionCommand&lt; T, ARG, 5 &gt;</a>, <a class="el" href="classstf_1_1core_1_1command_1_1_type_list_member_function_command_3_01_t_00_01_a_r_g_00_016_01_4.html#a7ec579e427ee04eb15fadd91a552717d">stf::core::command::TypeListMemberFunctionCommand&lt; T, ARG, 6 &gt;</a>, <a class="el" href="classstf_1_1core_1_1command_1_1_unary_functor_command.html#ae957affa735b4b516786d9b5c2aaa6a8">stf::core::command::UnaryFunctorCommand&lt; T &gt;</a>, <a class="el" href="classstf_1_1core_1_1command_1_1_un_ary_member_function_command.html#a2b4960b199439ecb9e4aac26c01a78e9">stf::core::command::UnAryMemberFunctionCommand&lt; T, U, ARG &gt;</a>, と <a class="el" href="classstf_1_1core_1_1command_1_1_un_ary_member_function_command_3_01_t_00_01void_00_01_a_r_g_01_4.html#a416bd11e256670cd5677141c7ffa7294">stf::core::command::UnAryMemberFunctionCommand&lt; T, void, ARG &gt;</a>で実装されています。</p>
+
+</div>
+</div>
+<a class="anchor" id="a4bdf4692ba7e67917fd95fd0a7b52e66"></a><!-- doxytag: member="stf::core::command::Command::get_time" ref="a4bdf4692ba7e67917fd95fd0a7b52e66" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classstf_1_1datatype_1_1_time.html">datatype::Time</a>&amp; stf::core::command::Command::get_time </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">Command.h</a> の <a class="el" href="#L33">33</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">{ <span class="keywordflow">return</span> <a class="code" href="classstf_1_1core_1_1command_1_1_command.html#ab329dd3d49cb7b7516bd973d653b02fa">time_</a>; }
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="a0553fc0fcfdc4f641b2279aeac6739d5"></a><!-- doxytag: member="stf::core::command::Command::init" ref="a0553fc0fcfdc4f641b2279aeac6739d5" args="(int *params, int paramsize)=0" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void stf::core::command::Command::init </td>
+          <td>(</td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>params</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>paramsize</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [pure virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p><a class="el" href="classstf_1_1core_1_1command_1_1_get_command.html#ac406111676269938fbdca86653faf0a8">stf::core::command::GetCommand&lt; T, U &gt;</a>, <a class="el" href="classstf_1_1core_1_1command_1_1_get_iterator_command.html#ad8d88dd15d438aade3449073f09d7591">stf::core::command::GetIteratorCommand&lt; T, Iterator, Targ, SCALE &gt;</a>, <a class="el" href="classstf_1_1core_1_1command_1_1_iterator_stream_command.html#acafe1300e483360fde5bcb882d2e34f4">stf::core::command::IteratorStreamCommand&lt; SCALE &gt;</a>, <a class="el" href="classstf_1_1core_1_1command_1_1_message_command.html#aa5ccf31a51506d704fe50ae703a2c870">stf::core::command::MessageCommand</a>, <a class="el" href="classstf_1_1core_1_1command_1_1mode_change_command.html#a141a78d6e21a8382dfe61620bd5ce8fc">stf::core::command::modeChangeCommand</a>, <a class="el" href="classstf_1_1core_1_1command_1_1_simple_functor_command.html#adc7a59cc66a5a864e41e1f46f1c795ee">stf::core::command::SimpleFunctorCommand</a>, <a class="el" href="classstf_1_1core_1_1command_1_1_simple_member_function_command.html#a017bd7356cd04d74c0742e3ab126ce05">stf::core::command::SimpleMemberFunctionCommand&lt; T, U &gt;</a>, <a class="el" href="classstf_1_1core_1_1command_1_1_simple_member_function_command_3_01_t_00_01void_01_4.html#a46ec2e4e94a6652e41f47370d6d0a54f">stf::core::command::SimpleMemberFunctionCommand&lt; T, void &gt;</a>, <a class="el" href="classstf_1_1core_1_1command_1_1_type_list_member_function_command.html#abfb95b57f4aabdd7ffd721ba02d5f159">stf::core::command::TypeListMemberFunctionCommand&lt; T, ARG, N &gt;</a>, <a class="el" href="classstf_1_1core_1_1command_1_1_type_list_member_function_command_3_01_t_00_01_a_r_g_00_012_01_4.html#a71fb316c525eeae81fedf592e2c20e4c">stf::core::command::TypeListMemberFunctionCommand&lt; T, ARG, 2 &gt;</a>, <a class="el" href="classstf_1_1core_1_1command_1_1_type_list_member_function_command_3_01_t_00_01_a_r_g_00_013_01_4.html#af8ff81c9fba27cc88a934fdead0a635e">stf::core::command::TypeListMemberFunctionCommand&lt; T, ARG, 3 &gt;</a>, <a class="el" href="classstf_1_1core_1_1command_1_1_type_list_member_function_command_3_01_t_00_01_a_r_g_00_014_01_4.html#a4717212b42b0da0478fb5ebc91555bd9">stf::core::command::TypeListMemberFunctionCommand&lt; T, ARG, 4 &gt;</a>, <a class="el" href="classstf_1_1core_1_1command_1_1_type_list_member_function_command_3_01_t_00_01_a_r_g_00_015_01_4.html#ae251bb0005000753a124d010569f8d94">stf::core::command::TypeListMemberFunctionCommand&lt; T, ARG, 5 &gt;</a>, <a class="el" href="classstf_1_1core_1_1command_1_1_type_list_member_function_command_3_01_t_00_01_a_r_g_00_016_01_4.html#a9760e9c4b5882d86f7f66730c358bd58">stf::core::command::TypeListMemberFunctionCommand&lt; T, ARG, 6 &gt;</a>, <a class="el" href="classstf_1_1core_1_1command_1_1_unary_functor_command.html#af63f83681c313a5b6934de81baa9afdc">stf::core::command::UnaryFunctorCommand&lt; T &gt;</a>, <a class="el" href="classstf_1_1core_1_1command_1_1_un_ary_member_function_command.html#a25840d4798e025072a2afd08f5df5eb9">stf::core::command::UnAryMemberFunctionCommand&lt; T, U, ARG &gt;</a>, <a class="el" href="classstf_1_1core_1_1command_1_1_un_ary_member_function_command_3_01_t_00_01void_00_01_a_r_g_01_4.html#ac88acfc7e49bef5e85be2e04e4dc0091">stf::core::command::UnAryMemberFunctionCommand&lt; T, void, ARG &gt;</a>, <a class="el" href="classstf_1_1core_1_1command_1_1_unary_functor_command.html#aec48544818001083792facb40ecc22d8">stf::core::command::UnaryFunctorCommand&lt; T &gt;</a>, <a class="el" href="classstf_1_1core_1_1command_1_1_unary_functor_command.html#aec48544818001083792facb40ecc22d8">stf::core::command::UnaryFunctorCommand&lt; T &gt;</a>, と <a class="el" href="classstf_1_1core_1_1command_1_1_unary_functor_command.html#a44e0b6b033457853aaefb0f8c8eb39cb">stf::core::command::UnaryFunctorCommand&lt; T &gt;</a>で実装されています。</p>
+
+</div>
+</div>
+<hr/><h2>変数</h2>
+<a class="anchor" id="ae3c34acfbfa1a7f6f7e7af6143263579"></a><!-- doxytag: member="stf::core::command::Command::rcv_" ref="ae3c34acfbfa1a7f6f7e7af6143263579" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classstf_1_1core_1_1devicedriver_1_1cmhandler_1_1_i_command_receiver.html">devicedriver::cmhandler::ICommandReceiver</a>* <a class="el" href="classstf_1_1core_1_1command_1_1_command.html#ae3c34acfbfa1a7f6f7e7af6143263579">stf::core::command::Command::rcv_</a><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">Command.h</a> の <a class="el" href="#L41">41</a> 行で定義されています。</p>
+
+</div>
+</div>
+<a class="anchor" id="ab329dd3d49cb7b7516bd973d653b02fa"></a><!-- doxytag: member="stf::core::command::Command::time_" ref="ab329dd3d49cb7b7516bd973d653b02fa" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classstf_1_1datatype_1_1_time.html">datatype::Time</a> <a class="el" href="classstf_1_1core_1_1command_1_1_command.html#ab329dd3d49cb7b7516bd973d653b02fa">stf::core::command::Command::time_</a><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">Command.h</a> の <a class="el" href="#L40">40</a> 行で定義されています。</p>
+
+</div>
+</div>
+<hr/>このクラスの説明は次のファイルから生成されました:<ul>
+<li>stf/core/command/<a class="el" href="">Command.h</a></li>
+</ul>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>フレンド</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>マクロ定義</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>STFに対してWed Mar 23 2011 05:33:02に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
+</body>
+</html>

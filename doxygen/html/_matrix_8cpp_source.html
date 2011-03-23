@@ -1,0 +1,307 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>STF: stf/datatype/Matrix.cpp ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.3 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">STF</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="pages.html"><span>関連ページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>ファイルメンバ</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<h1>stf/datatype/Matrix.cpp</h1>  </div>
+</div>
+<div class="contents">
+<a href="_matrix_8cpp.html">説明を見る。</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<a name="l00008"></a>00008 <span class="preprocessor">#include &quot;<a class="code" href="_matrix_8h.html" title="可変要素数の行列計算を行うクラス．STFではStaticMatrixが推奨される．">Matrix.h</a>&quot;</span>
+<a name="l00009"></a>00009 <span class="preprocessor">#include &quot;<a class="code" href="_vector_8h.html" title="可変要素数のベクトル演算を行うクラス．STFではStaticVectorが推奨される">Vector.h</a>&quot;</span>
+<a name="l00010"></a>00010 
+<a name="l00011"></a>00011 <span class="keyword">namespace </span>stf { 
+<a name="l00012"></a>00012 <span class="keyword">namespace </span>datatype {
+<a name="l00013"></a>00013 
+<a name="l00014"></a><a class="code" href="classstf_1_1datatype_1_1_matrix.html#acc093ed79050ba91f847b1743ddda2de">00014</a> <a class="code" href="classstf_1_1datatype_1_1_matrix.html#acc093ed79050ba91f847b1743ddda2de">Matrix::Matrix</a>()
+<a name="l00015"></a>00015 {
+<a name="l00016"></a>00016 }
+<a name="l00017"></a>00017 
+<a name="l00018"></a><a class="code" href="classstf_1_1datatype_1_1_matrix.html#ab595eaf7b7ffed2b257a7a62b0f29610">00018</a> <a class="code" href="classstf_1_1datatype_1_1_matrix.html#acc093ed79050ba91f847b1743ddda2de">Matrix::Matrix</a>(<span class="keywordtype">int</span> rows, <span class="keywordtype">int</span> cols)
+<a name="l00019"></a>00019 {
+<a name="l00020"></a>00020         this-&gt;rows_ = <a class="code" href="classstf_1_1datatype_1_1_matrix.html#a90bdadcaa553594d3debc6573bb00433">rows</a>;
+<a name="l00021"></a>00021         this-&gt;cols_ = <a class="code" href="classstf_1_1datatype_1_1_matrix.html#a9d4f9d4d3aa49d8fc4a4513e2333b4d4">cols</a>;<span class="comment">//ArgoUMLの制約がなければ初期化子でやるほうが低コスト</span>
+<a name="l00022"></a>00022         this-&gt;value_  = <span class="keyword">new</span> <a class="code" href="classstf_1_1datatype_1_1_vector.html" title="可変要素数のベクトル演算を行う．">Vector</a>[<a class="code" href="classstf_1_1datatype_1_1_matrix.html#a90bdadcaa553594d3debc6573bb00433">rows</a>];
+<a name="l00023"></a>00023         <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; <a class="code" href="classstf_1_1datatype_1_1_matrix.html#a90bdadcaa553594d3debc6573bb00433">rows</a>; i++)
+<a name="l00024"></a>00024                 this-&gt;value_[i].initVector(cols, 0.0);
+<a name="l00025"></a>00025 }
+<a name="l00026"></a>00026 
+<a name="l00027"></a><a class="code" href="classstf_1_1datatype_1_1_matrix.html#af8d63a79a28fb7c711e26e378ef11ded">00027</a> <a class="code" href="classstf_1_1datatype_1_1_matrix.html#acc093ed79050ba91f847b1743ddda2de">Matrix::Matrix</a>(<span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_matrix.html" title="可変要素数の行列計算を行うクラス．STFではStaticMatrixが推奨される．">Matrix</a> &amp;rhs)
+<a name="l00028"></a>00028 {
+<a name="l00029"></a>00029         this-&gt;rows_ = rhs.rows_;
+<a name="l00030"></a>00030         this-&gt;cols_ = rhs.cols_;
+<a name="l00031"></a>00031         value_ = <span class="keyword">new</span> <a class="code" href="classstf_1_1datatype_1_1_vector.html" title="可変要素数のベクトル演算を行う．">Vector</a>[rows_];
+<a name="l00032"></a>00032         <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; rows_; i++)
+<a name="l00033"></a>00033                 value_[i].initVector(cols_, 0.0);
+<a name="l00034"></a>00034         <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; rows_; i++)
+<a name="l00035"></a>00035                 <span class="keywordflow">for</span>(<span class="keywordtype">int</span> j = 0; j &lt; cols_; j++)
+<a name="l00036"></a>00036                         value_[i].value_[j] = rhs[i].value_[j];
+<a name="l00037"></a>00037 }
+<a name="l00038"></a>00038 
+<a name="l00039"></a><a class="code" href="classstf_1_1datatype_1_1_matrix.html#a0daf8339dbd58a641a9b75afb7728d2b">00039</a> <a class="code" href="classstf_1_1datatype_1_1_matrix.html#a0daf8339dbd58a641a9b75afb7728d2b">Matrix::~Matrix</a>()
+<a name="l00040"></a>00040 {
+<a name="l00041"></a>00041         <span class="keyword">delete</span>[] this-&gt;value_;
+<a name="l00042"></a>00042 }
+<a name="l00043"></a>00043 
+<a name="l00044"></a><a class="code" href="classstf_1_1datatype_1_1_matrix.html#ae127d68340795655bcada65380b57d26">00044</a> <a class="code" href="classstf_1_1datatype_1_1_matrix.html" title="可変要素数の行列計算を行うクラス．STFではStaticMatrixが推奨される．">Matrix</a> &amp;<a class="code" href="classstf_1_1datatype_1_1_matrix.html#ae127d68340795655bcada65380b57d26">Matrix::unitize</a>()
+<a name="l00045"></a>00045 {
+<a name="l00046"></a>00046         <span class="comment">//assert(rows_ == cols_);</span>
+<a name="l00047"></a>00047         <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; rows_; i++)
+<a name="l00048"></a>00048                 <span class="keywordflow">for</span>(<span class="keywordtype">int</span> j = 0; j &lt; cols_; j++)
+<a name="l00049"></a>00049                         <span class="keywordflow">if</span>(i == j) value_[i][j] = 1.0;
+<a name="l00050"></a>00050                         <span class="keywordflow">else</span>       value_[i][j] = 0.0;
+<a name="l00051"></a>00051         <span class="keywordflow">return</span> *<span class="keyword">this</span>;   
+<a name="l00052"></a>00052 }
+<a name="l00053"></a>00053 
+<a name="l00054"></a><a class="code" href="classstf_1_1datatype_1_1_matrix.html#abdfba202b2c9b70264686b5d30d88cc6">00054</a> <span class="keywordtype">double</span> <a class="code" href="classstf_1_1datatype_1_1_matrix.html#abdfba202b2c9b70264686b5d30d88cc6">Matrix::det</a>()<span class="keyword"> const </span>
+<a name="l00055"></a>00055 <span class="keyword"></span>{
+<a name="l00056"></a>00056         assert(cols_ == rows_);
+<a name="l00057"></a>00057         assert(cols_ &lt;= 3);<span class="comment">//とりあえず3次まで定義</span>
+<a name="l00058"></a>00058 
+<a name="l00059"></a>00059         <span class="keywordflow">if</span>(cols_ == 2){
+<a name="l00060"></a>00060                 <span class="keywordflow">return</span> value_[0][0] * value_[1][1] - value_[0][1] * value_[1][0];
+<a name="l00061"></a>00061         }
+<a name="l00062"></a>00062         <span class="keywordflow">if</span>(cols_ == 3){
+<a name="l00063"></a>00063                 <span class="keywordflow">return</span> value_[0][0] * value_[1][1] * value_[2][2] + 
+<a name="l00064"></a>00064                         value_[0][1] * value_[1][2] * value_[2][0] + 
+<a name="l00065"></a>00065                         value_[0][2] * value_[1][0] * value_[2][1] -
+<a name="l00066"></a>00066                         value_[0][0] * value_[1][2] * value_[2][1] -
+<a name="l00067"></a>00067                         value_[0][1] * value_[1][0] * value_[2][2] -
+<a name="l00068"></a>00068                         value_[0][2] * value_[1][1] * value_[2][0];
+<a name="l00069"></a>00069         }
+<a name="l00070"></a>00070         <span class="keywordflow">if</span>(cols_ == 1){
+<a name="l00071"></a>00071                 <span class="keywordflow">return</span> value_[0][0];
+<a name="l00072"></a>00072         }
+<a name="l00073"></a>00073         assert(0);
+<a name="l00074"></a>00074         <span class="keywordflow">return</span> 0;
+<a name="l00075"></a>00075 }
+<a name="l00076"></a>00076 
+<a name="l00077"></a><a class="code" href="classstf_1_1datatype_1_1_matrix.html#a40a7a762cea094fea7e1e1c685081390">00077</a> <span class="keywordtype">double</span> <a class="code" href="classstf_1_1datatype_1_1_matrix.html#a40a7a762cea094fea7e1e1c685081390">Matrix::trace</a>()<span class="keyword"> const</span>
+<a name="l00078"></a>00078 <span class="keyword"></span>{
+<a name="l00079"></a>00079         assert(cols_ == rows_); 
+<a name="l00080"></a>00080         <span class="keywordtype">double</span> <a class="code" href="namespacestf.html#afa89a4a0c80d3727c2f396aa3ead41cd">v</a> = 0;
+<a name="l00081"></a>00081         <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; rows_; i++)
+<a name="l00082"></a>00082                 v += value_[i][i];
+<a name="l00083"></a>00083         <span class="keywordflow">return</span> <a class="code" href="namespacestf.html#afa89a4a0c80d3727c2f396aa3ead41cd">v</a>;
+<a name="l00084"></a>00084 }
+<a name="l00085"></a>00085 
+<a name="l00086"></a><a class="code" href="classstf_1_1datatype_1_1_matrix.html#a79f98a289fc268c345d82241048da3ee">00086</a> <a class="code" href="classstf_1_1datatype_1_1_matrix.html" title="可変要素数の行列計算を行うクラス．STFではStaticMatrixが推奨される．">Matrix</a> <a class="code" href="classstf_1_1datatype_1_1_matrix.html#a79f98a289fc268c345d82241048da3ee">Matrix::trans</a>()<span class="keyword"> const </span>
+<a name="l00087"></a>00087 <span class="keyword"></span>{
+<a name="l00088"></a>00088         <span class="comment">//assert(rows_ == cols_);</span>
+<a name="l00089"></a>00089         <a class="code" href="classstf_1_1datatype_1_1_matrix.html" title="可変要素数の行列計算を行うクラス．STFではStaticMatrixが推奨される．">Matrix</a> temp(cols_, rows_);
+<a name="l00090"></a>00090         <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; rows_; i++)
+<a name="l00091"></a>00091                 <span class="keywordflow">for</span>(<span class="keywordtype">int</span> j = 0; j &lt; cols_; j++)
+<a name="l00092"></a>00092                         temp[j][i] = value_[i][j];
+<a name="l00093"></a>00093         <span class="keywordflow">return</span> temp;
+<a name="l00094"></a>00094 }
+<a name="l00095"></a>00095 
+<a name="l00096"></a><a class="code" href="classstf_1_1datatype_1_1_matrix.html#a84b4ab3dae065a1bcd975d1744b461c7">00096</a> <a class="code" href="classstf_1_1datatype_1_1_matrix.html" title="可変要素数の行列計算を行うクラス．STFではStaticMatrixが推奨される．">Matrix</a> <a class="code" href="classstf_1_1datatype_1_1_matrix.html#a84b4ab3dae065a1bcd975d1744b461c7">Matrix::inverse</a>()<span class="keyword"> const </span>
+<a name="l00097"></a>00097 <span class="keyword"></span>{
+<a name="l00098"></a>00098         <span class="keywordtype">int</span> i, j, k;
+<a name="l00099"></a>00099         <span class="keywordtype">double</span> a1, a2;
+<a name="l00100"></a>00100         <span class="comment">//result = false;</span>
+<a name="l00101"></a>00101         <span class="keywordflow">if</span>(rows_ != cols_) <span class="keywordflow">return</span> <a class="code" href="classstf_1_1datatype_1_1_matrix.html#acc093ed79050ba91f847b1743ddda2de">Matrix</a>(rows_, cols_);
+<a name="l00102"></a>00102 
+<a name="l00103"></a>00103         <a class="code" href="classstf_1_1datatype_1_1_matrix.html" title="可変要素数の行列計算を行うクラス．STFではStaticMatrixが推奨される．">Matrix</a> tempmat(rows_, cols_);
+<a name="l00104"></a>00104         <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; rows_; i++) tempmat[i][i] = 1.0;
+<a name="l00105"></a>00105         <a class="code" href="classstf_1_1datatype_1_1_matrix.html" title="可変要素数の行列計算を行うクラス．STFではStaticMatrixが推奨される．">Matrix</a> m = *<span class="keyword">this</span>;<span class="comment">//副作用を生じないように現インスタンスのコピーで計算</span>
+<a name="l00106"></a>00106 
+<a name="l00107"></a>00107         <span class="keywordflow">for</span> (k = 0; k &lt; rows_; k++)
+<a name="l00108"></a>00108         {
+<a name="l00109"></a>00109                 <span class="keywordtype">int</span> indx = <a class="code" href="classstf_1_1datatype_1_1_matrix.html#a4c32d418435da7df3822011de1a6f8a1">pivot</a>(m, k);
+<a name="l00110"></a>00110                 assert(indx != -1);
+<a name="l00111"></a>00111                 <span class="keywordflow">if</span> (indx != 0)
+<a name="l00112"></a>00112                 {
+<a name="l00113"></a>00113                         <span class="keywordtype">double</span>* temp = tempmat.value_[k].<a class="code" href="classstf_1_1datatype_1_1_vector.html#a6c4b22c2a001790300d514501c54cc17">value_</a>;
+<a name="l00114"></a>00114                         tempmat.value_[k].<a class="code" href="classstf_1_1datatype_1_1_vector.html#a6c4b22c2a001790300d514501c54cc17">value_</a> = tempmat.value_[indx].<a class="code" href="classstf_1_1datatype_1_1_vector.html#a6c4b22c2a001790300d514501c54cc17">value_</a>;
+<a name="l00115"></a>00115                         tempmat.value_[indx].<a class="code" href="classstf_1_1datatype_1_1_vector.html#a6c4b22c2a001790300d514501c54cc17">value_</a> = temp;
+<a name="l00116"></a>00116                 }
+<a name="l00117"></a>00117                 a1 = m[k][k];
+<a name="l00118"></a>00118                 <span class="keywordflow">for</span> (j = 0; j &lt; m.rows_; j++)
+<a name="l00119"></a>00119                 {
+<a name="l00120"></a>00120                         m[k][j] /= a1;
+<a name="l00121"></a>00121                         tempmat[k][j] /= a1;
+<a name="l00122"></a>00122                 }
+<a name="l00123"></a>00123                 <span class="keywordflow">for</span> (i = 0; i &lt; m.rows_; i++)
+<a name="l00124"></a>00124                         <span class="keywordflow">if</span> (i != k)
+<a name="l00125"></a>00125                         {
+<a name="l00126"></a>00126                                 a2 = m[i][k];
+<a name="l00127"></a>00127                                 <span class="keywordflow">for</span> (j=0; j &lt; m.rows_; j++)
+<a name="l00128"></a>00128                                 {
+<a name="l00129"></a>00129                                         m[i][j] -= a2 * m[k][j];
+<a name="l00130"></a>00130                                         tempmat[i][j] -= a2 * tempmat[k][j];
+<a name="l00131"></a>00131                                 }
+<a name="l00132"></a>00132                         }
+<a name="l00133"></a>00133         }
+<a name="l00134"></a>00134         <span class="comment">//result = true;</span>
+<a name="l00135"></a>00135         <span class="keywordflow">return</span> tempmat;
+<a name="l00136"></a>00136 }
+<a name="l00137"></a>00137 
+<a name="l00138"></a><a class="code" href="classstf_1_1datatype_1_1_matrix.html#afbda5492a23c18a8197a06cd945c7eb8">00138</a> <span class="keywordtype">bool</span> <a class="code" href="classstf_1_1datatype_1_1_matrix.html#afbda5492a23c18a8197a06cd945c7eb8">Matrix::isSquare</a>()
+<a name="l00139"></a>00139 {
+<a name="l00140"></a>00140         <span class="keywordflow">if</span>(this-&gt;rows_ == this-&gt;cols_ &amp;&amp; this-&gt;rows_ &gt; 0) <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00141"></a>00141         <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00142"></a>00142 }
+<a name="l00143"></a>00143 
+<a name="l00144"></a><a class="code" href="classstf_1_1datatype_1_1_matrix.html#a4c32d418435da7df3822011de1a6f8a1">00144</a> <span class="keywordtype">int</span> <a class="code" href="classstf_1_1datatype_1_1_matrix.html#a4c32d418435da7df3822011de1a6f8a1">Matrix::pivot</a>(<a class="code" href="classstf_1_1datatype_1_1_matrix.html" title="可変要素数の行列計算を行うクラス．STFではStaticMatrixが推奨される．">Matrix</a> &amp;m, <span class="keywordtype">int</span> row)<span class="keyword"> const </span>
+<a name="l00145"></a>00145 <span class="keyword"></span>{
+<a name="l00146"></a>00146     <span class="keywordflow">return</span> 0;
+<a name="l00147"></a>00147 }
+<a name="l00148"></a>00148 
+<a name="l00149"></a><a class="code" href="classstf_1_1datatype_1_1_matrix.html#acab3fc4c7dab262017d53699beeca9e9">00149</a> <a class="code" href="classstf_1_1datatype_1_1_matrix.html" title="可変要素数の行列計算を行うクラス．STFではStaticMatrixが推奨される．">Matrix</a> &amp;<a class="code" href="classstf_1_1datatype_1_1_matrix.html#acab3fc4c7dab262017d53699beeca9e9">Matrix::operator=</a>(<span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_matrix.html" title="可変要素数の行列計算を行うクラス．STFではStaticMatrixが推奨される．">Matrix</a> &amp;rhs)
+<a name="l00150"></a>00150 {
+<a name="l00151"></a>00151         <span class="keywordflow">if</span>(<span class="keyword">this</span> == &amp;rhs) <span class="keywordflow">return</span> *<span class="keyword">this</span>;<span class="comment">//自己参照によるメモリリークを防ぐ</span>
+<a name="l00152"></a>00152         <span class="keywordflow">if</span>(rows_ == rhs.rows_ &amp;&amp; cols_ == rhs.cols_){
+<a name="l00153"></a>00153                 <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; rows_; i++)
+<a name="l00154"></a>00154                   <span class="keywordflow">for</span>(<span class="keywordtype">int</span> j = 0; j &lt; cols_ ; j++)
+<a name="l00155"></a>00155                         value_[i][j] = rhs[i][j];
+<a name="l00156"></a>00156         }<span class="keywordflow">else</span>{
+<a name="l00157"></a>00157                 this-&gt;rows_ = rhs.rows_;
+<a name="l00158"></a>00158                 this-&gt;cols_ = rhs.cols_;
+<a name="l00159"></a>00159                 value_ = <span class="keyword">new</span> <a class="code" href="classstf_1_1datatype_1_1_vector.html" title="可変要素数のベクトル演算を行う．">Vector</a>[rows_];
+<a name="l00160"></a>00160                 <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; rows_; i++)
+<a name="l00161"></a>00161                         value_[i].initVector(cols_, 0.0);
+<a name="l00162"></a>00162                 <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; rows_; i++)
+<a name="l00163"></a>00163                         <span class="keywordflow">for</span>(<span class="keywordtype">int</span> j = 0; j &lt; cols_; j++)
+<a name="l00164"></a>00164                                 value_[i][j] = rhs[i][j];
+<a name="l00165"></a>00165         }
+<a name="l00166"></a>00166         <span class="keywordflow">return</span> *<span class="keyword">this</span>;
+<a name="l00167"></a>00167 }
+<a name="l00168"></a>00168 
+<a name="l00169"></a><a class="code" href="classstf_1_1datatype_1_1_matrix.html#a6997c9abddc05f68f1a64a6a219f9446">00169</a> <a class="code" href="classstf_1_1datatype_1_1_matrix.html" title="可変要素数の行列計算を行うクラス．STFではStaticMatrixが推奨される．">Matrix</a> &amp;<a class="code" href="classstf_1_1datatype_1_1_matrix.html#a6997c9abddc05f68f1a64a6a219f9446">Matrix::operator+=</a>(<span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_matrix.html" title="可変要素数の行列計算を行うクラス．STFではStaticMatrixが推奨される．">Matrix</a> &amp;rhs)
+<a name="l00170"></a>00170 {
+<a name="l00171"></a>00171         assert(rows_ == rhs.rows_);
+<a name="l00172"></a>00172         assert(cols_ == rhs.cols_);
+<a name="l00173"></a>00173         <span class="keywordflow">for</span>(<span class="keywordtype">int</span> <a class="code" href="classstf_1_1datatype_1_1_matrix.html#a90bdadcaa553594d3debc6573bb00433">rows</a> = 0;<a class="code" href="classstf_1_1datatype_1_1_matrix.html#a90bdadcaa553594d3debc6573bb00433">rows</a> &lt; rows_; <a class="code" href="classstf_1_1datatype_1_1_matrix.html#a90bdadcaa553594d3debc6573bb00433">rows</a>++) 
+<a name="l00174"></a>00174           <span class="keywordflow">for</span>(<span class="keywordtype">int</span> <a class="code" href="classstf_1_1datatype_1_1_matrix.html#a9d4f9d4d3aa49d8fc4a4513e2333b4d4">cols</a> = 0;<a class="code" href="classstf_1_1datatype_1_1_matrix.html#a9d4f9d4d3aa49d8fc4a4513e2333b4d4">cols</a> &lt; cols_; <a class="code" href="classstf_1_1datatype_1_1_matrix.html#a9d4f9d4d3aa49d8fc4a4513e2333b4d4">cols</a>++)
+<a name="l00175"></a>00175                 value_[<a class="code" href="classstf_1_1datatype_1_1_matrix.html#a90bdadcaa553594d3debc6573bb00433">rows</a>][<a class="code" href="classstf_1_1datatype_1_1_matrix.html#a9d4f9d4d3aa49d8fc4a4513e2333b4d4">cols</a>] += rhs[<a class="code" href="classstf_1_1datatype_1_1_matrix.html#a90bdadcaa553594d3debc6573bb00433">rows</a>][<a class="code" href="classstf_1_1datatype_1_1_matrix.html#a9d4f9d4d3aa49d8fc4a4513e2333b4d4">cols</a>];
+<a name="l00176"></a>00176         <span class="keywordflow">return</span> *<span class="keyword">this</span>;
+<a name="l00177"></a>00177 }
+<a name="l00178"></a>00178 
+<a name="l00179"></a><a class="code" href="classstf_1_1datatype_1_1_matrix.html#a0b3558e163b4499f2e962ee63c63fb83">00179</a> <a class="code" href="classstf_1_1datatype_1_1_matrix.html" title="可変要素数の行列計算を行うクラス．STFではStaticMatrixが推奨される．">Matrix</a> &amp;<a class="code" href="classstf_1_1datatype_1_1_matrix.html#a0b3558e163b4499f2e962ee63c63fb83">Matrix::operator-=</a>(<span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_matrix.html" title="可変要素数の行列計算を行うクラス．STFではStaticMatrixが推奨される．">Matrix</a> &amp;rhs)
+<a name="l00180"></a>00180 {
+<a name="l00181"></a>00181         assert(rows_ == rhs.rows_);
+<a name="l00182"></a>00182         assert(cols_ == rhs.cols_);
+<a name="l00183"></a>00183                 <span class="keywordflow">for</span>(<span class="keywordtype">int</span> <a class="code" href="classstf_1_1datatype_1_1_matrix.html#a90bdadcaa553594d3debc6573bb00433">rows</a> = 0; <a class="code" href="classstf_1_1datatype_1_1_matrix.html#a90bdadcaa553594d3debc6573bb00433">rows</a> &lt; rows_; <a class="code" href="classstf_1_1datatype_1_1_matrix.html#a90bdadcaa553594d3debc6573bb00433">rows</a>++) 
+<a name="l00184"></a>00184                   <span class="keywordflow">for</span>(<span class="keywordtype">int</span> <a class="code" href="classstf_1_1datatype_1_1_matrix.html#a9d4f9d4d3aa49d8fc4a4513e2333b4d4">cols</a> = 0; <a class="code" href="classstf_1_1datatype_1_1_matrix.html#a9d4f9d4d3aa49d8fc4a4513e2333b4d4">cols</a> &lt; cols_; <a class="code" href="classstf_1_1datatype_1_1_matrix.html#a9d4f9d4d3aa49d8fc4a4513e2333b4d4">cols</a>++)
+<a name="l00185"></a>00185                         value_[<a class="code" href="classstf_1_1datatype_1_1_matrix.html#a90bdadcaa553594d3debc6573bb00433">rows</a>][<a class="code" href="classstf_1_1datatype_1_1_matrix.html#a9d4f9d4d3aa49d8fc4a4513e2333b4d4">cols</a>] -= rhs[<a class="code" href="classstf_1_1datatype_1_1_matrix.html#a90bdadcaa553594d3debc6573bb00433">rows</a>][<a class="code" href="classstf_1_1datatype_1_1_matrix.html#a9d4f9d4d3aa49d8fc4a4513e2333b4d4">cols</a>];
+<a name="l00186"></a>00186         <span class="keywordflow">return</span> *<span class="keyword">this</span>;
+<a name="l00187"></a>00187 }
+<a name="l00188"></a>00188 
+<a name="l00189"></a><a class="code" href="classstf_1_1datatype_1_1_matrix.html#adaad15ba5cd4152549054b23813b38b9">00189</a> <a class="code" href="classstf_1_1datatype_1_1_matrix.html" title="可変要素数の行列計算を行うクラス．STFではStaticMatrixが推奨される．">Matrix</a> &amp;<a class="code" href="classstf_1_1datatype_1_1_matrix.html#adaad15ba5cd4152549054b23813b38b9">Matrix::operator*=</a>(<span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_matrix.html" title="可変要素数の行列計算を行うクラス．STFではStaticMatrixが推奨される．">Matrix</a> &amp;rhs)
+<a name="l00190"></a>00190 {
+<a name="l00191"></a>00191         assert(cols_ == rhs.rows_);
+<a name="l00192"></a>00192         <a class="code" href="classstf_1_1datatype_1_1_matrix.html" title="可変要素数の行列計算を行うクラス．STFではStaticMatrixが推奨される．">Matrix</a> tempmat = *<span class="keyword">this</span> * rhs;
+<a name="l00193"></a>00193         *<span class="keyword">this</span> = tempmat;
+<a name="l00194"></a>00194         <span class="keywordflow">return</span> *<span class="keyword">this</span>;
+<a name="l00195"></a>00195 }
+<a name="l00196"></a>00196 
+<a name="l00197"></a><a class="code" href="classstf_1_1datatype_1_1_matrix.html#a8ac4f6020e4fd171c52e3601ef02306f">00197</a> <a class="code" href="classstf_1_1datatype_1_1_matrix.html" title="可変要素数の行列計算を行うクラス．STFではStaticMatrixが推奨される．">Matrix</a> &amp;<a class="code" href="classstf_1_1datatype_1_1_matrix.html#adaad15ba5cd4152549054b23813b38b9">Matrix::operator*=</a>(<span class="keywordtype">double</span> rhs)
+<a name="l00198"></a>00198 {
+<a name="l00199"></a>00199         <span class="keywordflow">for</span>(<span class="keywordtype">int</span> <a class="code" href="classstf_1_1datatype_1_1_matrix.html#a90bdadcaa553594d3debc6573bb00433">rows</a> = 0; <a class="code" href="classstf_1_1datatype_1_1_matrix.html#a90bdadcaa553594d3debc6573bb00433">rows</a> &lt; rows_; <a class="code" href="classstf_1_1datatype_1_1_matrix.html#a90bdadcaa553594d3debc6573bb00433">rows</a>++) 
+<a name="l00200"></a>00200           <span class="keywordflow">for</span>(<span class="keywordtype">int</span> <a class="code" href="classstf_1_1datatype_1_1_matrix.html#a9d4f9d4d3aa49d8fc4a4513e2333b4d4">cols</a> = 0; <a class="code" href="classstf_1_1datatype_1_1_matrix.html#a9d4f9d4d3aa49d8fc4a4513e2333b4d4">cols</a> &lt; cols_; <a class="code" href="classstf_1_1datatype_1_1_matrix.html#a9d4f9d4d3aa49d8fc4a4513e2333b4d4">cols</a>++)
+<a name="l00201"></a>00201                 value_[<a class="code" href="classstf_1_1datatype_1_1_matrix.html#a90bdadcaa553594d3debc6573bb00433">rows</a>][<a class="code" href="classstf_1_1datatype_1_1_matrix.html#a9d4f9d4d3aa49d8fc4a4513e2333b4d4">cols</a>] *= rhs;
+<a name="l00202"></a>00202         <span class="keywordflow">return</span> *<span class="keyword">this</span>;
+<a name="l00203"></a>00203 }
+<a name="l00204"></a>00204 
+<a name="l00205"></a><a class="code" href="classstf_1_1datatype_1_1_matrix.html#a60933579958063cc324b7c83539d296f">00205</a> <a class="code" href="classstf_1_1datatype_1_1_matrix.html" title="可変要素数の行列計算を行うクラス．STFではStaticMatrixが推奨される．">Matrix</a> &amp;<a class="code" href="classstf_1_1datatype_1_1_matrix.html#a60933579958063cc324b7c83539d296f">Matrix::operator/=</a>(<span class="keywordtype">double</span> rhs)
+<a name="l00206"></a>00206 {
+<a name="l00207"></a>00207         <span class="keywordflow">for</span>(<span class="keywordtype">int</span> <a class="code" href="classstf_1_1datatype_1_1_matrix.html#a90bdadcaa553594d3debc6573bb00433">rows</a> = 0;<a class="code" href="classstf_1_1datatype_1_1_matrix.html#a90bdadcaa553594d3debc6573bb00433">rows</a> &lt; rows_; <a class="code" href="classstf_1_1datatype_1_1_matrix.html#a90bdadcaa553594d3debc6573bb00433">rows</a>++) 
+<a name="l00208"></a>00208           <span class="keywordflow">for</span>(<span class="keywordtype">int</span> <a class="code" href="classstf_1_1datatype_1_1_matrix.html#a9d4f9d4d3aa49d8fc4a4513e2333b4d4">cols</a> = 0; <a class="code" href="classstf_1_1datatype_1_1_matrix.html#a9d4f9d4d3aa49d8fc4a4513e2333b4d4">cols</a> &lt; cols_; <a class="code" href="classstf_1_1datatype_1_1_matrix.html#a9d4f9d4d3aa49d8fc4a4513e2333b4d4">cols</a>++)
+<a name="l00209"></a>00209                 value_[<a class="code" href="classstf_1_1datatype_1_1_matrix.html#a90bdadcaa553594d3debc6573bb00433">rows</a> ][<a class="code" href="classstf_1_1datatype_1_1_matrix.html#a9d4f9d4d3aa49d8fc4a4513e2333b4d4">cols</a> ] /= rhs;
+<a name="l00210"></a>00210         <span class="keywordflow">return</span> *<span class="keyword">this</span>;
+<a name="l00211"></a>00211 }
+<a name="l00212"></a>00212 
+<a name="l00213"></a><a class="code" href="classstf_1_1datatype_1_1_matrix.html#a689c2f11cd33d7d4168932206bb7ab7e">00213</a> <span class="keywordtype">bool</span> <a class="code" href="classstf_1_1datatype_1_1_matrix.html#a689c2f11cd33d7d4168932206bb7ab7e">Matrix::operator==</a>(<span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_matrix.html" title="可変要素数の行列計算を行うクラス．STFではStaticMatrixが推奨される．">Matrix</a> &amp;rhs)<span class="keyword"> const </span>
+<a name="l00214"></a>00214 <span class="keyword"></span>{
+<a name="l00215"></a>00215         <span class="keywordflow">if</span>(rows_ != rhs.rows_) <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00216"></a>00216         <span class="keywordflow">if</span>(cols_ != rhs.cols_) <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00217"></a>00217         <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; rows_; i++)
+<a name="l00218"></a>00218                 <span class="keywordflow">for</span>(<span class="keywordtype">int</span> j = 0; j &lt; cols_; j++)
+<a name="l00219"></a>00219                         <span class="keywordflow">if</span>(this-&gt;value_[i][j] != rhs[i][j]) <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00220"></a>00220         <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00221"></a>00221 }
+<a name="l00222"></a>00222 
+<a name="l00223"></a><a class="code" href="classstf_1_1datatype_1_1_matrix.html#a29818212358ea73bdad7712605f26996">00223</a> <span class="keywordtype">bool</span> <a class="code" href="classstf_1_1datatype_1_1_matrix.html#a29818212358ea73bdad7712605f26996">Matrix::operator!=</a>(<span class="keyword">const</span> <a class="code" href="classstf_1_1datatype_1_1_matrix.html" title="可変要素数の行列計算を行うクラス．STFではStaticMatrixが推奨される．">Matrix</a> &amp;rhs)<span class="keyword"> const </span>
+<a name="l00224"></a>00224 <span class="keyword"></span>{
+<a name="l00225"></a>00225         <span class="keywordflow">return</span> !(*<span class="keyword">this</span> == rhs);
+<a name="l00226"></a>00226 }
+<a name="l00227"></a>00227 
+<a name="l00228"></a>00228 } <span class="comment">/* End of namespace stf::datatype */</span>
+<a name="l00229"></a>00229 } <span class="comment">/* End of namespace stf */</span>
+</pre></div></div>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>フレンド</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>マクロ定義</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>STFに対してTue Mar 1 2011 03:45:40に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
+</body>
+</html>

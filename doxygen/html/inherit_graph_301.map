@@ -1,0 +1,5 @@
+<map id="G" name="G">
+<area shape="rect" id="node1" href="$classstf_1_1environment_1_1_g_p_i_o_base.html" title="基底GPIOドライバ．" alt="" coords="5,32,216,61"/>
+<area shape="rect" id="node3" href="$classstf_1_1environment_1_1_s_h7145_1_1_g_p_i_o.html" title="Renesas SHプロセッサ用のGPIOクラス．未実装．" alt="" coords="268,5,503,35"/>
+<area shape="rect" id="node5" href="$classstf_1_1environment_1_1_simulator_1_1_g_p_i_o.html" title="シミュレータ環境用のGPIOドライバ．使用しないので空クラスとして定義" alt="" coords="264,59,507,88"/>
+</map>

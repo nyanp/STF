@@ -1,0 +1,824 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>STF: クラス stf::environment::Simulator</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.3 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">STF</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="pages.html"><span>関連ページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li class="current"><a href="annotated.html"><span>クラス</span></a></li>
+      <li><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>構成</span></a></li>
+      <li><a href="classes.html"><span>構成索引</span></a></li>
+      <li><a href="inherits.html"><span>クラス階層</span></a></li>
+      <li><a href="functions.html"><span>構成メンバ</span></a></li>
+    </ul>
+  </div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="namespacestf.html">stf</a>      </li>
+      <li class="navelem"><a class="el" href="namespacestf_1_1environment.html">environment</a>      </li>
+      <li class="navelem"><a class="el" href="classstf_1_1environment_1_1_simulator.html">Simulator</a>      </li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">構成</a> &#124;
+<a href="#pub-types">Public 型</a> &#124;
+<a href="#pub-methods">Public メソッド</a> &#124;
+<a href="#pub-static-methods">Static Public メソッド</a>  </div>
+  <div class="headertitle">
+<h1>クラス stf::environment::Simulator</h1>  </div>
+</div>
+<div class="contents">
+<!-- doxytag: class="stf::environment::Simulator" -->
+<p>ソフトウェアシミュレータ環境クラス．  
+<a href="#_details">[詳細]</a></p>
+
+<p><code>#include &lt;<a class="el" href="">Simulator.h</a>&gt;</code></p>
+<div class="dynheader">
+stf::environment::Simulatorのコラボレーション図</div>
+<div class="dyncontent">
+<div class="center"><img src="classstf_1_1environment_1_1_simulator__coll__graph.png" border="0" usemap="#stf_1_1environment_1_1_simulator_coll__map" alt="Collaboration graph"/></div>
+<map name="stf_1_1environment_1_1_simulator_coll__map" id="stf_1_1environment_1_1_simulator_coll__map">
+</map>
+<center><span class="legend">[<a href="graph_legend.html">凡例</a>]</span></center></div>
+
+<p><a href="classstf_1_1environment_1_1_simulator-members.html">すべてのメンバ一覧</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="nested-classes"></a>
+構成</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1environment_1_1_simulator_1_1_g_p_i_o.html">GPIO</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">シミュレータ環境用のGPIOドライバ．使用しないので空クラスとして定義  <a href="classstf_1_1environment_1_1_simulator_1_1_g_p_i_o.html#_details">[詳細]</a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="pub-types"></a>
+Public 型</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classstf_1_1environment_1_1_s_p_i_base.html">SPIBase</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1environment_1_1_simulator.html#a3ce9b85c5b286251773f0cf67a975ab2">SPI</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classstf_1_1environment_1_1_u_a_r_t_base.html">UARTBase</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1environment_1_1_simulator.html#a08950a857156a70f37846c644cc13ed4">UART</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef std::ostream&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1environment_1_1_simulator.html#a6f68eddcb520b33a1556e1aebbbae8a2">OutputStream</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef std::ofstream&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1environment_1_1_simulator.html#aade843a701aa289922d5cc8bcee53951">OutputFileStream</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef std::ifstream&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1environment_1_1_simulator.html#a49ef9870db9adaf5827e154db7ffbcec">InputFileStream</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef <br class="typebreak"/>
+<a class="el" href="classstf_1_1core_1_1devicedriver_1_1_a_o_c_s_sensor.html">core::devicedriver::AOCSSensor</a><br class="typebreak"/>
+&lt; <a class="el" href="classstf_1_1datatype_1_1_static_vector.html">datatype::StaticVector</a><br class="typebreak"/>
+&lt; 3 &gt;, <a class="el" href="classstf_1_1datatype_1_1_static_vector.html">datatype::StaticVector</a><br class="typebreak"/>
+&lt; 3 &gt;, <a class="el" href="classstf_1_1environment_1_1_simulator.html">Simulator</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1environment_1_1_simulator.html#aae68f3d5f101bdb359a7f74a8820b1e8">MultiGyro</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef <br class="typebreak"/>
+<a class="el" href="classstf_1_1core_1_1devicedriver_1_1_a_o_c_s_sensor.html">core::devicedriver::AOCSSensor</a><br class="typebreak"/>
+&lt; <a class="el" href="classstf_1_1datatype_1_1_static_vector.html">datatype::StaticVector</a><br class="typebreak"/>
+&lt; 3 &gt;, <a class="el" href="classstf_1_1datatype_1_1_scalar.html">datatype::Scalar</a>, <br class="typebreak"/>
+<a class="el" href="classstf_1_1environment_1_1_simulator.html">Simulator</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1environment_1_1_simulator.html#a420837bf5af936ed185bb96c7e158467">Gyro</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef <br class="typebreak"/>
+<a class="el" href="classstf_1_1core_1_1devicedriver_1_1_a_o_c_s_sensor.html">core::devicedriver::AOCSSensor</a><br class="typebreak"/>
+&lt; <a class="el" href="classstf_1_1datatype_1_1_quaternion.html">datatype::Quaternion</a>, <br class="typebreak"/>
+<a class="el" href="classstf_1_1datatype_1_1_quaternion.html">datatype::Quaternion</a>, <br class="typebreak"/>
+<a class="el" href="classstf_1_1environment_1_1_simulator.html">Simulator</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1environment_1_1_simulator.html#adafb5d4d65d08fff86c0e1627d473d2e">STT</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef <br class="typebreak"/>
+<a class="el" href="classstf_1_1core_1_1devicedriver_1_1_a_o_c_s_sensor.html">core::devicedriver::AOCSSensor</a><br class="typebreak"/>
+&lt; <a class="el" href="classstf_1_1datatype_1_1_static_vector.html">datatype::StaticVector</a><br class="typebreak"/>
+&lt; 2 &gt;, <a class="el" href="classstf_1_1datatype_1_1_static_vector.html">datatype::StaticVector</a><br class="typebreak"/>
+&lt; 2 &gt;, <a class="el" href="classstf_1_1environment_1_1_simulator.html">Simulator</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1environment_1_1_simulator.html#a4cf74d0358a171b6a0bfd7878f11d598">Vectorsensor</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef <br class="typebreak"/>
+<a class="el" href="classstf_1_1core_1_1devicedriver_1_1_a_o_c_s_sensor.html">core::devicedriver::AOCSSensor</a><br class="typebreak"/>
+&lt; <a class="el" href="classstf_1_1datatype_1_1_magnetic_field.html">datatype::MagneticField</a>, <br class="typebreak"/>
+<a class="el" href="classstf_1_1datatype_1_1_magnetic_field.html">datatype::MagneticField</a>, <br class="typebreak"/>
+<a class="el" href="classstf_1_1environment_1_1_simulator.html">Simulator</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1environment_1_1_simulator.html#abc6f724b913145a75b0b60f00896981d">Magnetometer</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef <br class="typebreak"/>
+<a class="el" href="classstf_1_1core_1_1devicedriver_1_1clock_1_1_i_time_clock.html">core::devicedriver::clock::ITimeClock</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1environment_1_1_simulator.html#ac96262e859dac7a2d7cf8df0c2069e18">Clock</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef <br class="typebreak"/>
+<a class="el" href="classstf_1_1core_1_1devicedriver_1_1_a_o_c_s_actuator.html">core::devicedriver::AOCSActuator</a><br class="typebreak"/>
+&lt; <a class="el" href="classstf_1_1datatype_1_1_static_vector.html">datatype::StaticVector</a><br class="typebreak"/>
+&lt; 3 &gt;, <a class="el" href="classstf_1_1datatype_1_1_scalar.html">datatype::Scalar</a>, <br class="typebreak"/>
+<a class="el" href="classstf_1_1environment_1_1_simulator.html">Simulator</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1environment_1_1_simulator.html#a95c50aa2dd780edc735c4c24dab86ad9">TorqueSource</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef <br class="typebreak"/>
+<a class="el" href="classstf_1_1core_1_1devicedriver_1_1_a_o_c_s_actuator.html">core::devicedriver::AOCSActuator</a><br class="typebreak"/>
+&lt; <a class="el" href="classstf_1_1datatype_1_1_magnetic_moment.html">datatype::MagneticMoment</a>, <br class="typebreak"/>
+<a class="el" href="classstf_1_1datatype_1_1_scalar.html">datatype::Scalar</a>, <a class="el" href="classstf_1_1environment_1_1_simulator.html">Simulator</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1environment_1_1_simulator.html#a4dbb8a250ffebe82bbf3a238d946c078">MagneticSource</a></td></tr>
+<tr><td colspan="2"><h2><a name="pub-methods"></a>
+Public メソッド</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1environment_1_1_simulator.html#ab65b4ff41af7733cf328504d6ead9d56">init</a> (<a class="el" href="classstf_1_1_global.html">Global</a>&lt; <a class="el" href="classstf_1_1environment_1_1_simulator.html">Simulator</a> &gt; *global, double stepTimeInSecond, double maxTimeInSecond, const <a class="el" href="structstf_1_1datatype_1_1_orbit_info.html">datatype::OrbitInfo</a> &amp;orbit, std::ofstream *ostream)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1environment_1_1_simulator.html#af2c747557b22d94fcba3461b8851fdf1">~Simulator</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classstf_1_1datatype_1_1_static_vector.html">datatype::StaticVector</a>&lt; 3 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1environment_1_1_simulator.html#ac7655382f4f23f4b74a1b7101adc2f1b">getAngularVelocity</a> (const <a class="el" href="classstf_1_1core_1_1devicedriver_1_1_a_o_c_s_sensor.html">MultiGyro</a> &amp;component) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classstf_1_1datatype_1_1_scalar.html">datatype::Scalar</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1environment_1_1_simulator.html#ae60ad8f046e3abf0790f0becdb68d0c7">getAngularVelocity</a> (const <a class="el" href="classstf_1_1core_1_1devicedriver_1_1_a_o_c_s_sensor.html">Gyro</a> &amp;component) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classstf_1_1datatype_1_1_quaternion.html">datatype::Quaternion</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1environment_1_1_simulator.html#ab88bf74ba42f7bf6a410e846201bf6cb">getQuaternion</a> (const <a class="el" href="classstf_1_1core_1_1devicedriver_1_1_a_o_c_s_sensor.html">STT</a> &amp;component) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classstf_1_1datatype_1_1_static_vector.html">datatype::StaticVector</a>&lt; 2 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1environment_1_1_simulator.html#a3644d4c5260878ff37d4aaa8c90d6faa">getSunDirection</a> (const <a class="el" href="classstf_1_1core_1_1devicedriver_1_1_a_o_c_s_sensor.html">Vectorsensor</a> &amp;component) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classstf_1_1datatype_1_1_static_vector.html">datatype::StaticVector</a>&lt; 2 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1environment_1_1_simulator.html#a9a22aa0f63f1ceea195984bcddfadd01">getEarthDirection</a> (const <a class="el" href="classstf_1_1core_1_1devicedriver_1_1_a_o_c_s_sensor.html">Vectorsensor</a> &amp;component) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classstf_1_1datatype_1_1_magnetic_field.html">datatype::MagneticField</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1environment_1_1_simulator.html#a6976141c198b46b7fb193482cbe83868">getMagneticField</a> (const <a class="el" href="classstf_1_1core_1_1devicedriver_1_1_a_o_c_s_sensor.html">Magnetometer</a> &amp;component) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classstf_1_1datatype_1_1_time.html">datatype::Time</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1environment_1_1_simulator.html#a4ea79d25562a948a4a1438ae8f33631c">get_time</a> (const <a class="el" href="classstf_1_1core_1_1devicedriver_1_1clock_1_1_i_time_clock.html">Clock</a> &amp;component) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classstf_1_1datatype_1_1_time.html">datatype::Time</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1environment_1_1_simulator.html#ab0490750ec5a8bb8bbcd806f7ccea8cd">getTrueTime</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classstf_1_1datatype_1_1_quaternion.html">datatype::Quaternion</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1environment_1_1_simulator.html#af37e78b39dd15fee4aa2b5e3b366cb62">getTrueQuaternion</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classstf_1_1datatype_1_1_static_vector.html">datatype::StaticVector</a>&lt; 3 &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1environment_1_1_simulator.html#aefe358d1dbb4cd2ae4f1ca7da4d8311c">getTrueAngular</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structstf_1_1datatype_1_1_position_info.html">datatype::PositionInfo</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1environment_1_1_simulator.html#aa0ecbb3dd24753afb313f6b80490edae">getTrueSatellitePosition</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1environment_1_1_simulator.html#af422d72fea2f64e23749d019ad7b634a">start</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1environment_1_1_simulator.html#ad421deb0bc3c41ec855ecd90ffd68b23">runOneCycle</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1environment_1_1_simulator.html#a3b9027f9335d5a6292d34a7d22e4131d">attachTorqueSource</a> (<a class="el" href="classstf_1_1core_1_1devicedriver_1_1_a_o_c_s_actuator.html">TorqueSource</a> *source)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1environment_1_1_simulator.html#acd3a0ef98841558f919d1ae7d946d451">attachMagneticSource</a> (<a class="el" href="classstf_1_1core_1_1devicedriver_1_1_a_o_c_s_actuator.html">MagneticSource</a> *source)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1environment_1_1_simulator.html#a667c67d65063ccdc51070e784173de8b">attachNoiseSource</a> (<a class="el" href="classstf_1_1environment_1_1torquesource_1_1_noise_base.html">torquesource::NoiseBase</a> *source)</td></tr>
+<tr><td colspan="2"><h2><a name="pub-static-methods"></a>
+Static Public メソッド</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classstf_1_1environment_1_1_simulator.html">Simulator</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1environment_1_1_simulator.html#a56ea6944ad64a096b368ff47a5111ba7">get_instance</a> ()</td></tr>
+</table>
+<hr/><a name="_details"></a><h2>説明</h2>
+<div class="textblock"><p>ソフトウェアシミュレータ環境クラス． </p>
+<p>IOドライバレベルのエミュレーションは行わず，センサやアクチュエータとのデータ交換は 各センサ，アクチュエータ型のSimulatorに特殊化したdo_update関数によって行われる．</p>
+<div class="fragment"><pre class="fragment">        <span class="comment">//シミュレータの生成</span>
+        <a class="code" href="classstf_1_1environment_1_1_simulator.html" title="ソフトウェアシミュレータ環境クラス．">stf::environment::Simulator</a>&amp; s = <a class="code" href="classstf_1_1environment_1_1_simulator.html#a56ea6944ad64a096b368ff47a5111ba7">stf::environment::Simulator::get_instance</a>();
+
+        <span class="comment">//グローバルオブジェクトの生成</span>
+        <a class="code" href="classstf_1_1factory_1_1_satellite_factory.html" title="衛星ファクトリの基底クラス．">stf::factory::SatelliteFactory&lt;ENV&gt;</a>* en = <span class="keyword">new</span> <a class="code" href="classstf_1_1factory_1_1_p_r_i_s_m_factory.html">stf::factory::PRISMFactory&lt;ENV&gt;</a>();
+        <a class="code" href="classstf_1_1_global.html" title="RTOSとのインターフェースとなる，衛星アプリケーションが生成するオブジェクト群の基底クラス．">stf::Global&lt;ENV&gt;</a>* gl = en-&gt;<a class="code" href="classstf_1_1factory_1_1_satellite_factory.html#a6a55107b7ba72f0915f267be443579b0">create</a>();
+
+        <span class="comment">//シミュレーション用の軌道情報</span>
+        datatype::OrbitInfo orbit(7100000, 0.01, 0, 0.5 * util::math::PI, 0, 0);
+
+        <span class="comment">//シミュレータ初期化</span>
+        s.<a class="code" href="classstf_1_1environment_1_1_simulator.html#ab65b4ff41af7733cf328504d6ead9d56">init</a>(gl, 100, 100, orbit, <span class="keyword">new</span> std::ofstream(<span class="stringliteral">&quot;output.csv&quot;</span>));
+
+        <span class="comment">//2000ステップ実行</span>
+        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; 2000; i++)
+                s.<a class="code" href="classstf_1_1environment_1_1_simulator.html#ad421deb0bc3c41ec855ecd90ffd68b23">runOneCycle</a>();
+</pre></div> 
+<p> <a class="el" href="">Simulator.h</a> の <a class="el" href="#L77">77</a> 行で定義されています。</p>
+</div><hr/><h2>型定義</h2>
+<a class="anchor" id="ac96262e859dac7a2d7cf8df0c2069e18"></a><!-- doxytag: member="stf::environment::Simulator::Clock" ref="ac96262e859dac7a2d7cf8df0c2069e18" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classstf_1_1core_1_1devicedriver_1_1clock_1_1_i_time_clock.html">core::devicedriver::clock::ITimeClock</a> <a class="el" href="classstf_1_1core_1_1devicedriver_1_1clock_1_1_i_time_clock.html">stf::environment::Simulator::Clock</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">Simulator.h</a> の <a class="el" href="#L95">95</a> 行で定義されています。</p>
+
+</div>
+</div>
+<a class="anchor" id="a420837bf5af936ed185bb96c7e158467"></a><!-- doxytag: member="stf::environment::Simulator::Gyro" ref="a420837bf5af936ed185bb96c7e158467" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classstf_1_1core_1_1devicedriver_1_1_a_o_c_s_sensor.html">core::devicedriver::AOCSSensor</a>&lt;<a class="el" href="classstf_1_1datatype_1_1_static_vector.html">datatype::StaticVector</a>&lt;3&gt;, <a class="el" href="classstf_1_1datatype_1_1_scalar.html">datatype::Scalar</a>, <a class="el" href="classstf_1_1environment_1_1_simulator.html">Simulator</a>&gt; <a class="el" href="classstf_1_1core_1_1devicedriver_1_1_a_o_c_s_sensor.html">stf::environment::Simulator::Gyro</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">Simulator.h</a> の <a class="el" href="#L91">91</a> 行で定義されています。</p>
+
+</div>
+</div>
+<a class="anchor" id="a49ef9870db9adaf5827e154db7ffbcec"></a><!-- doxytag: member="stf::environment::Simulator::InputFileStream" ref="a49ef9870db9adaf5827e154db7ffbcec" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::ifstream <a class="el" href="classstf_1_1environment_1_1_simulator.html#a49ef9870db9adaf5827e154db7ffbcec">stf::environment::Simulator::InputFileStream</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">Simulator.h</a> の <a class="el" href="#L88">88</a> 行で定義されています。</p>
+
+</div>
+</div>
+<a class="anchor" id="a4dbb8a250ffebe82bbf3a238d946c078"></a><!-- doxytag: member="stf::environment::Simulator::MagneticSource" ref="a4dbb8a250ffebe82bbf3a238d946c078" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classstf_1_1core_1_1devicedriver_1_1_a_o_c_s_actuator.html">core::devicedriver::AOCSActuator</a>&lt;<a class="el" href="classstf_1_1datatype_1_1_magnetic_moment.html">datatype::MagneticMoment</a>, <a class="el" href="classstf_1_1datatype_1_1_scalar.html">datatype::Scalar</a>, <a class="el" href="classstf_1_1environment_1_1_simulator.html">Simulator</a>&gt; <a class="el" href="classstf_1_1core_1_1devicedriver_1_1_a_o_c_s_actuator.html">stf::environment::Simulator::MagneticSource</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">Simulator.h</a> の <a class="el" href="#L97">97</a> 行で定義されています。</p>
+
+</div>
+</div>
+<a class="anchor" id="abc6f724b913145a75b0b60f00896981d"></a><!-- doxytag: member="stf::environment::Simulator::Magnetometer" ref="abc6f724b913145a75b0b60f00896981d" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classstf_1_1core_1_1devicedriver_1_1_a_o_c_s_sensor.html">core::devicedriver::AOCSSensor</a>&lt;<a class="el" href="classstf_1_1datatype_1_1_magnetic_field.html">datatype::MagneticField</a>, <a class="el" href="classstf_1_1datatype_1_1_magnetic_field.html">datatype::MagneticField</a>, <a class="el" href="classstf_1_1environment_1_1_simulator.html">Simulator</a>&gt; <a class="el" href="classstf_1_1core_1_1devicedriver_1_1_a_o_c_s_sensor.html">stf::environment::Simulator::Magnetometer</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">Simulator.h</a> の <a class="el" href="#L94">94</a> 行で定義されています。</p>
+
+</div>
+</div>
+<a class="anchor" id="aae68f3d5f101bdb359a7f74a8820b1e8"></a><!-- doxytag: member="stf::environment::Simulator::MultiGyro" ref="aae68f3d5f101bdb359a7f74a8820b1e8" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classstf_1_1core_1_1devicedriver_1_1_a_o_c_s_sensor.html">core::devicedriver::AOCSSensor</a>&lt;<a class="el" href="classstf_1_1datatype_1_1_static_vector.html">datatype::StaticVector</a>&lt;3&gt;, <a class="el" href="classstf_1_1datatype_1_1_static_vector.html">datatype::StaticVector</a>&lt;3&gt;, <a class="el" href="classstf_1_1environment_1_1_simulator.html">Simulator</a>&gt; <a class="el" href="classstf_1_1core_1_1devicedriver_1_1_a_o_c_s_sensor.html">stf::environment::Simulator::MultiGyro</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">Simulator.h</a> の <a class="el" href="#L90">90</a> 行で定義されています。</p>
+
+</div>
+</div>
+<a class="anchor" id="aade843a701aa289922d5cc8bcee53951"></a><!-- doxytag: member="stf::environment::Simulator::OutputFileStream" ref="aade843a701aa289922d5cc8bcee53951" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::ofstream <a class="el" href="classstf_1_1environment_1_1_simulator.html#aade843a701aa289922d5cc8bcee53951">stf::environment::Simulator::OutputFileStream</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">Simulator.h</a> の <a class="el" href="#L87">87</a> 行で定義されています。</p>
+
+</div>
+</div>
+<a class="anchor" id="a6f68eddcb520b33a1556e1aebbbae8a2"></a><!-- doxytag: member="stf::environment::Simulator::OutputStream" ref="a6f68eddcb520b33a1556e1aebbbae8a2" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::ostream <a class="el" href="classstf_1_1environment_1_1_simulator.html#a6f68eddcb520b33a1556e1aebbbae8a2">stf::environment::Simulator::OutputStream</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">Simulator.h</a> の <a class="el" href="#L86">86</a> 行で定義されています。</p>
+
+</div>
+</div>
+<a class="anchor" id="a3ce9b85c5b286251773f0cf67a975ab2"></a><!-- doxytag: member="stf::environment::Simulator::SPI" ref="a3ce9b85c5b286251773f0cf67a975ab2" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classstf_1_1environment_1_1_s_p_i_base.html">SPIBase</a> <a class="el" href="classstf_1_1environment_1_1_s_p_i_base.html">stf::environment::Simulator::SPI</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">Simulator.h</a> の <a class="el" href="#L82">82</a> 行で定義されています。</p>
+
+</div>
+</div>
+<a class="anchor" id="adafb5d4d65d08fff86c0e1627d473d2e"></a><!-- doxytag: member="stf::environment::Simulator::STT" ref="adafb5d4d65d08fff86c0e1627d473d2e" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classstf_1_1core_1_1devicedriver_1_1_a_o_c_s_sensor.html">core::devicedriver::AOCSSensor</a>&lt;<a class="el" href="classstf_1_1datatype_1_1_quaternion.html">datatype::Quaternion</a>, <a class="el" href="classstf_1_1datatype_1_1_quaternion.html">datatype::Quaternion</a>, <a class="el" href="classstf_1_1environment_1_1_simulator.html">Simulator</a>&gt; <a class="el" href="classstf_1_1core_1_1devicedriver_1_1_a_o_c_s_sensor.html">stf::environment::Simulator::STT</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">Simulator.h</a> の <a class="el" href="#L92">92</a> 行で定義されています。</p>
+
+</div>
+</div>
+<a class="anchor" id="a95c50aa2dd780edc735c4c24dab86ad9"></a><!-- doxytag: member="stf::environment::Simulator::TorqueSource" ref="a95c50aa2dd780edc735c4c24dab86ad9" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classstf_1_1core_1_1devicedriver_1_1_a_o_c_s_actuator.html">core::devicedriver::AOCSActuator</a>&lt;<a class="el" href="classstf_1_1datatype_1_1_static_vector.html">datatype::StaticVector</a>&lt;3&gt;, <a class="el" href="classstf_1_1datatype_1_1_scalar.html">datatype::Scalar</a>, <a class="el" href="classstf_1_1environment_1_1_simulator.html">Simulator</a>&gt; <a class="el" href="classstf_1_1core_1_1devicedriver_1_1_a_o_c_s_actuator.html">stf::environment::Simulator::TorqueSource</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">Simulator.h</a> の <a class="el" href="#L96">96</a> 行で定義されています。</p>
+
+</div>
+</div>
+<a class="anchor" id="a08950a857156a70f37846c644cc13ed4"></a><!-- doxytag: member="stf::environment::Simulator::UART" ref="a08950a857156a70f37846c644cc13ed4" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classstf_1_1environment_1_1_u_a_r_t_base.html">UARTBase</a> <a class="el" href="classstf_1_1environment_1_1_u_a_r_t_base.html">stf::environment::Simulator::UART</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">Simulator.h</a> の <a class="el" href="#L83">83</a> 行で定義されています。</p>
+
+</div>
+</div>
+<a class="anchor" id="a4cf74d0358a171b6a0bfd7878f11d598"></a><!-- doxytag: member="stf::environment::Simulator::Vectorsensor" ref="a4cf74d0358a171b6a0bfd7878f11d598" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classstf_1_1core_1_1devicedriver_1_1_a_o_c_s_sensor.html">core::devicedriver::AOCSSensor</a>&lt;<a class="el" href="classstf_1_1datatype_1_1_static_vector.html">datatype::StaticVector</a>&lt;2&gt;, <a class="el" href="classstf_1_1datatype_1_1_static_vector.html">datatype::StaticVector</a>&lt;2&gt;, <a class="el" href="classstf_1_1environment_1_1_simulator.html">Simulator</a>&gt; <a class="el" href="classstf_1_1core_1_1devicedriver_1_1_a_o_c_s_sensor.html">stf::environment::Simulator::Vectorsensor</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">Simulator.h</a> の <a class="el" href="#L93">93</a> 行で定義されています。</p>
+
+</div>
+</div>
+<hr/><h2>コンストラクタとデストラクタ</h2>
+<a class="anchor" id="af2c747557b22d94fcba3461b8851fdf1"></a><!-- doxytag: member="stf::environment::Simulator::~Simulator" ref="af2c747557b22d94fcba3461b8851fdf1" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">stf::Simulator::~Simulator </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">Simulator.cpp</a> の <a class="el" href="#L266">266</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">{
+        
+}
+
+</pre></div>
+</div>
+</div>
+<hr/><h2>関数</h2>
+<a class="anchor" id="acd3a0ef98841558f919d1ae7d946d451"></a><!-- doxytag: member="stf::environment::Simulator::attachMagneticSource" ref="acd3a0ef98841558f919d1ae7d946d451" args="(MagneticSource *source)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stf::Simulator::attachMagneticSource </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classstf_1_1core_1_1devicedriver_1_1_a_o_c_s_actuator.html">MagneticSource</a> *&#160;</td>
+          <td class="paramname"><em>source</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">Simulator.cpp</a> の <a class="el" href="#L343">343</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">{
+        this-&gt;simulatorimpl_-&gt;attachMagneticSource(source);
+}
+
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="a667c67d65063ccdc51070e784173de8b"></a><!-- doxytag: member="stf::environment::Simulator::attachNoiseSource" ref="a667c67d65063ccdc51070e784173de8b" args="(torquesource::NoiseBase *source)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stf::Simulator::attachNoiseSource </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classstf_1_1environment_1_1torquesource_1_1_noise_base.html">torquesource::NoiseBase</a> *&#160;</td>
+          <td class="paramname"><em>source</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">Simulator.cpp</a> の <a class="el" href="#L338">338</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">{
+        this-&gt;simulatorimpl_-&gt;attachNoiseSource(source);
+}
+
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="a3b9027f9335d5a6292d34a7d22e4131d"></a><!-- doxytag: member="stf::environment::Simulator::attachTorqueSource" ref="a3b9027f9335d5a6292d34a7d22e4131d" args="(TorqueSource *source)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stf::Simulator::attachTorqueSource </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classstf_1_1core_1_1devicedriver_1_1_a_o_c_s_actuator.html">TorqueSource</a> *&#160;</td>
+          <td class="paramname"><em>source</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">Simulator.cpp</a> の <a class="el" href="#L333">333</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">{
+        this-&gt;simulatorimpl_-&gt;attachTorqueSource(source);
+}
+
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="a56ea6944ad64a096b368ff47a5111ba7"></a><!-- doxytag: member="stf::environment::Simulator::get_instance" ref="a56ea6944ad64a096b368ff47a5111ba7" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classstf_1_1environment_1_1_simulator.html">Simulator</a> &amp; stf::Simulator::get_instance </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">Simulator.cpp</a> の <a class="el" href="#L257">257</a> 行で定義されています。</p>
+
+</div>
+</div>
+<a class="anchor" id="a4ea79d25562a948a4a1438ae8f33631c"></a><!-- doxytag: member="stf::environment::Simulator::get_time" ref="a4ea79d25562a948a4a1438ae8f33631c" args="(const Clock &amp;component) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classstf_1_1datatype_1_1_time.html">datatype::Time</a> stf::environment::Simulator::get_time </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classstf_1_1core_1_1devicedriver_1_1clock_1_1_i_time_clock.html">Clock</a> &amp;&#160;</td>
+          <td class="paramname"><em>component</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ae60ad8f046e3abf0790f0becdb68d0c7"></a><!-- doxytag: member="stf::environment::Simulator::getAngularVelocity" ref="ae60ad8f046e3abf0790f0becdb68d0c7" args="(const Gyro &amp;component) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classstf_1_1datatype_1_1_scalar.html">datatype::Scalar</a> stf::environment::Simulator::getAngularVelocity </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classstf_1_1core_1_1devicedriver_1_1_a_o_c_s_sensor.html">Gyro</a> &amp;&#160;</td>
+          <td class="paramname"><em>component</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ac7655382f4f23f4b74a1b7101adc2f1b"></a><!-- doxytag: member="stf::environment::Simulator::getAngularVelocity" ref="ac7655382f4f23f4b74a1b7101adc2f1b" args="(const MultiGyro &amp;component) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classstf_1_1datatype_1_1_static_vector.html">datatype::StaticVector</a>&lt;3&gt; stf::environment::Simulator::getAngularVelocity </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classstf_1_1core_1_1devicedriver_1_1_a_o_c_s_sensor.html">MultiGyro</a> &amp;&#160;</td>
+          <td class="paramname"><em>component</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a9a22aa0f63f1ceea195984bcddfadd01"></a><!-- doxytag: member="stf::environment::Simulator::getEarthDirection" ref="a9a22aa0f63f1ceea195984bcddfadd01" args="(const Vectorsensor &amp;component) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classstf_1_1datatype_1_1_static_vector.html">datatype::StaticVector</a>&lt; 2 &gt; stf::Simulator::getEarthDirection </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classstf_1_1core_1_1devicedriver_1_1_a_o_c_s_sensor.html">Vectorsensor</a> &amp;&#160;</td>
+          <td class="paramname"><em>component</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">Simulator.cpp</a> の <a class="el" href="#L296">296</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">{
+        <span class="keywordflow">return</span> this-&gt;simulatorimpl_-&gt;getEarthDirection(component);
+}
+
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="a6976141c198b46b7fb193482cbe83868"></a><!-- doxytag: member="stf::environment::Simulator::getMagneticField" ref="a6976141c198b46b7fb193482cbe83868" args="(const Magnetometer &amp;component) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classstf_1_1datatype_1_1_magnetic_field.html">datatype::MagneticField</a> stf::Simulator::getMagneticField </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classstf_1_1core_1_1devicedriver_1_1_a_o_c_s_sensor.html">Magnetometer</a> &amp;&#160;</td>
+          <td class="paramname"><em>component</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">Simulator.cpp</a> の <a class="el" href="#L271">271</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">{
+        <span class="keywordflow">return</span> this-&gt;simulatorimpl_-&gt;getMagneticField(component);
+}
+
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="ab88bf74ba42f7bf6a410e846201bf6cb"></a><!-- doxytag: member="stf::environment::Simulator::getQuaternion" ref="ab88bf74ba42f7bf6a410e846201bf6cb" args="(const STT &amp;component) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classstf_1_1datatype_1_1_quaternion.html">datatype::Quaternion</a> stf::Simulator::getQuaternion </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classstf_1_1core_1_1devicedriver_1_1_a_o_c_s_sensor.html">STT</a> &amp;&#160;</td>
+          <td class="paramname"><em>component</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">Simulator.cpp</a> の <a class="el" href="#L286">286</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">{
+        <span class="keywordflow">return</span> this-&gt;simulatorimpl_-&gt;getQuaternion(component);
+}
+
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="a3644d4c5260878ff37d4aaa8c90d6faa"></a><!-- doxytag: member="stf::environment::Simulator::getSunDirection" ref="a3644d4c5260878ff37d4aaa8c90d6faa" args="(const Vectorsensor &amp;component) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classstf_1_1datatype_1_1_static_vector.html">datatype::StaticVector</a>&lt; 2 &gt; stf::Simulator::getSunDirection </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classstf_1_1core_1_1devicedriver_1_1_a_o_c_s_sensor.html">Vectorsensor</a> &amp;&#160;</td>
+          <td class="paramname"><em>component</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">Simulator.cpp</a> の <a class="el" href="#L291">291</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">{
+        <span class="keywordflow">return</span> this-&gt;simulatorimpl_-&gt;getSunDirection(component);
+}
+
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="aefe358d1dbb4cd2ae4f1ca7da4d8311c"></a><!-- doxytag: member="stf::environment::Simulator::getTrueAngular" ref="aefe358d1dbb4cd2ae4f1ca7da4d8311c" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classstf_1_1datatype_1_1_static_vector.html">datatype::StaticVector</a>&lt; 3 &gt; &amp; stf::Simulator::getTrueAngular </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">Simulator.cpp</a> の <a class="el" href="#L314">314</a> 行で定義されています。</p>
+
+</div>
+</div>
+<a class="anchor" id="af37e78b39dd15fee4aa2b5e3b366cb62"></a><!-- doxytag: member="stf::environment::Simulator::getTrueQuaternion" ref="af37e78b39dd15fee4aa2b5e3b366cb62" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classstf_1_1datatype_1_1_quaternion.html">datatype::Quaternion</a> &amp; stf::Simulator::getTrueQuaternion </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">Simulator.cpp</a> の <a class="el" href="#L310">310</a> 行で定義されています。</p>
+
+</div>
+</div>
+<a class="anchor" id="aa0ecbb3dd24753afb313f6b80490edae"></a><!-- doxytag: member="stf::environment::Simulator::getTrueSatellitePosition" ref="aa0ecbb3dd24753afb313f6b80490edae" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="structstf_1_1datatype_1_1_position_info.html">datatype::PositionInfo</a> stf::Simulator::getTrueSatellitePosition </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">Simulator.cpp</a> の <a class="el" href="#L301">301</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">{
+        <span class="keywordflow">return</span> this-&gt;simulatorimpl_-&gt;getTrueSatellitePosition();
+}
+
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="ab0490750ec5a8bb8bbcd806f7ccea8cd"></a><!-- doxytag: member="stf::environment::Simulator::getTrueTime" ref="ab0490750ec5a8bb8bbcd806f7ccea8cd" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classstf_1_1datatype_1_1_time.html">datatype::Time</a> &amp; stf::Simulator::getTrueTime </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">Simulator.cpp</a> の <a class="el" href="#L306">306</a> 行で定義されています。</p>
+
+</div>
+</div>
+<a class="anchor" id="ab65b4ff41af7733cf328504d6ead9d56"></a><!-- doxytag: member="stf::environment::Simulator::init" ref="ab65b4ff41af7733cf328504d6ead9d56" args="(Global&lt; Simulator &gt; *global, double stepTimeInSecond, double maxTimeInSecond, const datatype::OrbitInfo &amp;orbit, std::ofstream *ostream)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stf::environment::Simulator::init </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classstf_1_1_global.html">Global</a>&lt; <a class="el" href="classstf_1_1environment_1_1_simulator.html">Simulator</a> &gt; *&#160;</td>
+          <td class="paramname"><em>global</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>stepTimeInSecond</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>maxTimeInSecond</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structstf_1_1datatype_1_1_orbit_info.html">datatype::OrbitInfo</a> &amp;&#160;</td>
+          <td class="paramname"><em>orbit</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::ofstream *&#160;</td>
+          <td class="paramname"><em>ostream</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ad421deb0bc3c41ec855ecd90ffd68b23"></a><!-- doxytag: member="stf::environment::Simulator::runOneCycle" ref="ad421deb0bc3c41ec855ecd90ffd68b23" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stf::Simulator::runOneCycle </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">Simulator.cpp</a> の <a class="el" href="#L328">328</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">{
+        this-&gt;simulatorimpl_-&gt;runOneCycle();
+}
+
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="af422d72fea2f64e23749d019ad7b634a"></a><!-- doxytag: member="stf::environment::Simulator::start" ref="af422d72fea2f64e23749d019ad7b634a" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stf::Simulator::start </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p> <a class="el" href="">Simulator.cpp</a> の <a class="el" href="#L323">323</a> 行で定義されています。</p>
+<div class="fragment"><pre class="fragment">{
+        this-&gt;simulatorimpl_-&gt;start();
+}
+
+</pre></div>
+</div>
+</div>
+<hr/>このクラスの説明は次のファイルから生成されました:<ul>
+<li>stf/environment/<a class="el" href="">Simulator.h</a></li>
+<li>stf/environment/<a class="el" href="">Simulator.cpp</a></li>
+</ul>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>フレンド</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>マクロ定義</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>STFに対してWed Mar 23 2011 05:33:37に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
+</body>
+</html>

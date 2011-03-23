@@ -1,0 +1,41 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$_g_g_compensation_8h.html" title="重力傾斜トルクを計算し，逆符号のトルクを出力する制御ブロック．" alt="" coords="1127,237,1263,267"/>
+<area shape="rect" id="node43" href="$_satellite_model_8h.html" title="衛星質量特性を表現するクラス．" alt="" coords="2627,315,2832,344"/>
+<area shape="rect" id="node45" href="$_static_matrix_8h.html" title="テンプレートを用いた固定要素数の行列計算クラス" alt="" coords="2821,392,2923,421"/>
+<area shape="rect" id="node64" href="$_orbit_calc_8h.html" title="軌道関係情報を計算するメソッドをstaticメンバとしてまとめたクラス．" alt="" coords="2516,83,2692,112"/>
+<area shape="rect" id="node67" href="$_global_object_8h.html" title="RTOSとのインターフェースとなる，衛星アプリケーションが生成するオブジェクト群の基底クラス．" alt="" coords="2416,237,2560,267"/>
+<area shape="rect" id="node82" href="$_trace_8h.html" title="STFの内部状態を外部ファイルに書き出すためのトレースオブジェクト．" alt="" coords="1855,83,1977,112"/>
+<area shape="rect" id="node5" href="$_strategy_base_8h.html" title="ストラテジの共通基底クラス．" alt="" coords="552,315,675,344"/>
+<area shape="rect" id="node27" href="$_static_vector_8h.html" title="テンプレートを用いた固定要素数のベクトル計算クラス" alt="" coords="1699,469,1893,499"/>
+<area shape="rect" id="node36" href="$_quaternion_8h.html" title="4元数を表現するクラス．" alt="" coords="1232,392,1419,421"/>
+<area shape="rect" id="node39" href="$_orbit_info_8h.html" title="軌道情報関係の量を表す" alt="" coords="987,392,1157,421"/>
+<area shape="rect" id="node49" href="$_i_o_port_8h.html" title="他機器との接続を型に基づいて行うための入出力ポート．" alt="" coords="944,315,1107,344"/>
+<area shape="rect" id="node7" href="$_root_object_8h.html" title="数値型を除いた全クラスの基本となるクラス．" alt="" coords="552,392,675,421"/>
+<area shape="rect" id="node15" href="$_i_time_clock_8h.html" title="Time型のカウントが可能であることを示す抽象インターフェース．" alt="" coords="749,392,963,421"/>
+<area shape="rect" id="node23" href="$_i_enabable_8h.html" title="有効化・無効化制御が可能なコンポーネントに対するインターフェース．" alt="" coords="67,392,232,421"/>
+<area shape="rect" id="node25" href="$_type_manip_8h.html" title="../../util/loki/TypeManip.h" alt="" coords="5,624,171,653"/>
+<area shape="rect" id="node9" href="$_instance_i_d_8h.html" title="インスタンスIDの定義を行うマクロ群．" alt="" coords="655,469,748,499"/>
+<area shape="rect" id="node11" href="$_string_8h.html" title="std::stringの簡略版クラス．" alt="" coords="489,469,609,499"/>
+<area shape="rect" id="node13" href="$_macros_8h.html" title="STF全体で使用する簡単なマクロ関数を記述する．" alt="" coords="1097,469,1172,499"/>
+<area shape="rect" id="node17" href="$_time_8h.html" title="経過時間を表すクラス．" alt="" coords="2396,469,2545,499"/>
+<area shape="rect" id="node21" href="$_i_data_updatable_8h.html" title="周期的にデータを取得，送信するコンポーネントに対する抽象インターフェース．" alt="" coords="789,469,923,499"/>
+<area shape="rect" id="node19" href="$stfassert_8h.html" title="assertラッパ．" alt="" coords="2357,547,2472,576"/>
+<area shape="rect" id="node30" href="$_i_aocs_data_8h.html" title="AOCS使用系列のデータ共通の抽象インターフェース．" alt="" coords="1993,547,2087,576"/>
+<area shape="rect" id="node34" href="$math_8h.html" title="数学系関数のラッパと算術定数の定義．" alt="" coords="1607,547,1700,576"/>
+<area shape="rect" id="node32" href="$_i_telemetable_8h.html" title="テレメトリを生成可能なオブジェクトに対するインターフェース．" alt="" coords="1955,624,2125,653"/>
+<area shape="rect" id="node51" href="$_hierarchy_generators_8h.html" title="../../util/loki/HierarchyGenerators.h" alt="" coords="256,392,477,421"/>
+<area shape="rect" id="node53" href="$_typelist_8h.html" title="Typelist.h" alt="" coords="255,547,332,576"/>
+<area shape="rect" id="node58" href="$_type_traits_8h.html" title="TypeTraits.h" alt="" coords="331,469,424,499"/>
+<area shape="rect" id="node61" href="$_empty_type_8h.html" title="EmptyType.h" alt="" coords="157,469,256,499"/>
+<area shape="rect" id="node55" href="$_null_type_8h.html" title="NullType.h" alt="" coords="252,624,335,653"/>
+<area shape="rect" id="node72" href="$_list_8h.html" title="Simple Template Container." alt="" coords="2691,392,2797,421"/>
+<area shape="rect" id="node76" href="$_date_time_8h.html" title="ユリウス暦による絶対時刻を保持するクラス．時間間隔などの計算にはTimeを使う．" alt="" coords="2525,392,2667,421"/>
+<area shape="rect" id="node84" href="$_ostream_8h.html" title="標準出力のラッパ．" alt="" coords="2052,160,2135,189"/>
+<area shape="rect" id="node91" href="$_config_8h.html" title="../Config.h" alt="" coords="2053,237,2133,267"/>
+<area shape="rect" id="node93" href="$_simulator_8h.html" title="ソフトウェアシミュレータ環境クラス．" alt="" coords="2013,315,2173,344"/>
+<area shape="rect" id="node101" href="$_vector_8h.html" title="可変要素数のベクトル演算を行うクラス．STFではStaticVectorが推奨される" alt="" coords="2025,469,2161,499"/>
+<area shape="rect" id="node105" href="$_matrix_8h.html" title="可変要素数の行列計算を行うクラス．STFではStaticMatrixが推奨される．" alt="" coords="2027,392,2160,421"/>
+<area shape="rect" id="node115" href="$_magnetic_8h.html" title="磁気関係の物理量を表す" alt="" coords="1720,392,1872,421"/>
+<area shape="rect" id="node118" href="$_scalar_8h.html" title="スカラー物理量を表現するクラス．" alt="" coords="2185,469,2321,499"/>
+<area shape="rect" id="node123" href="$_i_o_driver_base_8h.html" title="環境クラス共通の基底IOドライバ． 各環境クラスにおけるIOはこの基底ドライバを使用するか，ここから派生させることを基本とする．" alt="" coords="1589,392,1696,421"/>
+</map>

@@ -1,0 +1,222 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>STF: stf/core/strategy/telemetry/OutputAll.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.3 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">STF</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="pages.html"><span>関連ページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>ファイルメンバ</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<h1>stf/core/strategy/telemetry/OutputAll.h</h1>  </div>
+</div>
+<div class="contents">
+<a href="_output_all_8h.html">説明を見る。</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<a name="l00008"></a>00008 <span class="preprocessor">#ifndef stf_core_strategy_telemetry_OutputAll_h</span>
+<a name="l00009"></a>00009 <span class="preprocessor"></span><span class="preprocessor">#define stf_core_strategy_telemetry_OutputAll_h</span>
+<a name="l00010"></a>00010 <span class="preprocessor"></span>
+<a name="l00011"></a>00011 <span class="preprocessor">#include &quot;<a class="code" href="_i_telemetry_strategy_8h.html" title="テレメトリ生成ストラテジの抽象インターフェース．">ITelemetryStrategy.h</a>&quot;</span>
+<a name="l00012"></a>00012 <span class="preprocessor">#include &quot;<a class="code" href="_global_object_8h.html" title="RTOSとのインターフェースとなる，衛星アプリケーションが生成するオブジェクト群の基底クラス．">../../../GlobalObject.h</a>&quot;</span>
+<a name="l00013"></a>00013 <span class="preprocessor">#include &quot;<a class="code" href="_strategy_base_8h.html" title="ストラテジの共通基底クラス．">../StrategyBase.h</a>&quot;</span>
+<a name="l00014"></a>00014 <span class="preprocessor">#include &quot;<a class="code" href="_datapool_8h.html" title="STF生成データにタイムタグを付加して格納するデータプール． データの配列を保持するTupleと，Tupleの配列を保持するデータプールによって テーブル形式のデータ構造を表現する．">../../datapool/Datapool.h</a>&quot;</span>
+<a name="l00015"></a>00015 <span class="preprocessor">#include &quot;<a class="code" href="_event_base_8h.html" title="全イベントの基底クラス．">../../event/EventBase.h</a>&quot;</span>
+<a name="l00016"></a>00016 <span class="preprocessor">#include &quot;<a class="code" href="_i_telemetry_storagable_8h.html" title="テレメトリデータのストレージに対する抽象インターフェース．">../../devicedriver/tmhandler/ITelemetryStoragable.h</a>&quot;</span>
+<a name="l00017"></a>00017 <span class="preprocessor">#include &quot;<a class="code" href="_iterator_8h.html" title="STFが提供するイテレータとその抽象インターフェース．">../../../interface/Iterator.h</a>&quot;</span>
+<a name="l00018"></a>00018 <span class="preprocessor">#include &quot;<a class="code" href="_i_aocs_data_8h.html" title="AOCS使用系列のデータ共通の抽象インターフェース．">../../../datatype/IAocsData.h</a>&quot;</span>
+<a name="l00019"></a>00019 <span class="preprocessor">#include &quot;<a class="code" href="_list_8h.html" title="Simple Template Container.">../../../datatype/List.h</a>&quot;</span>
+<a name="l00020"></a>00020 <span class="preprocessor">#include &quot;<a class="code" href="_iterator_8h.html" title="STFが提供するイテレータとその抽象インターフェース．">../../../interface/Iterator.h</a>&quot;</span>
+<a name="l00021"></a>00021 
+<a name="l00022"></a>00022 <span class="keyword">namespace </span>stf {
+<a name="l00023"></a>00023 <span class="keyword">namespace </span>core {
+<a name="l00024"></a>00024 <span class="keyword">namespace </span>strategy {
+<a name="l00025"></a>00025 <span class="keyword">namespace </span>telemetry {
+<a name="l00026"></a>00026 
+<a name="l00028"></a>00028 
+<a name="l00037"></a>00037 <span class="keyword">template</span>&lt;<span class="keyword">class</span> T = <span class="keywordtype">double</span>, <span class="keywordtype">int</span> SCALE = 1&gt;
+<a name="l00038"></a><a class="code" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_output_all.html">00038</a> <span class="keyword">class </span><a class="code" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_output_all.html" title="データプールの内容を全て出力するテレメトリ生成ストラテジ．">OutputAll</a> : <span class="keyword">public</span> <a class="code" href="classstf_1_1core_1_1strategy_1_1_strategy_base.html" title="ストラテジの共通基底クラス．">StrategyBase</a>,  <span class="keyword">virtual</span> <span class="keyword">public</span> <a class="code" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_i_telemetry_strategy.html" title="テレメトリ生成ストラテジの抽象インターフェース．">ITelemetryStrategy</a>, <span class="keyword">virtual</span> <span class="keyword">public</span> interface::Iterator{
+<a name="l00039"></a>00039 <span class="keyword">public</span>:
+<a name="l00040"></a><a class="code" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_output_all.html#a253af21e92c93bd1b77b67f834b2e529">00040</a>         <a class="code" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_output_all.html#a253af21e92c93bd1b77b67f834b2e529">OutputAll</a>(<span class="keywordtype">int</span> <a class="code" href="classstf_1_1_root_object.html#a233a3fbd4d53b7a8eaa5d2edab4cf75b">instance_id</a>, <a class="code" href="classstf_1_1core_1_1devicedriver_1_1tmhandler_1_1_i_telemetry_storagable.html" title="テレメトリデータのストレージに対する抽象インターフェース．">devicedriver::tmhandler::ITelemetryStoragable</a>* storage,
+<a name="l00041"></a>00041                 <span class="keyword">const</span> <a class="code" href="classstf_1_1core_1_1datapool_1_1_aocs_data_pool.html" title="IAocsDataのデータプール．">core::datapool::AocsDataPool</a>* pool,
+<a name="l00042"></a>00042                 <span class="keyword">const</span> <a class="code" href="classstf_1_1core_1_1datapool_1_1_event_data_pool.html" title="Eventのデータプール．">core::datapool::EventDataPool</a>* eventpool
+<a name="l00043"></a>00043                 ) : <a class="code" href="classstf_1_1core_1_1strategy_1_1_strategy_base.html" title="ストラテジの共通基底クラス．">StrategyBase</a>(instance_id, <span class="stringliteral">&quot;OutputAll&quot;</span>), <a class="code" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_output_all.html#ada8948cc6b1e8131df43c50c74704c1e">storage_</a>(storage), <a class="code" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_output_all.html#a8c12f2d729e46b42b72dae60b87df95f">datapooliter_</a>(pool)
+<a name="l00044"></a>00044         {
+<a name="l00045"></a>00045                 this-&gt;<a class="code" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_output_all.html#ab632b7a9ad4142d17c6f7849aaa7c05d">createindex_</a>(pool);
+<a name="l00046"></a>00046                 this-&gt;<a class="code" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_output_all.html#aca8c9e2b8c79f79e428d803fce2534a6">tmlistiter_</a> = this-&gt;<a class="code" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_output_all.html#a199318d572f6c63b60f680e6c635814b">tmlist_</a>.<a class="code" href="classstf_1_1datatype_1_1_list.html#ab5bca799c82f8912d4b2457b57469bd2">begin</a>();
+<a name="l00047"></a>00047         }
+<a name="l00048"></a><a class="code" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_output_all.html#a06f4af03d2702de536b97eda0224e164">00048</a>         <a class="code" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_output_all.html#a06f4af03d2702de536b97eda0224e164">~OutputAll</a>(){}
+<a name="l00049"></a>00049         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_output_all.html#a2fe938640899dcce134b53afc223f23a">write_to_telemetry</a>();
+<a name="l00050"></a><a class="code" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_output_all.html#aceb056471d038c2be08bd78bb356bfe3">00050</a>         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_output_all.html#aceb056471d038c2be08bd78bb356bfe3">add_tmlist</a>(<a class="code" href="classstf_1_1interface_1_1_iterator.html" title="イテレータの抽象インターフェース．">interface::Iterator</a>* tm){ this-&gt;<a class="code" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_output_all.html#a199318d572f6c63b60f680e6c635814b">tmlist_</a>.<a class="code" href="classstf_1_1datatype_1_1_list.html#abe6c602f5a6104ef478907b2b51ff02c">add</a>(*tm);}
+<a name="l00051"></a><a class="code" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_output_all.html#a9c1c41ee5761035f1b6a71a36db70dba">00051</a>         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_output_all.html#a9c1c41ee5761035f1b6a71a36db70dba">remove_tmlist</a>(<a class="code" href="classstf_1_1interface_1_1_iterator.html" title="イテレータの抽象インターフェース．">interface::Iterator</a>* tm) { this-&gt;<a class="code" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_output_all.html#a199318d572f6c63b60f680e6c635814b">tmlist_</a>.<a class="code" href="classstf_1_1datatype_1_1_list.html#a2cf2e5ce162a4c558bc4a8da70f799ca">remove</a>(*tm);}
+<a name="l00052"></a>00052     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_output_all.html#a3249ad4bfb133b7a3ae1f5915e6f9b36">init</a>();
+<a name="l00053"></a>00053         <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_output_all.html#aeced8c1639322e4e730ecae1c2181778">end</a>();
+<a name="l00054"></a>00054         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_output_all.html#af623dd52a7ce52f59ab02b6f6d014c49">operator ++</a>();
+<a name="l00055"></a>00055         <span class="keyword">virtual</span> <span class="keywordtype">double</span> <a class="code" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_output_all.html#a56040b9aa51d44ef80bcb91f8023630a">operator()</a>();
+<a name="l00056"></a>00056 <span class="keyword">protected</span>:
+<a name="l00057"></a><a class="code" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_output_all.html#a199318d572f6c63b60f680e6c635814b">00057</a>         <a class="code" href="classstf_1_1datatype_1_1_list.html">datatype::List&lt;interface::Iterator&gt;</a> <a class="code" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_output_all.html#a199318d572f6c63b60f680e6c635814b">tmlist_</a>;
+<a name="l00058"></a><a class="code" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_output_all.html#aca8c9e2b8c79f79e428d803fce2534a6">00058</a>         <a class="code" href="classstf_1_1datatype_1_1_list_1_1__iterator.html" title="Listのイテレータとなる内部クラス">datatype::List&lt;interface::Iterator&gt;::iterator</a> <a class="code" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_output_all.html#aca8c9e2b8c79f79e428d803fce2534a6">tmlistiter_</a>;
+<a name="l00059"></a><a class="code" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_output_all.html#ada8948cc6b1e8131df43c50c74704c1e">00059</a>         <a class="code" href="classstf_1_1core_1_1devicedriver_1_1tmhandler_1_1_i_telemetry_storagable.html" title="テレメトリデータのストレージに対する抽象インターフェース．">devicedriver::tmhandler::ITelemetryStoragable</a>* <a class="code" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_output_all.html#ada8948cc6b1e8131df43c50c74704c1e">storage_</a>;
+<a name="l00060"></a><a class="code" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_output_all.html#a8c12f2d729e46b42b72dae60b87df95f">00060</a>         <a class="code" href="classstf_1_1core_1_1datapool_1_1_aocs_data_pool_iterator.html" title="AocsDataPoolの各列の最新データをなめるイテレータ．">core::datapool::AocsDataPoolIterator</a> <a class="code" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_output_all.html#a8c12f2d729e46b42b72dae60b87df95f">datapooliter_</a>;
+<a name="l00061"></a>00061         <span class="comment">//const core::datapool::EventDataPool* eventpool_;</span>
+<a name="l00062"></a>00062         <span class="keywordtype">void</span> <a class="code" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_output_all.html#a0a5a66e91a8e4f6e7929b0ecfef4aaae">write_</a>(<span class="keyword">const</span> <span class="keywordtype">double</span>* <a class="code" href="namespacenj.html#a54b165e7142279e06643f15f96fb3385">data</a>, <span class="keywordtype">int</span> length);
+<a name="l00063"></a>00063         <span class="keywordtype">void</span> <a class="code" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_output_all.html#ab632b7a9ad4142d17c6f7849aaa7c05d">createindex_</a>(<span class="keyword">const</span> <a class="code" href="classstf_1_1core_1_1datapool_1_1_aocs_data_pool.html" title="IAocsDataのデータプール．">core::datapool::AocsDataPool</a>* pool);
+<a name="l00064"></a>00064 };
+<a name="l00065"></a>00065 
+<a name="l00066"></a>00066 <span class="keyword">template</span>&lt;<span class="keyword">class</span> T, <span class="keywordtype">int</span> SCALE&gt;
+<a name="l00067"></a><a class="code" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_output_all.html#a3249ad4bfb133b7a3ae1f5915e6f9b36">00067</a> <span class="keywordtype">void</span> <a class="code" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_output_all.html#a3249ad4bfb133b7a3ae1f5915e6f9b36">OutputAll&lt;T, SCALE&gt;::init</a>(){
+<a name="l00068"></a>00068         this-&gt;datapooliter_.init();
+<a name="l00069"></a>00069         <a class="code" href="classstf_1_1datatype_1_1_list_1_1__iterator.html" title="Listのイテレータとなる内部クラス">datatype::List&lt;interface::Iterator&gt;::iterator</a> it = tmlist_.begin();
+<a name="l00070"></a>00070         <span class="keywordflow">while</span>(it != tmlist_.end()){
+<a name="l00071"></a>00071                 (*it).init();
+<a name="l00072"></a>00072                 ++it;
+<a name="l00073"></a>00073         }
+<a name="l00074"></a>00074         this-&gt;tmlistiter_ = this-&gt;tmlist_.begin();
+<a name="l00075"></a>00075 }
+<a name="l00076"></a>00076 
+<a name="l00077"></a>00077 <span class="keyword">template</span>&lt;<span class="keyword">class</span> T, <span class="keywordtype">int</span> SCALE&gt;
+<a name="l00078"></a><a class="code" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_output_all.html#aeced8c1639322e4e730ecae1c2181778">00078</a> <span class="keywordtype">bool</span> <a class="code" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_output_all.html#aeced8c1639322e4e730ecae1c2181778">OutputAll&lt;T, SCALE&gt;::end</a>(){
+<a name="l00079"></a>00079         <span class="keywordflow">if</span>(!this-&gt;datapooliter_.end()) <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00080"></a>00080         <a class="code" href="classstf_1_1datatype_1_1_list_1_1__iterator.html" title="Listのイテレータとなる内部クラス">datatype::List&lt;interface::Iterator&gt;::iterator</a> it = tmlist_.begin();
+<a name="l00081"></a>00081         <span class="keywordflow">while</span>(it != tmlist_.end()){
+<a name="l00082"></a>00082                 <span class="keywordflow">if</span>(!(*it).end()) <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00083"></a>00083                 ++it;
+<a name="l00084"></a>00084         }
+<a name="l00085"></a>00085         <span class="keywordflow">return</span> <span class="keyword">true</span>;<span class="comment">//すべてのイテレータが走査完了していたときだけtrue</span>
+<a name="l00086"></a>00086 }
+<a name="l00087"></a>00087 
+<a name="l00088"></a>00088 <span class="keyword">template</span>&lt;<span class="keyword">class</span> T, <span class="keywordtype">int</span> SCALE&gt;
+<a name="l00089"></a><a class="code" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_output_all.html#af623dd52a7ce52f59ab02b6f6d014c49">00089</a> <span class="keywordtype">void</span> <a class="code" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_output_all.html#af623dd52a7ce52f59ab02b6f6d014c49">OutputAll&lt;T, SCALE&gt;::operator ++</a>(){
+<a name="l00090"></a>00090         <span class="keywordflow">if</span>(!this-&gt;datapooliter_.end()){
+<a name="l00091"></a>00091                 ++(this-&gt;datapooliter_);
+<a name="l00092"></a>00092         }
+<a name="l00093"></a>00093         <span class="keywordflow">else</span>{
+<a name="l00094"></a>00094                 ++(*this-&gt;tmlistiter_);
+<a name="l00095"></a>00095                 <span class="keywordflow">if</span>((*this-&gt;tmlistiter_).end()){
+<a name="l00096"></a>00096                         ++this-&gt;tmlistiter_;
+<a name="l00097"></a>00097                 }
+<a name="l00098"></a>00098         }       
+<a name="l00099"></a>00099 }
+<a name="l00100"></a>00100 
+<a name="l00101"></a>00101 <span class="keyword">template</span>&lt;<span class="keyword">class</span> T, <span class="keywordtype">int</span> SCALE&gt;
+<a name="l00102"></a><a class="code" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_output_all.html#a56040b9aa51d44ef80bcb91f8023630a">00102</a> <span class="keywordtype">double</span> <a class="code" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_output_all.html#a56040b9aa51d44ef80bcb91f8023630a">OutputAll&lt;T, SCALE&gt;::operator()</a>(){
+<a name="l00103"></a>00103         <span class="keywordflow">if</span>(!this-&gt;datapooliter_.end()){
+<a name="l00104"></a>00104                 <span class="keywordflow">return</span> this-&gt;datapooliter_();
+<a name="l00105"></a>00105         }
+<a name="l00106"></a>00106         <span class="keywordflow">else</span>{
+<a name="l00107"></a>00107                 <span class="keywordflow">return</span> (*this-&gt;tmlistiter_)();
+<a name="l00108"></a>00108         }
+<a name="l00109"></a>00109 }
+<a name="l00110"></a>00110 
+<a name="l00111"></a>00111 <span class="keyword">template</span>&lt;<span class="keyword">class</span> T, <span class="keywordtype">int</span> SCALE&gt;
+<a name="l00112"></a><a class="code" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_output_all.html#a2fe938640899dcce134b53afc223f23a">00112</a> <span class="keywordtype">void</span> <a class="code" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_output_all.html#a2fe938640899dcce134b53afc223f23a">OutputAll&lt;T, SCALE&gt;::write_to_telemetry</a>(){
+<a name="l00113"></a>00113         (*this-&gt;storage_) &lt;&lt; this-&gt;clock_-&gt;get_time().total_milliseconds();
+<a name="l00114"></a>00114         this-&gt;datapooliter_.init();
+<a name="l00115"></a>00115         <span class="keywordflow">while</span>(!datapooliter_.end()){
+<a name="l00116"></a>00116                 (*this-&gt;storage_) &lt;&lt; (T)(SCALE * datapooliter_());
+<a name="l00117"></a>00117                 ++datapooliter_;
+<a name="l00118"></a>00118         }
+<a name="l00119"></a>00119         
+<a name="l00120"></a>00120         this-&gt;storage_-&gt;endl(); 
+<a name="l00121"></a>00121 }
+<a name="l00122"></a>00122 
+<a name="l00123"></a>00123 <span class="keyword">template</span>&lt;<span class="keyword">class</span> T, <span class="keywordtype">int</span> SCALE&gt;
+<a name="l00124"></a><a class="code" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_output_all.html#ab632b7a9ad4142d17c6f7849aaa7c05d">00124</a> <span class="keywordtype">void</span> <a class="code" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_output_all.html#ab632b7a9ad4142d17c6f7849aaa7c05d">OutputAll&lt;T, SCALE&gt;::createindex_</a>(<span class="keyword">const</span> <a class="code" href="classstf_1_1core_1_1datapool_1_1_aocs_data_pool.html" title="IAocsDataのデータプール．">core::datapool::AocsDataPool</a>* pool)
+<a name="l00125"></a>00125 {
+<a name="l00126"></a>00126         (*this-&gt;storage_) &lt;&lt; <span class="stringliteral">&quot;Time(ms)&quot;</span>;
+<a name="l00127"></a>00127         <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; pool-&gt;<a class="code" href="classstf_1_1core_1_1datapool_1_1_data_pool_base.html#a253878c3af9983ac3e58844449c6f2ea">rows</a>(); i++){
+<a name="l00128"></a>00128                 <span class="keywordflow">if</span>(pool-&gt;<a class="code" href="classstf_1_1core_1_1datapool_1_1_data_pool_base.html#a56e3b0915dfbda629300e2cb9a7f2354">is_created</a>(i)){
+<a name="l00129"></a>00129                         <span class="keyword">const</span> <span class="keywordtype">double</span>* <a class="code" href="namespacenj.html#a54b165e7142279e06643f15f96fb3385">data</a> = pool-&gt;<a class="code" href="classstf_1_1core_1_1datapool_1_1_aocs_data_pool.html#ab83a6242ac4263a0fa51cc5a35fcae07">get</a>(i)-&gt;to_stream();
+<a name="l00130"></a>00130                         <span class="keywordflow">for</span>(<span class="keywordtype">int</span> j = 0; j &lt; pool-&gt;<a class="code" href="classstf_1_1core_1_1datapool_1_1_aocs_data_pool.html#ab83a6242ac4263a0fa51cc5a35fcae07">get</a>(i)-&gt;stream_length(); j++){
+<a name="l00131"></a>00131                                 (*this-&gt;storage_) &lt;&lt; pool-&gt;<a class="code" href="classstf_1_1core_1_1datapool_1_1_aocs_data_pool.html#a348231ea1b36d46d0caf4f6924a9b699">getname</a>(i).<a class="code" href="classstf_1_1datatype_1_1_string.html#ae3d0fd5ccd5d6bfae8f9c03859535679">to_char</a>();
+<a name="l00132"></a>00132                         }
+<a name="l00133"></a>00133                 }
+<a name="l00134"></a>00134         }
+<a name="l00135"></a>00135         this-&gt;storage_-&gt;endl();
+<a name="l00136"></a>00136 }
+<a name="l00137"></a>00137 
+<a name="l00138"></a>00138 <span class="keyword">template</span>&lt;<span class="keyword">class</span> T, <span class="keywordtype">int</span> SCALE&gt;
+<a name="l00139"></a><a class="code" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_output_all.html#a0a5a66e91a8e4f6e7929b0ecfef4aaae">00139</a> <span class="keywordtype">void</span> <a class="code" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_output_all.html#a0a5a66e91a8e4f6e7929b0ecfef4aaae">OutputAll&lt;T, SCALE&gt;::write_</a>(<span class="keyword">const</span> <span class="keywordtype">double</span>* <a class="code" href="namespacenj.html#a54b165e7142279e06643f15f96fb3385">data</a>, <span class="keywordtype">int</span> length)
+<a name="l00140"></a>00140 {
+<a name="l00141"></a>00141         <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; length; i++){
+<a name="l00142"></a>00142                 (*this-&gt;storage_) &lt;&lt; data[i];
+<a name="l00143"></a>00143         }
+<a name="l00144"></a>00144 }
+<a name="l00145"></a>00145 
+<a name="l00146"></a>00146 
+<a name="l00147"></a>00147 
+<a name="l00148"></a>00148 } <span class="comment">/* End of namespace stf::core::strategy::telemetry */</span>
+<a name="l00149"></a>00149 } <span class="comment">/* End of namespace stf::core::strategy */</span>
+<a name="l00150"></a>00150 } <span class="comment">/* End of namespace stf::core */</span>
+<a name="l00151"></a>00151 } <span class="comment">/* End of namespace stf */</span>
+<a name="l00152"></a>00152 
+<a name="l00153"></a>00153 <span class="preprocessor">#endif // stf_core_strategy_telemetry_OutputAll_h</span>
+</pre></div></div>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>フレンド</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>マクロ定義</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>STFに対してTue Mar 1 2011 03:45:39に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
+</body>
+</html>
