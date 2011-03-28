@@ -1,9 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$_n_j_global_8h.html" title="stf/satellite/nj/NJGlobal.h" alt="" coords="115,83,280,112"/>
-<area shape="rect" id="node11" href="$_n_j_a_d_c_8cpp.html" title="stf/satellite/nj/NJADC.cpp" alt="" coords="304,83,475,112"/>
-<area shape="rect" id="node13" href="$_n_j_anomary_manager_8cpp.html" title="stf/satellite/nj/NJAnomaryManager.cpp" alt="" coords="499,83,744,112"/>
-<area shape="rect" id="node15" href="$_n_j_f_r_a_m_8cpp.html" title="stf/satellite/nj/NJFRAM.cpp" alt="" coords="768,83,947,112"/>
-<area shape="rect" id="node5" href="$_n_j_factory_8h.html" title="stf/satellite/NJFactory.h" alt="" coords="5,160,163,189"/>
-<area shape="rect" id="node9" href="$_n_j_command_receiver_8cpp.html" title="stf/satellite/nj/NJCommandReceiver.cpp" alt="" coords="187,160,437,189"/>
-<area shape="rect" id="node7" href="$main_8cpp.html" title="main.cpp" alt="" coords="47,237,121,267"/>
-</map>

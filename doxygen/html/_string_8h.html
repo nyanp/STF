@@ -1,120 +1,0 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
-<title>STF: stf/datatype/String.h</title>
-<link href="tabs.css" rel="stylesheet" type="text/css"/>
-<link href="search/search.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="search/search.js"></script>
-<link href="doxygen.css" rel="stylesheet" type="text/css"/>
-</head>
-<body onload='searchBox.OnSelectItem(0);'>
-<!-- 作成： Doxygen 1.7.3 -->
-<script type="text/javascript"><!--
-var searchBox = new SearchBox("searchBox", "search",false,'検索');
---></script>
-<div id="top">
-<div id="titlearea">
-<table cellspacing="0" cellpadding="0">
- <tbody>
- <tr style="height: 56px;">
-  <td style="padding-left: 0.5em;">
-   <div id="projectname">STF</div>
-  </td>
- </tr>
- </tbody>
-</table>
-</div>
-  <div id="navrow1" class="tabs">
-    <ul class="tablist">
-      <li><a href="index.html"><span>メインページ</span></a></li>
-      <li><a href="pages.html"><span>関連ページ</span></a></li>
-      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
-      <li><a href="annotated.html"><span>クラス</span></a></li>
-      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
-      <li id="searchli">
-        <div id="MSearchBox" class="MSearchBoxInactive">
-        <span class="left">
-          <img id="MSearchSelect" src="search/mag_sel.png"
-               onmouseover="return searchBox.OnSearchSelectShow()"
-               onmouseout="return searchBox.OnSearchSelectHide()"
-               alt=""/>
-          <input type="text" id="MSearchField" value="検索" accesskey="S"
-               onfocus="searchBox.OnSearchFieldFocus(true)" 
-               onblur="searchBox.OnSearchFieldFocus(false)" 
-               onkeyup="searchBox.OnSearchFieldChange(event)"/>
-          </span><span class="right">
-            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
-          </span>
-        </div>
-      </li>
-    </ul>
-  </div>
-  <div id="navrow2" class="tabs2">
-    <ul class="tablist">
-      <li><a href="files.html"><span>ファイル一覧</span></a></li>
-      <li><a href="globals.html"><span>ファイルメンバ</span></a></li>
-    </ul>
-  </div>
-</div>
-<div class="header">
-  <div class="summary">
-<a href="#nested-classes">構成</a> &#124;
-<a href="#namespaces">ネームスペース</a> &#124;
-<a href="#func-members">関数</a>  </div>
-  <div class="headertitle">
-<h1>stf/datatype/String.h</h1>  </div>
-</div>
-<div class="contents">
-
-<p>std::stringの簡略版クラス．  
-<a href="#_details">[詳細]</a></p>
-<div class="textblock"><div class="dynheader">
-このグラフは、どのファイルから直接、間接的にインクルードされているかを示しています。</div>
-<div class="dyncontent">
-<div class="center"><img src="_string_8h__dep__incl.png" border="0" usemap="#stf_2datatype_2_string_8hdep" alt=""/></div>
-<map name="stf_2datatype_2_string_8hdep" id="stf_2datatype_2_string_8hdep">
-<area shape="rect" id="node3" href="_root_object_8h.html" title="数値型を除いた全クラスの基本となるクラス．" alt="" coords="1480,83,1595,112"/><area shape="rect" id="node29" href="_dummy_command_receiver_8cpp.html" title="コマンドレシーバのデバッグ用クラス．外部テキストファイルからコマンドを読み込む" alt="" coords="719,315,1100,344"/><area shape="rect" id="node52" href="_datapool_8h.html" title="STF生成データにタイムタグを付加して格納するデータプール． データの配列を保持するTupleと，Tupleの配列を保持するデータプールによって テーブル形式のデータ構造を表現する．" alt="" coords="3767,237,3951,267"/><area shape="rect" id="node56" href="_a_o_c_s_component_8h.html" title="センサおよびアクチュエータの基底クラス．" alt="" coords="2078,315,2331,344"/><area shape="rect" id="node77" href="_message_command_8h.html" title="予め決められたメッセージを出力するコマンド．" alt="" coords="3338,237,3591,267"/><area shape="rect" id="node79" href="_p_r_i_s_m_command_receiver_8h.html" title="stf/satellite/prism/PRISMCommandReceiver.h" alt="" coords="250,237,535,267"/><area shape="rect" id="node82" href="_n_j_command_receiver_8h.html" title="stf/satellite/nj/NJCommandReceiver.h" alt="" coords="610,237,847,267"/><area shape="rect" id="node110" href="_event_8h.html" title="全イベントの基底クラス．" alt="" coords="2960,160,3107,189"/><area shape="rect" id="node126" href="_trace_8h.html" title="STFの内部状態を外部ファイルに書き出すためのトレースオブジェクト．" alt="" coords="3678,160,3782,189"/><area shape="rect" id="node136" href="_output_functor_8h.html" title="出力ファンクタ群．STFではFunctorのコンストラクタに渡して使用される" alt="" coords="2915,315,3120,344"/><area shape="rect" id="node142" href="debuglogger_8h.html" title="テレメハンドラのデバッグ用クラス．" alt="" coords="4970,160,5250,189"/><area shape="rect" id="node144" href="_debug_logger_8cpp.html" title="テレメハンドラのデバッグ用クラス．" alt="" coords="4959,237,5260,267"/><area shape="rect" id="node146" href="_i_telemetry_storagable_8h.html" title="テレメトリデータのストレージに対する抽象インターフェース．" alt="" coords="4715,83,5048,112"/><area shape="rect" id="node157" href="_string_8cpp.html" title="std::stringの簡略版クラス．" alt="" coords="5255,83,5407,112"/><area shape="rect" id="node159" href="_string_test_8cpp.html" title="stf/datatype/test/StringTest.cpp" alt="" coords="5431,83,5634,112"/><area shape="rect" id="node161" href="_ostream_8cpp.html" title="標準出力のラッパ．" alt="" coords="5658,83,5794,112"/><area shape="rect" id="node5" href="_mode_base_8h.html" title="モードの基底クラス．" alt="" coords="1268,237,1447,267"/><area shape="rect" id="node22" href="_mode_hot_spot_8h.html" title="モード固有のアルゴリズムをタイプリスト形式で纏めるインターフェース．" alt="" coords="1592,160,1787,189"/><area shape="rect" id="node25" href="_manager_base_8h.html" title="機能マネージャの基底クラス．" alt="" coords="1912,160,2126,189"/><area shape="rect" id="node45" href="_input_functor_8h.html" title="入力ファンクタ群．STFではFunctorのコンストラクタに渡して使用される" alt="" coords="3144,315,3339,344"/><area shape="rect" id="node75" href="_command_8h.html" title="衛星コマンドの抽象インターフェースと共通の実装．" alt="" coords="979,160,1179,189"/><area shape="rect" id="node86" href="_c_d_h_component_8h.html" title="AD変換器や温度計など，複数のセンサを一括して取り扱うコンポーネントの基底クラス．" alt="" coords="27,160,270,189"/><area shape="rect" id="node89" href="_n_j_r_t_c_8h.html" title="stf/satellite/nj/NJRTC.h" alt="" coords="71,237,226,267"/><area shape="rect" id="node91" href="_dummy_command_receiver_8h.html" title="コマンドレシーバのデバッグ用クラス．外部テキストファイルからコマンドを読み込む" alt="" coords="1203,160,1568,189"/><area shape="rect" id="node94" href="_strategy_base_8h.html" title="ストラテジの共通基底クラス．" alt="" coords="4434,160,4644,189"/><area shape="rect" id="node102" href="_p_r_i_s_m_dummy_clock_8h.html" title="stf/satellite/prism/PRISMDummyClock.h" alt="" coords="651,160,904,189"/><area shape="rect" id="node108" href="_root_object_8cpp.html" title="数値型を除いた全クラスの基本となるクラス．" alt="" coords="446,160,576,189"/><area shape="rect" id="node7" href="main_8cpp.html" title="main.cpp" alt="" coords="3179,469,3254,499"/><area shape="rect" id="node9" href="_p_r_i_s_m_factory_8h.html" title="stf/satellite/PRISMFactory.h" alt="" coords="2786,392,2970,421"/><area shape="rect" id="node12" href="_p_r_i_s_m_global_8h.html" title="stf/satellite/prism/PRISMGlobal.h" alt="" coords="1395,315,1608,344"/><area shape="rect" id="node15" href="_simple_satellite_factory_8h.html" title="SimpleSatellite�p�̋�ۃt�@�N�g���D" alt="" coords="2994,392,3223,421"/><area shape="rect" id="node18" href="_mode_manager_base_8cpp.html" title="モードの管理を行う機能マネージャ基底クラス．" alt="" coords="2355,315,2614,344"/><area shape="rect" id="node20" href="_system_manager_base_8cpp.html" title="条件判定や異常対応を行う機能マネージャ基底クラス．" alt="" coords="1782,315,2054,344"/><area shape="rect" id="node27" href="_command_manager_base_8h.html" title="コマンドの処理を行う機能マネージャ基底クラス．" alt="" coords="972,237,1244,267"/><area shape="rect" id="node31" href="_control_manager_base_8h.html" title="制御ブロックの実行を行う機能マネージャ基底クラス．" alt="" coords="2410,237,2663,267"/><area shape="rect" id="node33" href="_mode_manager_base_8h.html" title="モードの管理を行う機能マネージャ基底クラス．" alt="" coords="2687,237,2932,267"/><area shape="rect" id="node38" href="_system_manager_base_8h.html" title="条件判定や異常対応を行う機能マネージャ基底クラス．" alt="" coords="1815,237,2074,267"/><area shape="rect" id="node41" href="_telemetry_manager_base_8h.html" title="テレメトリ生成を行う機能マネージャ基底クラス．" alt="" coords="1522,237,1791,267"/><area shape="rect" id="node43" href="_unit_manager_base_8h.html" title="機器の定期データ取得・更新を行う機能マネージャ基底クラス．" alt="" coords="2098,237,2335,267"/><area shape="rect" id="node35" href="_subject_base_8cpp.html" title="Observerパターンの構成テンプレートクラス群．" alt="" coords="2638,315,2840,344"/><area shape="rect" id="node48" href="_n_j_factory_8h.html" title="stf/satellite/NJFactory.h" alt="" coords="3247,392,3404,421"/><area shape="rect" id="node58" href="_composite_input_8h.html" title="AOCSSensorの集合体を表現するクラス群．" alt="" coords="3464,315,3704,344"/><area shape="rect" id="node60" href="_composite_output_8h.html" title="AOCSActuatorの集合体を表現するクラス．" alt="" coords="3728,315,3979,344"/><area shape="rect" id="node63" href="_output_all_8h.html" title="データプールの内容を全て出力するテレメトリ生成ストラテジ．" alt="" coords="4326,315,4568,344"/><area shape="rect" id="node65" href="_selecting_output_8h.html" title="指定したイテレータをテレメトリとして整形するテレメトリ生成ストラテジ．" alt="" coords="4643,315,4926,344"/><area shape="rect" id="node70" href="_datapool_8cpp.html" title="STF生成データにタイムタグを付加して格納するデータプール．" alt="" coords="4003,315,4200,344"/><area shape="rect" id="node96" href="_combining_8h.html" title="任意の物理量を単純加算で合成する制御ブロック群．" alt="" coords="4127,237,4362,267"/><area shape="rect" id="node98" href="_coupling_compensation_8h.html" title="3軸独立に制御則を適用した際に生じるカップリング項Iωを，フィードフォワードに打ち消すために使う制御ブロック．" alt="" coords="4386,237,4692,267"/><area shape="rect" id="node122" href="_n_j_e_k_f_8h.html" title="stf/satellite/nj/NJEKF.h" alt="" coords="2956,237,3111,267"/></map>
-</div>
-</div>
-<p><a href="">ソースコードを見る。</a></p>
-<table class="memberdecls">
-<tr><td colspan="2"><h2><a name="nested-classes"></a>
-構成</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1datatype_1_1_string.html">stf::datatype::String</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">std::stringの簡略版．  <a href="classstf_1_1datatype_1_1_string.html#_details">[詳細]</a><br/></td></tr>
-<tr><td colspan="2"><h2><a name="namespaces"></a>
-ネームスペース</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf.html">stf</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf_1_1datatype.html">stf::datatype</a></td></tr>
-<tr><td colspan="2"><h2><a name="func-members"></a>
-関数</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf_1_1datatype.html#a5a619f36a7004c56cba001df3ad5be5d">stf::datatype::operator==</a> (const String &amp;s1, const String &amp;s2)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf_1_1datatype.html#a0e581a4109c180cf6d9c3dec131aae57">stf::datatype::operator+</a> (const String &amp;s1, const String &amp;s2)</td></tr>
-</table>
-<hr/><a name="_details"></a><h2>説明</h2>
-<div class="textblock"><p>std::stringの簡略版クラス． </p>
-<dl class="author"><dt><b>作者:</b></dt><dd>Taiga Nomi </dd></dl>
-<dl class="date"><dt><b>日付:</b></dt><dd>2011.02.16 </dd></dl>
-
-<p> <a class="el" href="">String.h</a> で定義されています。</p>
-</div></div>
-<!--- window showing the filter options -->
-<div id="MSearchSelectWindow"
-     onmouseover="return searchBox.OnSearchSelectShow()"
-     onmouseout="return searchBox.OnSearchSelectHide()"
-     onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>フレンド</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>マクロ定義</a></div>
-
-<!-- iframe showing the search results (closed by default) -->
-<div id="MSearchResultsWindow">
-<iframe src="" frameborder="0" 
-        name="MSearchResults" id="MSearchResults">
-</iframe>
-</div>
-
-<hr class="footer"/><address class="footer"><small>STFに対してWed Mar 23 2011 05:32:40に生成されました。&#160;
-<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
-</body>
-</html>

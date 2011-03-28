@@ -1,9 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$_small_obj_8h.html" title="stf/util/loki/SmallObj.h" alt="" coords="192,160,341,189"/>
-<area shape="rect" id="node13" href="$_singleton_8h.html" title="stf/util/loki/Singleton.h" alt="" coords="304,83,453,112"/>
-<area shape="rect" id="node5" href="$util_2loki_2_functor_8h.html" title="stf/util/loki/Functor.h" alt="" coords="23,237,161,267"/>
-<area shape="rect" id="node9" href="$_small_obj_8cpp.html" title="stf/util/loki/SmallObj.cpp" alt="" coords="185,237,348,267"/>
-<area shape="rect" id="node11" href="$_smart_ptr_8h.html" title="stf/util/loki/SmartPtr.h" alt="" coords="372,237,519,267"/>
-<area shape="rect" id="node7" href="$_multi_methods_8h.html" title="stf/util/loki/MultiMethods.h" alt="" coords="5,315,179,344"/>
-<area shape="rect" id="node16" href="$_singleton_8cpp.html" title="stf/util/loki/Singleton.cpp" alt="" coords="365,160,528,189"/>
-</map>

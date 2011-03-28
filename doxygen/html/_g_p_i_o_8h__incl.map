@@ -1,5 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$_i_o_driver_base_8h.html" title="環境クラス共通の基底IOドライバ． 各環境クラスにおけるIOはこの基底ドライバを使用するか，ここから派生させることを基本とする．" alt="" coords="5,83,125,112"/>
-<area shape="rect" id="node7" href="$stf_2environment_2sh_2iodefine_8h.html" title="iodefine.h" alt="" coords="149,83,227,112"/>
-<area shape="rect" id="node5" href="$_macros_8h.html" title="STF全体で使用する簡単なマクロ関数を記述する．" alt="" coords="21,160,109,189"/>
-</map>

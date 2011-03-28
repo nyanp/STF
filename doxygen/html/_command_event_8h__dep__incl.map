@@ -1,7 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$main_8cpp.html" title="main.cpp" alt="" coords="184,237,259,267"/>
-<area shape="rect" id="node5" href="$event_2_includes_8h.html" title="stf/core/event/Includes.h" alt="" coords="140,83,303,112"/>
-<area shape="rect" id="node7" href="$_p_r_i_s_m_factory_8h.html" title="stf/satellite/PRISMFactory.h" alt="" coords="32,160,216,189"/>
-<area shape="rect" id="node10" href="$_n_j_factory_8h.html" title="stf/satellite/NJFactory.h" alt="" coords="240,160,397,189"/>
-<area shape="rect" id="node13" href="$_simple_satellite_factory_8h.html" title="SimpleSatellite用の具象ファクトリ．" alt="" coords="421,160,651,189"/>
-</map>

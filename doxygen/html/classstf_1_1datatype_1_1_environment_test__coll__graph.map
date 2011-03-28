@@ -1,8 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node2" href="$classstf_1_1datatype_1_1_current.html" title="電流を表すクラス．" alt="" coords="5,245,149,275"/>
-<area shape="rect" id="node4" href="$classstf_1_1datatype_1_1_scalar.html" title="スカラー物理量を表現するクラス．" alt="" coords="177,165,316,195"/>
-<area shape="rect" id="node10" href="$classstf_1_1datatype_1_1_voltage.html" title="電圧を表すクラス．" alt="" coords="173,245,320,275"/>
-<area shape="rect" id="node13" href="$classstf_1_1datatype_1_1_temperature.html" title="温度を表すクラス．" alt="" coords="344,245,517,275"/>
-<area shape="rect" id="node6" href="$classstf_1_1datatype_1_1_i_aocs_data.html" title="AOCS使用系列のデータ共通の抽象インターフェース．" alt="" coords="165,85,328,115"/>
-<area shape="rect" id="node8" href="$classstf_1_1interface_1_1_i_telemetable.html" title="テレメトリを生成可能なオブジェクトに対するインターフェース．" alt="" coords="160,5,333,35"/>
-</map>

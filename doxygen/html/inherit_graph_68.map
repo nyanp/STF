@@ -1,4 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node1" href="$class_loki_1_1_private_1_1_lifetime_tracker.html" title="Loki::Private::LifetimeTracker" alt="" coords="5,5,195,35"/>
-<area shape="rect" id="node3" href="$class_loki_1_1_private_1_1_concrete_lifetime_tracker.html" title="Loki::Private::ConcreteLifetimeTracker\&lt; T, Destroyer \&gt;" alt="" coords="243,5,579,35"/>
-</map>

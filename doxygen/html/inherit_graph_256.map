@@ -1,6 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node1" href="$classstf_1_1core_1_1devicedriver_1_1tmhandler_1_1_i_telemetry_storagable.html" title="テレメトリデータのストレージに対する抽象インターフェース．" alt="" coords="5,59,344,88"/>
-<area shape="rect" id="node3" href="$classstf_1_1core_1_1devicedriver_1_1tmhandler_1_1_debug_logger.html" title="テレメハンドラのデバッグ用クラス．" alt="" coords="441,5,732,35"/>
-<area shape="rect" id="node5" href="$classstf_1_1core_1_1devicedriver_1_1tmhandler_1_1_n_j_telemetry_handler.html" title="stf::core::devicedriver::tmhandler::NJTelemetryHandler\&lt; T \&gt;" alt="" coords="405,59,768,88"/>
-<area shape="rect" id="node7" href="$classstf_1_1core_1_1devicedriver_1_1tmhandler_1_1_p_r_i_s_m_telemetry_handler.html" title="stf::core::devicedriver::tmhandler::PRISMTelemetryHandler\&lt; T \&gt;" alt="" coords="392,112,781,141"/>
-</map>

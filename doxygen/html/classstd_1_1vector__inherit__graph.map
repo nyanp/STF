@@ -1,6 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$class_loki_1_1_assoc_vector.html" title="AssocVector\&lt; IdentifierType, ProductCreator \&gt;" alt="" coords="111,5,401,35"/>
-<area shape="rect" id="node5" href="$class_loki_1_1_assoc_vector.html" title="AssocVector\&lt; KeyType, MappedType \&gt;" alt="" coords="129,59,383,88"/>
-<area shape="rect" id="node7" href="$class_loki_1_1_assoc_vector.html" title="AssocVector\&lt; TypeInfo, ProductCreator \&gt;" alt="" coords="124,112,388,141"/>
-<area shape="rect" id="node9" href="$class_loki_1_1_assoc_vector.html" title="Loki::AssocVector\&lt; std::pair\&lt; K, V \&gt;, A \&gt;" alt="" coords="123,165,389,195"/>
-</map>

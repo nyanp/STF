@@ -1,6 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$_g_p_i_o_8c.html" title="stf/environment/sh/GPIO.c" alt="" coords="5,160,179,189"/>
-<area shape="rect" id="node5" href="$i2c__emu_8h.html" title="stf/environment/sh/i2c_emu.h" alt="" coords="115,83,304,112"/>
-<area shape="rect" id="node8" href="$i2c__emu_8c.html" title="stf/environment/sh/i2c_emu.c" alt="" coords="232,160,421,189"/>
-<area shape="rect" id="node11" href="$ioexpander_8c.html" title="stf/environment/sh/ioexpander.c" alt="" coords="379,83,584,112"/>
-</map>

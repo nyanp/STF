@@ -1,171 +1,0 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
-<title>STF: クラス stf::core::manager::CommandManager</title>
-<link href="tabs.css" rel="stylesheet" type="text/css"/>
-<link href="search/search.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="search/search.js"></script>
-<link href="doxygen.css" rel="stylesheet" type="text/css"/>
-</head>
-<body onload='searchBox.OnSelectItem(0);'>
-<!-- 作成： Doxygen 1.7.3 -->
-<script type="text/javascript"><!--
-var searchBox = new SearchBox("searchBox", "search",false,'検索');
---></script>
-<div id="top">
-<div id="titlearea">
-<table cellspacing="0" cellpadding="0">
- <tbody>
- <tr style="height: 56px;">
-  <td style="padding-left: 0.5em;">
-   <div id="projectname">STF</div>
-  </td>
- </tr>
- </tbody>
-</table>
-</div>
-  <div id="navrow1" class="tabs">
-    <ul class="tablist">
-      <li><a href="index.html"><span>メインページ</span></a></li>
-      <li><a href="pages.html"><span>関連ページ</span></a></li>
-      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
-      <li class="current"><a href="annotated.html"><span>クラス</span></a></li>
-      <li><a href="files.html"><span>ファイル</span></a></li>
-      <li id="searchli">
-        <div id="MSearchBox" class="MSearchBoxInactive">
-        <span class="left">
-          <img id="MSearchSelect" src="search/mag_sel.png"
-               onmouseover="return searchBox.OnSearchSelectShow()"
-               onmouseout="return searchBox.OnSearchSelectHide()"
-               alt=""/>
-          <input type="text" id="MSearchField" value="検索" accesskey="S"
-               onfocus="searchBox.OnSearchFieldFocus(true)" 
-               onblur="searchBox.OnSearchFieldFocus(false)" 
-               onkeyup="searchBox.OnSearchFieldChange(event)"/>
-          </span><span class="right">
-            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
-          </span>
-        </div>
-      </li>
-    </ul>
-  </div>
-  <div id="navrow2" class="tabs2">
-    <ul class="tablist">
-      <li><a href="annotated.html"><span>構成</span></a></li>
-      <li><a href="classes.html"><span>構成索引</span></a></li>
-      <li><a href="inherits.html"><span>クラス階層</span></a></li>
-      <li><a href="functions.html"><span>構成メンバ</span></a></li>
-    </ul>
-  </div>
-  <div id="nav-path" class="navpath">
-    <ul>
-      <li class="navelem"><a class="el" href="namespacestf.html">stf</a>      </li>
-      <li class="navelem"><a class="el" href="namespacestf_1_1core.html">core</a>      </li>
-      <li class="navelem"><a class="el" href="namespacestf_1_1core_1_1manager.html">manager</a>      </li>
-      <li class="navelem"><a class="el" href="classstf_1_1core_1_1manager_1_1_command_manager.html">CommandManager</a>      </li>
-    </ul>
-  </div>
-</div>
-<div class="header">
-  <div class="summary">
-<a href="#pub-methods">Public メソッド</a>  </div>
-  <div class="headertitle">
-<h1>クラス stf::core::manager::CommandManager</h1>  </div>
-</div>
-<div class="contents">
-<!-- doxytag: class="stf::core::manager::CommandManager" --><!-- doxytag: inherits="stf::core::manager::CommandManagerBase" -->
-<p>コマンドの処理を行う機能マネージャ．  
-<a href="#_details">[詳細]</a></p>
-
-<p><code>#include &lt;<a class="el" href="">CommandManager.h</a>&gt;</code></p>
-<div class="dynheader">
-stf::core::manager::CommandManagerに対する継承グラフ</div>
-<div class="dyncontent">
-<div class="center"><img src="classstf_1_1core_1_1manager_1_1_command_manager__inherit__graph.png" border="0" usemap="#stf_1_1core_1_1manager_1_1_command_manager_inherit__map" alt="Inheritance graph"/></div>
-<map name="stf_1_1core_1_1manager_1_1_command_manager_inherit__map" id="stf_1_1core_1_1manager_1_1_command_manager_inherit__map">
-<area shape="rect" id="node2" href="classstf_1_1core_1_1manager_1_1_command_manager_base.html" title="コマンドの処理を行う機能マネージャ基底クラス．" alt="" coords="547,32,821,61"/><area shape="rect" id="node4" href="classstf_1_1core_1_1manager_1_1_manager_base.html" title="機能マネージャの基底クラス．" alt="" coords="224,5,437,35"/><area shape="rect" id="node6" href="classstf_1_1_root_object.html" title="数値型を除いた全クラスの基本となるクラス．" alt="" coords="5,5,115,35"/><area shape="rect" id="node8" href="classstf_1_1core_1_1event_1_1_observer.html" title="stf::core::event::Observer\&lt; event::ModeChangeEvent \&gt;" alt="" coords="163,59,499,88"/></map>
-<center><span class="legend">[<a href="graph_legend.html">凡例</a>]</span></center></div>
-<div class="dynheader">
-stf::core::manager::CommandManagerのコラボレーション図</div>
-<div class="dyncontent">
-<div class="center"><img src="classstf_1_1core_1_1manager_1_1_command_manager__coll__graph.png" border="0" usemap="#stf_1_1core_1_1manager_1_1_command_manager_coll__map" alt="Collaboration graph"/></div>
-<map name="stf_1_1core_1_1manager_1_1_command_manager_coll__map" id="stf_1_1core_1_1manager_1_1_command_manager_coll__map">
-<area shape="rect" id="node2" href="classstf_1_1core_1_1manager_1_1_command_manager_base.html" title="コマンドの処理を行う機能マネージャ基底クラス．" alt="" coords="4152,467,4427,496"/><area shape="rect" id="node4" href="classstf_1_1core_1_1manager_1_1_manager_base.html" title="機能マネージャの基底クラス．" alt="" coords="3771,379,3984,408"/><area shape="rect" id="node6" href="classstf_1_1_root_object.html" title="数値型を除いた全クラスの基本となるクラス．" alt="" coords="2677,292,2787,321"/><area shape="rect" id="node14" href="classstf_1_1core_1_1datapool_1_1_data_pool_base.html" title="Tupleを複数個保持するデータプールの基底クラス．" alt="" coords="3168,240,3384,269"/><area shape="rect" id="node27" href="classstf_1_1core_1_1datapool_1_1_event_data_pool.html" title="Eventのデータプール．" alt="" coords="4180,100,4399,129"/><area shape="rect" id="node38" href="classstf_1_1core_1_1mode_1_1_mode_base.html" title="モードの基底クラス．" alt="" coords="3187,395,3365,424"/><area shape="rect" id="node51" href="classstf_1_1core_1_1command_1_1_command.html" title="衛星コマンドの抽象インターフェースと共通の実装を行う基底クラス．" alt="" coords="3176,455,3376,484"/><area shape="rect" id="node8" href="classstf_1_1core_1_1devicedriver_1_1clock_1_1_i_time_clock.html" title="Time型のカウントが可能であることを示す抽象インターフェース．" alt="" coords="1677,496,1931,525"/><area shape="rect" id="node10" href="classstf_1_1core_1_1devicedriver_1_1_i_data_updatable.html" title="周期的にデータを取得，送信するコンポーネントに対するインターフェース" alt="" coords="443,496,680,525"/><area shape="rect" id="node12" href="classstf_1_1core_1_1datapool_1_1_aocs_data_pool.html" title="IAocsDataのデータプール．" alt="" coords="3769,177,3985,207"/><area shape="rect" id="node17" href="classstf_1_1core_1_1datapool_1_1_tuple.html" title="stf::core::datapool::Tuple\&lt; datatype::IAocsData \&gt;" alt="" coords="2579,155,2885,184"/><area shape="rect" id="node19" href="classstf_1_1datatype_1_1_i_aocs_data.html" title="AOCS使用系列のデータ共通の抽象インターフェース．" alt="" coords="1723,127,1885,156"/><area shape="rect" id="node21" href="classstf_1_1interface_1_1_i_telemetable.html" title="テレメトリを生成可能なオブジェクトに対するインターフェース．" alt="" coords="475,127,648,156"/><area shape="rect" id="node23" href="classstf_1_1datatype_1_1_time.html" title="経過時間を表すクラス．" alt="" coords="1739,180,1869,209"/><area shape="rect" id="node34" href="struct_loki_1_1_tuple_unit.html" title="Loki::TupleUnit\&lt; TYPELIST_2(event::EventType, datatype::Time) \&gt;" alt="" coords="2529,20,2935,49"/><area shape="rect" id="node25" href="classstf_1_1datatype_1_1_string.html" title="std::stringの簡略版．" alt="" coords="1736,263,1872,292"/><area shape="rect" id="node30" href="struct_loki_1_1_tuple.html" title="Loki::Tuple\&lt; TYPELIST_2(event::EventType, datatype::Time)\&gt;" alt="" coords="3688,27,4067,56"/><area shape="rect" id="node32" href="class_loki_1_1_gen_scatter_hierarchy.html" title="Loki::GenScatterHierarchy\&lt; TYPELIST_2(event::EventType, datatype::Time), TupleUnit \&gt;" alt="" coords="3009,5,3543,35"/><area shape="rect" id="node41" href="structstf_1_1core_1_1mode_1_1_strategy_holder.html" title="モードに依存したアルゴリズムを纏め，インターフェースを提供するクラス．" alt="" coords="2631,400,2833,429"/><area shape="rect" id="node43" href="class_loki_1_1_gen_scatter_hierarchy.html" title="Loki::GenScatterHierarchy\&lt; TYPELIST_5(devicedriver::ISwitchable, devicedriver::IDataUpdatable, functor::IFunctor, core::strategy::telemetry::ITelemetryStrategy, core::strategy::control::IControlStrategy), HotSpotList \&gt;" alt="" coords="1168,549,2440,579"/><area shape="rect" id="node45" href="class_hot_spot_list.html" title="HotSpotList \&lt;TYPELIST_5(devicedriver::ISwitchable, devicedriver::IDataUpdatable, functor::IFunctor, core::strategy::telemetry::ITelemetryStrategy, core::strategy::control::IControlStrategy) \&gt;" alt="" coords="7,549,1116,579"/><area shape="rect" id="node47" href="classstf_1_1core_1_1event_1_1_observer.html" title="stf::core::event::Observer\&lt; event::ModeChangeEvent \&gt;" alt="" coords="3709,497,4045,527"/><area shape="rect" id="node49" href="classstf_1_1core_1_1devicedriver_1_1cmhandler_1_1_i_command_receiver.html" title="受信機からコマンドを受け取り，応答を返却するデバイスの抽象インターフェース．" alt="" coords="2567,536,2897,565"/></map>
-<center><span class="legend">[<a href="graph_legend.html">凡例</a>]</span></center></div>
-
-<p><a href="classstf_1_1core_1_1manager_1_1_command_manager-members.html">すべてのメンバ一覧</a></p>
-<table class="memberdecls">
-<tr><td colspan="2"><h2><a name="pub-methods"></a>
-Public メソッド</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1core_1_1manager_1_1_command_manager.html#a7dd6a940b6b2224817d1f33b54e0dfc1">CommandManager</a> (int instance_id)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1core_1_1manager_1_1_command_manager.html#a4239f7cd83390c1f6aea2f3c8d568853">~CommandManager</a> ()</td></tr>
-</table>
-<hr/><a name="_details"></a><h2>説明</h2>
-<div class="textblock"><p>コマンドの処理を行う機能マネージャ． </p>
-<p>Generation-GapパターンによってBaseから派生しており，デフォルトでは実装を持たない． そのため，フレームワークからインスタンス化されると，仮想関数の機構によってBaseのインスタンスと殆ど同様に振る舞う． ユーザーはBaseクラスの実装を変更する代わりに，この派生クラス側で必要に応じて仮想関数を宣言し， 機能マネージャの振る舞いをカスタマイズすることができる． </p>
-
-<p> <a class="el" href="">CommandManager.h</a> の <a class="el" href="#L32">32</a> 行で定義されています。</p>
-</div><hr/><h2>コンストラクタとデストラクタ</h2>
-<a class="anchor" id="a7dd6a940b6b2224817d1f33b54e0dfc1"></a><!-- doxytag: member="stf::core::manager::CommandManager::CommandManager" ref="a7dd6a940b6b2224817d1f33b54e0dfc1" args="(int instance_id)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">stf::core::manager::CommandManager::CommandManager </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>instance_id</em></td><td>)</td>
-          <td><code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p> <a class="el" href="">CommandManager.h</a> の <a class="el" href="#L34">34</a> 行で定義されています。</p>
-<div class="fragment"><pre class="fragment">: <a class="code" href="classstf_1_1core_1_1manager_1_1_command_manager_base.html#a6bb42cef7a1a2e23ff43d8da447e02de">CommandManagerBase</a>(<a class="code" href="classstf_1_1_root_object.html#a233a3fbd4d53b7a8eaa5d2edab4cf75b">instance_id</a>) {}
-</pre></div>
-</div>
-</div>
-<a class="anchor" id="a4239f7cd83390c1f6aea2f3c8d568853"></a><!-- doxytag: member="stf::core::manager::CommandManager::~CommandManager" ref="a4239f7cd83390c1f6aea2f3c8d568853" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">stf::core::manager::CommandManager::~CommandManager </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td><code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p> <a class="el" href="">CommandManager.h</a> の <a class="el" href="#L35">35</a> 行で定義されています。</p>
-<div class="fragment"><pre class="fragment">{}
-</pre></div>
-</div>
-</div>
-<hr/>このクラスの説明は次のファイルから生成されました:<ul>
-<li>stf/core/manager/<a class="el" href="">CommandManager.h</a></li>
-</ul>
-</div>
-<!--- window showing the filter options -->
-<div id="MSearchSelectWindow"
-     onmouseover="return searchBox.OnSearchSelectShow()"
-     onmouseout="return searchBox.OnSearchSelectHide()"
-     onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>フレンド</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>マクロ定義</a></div>
-
-<!-- iframe showing the search results (closed by default) -->
-<div id="MSearchResultsWindow">
-<iframe src="" frameborder="0" 
-        name="MSearchResults" id="MSearchResults">
-</iframe>
-</div>
-
-<hr class="footer"/><address class="footer"><small>STFに対してWed Mar 23 2011 05:33:24に生成されました。&#160;
-<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
-</body>
-</html>

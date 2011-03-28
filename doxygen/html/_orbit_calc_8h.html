@@ -1,115 +1,0 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
-<title>STF: stf/datatype/OrbitCalc.h</title>
-<link href="tabs.css" rel="stylesheet" type="text/css"/>
-<link href="search/search.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="search/search.js"></script>
-<link href="doxygen.css" rel="stylesheet" type="text/css"/>
-</head>
-<body onload='searchBox.OnSelectItem(0);'>
-<!-- 作成： Doxygen 1.7.3 -->
-<script type="text/javascript"><!--
-var searchBox = new SearchBox("searchBox", "search",false,'検索');
---></script>
-<div id="top">
-<div id="titlearea">
-<table cellspacing="0" cellpadding="0">
- <tbody>
- <tr style="height: 56px;">
-  <td style="padding-left: 0.5em;">
-   <div id="projectname">STF</div>
-  </td>
- </tr>
- </tbody>
-</table>
-</div>
-  <div id="navrow1" class="tabs">
-    <ul class="tablist">
-      <li><a href="index.html"><span>メインページ</span></a></li>
-      <li><a href="pages.html"><span>関連ページ</span></a></li>
-      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
-      <li><a href="annotated.html"><span>クラス</span></a></li>
-      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
-      <li id="searchli">
-        <div id="MSearchBox" class="MSearchBoxInactive">
-        <span class="left">
-          <img id="MSearchSelect" src="search/mag_sel.png"
-               onmouseover="return searchBox.OnSearchSelectShow()"
-               onmouseout="return searchBox.OnSearchSelectHide()"
-               alt=""/>
-          <input type="text" id="MSearchField" value="検索" accesskey="S"
-               onfocus="searchBox.OnSearchFieldFocus(true)" 
-               onblur="searchBox.OnSearchFieldFocus(false)" 
-               onkeyup="searchBox.OnSearchFieldChange(event)"/>
-          </span><span class="right">
-            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
-          </span>
-        </div>
-      </li>
-    </ul>
-  </div>
-  <div id="navrow2" class="tabs2">
-    <ul class="tablist">
-      <li><a href="files.html"><span>ファイル一覧</span></a></li>
-      <li><a href="globals.html"><span>ファイルメンバ</span></a></li>
-    </ul>
-  </div>
-</div>
-<div class="header">
-  <div class="summary">
-<a href="#nested-classes">構成</a> &#124;
-<a href="#namespaces">ネームスペース</a>  </div>
-  <div class="headertitle">
-<h1>stf/datatype/OrbitCalc.h</h1>  </div>
-</div>
-<div class="contents">
-
-<p>軌道関係情報を計算するメソッドをstaticメンバとしてまとめたクラス．  
-<a href="#_details">[詳細]</a></p>
-<div class="textblock"><div class="dynheader">
-このグラフは、どのファイルから直接、間接的にインクルードされているかを示しています。</div>
-<div class="dyncontent">
-<div class="center"><img src="_orbit_calc_8h__dep__incl.png" border="0" usemap="#stf_2datatype_2_orbit_calc_8hdep" alt=""/></div>
-<map name="stf_2datatype_2_orbit_calc_8hdep" id="stf_2datatype_2_orbit_calc_8hdep">
-<area shape="rect" id="node3" href="main_8cpp.html" title="main.cpp" alt="" coords="5,83,80,112"/><area shape="rect" id="node5" href="_cross_product_8cpp.html" title="クロスプロダクト則を用いて要求出力トルクを磁気モーメントに変換する制御ブロック．" alt="" coords="104,83,371,112"/><area shape="rect" id="node7" href="_g_g_compensation_8cpp.html" title="重力傾斜トルクを計算し，逆符号のトルクを出力する制御ブロック．" alt="" coords="395,83,685,112"/><area shape="rect" id="node9" href="_p_i_d_8cpp.html" title="PID制御を行う制御ブロック群．" alt="" coords="709,83,917,112"/><area shape="rect" id="node11" href="_q_u_e_s_t_8cpp.html" title="Quaternion Estimatorによる姿勢決定を行う制御ブロック．未実装．" alt="" coords="941,83,1173,112"/><area shape="rect" id="node13" href="_solar_pointing_8cpp.html" title="MTQで太陽指向制御を行うための制御ブロック．" alt="" coords="1197,83,1461,112"/><area shape="rect" id="node15" href="_t_r_i_a_d_8cpp.html" title="TRIAD則で姿勢決定を行う制御ブロック群．" alt="" coords="1485,83,1709,112"/><area shape="rect" id="node17" href="_orbit_calc_8cpp.html" title="軌道関係情報を計算するメソッドをstaticメンバとしてまとめたクラス．" alt="" coords="1733,83,1907,112"/><area shape="rect" id="node19" href="_orbit_calc_test_8cpp.html" title="stf/datatype/test/OrbitCalcTest.cpp" alt="" coords="1931,83,2155,112"/><area shape="rect" id="node21" href="_orbit_8h.html" title="軌道計算を行う，sgp4のラッパークラス．" alt="" coords="2179,83,2331,112"/><area shape="rect" id="node25" href="_simulator_8cpp.html" title="ソフトウェアシミュレータ環境クラス．" alt="" coords="2272,160,2464,189"/><area shape="rect" id="node28" href="_n_j_controllers_8cpp.html" title="stf/satellite/nj/NJControllers.cpp" alt="" coords="2405,83,2611,112"/><area shape="rect" id="node23" href="_orbit_8cpp.html" title="軌道計算を行う，sgp4のラッパークラス．" alt="" coords="2083,160,2248,189"/></map>
-</div>
-</div>
-<p><a href="">ソースコードを見る。</a></p>
-<table class="memberdecls">
-<tr><td colspan="2"><h2><a name="nested-classes"></a>
-構成</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1datatype_1_1_orbit_calc.html">stf::datatype::OrbitCalc</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">軌道関係情報を計算するメソッドをstaticメンバとしてまとめたクラス．  <a href="classstf_1_1datatype_1_1_orbit_calc.html#_details">[詳細]</a><br/></td></tr>
-<tr><td colspan="2"><h2><a name="namespaces"></a>
-ネームスペース</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf.html">stf</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf_1_1datatype.html">stf::datatype</a></td></tr>
-</table>
-<hr/><a name="_details"></a><h2>説明</h2>
-<div class="textblock"><p>軌道関係情報を計算するメソッドをstaticメンバとしてまとめたクラス． </p>
-<dl class="author"><dt><b>作者:</b></dt><dd>Taiga Nomi </dd></dl>
-<dl class="date"><dt><b>日付:</b></dt><dd>2011.02.16 </dd></dl>
-
-<p> <a class="el" href="">OrbitCalc.h</a> で定義されています。</p>
-</div></div>
-<!--- window showing the filter options -->
-<div id="MSearchSelectWindow"
-     onmouseover="return searchBox.OnSearchSelectShow()"
-     onmouseout="return searchBox.OnSearchSelectHide()"
-     onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>フレンド</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>マクロ定義</a></div>
-
-<!-- iframe showing the search results (closed by default) -->
-<div id="MSearchResultsWindow">
-<iframe src="" frameborder="0" 
-        name="MSearchResults" id="MSearchResults">
-</iframe>
-</div>
-
-<hr class="footer"/><address class="footer"><small>STFに対してWed Mar 23 2011 05:32:40に生成されました。&#160;
-<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
-</body>
-</html>

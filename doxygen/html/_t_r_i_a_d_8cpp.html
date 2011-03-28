@@ -1,119 +1,0 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
-<title>STF: stf/core/strategy/control/TRIAD.cpp</title>
-<link href="tabs.css" rel="stylesheet" type="text/css"/>
-<link href="search/search.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="search/search.js"></script>
-<link href="doxygen.css" rel="stylesheet" type="text/css"/>
-</head>
-<body onload='searchBox.OnSelectItem(0);'>
-<!-- 作成： Doxygen 1.7.3 -->
-<script type="text/javascript"><!--
-var searchBox = new SearchBox("searchBox", "search",false,'検索');
---></script>
-<div id="top">
-<div id="titlearea">
-<table cellspacing="0" cellpadding="0">
- <tbody>
- <tr style="height: 56px;">
-  <td style="padding-left: 0.5em;">
-   <div id="projectname">STF</div>
-  </td>
- </tr>
- </tbody>
-</table>
-</div>
-  <div id="navrow1" class="tabs">
-    <ul class="tablist">
-      <li><a href="index.html"><span>メインページ</span></a></li>
-      <li><a href="pages.html"><span>関連ページ</span></a></li>
-      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
-      <li><a href="annotated.html"><span>クラス</span></a></li>
-      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
-      <li id="searchli">
-        <div id="MSearchBox" class="MSearchBoxInactive">
-        <span class="left">
-          <img id="MSearchSelect" src="search/mag_sel.png"
-               onmouseover="return searchBox.OnSearchSelectShow()"
-               onmouseout="return searchBox.OnSearchSelectHide()"
-               alt=""/>
-          <input type="text" id="MSearchField" value="検索" accesskey="S"
-               onfocus="searchBox.OnSearchFieldFocus(true)" 
-               onblur="searchBox.OnSearchFieldFocus(false)" 
-               onkeyup="searchBox.OnSearchFieldChange(event)"/>
-          </span><span class="right">
-            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
-          </span>
-        </div>
-      </li>
-    </ul>
-  </div>
-  <div id="navrow2" class="tabs2">
-    <ul class="tablist">
-      <li><a href="files.html"><span>ファイル一覧</span></a></li>
-      <li><a href="globals.html"><span>ファイルメンバ</span></a></li>
-    </ul>
-  </div>
-</div>
-<div class="header">
-  <div class="summary">
-<a href="#namespaces">ネームスペース</a>  </div>
-  <div class="headertitle">
-<h1>stf/core/strategy/control/TRIAD.cpp</h1>  </div>
-</div>
-<div class="contents">
-
-<p>TRIAD則で姿勢決定を行う制御ブロック群．  
-<a href="#_details">[詳細]</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="">TRIAD.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="">../../../datatype/DateTime.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="">../../../datatype/DCM.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="">../../../datatype/OrbitCalc.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="">../../../datatype/TypeConverter.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="">../../../GlobalObject.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="">../../../util/Trace.h</a>&quot;</code><br/>
-</div><div class="textblock"><div class="dynheader">
-TRIAD.cppのインクルード依存関係図</div>
-<div class="dyncontent">
-<div class="center"><img src="_t_r_i_a_d_8cpp__incl.png" border="0" usemap="#stf_2core_2strategy_2control_2_t_r_i_a_d_8cpp" alt=""/></div>
-<map name="stf_2core_2strategy_2control_2_t_r_i_a_d_8cpp" id="stf_2core_2strategy_2control_2_t_r_i_a_d_8cpp">
-<area shape="rect" id="node3" href="_t_r_i_a_d_8h.html" title="TRIAD則で姿勢決定を行う制御ブロック群．" alt="" coords="1187,237,1256,267"/><area shape="rect" id="node43" href="_date_time_8h.html" title="ユリウス暦による絶対時刻を保持するクラス．時間間隔などの計算にはTimeを使う．" alt="" coords="352,392,531,421"/><area shape="rect" id="node70" href="_d_c_m_8h.html" title="Z&#45;Y&#45;Xの順で回転させる回転行列（DCM）．" alt="" coords="2735,315,2887,344"/><area shape="rect" id="node76" href="_orbit_calc_8h.html" title="軌道関係情報を計算するメソッドをstaticメンバとしてまとめたクラス．" alt="" coords="2836,83,3012,112"/><area shape="rect" id="node78" href="_type_converter_8h.html" title="単位や姿勢表現の相互変換を行うユーティリティ．" alt="" coords="2847,237,3052,267"/><area shape="rect" id="node87" href="_global_object_8h.html" title="RTOSとのインターフェースとなる，衛星アプリケーションが生成するオブジェクト群の基底クラス．" alt="" coords="1019,237,1163,267"/><area shape="rect" id="node100" href="_trace_8h.html" title="STFの内部状態を外部ファイルに書き出すためのトレースオブジェクト．" alt="" coords="1489,83,1612,112"/><area shape="rect" id="node5" href="_strategy_base_8h.html" title="ストラテジの共通基底クラス．" alt="" coords="997,315,1120,344"/><area shape="rect" id="node27" href="_static_vector_8h.html" title="テンプレートを用いた固定要素数のベクトル計算クラス" alt="" coords="2457,469,2652,499"/><area shape="rect" id="node36" href="_quaternion_8h.html" title="4元数を表現するクラス．" alt="" coords="2592,392,2779,421"/><area shape="rect" id="node39" href="_orbit_info_8h.html" title="軌道情報関係の量を表す" alt="" coords="2853,392,3024,421"/><area shape="rect" id="node47" href="_magnetic_8h.html" title="磁気関係の物理量を表す" alt="" coords="2245,392,2421,421"/><area shape="rect" id="node50" href="_i_o_port_8h.html" title="他機器との接続を型に基づいて行うための入出力ポート．" alt="" coords="760,315,923,344"/><area shape="rect" id="node65" href="_i_absolute_time_clock_8h.html" title="DateTime型のカウントが可能であることを示す抽象インターフェース．" alt="" coords="301,315,579,344"/><area shape="rect" id="node7" href="_root_object_8h.html" title="数値型を除いた全クラスの基本となるクラス．" alt="" coords="1133,392,1256,421"/><area shape="rect" id="node15" href="_i_time_clock_8h.html" title="Time型のカウントが可能であることを示す抽象インターフェース．" alt="" coords="605,392,819,421"/><area shape="rect" id="node23" href="_i_enabable_8h.html" title="有効化・無効化制御が可能なコンポーネントに対するインターフェース．" alt="" coords="944,392,1109,421"/><area shape="rect" id="node25" href="_type_manip_8h.html" title="../../util/loki/TypeManip.h" alt="" coords="524,624,689,653"/><area shape="rect" id="node9" href="_instance_i_d_8h.html" title="インスタンスIDの定義を行うマクロ群．" alt="" coords="355,469,448,499"/><area shape="rect" id="node11" href="_string_8h.html" title="std::stringの簡略版クラス．" alt="" coords="1184,469,1304,499"/><area shape="rect" id="node13" href="_macros_8h.html" title="STF全体で使用する簡単なマクロ関数を記述する．" alt="" coords="1560,469,1635,499"/><area shape="rect" id="node17" href="_time_8h.html" title="経過時間を表すクラス．" alt="" coords="717,469,867,499"/><area shape="rect" id="node21" href="_i_data_updatable_8h.html" title="周期的にデータを取得，送信するコンポーネントに対する抽象インターフェース．" alt="" coords="493,469,627,499"/><area shape="rect" id="node19" href="stfassert_8h.html" title="assertラッパ．" alt="" coords="1668,547,1783,576"/><area shape="rect" id="node30" href="_i_aocs_data_8h.html" title="AOCS使用系列のデータ共通の抽象インターフェース．" alt="" coords="1968,547,2061,576"/><area shape="rect" id="node34" href="math_8h.html" title="数学系関数のラッパと算術定数の定義．" alt="" coords="2637,547,2731,576"/><area shape="rect" id="node32" href="_i_telemetable_8h.html" title="テレメトリを生成可能なオブジェクトに対するインターフェース．" alt="" coords="1929,624,2100,653"/><area shape="rect" id="node52" href="_hierarchy_generators_8h.html" title="../../util/loki/HierarchyGenerators.h" alt="" coords="5,392,227,421"/><area shape="rect" id="node54" href="_typelist_8h.html" title="Typelist.h" alt="" coords="120,547,197,576"/><area shape="rect" id="node59" href="_type_traits_8h.html" title="TypeTraits.h" alt="" coords="112,469,205,499"/><area shape="rect" id="node62" href="_empty_type_8h.html" title="EmptyType.h" alt="" coords="229,469,328,499"/><area shape="rect" id="node56" href="_null_type_8h.html" title="NullType.h" alt="" coords="117,624,200,653"/><area shape="rect" id="node72" href="_static_matrix_8h.html" title="テンプレートを用いた固定要素数の行列計算クラス" alt="" coords="1731,392,1832,421"/><area shape="rect" id="node81" href="_euler_angle_8h.html" title="z&#45;y&#45;xオイラー角(rad)．" alt="" coords="3099,315,3195,344"/><area shape="rect" id="node92" href="_list_8h.html" title="Simple Template Container." alt="" coords="1469,392,1576,421"/><area shape="rect" id="node97" href="_satellite_model_8h.html" title="衛星質量特性を表現するクラス．" alt="" coords="1537,315,1705,344"/><area shape="rect" id="node102" href="_ostream_8h.html" title="標準出力のラッパ．" alt="" coords="1815,160,1897,189"/><area shape="rect" id="node109" href="_config_8h.html" title="../Config.h" alt="" coords="1839,237,1919,267"/><area shape="rect" id="node111" href="_simulator_8h.html" title="ソフトウェアシミュレータ環境クラス．" alt="" coords="1829,315,1989,344"/><area shape="rect" id="node119" href="_vector_8h.html" title="可変要素数のベクトル演算を行うクラス．STFではStaticVectorが推奨される" alt="" coords="1869,469,2005,499"/><area shape="rect" id="node123" href="_matrix_8h.html" title="可変要素数の行列計算を行うクラス．STFではStaticMatrixが推奨される．" alt="" coords="1957,392,2091,421"/><area shape="rect" id="node134" href="_scalar_8h.html" title="スカラー物理量を表現するクラス．" alt="" coords="1709,469,1845,499"/><area shape="rect" id="node139" href="_i_o_driver_base_8h.html" title="環境クラス共通の基底IOドライバ． 各環境クラスにおけるIOはこの基底ドライバを使用するか，ここから派生させることを基本とする．" alt="" coords="1600,392,1707,421"/></map>
-</div>
-</div>
-<p><a href="">ソースコードを見る。</a></p>
-<table class="memberdecls">
-<tr><td colspan="2"><h2><a name="namespaces"></a>
-ネームスペース</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf.html">stf</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf_1_1core.html">stf::core</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf_1_1core_1_1strategy.html">stf::core::strategy</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf_1_1core_1_1strategy_1_1control.html">stf::core::strategy::control</a></td></tr>
-</table>
-<hr/><a name="_details"></a><h2>説明</h2>
-<div class="textblock"><p>TRIAD則で姿勢決定を行う制御ブロック群． </p>
-<dl class="author"><dt><b>作者:</b></dt><dd>Taiga Nomi </dd></dl>
-<dl class="date"><dt><b>日付:</b></dt><dd>2011.02.16 </dd></dl>
-
-<p> <a class="el" href="">TRIAD.cpp</a> で定義されています。</p>
-</div></div>
-<!--- window showing the filter options -->
-<div id="MSearchSelectWindow"
-     onmouseover="return searchBox.OnSearchSelectShow()"
-     onmouseout="return searchBox.OnSearchSelectHide()"
-     onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>フレンド</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>マクロ定義</a></div>
-
-<!-- iframe showing the search results (closed by default) -->
-<div id="MSearchResultsWindow">
-<iframe src="" frameborder="0" 
-        name="MSearchResults" id="MSearchResults">
-</iframe>
-</div>
-
-<hr class="footer"/><address class="footer"><small>STFに対してWed Mar 23 2011 05:32:39に生成されました。&#160;
-<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
-</body>
-</html>

@@ -1,8 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node1" href="$class_loki_1_1_visitor.html" title="Loki::Visitor\&lt; Head, R \&gt;" alt="" coords="5,85,168,115"/>
-<area shape="rect" id="node3" href="$class_loki_1_1_base_visitor_impl_3_01_typelist_3_01_head_00_01_null_type_01_4_00_01_r_01_4.html" title="Loki::BaseVisitorImpl\&lt; Typelist\&lt; Head, NullType \&gt;, R \&gt;" alt="" coords="217,5,559,35"/>
-<area shape="rect" id="node5" href="$class_loki_1_1_base_visitor_impl_3_01_typelist_3_01_head_00_01_tail_01_4_00_01_r_01_4.html" title="Loki::BaseVisitorImpl\&lt; Typelist\&lt; Head, Tail \&gt;, R \&gt;" alt="" coords="232,59,544,88"/>
-<area shape="rect" id="node7" href="$class_loki_1_1_visitor_3_01_typelist_3_01_head_00_01_null_type_01_4_00_01_r_01_4.html" title="Loki::Visitor\&lt; Typelist\&lt; Head, NullType \&gt;, R \&gt;" alt="" coords="244,112,532,141"/>
-<area shape="rect" id="node9" href="$class_loki_1_1_visitor_3_01_typelist_3_01_head_00_01_tail_01_4_00_01_r_01_4.html" title="Loki::Visitor\&lt; Typelist\&lt; Head, Tail \&gt;, R \&gt;" alt="" coords="259,165,517,195"/>
-<area shape="rect" id="node10" href="$class_loki_1_1_visitor.html" title="Loki::Visitor\&lt; Tail, R \&gt;" alt="" coords="11,165,163,195"/>
-</map>

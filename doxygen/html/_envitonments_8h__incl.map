@@ -1,5 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node5" href="$_scalar_8h.html" title="スカラー物理量を表現するクラス．" alt="" coords="97,83,167,112"/>
-<area shape="rect" id="node8" href="$_i_aocs_data_8h.html" title="AOCS使用系列のデータ共通の抽象インターフェース．" alt="" coords="119,160,212,189"/>
-<area shape="rect" id="node10" href="$_i_telemetable_8h.html" title="テレメトリを生成可能なオブジェクトに対するインターフェース．" alt="" coords="80,237,251,267"/>
-</map>

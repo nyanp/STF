@@ -1,6 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node2" href="$classstf_1_1datatype_1_1_static_matrix.html" title="stf::datatype::StaticMatrix\&lt; 3, N \&gt;" alt="" coords="67,261,285,291"/>
-<area shape="rect" id="node4" href="$classstf_1_1datatype_1_1_static_vector.html" title="stf::datatype::StaticVector\&lt; cols \&gt;" alt="" coords="65,165,287,195"/>
-<area shape="rect" id="node6" href="$classstf_1_1datatype_1_1_i_aocs_data.html" title="AOCS使用系列のデータ共通の抽象インターフェース．" alt="" coords="95,85,257,115"/>
-<area shape="rect" id="node8" href="$classstf_1_1interface_1_1_i_telemetable.html" title="テレメトリを生成可能なオブジェクトに対するインターフェース．" alt="" coords="89,5,263,35"/>
-</map>

@@ -1,3 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node1" href="$classstf_1_1datatype_1_1_list.html" title="機能を最小限に絞ったコンテナクラス． ・assertが有効ならば[]演算子に範囲外チェックが入る ・データの追加は末尾のみ対応，データの削除は任意位置に対して可能 ・適合する最初の要素を削除するremo..." alt="" coords="5,5,160,35"/>
-</map>

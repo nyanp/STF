@@ -1,6 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$_orbit_calc_8cpp.html" title="軌道関係情報を計算するメソッドをstaticメンバとしてまとめたクラス．" alt="" coords="5,83,179,112"/>
-<area shape="rect" id="node5" href="$igrf_8cpp.html" title="NJHILSから持ってきたIGRF計算モジュールを，igrf名前空間でラップして使用．" alt="" coords="203,83,403,112"/>
-<area shape="rect" id="node7" href="$_orbit_8cpp.html" title="軌道計算を行う，sgp4のラッパークラス．" alt="" coords="427,83,592,112"/>
-<area shape="rect" id="node9" href="$orbitutil_8cpp.html" title="NJHILSから持ってきた軌道計算関係モジュールを，sgp4名前空間でラップして使用．" alt="" coords="616,83,827,112"/>
-</map>

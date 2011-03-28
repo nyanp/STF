@@ -1,8 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node2" href="$classstf_1_1environment_1_1torquesource_1_1_noise_base.html" title="ノイズ源クラスの抽象インターフェース．" alt="" coords="533,47,800,76"/>
-<area shape="rect" id="node4" href="$classstf_1_1environment_1_1_simulator.html" title="ソフトウェアシミュレータ環境クラス．" alt="" coords="232,47,408,76"/>
-<area shape="rect" id="node7" href="$classstf_1_1datatype_1_1_static_vector.html" title="stf::datatype::StaticVector\&lt; 3 \&gt;" alt="" coords="564,100,769,129"/>
-<area shape="rect" id="node9" href="$classstf_1_1datatype_1_1_i_aocs_data.html" title="AOCS使用系列のデータ共通の抽象インターフェース．" alt="" coords="239,100,401,129"/>
-<area shape="rect" id="node11" href="$classstf_1_1interface_1_1_i_telemetable.html" title="テレメトリを生成可能なオブジェクトに対するインターフェース．" alt="" coords="7,100,180,129"/>
-<area shape="rect" id="node13" href="$classstf_1_1datatype_1_1_time.html" title="経過時間を表すクラス．" alt="" coords="601,159,732,188"/>
-</map>

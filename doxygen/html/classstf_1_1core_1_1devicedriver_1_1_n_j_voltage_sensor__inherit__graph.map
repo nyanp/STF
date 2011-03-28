@@ -1,8 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node2" href="$classstf_1_1core_1_1devicedriver_1_1_multi_sensor.html" title="stf::core::devicedriver::MultiSensor\&lt; datatype::Voltage, NJ__VOLTAGE__CHANNELS, NJ__ADC__CHANNELS, Env \&gt;" alt="" coords="780,85,1484,115"/>
-<area shape="rect" id="node4" href="$classstf_1_1core_1_1devicedriver_1_1_c_d_h_component.html" title="stf::core::devicedriver::CDHComponent\&lt; datatype::Voltage, NUM, Env \&gt;" alt="" coords="295,59,729,88"/>
-<area shape="rect" id="node6" href="$classstf_1_1_root_object.html" title="数値型を除いた全クラスの基本となるクラス．" alt="" coords="71,5,180,35"/>
-<area shape="rect" id="node8" href="$classstf_1_1core_1_1devicedriver_1_1_i_data_updatable.html" title="周期的にデータを取得，送信するコンポーネントに対するインターフェース" alt="" coords="7,59,244,88"/>
-<area shape="rect" id="node10" href="$classstf_1_1core_1_1devicedriver_1_1_i_switchable.html" title="電源のオンオフ制御が可能なコンポーネントに対するインターフェース．" alt="" coords="17,112,233,141"/>
-<area shape="rect" id="node12" href="$classstf_1_1core_1_1devicedriver_1_1_first_order_convert.html" title="1次関数による変換を行うポリシークラス" alt="" coords="387,112,637,141"/>
-</map>

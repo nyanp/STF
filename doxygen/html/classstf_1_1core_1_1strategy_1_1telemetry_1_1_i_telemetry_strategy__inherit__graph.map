@@ -1,8 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$classstf_1_1core_1_1strategy_1_1telemetry_1_1_selecting_output.html" title="stf::core::strategy::telemetry::SelectingOutput\&lt; short, SCALE \&gt;" alt="" coords="372,32,761,61"/>
-<area shape="rect" id="node9" href="$classstf_1_1core_1_1strategy_1_1telemetry_1_1_selecting_output.html" title="stf::core::strategy::telemetry::SelectingOutput\&lt; unsigned int, 1000 \&gt;" alt="" coords="359,85,775,115"/>
-<area shape="rect" id="node11" href="$classstf_1_1core_1_1strategy_1_1telemetry_1_1_output_all.html" title="データプールの内容を全て出力するテレメトリ生成ストラテジ．" alt="" coords="401,139,732,168"/>
-<area shape="rect" id="node13" href="$classstf_1_1core_1_1strategy_1_1telemetry_1_1_selecting_output.html" title="指定したイテレータをテレメトリとして整形するテレメトリ生成ストラテジ．" alt="" coords="383,192,751,221"/>
-<area shape="rect" id="node5" href="$classstf_1_1core_1_1strategy_1_1telemetry_1_1_p_r_i_s_m_telemetry_strategy.html" title="stf::core::strategy::telemetry::PRISMTelemetryStrategy\&lt; 1000 \&gt;" alt="" coords="832,5,1224,35"/>
-<area shape="rect" id="node7" href="$classstf_1_1core_1_1strategy_1_1telemetry_1_1_p_r_i_s_m_telemetry_strategy.html" title="stf::core::strategy::telemetry::PRISMTelemetryStrategy\&lt; SCALE \&gt;" alt="" coords="824,59,1232,88"/>
-</map>

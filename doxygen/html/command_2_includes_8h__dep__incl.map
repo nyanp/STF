@@ -1,8 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$_p_r_i_s_m_factory_8h.html" title="stf/satellite/PRISMFactory.h" alt="" coords="5,83,189,112"/>
-<area shape="rect" id="node7" href="$_n_j_factory_8h.html" title="stf/satellite/NJFactory.h" alt="" coords="213,83,371,112"/>
-<area shape="rect" id="node10" href="$_simple_satellite_factory_8h.html" title="SimpleSatellite用の具象ファクトリ．" alt="" coords="395,83,624,112"/>
-<area shape="rect" id="node13" href="$_n_j_command_receiver_8cpp.html" title="stf/satellite/nj/NJCommandReceiver.cpp" alt="" coords="648,83,899,112"/>
-<area shape="rect" id="node15" href="$_p_r_i_s_m_command_receiver_8cpp.html" title="stf/satellite/prism/PRISMCommandReceiver.cpp" alt="" coords="923,83,1221,112"/>
-<area shape="rect" id="node5" href="$main_8cpp.html" title="main.cpp" alt="" coords="255,160,329,189"/>
-</map>

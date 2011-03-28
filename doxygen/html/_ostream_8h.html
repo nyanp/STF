@@ -1,516 +1,0 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
-<title>STF: stf/util/Ostream.h</title>
-<link href="tabs.css" rel="stylesheet" type="text/css"/>
-<link href="search/search.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="search/search.js"></script>
-<link href="doxygen.css" rel="stylesheet" type="text/css"/>
-</head>
-<body onload='searchBox.OnSelectItem(0);'>
-<!-- 作成： Doxygen 1.7.3 -->
-<script type="text/javascript"><!--
-var searchBox = new SearchBox("searchBox", "search",false,'検索');
---></script>
-<div id="top">
-<div id="titlearea">
-<table cellspacing="0" cellpadding="0">
- <tbody>
- <tr style="height: 56px;">
-  <td style="padding-left: 0.5em;">
-   <div id="projectname">STF</div>
-  </td>
- </tr>
- </tbody>
-</table>
-</div>
-  <div id="navrow1" class="tabs">
-    <ul class="tablist">
-      <li><a href="index.html"><span>メインページ</span></a></li>
-      <li><a href="pages.html"><span>関連ページ</span></a></li>
-      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
-      <li><a href="annotated.html"><span>クラス</span></a></li>
-      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
-      <li id="searchli">
-        <div id="MSearchBox" class="MSearchBoxInactive">
-        <span class="left">
-          <img id="MSearchSelect" src="search/mag_sel.png"
-               onmouseover="return searchBox.OnSearchSelectShow()"
-               onmouseout="return searchBox.OnSearchSelectHide()"
-               alt=""/>
-          <input type="text" id="MSearchField" value="検索" accesskey="S"
-               onfocus="searchBox.OnSearchFieldFocus(true)" 
-               onblur="searchBox.OnSearchFieldFocus(false)" 
-               onkeyup="searchBox.OnSearchFieldChange(event)"/>
-          </span><span class="right">
-            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
-          </span>
-        </div>
-      </li>
-    </ul>
-  </div>
-  <div id="navrow2" class="tabs2">
-    <ul class="tablist">
-      <li><a href="files.html"><span>ファイル一覧</span></a></li>
-      <li><a href="globals.html"><span>ファイルメンバ</span></a></li>
-    </ul>
-  </div>
-</div>
-<div class="header">
-  <div class="summary">
-<a href="#nested-classes">構成</a> &#124;
-<a href="#namespaces">ネームスペース</a> &#124;
-<a href="#func-members">関数</a>  </div>
-  <div class="headertitle">
-<h1>stf/util/Ostream.h</h1>  </div>
-</div>
-<div class="contents">
-
-<p>標準出力のラッパ．  
-<a href="#_details">[詳細]</a></p>
-<div class="textblock"><code>#include &lt;iostream&gt;</code><br/>
-<code>#include &lt;fstream&gt;</code><br/>
-<code>#include &quot;<a class="el" href="">../datatype/StaticVector.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="">../datatype/StaticMatrix.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="">../Config.h</a>&quot;</code><br/>
-</div><div class="textblock"><div class="dynheader">
-Ostream.hのインクルード依存関係図</div>
-<div class="dyncontent">
-<div class="center"><img src="_ostream_8h__incl.png" border="0" usemap="#stf_2util_2_ostream_8h" alt=""/></div>
-<map name="stf_2util_2_ostream_8h" id="stf_2util_2_ostream_8h">
-<area shape="rect" id="node7" href="_static_vector_8h.html" title="テンプレートを用いた固定要素数のベクトル計算クラス" alt="" coords="867,315,1037,344"/><area shape="rect" id="node17" href="_static_matrix_8h.html" title="テンプレートを用いた固定要素数の行列計算クラス" alt="" coords="1573,237,1741,267"/><area shape="rect" id="node21" href="_config_8h.html" title="../Config.h" alt="" coords="603,83,683,112"/><area shape="rect" id="node9" href="stfassert_8h.html" title="assertラッパ．" alt="" coords="809,392,924,421"/><area shape="rect" id="node11" href="_i_aocs_data_8h.html" title="AOCS使用系列のデータ共通の抽象インターフェース．" alt="" coords="480,392,573,421"/><area shape="rect" id="node15" href="math_8h.html" title="数学系関数のラッパと算術定数の定義．" alt="" coords="1080,392,1173,421"/><area shape="rect" id="node13" href="_i_telemetable_8h.html" title="テレメトリを生成可能なオブジェクトに対するインターフェース．" alt="" coords="441,469,612,499"/><area shape="rect" id="node23" href="_simulator_8h.html" title="ソフトウェアシミュレータ環境クラス．" alt="" coords="563,160,723,189"/><area shape="rect" id="node31" href="_vector_8h.html" title="可変要素数のベクトル演算を行うクラス．STFではStaticVectorが推奨される" alt="" coords="512,315,648,344"/><area shape="rect" id="node35" href="_matrix_8h.html" title="可変要素数の行列計算を行うクラス．STFではStaticMatrixが推奨される．" alt="" coords="421,237,555,267"/><area shape="rect" id="node41" href="_quaternion_8h.html" title="4元数を表現するクラス．" alt="" coords="680,237,843,267"/><area shape="rect" id="node44" href="_time_8h.html" title="経過時間を表すクラス．" alt="" coords="1124,315,1249,344"/><area shape="rect" id="node47" href="_date_time_8h.html" title="ユリウス暦による絶対時刻を保持するクラス．時間間隔などの計算にはTimeを使う．" alt="" coords="1395,237,1549,267"/><area shape="rect" id="node51" href="_orbit_info_8h.html" title="軌道情報関係の量を表す" alt="" coords="1224,237,1371,267"/><area shape="rect" id="node55" href="_magnetic_8h.html" title="磁気関係の物理量を表す" alt="" coords="867,237,1019,267"/><area shape="rect" id="node58" href="_scalar_8h.html" title="スカラー物理量を表現するクラス．" alt="" coords="301,315,437,344"/><area shape="rect" id="node62" href="_list_8h.html" title="Simple Template Container." alt="" coords="723,315,843,344"/><area shape="rect" id="node65" href="_i_o_driver_base_8h.html" title="環境クラス共通の基底IOドライバ． 各環境クラスにおけるIOはこの基底ドライバを使用するか，ここから派生させることを基本とする．" alt="" coords="189,237,296,267"/><area shape="rect" id="node67" href="_macros_8h.html" title="STF全体で使用する簡単なマクロ関数を記述する．" alt="" coords="189,315,277,344"/></map>
-</div>
-</div><div class="textblock"><div class="dynheader">
-このグラフは、どのファイルから直接、間接的にインクルードされているかを示しています。</div>
-<div class="dyncontent">
-<div class="center"><img src="_ostream_8h__dep__incl.png" border="0" usemap="#stf_2util_2_ostream_8hdep" alt=""/></div>
-<map name="stf_2util_2_ostream_8hdep" id="stf_2util_2_ostream_8hdep">
-<area shape="rect" id="node3" href="main_8cpp.html" title="main.cpp" alt="" coords="6414,237,6488,267"/><area shape="rect" id="node5" href="_trace_8h.html" title="STFの内部状態を外部ファイルに書き出すためのトレースオブジェクト．" alt="" coords="5278,83,5382,112"/><area shape="rect" id="node88" href="_p_r_i_s_m_command_receiver_8h.html" title="stf/satellite/prism/PRISMCommandReceiver.h" alt="" coords="9131,160,9416,189"/><area shape="rect" id="node92" href="_n_j_command_receiver_8h.html" title="stf/satellite/nj/NJCommandReceiver.h" alt="" coords="9311,83,9548,112"/><area shape="rect" id="node99" href="_dummy_command_receiver_8cpp.html" title="コマンドレシーバのデバッグ用クラス．外部テキストファイルからコマンドを読み込む" alt="" coords="9572,83,9954,112"/><area shape="rect" id="node101" href="_debug_logger_8cpp.html" title="テレメハンドラのデバッグ用クラス．" alt="" coords="9978,83,10279,112"/><area shape="rect" id="node103" href="_output_functor_8cpp.html" title="出力ファンクタ群．STFではFunctorのコンストラクタに渡して使用される" alt="" coords="10303,83,10522,112"/><area shape="rect" id="node105" href="_control_manager_8cpp.html" title="制御ブロックの実行を行う機能マネージャ．" alt="" coords="10546,83,10783,112"/><area shape="rect" id="node107" href="_ostream_8cpp.html" title="標準出力のラッパ．" alt="" coords="10807,83,10943,112"/><area shape="rect" id="node7" href="_datapool_8h.html" title="STF生成データにタイムタグを付加して格納するデータプール． データの配列を保持するTupleと，Tupleの配列を保持するデータプールによって テーブル形式のデータ構造を表現する．" alt="" coords="6883,160,7067,189"/><area shape="rect" id="node16" href="_subject_base_8cpp.html" title="Observerパターンの構成テンプレートクラス群．" alt="" coords="6808,237,7011,267"/><area shape="rect" id="node18" href="_mode_manager_base_8cpp.html" title="モードの管理を行う機能マネージャ基底クラス．" alt="" coords="7254,237,7512,267"/><area shape="rect" id="node20" href="_system_manager_base_8cpp.html" title="条件判定や異常対応を行う機能マネージャ基底クラス．" alt="" coords="6512,237,6784,267"/><area shape="rect" id="node23" href="_combining_8h.html" title="任意の物理量を単純加算で合成する制御ブロック群．" alt="" coords="7142,160,7376,189"/><area shape="rect" id="node25" href="_coupling_compensation_8h.html" title="3軸独立に制御則を適用した際に生じるカップリング項Iωを，フィードフォワードに打ち消すために使う制御ブロック．" alt="" coords="7400,160,7707,189"/><area shape="rect" id="node27" href="_first_order_correction_8h.html" title="TをT*Uに変換して出力する制御ブロック．" alt="" coords="7731,160,8022,189"/><area shape="rect" id="node29" href="_liniar_correction_8h.html" title="TをaT+bに変換して出力する制御ブロック" alt="" coords="8046,160,8310,189"/><area shape="rect" id="node31" href="_no_control_8h.html" title="制御を行わない制御ブロック．" alt="" coords="8334,160,8563,189"/><area shape="rect" id="node33" href="_r_m_m_e_k_f_8h.html" title="残留磁気モーメントの推定を行う拡張カルマンフィルタ制御ブロック．未実装．" alt="" coords="8587,160,8816,189"/><area shape="rect" id="node35" href="_wheel_unloading_8h.html" title="RWのアンローディングをMTQを使用して行うための制御ブロック．" alt="" coords="8840,160,9107,189"/><area shape="rect" id="node37" href="_get_command_8h.html" title="GetterやイテレータによってSTF内部状態を応答するコマンド群．" alt="" coords="24,160,246,189"/><area shape="rect" id="node39" href="_message_command_8h.html" title="予め決められたメッセージを出力するコマンド．" alt="" coords="270,160,523,189"/><area shape="rect" id="node41" href="_sequence_command_8h.html" title="複数コマンドをシーケンシャルに実行するコマンド．" alt="" coords="547,160,806,189"/><area shape="rect" id="node43" href="_simple_function_command_8h.html" title="引数なしのファンクタやメンバ関数を起動するコマンド．" alt="" coords="830,160,1120,189"/><area shape="rect" id="node45" href="_switch_command_8h.html" title="機器のスイッチングを行うコマンド．" alt="" coords="1144,160,1382,189"/><area shape="rect" id="node47" href="_type_list_function_command_8h.html" title="複数個の引数を取るメンバ関数を起動するコマンド．TypeListを使って纏めたい&#45;&gt;TBD" alt="" coords="1406,160,1704,189"/><area shape="rect" id="node49" href="_unary_function_command_8h.html" title="１引数のファンクタやメンバ関数を起動するコマンド．" alt="" coords="1728,160,2011,189"/><area shape="rect" id="node51" href="_mode_change_command_8cpp.html" title="モード変更を行うコマンド．" alt="" coords="2035,160,2326,189"/><area shape="rect" id="node54" href="_command_manager_base_8cpp.html" title="コマンドの処理を行う機能マネージャ基底クラス．" alt="" coords="2350,160,2635,189"/><area shape="rect" id="node56" href="_control_manager_base_8cpp.html" title="制御ブロックの実行を行う機能マネージャ基底クラス．" alt="" coords="2659,160,2928,189"/><area shape="rect" id="node60" href="_telemetry_manager_base_8cpp.html" title="テレメトリ生成を行う機能マネージャ基底クラス．" alt="" coords="2952,160,3238,189"/><area shape="rect" id="node62" href="_unit_manager_base_8cpp.html" title="機器の定期データ取得・更新を行う機能マネージャ基底クラス．" alt="" coords="3262,160,3512,189"/><area shape="rect" id="node64" href="_bdot_8cpp.html" title="B&#45;Dot則を計算する制御ブロック．" alt="" coords="3536,160,3750,189"/><area shape="rect" id="node66" href="_cross_product_8cpp.html" title="クロスプロダクト則を用いて要求出力トルクを磁気モーメントに変換する制御ブロック．" alt="" coords="3774,160,4040,189"/><area shape="rect" id="node68" href="_e_k_f_8cpp.html" title="ジャイロバイアス推定を行う拡張カルマンフィルタ制御ブロック．" alt="" coords="4064,160,4278,189"/><area shape="rect" id="node70" href="_g_g_compensation_8cpp.html" title="重力傾斜トルクを計算し，逆符号のトルクを出力する制御ブロック．" alt="" coords="4302,160,4592,189"/><area shape="rect" id="node72" href="_magnetic_moment_to_torque_8cpp.html" title="磁気モーメントをトルクに変換する制御ブロック．" alt="" coords="4616,160,4958,189"/><area shape="rect" id="node74" href="_p_i_d_8cpp.html" title="PID制御を行う制御ブロック群．" alt="" coords="4982,160,5190,189"/><area shape="rect" id="node76" href="_q_u_e_s_t_8cpp.html" title="Quaternion Estimatorによる姿勢決定を行う制御ブロック．未実装．" alt="" coords="5214,160,5446,189"/><area shape="rect" id="node78" href="_rate_dumping_8cpp.html" title="レートダンピング則による3軸独立のトルク計算を行う制御ブロック．" alt="" coords="5470,160,5736,189"/><area shape="rect" id="node80" href="_single_axis_p_i_d_8cpp.html" title="Scalarを目標値に近づける単純な1次元PID制御ブロック．" alt="" coords="5760,160,6030,189"/><area shape="rect" id="node82" href="_solar_pointing_8cpp.html" title="MTQで太陽指向制御を行うための制御ブロック．" alt="" coords="6054,160,6318,189"/><area shape="rect" id="node84" href="_t_r_i_a_d_8cpp.html" title="TRIAD則で姿勢決定を行う制御ブロック群．" alt="" coords="6342,160,6566,189"/><area shape="rect" id="node86" href="_trace_8cpp.html" title="標準出力のラッパ．" alt="" coords="6590,160,6707,189"/><area shape="rect" id="node9" href="_input_functor_8h.html" title="入力ファンクタ群．STFではFunctorのコンストラクタに渡して使用される" alt="" coords="7035,237,7230,267"/><area shape="rect" id="node12" href="_p_r_i_s_m_global_8h.html" title="stf/satellite/prism/PRISMGlobal.h" alt="" coords="9023,237,9236,267"/><area shape="rect" id="node14" href="_p_r_i_s_m_command_receiver_8cpp.html" title="stf/satellite/prism/PRISMCommandReceiver.cpp" alt="" coords="9052,315,9351,344"/><area shape="rect" id="node94" href="_n_j_global_8h.html" title="stf/satellite/nj/NJGlobal.h" alt="" coords="9440,160,9606,189"/><area shape="rect" id="node96" href="_n_j_command_receiver_8cpp.html" title="stf/satellite/nj/NJCommandReceiver.cpp" alt="" coords="9458,237,9708,267"/></map>
-</div>
-</div>
-<p><a href="">ソースコードを見る。</a></p>
-<table class="memberdecls">
-<tr><td colspan="2"><h2><a name="nested-classes"></a>
-構成</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1util_1_1_ostream.html">stf::util::Ostream&lt; T &gt;</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">標準出力のラッパ．  <a href="classstf_1_1util_1_1_ostream.html#_details">[詳細]</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1util_1_1_ofstream.html">stf::util::Ofstream&lt; T &gt;</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1util_1_1_no_output.html">stf::util::NoOutput</a></td></tr>
-<tr><td colspan="2"><h2><a name="namespaces"></a>
-ネームスペース</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf.html">stf</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf_1_1datatype.html">stf::datatype</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf_1_1util.html">stf::util</a></td></tr>
-<tr><td colspan="2"><h2><a name="func-members"></a>
-関数</h2></td></tr>
-<tr><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
-<tr><td class="memTemplItemLeft" align="right" valign="top">Ostream&lt; T &gt; &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestf_1_1util.html#a057756069e48d361fcd1748792afe316">stf::util::endl</a> (Ostream&lt; T &gt; &amp;os)</td></tr>
-<tr><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
-<tr><td class="memTemplItemLeft" align="right" valign="top">Ofstream&lt; T &gt; &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestf_1_1util.html#a09787c5a6b82d4f567144df3b7af3107">stf::util::endl</a> (Ofstream&lt; T &gt; &amp;os)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_ostream_8h.html#a0b57785cc90bc77634df10d19d75f8c7">operator&lt;&lt;</a> (std::ostream &amp;out_file, const <a class="el" href="classstf_1_1datatype_1_1_vector.html">stf::datatype::Vector</a> &amp;vec)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_ostream_8h.html#a7c17ef4cc73c07298a0becfc7ef228d0">operator&lt;&lt;</a> (std::ostream &amp;out_file, const <a class="el" href="classstf_1_1datatype_1_1_matrix.html">stf::datatype::Matrix</a> &amp;mat)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_ostream_8h.html#acd30fda18db4afe3fd80ab042719e7b9">operator&lt;&lt;</a> (std::ostream &amp;out_file, const <a class="el" href="classstf_1_1datatype_1_1_scalar.html">stf::datatype::Scalar</a> &amp;scalar)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_ostream_8h.html#a76b7ce8eed0329e2195bf130b89659a7">operator&lt;&lt;</a> (std::ostream &amp;out_file, const <a class="el" href="classstf_1_1datatype_1_1_string.html">stf::datatype::String</a> &amp;str)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_ostream_8h.html#ace549547958300382d5a5030fb1f8e07">operator&lt;&lt;</a> (std::ostream &amp;out_file, const <a class="el" href="classstf_1_1datatype_1_1_time.html">stf::datatype::Time</a> &amp;time)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_ostream_8h.html#aa3da4b8582c895b30037244c875ecd13">operator&lt;&lt;</a> (std::ostream &amp;out_file, const <a class="el" href="classstf_1_1datatype_1_1_date_time.html">stf::datatype::DateTime</a> &amp;time)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_ostream_8h.html#ae4e6240359e4427aee457c7b7c9f76fd">operator&lt;&lt;</a> (std::ostream &amp;out_file, const <a class="el" href="structstf_1_1datatype_1_1_orbit_info.html">stf::datatype::OrbitInfo</a> &amp;orbit)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_ostream_8h.html#a033f8498c217c895e50ba3d0826b9e01">operator&lt;&lt;</a> (std::ostream &amp;out_file, const <a class="el" href="structstf_1_1datatype_1_1_position_info.html">stf::datatype::PositionInfo</a> &amp;pos)</td></tr>
-<tr><td class="memTemplParams" colspan="2">template&lt;int i, int j&gt; </td></tr>
-<tr><td class="memTemplItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_ostream_8h.html#a3a8bfd326a8dbc5741b69b93719ae170">operator&lt;&lt;</a> (std::ostream &amp;out_file, const <a class="el" href="classstf_1_1datatype_1_1_static_matrix.html">stf::datatype::StaticMatrix</a>&lt; i, j &gt; &amp;mat)</td></tr>
-<tr><td class="memTemplParams" colspan="2">template&lt;int dim&gt; </td></tr>
-<tr><td class="memTemplItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_ostream_8h.html#a513620a93f86d1adac84e1efbdf314f6">operator&lt;&lt;</a> (std::ostream &amp;out_file, const <a class="el" href="classstf_1_1datatype_1_1_static_vector.html">stf::datatype::StaticVector</a>&lt; dim &gt; &amp;vec)</td></tr>
-</table>
-<hr/><a name="_details"></a><h2>説明</h2>
-<div class="textblock"><p>標準出力のラッパ． </p>
-<p>coutの定義を変えることで，出力を一括で切ることができる． </p>
-<div class="fragment"><pre class="fragment"> <span class="comment">//Ostream&lt;NoOutput&gt; cout; //uncomment this line to disable console output</span>
- Ostream&lt;std::ostream&gt; <a class="code" href="namespacestf_1_1util.html#ac1e2b8b0b75f1384aaebe7da50977c3f">cout</a>; <span class="comment">//comment this line to disable console output</span>
-</pre></div><dl class="author"><dt><b>作者:</b></dt><dd>Taiga Nomi </dd></dl>
-<dl class="date"><dt><b>日付:</b></dt><dd>2011.02.16 </dd></dl>
-
-<p> <a class="el" href="">Ostream.h</a> で定義されています。</p>
-</div><hr/><h2>関数</h2>
-<a class="anchor" id="a3a8bfd326a8dbc5741b69b93719ae170"></a><!-- doxytag: member="Ostream.h::operator&lt;&lt;" ref="a3a8bfd326a8dbc5741b69b93719ae170" args="(std::ostream &amp;out_file, const stf::datatype::StaticMatrix&lt; i, j &gt; &amp;mat)" -->
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;int i, int j&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">std::ostream&amp; operator&lt;&lt; </td>
-          <td>(</td>
-          <td class="paramtype">std::ostream &amp;&#160;</td>
-          <td class="paramname"><em>out_file</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classstf_1_1datatype_1_1_static_matrix.html">stf::datatype::StaticMatrix</a>&lt; i, j &gt; &amp;&#160;</td>
-          <td class="paramname"><em>mat</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p> <a class="el" href="">Ostream.h</a> の <a class="el" href="#L111">111</a> 行で定義されています。</p>
-<div class="fragment"><pre class="fragment">                                                                                        {
-        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> row = 0; row &lt; i; row++){
-                <span class="keywordflow">for</span>(<span class="keywordtype">int</span> col = 0; col &lt; j; col++){
-                        out_file.width(6);
-                        out_file &lt;&lt; mat[row][col] &lt;&lt; <span class="stringliteral">&quot; &quot;</span>;
-                }
-                out_file &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;
-        }
-        <span class="keywordflow">return</span> out_file;
-}
-</pre></div>
-</div>
-</div>
-<a class="anchor" id="a033f8498c217c895e50ba3d0826b9e01"></a><!-- doxytag: member="Ostream.h::operator&lt;&lt;" ref="a033f8498c217c895e50ba3d0826b9e01" args="(std::ostream &amp;out_file, const stf::datatype::PositionInfo &amp;pos)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::ostream&amp; operator&lt;&lt; </td>
-          <td>(</td>
-          <td class="paramtype">std::ostream &amp;&#160;</td>
-          <td class="paramname"><em>out_file</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="structstf_1_1datatype_1_1_position_info.html">stf::datatype::PositionInfo</a> &amp;&#160;</td>
-          <td class="paramname"><em>pos</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p> <a class="el" href="">Ostream.cpp</a> の <a class="el" href="#L89">89</a> 行で定義されています。</p>
-<div class="fragment"><pre class="fragment">                                                                                  {
-        out_file &lt;&lt; <span class="stringliteral">&quot;orbit element:\n&quot;</span>;
-        out_file &lt;&lt; <span class="stringliteral">&quot;velocity(m/s):&quot;</span> &lt;&lt; pos.<a class="code" href="structstf_1_1datatype_1_1_position_info.html#aa93c6e3a18ac999fcffdd0e534128215" title="速度ベクトル(m/s)">velocity</a> &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;
-        out_file &lt;&lt; <span class="stringliteral">&quot;position(m):&quot;</span> &lt;&lt; pos.<a class="code" href="structstf_1_1datatype_1_1_position_info.html#af602fc1d0a799af804271e54897e258a" title="地球中心からの位置(m)">position</a> &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;
-        <span class="keywordflow">return</span> out_file;
-}
-</pre></div>
-</div>
-</div>
-<a class="anchor" id="ae4e6240359e4427aee457c7b7c9f76fd"></a><!-- doxytag: member="Ostream.h::operator&lt;&lt;" ref="ae4e6240359e4427aee457c7b7c9f76fd" args="(std::ostream &amp;out_file, const stf::datatype::OrbitInfo &amp;orbit)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::ostream&amp; operator&lt;&lt; </td>
-          <td>(</td>
-          <td class="paramtype">std::ostream &amp;&#160;</td>
-          <td class="paramname"><em>out_file</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="structstf_1_1datatype_1_1_orbit_info.html">stf::datatype::OrbitInfo</a> &amp;&#160;</td>
-          <td class="paramname"><em>orbit</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p> <a class="el" href="">Ostream.cpp</a> の <a class="el" href="#L76">76</a> 行で定義されています。</p>
-<div class="fragment"><pre class="fragment">                                                                                 {
-        out_file &lt;&lt; <span class="stringliteral">&quot;orbit element:\n&quot;</span>;
-        out_file &lt;&lt; <span class="stringliteral">&quot;a(km):&quot;</span> &lt;&lt; orbit.<a class="code" href="structstf_1_1datatype_1_1_orbit_info.html#ab2440dbc71b420490a7285f0f633d7f6" title="長半径(m)">a</a> / 1000 &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;
-        out_file &lt;&lt; <span class="stringliteral">&quot;e:&quot;</span> &lt;&lt; orbit.<a class="code" href="structstf_1_1datatype_1_1_orbit_info.html#a11d68e4a0553a08b48d9a5c7fa7ea672" title="離心率">e</a> &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;
-        out_file &lt;&lt; <span class="stringliteral">&quot;i(deg):&quot;</span> &lt;&lt; orbit.<a class="code" href="structstf_1_1datatype_1_1_orbit_info.html#a05bbb32b3f873d342bd9fa5996eb0a01" title="軌道傾斜角(rad)">i</a> * stf::util::math::RAD2DEG &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;
-        out_file &lt;&lt; <span class="stringliteral">&quot;M(deg):&quot;</span> &lt;&lt; orbit.<a class="code" href="structstf_1_1datatype_1_1_orbit_info.html#aa6f50262a993aca6954a4038f57ce451" title="平均近点離角">M</a> * stf::util::math::RAD2DEG &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;
-        out_file &lt;&lt; <span class="stringliteral">&quot;omega(deg):&quot;</span> &lt;&lt; orbit.<a class="code" href="structstf_1_1datatype_1_1_orbit_info.html#afc82eab997e50afdf0b6ab913f5f37ba" title="近地点引数">omega</a> * stf::util::math::RAD2DEG &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;
-        out_file &lt;&lt; <span class="stringliteral">&quot;Omega(deg):&quot;</span> &lt;&lt; orbit.<a class="code" href="structstf_1_1datatype_1_1_orbit_info.html#a2c14a7a6eab564f6e53d577194cf2918" title="昇交点赤経(rad)">Omega</a> * stf::util::math::RAD2DEG &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;
-        out_file &lt;&lt; <span class="stringliteral">&quot;n:&quot;</span> &lt;&lt; orbit.<a class="code" href="structstf_1_1datatype_1_1_orbit_info.html#aadd96fd1974357a4d7313a5be790a6c0">n</a> &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;
-        <span class="keywordflow">return</span> out_file;
-}
-</pre></div>
-</div>
-</div>
-<a class="anchor" id="aa3da4b8582c895b30037244c875ecd13"></a><!-- doxytag: member="Ostream.h::operator&lt;&lt;" ref="aa3da4b8582c895b30037244c875ecd13" args="(std::ostream &amp;out_file, const stf::datatype::DateTime &amp;time)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::ostream&amp; operator&lt;&lt; </td>
-          <td>(</td>
-          <td class="paramtype">std::ostream &amp;&#160;</td>
-          <td class="paramname"><em>out_file</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classstf_1_1datatype_1_1_date_time.html">stf::datatype::DateTime</a> &amp;&#160;</td>
-          <td class="paramname"><em>time</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p> <a class="el" href="">Ostream.cpp</a> の <a class="el" href="#L57">57</a> 行で定義されています。</p>
-<div class="fragment"><pre class="fragment">                                                                               {
-        out_file &lt;&lt; time.<a class="code" href="classstf_1_1datatype_1_1_date_time.html#a196fba9ceebe2d01e5e61df08204dfbb">dates</a>() &lt;&lt; <span class="stringliteral">&quot;/&quot;</span> &lt;&lt; time.<a class="code" href="classstf_1_1datatype_1_1_date_time.html#ab08e305262648036525632fcbb61c698">hours</a>() &lt;&lt; <span class="stringliteral">&quot;:&quot;</span> &lt;&lt; time.<a class="code" href="classstf_1_1datatype_1_1_date_time.html#a6160b1c3d19175881dd519b1572c4beb">minutes</a>() &lt;&lt; <span class="stringliteral">&quot;:&quot;</span> &lt;&lt; time.<a class="code" href="classstf_1_1datatype_1_1_date_time.html#a1ba94eb2aeab4eb693b07b0b359b7ff9">seconds</a>();
-        <span class="keywordflow">return</span> out_file;
-}
-</pre></div>
-</div>
-</div>
-<a class="anchor" id="ace549547958300382d5a5030fb1f8e07"></a><!-- doxytag: member="Ostream.h::operator&lt;&lt;" ref="ace549547958300382d5a5030fb1f8e07" args="(std::ostream &amp;out_file, const stf::datatype::Time &amp;time)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::ostream&amp; operator&lt;&lt; </td>
-          <td>(</td>
-          <td class="paramtype">std::ostream &amp;&#160;</td>
-          <td class="paramname"><em>out_file</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classstf_1_1datatype_1_1_time.html">stf::datatype::Time</a> &amp;&#160;</td>
-          <td class="paramname"><em>time</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p> <a class="el" href="">Ostream.cpp</a> の <a class="el" href="#L51">51</a> 行で定義されています。</p>
-<div class="fragment"><pre class="fragment">                                                                           {
-        out_file &lt;&lt; time.<a class="code" href="classstf_1_1datatype_1_1_time.html#a44223b9f1355db669cb372543571e222">seconds</a>() &lt;&lt; <span class="stringliteral">&quot;:&quot;</span> &lt;&lt; time.<a class="code" href="classstf_1_1datatype_1_1_time.html#ad96aa08e4e29cc871fb26e8d1c3c6832">milliseconds</a>();
-        <span class="keywordflow">return</span> out_file;
-}
-</pre></div>
-</div>
-</div>
-<a class="anchor" id="a76b7ce8eed0329e2195bf130b89659a7"></a><!-- doxytag: member="Ostream.h::operator&lt;&lt;" ref="a76b7ce8eed0329e2195bf130b89659a7" args="(std::ostream &amp;out_file, const stf::datatype::String &amp;str)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::ostream&amp; operator&lt;&lt; </td>
-          <td>(</td>
-          <td class="paramtype">std::ostream &amp;&#160;</td>
-          <td class="paramname"><em>out_file</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classstf_1_1datatype_1_1_string.html">stf::datatype::String</a> &amp;&#160;</td>
-          <td class="paramname"><em>str</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p> <a class="el" href="">Ostream.cpp</a> の <a class="el" href="#L36">36</a> 行で定義されています。</p>
-<div class="fragment"><pre class="fragment">                                                                            {
-        out_file &lt;&lt; str.<a class="code" href="classstf_1_1datatype_1_1_string.html#ae3d0fd5ccd5d6bfae8f9c03859535679">to_char</a>();
-        <span class="keywordflow">return</span> out_file;
-}
-</pre></div>
-</div>
-</div>
-<a class="anchor" id="acd30fda18db4afe3fd80ab042719e7b9"></a><!-- doxytag: member="Ostream.h::operator&lt;&lt;" ref="acd30fda18db4afe3fd80ab042719e7b9" args="(std::ostream &amp;out_file, const stf::datatype::Scalar &amp;scalar)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::ostream&amp; operator&lt;&lt; </td>
-          <td>(</td>
-          <td class="paramtype">std::ostream &amp;&#160;</td>
-          <td class="paramname"><em>out_file</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classstf_1_1datatype_1_1_scalar.html">stf::datatype::Scalar</a> &amp;&#160;</td>
-          <td class="paramname"><em>scalar</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p> <a class="el" href="">Ostream.cpp</a> の <a class="el" href="#L30">30</a> 行で定義されています。</p>
-<div class="fragment"><pre class="fragment">                                                                               {
-        out_file &lt;&lt; scalar.<a class="code" href="classstf_1_1datatype_1_1_scalar.html#ad35e692db6f0e511d29b072cfabeae6f">value</a>();
-        <span class="keywordflow">return</span> out_file;
-}
-</pre></div>
-</div>
-</div>
-<a class="anchor" id="a7c17ef4cc73c07298a0becfc7ef228d0"></a><!-- doxytag: member="Ostream.h::operator&lt;&lt;" ref="a7c17ef4cc73c07298a0becfc7ef228d0" args="(std::ostream &amp;out_file, const stf::datatype::Matrix &amp;mat)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::ostream&amp; operator&lt;&lt; </td>
-          <td>(</td>
-          <td class="paramtype">std::ostream &amp;&#160;</td>
-          <td class="paramname"><em>out_file</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classstf_1_1datatype_1_1_matrix.html">stf::datatype::Matrix</a> &amp;&#160;</td>
-          <td class="paramname"><em>mat</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p> <a class="el" href="">Ostream.cpp</a> の <a class="el" href="#L63">63</a> 行で定義されています。</p>
-<div class="fragment"><pre class="fragment">                                                                            {
-        out_file &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;
-        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> rows = 0;rows &lt; mat.<a class="code" href="classstf_1_1datatype_1_1_matrix.html#a90bdadcaa553594d3debc6573bb00433">rows</a>(); rows++){
-                <span class="keywordflow">for</span>(<span class="keywordtype">int</span> cols = 0;cols &lt; mat.<a class="code" href="classstf_1_1datatype_1_1_matrix.html#a9d4f9d4d3aa49d8fc4a4513e2333b4d4">cols</a>(); cols++){
-                        out_file.width(11);
-                        out_file &lt;&lt; mat[rows][cols];
-                }
-                out_file &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;
-        }
-        <span class="keywordflow">return</span> out_file;
-}
-</pre></div>
-</div>
-</div>
-<a class="anchor" id="a0b57785cc90bc77634df10d19d75f8c7"></a><!-- doxytag: member="Ostream.h::operator&lt;&lt;" ref="a0b57785cc90bc77634df10d19d75f8c7" args="(std::ostream &amp;out_file, const stf::datatype::Vector &amp;vec)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::ostream&amp; operator&lt;&lt; </td>
-          <td>(</td>
-          <td class="paramtype">std::ostream &amp;&#160;</td>
-          <td class="paramname"><em>out_file</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classstf_1_1datatype_1_1_vector.html">stf::datatype::Vector</a> &amp;&#160;</td>
-          <td class="paramname"><em>vec</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p> <a class="el" href="">Ostream.cpp</a> の <a class="el" href="#L42">42</a> 行で定義されています。</p>
-<div class="fragment"><pre class="fragment">                                                                            {
-        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; vec.<a class="code" href="classstf_1_1datatype_1_1_vector.html#a70c1a35c9695eaec6bb65a133b7a9d8c">dimension</a>(); i++){
-                out_file.width(6);
-                out_file &lt;&lt; vec[i] &lt;&lt; <span class="stringliteral">&quot; &quot;</span>;
-        }
-        <span class="comment">//out_file &lt;&lt; &quot;\n&quot;;</span>
-        <span class="keywordflow">return</span> out_file;
-}
-</pre></div>
-</div>
-</div>
-<a class="anchor" id="a513620a93f86d1adac84e1efbdf314f6"></a><!-- doxytag: member="Ostream.h::operator&lt;&lt;" ref="a513620a93f86d1adac84e1efbdf314f6" args="(std::ostream &amp;out_file, const stf::datatype::StaticVector&lt; dim &gt; &amp;vec)" -->
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;int dim&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">std::ostream&amp; operator&lt;&lt; </td>
-          <td>(</td>
-          <td class="paramtype">std::ostream &amp;&#160;</td>
-          <td class="paramname"><em>out_file</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classstf_1_1datatype_1_1_static_vector.html">stf::datatype::StaticVector</a>&lt; dim &gt; &amp;&#160;</td>
-          <td class="paramname"><em>vec</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p> <a class="el" href="">Ostream.h</a> の <a class="el" href="#L123">123</a> 行で定義されています。</p>
-<div class="fragment"><pre class="fragment">                                                                                       {
-        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; dim; i++){
-                out_file.width(6);
-                out_file &lt;&lt; vec[i] &lt;&lt; <span class="stringliteral">&quot; &quot;</span>;
-        }
-        <span class="keywordflow">return</span> out_file;
-}
-</pre></div>
-</div>
-</div>
-</div>
-<!--- window showing the filter options -->
-<div id="MSearchSelectWindow"
-     onmouseover="return searchBox.OnSearchSelectShow()"
-     onmouseout="return searchBox.OnSearchSelectHide()"
-     onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>フレンド</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>マクロ定義</a></div>
-
-<!-- iframe showing the search results (closed by default) -->
-<div id="MSearchResultsWindow">
-<iframe src="" frameborder="0" 
-        name="MSearchResults" id="MSearchResults">
-</iframe>
-</div>
-
-<hr class="footer"/><address class="footer"><small>STFに対してWed Mar 23 2011 05:32:51に生成されました。&#160;
-<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
-</body>
-</html>

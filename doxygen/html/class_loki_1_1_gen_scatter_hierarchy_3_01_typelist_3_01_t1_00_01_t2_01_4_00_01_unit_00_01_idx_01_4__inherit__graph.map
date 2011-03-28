@@ -1,6 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node2" href="$class_loki_1_1_gen_scatter_hierarchy.html" title="Loki::GenScatterHierarchy\&lt; T1, Unit, Idx \&gt;" alt="" coords="144,5,413,35"/>
-<area shape="rect" id="node4" href="$class_unit.html" title="Unit\&lt; T1 \&gt;" alt="" coords="5,5,88,35"/>
-<area shape="rect" id="node6" href="$class_loki_1_1_gen_scatter_hierarchy.html" title="Loki::GenScatterHierarchy\&lt; T2, Unit, Idx+1 \&gt;" alt="" coords="137,59,420,88"/>
-<area shape="rect" id="node8" href="$class_unit.html" title="Unit\&lt;T2 \&gt;" alt="" coords="8,59,85,88"/>
-</map>

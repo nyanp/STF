@@ -1,129 +1,0 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
-<title>STF: stf/core/devicedriver/adc/ADCBase.h</title>
-<link href="tabs.css" rel="stylesheet" type="text/css"/>
-<link href="search/search.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="search/search.js"></script>
-<link href="doxygen.css" rel="stylesheet" type="text/css"/>
-</head>
-<body onload='searchBox.OnSelectItem(0);'>
-<!-- 作成： Doxygen 1.7.3 -->
-<script type="text/javascript"><!--
-var searchBox = new SearchBox("searchBox", "search",false,'検索');
---></script>
-<div id="top">
-<div id="titlearea">
-<table cellspacing="0" cellpadding="0">
- <tbody>
- <tr style="height: 56px;">
-  <td style="padding-left: 0.5em;">
-   <div id="projectname">STF</div>
-  </td>
- </tr>
- </tbody>
-</table>
-</div>
-  <div id="navrow1" class="tabs">
-    <ul class="tablist">
-      <li><a href="index.html"><span>メインページ</span></a></li>
-      <li><a href="pages.html"><span>関連ページ</span></a></li>
-      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
-      <li><a href="annotated.html"><span>クラス</span></a></li>
-      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
-      <li id="searchli">
-        <div id="MSearchBox" class="MSearchBoxInactive">
-        <span class="left">
-          <img id="MSearchSelect" src="search/mag_sel.png"
-               onmouseover="return searchBox.OnSearchSelectShow()"
-               onmouseout="return searchBox.OnSearchSelectHide()"
-               alt=""/>
-          <input type="text" id="MSearchField" value="検索" accesskey="S"
-               onfocus="searchBox.OnSearchFieldFocus(true)" 
-               onblur="searchBox.OnSearchFieldFocus(false)" 
-               onkeyup="searchBox.OnSearchFieldChange(event)"/>
-          </span><span class="right">
-            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
-          </span>
-        </div>
-      </li>
-    </ul>
-  </div>
-  <div id="navrow2" class="tabs2">
-    <ul class="tablist">
-      <li><a href="files.html"><span>ファイル一覧</span></a></li>
-      <li><a href="globals.html"><span>ファイルメンバ</span></a></li>
-    </ul>
-  </div>
-</div>
-<div class="header">
-  <div class="summary">
-<a href="#nested-classes">構成</a> &#124;
-<a href="#namespaces">ネームスペース</a>  </div>
-  <div class="headertitle">
-<h1>stf/core/devicedriver/adc/ADCBase.h</h1>  </div>
-</div>
-<div class="contents">
-
-<p>AD変換器ドライバの抽象クラス．  
-<a href="#_details">[詳細]</a></p>
-<div class="textblock"><code>#include &quot;../../util/stfassert.h&quot;</code><br/>
-<code>#include &quot;<a class="el" href="">../CDHComponent.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="">ConvertPolicy.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="">../../../datatype/Environments.h</a>&quot;</code><br/>
-</div><div class="textblock"><div class="dynheader">
-ADCBase.hのインクルード依存関係図</div>
-<div class="dyncontent">
-<div class="center"><img src="_a_d_c_base_8h__incl.png" border="0" usemap="#stf_2core_2devicedriver_2adc_2_a_d_c_base_8h" alt=""/></div>
-<map name="stf_2core_2devicedriver_2adc_2_a_d_c_base_8h" id="stf_2core_2devicedriver_2adc_2_a_d_c_base_8h">
-<area shape="rect" id="node5" href="_c_d_h_component_8h.html" title="AD変換器や温度計など，複数のセンサを一括して取り扱うコンポーネントの基底クラス．" alt="" coords="415,83,553,112"/><area shape="rect" id="node49" href="_convert_policy_8h.html" title="あるdouble値から別のdouble値への変換に使用するポリシークラス． AD変換値から物理値への変換規則などを，テンプレート引数によって外部から与えるために用いる．" alt="" coords="577,83,689,112"/><area shape="rect" id="node51" href="_environments_8h.html" title="回路上の物理量を表すクラス群．" alt="" coords="107,83,307,112"/><area shape="rect" id="node7" href="_i_o_port_8h.html" title="他機器との接続を型に基づいて行うための入出力ポート．" alt="" coords="880,160,949,189"/><area shape="rect" id="node26" href="_i_data_updatable_8h.html" title="周期的にデータを取得，送信するコンポーネントに対する抽象インターフェース．" alt="" coords="424,160,544,189"/><area shape="rect" id="node28" href="_i_switchable_8h.html" title="CPUによる電源のオンオフ制御が可能なコンポーネントに対するインターフェース．" alt="" coords="568,160,667,189"/><area shape="rect" id="node30" href="_root_object_8h.html" title="数値型を除いた全クラスの基本となるクラス．" alt="" coords="691,160,813,189"/><area shape="rect" id="node38" href="_iterator_8h.html" title="STFが提供するイテレータとその抽象インターフェース．" alt="" coords="251,160,400,189"/><area shape="rect" id="node9" href="_hierarchy_generators_8h.html" title="../../util/loki/HierarchyGenerators.h" alt="" coords="952,237,1173,267"/><area shape="rect" id="node22" href="_time_8h.html" title="経過時間を表すクラス．" alt="" coords="427,315,565,344"/><area shape="rect" id="node11" href="_typelist_8h.html" title="Typelist.h" alt="" coords="1040,392,1117,421"/><area shape="rect" id="node17" href="_type_traits_8h.html" title="TypeTraits.h" alt="" coords="1136,315,1229,344"/><area shape="rect" id="node20" href="_empty_type_8h.html" title="EmptyType.h" alt="" coords="1013,315,1112,344"/><area shape="rect" id="node13" href="_null_type_8h.html" title="NullType.h" alt="" coords="980,469,1063,499"/><area shape="rect" id="node15" href="_type_manip_8h.html" title="TypeManip.h" alt="" coords="1087,469,1183,499"/><area shape="rect" id="node24" href="stfassert_8h.html" title="assertラッパ．" alt="" coords="332,392,447,421"/><area shape="rect" id="node32" href="_instance_i_d_8h.html" title="インスタンスIDの定義を行うマクロ群．" alt="" coords="640,237,733,267"/><area shape="rect" id="node34" href="_string_8h.html" title="std::stringの簡略版クラス．" alt="" coords="757,237,877,267"/><area shape="rect" id="node36" href="_macros_8h.html" title="STF全体で使用する簡単なマクロ関数を記述する．" alt="" coords="541,237,616,267"/><area shape="rect" id="node40" href="_i_aocs_data_8h.html" title="AOCS使用系列のデータ共通の抽象インターフェース．" alt="" coords="131,237,288,267"/><area shape="rect" id="node42" href="_i_telemetable_8h.html" title="テレメトリを生成可能なオブジェクトに対するインターフェース．" alt="" coords="156,315,327,344"/><area shape="rect" id="node45" href="_date_time_8h.html" title="ユリウス暦による絶対時刻を保持するクラス．時間間隔などの計算にはTimeを使う．" alt="" coords="363,237,517,267"/><area shape="rect" id="node54" href="_scalar_8h.html" title="スカラー物理量を表現するクラス．" alt="" coords="157,160,227,189"/></map>
-</div>
-</div><div class="textblock"><div class="dynheader">
-このグラフは、どのファイルから直接、間接的にインクルードされているかを示しています。</div>
-<div class="dyncontent">
-<div class="center"><img src="_a_d_c_base_8h__dep__incl.png" border="0" usemap="#stf_2core_2devicedriver_2adc_2_a_d_c_base_8hdep" alt=""/></div>
-<map name="stf_2core_2devicedriver_2adc_2_a_d_c_base_8hdep" id="stf_2core_2devicedriver_2adc_2_a_d_c_base_8hdep">
-<area shape="rect" id="node3" href="devicedriver_2_includes_8h.html" title="stf/core/devicedriver/Includes.h" alt="" coords="675,83,872,112"/><area shape="rect" id="node34" href="_p_r_i_s_m_a_d_c_8h.html" title="stf/satellite/prism/PRISMADC.h" alt="" coords="1107,83,1309,112"/><area shape="rect" id="node44" href="_n_j_a_d_c_8h.html" title="stf/satellite/nj/NJADC.h" alt="" coords="1604,83,1759,112"/><area shape="rect" id="node53" href="_n_j_anomary_manager_8h.html" title="stf/satellite/nj/NJAnomaryManager.h" alt="" coords="1783,83,2012,112"/><area shape="rect" id="node55" href="_n_j_f_r_a_m_8h.html" title="stf/satellite/nj/NJFRAM.h" alt="" coords="2036,83,2201,112"/><area shape="rect" id="node5" href="main_8cpp.html" title="main.cpp" alt="" coords="556,392,631,421"/><area shape="rect" id="node7" href="_p_r_i_s_m_factory_8h.html" title="stf/satellite/PRISMFactory.h" alt="" coords="760,315,944,344"/><area shape="rect" id="node10" href="_p_r_i_s_m_global_8h.html" title="stf/satellite/prism/PRISMGlobal.h" alt="" coords="667,237,880,267"/><area shape="rect" id="node15" href="_p_r_i_s_m_dummy_clock_8h.html" title="stf/satellite/prism/PRISMDummyClock.h" alt="" coords="483,160,736,189"/><area shape="rect" id="node20" href="_n_j_factory_8h.html" title="stf/satellite/NJFactory.h" alt="" coords="1264,237,1421,267"/><area shape="rect" id="node23" href="_n_j_global_8h.html" title="stf/satellite/nj/NJGlobal.h" alt="" coords="1501,160,1667,189"/><area shape="rect" id="node28" href="_simple_satellite_factory_8h.html" title="SimpleSatellite�p�̋�ۃt�@�N�g���D" alt="" coords="69,237,299,267"/><area shape="rect" id="node31" href="_s_s_global_8h.html" title="stf/satellite/simplesatellite/SSGlobal.h" alt="" coords="5,160,248,189"/><area shape="rect" id="node13" href="_p_r_i_s_m_command_receiver_8cpp.html" title="stf/satellite/prism/PRISMCommandReceiver.cpp" alt="" coords="437,315,736,344"/><area shape="rect" id="node18" href="_p_r_i_s_m_dummy_clock_8cpp.html" title="stf/satellite/prism/PRISMDummyClock.cpp" alt="" coords="373,237,643,267"/><area shape="rect" id="node26" href="_n_j_command_receiver_8cpp.html" title="stf/satellite/nj/NJCommandReceiver.cpp" alt="" coords="1459,237,1709,267"/><area shape="rect" id="node37" href="_p_r_i_s_m_custom_manager_8h.html" title="stf/satellite/prism/PRISMCustomManager.h" alt="" coords="912,160,1184,189"/><area shape="rect" id="node42" href="_p_r_i_s_m_a_d_c_8cpp.html" title="stf/satellite/prism/PRISMADC.cpp" alt="" coords="1259,160,1477,189"/><area shape="rect" id="node40" href="_p_r_i_s_m_custom_manager_8cpp.html" title="stf/satellite/prism/PRISMCustomManager.cpp" alt="" coords="955,237,1240,267"/><area shape="rect" id="node47" href="_n_j_a_d_c_8cpp.html" title="stf/satellite/nj/NJADC.cpp" alt="" coords="1893,160,2064,189"/><area shape="rect" id="node49" href="_n_j_anomary_manager_8cpp.html" title="stf/satellite/nj/NJAnomaryManager.cpp" alt="" coords="2088,160,2333,189"/><area shape="rect" id="node51" href="_n_j_f_r_a_m_8cpp.html" title="stf/satellite/nj/NJFRAM.cpp" alt="" coords="1691,160,1869,189"/></map>
-</div>
-</div>
-<p><a href="">ソースコードを見る。</a></p>
-<table class="memberdecls">
-<tr><td colspan="2"><h2><a name="nested-classes"></a>
-構成</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1core_1_1devicedriver_1_1_a_d_c_base.html">stf::core::devicedriver::ADCBase&lt; NUM, Env &gt;</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">AD変換器ドライバの抽象クラス．  <a href="classstf_1_1core_1_1devicedriver_1_1_a_d_c_base.html#_details">[詳細]</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1core_1_1devicedriver_1_1_multi_sensor.html">stf::core::devicedriver::MultiSensor&lt; T, NUM, ADCNUM, Env, ConversionPolicy &gt;</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ADCのデジタル値を物理値に変換して保持するコンポーネント．  <a href="classstf_1_1core_1_1devicedriver_1_1_multi_sensor.html#_details">[詳細]</a><br/></td></tr>
-<tr><td colspan="2"><h2><a name="namespaces"></a>
-ネームスペース</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf.html">stf</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf_1_1core.html">stf::core</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf_1_1core_1_1devicedriver.html">stf::core::devicedriver</a></td></tr>
-</table>
-<hr/><a name="_details"></a><h2>説明</h2>
-<div class="textblock"><p>AD変換器ドライバの抽象クラス． </p>
-<dl class="author"><dt><b>作者:</b></dt><dd>Taiga Nomi </dd></dl>
-<dl class="date"><dt><b>日付:</b></dt><dd>2011.02.16 </dd></dl>
-
-<p> <a class="el" href="">ADCBase.h</a> で定義されています。</p>
-</div></div>
-<!--- window showing the filter options -->
-<div id="MSearchSelectWindow"
-     onmouseover="return searchBox.OnSearchSelectShow()"
-     onmouseout="return searchBox.OnSearchSelectHide()"
-     onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>フレンド</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>マクロ定義</a></div>
-
-<!-- iframe showing the search results (closed by default) -->
-<div id="MSearchResultsWindow">
-<iframe src="" frameborder="0" 
-        name="MSearchResults" id="MSearchResults">
-</iframe>
-</div>
-
-<hr class="footer"/><address class="footer"><small>STFに対してWed Mar 23 2011 05:32:33に生成されました。&#160;
-<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
-</body>
-</html>

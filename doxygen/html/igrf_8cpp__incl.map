@@ -1,4 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node9" href="$sgp4ext_8h.html" title="NJHILSから持ってきた軌道計算関係モジュールを，sgp4名前空間でラップして使用．" alt="" coords="229,83,352,112"/>
-<area shape="rect" id="node14" href="$igrf_8h.html" title="NJHILSから持ってきたIGRF計算モジュールを，igrf名前空間でラップして使用．" alt="" coords="376,83,427,112"/>
-</map>

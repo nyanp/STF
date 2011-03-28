@@ -1,135 +1,0 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
-<title>STF: stf/satellite/SimpleSatelliteFactory.h</title>
-<link href="tabs.css" rel="stylesheet" type="text/css"/>
-<link href="search/search.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="search/search.js"></script>
-<link href="doxygen.css" rel="stylesheet" type="text/css"/>
-</head>
-<body onload='searchBox.OnSelectItem(0);'>
-<!-- 作成： Doxygen 1.7.3 -->
-<script type="text/javascript"><!--
-var searchBox = new SearchBox("searchBox", "search",false,'検索');
---></script>
-<div id="top">
-<div id="titlearea">
-<table cellspacing="0" cellpadding="0">
- <tbody>
- <tr style="height: 56px;">
-  <td style="padding-left: 0.5em;">
-   <div id="projectname">STF</div>
-  </td>
- </tr>
- </tbody>
-</table>
-</div>
-  <div id="navrow1" class="tabs">
-    <ul class="tablist">
-      <li><a href="index.html"><span>メインページ</span></a></li>
-      <li><a href="pages.html"><span>関連ページ</span></a></li>
-      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
-      <li><a href="annotated.html"><span>クラス</span></a></li>
-      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
-      <li id="searchli">
-        <div id="MSearchBox" class="MSearchBoxInactive">
-        <span class="left">
-          <img id="MSearchSelect" src="search/mag_sel.png"
-               onmouseover="return searchBox.OnSearchSelectShow()"
-               onmouseout="return searchBox.OnSearchSelectHide()"
-               alt=""/>
-          <input type="text" id="MSearchField" value="検索" accesskey="S"
-               onfocus="searchBox.OnSearchFieldFocus(true)" 
-               onblur="searchBox.OnSearchFieldFocus(false)" 
-               onkeyup="searchBox.OnSearchFieldChange(event)"/>
-          </span><span class="right">
-            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
-          </span>
-        </div>
-      </li>
-    </ul>
-  </div>
-  <div id="navrow2" class="tabs2">
-    <ul class="tablist">
-      <li><a href="files.html"><span>ファイル一覧</span></a></li>
-      <li><a href="globals.html"><span>ファイルメンバ</span></a></li>
-    </ul>
-  </div>
-</div>
-<div class="header">
-  <div class="summary">
-<a href="#nested-classes">構成</a> &#124;
-<a href="#namespaces">ネームスペース</a>  </div>
-  <div class="headertitle">
-<h1>stf/satellite/SimpleSatelliteFactory.h</h1>  </div>
-</div>
-<div class="contents">
-
-<p>SimpleSatellite�p�̋�ۃt�@�N�g���D  
-<a href="#_details">[詳細]</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="">../GlobalObject.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="">../factory/SatelliteFactory.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="">../core/strategy/control/Includes.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="">../core/manager/Includes.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="">../core/devicedriver/Includes.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="">../core/datapool/Datapool.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="">../core/command/Includes.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="">../core/functor/InputFunctor.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="">../core/functor/OutputFunctor.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="">../core/mode/ModeBase.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="">../core/strategy/telemetry/Includes.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="">../datatype/Time.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="">../InstanceID.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="">simplesatellite/SSGlobal.h</a>&quot;</code><br/>
-</div><div class="textblock"><div class="dynheader">
-SimpleSatelliteFactory.hのインクルード依存関係図</div>
-<div class="dyncontent">
-<div class="center"><img src="_simple_satellite_factory_8h__incl.png" border="0" usemap="#stf_2satellite_2_simple_satellite_factory_8h" alt=""/></div>
-<map name="stf_2satellite_2_simple_satellite_factory_8h" id="stf_2satellite_2_simple_satellite_factory_8h">
-<area shape="rect" id="node3" href="_global_object_8h.html" title="RTOSとのインターフェースとなる，衛星アプリケーションが生成するオブジェクト群の基底クラス．" alt="" coords="407,237,527,267"/><area shape="rect" id="node7" href="_instance_i_d_8h.html" title="インスタンスIDの定義を行うマクロ群．" alt="" coords="80,315,173,344"/><area shape="rect" id="node11" href="_time_8h.html" title="経過時間を表すクラス．" alt="" coords="345,392,460,421"/><area shape="rect" id="node18" href="_satellite_factory_8h.html" title="衛星ファクトリの基底クラス．" alt="" coords="563,83,741,112"/><area shape="rect" id="node21" href="strategy_2control_2_includes_8h.html" title="../core/strategy/control/Includes.h" alt="" coords="1259,83,1475,112"/><area shape="rect" id="node71" href="manager_2_includes_8h.html" title="../core/manager/Includes.h" alt="" coords="2549,160,2725,189"/><area shape="rect" id="node86" href="devicedriver_2_includes_8h.html" title="../core/devicedriver/Includes.h" alt="" coords="3363,160,3555,189"/><area shape="rect" id="node98" href="_datapool_8h.html" title="STF生成データにタイムタグを付加して格納するデータプール． データの配列を保持するTupleと，Tupleの配列を保持するデータプールによって テーブル形式のデータ構造を表現する．" alt="" coords="1776,237,1925,267"/><area shape="rect" id="node102" href="command_2_includes_8h.html" title="../core/command/Includes.h" alt="" coords="2600,83,2781,112"/><area shape="rect" id="node104" href="_input_functor_8h.html" title="入力ファンクタ群．STFではFunctorのコンストラクタに渡して使用される" alt="" coords="2327,83,2431,112"/><area shape="rect" id="node107" href="_output_functor_8h.html" title="出力ファンクタ群．STFではFunctorのコンストラクタに渡して使用される" alt="" coords="3003,83,3117,112"/><area shape="rect" id="node109" href="_mode_base_8h.html" title="モードの基底クラス．" alt="" coords="3128,160,3299,189"/><area shape="rect" id="node111" href="strategy_2telemetry_2_includes_8h.html" title="../core/strategy/telemetry/Includes.h" alt="" coords="3192,83,3421,112"/><area shape="rect" id="node115" href="_s_s_global_8h.html" title="simplesatellite/SSGlobal.h" alt="" coords="2805,83,2979,112"/><area shape="rect" id="node9" href="_list_8h.html" title="Simple Template Container." alt="" coords="1395,315,1501,344"/><area shape="rect" id="node13" href="_date_time_8h.html" title="ユリウス暦による絶対時刻を保持するクラス．時間間隔などの計算にはTimeを使う．" alt="" coords="235,315,376,344"/><area shape="rect" id="node16" href="_satellite_model_8h.html" title="衛星質量特性を表現するクラス．" alt="" coords="1563,315,1731,344"/><area shape="rect" id="node23" href="_control_block_8h.html" title="制御ネットワークのラッパーとなるスーパーブロック．" alt="" coords="1485,237,1592,267"/><area shape="rect" id="node26" href="_bdot_8h.html" title="B&#45;Dot則を計算する制御ブロック．" alt="" coords="296,160,355,189"/><area shape="rect" id="node28" href="_combining_8h.html" title="任意の物理量を単純加算で合成する制御ブロック群．" alt="" coords="379,160,472,189"/><area shape="rect" id="node30" href="_coupling_compensation_8h.html" title="3軸独立に制御則を適用した際に生じるカップリング項Iωを，フィードフォワードに打ち消すために使う制御ブロック．" alt="" coords="1360,160,1525,189"/><area shape="rect" id="node34" href="_e_k_f_8h.html" title="ジャイロバイアス推定を行う拡張カルマンフィルタ制御ブロック．" alt="" coords="496,160,555,189"/><area shape="rect" id="node36" href="_first_order_correction_8h.html" title="TをT*Uに変換して出力する制御ブロック．" alt="" coords="579,160,728,189"/><area shape="rect" id="node38" href="_liniar_correction_8h.html" title="TをaT+bに変換して出力する制御ブロック" alt="" coords="888,160,1011,189"/><area shape="rect" id="node40" href="_magnetic_moment_to_torque_8h.html" title="磁気モーメントをトルクに変換する制御ブロック．" alt="" coords="1035,160,1221,189"/><area shape="rect" id="node42" href="_no_control_8h.html" title="制御を行わない制御ブロック．" alt="" coords="1245,160,1336,189"/><area shape="rect" id="node44" href="_p_i_d_8h.html" title="PID制御を行う制御ブロック群．" alt="" coords="2371,160,2424,189"/><area shape="rect" id="node48" href="_q_u_e_s_t_8h.html" title="Quaternion Estimatorによる姿勢決定を行う制御ブロック．未実装．" alt="" coords="169,237,247,267"/><area shape="rect" id="node51" href="_rate_dumping_8h.html" title="レートダンピング則による3軸独立のトルク計算を行う制御ブロック．" alt="" coords="1699,160,1808,189"/><area shape="rect" id="node53" href="_single_axis_p_i_d_8h.html" title="Scalarを目標値に近づける単純な1次元PID制御ブロック．" alt="" coords="1832,160,1947,189"/><area shape="rect" id="node55" href="_cross_product_8h.html" title="クロスプロダクト則を用いて要求出力トルクを磁気モーメントに変換する制御ブロック．" alt="" coords="752,160,864,189"/><area shape="rect" id="node58" href="_g_g_compensation_8h.html" title="重力傾斜トルクを計算し，逆符号のトルクを出力する制御ブロック．" alt="" coords="1616,237,1752,267"/><area shape="rect" id="node61" href="_solar_pointing_8h.html" title="MTQで太陽指向制御を行うための制御ブロック．" alt="" coords="1971,160,2080,189"/><area shape="rect" id="node63" href="_r_m_m_e_k_f_8h.html" title="残留磁気モーメントの推定を行う拡張カルマンフィルタ制御ブロック．未実装．" alt="" coords="2104,160,2195,189"/><area shape="rect" id="node65" href="_t_r_i_a_d_8h.html" title="TRIAD則で姿勢決定を行う制御ブロック群．" alt="" coords="271,237,340,267"/><area shape="rect" id="node68" href="_wheel_unloading_8h.html" title="RWのアンローディングをMTQを使用して行うための制御ブロック．" alt="" coords="1549,160,1675,189"/><area shape="rect" id="node46" href="_control_manager_8h.html" title="制御ブロックの実行を行う機能マネージャ．" alt="" coords="1949,237,2152,267"/><area shape="rect" id="node73" href="_command_manager_8h.html" title="コマンドの処理を行う機能マネージャ．" alt="" coords="2307,237,2448,267"/><area shape="rect" id="node76" href="_custom_manager_8h.html" title="カスタムコードの実行を行う機能マネージャ．" alt="" coords="2472,237,2600,267"/><area shape="rect" id="node78" href="_mode_manager_8h.html" title="モードの管理を行う機能マネージャ．" alt="" coords="2624,237,2739,267"/><area shape="rect" id="node80" href="_system_manager_8h.html" title="条件判定や異常対応を行う機能マネージャ．" alt="" coords="2763,237,2891,267"/><area shape="rect" id="node82" href="_telemetry_manager_8h.html" title="テレメトリ生成を行う機能マネージャ．" alt="" coords="2915,237,3053,267"/><area shape="rect" id="node84" href="_unit_manager_8h.html" title="機器の定期データ取得・更新を行う機能マネージャ．" alt="" coords="2176,237,2283,267"/><area shape="rect" id="node88" href="_s_t_t_8h.html" title="ソフトウェアシミュレーションレベルで動作するスターセンサドライバ．" alt="" coords="3597,237,3672,267"/><area shape="rect" id="node90" href="_m_t_q_8h.html" title="ソフトウェアシミュレーションレベルで動作する磁気トルカドライバ．" alt="" coords="3696,237,3781,267"/><area shape="rect" id="node92" href="_gyro_8h.html" title="ソフトウェアシミュレーションレベルで動作するジャイロセンサドライバ．" alt="" coords="3128,237,3219,267"/><area shape="rect" id="node94" href="_sun_sensor_8h.html" title="ソフトウェアシミュレーションレベルで動作する太陽センサドライバ．" alt="" coords="3243,237,3403,267"/><area shape="rect" id="node96" href="_dummy_clock_8h.html" title="ダミーの時刻計算を行うコンポーネントドライバ．" alt="" coords="3427,237,3573,267"/></map>
-</div>
-</div><div class="textblock"><div class="dynheader">
-このグラフは、どのファイルから直接、間接的にインクルードされているかを示しています。</div>
-<div class="dyncontent">
-<div class="center"><img src="_simple_satellite_factory_8h__dep__incl.png" border="0" usemap="#stf_2satellite_2_simple_satellite_factory_8hdep" alt=""/></div>
-<map name="stf_2satellite_2_simple_satellite_factory_8hdep" id="stf_2satellite_2_simple_satellite_factory_8hdep">
-<area shape="rect" id="node3" href="main_8cpp.html" title="main.cpp" alt="" coords="83,83,157,112"/></map>
-</div>
-</div>
-<p><a href="">ソースコードを見る。</a></p>
-<table class="memberdecls">
-<tr><td colspan="2"><h2><a name="nested-classes"></a>
-構成</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1factory_1_1_simple_satellite_factory.html">stf::factory::SimpleSatelliteFactory&lt; Env &gt;</a></td></tr>
-<tr><td colspan="2"><h2><a name="namespaces"></a>
-ネームスペース</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf.html">stf</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf_1_1factory.html">stf::factory</a></td></tr>
-</table>
-<hr/><a name="_details"></a><h2>説明</h2>
-<div class="textblock"><p>SimpleSatellite�p�̋�ۃt�@�N�g���D </p>
-<dl class="author"><dt><b>作者:</b></dt><dd>Taiga Nomi </dd></dl>
-<dl class="date"><dt><b>日付:</b></dt><dd>2011.02.16 </dd></dl>
-
-<p> <a class="el" href="">SimpleSatelliteFactory.h</a> で定義されています。</p>
-</div></div>
-<!--- window showing the filter options -->
-<div id="MSearchSelectWindow"
-     onmouseover="return searchBox.OnSearchSelectShow()"
-     onmouseout="return searchBox.OnSearchSelectHide()"
-     onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>フレンド</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>マクロ定義</a></div>
-
-<!-- iframe showing the search results (closed by default) -->
-<div id="MSearchResultsWindow">
-<iframe src="" frameborder="0" 
-        name="MSearchResults" id="MSearchResults">
-</iframe>
-</div>
-
-<hr class="footer"/><address class="footer"><small>STFに対してWed Mar 23 2011 05:32:50に生成されました。&#160;
-<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
-</body>
-</html>

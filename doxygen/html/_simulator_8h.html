@@ -1,144 +1,0 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
-<title>STF: stf/environment/Simulator.h</title>
-<link href="tabs.css" rel="stylesheet" type="text/css"/>
-<link href="search/search.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="search/search.js"></script>
-<link href="doxygen.css" rel="stylesheet" type="text/css"/>
-</head>
-<body onload='searchBox.OnSelectItem(0);'>
-<!-- 作成： Doxygen 1.7.3 -->
-<script type="text/javascript"><!--
-var searchBox = new SearchBox("searchBox", "search",false,'検索');
---></script>
-<div id="top">
-<div id="titlearea">
-<table cellspacing="0" cellpadding="0">
- <tbody>
- <tr style="height: 56px;">
-  <td style="padding-left: 0.5em;">
-   <div id="projectname">STF</div>
-  </td>
- </tr>
- </tbody>
-</table>
-</div>
-  <div id="navrow1" class="tabs">
-    <ul class="tablist">
-      <li><a href="index.html"><span>メインページ</span></a></li>
-      <li><a href="pages.html"><span>関連ページ</span></a></li>
-      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
-      <li><a href="annotated.html"><span>クラス</span></a></li>
-      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
-      <li id="searchli">
-        <div id="MSearchBox" class="MSearchBoxInactive">
-        <span class="left">
-          <img id="MSearchSelect" src="search/mag_sel.png"
-               onmouseover="return searchBox.OnSearchSelectShow()"
-               onmouseout="return searchBox.OnSearchSelectHide()"
-               alt=""/>
-          <input type="text" id="MSearchField" value="検索" accesskey="S"
-               onfocus="searchBox.OnSearchFieldFocus(true)" 
-               onblur="searchBox.OnSearchFieldFocus(false)" 
-               onkeyup="searchBox.OnSearchFieldChange(event)"/>
-          </span><span class="right">
-            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
-          </span>
-        </div>
-      </li>
-    </ul>
-  </div>
-  <div id="navrow2" class="tabs2">
-    <ul class="tablist">
-      <li><a href="files.html"><span>ファイル一覧</span></a></li>
-      <li><a href="globals.html"><span>ファイルメンバ</span></a></li>
-    </ul>
-  </div>
-</div>
-<div class="header">
-  <div class="summary">
-<a href="#nested-classes">構成</a> &#124;
-<a href="#namespaces">ネームスペース</a>  </div>
-  <div class="headertitle">
-<h1>stf/environment/Simulator.h</h1>  </div>
-</div>
-<div class="contents">
-
-<p>ソフトウェアシミュレータ環境クラス．  
-<a href="#_details">[詳細]</a></p>
-<div class="textblock"><code>#include &lt;fstream&gt;</code><br/>
-<code>#include &lt;iostream&gt;</code><br/>
-<code>#include &lt;vector&gt;</code><br/>
-<code>#include &quot;<a class="el" href="">../datatype/StaticVector.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="">../datatype/StaticMatrix.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="">../datatype/Vector.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="">../datatype/Matrix.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="">../datatype/Quaternion.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="">../datatype/Time.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="">../datatype/DateTime.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="">../datatype/OrbitInfo.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="">../datatype/Magnetic.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="">../datatype/Scalar.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="">../datatype/List.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="">IODriverBase.h</a>&quot;</code><br/>
-</div><div class="textblock"><div class="dynheader">
-Simulator.hのインクルード依存関係図</div>
-<div class="dyncontent">
-<div class="center"><img src="_simulator_8h__incl.png" border="0" usemap="#stf_2environment_2_simulator_8h" alt=""/></div>
-<map name="stf_2environment_2_simulator_8h" id="stf_2environment_2_simulator_8h">
-<area shape="rect" id="node9" href="_static_vector_8h.html" title="テンプレートを用いた固定要素数のベクトル計算クラス" alt="" coords="663,160,833,189"/><area shape="rect" id="node19" href="_static_matrix_8h.html" title="テンプレートを用いた固定要素数の行列計算クラス" alt="" coords="853,83,1021,112"/><area shape="rect" id="node23" href="_vector_8h.html" title="可変要素数のベクトル演算を行うクラス．STFではStaticVectorが推奨される" alt="" coords="1025,160,1161,189"/><area shape="rect" id="node27" href="_matrix_8h.html" title="可変要素数の行列計算を行うクラス．STFではStaticMatrixが推奨される．" alt="" coords="1045,83,1179,112"/><area shape="rect" id="node33" href="_quaternion_8h.html" title="4元数を表現するクラス．" alt="" coords="667,83,829,112"/><area shape="rect" id="node36" href="_time_8h.html" title="経過時間を表すクラス．" alt="" coords="1345,160,1471,189"/><area shape="rect" id="node39" href="_date_time_8h.html" title="ユリウス暦による絶対時刻を保持するクラス．時間間隔などの計算にはTimeを使う．" alt="" coords="1355,83,1509,112"/><area shape="rect" id="node43" href="_orbit_info_8h.html" title="軌道情報関係の量を表す" alt="" coords="269,83,416,112"/><area shape="rect" id="node47" href="_magnetic_8h.html" title="磁気関係の物理量を表す" alt="" coords="440,83,592,112"/><area shape="rect" id="node50" href="_scalar_8h.html" title="スカラー物理量を表現するクラス．" alt="" coords="1185,160,1321,189"/><area shape="rect" id="node54" href="_list_8h.html" title="Simple Template Container." alt="" coords="1545,160,1665,189"/><area shape="rect" id="node57" href="_i_o_driver_base_8h.html" title="環境クラス共通の基底IOドライバ． 各環境クラスにおけるIOはこの基底ドライバを使用するか，ここから派生させることを基本とする．" alt="" coords="1632,83,1739,112"/><area shape="rect" id="node11" href="stfassert_8h.html" title="assertラッパ．" alt="" coords="1116,237,1231,267"/><area shape="rect" id="node13" href="_i_aocs_data_8h.html" title="AOCS使用系列のデータ共通の抽象インターフェース．" alt="" coords="919,237,1012,267"/><area shape="rect" id="node17" href="math_8h.html" title="数学系関数のラッパと算術定数の定義．" alt="" coords="569,237,663,267"/><area shape="rect" id="node15" href="_i_telemetable_8h.html" title="テレメトリを生成可能なオブジェクトに対するインターフェース．" alt="" coords="880,315,1051,344"/><area shape="rect" id="node59" href="_macros_8h.html" title="STF全体で使用する簡単なマクロ関数を記述する．" alt="" coords="1689,160,1777,189"/></map>
-</div>
-</div><div class="textblock"><div class="dynheader">
-このグラフは、どのファイルから直接、間接的にインクルードされているかを示しています。</div>
-<div class="dyncontent">
-<div class="center"><img src="_simulator_8h__dep__incl.png" border="0" usemap="#stf_2environment_2_simulator_8hdep" alt=""/></div>
-<map name="stf_2environment_2_simulator_8hdep" id="stf_2environment_2_simulator_8hdep">
-<area shape="rect" id="node3" href="_config_8h.html" title="stf/Config.h" alt="" coords="4808,83,4894,112"/><area shape="rect" id="node7" href="main_8cpp.html" title="main.cpp" alt="" coords="602,547,676,576"/><area shape="rect" id="node73" href="_p_r_i_s_m_command_receiver_8h.html" title="stf/satellite/prism/PRISMCommandReceiver.h" alt="" coords="47,237,332,267"/><area shape="rect" id="node77" href="_n_j_command_receiver_8h.html" title="stf/satellite/nj/NJCommandReceiver.h" alt="" coords="6111,237,6348,267"/><area shape="rect" id="node110" href="_simulator_8cpp.html" title="ソフトウェアシミュレータ環境クラス．" alt="" coords="6562,237,6754,267"/><area shape="rect" id="node116" href="_impulse_noise_8cpp.html" title="インパルスノイズを発生させるトルク源．" alt="" coords="6828,83,7122,112"/><area shape="rect" id="node118" href="_step_noise_8cpp.html" title="ステップノイズを発生させるトルク源．" alt="" coords="7146,83,7423,112"/><area shape="rect" id="node5" href="_ostream_8h.html" title="標準出力のラッパ．" alt="" coords="4280,160,4403,189"/><area shape="rect" id="node96" href="_p_r_i_s_m_dummy_clock_8h.html" title="stf/satellite/prism/PRISMDummyClock.h" alt="" coords="415,160,668,189"/><area shape="rect" id="node101" href="_n_j_r_t_c_8h.html" title="stf/satellite/nj/NJRTC.h" alt="" coords="5283,160,5438,189"/><area shape="rect" id="node106" href="_orbit_8h.html" title="軌道計算を行う，sgp4のラッパークラス．" alt="" coords="6379,160,6531,189"/><area shape="rect" id="node9" href="_trace_8h.html" title="STFの内部状態を外部ファイルに書き出すためのトレースオブジェクト．" alt="" coords="3654,237,3758,267"/><area shape="rect" id="node85" href="_dummy_command_receiver_8cpp.html" title="コマンドレシーバのデバッグ用クラス．外部テキストファイルからコマンドを読み込む" alt="" coords="4771,237,5152,267"/><area shape="rect" id="node87" href="_debug_logger_8cpp.html" title="テレメハンドラのデバッグ用クラス．" alt="" coords="3782,237,4083,267"/><area shape="rect" id="node89" href="_output_functor_8cpp.html" title="出力ファンクタ群．STFではFunctorのコンストラクタに渡して使用される" alt="" coords="4107,237,4326,267"/><area shape="rect" id="node91" href="_control_manager_8cpp.html" title="制御ブロックの実行を行う機能マネージャ．" alt="" coords="4350,237,4587,267"/><area shape="rect" id="node93" href="_ostream_8cpp.html" title="標準出力のラッパ．" alt="" coords="4611,237,4747,267"/><area shape="rect" id="node11" href="_datapool_8h.html" title="STF生成データにタイムタグを付加して格納するデータプール． データの配列を保持するTupleと，Tupleの配列を保持するデータプールによって テーブル形式のデータ構造を表現する．" alt="" coords="4690,315,4874,344"/><area shape="rect" id="node25" href="_subject_base_8cpp.html" title="Observerパターンの構成テンプレートクラス群．" alt="" coords="4680,392,4883,421"/><area shape="rect" id="node27" href="_mode_manager_base_8cpp.html" title="モードの管理を行う機能マネージャ基底クラス．" alt="" coords="4907,392,5166,421"/><area shape="rect" id="node29" href="_system_manager_base_8cpp.html" title="条件判定や異常対応を行う機能マネージャ基底クラス．" alt="" coords="5190,392,5462,421"/><area shape="rect" id="node32" href="_combining_8h.html" title="任意の物理量を単純加算で合成する制御ブロック群．" alt="" coords="5583,315,5818,344"/><area shape="rect" id="node34" href="_coupling_compensation_8h.html" title="3軸独立に制御則を適用した際に生じるカップリング項Iωを，フィードフォワードに打ち消すために使う制御ブロック．" alt="" coords="5842,315,6148,344"/><area shape="rect" id="node36" href="_first_order_correction_8h.html" title="TをT*Uに変換して出力する制御ブロック．" alt="" coords="6172,315,6463,344"/><area shape="rect" id="node38" href="_liniar_correction_8h.html" title="TをaT+bに変換して出力する制御ブロック" alt="" coords="676,315,940,344"/><area shape="rect" id="node40" href="_no_control_8h.html" title="制御を行わない制御ブロック．" alt="" coords="964,315,1194,344"/><area shape="rect" id="node42" href="_r_m_m_e_k_f_8h.html" title="残留磁気モーメントの推定を行う拡張カルマンフィルタ制御ブロック．未実装．" alt="" coords="1218,315,1447,344"/><area shape="rect" id="node44" href="_wheel_unloading_8h.html" title="RWのアンローディングをMTQを使用して行うための制御ブロック．" alt="" coords="1471,315,1738,344"/><area shape="rect" id="node46" href="_get_command_8h.html" title="GetterやイテレータによってSTF内部状態を応答するコマンド群．" alt="" coords="1762,315,1983,344"/><area shape="rect" id="node48" href="_message_command_8h.html" title="予め決められたメッセージを出力するコマンド．" alt="" coords="2007,315,2260,344"/><area shape="rect" id="node50" href="_sequence_command_8h.html" title="複数コマンドをシーケンシャルに実行するコマンド．" alt="" coords="2284,315,2543,344"/><area shape="rect" id="node52" href="_simple_function_command_8h.html" title="引数なしのファンクタやメンバ関数を起動するコマンド．" alt="" coords="2567,315,2858,344"/><area shape="rect" id="node54" href="_switch_command_8h.html" title="機器のスイッチングを行うコマンド．" alt="" coords="2882,315,3119,344"/><area shape="rect" id="node56" href="_type_list_function_command_8h.html" title="複数個の引数を取るメンバ関数を起動するコマンド．TypeListを使って纏めたい&#45;&gt;TBD" alt="" coords="3143,315,3442,344"/><area shape="rect" id="node58" href="_unary_function_command_8h.html" title="１引数のファンクタやメンバ関数を起動するコマンド．" alt="" coords="3466,315,3748,344"/><area shape="rect" id="node60" href="_mode_change_command_8cpp.html" title="モード変更を行うコマンド．" alt="" coords="3772,315,4063,344"/><area shape="rect" id="node63" href="_command_manager_base_8cpp.html" title="コマンドの処理を行う機能マネージャ基底クラス．" alt="" coords="4087,315,4372,344"/><area shape="rect" id="node65" href="_control_manager_base_8cpp.html" title="制御ブロックの実行を行う機能マネージャ基底クラス．" alt="" coords="4396,315,4666,344"/><area shape="rect" id="node69" href="_telemetry_manager_base_8cpp.html" title="テレメトリ生成を行う機能マネージャ基底クラス．" alt="" coords="4898,315,5183,344"/><area shape="rect" id="node71" href="_unit_manager_base_8cpp.html" title="機器の定期データ取得・更新を行う機能マネージャ基底クラス．" alt="" coords="5207,315,5458,344"/><area shape="rect" id="node14" href="_p_r_i_s_m_factory_8h.html" title="stf/satellite/PRISMFactory.h" alt="" coords="367,469,551,499"/><area shape="rect" id="node17" href="_p_r_i_s_m_global_8h.html" title="stf/satellite/prism/PRISMGlobal.h" alt="" coords="263,392,476,421"/><area shape="rect" id="node22" href="_n_j_factory_8h.html" title="stf/satellite/NJFactory.h" alt="" coords="5486,392,5643,421"/><area shape="rect" id="node20" href="_p_r_i_s_m_command_receiver_8cpp.html" title="stf/satellite/prism/PRISMCommandReceiver.cpp" alt="" coords="44,469,343,499"/><area shape="rect" id="node79" href="_n_j_global_8h.html" title="stf/satellite/nj/NJGlobal.h" alt="" coords="6538,315,6703,344"/><area shape="rect" id="node82" href="_n_j_command_receiver_8cpp.html" title="stf/satellite/nj/NJCommandReceiver.cpp" alt="" coords="6499,392,6750,421"/><area shape="rect" id="node99" href="_p_r_i_s_m_dummy_clock_8cpp.html" title="stf/satellite/prism/PRISMDummyClock.cpp" alt="" coords="407,237,676,267"/><area shape="rect" id="node104" href="_n_j_r_t_c_8cpp.html" title="stf/satellite/nj/NJRTC.cpp" alt="" coords="5276,237,5444,267"/><area shape="rect" id="node108" href="_orbit_8cpp.html" title="軌道計算を行う，sgp4のラッパークラス．" alt="" coords="6372,237,6538,267"/></map>
-</div>
-</div>
-<p><a href="">ソースコードを見る。</a></p>
-<table class="memberdecls">
-<tr><td colspan="2"><h2><a name="nested-classes"></a>
-構成</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1environment_1_1_simulator.html">stf::environment::Simulator</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ソフトウェアシミュレータ環境クラス．  <a href="classstf_1_1environment_1_1_simulator.html#_details">[詳細]</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1environment_1_1_simulator_1_1_g_p_i_o.html">stf::environment::Simulator::GPIO&lt; i &gt;</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">シミュレータ環境用のGPIOドライバ．使用しないので空クラスとして定義  <a href="classstf_1_1environment_1_1_simulator_1_1_g_p_i_o.html#_details">[詳細]</a><br/></td></tr>
-<tr><td colspan="2"><h2><a name="namespaces"></a>
-ネームスペース</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceinterface.html">interface</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf.html">stf</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf_1_1core.html">stf::core</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf_1_1core_1_1devicedriver.html">stf::core::devicedriver</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf_1_1core_1_1devicedriver_1_1clock.html">stf::core::devicedriver::clock</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf_1_1environment.html">stf::environment</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestf_1_1environment_1_1torquesource.html">stf::environment::torquesource</a></td></tr>
-</table>
-<hr/><a name="_details"></a><h2>説明</h2>
-<div class="textblock"><p>ソフトウェアシミュレータ環境クラス． </p>
-<dl class="author"><dt><b>作者:</b></dt><dd>Taiga Nomi </dd></dl>
-<dl class="date"><dt><b>日付:</b></dt><dd>2011.02.16 </dd></dl>
-
-<p> <a class="el" href="">Simulator.h</a> で定義されています。</p>
-</div></div>
-<!--- window showing the filter options -->
-<div id="MSearchSelectWindow"
-     onmouseover="return searchBox.OnSearchSelectShow()"
-     onmouseout="return searchBox.OnSearchSelectHide()"
-     onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>フレンド</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>マクロ定義</a></div>
-
-<!-- iframe showing the search results (closed by default) -->
-<div id="MSearchResultsWindow">
-<iframe src="" frameborder="0" 
-        name="MSearchResults" id="MSearchResults">
-</iframe>
-</div>
-
-<hr class="footer"/><address class="footer"><small>STFに対してWed Mar 23 2011 05:32:42に生成されました。&#160;
-<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
-</body>
-</html>

@@ -1,225 +1,0 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
-<title>STF: クラス stf::interface::Iterator</title>
-<link href="tabs.css" rel="stylesheet" type="text/css"/>
-<link href="search/search.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="search/search.js"></script>
-<link href="doxygen.css" rel="stylesheet" type="text/css"/>
-</head>
-<body onload='searchBox.OnSelectItem(0);'>
-<!-- 作成： Doxygen 1.7.3 -->
-<script type="text/javascript"><!--
-var searchBox = new SearchBox("searchBox", "search",false,'検索');
---></script>
-<div id="top">
-<div id="titlearea">
-<table cellspacing="0" cellpadding="0">
- <tbody>
- <tr style="height: 56px;">
-  <td style="padding-left: 0.5em;">
-   <div id="projectname">STF</div>
-  </td>
- </tr>
- </tbody>
-</table>
-</div>
-  <div id="navrow1" class="tabs">
-    <ul class="tablist">
-      <li><a href="index.html"><span>メインページ</span></a></li>
-      <li><a href="pages.html"><span>関連ページ</span></a></li>
-      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
-      <li class="current"><a href="annotated.html"><span>クラス</span></a></li>
-      <li><a href="files.html"><span>ファイル</span></a></li>
-      <li id="searchli">
-        <div id="MSearchBox" class="MSearchBoxInactive">
-        <span class="left">
-          <img id="MSearchSelect" src="search/mag_sel.png"
-               onmouseover="return searchBox.OnSearchSelectShow()"
-               onmouseout="return searchBox.OnSearchSelectHide()"
-               alt=""/>
-          <input type="text" id="MSearchField" value="検索" accesskey="S"
-               onfocus="searchBox.OnSearchFieldFocus(true)" 
-               onblur="searchBox.OnSearchFieldFocus(false)" 
-               onkeyup="searchBox.OnSearchFieldChange(event)"/>
-          </span><span class="right">
-            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
-          </span>
-        </div>
-      </li>
-    </ul>
-  </div>
-  <div id="navrow2" class="tabs2">
-    <ul class="tablist">
-      <li><a href="annotated.html"><span>構成</span></a></li>
-      <li><a href="classes.html"><span>構成索引</span></a></li>
-      <li><a href="inherits.html"><span>クラス階層</span></a></li>
-      <li><a href="functions.html"><span>構成メンバ</span></a></li>
-    </ul>
-  </div>
-  <div id="nav-path" class="navpath">
-    <ul>
-      <li class="navelem"><a class="el" href="namespacestf.html">stf</a>      </li>
-      <li class="navelem"><a class="el" href="namespacestf_1_1interface.html">interface</a>      </li>
-      <li class="navelem"><a class="el" href="classstf_1_1interface_1_1_iterator.html">Iterator</a>      </li>
-    </ul>
-  </div>
-</div>
-<div class="header">
-  <div class="summary">
-<a href="#pub-methods">Public メソッド</a>  </div>
-  <div class="headertitle">
-<h1>クラス stf::interface::Iterator</h1>  </div>
-</div>
-<div class="contents">
-<!-- doxytag: class="stf::interface::Iterator" -->
-<p>イテレータの抽象インターフェース．  
-<a href="#_details">[詳細]</a></p>
-
-<p><code>#include &lt;<a class="el" href="">Iterator.h</a>&gt;</code></p>
-<div class="dynheader">
-stf::interface::Iteratorに対する継承グラフ</div>
-<div class="dyncontent">
-<div class="center"><img src="classstf_1_1interface_1_1_iterator__inherit__graph.png" border="0" usemap="#stf_1_1interface_1_1_iterator_inherit__map" alt="Inheritance graph"/></div>
-<map name="stf_1_1interface_1_1_iterator_inherit__map" id="stf_1_1interface_1_1_iterator_inherit__map">
-<area shape="rect" id="node3" href="classstf_1_1interface_1_1_n_j_iterator_base.html" title="stf::interface::NJIteratorBase\&lt; SCALE, 13, core::strategy::control::NJEKF \&gt;" alt="" coords="247,10,705,39"/><area shape="rect" id="node7" href="classstf_1_1interface_1_1_n_j_iterator_base.html" title="stf::interface::NJIteratorBase\&lt; SCALE, 3, core::strategy::control::NJRMMEKF \&gt;" alt="" coords="235,63,717,92"/><area shape="rect" id="node11" href="classstf_1_1interface_1_1_n_j_iterator_base.html" title="stf::interface::NJIteratorBase\&lt; SCALE, 4, core::strategy::control::NJSunMagTRIAD \&gt;" alt="" coords="221,116,731,146"/><area shape="rect" id="node15" href="classstf_1_1interface_1_1_p_r_i_s_m_iterator_base.html" title="stf::interface::PRISMIteratorBase\&lt; 1, 3, core::strategy::control::PRISMControlBlock \&gt;" alt="" coords="219,170,733,199"/><area shape="rect" id="node19" href="classstf_1_1interface_1_1_p_r_i_s_m_iterator_base.html" title="stf::interface::PRISMIteratorBase\&lt; SCALE, 13, core::strategy::control::PRISMEKF \&gt;" alt="" coords="221,223,731,252"/><area shape="rect" id="node23" href="classstf_1_1interface_1_1_p_r_i_s_m_iterator_base.html" title="stf::interface::PRISMIteratorBase\&lt; SCALE, 3, core::strategy::control::PRISMRMMEKF \&gt;" alt="" coords="209,276,743,306"/><area shape="rect" id="node27" href="classstf_1_1interface_1_1_p_r_i_s_m_iterator_base.html" title="stf::interface::PRISMIteratorBase\&lt; SCALE, 4, core::strategy::control::PRISMSunMagTRIAD \&gt;" alt="" coords="195,330,757,359"/><area shape="rect" id="node31" href="classstf_1_1interface_1_1_p_r_i_s_m_telemetry_iterator.html" title="stf::interface::PRISMTelemetryIterator\&lt; 100, 1 \&gt;" alt="" coords="327,383,625,412"/><area shape="rect" id="node33" href="classstf_1_1interface_1_1_p_r_i_s_m_telemetry_iterator.html" title="stf::interface::PRISMTelemetryIterator\&lt; 100, 4 \&gt;" alt="" coords="327,436,625,466"/><area shape="rect" id="node35" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_selecting_output.html" title="stf::core::strategy::telemetry::SelectingOutput\&lt; short, SCALE \&gt;" alt="" coords="281,490,671,519"/><area shape="rect" id="node41" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_selecting_output.html" title="stf::core::strategy::telemetry::SelectingOutput\&lt; unsigned int, 1000 \&gt;" alt="" coords="268,543,684,572"/><area shape="rect" id="node43" href="classstf_1_1core_1_1datapool_1_1_aocs_data_pool_iterator.html" title="AocsDataPoolの各列の最新データをなめるイテレータ．" alt="" coords="348,596,604,626"/><area shape="rect" id="node45" href="classstf_1_1core_1_1datapool_1_1_event_data_pool_iterator.html" title="EventDataPoolの各列の最新データをなめるイテレータ．" alt="" coords="347,650,605,679"/><area shape="rect" id="node47" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_output_all.html" title="データプールの内容を全て出力するテレメトリ生成ストラテジ．" alt="" coords="311,703,641,732"/><area shape="rect" id="node49" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_selecting_output.html" title="指定したイテレータをテレメトリとして整形するテレメトリ生成ストラテジ．" alt="" coords="292,756,660,786"/><area shape="rect" id="node51" href="classstf_1_1interface_1_1_c_d_h_component_iterator.html" title="scalar型など, value()でdoubleを取れる型のCDHComponentに対して使えるイテレータ" alt="" coords="311,810,641,839"/><area shape="rect" id="node53" href="classstf_1_1interface_1_1_data_iterator.html" title="IAocsDataの各要素を取得する入力イテレータ．" alt="" coords="392,863,560,892"/><area shape="rect" id="node55" href="classstf_1_1interface_1_1_date_time_iterator.html" title="日，時間，分，秒の順でDateTimeを取得する入力イテレータ．" alt="" coords="379,916,573,946"/><area shape="rect" id="node57" href="classstf_1_1interface_1_1_n_j_iterator_base.html" title="stf::interface::NJIteratorBase\&lt; SCALE, SIZE, BASE \&gt;" alt="" coords="309,970,643,999"/><area shape="rect" id="node59" href="classstf_1_1interface_1_1_p_r_i_s_m_iterator_base.html" title="stf::interface::PRISMIteratorBase\&lt; SCALE, SIZE, BASE \&gt;" alt="" coords="297,1023,655,1052"/><area shape="rect" id="node61" href="classstf_1_1interface_1_1_p_r_i_s_m_telemetry_iterator.html" title="stf::interface::PRISMTelemetryIterator\&lt; SCALE, DEPTH \&gt;" alt="" coords="297,1076,655,1106"/><area shape="rect" id="node63" href="classstf_1_1interface_1_1_time_iterator.html" title="秒，ミリ秒の順で時刻を取得する入力イテレータ．" alt="" coords="392,1130,560,1159"/><area shape="rect" id="node5" href="classstf_1_1interface_1_1_n_j_e_k_f_iterator.html" title="stf::interface::NJEKFIterator\&lt; SCALE \&gt;" alt="" coords="885,10,1133,39"/><area shape="rect" id="node9" href="classstf_1_1interface_1_1_n_j_r_m_m_e_k_f_iterator.html" title="stf::interface::NJRMMEKFIterator\&lt; SCALE \&gt;" alt="" coords="869,63,1149,92"/><area shape="rect" id="node13" href="classstf_1_1interface_1_1_n_j_sun_mag_t_r_i_a_d_iterator.html" title="stf::interface::NJSunMagTRIADIterator\&lt; SCALE \&gt;" alt="" coords="856,116,1163,146"/><area shape="rect" id="node17" href="classstf_1_1interface_1_1_p_r_i_s_m_control_block_iterator.html" title="stf::interface::PRISMControlBlockIterator" alt="" coords="881,170,1137,199"/><area shape="rect" id="node21" href="classstf_1_1interface_1_1_p_r_i_s_m_e_k_f_iterator.html" title="stf::interface::PRISMEKFIterator\&lt; SCALE \&gt;" alt="" coords="872,223,1147,252"/><area shape="rect" id="node25" href="classstf_1_1interface_1_1_p_r_i_s_m_r_m_m_e_k_f_iterator.html" title="stf::interface::PRISMRMMEKFIterator\&lt; SCALE \&gt;" alt="" coords="856,276,1163,306"/><area shape="rect" id="node29" href="classstf_1_1interface_1_1_p_r_i_s_m_sun_mag_t_r_i_a_d_iterator.html" title="stf::interface::PRISMSunMagTRIADIterator\&lt; SCALE \&gt;" alt="" coords="843,330,1176,359"/><area shape="rect" id="node37" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_p_r_i_s_m_telemetry_strategy.html" title="stf::core::strategy::telemetry::PRISMTelemetryStrategy\&lt; 1000 \&gt;" alt="" coords="813,463,1205,492"/><area shape="rect" id="node39" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_p_r_i_s_m_telemetry_strategy.html" title="stf::core::strategy::telemetry::PRISMTelemetryStrategy\&lt; SCALE \&gt;" alt="" coords="805,516,1213,546"/></map>
-<center><span class="legend">[<a href="graph_legend.html">凡例</a>]</span></center></div>
-
-<p><a href="classstf_1_1interface_1_1_iterator-members.html">すべてのメンバ一覧</a></p>
-<table class="memberdecls">
-<tr><td colspan="2"><h2><a name="pub-methods"></a>
-Public メソッド</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1interface_1_1_iterator.html#ad485bc2c2350fdfb05d7ac6938161f05">init</a> ()=0</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1interface_1_1_iterator.html#a6c1fe21426ad7cccfcf875c390135f7b">end</a> ()=0</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1interface_1_1_iterator.html#adb733e9491be7b21293fa8151042a0ec">operator++</a> ()=0</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1interface_1_1_iterator.html#ab56d21b954e9e744d57562e85380c55b">operator()</a> ()=0</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1interface_1_1_iterator.html#a57ceaa246ec9a11d3227fcc0d0b38f88">Iterator</a> ()</td></tr>
-</table>
-<hr/><a name="_details"></a><h2>説明</h2>
-<div class="textblock"><p>イテレータの抽象インターフェース． </p>
-<p>STFの内部オブジェクト用に用意されるイテレータ群の共通インターフェース． すべて片方向のinput iteratorで，かつ返す値はdouble型に限定されている． 使い方は以下のとおり． </p>
-<div class="fragment"><pre class="fragment">        Object* obj = <span class="keyword">new</span> Object();<span class="comment">//走査対象</span>
-        <a class="code" href="classstf_1_1interface_1_1_iterator.html#a57ceaa246ec9a11d3227fcc0d0b38f88">Iterator</a> it(obj);
-        <span class="keywordflow">while</span>(!it.end()){
-                <a class="code" href="namespacestf_1_1util.html#ac1e2b8b0b75f1384aaebe7da50977c3f">std::cout</a> &lt;&lt; (*it)() &lt;&lt; <span class="stringliteral">&quot;, &quot;</span>;
-                ++it;
-        }
-</pre></div> 
-<p> <a class="el" href="">Iterator.h</a> の <a class="el" href="#L32">32</a> 行で定義されています。</p>
-</div><hr/><h2>コンストラクタとデストラクタ</h2>
-<a class="anchor" id="a57ceaa246ec9a11d3227fcc0d0b38f88"></a><!-- doxytag: member="stf::interface::Iterator::Iterator" ref="a57ceaa246ec9a11d3227fcc0d0b38f88" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">stf::interface::Iterator::Iterator </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td><code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p> <a class="el" href="">Iterator.h</a> の <a class="el" href="#L38">38</a> 行で定義されています。</p>
-<div class="fragment"><pre class="fragment">{}
-</pre></div>
-</div>
-</div>
-<hr/><h2>関数</h2>
-<a class="anchor" id="a6c1fe21426ad7cccfcf875c390135f7b"></a><!-- doxytag: member="stf::interface::Iterator::end" ref="a6c1fe21426ad7cccfcf875c390135f7b" args="()=0" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual bool stf::interface::Iterator::end </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td><code> [pure virtual]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p><a class="el" href="classstf_1_1core_1_1datapool_1_1_aocs_data_pool_iterator.html#a3b7242bed8b927ee5bd0df386ca889d7">stf::core::datapool::AocsDataPoolIterator</a>, <a class="el" href="classstf_1_1core_1_1datapool_1_1_event_data_pool_iterator.html#a2e5f1836eb2df2652b819bc1e566163a">stf::core::datapool::EventDataPoolIterator</a>, <a class="el" href="classstf_1_1interface_1_1_c_d_h_component_iterator.html#a93efe9c60f86fbfb8296a990cb62fc8d">stf::interface::CDHComponentIterator&lt; T, NUM, Env &gt;</a>, <a class="el" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_output_all.html#aeced8c1639322e4e730ecae1c2181778">stf::core::strategy::telemetry::OutputAll&lt; T, SCALE &gt;</a>, <a class="el" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_selecting_output.html#a2aa8531d84804c2ab0222537f4383be8">stf::core::strategy::telemetry::SelectingOutput&lt; T, SCALE &gt;</a>, <a class="el" href="classstf_1_1interface_1_1_data_iterator.html#ae94207690ec18f15fbf8b5072f68a283">stf::interface::DataIterator</a>, <a class="el" href="classstf_1_1interface_1_1_time_iterator.html#ab4c6eee9c7c74dd82b0fc6f4f39e6e87">stf::interface::TimeIterator</a>, <a class="el" href="classstf_1_1interface_1_1_date_time_iterator.html#a7d61992dcd345cc9b33e2e29a94a7049">stf::interface::DateTimeIterator</a>, <a class="el" href="classstf_1_1interface_1_1_n_j_iterator_base.html#aa1eb362fb7244e91862295a541f89f97">stf::interface::NJIteratorBase&lt; SCALE, SIZE, BASE &gt;</a>, <a class="el" href="classstf_1_1interface_1_1_p_r_i_s_m_iterator_base.html#ad1cbe7b0d26f6ab9867fc51b2a280164">stf::interface::PRISMIteratorBase&lt; SCALE, SIZE, BASE &gt;</a>, <a class="el" href="classstf_1_1interface_1_1_p_r_i_s_m_telemetry_iterator.html#a26690a24778cc9c4abbaf23a5c2cb2d6">stf::interface::PRISMTelemetryIterator&lt; SCALE, DEPTH &gt;</a>, <a class="el" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_selecting_output.html#a2aa8531d84804c2ab0222537f4383be8">stf::core::strategy::telemetry::SelectingOutput&lt; unsigned int, 1000 &gt;</a>, <a class="el" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_selecting_output.html#a2aa8531d84804c2ab0222537f4383be8">stf::core::strategy::telemetry::SelectingOutput&lt; short, SCALE &gt;</a>, <a class="el" href="classstf_1_1interface_1_1_n_j_iterator_base.html#aa1eb362fb7244e91862295a541f89f97">stf::interface::NJIteratorBase&lt; SCALE, 13, core::strategy::control::NJEKF &gt;</a>, <a class="el" href="classstf_1_1interface_1_1_n_j_iterator_base.html#aa1eb362fb7244e91862295a541f89f97">stf::interface::NJIteratorBase&lt; SCALE, 3, core::strategy::control::NJRMMEKF &gt;</a>, <a class="el" href="classstf_1_1interface_1_1_n_j_iterator_base.html#aa1eb362fb7244e91862295a541f89f97">stf::interface::NJIteratorBase&lt; SCALE, 4, core::strategy::control::NJSunMagTRIAD &gt;</a>, <a class="el" href="classstf_1_1interface_1_1_p_r_i_s_m_iterator_base.html#ad1cbe7b0d26f6ab9867fc51b2a280164">stf::interface::PRISMIteratorBase&lt; SCALE, 4, core::strategy::control::PRISMSunMagTRIAD &gt;</a>, <a class="el" href="classstf_1_1interface_1_1_p_r_i_s_m_iterator_base.html#ad1cbe7b0d26f6ab9867fc51b2a280164">stf::interface::PRISMIteratorBase&lt; SCALE, 3, core::strategy::control::PRISMRMMEKF &gt;</a>, <a class="el" href="classstf_1_1interface_1_1_p_r_i_s_m_iterator_base.html#ad1cbe7b0d26f6ab9867fc51b2a280164">stf::interface::PRISMIteratorBase&lt; SCALE, 13, core::strategy::control::PRISMEKF &gt;</a>, <a class="el" href="classstf_1_1interface_1_1_p_r_i_s_m_iterator_base.html#ad1cbe7b0d26f6ab9867fc51b2a280164">stf::interface::PRISMIteratorBase&lt; 1, 3, core::strategy::control::PRISMControlBlock &gt;</a>, <a class="el" href="classstf_1_1interface_1_1_p_r_i_s_m_telemetry_iterator.html#a26690a24778cc9c4abbaf23a5c2cb2d6">stf::interface::PRISMTelemetryIterator&lt; 100, 1 &gt;</a>, と <a class="el" href="classstf_1_1interface_1_1_p_r_i_s_m_telemetry_iterator.html#a26690a24778cc9c4abbaf23a5c2cb2d6">stf::interface::PRISMTelemetryIterator&lt; 100, 4 &gt;</a>で実装されています。</p>
-
-</div>
-</div>
-<a class="anchor" id="ad485bc2c2350fdfb05d7ac6938161f05"></a><!-- doxytag: member="stf::interface::Iterator::init" ref="ad485bc2c2350fdfb05d7ac6938161f05" args="()=0" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual void stf::interface::Iterator::init </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td><code> [pure virtual]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p><a class="el" href="classstf_1_1core_1_1datapool_1_1_aocs_data_pool_iterator.html#a2e8811651eb5256b9433002e5a8b1c81">stf::core::datapool::AocsDataPoolIterator</a>, <a class="el" href="classstf_1_1core_1_1datapool_1_1_event_data_pool_iterator.html#ac767fa167490f221198eec7f08de2355">stf::core::datapool::EventDataPoolIterator</a>, <a class="el" href="classstf_1_1interface_1_1_c_d_h_component_iterator.html#ac703d7239209cdd914673dba3fce5898">stf::interface::CDHComponentIterator&lt; T, NUM, Env &gt;</a>, <a class="el" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_output_all.html#a3249ad4bfb133b7a3ae1f5915e6f9b36">stf::core::strategy::telemetry::OutputAll&lt; T, SCALE &gt;</a>, <a class="el" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_selecting_output.html#acb47cefdea947392f7face70e0e6a2ba">stf::core::strategy::telemetry::SelectingOutput&lt; T, SCALE &gt;</a>, <a class="el" href="classstf_1_1interface_1_1_data_iterator.html#ad198a94571a508952c42d00867bca7af">stf::interface::DataIterator</a>, <a class="el" href="classstf_1_1interface_1_1_time_iterator.html#a150867664136607306baabdeb2273b21">stf::interface::TimeIterator</a>, <a class="el" href="classstf_1_1interface_1_1_date_time_iterator.html#a5b665b25cc34655dff03db899d19e96d">stf::interface::DateTimeIterator</a>, <a class="el" href="classstf_1_1interface_1_1_n_j_iterator_base.html#a1bd725a9944b208d96aae7a95aa2c8da">stf::interface::NJIteratorBase&lt; SCALE, SIZE, BASE &gt;</a>, <a class="el" href="classstf_1_1interface_1_1_p_r_i_s_m_iterator_base.html#ac8d00f93bbccd24288353d6fb4cc6365">stf::interface::PRISMIteratorBase&lt; SCALE, SIZE, BASE &gt;</a>, <a class="el" href="classstf_1_1interface_1_1_p_r_i_s_m_telemetry_iterator.html#a63f0e563d083224ea3cd34d7d3789e15">stf::interface::PRISMTelemetryIterator&lt; SCALE, DEPTH &gt;</a>, <a class="el" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_selecting_output.html#acb47cefdea947392f7face70e0e6a2ba">stf::core::strategy::telemetry::SelectingOutput&lt; unsigned int, 1000 &gt;</a>, <a class="el" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_selecting_output.html#acb47cefdea947392f7face70e0e6a2ba">stf::core::strategy::telemetry::SelectingOutput&lt; short, SCALE &gt;</a>, <a class="el" href="classstf_1_1interface_1_1_n_j_iterator_base.html#a1bd725a9944b208d96aae7a95aa2c8da">stf::interface::NJIteratorBase&lt; SCALE, 13, core::strategy::control::NJEKF &gt;</a>, <a class="el" href="classstf_1_1interface_1_1_n_j_iterator_base.html#a1bd725a9944b208d96aae7a95aa2c8da">stf::interface::NJIteratorBase&lt; SCALE, 3, core::strategy::control::NJRMMEKF &gt;</a>, <a class="el" href="classstf_1_1interface_1_1_n_j_iterator_base.html#a1bd725a9944b208d96aae7a95aa2c8da">stf::interface::NJIteratorBase&lt; SCALE, 4, core::strategy::control::NJSunMagTRIAD &gt;</a>, <a class="el" href="classstf_1_1interface_1_1_p_r_i_s_m_iterator_base.html#ac8d00f93bbccd24288353d6fb4cc6365">stf::interface::PRISMIteratorBase&lt; SCALE, 4, core::strategy::control::PRISMSunMagTRIAD &gt;</a>, <a class="el" href="classstf_1_1interface_1_1_p_r_i_s_m_iterator_base.html#ac8d00f93bbccd24288353d6fb4cc6365">stf::interface::PRISMIteratorBase&lt; SCALE, 3, core::strategy::control::PRISMRMMEKF &gt;</a>, <a class="el" href="classstf_1_1interface_1_1_p_r_i_s_m_iterator_base.html#ac8d00f93bbccd24288353d6fb4cc6365">stf::interface::PRISMIteratorBase&lt; SCALE, 13, core::strategy::control::PRISMEKF &gt;</a>, <a class="el" href="classstf_1_1interface_1_1_p_r_i_s_m_iterator_base.html#ac8d00f93bbccd24288353d6fb4cc6365">stf::interface::PRISMIteratorBase&lt; 1, 3, core::strategy::control::PRISMControlBlock &gt;</a>, <a class="el" href="classstf_1_1interface_1_1_p_r_i_s_m_telemetry_iterator.html#a63f0e563d083224ea3cd34d7d3789e15">stf::interface::PRISMTelemetryIterator&lt; 100, 1 &gt;</a>, と <a class="el" href="classstf_1_1interface_1_1_p_r_i_s_m_telemetry_iterator.html#a63f0e563d083224ea3cd34d7d3789e15">stf::interface::PRISMTelemetryIterator&lt; 100, 4 &gt;</a>で実装されています。</p>
-
-</div>
-</div>
-<a class="anchor" id="ab56d21b954e9e744d57562e85380c55b"></a><!-- doxytag: member="stf::interface::Iterator::operator()" ref="ab56d21b954e9e744d57562e85380c55b" args="()=0" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual double stf::interface::Iterator::operator() </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td><code> [pure virtual]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p><a class="el" href="classstf_1_1core_1_1datapool_1_1_aocs_data_pool_iterator.html#ab42f4badaf5a3f31429b71969c0083a3">stf::core::datapool::AocsDataPoolIterator</a>, <a class="el" href="classstf_1_1core_1_1datapool_1_1_event_data_pool_iterator.html#a94e4f6d0a8aee9861791b1a3facc0919">stf::core::datapool::EventDataPoolIterator</a>, <a class="el" href="classstf_1_1interface_1_1_c_d_h_component_iterator.html#ae1d7c9514046ceb1a4e2f2c124d00b48">stf::interface::CDHComponentIterator&lt; T, NUM, Env &gt;</a>, <a class="el" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_output_all.html#a56040b9aa51d44ef80bcb91f8023630a">stf::core::strategy::telemetry::OutputAll&lt; T, SCALE &gt;</a>, <a class="el" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_selecting_output.html#ab60f348ee74c46fa20ac6ae90c0eed4b">stf::core::strategy::telemetry::SelectingOutput&lt; T, SCALE &gt;</a>, <a class="el" href="classstf_1_1interface_1_1_data_iterator.html#ad035f7cc8d4d45b85f67dbbe3670b5b9">stf::interface::DataIterator</a>, <a class="el" href="classstf_1_1interface_1_1_time_iterator.html#a1aa0cfac2129e877ed97ef1ebd50e711">stf::interface::TimeIterator</a>, <a class="el" href="classstf_1_1interface_1_1_date_time_iterator.html#a1fd15c6b062e480e7a3653c459f2b15c">stf::interface::DateTimeIterator</a>, <a class="el" href="classstf_1_1interface_1_1_n_j_e_k_f_iterator.html#ab1f5f3b07337d17465d9734245890c84">stf::interface::NJEKFIterator&lt; SCALE &gt;</a>, <a class="el" href="classstf_1_1interface_1_1_n_j_r_m_m_e_k_f_iterator.html#ada8c77995869113404ff8980c256b5f9">stf::interface::NJRMMEKFIterator&lt; SCALE &gt;</a>, <a class="el" href="classstf_1_1interface_1_1_n_j_sun_mag_t_r_i_a_d_iterator.html#ac2e9036d20c8b9d9c4dec68ed240ac88">stf::interface::NJSunMagTRIADIterator&lt; SCALE &gt;</a>, <a class="el" href="classstf_1_1interface_1_1_p_r_i_s_m_e_k_f_iterator.html#a69277e322065672acc102da5ac762398">stf::interface::PRISMEKFIterator&lt; SCALE &gt;</a>, <a class="el" href="classstf_1_1interface_1_1_p_r_i_s_m_r_m_m_e_k_f_iterator.html#a10ca4889c7a58aa6a4c4d013d05d26a9">stf::interface::PRISMRMMEKFIterator&lt; SCALE &gt;</a>, <a class="el" href="classstf_1_1interface_1_1_p_r_i_s_m_sun_mag_t_r_i_a_d_iterator.html#a73e55b91b5bcfcd2ec78bec5bcfc5cf4">stf::interface::PRISMSunMagTRIADIterator&lt; SCALE &gt;</a>, <a class="el" href="classstf_1_1interface_1_1_p_r_i_s_m_control_block_iterator.html#a3a6a06e406bd92c660d468b574ac71b9">stf::interface::PRISMControlBlockIterator</a>, <a class="el" href="classstf_1_1interface_1_1_p_r_i_s_m_telemetry_iterator.html#a0d0aa4d680fc8e2d0f2c7840913ac024">stf::interface::PRISMTelemetryIterator&lt; SCALE, DEPTH &gt;</a>, <a class="el" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_selecting_output.html#ab60f348ee74c46fa20ac6ae90c0eed4b">stf::core::strategy::telemetry::SelectingOutput&lt; unsigned int, 1000 &gt;</a>, <a class="el" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_selecting_output.html#ab60f348ee74c46fa20ac6ae90c0eed4b">stf::core::strategy::telemetry::SelectingOutput&lt; short, SCALE &gt;</a>, <a class="el" href="classstf_1_1interface_1_1_p_r_i_s_m_telemetry_iterator.html#a0d0aa4d680fc8e2d0f2c7840913ac024">stf::interface::PRISMTelemetryIterator&lt; 100, 1 &gt;</a>, と <a class="el" href="classstf_1_1interface_1_1_p_r_i_s_m_telemetry_iterator.html#a0d0aa4d680fc8e2d0f2c7840913ac024">stf::interface::PRISMTelemetryIterator&lt; 100, 4 &gt;</a>で実装されています。</p>
-
-</div>
-</div>
-<a class="anchor" id="adb733e9491be7b21293fa8151042a0ec"></a><!-- doxytag: member="stf::interface::Iterator::operator++" ref="adb733e9491be7b21293fa8151042a0ec" args="()=0" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual void stf::interface::Iterator::operator++ </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td><code> [pure virtual]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p><a class="el" href="classstf_1_1core_1_1datapool_1_1_aocs_data_pool_iterator.html#a11a6bba7ab010abd1022d75a83b19dc9">stf::core::datapool::AocsDataPoolIterator</a>, <a class="el" href="classstf_1_1core_1_1datapool_1_1_event_data_pool_iterator.html#a7c788e831224ae038c57fdfd3ebc1465">stf::core::datapool::EventDataPoolIterator</a>, <a class="el" href="classstf_1_1interface_1_1_c_d_h_component_iterator.html#a06e0259faa52583144d1ad1b310a0c0d">stf::interface::CDHComponentIterator&lt; T, NUM, Env &gt;</a>, <a class="el" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_output_all.html#af623dd52a7ce52f59ab02b6f6d014c49">stf::core::strategy::telemetry::OutputAll&lt; T, SCALE &gt;</a>, <a class="el" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_selecting_output.html#a4c1019810c94d9321acf524e4f7f51bc">stf::core::strategy::telemetry::SelectingOutput&lt; T, SCALE &gt;</a>, <a class="el" href="classstf_1_1interface_1_1_data_iterator.html#add62b3936d66650a8ee10ab74102bb15">stf::interface::DataIterator</a>, <a class="el" href="classstf_1_1interface_1_1_time_iterator.html#a7a7adaf20ffe5ecd4563428568f368cf">stf::interface::TimeIterator</a>, <a class="el" href="classstf_1_1interface_1_1_date_time_iterator.html#a1cc36b81a511c928614c5dcd8c147121">stf::interface::DateTimeIterator</a>, <a class="el" href="classstf_1_1interface_1_1_n_j_iterator_base.html#a4b430080137e2f4a74b114ccfd7fef99">stf::interface::NJIteratorBase&lt; SCALE, SIZE, BASE &gt;</a>, <a class="el" href="classstf_1_1interface_1_1_p_r_i_s_m_iterator_base.html#a0dea62e85342ddbe14b25669d8129ac0">stf::interface::PRISMIteratorBase&lt; SCALE, SIZE, BASE &gt;</a>, <a class="el" href="classstf_1_1interface_1_1_p_r_i_s_m_telemetry_iterator.html#a60d9fed6f6afe921bd8465b9291546dd">stf::interface::PRISMTelemetryIterator&lt; SCALE, DEPTH &gt;</a>, <a class="el" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_selecting_output.html#a4c1019810c94d9321acf524e4f7f51bc">stf::core::strategy::telemetry::SelectingOutput&lt; unsigned int, 1000 &gt;</a>, <a class="el" href="classstf_1_1core_1_1strategy_1_1telemetry_1_1_selecting_output.html#a4c1019810c94d9321acf524e4f7f51bc">stf::core::strategy::telemetry::SelectingOutput&lt; short, SCALE &gt;</a>, <a class="el" href="classstf_1_1interface_1_1_n_j_iterator_base.html#a4b430080137e2f4a74b114ccfd7fef99">stf::interface::NJIteratorBase&lt; SCALE, 13, core::strategy::control::NJEKF &gt;</a>, <a class="el" href="classstf_1_1interface_1_1_n_j_iterator_base.html#a4b430080137e2f4a74b114ccfd7fef99">stf::interface::NJIteratorBase&lt; SCALE, 3, core::strategy::control::NJRMMEKF &gt;</a>, <a class="el" href="classstf_1_1interface_1_1_n_j_iterator_base.html#a4b430080137e2f4a74b114ccfd7fef99">stf::interface::NJIteratorBase&lt; SCALE, 4, core::strategy::control::NJSunMagTRIAD &gt;</a>, <a class="el" href="classstf_1_1interface_1_1_p_r_i_s_m_iterator_base.html#a0dea62e85342ddbe14b25669d8129ac0">stf::interface::PRISMIteratorBase&lt; SCALE, 4, core::strategy::control::PRISMSunMagTRIAD &gt;</a>, <a class="el" href="classstf_1_1interface_1_1_p_r_i_s_m_iterator_base.html#a0dea62e85342ddbe14b25669d8129ac0">stf::interface::PRISMIteratorBase&lt; SCALE, 3, core::strategy::control::PRISMRMMEKF &gt;</a>, <a class="el" href="classstf_1_1interface_1_1_p_r_i_s_m_iterator_base.html#a0dea62e85342ddbe14b25669d8129ac0">stf::interface::PRISMIteratorBase&lt; SCALE, 13, core::strategy::control::PRISMEKF &gt;</a>, <a class="el" href="classstf_1_1interface_1_1_p_r_i_s_m_iterator_base.html#a0dea62e85342ddbe14b25669d8129ac0">stf::interface::PRISMIteratorBase&lt; 1, 3, core::strategy::control::PRISMControlBlock &gt;</a>, <a class="el" href="classstf_1_1interface_1_1_p_r_i_s_m_telemetry_iterator.html#a60d9fed6f6afe921bd8465b9291546dd">stf::interface::PRISMTelemetryIterator&lt; 100, 1 &gt;</a>, と <a class="el" href="classstf_1_1interface_1_1_p_r_i_s_m_telemetry_iterator.html#a60d9fed6f6afe921bd8465b9291546dd">stf::interface::PRISMTelemetryIterator&lt; 100, 4 &gt;</a>で実装されています。</p>
-
-</div>
-</div>
-<hr/>このクラスの説明は次のファイルから生成されました:<ul>
-<li>stf/interface/<a class="el" href="">Iterator.h</a></li>
-</ul>
-</div>
-<!--- window showing the filter options -->
-<div id="MSearchSelectWindow"
-     onmouseover="return searchBox.OnSearchSelectShow()"
-     onmouseout="return searchBox.OnSearchSelectHide()"
-     onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>フレンド</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>マクロ定義</a></div>
-
-<!-- iframe showing the search results (closed by default) -->
-<div id="MSearchResultsWindow">
-<iframe src="" frameborder="0" 
-        name="MSearchResults" id="MSearchResults">
-</iframe>
-</div>
-
-<hr class="footer"/><address class="footer"><small>STFに対してWed Mar 23 2011 05:33:37に生成されました。&#160;
-<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
-</body>
-</html>

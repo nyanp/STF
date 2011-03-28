@@ -1,6 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$classstf_1_1core_1_1devicedriver_1_1_composite_input.html" title="CompositeInput\&lt; devicedriver::gyro::PRISMGyro\&lt; Env \&gt;, 3 \&gt;" alt="" coords="148,5,519,35"/>
-<area shape="rect" id="node5" href="$classstf_1_1core_1_1devicedriver_1_1_composite_input.html" title="CompositeInput\&lt; devicedriver::gyro::PRISMGyro\&lt; T \&gt;, 3 \&gt;" alt="" coords="155,59,512,88"/>
-<area shape="rect" id="node7" href="$classstf_1_1core_1_1devicedriver_1_1_composite_input.html" title="CompositeInput\&lt; devicedriver::sunsensor::PRISMSunSensor\&lt; Env \&gt;, 6 \&gt;" alt="" coords="112,112,555,141"/>
-<area shape="rect" id="node9" href="$classstf_1_1core_1_1devicedriver_1_1_composite_input.html" title="CompositeInput\&lt; devicedriver::sunsensor::PRISMSunSensor\&lt; T \&gt;, 6 \&gt;" alt="" coords="119,165,548,195"/>
-</map>

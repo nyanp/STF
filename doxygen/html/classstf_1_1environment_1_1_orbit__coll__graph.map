@@ -1,5 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node2" href="$classstf_1_1datatype_1_1_date_time.html" title="グレゴリオ暦による絶対時刻を秒精度で保持する．" alt="" coords="5,5,163,35"/>
-<area shape="rect" id="node4" href="$classstf_1_1datatype_1_1_time.html" title="経過時間を表すクラス．" alt="" coords="187,5,317,35"/>
-<area shape="rect" id="node6" href="$structstf_1_1datatype_1_1_orbit_info.html" title="軌道6要素を保持するクラス．サイズ肥大化を避けるため，主要な計算はOrbitImplのstaticなメソッドに投げることで行う" alt="" coords="341,5,491,35"/>
-</map>

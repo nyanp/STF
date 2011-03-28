@@ -1,181 +1,0 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
-<title>STF: クラス stf::core::strategy::control::nj::StarImageEKF</title>
-<link href="tabs.css" rel="stylesheet" type="text/css"/>
-<link href="search/search.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="search/search.js"></script>
-<link href="doxygen.css" rel="stylesheet" type="text/css"/>
-</head>
-<body onload='searchBox.OnSelectItem(0);'>
-<!-- 作成： Doxygen 1.7.3 -->
-<script type="text/javascript"><!--
-var searchBox = new SearchBox("searchBox", "search",false,'検索');
---></script>
-<div id="top">
-<div id="titlearea">
-<table cellspacing="0" cellpadding="0">
- <tbody>
- <tr style="height: 56px;">
-  <td style="padding-left: 0.5em;">
-   <div id="projectname">STF</div>
-  </td>
- </tr>
- </tbody>
-</table>
-</div>
-  <div id="navrow1" class="tabs">
-    <ul class="tablist">
-      <li><a href="index.html"><span>メインページ</span></a></li>
-      <li><a href="pages.html"><span>関連ページ</span></a></li>
-      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
-      <li class="current"><a href="annotated.html"><span>クラス</span></a></li>
-      <li><a href="files.html"><span>ファイル</span></a></li>
-      <li id="searchli">
-        <div id="MSearchBox" class="MSearchBoxInactive">
-        <span class="left">
-          <img id="MSearchSelect" src="search/mag_sel.png"
-               onmouseover="return searchBox.OnSearchSelectShow()"
-               onmouseout="return searchBox.OnSearchSelectHide()"
-               alt=""/>
-          <input type="text" id="MSearchField" value="検索" accesskey="S"
-               onfocus="searchBox.OnSearchFieldFocus(true)" 
-               onblur="searchBox.OnSearchFieldFocus(false)" 
-               onkeyup="searchBox.OnSearchFieldChange(event)"/>
-          </span><span class="right">
-            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
-          </span>
-        </div>
-      </li>
-    </ul>
-  </div>
-  <div id="navrow2" class="tabs2">
-    <ul class="tablist">
-      <li><a href="annotated.html"><span>構成</span></a></li>
-      <li><a href="classes.html"><span>構成索引</span></a></li>
-      <li><a href="inherits.html"><span>クラス階層</span></a></li>
-      <li><a href="functions.html"><span>構成メンバ</span></a></li>
-    </ul>
-  </div>
-  <div id="nav-path" class="navpath">
-    <ul>
-      <li class="navelem"><a class="el" href="namespacestf.html">stf</a>      </li>
-      <li class="navelem"><a class="el" href="namespacestf_1_1core.html">core</a>      </li>
-      <li class="navelem"><a class="el" href="namespacestf_1_1core_1_1strategy.html">strategy</a>      </li>
-      <li class="navelem"><a class="el" href="namespacestf_1_1core_1_1strategy_1_1control.html">control</a>      </li>
-      <li class="navelem"><a class="el" href="namespacestf_1_1core_1_1strategy_1_1control_1_1nj.html">nj</a>      </li>
-      <li class="navelem"><a class="el" href="classstf_1_1core_1_1strategy_1_1control_1_1nj_1_1_star_image_e_k_f.html">StarImageEKF</a>      </li>
-    </ul>
-  </div>
-</div>
-<div class="header">
-  <div class="summary">
-<a href="#pub-methods">Public メソッド</a>  </div>
-  <div class="headertitle">
-<h1>クラス stf::core::strategy::control::nj::StarImageEKF</h1>  </div>
-</div>
-<div class="contents">
-<!-- doxytag: class="stf::core::strategy::control::nj::StarImageEKF" --><!-- doxytag: inherits="InputPorts&lt; TYPELIST_2(datatype::StaticVector&lt; 3 &gt;, datatype::StaticVector&lt; 3 &gt;) &gt;,OutputPorts&lt; TYPELIST_1(datatype::StaticVector&lt; 3 &gt;) &gt;,stf::core::strategy::StrategyBase" -->
-<p><code>#include &lt;<a class="el" href="">NJControllers.h</a>&gt;</code></p>
-<div class="dynheader">
-stf::core::strategy::control::nj::StarImageEKFに対する継承グラフ</div>
-<div class="dyncontent">
-<div class="center"><img src="classstf_1_1core_1_1strategy_1_1control_1_1nj_1_1_star_image_e_k_f__inherit__graph.png" border="0" usemap="#stf_1_1core_1_1strategy_1_1control_1_1nj_1_1_star_image_e_k_f_inherit__map" alt="Inheritance graph"/></div>
-<map name="stf_1_1core_1_1strategy_1_1control_1_1nj_1_1_star_image_e_k_f_inherit__map" id="stf_1_1core_1_1strategy_1_1control_1_1nj_1_1_star_image_e_k_f_inherit__map">
-<area shape="rect" id="node2" href="classstf_1_1core_1_1devicedriver_1_1_input_ports.html" title="stf::core::devicedriver::InputPorts\&lt; TYPELIST_2(datatype::StaticVector\&lt; 3 \&gt;, datatype::StaticVector\&lt; 3 \&gt;) \&gt;" alt="" coords="1500,5,2145,35"/><area shape="rect" id="node4" href="class_loki_1_1_gen_scatter_hierarchy.html" title="Loki::GenScatterHierarchy\&lt; TYPELIST_2(datatype::StaticVector\&lt; 3 \&gt;, datatype::StaticVector\&lt; 3 \&gt;), core::devicedriver::InputPort \&gt;" alt="" coords="672,5,1451,35"/><area shape="rect" id="node6" href="classcore_1_1devicedriver_1_1_input_port.html" title="core::devicedriver::InputPort\&lt; TYPELIST_2(datatype::StaticVector\&lt; 3 \&gt;, datatype::StaticVector\&lt; 3 \&gt;) \&gt;" alt="" coords="7,5,623,35"/><area shape="rect" id="node8" href="classstf_1_1core_1_1devicedriver_1_1_output_ports.html" title="stf::core::devicedriver::OutputPorts\&lt; TYPELIST_1(datatype::StaticVector\&lt; 3 \&gt;) \&gt;" alt="" coords="1579,59,2067,88"/><area shape="rect" id="node10" href="class_loki_1_1_gen_scatter_hierarchy.html" title="Loki::GenScatterHierarchy\&lt; TYPELIST_1(datatype::StaticVector\&lt; 3 \&gt;), OutputPort \&gt;" alt="" coords="805,59,1317,88"/><area shape="rect" id="node12" href="class_output_port.html" title="OutputPort\&lt; TYPELIST_1(datatype::StaticVector\&lt; 3 \&gt;) \&gt;" alt="" coords="139,59,491,88"/><area shape="rect" id="node14" href="classstf_1_1core_1_1strategy_1_1_strategy_base.html" title="ストラテジの共通基底クラス．" alt="" coords="1717,112,1928,141"/><area shape="rect" id="node16" href="classstf_1_1_root_object.html" title="数値型を除いた全クラスの基本となるクラス．" alt="" coords="1007,112,1116,141"/><area shape="rect" id="node18" href="classstf_1_1interface_1_1_i_enabable.html" title="有効化・無効化制御が可能なコンポーネントに対するインターフェース．" alt="" coords="983,165,1140,195"/></map>
-<center><span class="legend">[<a href="graph_legend.html">凡例</a>]</span></center></div>
-<div class="dynheader">
-stf::core::strategy::control::nj::StarImageEKFのコラボレーション図</div>
-<div class="dyncontent">
-<div class="center"><img src="classstf_1_1core_1_1strategy_1_1control_1_1nj_1_1_star_image_e_k_f__coll__graph.png" border="0" usemap="#stf_1_1core_1_1strategy_1_1control_1_1nj_1_1_star_image_e_k_f_coll__map" alt="Collaboration graph"/></div>
-<map name="stf_1_1core_1_1strategy_1_1control_1_1nj_1_1_star_image_e_k_f_coll__map" id="stf_1_1core_1_1strategy_1_1control_1_1nj_1_1_star_image_e_k_f_coll__map">
-<area shape="rect" id="node2" href="classstf_1_1core_1_1devicedriver_1_1_input_ports.html" title="stf::core::devicedriver::InputPorts\&lt; TYPELIST_2(datatype::StaticVector\&lt; 3 \&gt;, datatype::StaticVector\&lt; 3 \&gt;) \&gt;" alt="" coords="2335,5,2980,35"/><area shape="rect" id="node4" href="class_loki_1_1_gen_scatter_hierarchy.html" title="Loki::GenScatterHierarchy\&lt; TYPELIST_2(datatype::StaticVector\&lt; 3 \&gt;, datatype::StaticVector\&lt; 3 \&gt;), core::devicedriver::InputPort \&gt;" alt="" coords="1419,5,2197,35"/><area shape="rect" id="node6" href="classcore_1_1devicedriver_1_1_input_port.html" title="core::devicedriver::InputPort\&lt; TYPELIST_2(datatype::StaticVector\&lt; 3 \&gt;, datatype::StaticVector\&lt; 3 \&gt;) \&gt;" alt="" coords="713,5,1329,35"/><area shape="rect" id="node8" href="classstf_1_1core_1_1devicedriver_1_1_output_ports.html" title="stf::core::devicedriver::OutputPorts\&lt; TYPELIST_1(datatype::StaticVector\&lt; 3 \&gt;) \&gt;" alt="" coords="2413,59,2901,88"/><area shape="rect" id="node10" href="class_loki_1_1_gen_scatter_hierarchy.html" title="Loki::GenScatterHierarchy\&lt; TYPELIST_1(datatype::StaticVector\&lt; 3 \&gt;), OutputPort \&gt;" alt="" coords="1552,59,2064,88"/><area shape="rect" id="node12" href="class_output_port.html" title="OutputPort\&lt; TYPELIST_1(datatype::StaticVector\&lt; 3 \&gt;) \&gt;" alt="" coords="845,59,1197,88"/><area shape="rect" id="node14" href="classstf_1_1core_1_1strategy_1_1_strategy_base.html" title="ストラテジの共通基底クラス．" alt="" coords="2552,112,2763,141"/><area shape="rect" id="node16" href="classstf_1_1_root_object.html" title="数値型を除いた全クラスの基本となるクラス．" alt="" coords="1753,212,1863,241"/><area shape="rect" id="node24" href="classstf_1_1core_1_1datapool_1_1_data_pool_base.html" title="Tupleを複数個保持するデータプールの基底クラス．" alt="" coords="2549,241,2765,271"/><area shape="rect" id="node37" href="classstf_1_1core_1_1datapool_1_1_event_data_pool.html" title="Eventのデータプール．" alt="" coords="2548,295,2767,324"/><area shape="rect" id="node18" href="classstf_1_1core_1_1devicedriver_1_1clock_1_1_i_time_clock.html" title="Time型のカウントが可能であることを示す抽象インターフェース．" alt="" coords="895,188,1148,217"/><area shape="rect" id="node20" href="classstf_1_1core_1_1devicedriver_1_1_i_data_updatable.html" title="周期的にデータを取得，送信するコンポーネントに対するインターフェース" alt="" coords="307,188,544,217"/><area shape="rect" id="node22" href="classstf_1_1core_1_1datapool_1_1_aocs_data_pool.html" title="IAocsDataのデータプール．" alt="" coords="3065,241,3281,271"/><area shape="rect" id="node27" href="classstf_1_1core_1_1datapool_1_1_tuple.html" title="stf::core::datapool::Tuple\&lt; datatype::IAocsData \&gt;" alt="" coords="1655,381,1961,411"/><area shape="rect" id="node29" href="classstf_1_1datatype_1_1_i_aocs_data.html" title="AOCS使用系列のデータ共通の抽象インターフェース．" alt="" coords="940,432,1103,461"/><area shape="rect" id="node31" href="classstf_1_1interface_1_1_i_telemetable.html" title="テレメトリを生成可能なオブジェクトに対するインターフェース．" alt="" coords="339,432,512,461"/><area shape="rect" id="node33" href="classstf_1_1datatype_1_1_time.html" title="経過時間を表すクラス．" alt="" coords="5,356,136,385"/><area shape="rect" id="node44" href="struct_loki_1_1_tuple_unit.html" title="Loki::TupleUnit\&lt; TYPELIST_2(event::EventType, datatype::Time) \&gt;" alt="" coords="223,328,628,357"/><area shape="rect" id="node35" href="classstf_1_1datatype_1_1_string.html" title="std::stringの簡略版．" alt="" coords="953,259,1089,288"/><area shape="rect" id="node40" href="struct_loki_1_1_tuple.html" title="Loki::Tuple\&lt; TYPELIST_2(event::EventType, datatype::Time)\&gt;" alt="" coords="1619,328,1997,357"/><area shape="rect" id="node42" href="class_loki_1_1_gen_scatter_hierarchy.html" title="Loki::GenScatterHierarchy\&lt; TYPELIST_2(event::EventType, datatype::Time), TupleUnit \&gt;" alt="" coords="755,328,1288,357"/><area shape="rect" id="node48" href="classstf_1_1interface_1_1_i_enabable.html" title="有効化・無効化制御が可能なコンポーネントに対するインターフェース．" alt="" coords="1729,112,1887,141"/></map>
-<center><span class="legend">[<a href="graph_legend.html">凡例</a>]</span></center></div>
-
-<p><a href="classstf_1_1core_1_1strategy_1_1control_1_1nj_1_1_star_image_e_k_f-members.html">すべてのメンバ一覧</a></p>
-<table class="memberdecls">
-<tr><td colspan="2"><h2><a name="pub-methods"></a>
-Public メソッド</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1core_1_1strategy_1_1control_1_1nj_1_1_star_image_e_k_f.html#a814e29a081fe0ed7c3ee3d065142ec50">StarImageEKF</a> (int instance_id)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstf_1_1core_1_1strategy_1_1control_1_1nj_1_1_star_image_e_k_f.html#abd3b19835cf9ce3a50a39fe892c74358">do_compute</a> (const <a class="el" href="classstf_1_1datatype_1_1_time.html">datatype::Time</a> &amp;t)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">伝搬関数のデフォルト実装．（何もしない）  <a href="#abd3b19835cf9ce3a50a39fe892c74358"></a><br/></td></tr>
-</table>
-<hr/><a name="_details"></a><h2>説明</h2>
-<div class="textblock">
-<p> <a class="el" href="">NJControllers.h</a> の <a class="el" href="#L53">53</a> 行で定義されています。</p>
-</div><hr/><h2>コンストラクタとデストラクタ</h2>
-<a class="anchor" id="a814e29a081fe0ed7c3ee3d065142ec50"></a><!-- doxytag: member="stf::core::strategy::control::nj::StarImageEKF::StarImageEKF" ref="a814e29a081fe0ed7c3ee3d065142ec50" args="(int instance_id)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">stf::core::strategy::control::nj::StarImageEKF::StarImageEKF </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>instance_id</em></td><td>)</td>
-          <td><code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p> <a class="el" href="">NJControllers.h</a> の <a class="el" href="#L58">58</a> 行で定義されています。</p>
-<div class="fragment"><pre class="fragment">: <a class="code" href="classstf_1_1core_1_1strategy_1_1_strategy_base.html#a84daac1b4bd3ecdd4c02ac89ae5a179d">StrategyBase</a>(<a class="code" href="classstf_1_1_root_object.html#a233a3fbd4d53b7a8eaa5d2edab4cf75b">instance_id</a>, <span class="stringliteral">&quot;StarImageEKF&quot;</span>) {}
-</pre></div>
-</div>
-</div>
-<hr/><h2>関数</h2>
-<a class="anchor" id="abd3b19835cf9ce3a50a39fe892c74358"></a><!-- doxytag: member="stf::core::strategy::control::nj::StarImageEKF::do_compute" ref="abd3b19835cf9ce3a50a39fe892c74358" args="(const datatype::Time &amp;t)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void stf::core::strategy::control::nj::StarImageEKF::do_compute </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="classstf_1_1datatype_1_1_time.html">datatype::Time</a> &amp;&#160;</td>
-          <td class="paramname"><em>t</em></td><td>)</td>
-          <td><code> [virtual]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>伝搬関数のデフォルト実装．（何もしない） </p>
-
-<p><a class="el" href="classstf_1_1core_1_1devicedriver_1_1_output_ports.html#ad26ac8c6d0156f8b84899747a8f2fbc9">stf::core::devicedriver::OutputPorts&lt; TYPELIST_1(datatype::StaticVector&lt; 3 &gt;) &gt;</a>を再定義しています。</p>
-
-<p> <a class="el" href="">NJControllers.cpp</a> の <a class="el" href="#L38">38</a> 行で定義されています。</p>
-<div class="fragment"><pre class="fragment">                                                  {
-        <span class="keywordflow">if</span>(t &gt; this-&gt;last_update_){
-
-                this-&gt;last_update_ = t;
-        }
-}
-</pre></div>
-</div>
-</div>
-<hr/>このクラスの説明は次のファイルから生成されました:<ul>
-<li>stf/satellite/nj/<a class="el" href="">NJControllers.h</a></li>
-<li>stf/satellite/nj/<a class="el" href="">NJControllers.cpp</a></li>
-</ul>
-</div>
-<!--- window showing the filter options -->
-<div id="MSearchSelectWindow"
-     onmouseover="return searchBox.OnSearchSelectShow()"
-     onmouseout="return searchBox.OnSearchSelectHide()"
-     onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>フレンド</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>マクロ定義</a></div>
-
-<!-- iframe showing the search results (closed by default) -->
-<div id="MSearchResultsWindow">
-<iframe src="" frameborder="0" 
-        name="MSearchResults" id="MSearchResults">
-</iframe>
-</div>
-
-<hr class="footer"/><address class="footer"><small>STFに対してWed Mar 23 2011 05:33:33に生成されました。&#160;
-<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
-</body>
-</html>

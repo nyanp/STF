@@ -1,6 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$_date_time_8h.html" title="ユリウス暦による絶対時刻を保持するクラス．時間間隔などの計算にはTimeを使う．" alt="" coords="5,83,184,112"/>
-<area shape="rect" id="node10" href="$_i_data_updatable_8h.html" title="周期的にデータを取得，送信するコンポーネントに対する抽象インターフェース．" alt="" coords="208,83,341,112"/>
-<area shape="rect" id="node5" href="$stfassert_8h.html" title="assertラッパ．" alt="" coords="37,237,152,267"/>
-<area shape="rect" id="node7" href="$_time_8h.html" title="経過時間を表すクラス．" alt="" coords="99,160,160,189"/>
-</map>
