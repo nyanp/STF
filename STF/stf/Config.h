@@ -8,18 +8,8 @@
 #ifndef Config_h
 #define Config_h
 
-namespace stf{
-namespace environment{
-class Simulator;
-class SH;
-class Virtex;
-}
-}
-//#include "environment/SH.h"
-//typedef stf::environment::SH ENV;
-
-#include "environment/Simulator.h"
-typedef stf::environment::Simulator ENV;
+#include "core/environment/Simulator.h"
+typedef stf::core::environment::Simulator ENV;
 
 
 //datetime settings

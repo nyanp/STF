@@ -5,8 +5,8 @@
  * @author Taiga Nomi
  * @date   2011.02.16
  */
-#ifndef aocs_core_strategy_control_EKFParameters_h
-#define aocs_core_strategy_control_EKFParameters_h
+#ifndef stf_core_strategy_control_EKFParameters_h
+#define stf_core_strategy_control_EKFParameters_h
 
 #include "../../../datatype/Quaternion.h"
 #include "../../../datatype/StaticMatrix.h"
@@ -41,4 +41,4 @@ public:
 } /* End of namespace stf::core */
 } /* End of namespace stf */
 
-#endif // aocs_strategy_input_EKFParameters_h
+#endif // stf_core_strategy_input_EKFParameters_h

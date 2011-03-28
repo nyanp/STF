@@ -1,16 +1,17 @@
 #include<iostream>
 #include<fstream>
 #include<vector>
+
 #include "stf/util/Cout.h"
 #include "stf/Config.h"
 //#include "stf/core/strategy/control/Includes.h"
 #include "stf/GlobalObject.h"
 #include "stf/InstanceID.h"
 
-#include "stf/environment/NullEnv.h"
-#include "stf/environment/Simulator.h"
-#include "stf/environment/torquesource/ImpulseNoise.h"
-#include "stf/environment/torquesource/WhiteNoise.h"
+#include "stf/core/environment/NullEnv.h"
+#include "stf/core/environment/Simulator.h"
+#include "stf/core/environment/torquesource/ImpulseNoise.h"
+#include "stf/core/environment/torquesource/WhiteNoise.h"
 
 #include "stf/core/mode/ModeBase.h"
 
@@ -42,7 +43,7 @@
 #include "stf/satellite/SimpleSatelliteFactory.h"
 #include "stf/util/math/Exp.h"
 
-#include "stf/environment/sh/iodefine.h"
+#include "stf/core/environment/sh/iodefine.h"
 #include "stf/interface/Iterator.h"
 #include "stf/satellite/PRISM/PRISMIterator.h"
 
@@ -56,18 +57,6 @@ using namespace stf::core::datapool;
 #include <iostream>
 
 int main(void){
-	datatype::OrbitInfo orbit_i(7100000, 0.01, 0, 0.5 * util::math::PI, 0, 0);
-	
-	datatype::DateTime t_i(1995,2,10);
-
-	util::cout << datatype::OrbitCalc::getMagneticFieldDirection(datatype::TypeConverter::toPositionInfo(orbit_i), t_i) << util::endl;
-
-
-	datatype::Scalar target;
-	strategy::control::SingleAxisPID pid(0, 1, 0, 0, 0, target);
-	devicedriver::rw::RW<ENV> rw(0, datatype::TypeConverter::toDCM(0,0,0) );
-	strategy::control::ControlBlock cb(0, &pid, &rw);
-
 	util::Trace::enable(util::Trace::kManager);
 	util::Trace::enable(util::Trace::kControlBlock);
 	util::Trace::enable(util::Trace::kCommand);
@@ -76,37 +65,20 @@ int main(void){
 
 	util::Trace tr(util::Trace::kManager, "man");
 
-	typedef devicedriver::CompositeOutput<devicedriver::mtq::MTQ<ENV>, 3> ThreeAxisMTQ;
-	typedef devicedriver::CompositeOutput<devicedriver::rw::RW<ENV>, 4> SkewRW;
-	typedef devicedriver::CompositeInput<devicedriver::gyro::Gyro<ENV>, 3> ThreeAxisGyro;
-	typedef devicedriver::CompositeInput<devicedriver::stt::STT<ENV>, 2> TwoAxisSTT;
-	typedef devicedriver::CompositeInput<devicedriver::sunsensor::SunSensor<ENV>, 6> SixAxisSS;
-	typedef devicedriver::gyro::Gyro<ENV> GYRO;
-	typedef devicedriver::stt::STT<ENV> STT;
-	typedef devicedriver::mtq::MTQ<ENV> MTQ;
-	typedef devicedriver::sunsensor::SunSensor<ENV> SS;
-	typedef devicedriver::rw::RW<ENV> RW;
-
 	std::cout << "AOCS Framework Test Program:\n\n";
-	std::cout << Conversion<int, double>::exists << std::endl;
-	std::cout << Conversion<char*, double>::exists << std::endl;
 
 	//stf::factory::SatelliteFactory<ENV>* en = new ();
-	stf::factory::PRISMFactory<ENV>& factory = stf::factory::PRISMFactory<ENV>::getInstance();
+	stf::core::factory::PRISMFactory<ENV>& factory = stf::core::factory::PRISMFactory<ENV>::getInstance();
 	stf::Global<ENV>* gl = factory.create();
 
 	//stf::factory::SatelliteFactory<ENV>* en2 = new stf::factory::NJFactory<ENV>();
-	stf::Global<ENV>* gl2 = stf::factory::NJFactory<ENV>::getInstance().create();
+	stf::Global<ENV>* gl2 = stf::core::factory::NJFactory<ENV>::getInstance().create();
 
 	//stf::factory::SatelliteFactory<ENV>* en3 = new stf::factory::SimpleSatelliteFactory<ENV>();
-	stf::Global<ENV>* gl3 = stf::factory::SimpleSatelliteFactory<ENV>::getInstance().create();
-
-	stf::Global<ENV>* gl4 = stf::factory::SimpleSatelliteFactory<ENV>::getInstance().create();
-	//グローバルオブジェクトの生成
-	//stf::Global<env>& g = stf::Global<env>::get_instance();
+	stf::Global<ENV>* gl3 = stf::core::factory::SimpleSatelliteFactory<ENV>::getInstance().create();
 
 	//シミュレータの生成
-	stf::environment::Simulator& s = stf::environment::Simulator::get_instance();
+	stf::core::environment::Simulator& s = stf::core::environment::Simulator::get_instance();
 	//シミュレーション用の軌道情報
 	datatype::OrbitInfo orbit(7100000, 0.01, 0, 0.5 * util::math::PI, 0, 0);
 	//シミュレータ初期化
@@ -116,8 +88,8 @@ int main(void){
 	datatype::StaticVector<3> v;
 	v[0] = 0.3;
 	v[1] = -0.2;
-	s.attachNoiseSource(new environment::torquesource::ImpulseNoise(3, v, 0, 3000,&s));
-    s.attachNoiseSource(new environment::torquesource::WhiteNoise(0.01, 0));
+	s.attachNoiseSource(new stf::core::environment::torquesource::ImpulseNoise(3, v, 0, 3000,&s));
+    s.attachNoiseSource(new stf::core::environment::torquesource::WhiteNoise(0.01, 0));
 
 	//実行タスクの追加
 

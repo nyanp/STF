@@ -54,4 +54,4 @@ protected:
 } /* End of namespace core::mode */
 } /* End of namespace core */
 
-#endif // aocs_strategy_control_RateDumping_h
+#endif // stf_core_strategy_control_RateDumping_h

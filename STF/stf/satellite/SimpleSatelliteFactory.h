@@ -9,7 +9,7 @@
 #define factory_SimpleSatelliteFactory_h
 
 #include "../GlobalObject.h"
-#include "../factory/SatelliteFactory.h"
+#include "../core/factory/SatelliteFactory.h"
 
 #include "../core/strategy/control/Includes.h"
 
@@ -28,6 +28,7 @@
 #include "simplesatellite/SSGlobal.h"
 
 namespace stf {
+namespace core {
 namespace factory {
 
 
@@ -212,10 +213,9 @@ void SimpleSatelliteFactory<Env>::satellite_initialize(){
 	this->global_->ss_modemanager->change_mode(this->global_->ss_safemode);
 }
 
-
-} /* End of namespace stf::factory */
+} /* End of namespace stf::core::factory */
+} /* End of namespace stf::core */ 
 } /* End of namespace stf */
-
 
 
 

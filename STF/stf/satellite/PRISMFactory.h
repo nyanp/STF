@@ -9,7 +9,7 @@
 #define factory_PRISMFactory_h
 
 #include "../GlobalObject.h"
-#include "../factory/SatelliteFactory.h"
+#include "../core/factory/SatelliteFactory.h"
 
 #include "../core/strategy/control/Includes.h"
 
@@ -28,6 +28,7 @@
 #include "prism/PRISMGlobal.h"
 
 namespace stf {
+namespace core {
 namespace factory {
 
 template<class Env>
@@ -526,7 +527,8 @@ void PRISMFactory<Env>::create_datapool(){
 }
 
 
-} /* End of namespace stf::factory */
+} /* End of namespace stf::core::factory */
+} /* End of namespace stf::core */ 
 } /* End of namespace stf */
 
 

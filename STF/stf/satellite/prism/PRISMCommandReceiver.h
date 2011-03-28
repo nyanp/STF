@@ -14,7 +14,7 @@
 #include "../../datatype/String.h"
 #include "../../core/devicedriver/cmhandler/ICommandReceiver.h"
 #include "../../RootObject.h"
-#include "../../environment/Simulator.h"
+#include "../../core/environment/Simulator.h"
 #include "../../core/command/Command.h"
 #include "../../core/manager/CommandManager.h"
 #include "../../util/Cout.h"

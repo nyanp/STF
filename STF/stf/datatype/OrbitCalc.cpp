@@ -15,10 +15,10 @@
 #include "DateTime.h"
 #include "Quaternion.h"
 
-#include "../environment/sgp4/sgp4ext.h"
-#include "../environment/sgp4/sgp4unit.h"
-#include "../environment/sgp4/orbitutil.h"
-#include "../environment/models/igrf.h"
+#include "../core/environment/sgp4/sgp4ext.h"
+#include "../core/environment/sgp4/sgp4unit.h"
+#include "../core/environment/sgp4/orbitutil.h"
+#include "../core/environment/models/igrf.h"
 
 namespace stf {
 namespace datatype {
