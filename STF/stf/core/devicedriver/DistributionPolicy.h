@@ -9,7 +9,7 @@
 #define stf_core_devicedriver_DistributionPolicy_h
 
 #include "../../datatype/DCM.h"
-#include "../../Macros.h"
+#include "../../util/Macros.h"
 
 namespace stf {
 namespace core {

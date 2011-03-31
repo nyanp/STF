@@ -55,7 +55,7 @@ using datatype::TypeConverter;
 using namespace stf::core::datapool;
 
 #include <iostream>
-
+#include <list>
 int main(void){
 	util::Trace::enable(util::Trace::kManager);
 	util::Trace::enable(util::Trace::kControlBlock);
@@ -90,6 +90,13 @@ int main(void){
 	v[1] = -0.2;
 	s.attachNoiseSource(new stf::core::environment::torquesource::ImpulseNoise(3, v, 0, 3000,&s));
     s.attachNoiseSource(new stf::core::environment::torquesource::WhiteNoise(0.01, 0));
+
+	datatype::List<core::manager::ManagerBase>::iterator it,end;
+	end	= gl3->get_function_manager()->end();
+
+	for(it = gl3->get_function_manager()->begin(); it != end; ++it){
+		(*it).run();
+	}
 
 	//実行タスクの追加
 

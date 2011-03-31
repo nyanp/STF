@@ -84,7 +84,7 @@ public:
 	virtual bool end(){ if(index_ == SIZE) return true; return false;}
 	virtual void operator ++() { index_ ++; }
 	virtual double operator()() { 
-		stf_assert(index_ < 4);
+		stf_assert(index_ < SIZE);
 		switch(index_){
 		case 0:
 			return t_->dates();

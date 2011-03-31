@@ -23,7 +23,7 @@
 #include "../../datatype/TypeConverter.h"
 #include "../../datatype/StaticVector.h"
 #include "../datapool/Datapool.h"
-#include "../../Macros.h"
+#include "../../util/Macros.h"
 
 namespace stf {
 namespace core {
@@ -61,6 +61,8 @@ public:
 protected:
 	bool is_on_;
 	Env* environment_;
+	//virtual void component_on() = 0;
+	//virtual void compoent_off() = 0;
 	//! コンポーネント座標系から機体座標系へのDCM．
 	/*! 計算負荷の都合から，通常の取り付け行列の逆行列となっている．value_b_ = set_angle_ * value_ */
     datatype::DCM set_angle_;

@@ -1,6 +1,6 @@
 /**
  * @file   PRISMGlobal.h
- * @brief  
+ * @brief  PRISMのオブジェクト群を保持するクラス．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -40,29 +40,45 @@ template <class Env> class PRISMFactory;
 
 template <class Env>
 struct PRISMGlobal : public Global<Env>{
-
+	//! 衛星のOBC時刻を取得
 	virtual const datatype::Time get_global_time(){
 		return this->pr_clock->get_time();
 	}
+
+	//! 衛星のRTC時刻を取得
 	virtual const datatype::DateTime get_global_datetime(){
 		return this->pr_clock->get_datetime();
 	}
+
+	//! 衛星の質量特性モデルを取得
 	virtual const datatype::SatelliteModel get_satellitemodel() const{
 		return this->prism_body_;
 	}
+
+	//! Aocsデータプールのハンドラを取得．
 	virtual const core::datapool::AocsDataPool* get_datapool() const {
 		return this->pr_aocsdatapool;
 	}
+
+	//! Eventデータプールのハンドラを取得．
 	virtual const core::datapool::EventDataPool* get_eventdatapool() const {
 		return this->pr_eventdatapool;
 	}
 
+	/////////////////////////////////////////////////////
+	// Mass Model
+	/////////////////////////////////////////////////////
 	datatype::SatelliteModel prism_body_;
-	//Data Pool
+
+	/////////////////////////////////////////////////////
+	// Data Pool
+	/////////////////////////////////////////////////////
 	datapool::AocsDataPool* pr_aocsdatapool;
 	datapool::EventDataPool* pr_eventdatapool;
 
-	//Mode
+	/////////////////////////////////////////////////////
+	// Mode
+	/////////////////////////////////////////////////////
 	mode::ModeBase* pr_safemode;
 	mode::ModeBase* pr_dpmode;
 	mode::ModeBase* pr_dsmode;
@@ -70,7 +86,9 @@ struct PRISMGlobal : public Global<Env>{
 	mode::ModeBase* pr_amode;
 	mode::ModeBase* pr_resetmode;
 
-	//Manager
+	/////////////////////////////////////////////////////
+	// Manager
+	/////////////////////////////////////////////////////
 	manager::ModeManager* pr_modeman;
 	manager::UnitManager* pr_uniman1; // 10Hz, 通常のセンサ，アクチュエータ
 	manager::UnitManager* pr_uniman2; // 25Hz, AD変換
@@ -82,11 +100,16 @@ struct PRISMGlobal : public Global<Env>{
 	manager::CommandManager* pr_commman;
 	manager::PRISMCustomManager<Env>* pr_customman;
 
-	//Control Strategy
+	/////////////////////////////////////////////////////
+	// Strategy
+	/////////////////////////////////////////////////////
 	core::strategy::control::IControlStrategy* pr_controlstrategy;
 	core::strategy::telemetry::PRISMTelemetryStrategy<1000>* pr_tmstrategy;
 	core::strategy::telemetry::PRISMTelemetryStrategy<1000>* pr_aocstmstrategy;
 
+	/////////////////////////////////////////////////////
+	// Device Driver
+	/////////////////////////////////////////////////////
 	//MTQ
 	devicedriver::mtq::PRISMMTQ<Env>* pr_mtqx;
 	devicedriver::mtq::PRISMMTQ<Env>* pr_mtqy;
@@ -124,13 +147,19 @@ struct PRISMGlobal : public Global<Env>{
 	// Command / Telemetry Handler 
 	devicedriver::cmhandler::PRISMCommandReceiver<Env>* pr_commandreceiver;
 	devicedriver::tmhandler::PRISMTelemetryHandler<Env>* pr_tmhandler;
+
+	/////////////////////////////////////////////////////
+	// Iterator
+	/////////////////////////////////////////////////////
 	// CDH/AOCSのステータスとテレメをダウンリンクするためのイテレータ
 	interface::PRISMTelemetryIterator<100, 1>* pr_statusiterator;
 	interface::PRISMTelemetryIterator<100, 4>* pr_telemetryiterator;
 	interface::PRISMTelemetryIterator<100, 1>* pr_aocsstatusiterator;
 	interface::PRISMTelemetryIterator<100, 4>* pr_aocstelemetryiterator;
 
+	/////////////////////////////////////////////////////
 	// Command-Prototypes
+	/////////////////////////////////////////////////////
 	// CDH
 	command::Command* pr_c_alv;//生存信号
 	command::Command* pr_c_hta;//ヒーター有効
@@ -156,9 +185,8 @@ struct PRISMGlobal : public Global<Env>{
 	command::Command* pr_c_hdt;//電池ヒーター状態設定
 	// ADCS
 	command::Command* pr_c_aen0;//AOCS系有効
-	command::Command* pr_c_aen1;//
+	command::Command* pr_c_aen1;//AOCS系無効
 	command::Command* pr_c_ams;//AOCSモード変更
-	//command::Command* pr_c_amS;//AOCSモードヘンコウ
 	command::Command* pr_c_amG;//AOCSモード取得
 	command::Command* pr_c_atw;//AOCSテレメトリの有効・無効
 	command::Command* pr_c_atg;//AOCSテレメトリ取得
@@ -173,8 +201,5 @@ struct PRISMGlobal : public Global<Env>{
 };
 
 } /* End of namespace stf */
-
-
-
 
 #endif // satellite_prism_PRISMGlobal_h

@@ -66,7 +66,6 @@ void PRISMFactory<Env>::create_mode(){
 	this->global_->pr_dpmode = new core::mode::ModeBase(ID_SAFEMODE, "PRISM_MISSIONMODE");
 	this->global_->pr_dsmode = new core::mode::ModeBase(ID_SAFEMODE, "PRISM_SAFEMODE");
 	this->global_->pr_resetmode = new core::mode::ModeBase(ID_SAFEMODE, "PRISM_RESETMODE");
-	//this->global_->pr_safemode->add_list((core::devicedriver::IDataUpdatable*)(this->global_->pr_gyro));
 }
 
 
@@ -302,8 +301,9 @@ void PRISMFactory<Env>::create_controller(){
 
 	this->global_->pr_c_amG = new command::IteratorStreamCommand<1>(t_init, new interface::PRISMControlBlockIterator(PRISM_CONTROLLER));
 
-	//TBD:pr_c_aps
-	//TBD:pr_c_apg
+	///////////////////////////////////////////////////
+	// 制御則をモードに登録
+	this->global_->pr_amode->add_list(PRISM_CONTROLLER);
 }
 
 template<class Env>
@@ -406,6 +406,21 @@ template<class Env>
 void PRISMFactory<Env>::create_telemetry(){
 	this->global_->pr_tmstrategy = new core::strategy::telemetry::PRISMTelemetryStrategy<1000>(0, this->global_->pr_tmhandler, this->global_->pr_aocsdatapool, this->global_->pr_eventdatapool, this->global_->pr_clock);
 	this->global_->pr_aocstmstrategy = new core::strategy::telemetry::PRISMTelemetryStrategy<1000>(0, this->global_->pr_tmhandler, this->global_->pr_aocsdatapool, this->global_->pr_eventdatapool, this->global_->pr_clock);
+	///////////////////////////////////////////////////
+	// テレメトリストラテジをモードに登録
+	this->global_->pr_safemode->add_list(this->global_->pr_tmstrategy);
+	this->global_->pr_dpmode->add_list(this->global_->pr_tmstrategy);
+	this->global_->pr_dsmode->add_list(this->global_->pr_tmstrategy);
+	this->global_->pr_dmode->add_list(this->global_->pr_tmstrategy);
+	this->global_->pr_amode->add_list(this->global_->pr_tmstrategy);
+	this->global_->pr_resetmode->add_list(this->global_->pr_tmstrategy);
+
+	this->global_->pr_safemode->add_list(this->global_->pr_aocstmstrategy);
+	this->global_->pr_dpmode->add_list(this->global_->pr_aocstmstrategy);
+	this->global_->pr_dsmode->add_list(this->global_->pr_aocstmstrategy);
+	this->global_->pr_dmode->add_list(this->global_->pr_aocstmstrategy);
+	this->global_->pr_amode->add_list(this->global_->pr_aocstmstrategy);
+	this->global_->pr_resetmode->add_list(this->global_->pr_aocstmstrategy);
 }
 
 template<class Env>
@@ -490,10 +505,8 @@ void PRISMFactory<Env>::create_functor(){
 	this->global_->pr_resetmode->add_list(timerfunc);
 
 	//EventDataPoolのAnomaryEventが一定数溜まったらSafeModeに移行するファンクタ
-	//core::datapool::AocsDataPool& pool = Global<Env>::get_datapool();
 
 	//撮影予約時刻に到達したらDPModeに移行するファンクタ
-
 
 	//撮影完了したらDSModeに移行するファンクタ
 
@@ -508,8 +521,6 @@ void PRISMFactory<Env>::create_additional_hotspot(){
 
 template<class Env>
 void PRISMFactory<Env>::create_datapool(){
-
-
 	this->global_->pr_mtqx->connect(global_->pr_aocsdatapool, 10, "PR_MTQ1");
 	this->global_->pr_mtqy->connect(global_->pr_aocsdatapool, 10, "PR_MTQ2");
 	this->global_->pr_mtqz->connect(global_->pr_aocsdatapool, 10, "PR_MTQ3");
@@ -522,16 +533,12 @@ void PRISMFactory<Env>::create_datapool(){
 
 	this->global_->pr_ss->connect(global_->pr_aocsdatapool, 20, "PR_SS");
 
-	this->global_->pr_tam->connect(global_->pr_aocsdatapool, 20, "PR_TAM");
-	
+	this->global_->pr_tam->connect(global_->pr_aocsdatapool, 20, "PR_TAM");	
 }
 
 
 } /* End of namespace stf::core::factory */
 } /* End of namespace stf::core */ 
 } /* End of namespace stf */
-
-
-
 
 #endif // factory_PRISMFactory_h

@@ -8,7 +8,7 @@
 #ifndef stf_core_functor_InputFunctor_h
 #define stf_core_functor_InputFunctor_h
 
-#include "../../Macros.h"
+#include "../../util/Macros.h"
 #include "../../RootObject.h"
 #include "../datapool/Datapool.h"
 

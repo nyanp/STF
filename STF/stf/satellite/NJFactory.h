@@ -1,6 +1,6 @@
 /**
  * @file   NJFactory.h
- * @brief  
+ * @brief  Nano-JASMINEのオブジェクトを生成するファクトリ．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -426,6 +426,20 @@ void NJFactory<Env>::create_controller(){
 	this->global_->nj_telemetrystrategy->add_tmlist(new interface::NJEKFIterator<1000>(ccdm_ekf));
 	this->global_->nj_telemetrystrategy->add_tmlist(new interface::NJRMMEKFIterator<1000>(ccdm_rmmekf));
 	this->global_->nj_telemetrystrategy->add_tmlist(new interface::NJSunMagTRIADIterator<1000>(ctrm_triad));
+
+	///////////////////////////////////////////////////
+	// 制御則をモードに登録
+	this->global_->nj_sfem->add_list(NJ_CONTROLLER_SFEM);
+	this->global_->nj_inim->add_list(NJ_CONTROLLER_INIM);
+	this->global_->nj_ctrm->add_list(NJ_CONTROLLER_CTRM);
+	this->global_->nj_ccdm->add_list(NJ_CONTROLLER_CCDM);
+	this->global_->nj_mism->add_list(NJ_CONTROLLER_MISM);
+	this->global_->nj_rwum->add_list(NJ_CONTROLLER_RWUM);
+	this->global_->nj_stbm->add_list(NJ_CONTROLLER_STBM);
+	this->global_->nj_estm_fog->add_list(NJ_CONTROLLER_ESTM_FOG);
+	this->global_->nj_estm_rmm->add_list(NJ_CONTROLLER_ESTM_RMM);
+	this->global_->nj_estm_rw->add_list(NJ_CONTROLLER_ESTM_RW);
+	this->global_->nj_estm_mc->add_list(NJ_CONTROLLER_ESTM_MC);
 }
 
 template<class Env>
@@ -441,6 +455,19 @@ void NJFactory<Env>::create_telemetry(){
 	//ADCの取得値を全チャネルテレメトリに追加
 	this->global_->nj_telemetrystrategy->add_tmlist(new interface::CDHComponentIterator<datatype::Voltage,NJ__ADC__CHANNELS, Env>(this->global_->nj_adc));
 
+	///////////////////////////////////////////////////
+	// テレメトリストラテジをモードに登録
+	this->global_->nj_sfem->add_list(this->global_->nj_telemetrystrategy);
+	this->global_->nj_inim->add_list(this->global_->nj_telemetrystrategy);
+	this->global_->nj_ctrm->add_list(this->global_->nj_telemetrystrategy);
+	this->global_->nj_ccdm->add_list(this->global_->nj_telemetrystrategy);
+	this->global_->nj_mism->add_list(this->global_->nj_telemetrystrategy);
+	this->global_->nj_rwum->add_list(this->global_->nj_telemetrystrategy);
+	this->global_->nj_stbm->add_list(this->global_->nj_telemetrystrategy);
+	this->global_->nj_estm_rmm->add_list(this->global_->nj_telemetrystrategy);
+	this->global_->nj_estm_rw->add_list(this->global_->nj_telemetrystrategy);
+	this->global_->nj_estm_fog->add_list(this->global_->nj_telemetrystrategy);
+	this->global_->nj_estm_mc->add_list(this->global_->nj_telemetrystrategy);
 }
 
 template<class Env>

@@ -4,6 +4,7 @@
  *
  * @author Taiga Nomi
  * @date   2011.02.16
+ * @todo   CreateIndexの実装
  */
 #ifndef stf_core_strategy_telemetry_SelectingOutput_h
 #define stf_core_strategy_telemetry_SelectingOutput_h
@@ -104,7 +105,14 @@ double SelectingOutput<T, SCALE>::operator()(){
 template<class T, int SCALE>
 void SelectingOutput<T, SCALE>::write_to_telemetry(){
 	(*this->storage_) << this->clock_->get_time().total_milliseconds();
-	//TBD
+
+	datatype::List<interface::Iterator>::iterator it = this->tmlist_.begin();
+	while(it != tmlist_.end()){
+		while(!(*it).end()){
+			(*this->storage_) << (*it)();
+		}
+	}
+
 	this->storage_->endl();	
 }
 

@@ -344,7 +344,7 @@
     <ClInclude Include="stf\GlobalObject.h" />
     <ClInclude Include="stf\InstanceID.h" />
     <ClInclude Include="stf\interface\Iterator.h" />
-    <ClInclude Include="stf\Macros.h" />
+    <ClInclude Include="stf\util\Macros.h" />
     <ClInclude Include="stf\RootObject.h" />
     <ClInclude Include="stf\satellite\NJFactory.h" />
     <ClInclude Include="stf\satellite\nj\NJADC.h" />

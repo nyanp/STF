@@ -9,7 +9,7 @@
 #define stf_core_command_Command_h
 
 #include "../../RootObject.h"
-#include "../../Macros.h"
+#include "../../util/Macros.h"
 #include "../../datatype/Time.h"
 
 namespace stf {

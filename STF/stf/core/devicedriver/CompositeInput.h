@@ -76,11 +76,12 @@ class CompositeInput : public AOCSSensor<typename Leaf::Target, typename Leaf::T
 public:
 	STF_STATIC_ASSERT( Numbers <= 255, CHILD_NUMBER_OVERFLOW );
 
+	typedef AOCSSensor<typename Leaf::Target, typename Leaf::Target, typename Leaf::Environment> Base;
 	typedef Leaf Child;
 	enum { UseAlignmentForAggregation = UseAlignment, NumberOfChilds = Numbers };
 
 	CompositeInput(int instance_id, const datatype::DCM& dcm)
-		: AOCSSensor<typename Leaf::Target, typename Leaf::Target, typename Leaf::Environment>(instance_id, "Composite", dcm), index_(0)
+		: Base(instance_id, "Composite", dcm), index_(0)
 	{
 		for(int i = 0; i < Numbers; i++) childs_[index_] = 0;
 	}

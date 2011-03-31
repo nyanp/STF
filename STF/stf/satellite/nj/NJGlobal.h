@@ -1,6 +1,6 @@
 /**
  * @file   NJGlobal.h
- * @brief  
+ * @brief  Nano-JASMINEのオブジェクト群を保持するクラス．
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -42,19 +42,27 @@ namespace stf {
 
 template <class Env>
 struct NJGlobal : public Global<Env>{
-
+	//! 衛星のOBC時刻を取得
 	virtual const datatype::Time get_global_time(){
 		return this->nj_rtc->get_time();
 	}
+
+	//! 衛星のRTC時刻を取得
 	virtual const datatype::DateTime get_global_datetime(){
 		return this->nj_gps->get_datetime();
 	}
+
+	//! 衛星の質量特性モデルを取得
 	virtual const datatype::SatelliteModel get_satellitemodel() const{
 		return this->nj_body_;
 	}
+
+	//! Aocsデータプールのハンドラを取得．
 	virtual const core::datapool::AocsDataPool* get_datapool() const {
 		return this->nj_aocsdatapool;
 	}
+
+	//! Eventデータプールのハンドラを取得．
 	virtual const core::datapool::EventDataPool* get_eventdatapool() const {
 		return this->nj_eventdatapool;
 	}
@@ -78,17 +86,21 @@ struct NJGlobal : public Global<Env>{
 	typedef devicedriver::magnetometer::NJCoarseTAM<Env> ST4;
 	typedef devicedriver::magnetometer::NJFineTAM<Env> ST5;
 
+	/////////////////////////////////////////////////////
+	// Mass Model
+	/////////////////////////////////////////////////////
 	datatype::SatelliteModel nj_body_;
 
-	//Data Pool
+	/////////////////////////////////////////////////////
+	// Data Pool
+	/////////////////////////////////////////////////////
 	datapool::AocsDataPool* nj_aocsdatapool;
 	datapool::EventDataPool* nj_eventdatapool;
 
-	//Clock Device
-	RTC* nj_rtc;
-	GPS* nj_gps;
 
-	//Mode
+	/////////////////////////////////////////////////////
+	// Mode
+	/////////////////////////////////////////////////////
 	mode::ModeBase* nj_sfem;
 	mode::ModeBase* nj_stbm;
 	mode::ModeBase* nj_inim;
@@ -115,6 +127,10 @@ struct NJGlobal : public Global<Env>{
 
 	//Telemetry Strategy
 	core::strategy::telemetry::SelectingOutput<unsigned int, 1000>* nj_telemetrystrategy;
+
+	//Clock Device
+	RTC* nj_rtc;
+	GPS* nj_gps;
 
 	//MTQ
 	MTQ* nj_mtqx;
@@ -186,8 +202,5 @@ struct NJGlobal : public Global<Env>{
 };
 
 } /* End of namespace stf */
-
-
-
 
 #endif // satellite_prism_NJGlobal_h

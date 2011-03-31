@@ -59,11 +59,11 @@ class CompositeOutput : public AOCSActuator<typename Leaf::Target, typename Leaf
 public:
 	STF_STATIC_ASSERT( Numbers <= 255 , CHILD_NUMBER_OVERFLOW );
 
+	typedef AOCSActuator<typename Leaf::Target, typename Leaf::Target, typename Leaf::Environment> Base;
 	typedef Leaf Child;
 	enum { UseAlignmentForDistribution = UseAlignment, NumberOfChilds = Numbers };
 
-	CompositeOutput(int instance_id, const datatype::DCM& dcm)
-		: AOCSActuator<typename Leaf::Target, typename Leaf::Target, typename Leaf::Environment>(instance_id, "Composite", dcm), index_(0)
+	CompositeOutput(int instance_id, const datatype::DCM& dcm) : Base(instance_id, "Composite", dcm), index_(0)
 	{
 		for(int i = 0; i < Numbers; i++) childs_[index_] = 0;
 	}
