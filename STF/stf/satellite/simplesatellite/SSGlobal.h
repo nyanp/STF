@@ -80,7 +80,7 @@ struct SSGlobal : public Global<Env>{
 
 	//Reaction Wheel
 	typedef devicedriver::rw::RW<Env> RW;
-	typedef devicedriver::CompositeOutput<RW, 4> SkewRW;
+	typedef devicedriver::CompositeOutput<RW, 4, true> SkewRW;
 
 	RW* ss_rw1;
 	RW* ss_rw2;

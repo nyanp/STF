@@ -71,7 +71,7 @@ void SimpleSatelliteFactory<Env>::create_component(){
 	typedef devicedriver::gyro::Gyro<Env> GYRO;
 	typedef devicedriver::CompositeInput<GYRO, 3> ThreeAxisGyro;
 	typedef devicedriver::rw::RW<Env> RW;
-	typedef devicedriver::CompositeOutput<RW, 4> SkewRW;
+	typedef devicedriver::CompositeOutput<RW, 4, true> SkewRW;
 	typedef stf::core::devicedriver::clock::DummyClock<Env, 100> Clock;
 	typedef devicedriver::cmhandler::DummyCommandReceiver CmHandler;
 	typedef devicedriver::tmhandler::DebugLogger TmHandler;

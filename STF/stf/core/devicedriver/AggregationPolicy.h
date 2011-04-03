@@ -113,26 +113,26 @@ public:
 
 template<class To, class From, int Numbers, bool UseAlignment>
 struct AggregationSelector {
-typedef NScalarAggregation<To,Numbers> Result;
+STF_STATIC_ASSERT(0, AGGREGATION_POLICY_MISMATCH);
 };
 
 template<int Numbers, class ToAndFrom>
-struct AggregationSelector<ToAndFrom, ToAndFrom,Numbers, false> {
+struct AggregationSelector<ToAndFrom, ToAndFrom, Numbers, false> {
 typedef AverageAggregation<ToAndFrom, Numbers> Result;
 };
 
 template<int Numbers, class ToAndFrom>
-struct AggregationSelector<ToAndFrom, ToAndFrom,Numbers, true> {
+struct AggregationSelector<ToAndFrom, ToAndFrom, Numbers, true> {
 typedef VectorDCMAggregation<ToAndFrom, Numbers> Result;
 };
 
 template<class To, int Numbers>
-struct AggregationSelector<To, datatype::Scalar,Numbers, false> {
+struct AggregationSelector<To, datatype::Scalar, Numbers, false> {
 typedef NScalarAggregation<To,Numbers> Result;
 };
 
 template<class To, int Numbers>
-struct AggregationSelector<To, datatype::Scalar,Numbers, true> {
+struct AggregationSelector<To, datatype::Scalar, Numbers, true> {
 typedef ScalarDCMAggregation<To,Numbers> Result;
 };
 

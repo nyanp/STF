@@ -72,7 +72,7 @@ struct NJGlobal : public Global<Env>{
 	typedef devicedriver::mtq::NJMC<Env> MC;
 	typedef devicedriver::CompositeOutput<MC, 3> ThreeAxisMC;
 	typedef devicedriver::rw::NJRW<Env> RW;
-	typedef devicedriver::CompositeOutput<RW, 4> SkewRW;
+	typedef devicedriver::CompositeOutput<RW, 4, true> SkewRW;
 	typedef devicedriver::stt::NJSTT<Env> STT;
 	typedef devicedriver::CompositeInput<STT, 2> TwoAxisSTT;
 	typedef devicedriver::sunsensor::NJSunSensor<Env> Sunsensor;

@@ -91,7 +91,7 @@ void CompositeOutput<Leaf, Numbers, UseAlignment, DistributionPolicy>::append_ch
 template <class Leaf, int Numbers, bool UseAlignment, class DistributionPolicy>
 void CompositeOutput<Leaf, Numbers, UseAlignment, DistributionPolicy>::do_update(){
 	if(this->datapool_ != 0){
-		this->datapool_->set<CompositeOutput<Leaf, Numbers> >(datapool_hold_index_, this->output_);//
+		this->datapool_->set<CompositeOutput<Leaf, Numbers, UseAlignment, DistributionPolicy> >(datapool_hold_index_, this->output_);//
 	}
 
 	distribute(this, childs_); //Policy Class Method

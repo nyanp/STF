@@ -43,10 +43,38 @@ private:
 	datatype::StaticMatrix<N, 3> output_mat_;//トルク分配行列
 };
 
+//! 各要素をそのまま子の指令値とする分配ポリシー．
+template<class From, int N>
+class NScalarDistribution {
+public:
+	MUST_BE_DERIVED_FROM( From, datatype::StaticVector<N> );
+
+	template<class Parent, class Child>
+	void setup(Parent* parent, Child (&child)[N]){}
+
+	template<class Parent, class Child>
+	void distribute(Parent* parent, Child (&child)[N]){
+		From value = parent->get_torque();
+		for(int i = 0; i < N; i++){
+			child[i]->set_torque(value[i]);
+		}
+	}
+};
+
 
 template<class To, class From, int Numbers, bool UseAlignment>
 struct DistributionSelector {
-typedef ScalarDCMDistribution<From,Numbers> Result;
+STF_STATIC_ASSERT(0, AGGREGATION_POLICY_MISMATCH);
+};
+
+template<class From, int Numbers>
+struct DistributionSelector<datatype::Scalar, From, Numbers, true> {
+typedef ScalarDCMDistribution<From, Numbers> Result;
+};
+
+template<class From, int Numbers>
+struct DistributionSelector<datatype::Scalar, From, Numbers, false> {
+typedef NScalarDistribution<From, Numbers> Result;
 };
 
 } /* End of namespace stf::core::component */
