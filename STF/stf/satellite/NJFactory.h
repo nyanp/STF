@@ -252,7 +252,7 @@ void NJFactory<Env>::create_controller(){
 	// セーフモード用の姿勢制御ブロック
 	// 姿勢決定:なし
 	// 姿勢制御:なし
-	this->global_->nj_sfem->add_list(NJ_CONTROLLER_SFEM);
+	this->global_->nj_sfem->add_list<core::strategy::control::IControlStrategy>(NJ_CONTROLLER_SFEM);
 
 	/////////////////////////////////////
 	// スタンバイモード用の姿勢制御ブロック
@@ -264,7 +264,7 @@ void NJFactory<Env>::create_controller(){
 	stbm_pointing->connect_source<1>(this->global_->nj_ss);
 
 	NJ_CONTROLLER_STBM->set_actuator(this->global_->nj_mtq, stbm_pointing);
-	this->global_->nj_stbm->add_list(NJ_CONTROLLER_STBM);
+	this->global_->nj_stbm->add_list<core::strategy::control::IControlStrategy>(NJ_CONTROLLER_STBM);
 
 	//////////////////////////////////////
     // 初期安定化モード用の姿勢制御ブロック
@@ -279,7 +279,7 @@ void NJFactory<Env>::create_controller(){
 	inim_crossproduct->connect_source<1>(this->global_->nj_st4);
 
 	NJ_CONTROLLER_INIM->set_actuator(this->global_->nj_mtq, inim_crossproduct);
-	this->global_->nj_inim->add_list(NJ_CONTROLLER_INIM);
+	this->global_->nj_inim->add_list<core::strategy::control::IControlStrategy>(NJ_CONTROLLER_INIM);
 
 	//////////////////////////////////////
     // 粗姿勢制御モード用の姿勢制御ブロック
@@ -304,7 +304,7 @@ void NJFactory<Env>::create_controller(){
 	ctrm_triad->connect_source<2>(this->global_->nj_gps);
 
 	NJ_CONTROLLER_CTRM->set_actuator(this->global_->nj_mtq, ctrm_crossproduct);
-	this->global_->nj_ctrm->add_list(NJ_CONTROLLER_CTRM);
+	this->global_->nj_ctrm->add_list<core::strategy::control::IControlStrategy>(NJ_CONTROLLER_CTRM);
 
 	//////////////////////////////////////
 	//精姿勢制御モード用の姿勢制御ブロック
@@ -336,7 +336,7 @@ void NJFactory<Env>::create_controller(){
 	//推定された残留磁気モーメントの補償成分は磁気キャンセラへ出力
 	NJ_CONTROLLER_CCDM->set_actuator(this->global_->nj_mc, ccdm_rmmcomp);
 
-	this->global_->nj_ccdm->add_list(NJ_CONTROLLER_CCDM);
+	this->global_->nj_ccdm->add_list<core::strategy::control::IControlStrategy>(NJ_CONTROLLER_CCDM);
 
 	////////////////////////////////////
 	//観測モード用の姿勢制御ブロック．星像EKFやスピン軸の長期制御を除いて精制御モードの制御ブロックを引き継ぐ
@@ -390,7 +390,7 @@ void NJFactory<Env>::create_controller(){
 	estmrmm_pid->connect_source<2>(estmrmm_q);
 
 	NJ_CONTROLLER_ESTM_RMM->set_actuator(this->global_->nj_rw, estmrmm_pid);
-	this->global_->nj_estm_rmm->add_list(NJ_CONTROLLER_ESTM_RMM);
+	this->global_->nj_estm_rmm->add_list<core::strategy::control::IControlStrategy>(NJ_CONTROLLER_ESTM_RMM);
 
 	/////////////////////////////////////
 	// FOG推定用の姿勢制御ブロック
@@ -399,7 +399,7 @@ void NJFactory<Env>::create_controller(){
 	PID* estmfog_pid = new PID(0, 0.1, 0.01, 0.01, STEPTIME);
 
 	NJ_CONTROLLER_ESTM_FOG->set_actuator(this->global_->nj_rw, estmfog_pid);
-	this->global_->nj_estm_fog->add_list(NJ_CONTROLLER_ESTM_FOG);
+	this->global_->nj_estm_fog->add_list<core::strategy::control::IControlStrategy>(NJ_CONTROLLER_ESTM_FOG);
 
 	/////////////////////////////////////
 	// MC推定用の姿勢制御ブロック
@@ -408,7 +408,7 @@ void NJFactory<Env>::create_controller(){
 	MC_CONSTANT* estmmc = new MC_CONSTANT(0, this->global_->nj_rtc, t);
 
 	NJ_CONTROLLER_ESTM_MC->set_actuator(this->global_->nj_mc, estmmc);
-	this->global_->nj_estm_mc->add_list(NJ_CONTROLLER_ESTM_MC);
+	this->global_->nj_estm_mc->add_list<core::strategy::control::IControlStrategy>(NJ_CONTROLLER_ESTM_MC);
 
 	/////////////////////////////////////
 	// RW推定用の姿勢制御ブロック
@@ -417,7 +417,7 @@ void NJFactory<Env>::create_controller(){
 	RW_CONSTANT* estmrw = new RW_CONSTANT(0, this->global_->nj_rtc, t);
 
 	//NJ_CONTROLLER_ESTM_RW->set_actuator(this->global_->nj_rw1, &estmrw->outputport<0, datatype::StaticVector<3>>());
-	this->global_->nj_estm_rw->add_list(NJ_CONTROLLER_ESTM_RW);
+	this->global_->nj_estm_rw->add_list<core::strategy::control::IControlStrategy>(NJ_CONTROLLER_ESTM_RW);
 
 	///////////////////////////////////////////////////
 	// 制御ブロックへのアクセスが必要な初期化処理
@@ -429,17 +429,17 @@ void NJFactory<Env>::create_controller(){
 
 	///////////////////////////////////////////////////
 	// 制御則をモードに登録
-	this->global_->nj_sfem->add_list(NJ_CONTROLLER_SFEM);
-	this->global_->nj_inim->add_list(NJ_CONTROLLER_INIM);
-	this->global_->nj_ctrm->add_list(NJ_CONTROLLER_CTRM);
-	this->global_->nj_ccdm->add_list(NJ_CONTROLLER_CCDM);
-	this->global_->nj_mism->add_list(NJ_CONTROLLER_MISM);
-	this->global_->nj_rwum->add_list(NJ_CONTROLLER_RWUM);
-	this->global_->nj_stbm->add_list(NJ_CONTROLLER_STBM);
-	this->global_->nj_estm_fog->add_list(NJ_CONTROLLER_ESTM_FOG);
-	this->global_->nj_estm_rmm->add_list(NJ_CONTROLLER_ESTM_RMM);
-	this->global_->nj_estm_rw->add_list(NJ_CONTROLLER_ESTM_RW);
-	this->global_->nj_estm_mc->add_list(NJ_CONTROLLER_ESTM_MC);
+	this->global_->nj_sfem->add_list<core::strategy::control::IControlStrategy>(NJ_CONTROLLER_SFEM);
+	this->global_->nj_inim->add_list<core::strategy::control::IControlStrategy>(NJ_CONTROLLER_INIM);
+	this->global_->nj_ctrm->add_list<core::strategy::control::IControlStrategy>(NJ_CONTROLLER_CTRM);
+	this->global_->nj_ccdm->add_list<core::strategy::control::IControlStrategy>(NJ_CONTROLLER_CCDM);
+	this->global_->nj_mism->add_list<core::strategy::control::IControlStrategy>(NJ_CONTROLLER_MISM);
+	this->global_->nj_rwum->add_list<core::strategy::control::IControlStrategy>(NJ_CONTROLLER_RWUM);
+	this->global_->nj_stbm->add_list<core::strategy::control::IControlStrategy>(NJ_CONTROLLER_STBM);
+	this->global_->nj_estm_fog->add_list<core::strategy::control::IControlStrategy>(NJ_CONTROLLER_ESTM_FOG);
+	this->global_->nj_estm_rmm->add_list<core::strategy::control::IControlStrategy>(NJ_CONTROLLER_ESTM_RMM);
+	this->global_->nj_estm_rw->add_list<core::strategy::control::IControlStrategy>(NJ_CONTROLLER_ESTM_RW);
+	this->global_->nj_estm_mc->add_list<core::strategy::control::IControlStrategy>(NJ_CONTROLLER_ESTM_MC);
 }
 
 template<class Env>
@@ -457,17 +457,17 @@ void NJFactory<Env>::create_telemetry(){
 
 	///////////////////////////////////////////////////
 	// テレメトリストラテジをモードに登録
-	this->global_->nj_sfem->add_list(this->global_->nj_telemetrystrategy);
-	this->global_->nj_inim->add_list(this->global_->nj_telemetrystrategy);
-	this->global_->nj_ctrm->add_list(this->global_->nj_telemetrystrategy);
-	this->global_->nj_ccdm->add_list(this->global_->nj_telemetrystrategy);
-	this->global_->nj_mism->add_list(this->global_->nj_telemetrystrategy);
-	this->global_->nj_rwum->add_list(this->global_->nj_telemetrystrategy);
-	this->global_->nj_stbm->add_list(this->global_->nj_telemetrystrategy);
-	this->global_->nj_estm_rmm->add_list(this->global_->nj_telemetrystrategy);
-	this->global_->nj_estm_rw->add_list(this->global_->nj_telemetrystrategy);
-	this->global_->nj_estm_fog->add_list(this->global_->nj_telemetrystrategy);
-	this->global_->nj_estm_mc->add_list(this->global_->nj_telemetrystrategy);
+	this->global_->nj_sfem->add_list<core::strategy::telemetry::ITelemetryStrategy>(this->global_->nj_telemetrystrategy);
+	this->global_->nj_inim->add_list<core::strategy::telemetry::ITelemetryStrategy>(this->global_->nj_telemetrystrategy);
+	this->global_->nj_ctrm->add_list<core::strategy::telemetry::ITelemetryStrategy>(this->global_->nj_telemetrystrategy);
+	this->global_->nj_ccdm->add_list<core::strategy::telemetry::ITelemetryStrategy>(this->global_->nj_telemetrystrategy);
+	this->global_->nj_mism->add_list<core::strategy::telemetry::ITelemetryStrategy>(this->global_->nj_telemetrystrategy);
+	this->global_->nj_rwum->add_list<core::strategy::telemetry::ITelemetryStrategy>(this->global_->nj_telemetrystrategy);
+	this->global_->nj_stbm->add_list<core::strategy::telemetry::ITelemetryStrategy>(this->global_->nj_telemetrystrategy);
+	this->global_->nj_estm_rmm->add_list<core::strategy::telemetry::ITelemetryStrategy>(this->global_->nj_telemetrystrategy);
+	this->global_->nj_estm_rw->add_list<core::strategy::telemetry::ITelemetryStrategy>(this->global_->nj_telemetrystrategy);
+	this->global_->nj_estm_fog->add_list<core::strategy::telemetry::ITelemetryStrategy>(this->global_->nj_telemetrystrategy);
+	this->global_->nj_estm_mc->add_list<core::strategy::telemetry::ITelemetryStrategy>(this->global_->nj_telemetrystrategy);
 }
 
 template<class Env>
@@ -486,16 +486,16 @@ void NJFactory<Env>::create_dataupdates(){
 
 	datatype::List<core::devicedriver::IDataUpdatable>::iterator it = defaultUpdateList.begin();
 	while(it != defaultUpdateList.end()){
-		this->global_->nj_sfem->add_list(&(*it));
-		this->global_->nj_stbm->add_list(&(*it));
-		this->global_->nj_ctrm->add_list(&(*it));
-		this->global_->nj_ccdm->add_list(&(*it));
-		this->global_->nj_mism->add_list(&(*it));
-		this->global_->nj_rwum->add_list(&(*it));
-		this->global_->nj_estm_fog->add_list(&(*it));
-		this->global_->nj_estm_rmm->add_list(&(*it));
-		this->global_->nj_estm_rw->add_list(&(*it));
-		this->global_->nj_estm_mc->add_list(&(*it));
+		this->global_->nj_sfem->add_list<core::devicedriver::IDataUpdatable>(&(*it));
+		this->global_->nj_stbm->add_list<core::devicedriver::IDataUpdatable>(&(*it));
+		this->global_->nj_ctrm->add_list<core::devicedriver::IDataUpdatable>(&(*it));
+		this->global_->nj_ccdm->add_list<core::devicedriver::IDataUpdatable>(&(*it));
+		this->global_->nj_mism->add_list<core::devicedriver::IDataUpdatable>(&(*it));
+		this->global_->nj_rwum->add_list<core::devicedriver::IDataUpdatable>(&(*it));
+		this->global_->nj_estm_fog->add_list<core::devicedriver::IDataUpdatable>(&(*it));
+		this->global_->nj_estm_rmm->add_list<core::devicedriver::IDataUpdatable>(&(*it));
+		this->global_->nj_estm_rw->add_list<core::devicedriver::IDataUpdatable>(&(*it));
+		this->global_->nj_estm_mc->add_list<core::devicedriver::IDataUpdatable>(&(*it));
 		++it;
 	}
 	//以下各モード固有のコンポーネント群
@@ -503,76 +503,76 @@ void NJFactory<Env>::create_dataupdates(){
 	//Safe Mode ->defaultのみ
 
 	//Standby Mode
-	this->global_->nj_stbm->add_list((core::devicedriver::IDataUpdatable*)(this->global_->nj_ss));
-	this->global_->nj_stbm->add_list((core::devicedriver::IDataUpdatable*)(this->global_->nj_gyro));
-	this->global_->nj_stbm->add_list((core::devicedriver::IDataUpdatable*)(this->global_->nj_st4));
-	this->global_->nj_stbm->add_list((core::devicedriver::IDataUpdatable*)(this->global_->nj_gps));
+	this->global_->nj_stbm->add_list<core::devicedriver::IDataUpdatable>((core::devicedriver::IDataUpdatable*)(this->global_->nj_ss));
+	this->global_->nj_stbm->add_list<core::devicedriver::IDataUpdatable>((core::devicedriver::IDataUpdatable*)(this->global_->nj_gyro));
+	this->global_->nj_stbm->add_list<core::devicedriver::IDataUpdatable>((core::devicedriver::IDataUpdatable*)(this->global_->nj_st4));
+	this->global_->nj_stbm->add_list<core::devicedriver::IDataUpdatable>((core::devicedriver::IDataUpdatable*)(this->global_->nj_gps));
 
 	//Coarse Control Mode
-	this->global_->nj_ctrm->add_list((core::devicedriver::IDataUpdatable*)(this->global_->nj_ss));
-	this->global_->nj_ctrm->add_list((core::devicedriver::IDataUpdatable*)(this->global_->nj_gyro));
-	this->global_->nj_ctrm->add_list((core::devicedriver::IDataUpdatable*)(this->global_->nj_st4));
-	this->global_->nj_ctrm->add_list((core::devicedriver::IDataUpdatable*)(this->global_->nj_gps));
-	this->global_->nj_ctrm->add_list((core::devicedriver::IDataUpdatable*)(this->global_->nj_mtq));
+	this->global_->nj_ctrm->add_list<core::devicedriver::IDataUpdatable>((core::devicedriver::IDataUpdatable*)(this->global_->nj_ss));
+	this->global_->nj_ctrm->add_list<core::devicedriver::IDataUpdatable>((core::devicedriver::IDataUpdatable*)(this->global_->nj_gyro));
+	this->global_->nj_ctrm->add_list<core::devicedriver::IDataUpdatable>((core::devicedriver::IDataUpdatable*)(this->global_->nj_st4));
+	this->global_->nj_ctrm->add_list<core::devicedriver::IDataUpdatable>((core::devicedriver::IDataUpdatable*)(this->global_->nj_gps));
+	this->global_->nj_ctrm->add_list<core::devicedriver::IDataUpdatable>((core::devicedriver::IDataUpdatable*)(this->global_->nj_mtq));
 
 	//Fine Control Mode
-	this->global_->nj_ccdm->add_list((core::devicedriver::IDataUpdatable*)(this->global_->nj_stt));
-	this->global_->nj_ccdm->add_list((core::devicedriver::IDataUpdatable*)(this->global_->nj_rw));
-	this->global_->nj_ccdm->add_list((core::devicedriver::IDataUpdatable*)(this->global_->nj_fog));
-	this->global_->nj_ccdm->add_list((core::devicedriver::IDataUpdatable*)(this->global_->nj_st5));
-	this->global_->nj_ccdm->add_list((core::devicedriver::IDataUpdatable*)(this->global_->nj_gps));
-	this->global_->nj_ccdm->add_list((core::devicedriver::IDataUpdatable*)(this->global_->nj_mc));
-	this->global_->nj_ccdm->add_list((core::devicedriver::IDataUpdatable*)(this->global_->nj_tdi));
+	this->global_->nj_ccdm->add_list<core::devicedriver::IDataUpdatable>((core::devicedriver::IDataUpdatable*)(this->global_->nj_stt));
+	this->global_->nj_ccdm->add_list<core::devicedriver::IDataUpdatable>((core::devicedriver::IDataUpdatable*)(this->global_->nj_rw));
+	this->global_->nj_ccdm->add_list<core::devicedriver::IDataUpdatable>((core::devicedriver::IDataUpdatable*)(this->global_->nj_fog));
+	this->global_->nj_ccdm->add_list<core::devicedriver::IDataUpdatable>((core::devicedriver::IDataUpdatable*)(this->global_->nj_st5));
+	this->global_->nj_ccdm->add_list<core::devicedriver::IDataUpdatable>((core::devicedriver::IDataUpdatable*)(this->global_->nj_gps));
+	this->global_->nj_ccdm->add_list<core::devicedriver::IDataUpdatable>((core::devicedriver::IDataUpdatable*)(this->global_->nj_mc));
+	this->global_->nj_ccdm->add_list<core::devicedriver::IDataUpdatable>((core::devicedriver::IDataUpdatable*)(this->global_->nj_tdi));
 
 	//Mission Mode
-	this->global_->nj_mism->add_list((core::devicedriver::IDataUpdatable*)(this->global_->nj_stt));
-	this->global_->nj_mism->add_list((core::devicedriver::IDataUpdatable*)(this->global_->nj_rw));
-	this->global_->nj_mism->add_list((core::devicedriver::IDataUpdatable*)(this->global_->nj_fog));
-	this->global_->nj_mism->add_list((core::devicedriver::IDataUpdatable*)(this->global_->nj_st5));
-	this->global_->nj_mism->add_list((core::devicedriver::IDataUpdatable*)(this->global_->nj_gps));
-	this->global_->nj_mism->add_list((core::devicedriver::IDataUpdatable*)(this->global_->nj_mc));
-	this->global_->nj_mism->add_list((core::devicedriver::IDataUpdatable*)(this->global_->nj_tdi));
+	this->global_->nj_mism->add_list<core::devicedriver::IDataUpdatable>((core::devicedriver::IDataUpdatable*)(this->global_->nj_stt));
+	this->global_->nj_mism->add_list<core::devicedriver::IDataUpdatable>((core::devicedriver::IDataUpdatable*)(this->global_->nj_rw));
+	this->global_->nj_mism->add_list<core::devicedriver::IDataUpdatable>((core::devicedriver::IDataUpdatable*)(this->global_->nj_fog));
+	this->global_->nj_mism->add_list<core::devicedriver::IDataUpdatable>((core::devicedriver::IDataUpdatable*)(this->global_->nj_st5));
+	this->global_->nj_mism->add_list<core::devicedriver::IDataUpdatable>((core::devicedriver::IDataUpdatable*)(this->global_->nj_gps));
+	this->global_->nj_mism->add_list<core::devicedriver::IDataUpdatable>((core::devicedriver::IDataUpdatable*)(this->global_->nj_mc));
+	this->global_->nj_mism->add_list<core::devicedriver::IDataUpdatable>((core::devicedriver::IDataUpdatable*)(this->global_->nj_tdi));
 
 	//Unloading Mode
-	this->global_->nj_rwum->add_list((core::devicedriver::IDataUpdatable*)(this->global_->nj_stt));
-	this->global_->nj_rwum->add_list((core::devicedriver::IDataUpdatable*)(this->global_->nj_rw));
-	this->global_->nj_rwum->add_list((core::devicedriver::IDataUpdatable*)(this->global_->nj_fog));
-	this->global_->nj_rwum->add_list((core::devicedriver::IDataUpdatable*)(this->global_->nj_st4));
-	this->global_->nj_rwum->add_list((core::devicedriver::IDataUpdatable*)(this->global_->nj_gps));
-	this->global_->nj_rwum->add_list((core::devicedriver::IDataUpdatable*)(this->global_->nj_mc));
-	this->global_->nj_rwum->add_list((core::devicedriver::IDataUpdatable*)(this->global_->nj_mtq));
+	this->global_->nj_rwum->add_list<core::devicedriver::IDataUpdatable>((core::devicedriver::IDataUpdatable*)(this->global_->nj_stt));
+	this->global_->nj_rwum->add_list<core::devicedriver::IDataUpdatable>((core::devicedriver::IDataUpdatable*)(this->global_->nj_rw));
+	this->global_->nj_rwum->add_list<core::devicedriver::IDataUpdatable>((core::devicedriver::IDataUpdatable*)(this->global_->nj_fog));
+	this->global_->nj_rwum->add_list<core::devicedriver::IDataUpdatable>((core::devicedriver::IDataUpdatable*)(this->global_->nj_st4));
+	this->global_->nj_rwum->add_list<core::devicedriver::IDataUpdatable>((core::devicedriver::IDataUpdatable*)(this->global_->nj_gps));
+	this->global_->nj_rwum->add_list<core::devicedriver::IDataUpdatable>((core::devicedriver::IDataUpdatable*)(this->global_->nj_mc));
+	this->global_->nj_rwum->add_list<core::devicedriver::IDataUpdatable>((core::devicedriver::IDataUpdatable*)(this->global_->nj_mtq));
 
 	//Estimation Mode - RMM
-	this->global_->nj_estm_rmm->add_list((core::devicedriver::IDataUpdatable*)(this->global_->nj_fog));
-	this->global_->nj_estm_rmm->add_list((core::devicedriver::IDataUpdatable*)(this->global_->nj_stt));
-	this->global_->nj_estm_rmm->add_list((core::devicedriver::IDataUpdatable*)(this->global_->nj_mc));
-	this->global_->nj_estm_rmm->add_list((core::devicedriver::IDataUpdatable*)(this->global_->nj_st5));
-	this->global_->nj_estm_rmm->add_list((core::devicedriver::IDataUpdatable*)(this->global_->nj_gps));
+	this->global_->nj_estm_rmm->add_list<core::devicedriver::IDataUpdatable>((core::devicedriver::IDataUpdatable*)(this->global_->nj_fog));
+	this->global_->nj_estm_rmm->add_list<core::devicedriver::IDataUpdatable>((core::devicedriver::IDataUpdatable*)(this->global_->nj_stt));
+	this->global_->nj_estm_rmm->add_list<core::devicedriver::IDataUpdatable>((core::devicedriver::IDataUpdatable*)(this->global_->nj_mc));
+	this->global_->nj_estm_rmm->add_list<core::devicedriver::IDataUpdatable>((core::devicedriver::IDataUpdatable*)(this->global_->nj_st5));
+	this->global_->nj_estm_rmm->add_list<core::devicedriver::IDataUpdatable>((core::devicedriver::IDataUpdatable*)(this->global_->nj_gps));
 
 	//Estimation Mode - FOG
-	this->global_->nj_estm_fog->add_list((core::devicedriver::IDataUpdatable*)(this->global_->nj_fog));
-	this->global_->nj_estm_fog->add_list((core::devicedriver::IDataUpdatable*)(this->global_->nj_stt));
-	this->global_->nj_estm_fog->add_list((core::devicedriver::IDataUpdatable*)(this->global_->nj_mc));
-	this->global_->nj_estm_fog->add_list((core::devicedriver::IDataUpdatable*)(this->global_->nj_rw));
-	this->global_->nj_estm_fog->add_list((core::devicedriver::IDataUpdatable*)(this->global_->nj_st5));
-	this->global_->nj_estm_fog->add_list((core::devicedriver::IDataUpdatable*)(this->global_->nj_gps));
-	this->global_->nj_estm_fog->add_list((core::devicedriver::IDataUpdatable*)(this->global_->nj_mtq));
+	this->global_->nj_estm_fog->add_list<core::devicedriver::IDataUpdatable>((core::devicedriver::IDataUpdatable*)(this->global_->nj_fog));
+	this->global_->nj_estm_fog->add_list<core::devicedriver::IDataUpdatable>((core::devicedriver::IDataUpdatable*)(this->global_->nj_stt));
+	this->global_->nj_estm_fog->add_list<core::devicedriver::IDataUpdatable>((core::devicedriver::IDataUpdatable*)(this->global_->nj_mc));
+	this->global_->nj_estm_fog->add_list<core::devicedriver::IDataUpdatable>((core::devicedriver::IDataUpdatable*)(this->global_->nj_rw));
+	this->global_->nj_estm_fog->add_list<core::devicedriver::IDataUpdatable>((core::devicedriver::IDataUpdatable*)(this->global_->nj_st5));
+	this->global_->nj_estm_fog->add_list<core::devicedriver::IDataUpdatable>((core::devicedriver::IDataUpdatable*)(this->global_->nj_gps));
+	this->global_->nj_estm_fog->add_list<core::devicedriver::IDataUpdatable>((core::devicedriver::IDataUpdatable*)(this->global_->nj_mtq));
 
 	//Estimation Mode - MC
-	this->global_->nj_estm_mc->add_list((core::devicedriver::IDataUpdatable*)(this->global_->nj_fog));
-	this->global_->nj_estm_mc->add_list((core::devicedriver::IDataUpdatable*)(this->global_->nj_stt));
-	this->global_->nj_estm_mc->add_list((core::devicedriver::IDataUpdatable*)(this->global_->nj_mc));
-	this->global_->nj_estm_mc->add_list((core::devicedriver::IDataUpdatable*)(this->global_->nj_rw));
-	this->global_->nj_estm_mc->add_list((core::devicedriver::IDataUpdatable*)(this->global_->nj_st5));
-	this->global_->nj_estm_mc->add_list((core::devicedriver::IDataUpdatable*)(this->global_->nj_gps));
+	this->global_->nj_estm_mc->add_list<core::devicedriver::IDataUpdatable>((core::devicedriver::IDataUpdatable*)(this->global_->nj_fog));
+	this->global_->nj_estm_mc->add_list<core::devicedriver::IDataUpdatable>((core::devicedriver::IDataUpdatable*)(this->global_->nj_stt));
+	this->global_->nj_estm_mc->add_list<core::devicedriver::IDataUpdatable>((core::devicedriver::IDataUpdatable*)(this->global_->nj_mc));
+	this->global_->nj_estm_mc->add_list<core::devicedriver::IDataUpdatable>((core::devicedriver::IDataUpdatable*)(this->global_->nj_rw));
+	this->global_->nj_estm_mc->add_list<core::devicedriver::IDataUpdatable>((core::devicedriver::IDataUpdatable*)(this->global_->nj_st5));
+	this->global_->nj_estm_mc->add_list<core::devicedriver::IDataUpdatable>((core::devicedriver::IDataUpdatable*)(this->global_->nj_gps));
 
 	//Estimation Mode - RW
-	this->global_->nj_estm_rw->add_list((core::devicedriver::IDataUpdatable*)(this->global_->nj_fog));
-	this->global_->nj_estm_rw->add_list((core::devicedriver::IDataUpdatable*)(this->global_->nj_stt));
-	this->global_->nj_estm_rw->add_list((core::devicedriver::IDataUpdatable*)(this->global_->nj_mc));
-	this->global_->nj_estm_rw->add_list((core::devicedriver::IDataUpdatable*)(this->global_->nj_rw));
-	this->global_->nj_estm_rw->add_list((core::devicedriver::IDataUpdatable*)(this->global_->nj_st5));
-	this->global_->nj_estm_rw->add_list((core::devicedriver::IDataUpdatable*)(this->global_->nj_gps));
+	this->global_->nj_estm_rw->add_list<core::devicedriver::IDataUpdatable>((core::devicedriver::IDataUpdatable*)(this->global_->nj_fog));
+	this->global_->nj_estm_rw->add_list<core::devicedriver::IDataUpdatable>((core::devicedriver::IDataUpdatable*)(this->global_->nj_stt));
+	this->global_->nj_estm_rw->add_list<core::devicedriver::IDataUpdatable>((core::devicedriver::IDataUpdatable*)(this->global_->nj_mc));
+	this->global_->nj_estm_rw->add_list<core::devicedriver::IDataUpdatable>((core::devicedriver::IDataUpdatable*)(this->global_->nj_rw));
+	this->global_->nj_estm_rw->add_list<core::devicedriver::IDataUpdatable>((core::devicedriver::IDataUpdatable*)(this->global_->nj_st5));
+	this->global_->nj_estm_rw->add_list<core::devicedriver::IDataUpdatable>((core::devicedriver::IDataUpdatable*)(this->global_->nj_gps));
 
 }
 
@@ -592,16 +592,16 @@ void NJFactory<Env>::create_switches(){
 
 	datatype::List<core::devicedriver::ISwitchable>::iterator it = defaultSwitchList.begin();
 	while(it != defaultSwitchList.end()){
-		this->global_->nj_sfem->add_list(&(*it));
-		this->global_->nj_stbm->add_list(&(*it));
-		this->global_->nj_ctrm->add_list(&(*it));
-		this->global_->nj_ccdm->add_list(&(*it));
-		this->global_->nj_mism->add_list(&(*it));
-		this->global_->nj_rwum->add_list(&(*it));
-		this->global_->nj_estm_fog->add_list(&(*it));
-		this->global_->nj_estm_rmm->add_list(&(*it));
-		this->global_->nj_estm_rw->add_list(&(*it));
-		this->global_->nj_estm_mc->add_list(&(*it));
+		this->global_->nj_sfem->add_list<core::devicedriver::ISwitchable>(&(*it));
+		this->global_->nj_stbm->add_list<core::devicedriver::ISwitchable>(&(*it));
+		this->global_->nj_ctrm->add_list<core::devicedriver::ISwitchable>(&(*it));
+		this->global_->nj_ccdm->add_list<core::devicedriver::ISwitchable>(&(*it));
+		this->global_->nj_mism->add_list<core::devicedriver::ISwitchable>(&(*it));
+		this->global_->nj_rwum->add_list<core::devicedriver::ISwitchable>(&(*it));
+		this->global_->nj_estm_fog->add_list<core::devicedriver::ISwitchable>(&(*it));
+		this->global_->nj_estm_rmm->add_list<core::devicedriver::ISwitchable>(&(*it));
+		this->global_->nj_estm_rw->add_list<core::devicedriver::ISwitchable>(&(*it));
+		this->global_->nj_estm_mc->add_list<core::devicedriver::ISwitchable>(&(*it));
 		++it;
 	}
 	//以下各モード固有のコンポーネント群
@@ -609,76 +609,76 @@ void NJFactory<Env>::create_switches(){
 	//Safe Mode ->defaultのみ
 
 	//Standby Mode
-	this->global_->nj_stbm->add_list((core::devicedriver::ISwitchable*)(this->global_->nj_ss));
-	this->global_->nj_stbm->add_list((core::devicedriver::ISwitchable*)(this->global_->nj_gyro));
-	this->global_->nj_stbm->add_list((core::devicedriver::ISwitchable*)(this->global_->nj_st4));
-	this->global_->nj_stbm->add_list((core::devicedriver::ISwitchable*)(this->global_->nj_gps));
+	this->global_->nj_stbm->add_list<core::devicedriver::ISwitchable>((core::devicedriver::ISwitchable*)(this->global_->nj_ss));
+	this->global_->nj_stbm->add_list<core::devicedriver::ISwitchable>((core::devicedriver::ISwitchable*)(this->global_->nj_gyro));
+	this->global_->nj_stbm->add_list<core::devicedriver::ISwitchable>((core::devicedriver::ISwitchable*)(this->global_->nj_st4));
+	this->global_->nj_stbm->add_list<core::devicedriver::ISwitchable>((core::devicedriver::ISwitchable*)(this->global_->nj_gps));
 
 	//Coarse Control Mode
-	this->global_->nj_ctrm->add_list((core::devicedriver::ISwitchable*)(this->global_->nj_ss));
-	this->global_->nj_ctrm->add_list((core::devicedriver::ISwitchable*)(this->global_->nj_gyro));
-	this->global_->nj_ctrm->add_list((core::devicedriver::ISwitchable*)(this->global_->nj_st4));
-	this->global_->nj_ctrm->add_list((core::devicedriver::ISwitchable*)(this->global_->nj_gps));
-	this->global_->nj_ctrm->add_list((core::devicedriver::ISwitchable*)(this->global_->nj_mtq));
+	this->global_->nj_ctrm->add_list<core::devicedriver::ISwitchable>((core::devicedriver::ISwitchable*)(this->global_->nj_ss));
+	this->global_->nj_ctrm->add_list<core::devicedriver::ISwitchable>((core::devicedriver::ISwitchable*)(this->global_->nj_gyro));
+	this->global_->nj_ctrm->add_list<core::devicedriver::ISwitchable>((core::devicedriver::ISwitchable*)(this->global_->nj_st4));
+	this->global_->nj_ctrm->add_list<core::devicedriver::ISwitchable>((core::devicedriver::ISwitchable*)(this->global_->nj_gps));
+	this->global_->nj_ctrm->add_list<core::devicedriver::ISwitchable>((core::devicedriver::ISwitchable*)(this->global_->nj_mtq));
 
 	//Fine Control Mode
-	this->global_->nj_ccdm->add_list((core::devicedriver::ISwitchable*)(this->global_->nj_stt));
-	this->global_->nj_ccdm->add_list((core::devicedriver::ISwitchable*)(this->global_->nj_rw));
-	this->global_->nj_ccdm->add_list((core::devicedriver::ISwitchable*)(this->global_->nj_fog));
-	this->global_->nj_ccdm->add_list((core::devicedriver::ISwitchable*)(this->global_->nj_st5));
-	this->global_->nj_ccdm->add_list((core::devicedriver::ISwitchable*)(this->global_->nj_gps));
-	this->global_->nj_ccdm->add_list((core::devicedriver::ISwitchable*)(this->global_->nj_mc));
-	this->global_->nj_ccdm->add_list((core::devicedriver::ISwitchable*)(this->global_->nj_tdi));
+	this->global_->nj_ccdm->add_list<core::devicedriver::ISwitchable>((core::devicedriver::ISwitchable*)(this->global_->nj_stt));
+	this->global_->nj_ccdm->add_list<core::devicedriver::ISwitchable>((core::devicedriver::ISwitchable*)(this->global_->nj_rw));
+	this->global_->nj_ccdm->add_list<core::devicedriver::ISwitchable>((core::devicedriver::ISwitchable*)(this->global_->nj_fog));
+	this->global_->nj_ccdm->add_list<core::devicedriver::ISwitchable>((core::devicedriver::ISwitchable*)(this->global_->nj_st5));
+	this->global_->nj_ccdm->add_list<core::devicedriver::ISwitchable>((core::devicedriver::ISwitchable*)(this->global_->nj_gps));
+	this->global_->nj_ccdm->add_list<core::devicedriver::ISwitchable>((core::devicedriver::ISwitchable*)(this->global_->nj_mc));
+	this->global_->nj_ccdm->add_list<core::devicedriver::ISwitchable>((core::devicedriver::ISwitchable*)(this->global_->nj_tdi));
 
 	//Mission Mode
-	this->global_->nj_mism->add_list((core::devicedriver::ISwitchable*)(this->global_->nj_stt));
-	this->global_->nj_mism->add_list((core::devicedriver::ISwitchable*)(this->global_->nj_rw));
-	this->global_->nj_mism->add_list((core::devicedriver::ISwitchable*)(this->global_->nj_fog));
-	this->global_->nj_mism->add_list((core::devicedriver::ISwitchable*)(this->global_->nj_st5));
-	this->global_->nj_mism->add_list((core::devicedriver::ISwitchable*)(this->global_->nj_gps));
-	this->global_->nj_mism->add_list((core::devicedriver::ISwitchable*)(this->global_->nj_mc));
-	this->global_->nj_mism->add_list((core::devicedriver::ISwitchable*)(this->global_->nj_tdi));
+	this->global_->nj_mism->add_list<core::devicedriver::ISwitchable>((core::devicedriver::ISwitchable*)(this->global_->nj_stt));
+	this->global_->nj_mism->add_list<core::devicedriver::ISwitchable>((core::devicedriver::ISwitchable*)(this->global_->nj_rw));
+	this->global_->nj_mism->add_list<core::devicedriver::ISwitchable>((core::devicedriver::ISwitchable*)(this->global_->nj_fog));
+	this->global_->nj_mism->add_list<core::devicedriver::ISwitchable>((core::devicedriver::ISwitchable*)(this->global_->nj_st5));
+	this->global_->nj_mism->add_list<core::devicedriver::ISwitchable>((core::devicedriver::ISwitchable*)(this->global_->nj_gps));
+	this->global_->nj_mism->add_list<core::devicedriver::ISwitchable>((core::devicedriver::ISwitchable*)(this->global_->nj_mc));
+	this->global_->nj_mism->add_list<core::devicedriver::ISwitchable>((core::devicedriver::ISwitchable*)(this->global_->nj_tdi));
 
 	//Unloading Mode
-	this->global_->nj_rwum->add_list((core::devicedriver::ISwitchable*)(this->global_->nj_stt));
-	this->global_->nj_rwum->add_list((core::devicedriver::ISwitchable*)(this->global_->nj_rw));
-	this->global_->nj_rwum->add_list((core::devicedriver::ISwitchable*)(this->global_->nj_fog));
-	this->global_->nj_rwum->add_list((core::devicedriver::ISwitchable*)(this->global_->nj_st4));
-	this->global_->nj_rwum->add_list((core::devicedriver::ISwitchable*)(this->global_->nj_gps));
-	this->global_->nj_rwum->add_list((core::devicedriver::ISwitchable*)(this->global_->nj_mc));
-	this->global_->nj_rwum->add_list((core::devicedriver::ISwitchable*)(this->global_->nj_mtq));
+	this->global_->nj_rwum->add_list<core::devicedriver::ISwitchable>((core::devicedriver::ISwitchable*)(this->global_->nj_stt));
+	this->global_->nj_rwum->add_list<core::devicedriver::ISwitchable>((core::devicedriver::ISwitchable*)(this->global_->nj_rw));
+	this->global_->nj_rwum->add_list<core::devicedriver::ISwitchable>((core::devicedriver::ISwitchable*)(this->global_->nj_fog));
+	this->global_->nj_rwum->add_list<core::devicedriver::ISwitchable>((core::devicedriver::ISwitchable*)(this->global_->nj_st4));
+	this->global_->nj_rwum->add_list<core::devicedriver::ISwitchable>((core::devicedriver::ISwitchable*)(this->global_->nj_gps));
+	this->global_->nj_rwum->add_list<core::devicedriver::ISwitchable>((core::devicedriver::ISwitchable*)(this->global_->nj_mc));
+	this->global_->nj_rwum->add_list<core::devicedriver::ISwitchable>((core::devicedriver::ISwitchable*)(this->global_->nj_mtq));
 
 	//Estimation Mode - RMM
-	this->global_->nj_estm_rmm->add_list((core::devicedriver::ISwitchable*)(this->global_->nj_fog));
-	this->global_->nj_estm_rmm->add_list((core::devicedriver::ISwitchable*)(this->global_->nj_stt));
-	this->global_->nj_estm_rmm->add_list((core::devicedriver::ISwitchable*)(this->global_->nj_mc));
-	this->global_->nj_estm_rmm->add_list((core::devicedriver::ISwitchable*)(this->global_->nj_st5));
-	this->global_->nj_estm_rmm->add_list((core::devicedriver::ISwitchable*)(this->global_->nj_gps));
+	this->global_->nj_estm_rmm->add_list<core::devicedriver::ISwitchable>((core::devicedriver::ISwitchable*)(this->global_->nj_fog));
+	this->global_->nj_estm_rmm->add_list<core::devicedriver::ISwitchable>((core::devicedriver::ISwitchable*)(this->global_->nj_stt));
+	this->global_->nj_estm_rmm->add_list<core::devicedriver::ISwitchable>((core::devicedriver::ISwitchable*)(this->global_->nj_mc));
+	this->global_->nj_estm_rmm->add_list<core::devicedriver::ISwitchable>((core::devicedriver::ISwitchable*)(this->global_->nj_st5));
+	this->global_->nj_estm_rmm->add_list<core::devicedriver::ISwitchable>((core::devicedriver::ISwitchable*)(this->global_->nj_gps));
 
 	//Estimation Mode - FOG
-	this->global_->nj_estm_fog->add_list((core::devicedriver::ISwitchable*)(this->global_->nj_fog));
-	this->global_->nj_estm_fog->add_list((core::devicedriver::ISwitchable*)(this->global_->nj_stt));
-	this->global_->nj_estm_fog->add_list((core::devicedriver::ISwitchable*)(this->global_->nj_mc));
-	this->global_->nj_estm_fog->add_list((core::devicedriver::ISwitchable*)(this->global_->nj_rw));
-	this->global_->nj_estm_fog->add_list((core::devicedriver::ISwitchable*)(this->global_->nj_st5));
-	this->global_->nj_estm_fog->add_list((core::devicedriver::ISwitchable*)(this->global_->nj_gps));
-	this->global_->nj_estm_fog->add_list((core::devicedriver::ISwitchable*)(this->global_->nj_mtq));
+	this->global_->nj_estm_fog->add_list<core::devicedriver::ISwitchable>((core::devicedriver::ISwitchable*)(this->global_->nj_fog));
+	this->global_->nj_estm_fog->add_list<core::devicedriver::ISwitchable>((core::devicedriver::ISwitchable*)(this->global_->nj_stt));
+	this->global_->nj_estm_fog->add_list<core::devicedriver::ISwitchable>((core::devicedriver::ISwitchable*)(this->global_->nj_mc));
+	this->global_->nj_estm_fog->add_list<core::devicedriver::ISwitchable>((core::devicedriver::ISwitchable*)(this->global_->nj_rw));
+	this->global_->nj_estm_fog->add_list<core::devicedriver::ISwitchable>((core::devicedriver::ISwitchable*)(this->global_->nj_st5));
+	this->global_->nj_estm_fog->add_list<core::devicedriver::ISwitchable>((core::devicedriver::ISwitchable*)(this->global_->nj_gps));
+	this->global_->nj_estm_fog->add_list<core::devicedriver::ISwitchable>((core::devicedriver::ISwitchable*)(this->global_->nj_mtq));
 
 	//Estimation Mode - MC
-	this->global_->nj_estm_mc->add_list((core::devicedriver::ISwitchable*)(this->global_->nj_fog));
-	this->global_->nj_estm_mc->add_list((core::devicedriver::ISwitchable*)(this->global_->nj_stt));
-	this->global_->nj_estm_mc->add_list((core::devicedriver::ISwitchable*)(this->global_->nj_mc));
-	this->global_->nj_estm_mc->add_list((core::devicedriver::ISwitchable*)(this->global_->nj_rw));
-	this->global_->nj_estm_mc->add_list((core::devicedriver::ISwitchable*)(this->global_->nj_st5));
-	this->global_->nj_estm_mc->add_list((core::devicedriver::ISwitchable*)(this->global_->nj_gps));
+	this->global_->nj_estm_mc->add_list<core::devicedriver::ISwitchable>((core::devicedriver::ISwitchable*)(this->global_->nj_fog));
+	this->global_->nj_estm_mc->add_list<core::devicedriver::ISwitchable>((core::devicedriver::ISwitchable*)(this->global_->nj_stt));
+	this->global_->nj_estm_mc->add_list<core::devicedriver::ISwitchable>((core::devicedriver::ISwitchable*)(this->global_->nj_mc));
+	this->global_->nj_estm_mc->add_list<core::devicedriver::ISwitchable>((core::devicedriver::ISwitchable*)(this->global_->nj_rw));
+	this->global_->nj_estm_mc->add_list<core::devicedriver::ISwitchable>((core::devicedriver::ISwitchable*)(this->global_->nj_st5));
+	this->global_->nj_estm_mc->add_list<core::devicedriver::ISwitchable>((core::devicedriver::ISwitchable*)(this->global_->nj_gps));
 
 	//Estimation Mode - RW
-	this->global_->nj_estm_rw->add_list((core::devicedriver::ISwitchable*)(this->global_->nj_fog));
-	this->global_->nj_estm_rw->add_list((core::devicedriver::ISwitchable*)(this->global_->nj_stt));
-	this->global_->nj_estm_rw->add_list((core::devicedriver::ISwitchable*)(this->global_->nj_mc));
-	this->global_->nj_estm_rw->add_list((core::devicedriver::ISwitchable*)(this->global_->nj_rw));
-	this->global_->nj_estm_rw->add_list((core::devicedriver::ISwitchable*)(this->global_->nj_st5));
-	this->global_->nj_estm_rw->add_list((core::devicedriver::ISwitchable*)(this->global_->nj_gps));
+	this->global_->nj_estm_rw->add_list<core::devicedriver::ISwitchable>((core::devicedriver::ISwitchable*)(this->global_->nj_fog));
+	this->global_->nj_estm_rw->add_list<core::devicedriver::ISwitchable>((core::devicedriver::ISwitchable*)(this->global_->nj_stt));
+	this->global_->nj_estm_rw->add_list<core::devicedriver::ISwitchable>((core::devicedriver::ISwitchable*)(this->global_->nj_mc));
+	this->global_->nj_estm_rw->add_list<core::devicedriver::ISwitchable>((core::devicedriver::ISwitchable*)(this->global_->nj_rw));
+	this->global_->nj_estm_rw->add_list<core::devicedriver::ISwitchable>((core::devicedriver::ISwitchable*)(this->global_->nj_st5));
+	this->global_->nj_estm_rw->add_list<core::devicedriver::ISwitchable>((core::devicedriver::ISwitchable*)(this->global_->nj_gps));
 
 }
 
@@ -688,7 +688,7 @@ void NJFactory<Env>::create_functor(){
 	// モード変更関係のファンクタ
 	
 	//MEMSジャイロの値が0.001rad/s以下になったら初期安定化モード→粗姿勢制御モードへ
-	this->global_->nj_inim->add_list(
+	this->global_->nj_inim->add_list<functor::IFunctor>(
 		new functor::Functor<functor::Is_Under<datatype::StaticVector<3>>, functor::ModeChangeFunc>
 			(
 			new functor::Is_Under<datatype::StaticVector<3>>(this->global_->nj_aocsdatapool, this->global_->nj_gyro->get_datapoolKey(), 0.001),
@@ -697,7 +697,7 @@ void NJFactory<Env>::create_functor(){
 		);
 
 	//MEMSジャイロの値が0.002rad/s以上になったら粗姿勢制御モード→初期安定化モードへ
-	this->global_->nj_ctrm->add_list(
+	this->global_->nj_ctrm->add_list<functor::IFunctor>(
 		new functor::Functor<functor::Is_Over<datatype::StaticVector<3>>, functor::ModeChangeFunc>
 			(
 			new functor::Is_Over<datatype::StaticVector<3>>(this->global_->nj_aocsdatapool, this->global_->nj_gyro->get_datapoolKey(), 0.002),
@@ -706,7 +706,7 @@ void NJFactory<Env>::create_functor(){
 		);
 
 	//FOGの値が0.0001rad/s以下になったら粗姿勢制御モード→精姿勢制御モードへ
-	this->global_->nj_ctrm->add_list(
+	this->global_->nj_ctrm->add_list<functor::IFunctor>(
 		new functor::Functor<functor::Is_Under<datatype::StaticVector<3>>, functor::ModeChangeFunc>
 			(
 			new functor::Is_Under<datatype::StaticVector<3>>(this->global_->nj_aocsdatapool, this->global_->nj_fog->get_datapoolKey(), 0.0001),
@@ -715,7 +715,7 @@ void NJFactory<Env>::create_functor(){
 		);
 
 	//FOGの値が0.0002rad/s以上になったら精姿勢制御モード→粗姿勢制御モードへ
-	this->global_->nj_ccdm->add_list(
+	this->global_->nj_ccdm->add_list<functor::IFunctor>(
 		new functor::Functor<functor::Is_Over<datatype::StaticVector<3>>, functor::ModeChangeFunc>
 			(
 			new functor::Is_Over<datatype::StaticVector<3>>(this->global_->nj_aocsdatapool, this->global_->nj_fog->get_datapoolKey(), 0.0002),
@@ -724,7 +724,7 @@ void NJFactory<Env>::create_functor(){
 		);
 
 	//FOGの値が0.00001rad/s以下になったら精姿勢制御モード→観測モードへ
-	this->global_->nj_ctrm->add_list(
+	this->global_->nj_ctrm->add_list<functor::IFunctor>(
 		new functor::Functor<functor::Is_Under<datatype::StaticVector<3>>, functor::ModeChangeFunc>
 			(
 			new functor::Is_Under<datatype::StaticVector<3>>(this->global_->nj_aocsdatapool, this->global_->nj_fog->get_datapoolKey(), 0.00001),
@@ -733,7 +733,7 @@ void NJFactory<Env>::create_functor(){
 		);
 
 	//FOGの値が0.00002rad/s以上になったら観測モード→精姿勢制御モードへ
-	this->global_->nj_ccdm->add_list(
+	this->global_->nj_ccdm->add_list<functor::IFunctor>(
 		new functor::Functor<functor::Is_Over<datatype::StaticVector<3>>, functor::ModeChangeFunc>
 			(
 			new functor::Is_Over<datatype::StaticVector<3>>(this->global_->nj_aocsdatapool, this->global_->nj_fog->get_datapoolKey(), 0.00002),

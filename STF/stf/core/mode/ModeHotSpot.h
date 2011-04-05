@@ -46,9 +46,11 @@ public:
 	virtual const datatype::List<T>* get_list(Loki::Type2Type<T>) const{ 
 		return &value_;
 	};
-	virtual void add_list_(T& value) {
+
+	void add_list_(T& value) {
 		this->value_.push_back(value);
 	}
+
 	datatype::List<T> value_;
 };
 
@@ -66,36 +68,14 @@ struct StrategyHolder :
 	core::strategy::telemetry::ITelemetryStrategy,
 	core::strategy::control::IControlStrategy), HotSpotList>
 {
-	void add_list(devicedriver::ISwitchable* value){
-		(static_cast<HotSpotList<devicedriver::ISwitchable>& >(*this).add_list_(*value));
-	}
-	void add_list(devicedriver::IDataUpdatable* value){
-		(static_cast<HotSpotList<devicedriver::IDataUpdatable>& >(*this).add_list_(*value));
-	}
-	void add_list(stf::core::functor::IFunctor* value){
-		(static_cast<HotSpotList<stf::core::functor::IFunctor>& >(*this).add_list_(*value));
-	}
-	void add_list(stf::core::strategy::control::IControlStrategy* value){
-		(static_cast<HotSpotList<stf::core::strategy::control::IControlStrategy>& >(*this).add_list_(*value));
-	}
-	void add_list(stf::core::strategy::telemetry::ITelemetryStrategy* value){
-		(static_cast<HotSpotList<stf::core::strategy::telemetry::ITelemetryStrategy>& >(*this).add_list_(*value));
+	template<class T>
+	void add_list(T* value){
+		(static_cast<HotSpotList<T>& >(*this).add_list_(*value));
 	}
 
-	virtual const datatype::List<devicedriver::ISwitchable>* get_list(Loki::Type2Type<devicedriver::ISwitchable>) const{
-		return &(static_cast<const HotSpotList<stf::core::devicedriver::ISwitchable>& >(*this).value_);
-	}
-	virtual const datatype::List<devicedriver::IDataUpdatable>* get_list(Loki::Type2Type<devicedriver::IDataUpdatable>) const{
-		return &(static_cast<const HotSpotList<stf::core::devicedriver::IDataUpdatable>& >(*this).value_);
-	}
-	virtual const datatype::List<stf::core::functor::IFunctor>* get_list(Loki::Type2Type<functor::IFunctor>) const{
-		return &(static_cast<const HotSpotList<functor::IFunctor>& >(*this).value_);
-	}
-	virtual const datatype::List<stf::core::strategy::telemetry::ITelemetryStrategy>* get_list(Loki::Type2Type<stf::core::strategy::telemetry::ITelemetryStrategy>) const{
-		return &(static_cast<const HotSpotList<stf::core::strategy::telemetry::ITelemetryStrategy>& >(*this).value_);
-	}
-	virtual const datatype::List<stf::core::strategy::control::IControlStrategy>* get_list(Loki::Type2Type<stf::core::strategy::control::IControlStrategy>) const{
-		return &(static_cast<const HotSpotList<stf::core::strategy::control::IControlStrategy>& >(*this).value_);
+	template<class T>
+	const datatype::List<T>* get_list(Loki::Type2Type<T>) const{
+		return &(static_cast<const HotSpotList<T>& >(*this).value_);
 	}
 };
 

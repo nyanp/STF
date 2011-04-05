@@ -303,7 +303,7 @@ void PRISMFactory<Env>::create_controller(){
 
 	///////////////////////////////////////////////////
 	// 制御則をモードに登録
-	this->global_->pr_amode->add_list(PRISM_CONTROLLER);
+	this->global_->pr_amode->add_list<core::strategy::control::IControlStrategy>(PRISM_CONTROLLER);
 }
 
 template<class Env>
@@ -408,19 +408,19 @@ void PRISMFactory<Env>::create_telemetry(){
 	this->global_->pr_aocstmstrategy = new core::strategy::telemetry::PRISMTelemetryStrategy<1000>(0, this->global_->pr_tmhandler, this->global_->pr_aocsdatapool, this->global_->pr_eventdatapool, this->global_->pr_clock);
 	///////////////////////////////////////////////////
 	// テレメトリストラテジをモードに登録
-	this->global_->pr_safemode->add_list(this->global_->pr_tmstrategy);
-	this->global_->pr_dpmode->add_list(this->global_->pr_tmstrategy);
-	this->global_->pr_dsmode->add_list(this->global_->pr_tmstrategy);
-	this->global_->pr_dmode->add_list(this->global_->pr_tmstrategy);
-	this->global_->pr_amode->add_list(this->global_->pr_tmstrategy);
-	this->global_->pr_resetmode->add_list(this->global_->pr_tmstrategy);
+	this->global_->pr_safemode->add_list<core::strategy::telemetry::ITelemetryStrategy>(this->global_->pr_tmstrategy);
+	this->global_->pr_dpmode->add_list<core::strategy::telemetry::ITelemetryStrategy>(this->global_->pr_tmstrategy);
+	this->global_->pr_dsmode->add_list<core::strategy::telemetry::ITelemetryStrategy>(this->global_->pr_tmstrategy);
+	this->global_->pr_dmode->add_list<core::strategy::telemetry::ITelemetryStrategy>(this->global_->pr_tmstrategy);
+	this->global_->pr_amode->add_list<core::strategy::telemetry::ITelemetryStrategy>(this->global_->pr_tmstrategy);
+	this->global_->pr_resetmode->add_list<core::strategy::telemetry::ITelemetryStrategy>(this->global_->pr_tmstrategy);
 
-	this->global_->pr_safemode->add_list(this->global_->pr_aocstmstrategy);
-	this->global_->pr_dpmode->add_list(this->global_->pr_aocstmstrategy);
-	this->global_->pr_dsmode->add_list(this->global_->pr_aocstmstrategy);
-	this->global_->pr_dmode->add_list(this->global_->pr_aocstmstrategy);
-	this->global_->pr_amode->add_list(this->global_->pr_aocstmstrategy);
-	this->global_->pr_resetmode->add_list(this->global_->pr_aocstmstrategy);
+	this->global_->pr_safemode->add_list<core::strategy::telemetry::ITelemetryStrategy>(this->global_->pr_aocstmstrategy);
+	this->global_->pr_dpmode->add_list<core::strategy::telemetry::ITelemetryStrategy>(this->global_->pr_aocstmstrategy);
+	this->global_->pr_dsmode->add_list<core::strategy::telemetry::ITelemetryStrategy>(this->global_->pr_aocstmstrategy);
+	this->global_->pr_dmode->add_list<core::strategy::telemetry::ITelemetryStrategy>(this->global_->pr_aocstmstrategy);
+	this->global_->pr_amode->add_list<core::strategy::telemetry::ITelemetryStrategy>(this->global_->pr_aocstmstrategy);
+	this->global_->pr_resetmode->add_list<core::strategy::telemetry::ITelemetryStrategy>(this->global_->pr_aocstmstrategy);
 }
 
 template<class Env>
