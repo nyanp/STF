@@ -6,7 +6,7 @@
  * @date   2011.02.16
  */
 #include "ControlManagerBase.h"
-#include "../mode/ModeBase.h"
+#include "../mode/Mode.h"
 #include "../strategy/control/ControlBlock.h"
 #include "../../util/Trace.h"
 
@@ -24,7 +24,7 @@ void ControlManagerBase::run(){
 	doControl(t);
 }
 
-void ControlManagerBase::notify(const mode::ModeBase* value){
+void ControlManagerBase::notify(const mode::Mode* value){
 	this->controller_ = value->get_list(SpotType());
 }
 

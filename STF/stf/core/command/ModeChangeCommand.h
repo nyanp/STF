@@ -13,7 +13,7 @@
 namespace stf {
 namespace core {
 namespace mode {
-class ModeBase;
+class Mode;
 }
 namespace manager {
 class ModeManagerBase;
@@ -28,14 +28,14 @@ namespace command {
 */ 
 class modeChangeCommand : public Command {
 public:
-	modeChangeCommand(const datatype::Time& t, core::mode::ModeBase *mode, core::manager::ModeManagerBase *modeman)
+	modeChangeCommand(const datatype::Time& t, core::mode::Mode *mode, core::manager::ModeManagerBase *modeman)
 		: Command(t, "modeChangeCommand"), mode_(mode), modeman_(modeman) {}
 	~modeChangeCommand(){}
 	virtual void execute();
 	virtual Command* clone(const datatype::Time& t);
 	virtual void init(int* params, int paramsize){}
 private:
-    core::mode::ModeBase *mode_;
+    core::mode::Mode *mode_;
 	core::manager::ModeManagerBase *modeman_;
 };
 

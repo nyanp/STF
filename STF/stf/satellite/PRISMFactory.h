@@ -20,7 +20,7 @@
 #include "../core/functor/InputFunctor.h"
 #include "../core/functor/OutputFunctor.h"
 #include "../core/datapool/Datapool.h"
-#include "../core/mode/ModeBase.h"
+#include "../core/mode/Mode.h"
 
 #include "../core/strategy/telemetry/Includes.h"
 #include "../datatype/Time.h"
@@ -60,12 +60,12 @@ class PRISMFactory : public SatelliteFactory<Env, PRISMFactory<Env>>{
 
 template<class Env>
 void PRISMFactory<Env>::create_mode(){
-	this->global_->pr_safemode = new core::mode::ModeBase(ID_SAFEMODE, "PRISM_SAFEMODE");
-	this->global_->pr_amode = new core::mode::ModeBase(ID_SAFEMODE, "PRISM_AOCSMODE");
-	this->global_->pr_dmode = new core::mode::ModeBase(ID_SAFEMODE, "PRISM_NOCONTROLMODE");
-	this->global_->pr_dpmode = new core::mode::ModeBase(ID_SAFEMODE, "PRISM_MISSIONMODE");
-	this->global_->pr_dsmode = new core::mode::ModeBase(ID_SAFEMODE, "PRISM_SAFEMODE");
-	this->global_->pr_resetmode = new core::mode::ModeBase(ID_SAFEMODE, "PRISM_RESETMODE");
+	this->global_->pr_safemode = new core::mode::Mode(ID_SAFEMODE, "PRISM_SAFEMODE");
+	this->global_->pr_amode = new core::mode::Mode(ID_SAFEMODE, "PRISM_AOCSMODE");
+	this->global_->pr_dmode = new core::mode::Mode(ID_SAFEMODE, "PRISM_NOCONTROLMODE");
+	this->global_->pr_dpmode = new core::mode::Mode(ID_SAFEMODE, "PRISM_MISSIONMODE");
+	this->global_->pr_dsmode = new core::mode::Mode(ID_SAFEMODE, "PRISM_SAFEMODE");
+	this->global_->pr_resetmode = new core::mode::Mode(ID_SAFEMODE, "PRISM_RESETMODE");
 }
 
 

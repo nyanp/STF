@@ -268,7 +268,7 @@
     <ClInclude Include="stf\core\manager\TelemetryManagerBase.h" />
     <ClInclude Include="stf\core\manager\UnitManager.h" />
     <ClInclude Include="stf\core\manager\UnitManagerBase.h" />
-    <ClInclude Include="stf\core\mode\ModeBase.h" />
+    <ClInclude Include="stf\core\mode\Mode.h" />
     <ClInclude Include="stf\core\mode\ModeHotSpot.h" />
     <ClInclude Include="scube\core\mode\strategy\control\NoControl.h" />
     <ClInclude Include="scube\core\mode\strategy\input\NoInput.h" />

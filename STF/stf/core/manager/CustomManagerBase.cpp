@@ -7,7 +7,7 @@
  */
 #include "UnitManagerBase.h"
 #include "../devicedriver/IDataUpdatable.h"
-#include "../mode/ModeBase.h"
+#include "../mode/Mode.h"
 
 namespace stf {
 namespace core {

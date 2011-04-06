@@ -24,7 +24,7 @@ namespace devicedriver {
 class ISwitchable;
 }
 namespace mode {
-class ModeBase;
+class Mode;
 } /* End of namespace stf::core::mode */
 
 namespace manager {
@@ -42,13 +42,13 @@ public:
 	ModeManagerBase(int instance_id) : ManagerBase(instance_id, "ModeManager"), current_mode_(0), component_(0) {}
 	virtual ~ModeManagerBase(){}
 
-	virtual void change_mode(const mode::ModeBase *newmode);
+	virtual void change_mode(const mode::Mode *newmode);
 	const datatype::String& get_current_modename() const;
     virtual void run();
 	virtual bool runnable() const { return true; }
-	virtual void notify(const mode::ModeBase* value);
+	virtual void notify(const mode::Mode* value);
 protected:
-    const core::mode::ModeBase *current_mode_;
+    const core::mode::Mode *current_mode_;
 	const datatype::List<HotSpot>* component_;
 };
 

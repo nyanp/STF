@@ -21,7 +21,7 @@ typedef stf::core::environment::Simulator ENV;
 #define STEPTIME 0.1
 #define GYROECRV 1000
 
-
+#define MODEHOTSPOT TYPELIST_5(devicedriver::ISwitchable, devicedriver::IDataUpdatable, functor::IFunctor, core::strategy::telemetry::ITelemetryStrategy, core::strategy::control::IControlStrategy)
 
 
 #endif // Config_h

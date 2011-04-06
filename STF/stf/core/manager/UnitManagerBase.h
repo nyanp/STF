@@ -37,7 +37,7 @@ public:
 
     void run();
 	bool runnable() const { return true; }
-	virtual void notify(const mode::ModeBase* value);
+	virtual void notify(const mode::Mode* value);
 protected:
     const datatype::List<HotSpot>* unit_list_;
 };

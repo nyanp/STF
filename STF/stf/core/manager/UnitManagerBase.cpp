@@ -7,7 +7,7 @@
  */
 #include "UnitManagerBase.h"
 #include "../devicedriver/IDataUpdatable.h"
-#include "../mode/ModeBase.h"
+#include "../mode/Mode.h"
 #include "../../util/Trace.h"
 
 namespace stf {
@@ -15,7 +15,7 @@ namespace core {
 namespace manager {
 
 
-void UnitManagerBase::notify(const mode::ModeBase* newmode)
+void UnitManagerBase::notify(const mode::Mode* newmode)
 {
 	this->unit_list_ = newmode->get_list(SpotType());
 }

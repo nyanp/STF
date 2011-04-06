@@ -13,7 +13,7 @@
 #include "stf/core/environment/torquesource/ImpulseNoise.h"
 #include "stf/core/environment/torquesource/WhiteNoise.h"
 
-#include "stf/core/mode/ModeBase.h"
+#include "stf/core/mode/Mode.h"
 
 #include "stf/core/event/SubjectBase.h"
 #include "stf/core/event/Event.h"

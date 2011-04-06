@@ -30,15 +30,15 @@ template<int U> class NJEKFIterator;
 class NJEKF : public EKF, virtual public event::Observer<event::ModeChangeEvent>
 {
 public:
-	NJEKF(int instance_id, mode::ModeBase* missionmode) : EKF(instance_id), missionmode_(missionmode){}
+	NJEKF(int instance_id, mode::Mode* missionmode) : EKF(instance_id), missionmode_(missionmode){}
 	virtual ~NJEKF(){}
-	virtual void notify(const mode::ModeBase* value){ 
+	virtual void notify(const mode::Mode* value){ 
 		if(value == missionmode_) return; //次が観測モードの場合はリセットしない
 		this->init(); 
 	}
 private:
 	template<int U>friend class interface::NJEKFIterator;
-	const mode::ModeBase* missionmode_;
+	const mode::Mode* missionmode_;
 };
 
 

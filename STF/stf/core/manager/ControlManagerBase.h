@@ -22,7 +22,7 @@ class IControlStrategy;
 }
 }
 namespace mode {
-class ModeBase;
+class Mode;
 } /* End of namespace core::mode */
 } /* End of namespace core */
 
@@ -43,7 +43,7 @@ public:
 	virtual ~ControlManagerBase(){};
     virtual void run();
 	virtual bool runnable() const { return true; }
-	virtual void notify(const mode::ModeBase* value);
+	virtual void notify(const mode::Mode* value);
 protected:
     virtual void doControl(const datatype::Time&);
 	const datatype::List<HotSpot>* controller_;

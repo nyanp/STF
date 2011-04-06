@@ -7,14 +7,14 @@
  */
 #include "TelemetryManagerBase.h"
 #include "../strategy/telemetry/ITelemetryStrategy.h"
-#include "../mode/ModeBase.h"
+#include "../mode/Mode.h"
 #include "../../util/Trace.h"
 
 namespace stf {
 namespace core {
 namespace manager {
 
-void TelemetryManagerBase::notify(const mode::ModeBase* value){
+void TelemetryManagerBase::notify(const mode::Mode* value){
 	this->telem_ = value->get_list(SpotType());
 }
 

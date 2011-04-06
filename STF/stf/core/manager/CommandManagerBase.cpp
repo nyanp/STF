@@ -41,7 +41,7 @@ void CommandManagerBase::remove_command_(int index){
 	this->commandList_[NUM_OF_LIST] = 0;
 }
 
-void CommandManagerBase::notify(const mode::ModeBase* value){
+void CommandManagerBase::notify(const mode::Mode* value){
 	//util::Trace trace(util::Trace::kManager, "strategychange CommandManager");
 }
 

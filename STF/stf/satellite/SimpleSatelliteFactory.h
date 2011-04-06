@@ -20,7 +20,7 @@
 #include "../core/functor/InputFunctor.h"
 #include "../core/functor/OutputFunctor.h"
 #include "../core/datapool/Datapool.h"
-#include "../core/mode/ModeBase.h"
+#include "../core/mode/Mode.h"
 
 #include "../core/strategy/telemetry/Includes.h"
 #include "../datatype/Time.h"
@@ -61,8 +61,8 @@ class SimpleSatelliteFactory : public SatelliteFactory<Env, SimpleSatelliteFacto
 
 template<class Env>
 void SimpleSatelliteFactory<Env>::create_mode(){
-	this->global_->ss_safemode = new mode::ModeBase(ID_SAFEMODE, "SS_SAFEMODE");
-	this->global_->ss_missionmode = new mode::ModeBase(ID_MISSIONMODE, "SS_MISSIONMODE");
+	this->global_->ss_safemode = new mode::Mode(ID_SAFEMODE, "SS_SAFEMODE");
+	this->global_->ss_missionmode = new mode::Mode(ID_MISSIONMODE, "SS_MISSIONMODE");
 }
 
 

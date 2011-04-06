@@ -6,7 +6,7 @@
  * @date   2011.02.16
  */
 #include "ModeManagerBase.h"
-#include "../mode/ModeBase.h"
+#include "../mode/Mode.h"
 #include "../../util/Trace.h"
 #include "../../core/datapool/Datapool.h"
 
@@ -15,7 +15,7 @@ namespace core {
 namespace manager {
 
 // Oberver
-void ModeManagerBase::change_mode(const core::mode::ModeBase *mode)
+void ModeManagerBase::change_mode(const core::mode::Mode *mode)
 {
 	util::Trace trace(util::Trace::kManager, "modeChange ModeManager");
 	trace.debug(mode->name());
@@ -24,7 +24,7 @@ void ModeManagerBase::change_mode(const core::mode::ModeBase *mode)
 	this->notify_observers(*mode);
 }
 
-void ModeManagerBase::notify(const mode::ModeBase* value){
+void ModeManagerBase::notify(const mode::Mode* value){
 	this->component_ = value->get_list(SpotType());
 }
 

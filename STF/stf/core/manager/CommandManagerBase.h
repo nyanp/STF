@@ -29,7 +29,7 @@ class IControlStrategy;
 } /* End of namespace core::strategy::control */
 } /* End of namespace core::strategy */
 namespace mode {
-class ModeBase;
+class Mode;
 } /* End of namespace core::mode */
 } /* End of namespace core */
 
@@ -51,7 +51,7 @@ public:
 	virtual ~CommandManagerBase(){};
     virtual void run();
 	virtual bool runnable() const { return true; }
-	virtual void notify(const mode::ModeBase* value);
+	virtual void notify(const mode::Mode* value);
 	void add_command( command::Command* cmd ){
 		list_index_++;
 		list_index_ %= NUM_OF_LIST;

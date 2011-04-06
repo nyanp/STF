@@ -17,7 +17,7 @@
 namespace stf {
 namespace core {
 namespace mode {
-class ModeBase;
+class Mode;
 }
 namespace functor {
 class IFunctor;
@@ -42,7 +42,7 @@ public:
 	virtual ~SystemManagerBase(){}
     virtual void run();
 	virtual bool runnable() const { return true; };
-	virtual void notify(const mode::ModeBase* value);
+	virtual void notify(const mode::Mode* value);
 protected:
 	const datatype::List<HotSpot>* func_;
 };

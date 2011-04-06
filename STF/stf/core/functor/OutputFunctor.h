@@ -17,7 +17,7 @@ namespace manager {
 class ModeManager;
 }
 namespace mode {
-class ModeBase;
+class Mode;
 }
 namespace functor {
 
@@ -35,10 +35,10 @@ private:
 /*! 
 */
 struct ModeChangeFunc{
-	ModeChangeFunc(core::manager::ModeManager* modeman, const core::mode::ModeBase& next) : next_(next), modeman_(modeman){}
+	ModeChangeFunc(core::manager::ModeManager* modeman, const core::mode::Mode& next) : next_(next), modeman_(modeman){}
 	int operator()() const;
 private:
-	const core::mode::ModeBase& next_;
+	const core::mode::Mode& next_;
 	core::manager::ModeManager* modeman_;
 };
 

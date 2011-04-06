@@ -15,7 +15,7 @@ namespace stf {
 namespace core {
 
 namespace mode {
-class ModeBase;
+class Mode;
 } /* End of namespace core::mode */
 
 namespace manager {
@@ -29,7 +29,7 @@ public:
     virtual void run() = 0;
 	virtual bool runnable() const { return true; }
 protected:
-    const core::mode::ModeBase *mode_;
+    const core::mode::Mode *mode_;
 	DISALLOW_COPY_AND_ASSIGN(ManagerBase);
 };
 } /* End of namespace stf::core::manager */

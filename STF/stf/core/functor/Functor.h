@@ -14,7 +14,7 @@
 namespace stf {
 namespace core {
 namespace mode {
-class ModeBase;
+class Mode;
 }
 namespace functor {
 

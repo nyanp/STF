@@ -9,7 +9,6 @@
 #define stf_core_strategy_control_PID_h
 #include "../../../util/stfassert.h"
 #include "../../devicedriver/IOPort.h"
-#include "../../manager/ControlManager.h"
 #include "../StrategyBase.h"
 
 

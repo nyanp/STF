@@ -9,6 +9,7 @@
 #define stf_core_mode_ModeHotSpot_h
 
 #include "../../RootObject.h"
+#include "../../Config.h"
 #include "../../datatype/List.h"
 #include "../../util/loki/HierarchyGenerators.h"
 #include "../../util/loki/TypeManip.h"
@@ -33,7 +34,7 @@ class ControlBlock;
 }
 }
 namespace mode {
-class ModeBase;
+class Mode;
 
 //! モードに依存したアルゴリズムを保持するクラス．
 /*! 
@@ -50,23 +51,15 @@ public:
 	void add_list_(T& value) {
 		this->value_.push_back(value);
 	}
-
 	datatype::List<T> value_;
 };
 
 
-
 //! モードに依存したアルゴリズムを纏め，インターフェースを提供するクラス．
 /*! 
-	@todo add_list, get_listをFieldヘルパでまとめる．ユーザから任意個のHotSpotを追加で与えられるようなパラメータを用意する
 */
 struct StrategyHolder : 
-	public Loki::GenScatterHierarchy<
-	TYPELIST_5(devicedriver::ISwitchable,
-	devicedriver::IDataUpdatable, 
-	functor::IFunctor, 
-	core::strategy::telemetry::ITelemetryStrategy,
-	core::strategy::control::IControlStrategy), HotSpotList>
+	public Loki::GenScatterHierarchy<MODEHOTSPOT, HotSpotList>
 {
 	template<class T>
 	void add_list(T* value){

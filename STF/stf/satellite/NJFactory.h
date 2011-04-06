@@ -59,17 +59,17 @@ class NJFactory : public SatelliteFactory<Env, NJFactory<Env>>{
 
 template<class Env>
 void NJFactory<Env>::create_mode(){
-	this->global_->nj_sfem = new core::mode::ModeBase(ID_SAFEMODE, "NJ_SAFEMODE");
-	this->global_->nj_stbm = new core::mode::ModeBase(ID_SAFEMODE, "NJ_STBMODE");
-	this->global_->nj_inim = new core::mode::ModeBase(ID_SAFEMODE, "NJ_INITIALMODE");
-	this->global_->nj_ctrm = new core::mode::ModeBase(ID_SAFEMODE, "NJ_COARSECONTROLMODE");
-	this->global_->nj_ccdm = new core::mode::ModeBase(ID_SAFEMODE, "NJ_FINECONTROLMODE");
-	this->global_->nj_mism = new core::mode::ModeBase(ID_SAFEMODE, "NJ_MISSIONMODE");
-	this->global_->nj_rwum = new core::mode::ModeBase(ID_SAFEMODE, "NJ_UNLOADINGMODE");
-	this->global_->nj_estm_fog = new core::mode::ModeBase(ID_SAFEMODE, "NJ_ESTM_FOG");
-	this->global_->nj_estm_rmm = new core::mode::ModeBase(ID_SAFEMODE, "NJ_ESTM_RMM");
-	this->global_->nj_estm_rw = new core::mode::ModeBase(ID_SAFEMODE, "NJ_ESTM_RW");
-	this->global_->nj_estm_mc = new core::mode::ModeBase(ID_SAFEMODE, "NJ_ESTM_MC");
+	this->global_->nj_sfem = new core::mode::Mode(ID_SAFEMODE, "NJ_SAFEMODE");
+	this->global_->nj_stbm = new core::mode::Mode(ID_SAFEMODE, "NJ_STBMODE");
+	this->global_->nj_inim = new core::mode::Mode(ID_SAFEMODE, "NJ_INITIALMODE");
+	this->global_->nj_ctrm = new core::mode::Mode(ID_SAFEMODE, "NJ_COARSECONTROLMODE");
+	this->global_->nj_ccdm = new core::mode::Mode(ID_SAFEMODE, "NJ_FINECONTROLMODE");
+	this->global_->nj_mism = new core::mode::Mode(ID_SAFEMODE, "NJ_MISSIONMODE");
+	this->global_->nj_rwum = new core::mode::Mode(ID_SAFEMODE, "NJ_UNLOADINGMODE");
+	this->global_->nj_estm_fog = new core::mode::Mode(ID_SAFEMODE, "NJ_ESTM_FOG");
+	this->global_->nj_estm_rmm = new core::mode::Mode(ID_SAFEMODE, "NJ_ESTM_RMM");
+	this->global_->nj_estm_rw = new core::mode::Mode(ID_SAFEMODE, "NJ_ESTM_RW");
+	this->global_->nj_estm_mc = new core::mode::Mode(ID_SAFEMODE, "NJ_ESTM_MC");
 }
 
 template<class Env>

@@ -13,7 +13,7 @@
 namespace stf {
 namespace core {
 namespace mode {
-class ModeBase;
+class Mode;
 }
 namespace event {
 
@@ -30,13 +30,13 @@ public:
 };
 
 struct ModeChangeEvent : public EventBase {
-	typedef mode::ModeBase Target;
+	typedef mode::Mode Target;
 	enum { EventId = ModeChange };
 	static int get_eventid(){ return EventId; }
 };
 
 struct SwitchEvent : public EventBase {
-	typedef mode::ModeBase Target;
+	typedef mode::Mode Target;
 	enum { EventId = Switch };
 	static int get_eventid(){ return EventId; }
 };

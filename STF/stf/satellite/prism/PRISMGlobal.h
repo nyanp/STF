@@ -12,7 +12,7 @@
 #include "../../core/devicedriver/Includes.h"
 #include "../../core/manager/Includes.h"
 #include "../../core/datapool/Datapool.h"
-#include "../../core/mode/ModeBase.h"
+#include "../../core/mode/Mode.h"
 #include "../../core/strategy/control/IControlStrategy.h"
 #include "../../core/strategy/telemetry/ITelemetryStrategy.h"
 #include "../../datatype/SatelliteModel.h"
@@ -79,12 +79,12 @@ struct PRISMGlobal : public Global<Env>{
 	/////////////////////////////////////////////////////
 	// Mode
 	/////////////////////////////////////////////////////
-	mode::ModeBase* pr_safemode;
-	mode::ModeBase* pr_dpmode;
-	mode::ModeBase* pr_dsmode;
-	mode::ModeBase* pr_dmode;
-	mode::ModeBase* pr_amode;
-	mode::ModeBase* pr_resetmode;
+	mode::Mode* pr_safemode;
+	mode::Mode* pr_dpmode;
+	mode::Mode* pr_dsmode;
+	mode::Mode* pr_dmode;
+	mode::Mode* pr_amode;
+	mode::Mode* pr_resetmode;
 
 	/////////////////////////////////////////////////////
 	// Manager

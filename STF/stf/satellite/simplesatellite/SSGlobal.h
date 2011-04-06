@@ -10,7 +10,7 @@
 #include "../../GlobalObject.h"
 #include "../../core/manager/Includes.h"
 #include "../../core/devicedriver/Includes.h"
-#include "../../core/mode/ModeBase.h"
+#include "../../core/mode/Mode.h"
 #include "../../datatype/SatelliteModel.h"
 
 
@@ -46,8 +46,8 @@ struct SSGlobal : public Global<Env>{
 	datapool::EventDataPool* ss_eventdatapool;
 
 	// Mode
-	mode::ModeBase* ss_safemode;
-	mode::ModeBase* ss_missionmode;
+	mode::Mode* ss_safemode;
+	mode::Mode* ss_missionmode;
 
 	//Clock
 	devicedriver::clock::DummyClock<Env, 100>* ss_clock;

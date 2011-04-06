@@ -6,7 +6,7 @@
  * @date   2011.02.16
  */
 #include "SystemManagerBase.h"
-#include "../mode/ModeBase.h"
+#include "../mode/Mode.h"
 #include "../datapool/Datapool.h"
 #include "../functor/Functor.h"
 #include "../../util/Trace.h"
@@ -15,7 +15,7 @@ namespace stf {
 namespace core {
 namespace manager {
 
-void SystemManagerBase::notify(const mode::ModeBase* value){
+void SystemManagerBase::notify(const mode::Mode* value){
 	util::cout << "system list change!" << util::endl;
 	this->func_ = value->get_list(SpotType());
 	//this->func_ = value->get_list(SpotType());

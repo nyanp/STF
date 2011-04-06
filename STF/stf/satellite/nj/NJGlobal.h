@@ -101,17 +101,17 @@ struct NJGlobal : public Global<Env>{
 	/////////////////////////////////////////////////////
 	// Mode
 	/////////////////////////////////////////////////////
-	mode::ModeBase* nj_sfem;
-	mode::ModeBase* nj_stbm;
-	mode::ModeBase* nj_inim;
-	mode::ModeBase* nj_ctrm;
-	mode::ModeBase* nj_ccdm;
-	mode::ModeBase* nj_mism;
-	mode::ModeBase* nj_rwum;
-	mode::ModeBase* nj_estm_rmm;
-	mode::ModeBase* nj_estm_rw;
-	mode::ModeBase* nj_estm_fog;
-	mode::ModeBase* nj_estm_mc;
+	mode::Mode* nj_sfem;
+	mode::Mode* nj_stbm;
+	mode::Mode* nj_inim;
+	mode::Mode* nj_ctrm;
+	mode::Mode* nj_ccdm;
+	mode::Mode* nj_mism;
+	mode::Mode* nj_rwum;
+	mode::Mode* nj_estm_rmm;
+	mode::Mode* nj_estm_rw;
+	mode::Mode* nj_estm_fog;
+	mode::Mode* nj_estm_mc;
 
 	//Manager
 	manager::ModeManager* nj_modeman;
