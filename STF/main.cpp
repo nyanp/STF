@@ -38,8 +38,8 @@
 #include "stf/core/devicedriver/CDHComponent.h"
 #include "stf/util/loki/HierarchyGenerators.h"
 #include "stf/core/devicedriver/IOPort.h"
-#include "stf/satellite/PRISMFactory.h"
-#include "stf/satellite/NJFactory.h"
+#include "stf/satellite/prism/factory/PRISMFactory.h"
+#include "stf/satellite/nj/factory/NJFactory.h"
 #include "stf/satellite/SimpleSatelliteFactory.h"
 #include "stf/util/math/Exp.h"
 
