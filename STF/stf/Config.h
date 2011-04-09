@@ -19,7 +19,6 @@ typedef stf::core::environment::Simulator ENV;
 
 //satellite settings
 #define STEPTIME 0.1
-
 #define MODEHOTSPOT TYPELIST_5(devicedriver::ISwitchable, devicedriver::IDataUpdatable, functor::IFunctor, core::strategy::telemetry::ITelemetryStrategy, core::strategy::control::IControlStrategy)
 
 

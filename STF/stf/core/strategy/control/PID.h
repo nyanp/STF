@@ -35,8 +35,8 @@ class PID : public devicedriver::InputPorts< TYPELIST_2(datatype::Quaternion, da
 		public StrategyBase
 {
 public:
-    PID(int instance_id, double kp, double ki, double kd, double dt, const datatype::Quaternion &target);
-	PID(int instance_id, double kp, double ki, double kd, double dt, const datatype::Quaternion &target, 
+    PID( double kp, double ki, double kd, double dt, const datatype::Quaternion &target);
+	PID( double kp, double ki, double kd, double dt, const datatype::Quaternion &target, 
 		devicedriver::OutputPort<datatype::Quaternion>* q_source, 
 		devicedriver::OutputPort<datatype::StaticVector<3>>* omega_source, 
 		devicedriver::InputPort<datatype::StaticVector<3>>* torque_out);
@@ -69,8 +69,8 @@ protected:
 class QuaternionPID : public PID
 {
 public:
-    QuaternionPID(int instance_id, double kp, double ki, double kd, double dt, const datatype::Quaternion &target);
-	QuaternionPID(int instance_id, double kp, double ki, double kd, double dt, const datatype::Quaternion &target, 
+    QuaternionPID( double kp, double ki, double kd, double dt, const datatype::Quaternion &target);
+	QuaternionPID( double kp, double ki, double kd, double dt, const datatype::Quaternion &target, 
 		devicedriver::OutputPort<datatype::Quaternion>* q_source, 
 		devicedriver::InputPort<datatype::StaticVector<3>>* torque_out);
 	~QuaternionPID(){}
@@ -89,8 +89,8 @@ class EarthPointingPID : public devicedriver::InputPorts< TYPELIST_3(datatype::Q
 		public StrategyBase
 {
 public:
-	EarthPointingPID(int instance_id, double kp, double ki, double kd, double dt, const datatype::StaticVector<3>& target);
-	EarthPointingPID(int instance_id, double kp, double ki, double kd, double dt, const datatype::StaticVector<3>& target,
+	EarthPointingPID( double kp, double ki, double kd, double dt, const datatype::StaticVector<3>& target);
+	EarthPointingPID( double kp, double ki, double kd, double dt, const datatype::StaticVector<3>& target,
 		devicedriver::OutputPort<datatype::Quaternion>* q_source, 
 		devicedriver::OutputPort<datatype::StaticVector<3>>* omega_source, 
 		devicedriver::OutputPort<datatype::PositionInfo>* position_source,
@@ -129,8 +129,8 @@ class DynamicPID : public devicedriver::InputPorts< TYPELIST_3(datatype::Quatern
 		public StrategyBase
 {
 public:
-	DynamicPID(int instance_id, double kp, double ki, double kd, double dt);
-	DynamicPID(int instance_id, double kp, double ki, double kd, double dt,
+	DynamicPID( double kp, double ki, double kd, double dt);
+	DynamicPID( double kp, double ki, double kd, double dt,
 		devicedriver::OutputPort<datatype::Quaternion>* q_source, 
 		devicedriver::OutputPort<datatype::StaticVector<3>>* omega_source, 
 		devicedriver::OutputPort<datatype::Quaternion>* reference_source,

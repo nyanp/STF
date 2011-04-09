@@ -61,8 +61,8 @@ class SimpleSatelliteFactory : public SatelliteFactory<Env, SimpleSatelliteFacto
 
 template<class Env>
 void SimpleSatelliteFactory<Env>::create_mode(){
-	this->global_->ss_safemode = new mode::Mode(ID_SAFEMODE, "SS_SAFEMODE");
-	this->global_->ss_missionmode = new mode::Mode(ID_MISSIONMODE, "SS_MISSIONMODE");
+	this->global_->ss_safemode = new mode::Mode("SS_SAFEMODE");
+	this->global_->ss_missionmode = new mode::Mode("SS_MISSIONMODE");
 }
 
 
@@ -77,31 +77,31 @@ void SimpleSatelliteFactory<Env>::create_component(){
 	typedef devicedriver::tmhandler::DebugLogger TmHandler;
 
 	//DataPool
-	this->global_->ss_aocsdatapool = new core::datapool::AocsDataPool(0);
-	this->global_->ss_eventdatapool = new core::datapool::EventDataPool(0);
+	this->global_->ss_aocsdatapool = new core::datapool::AocsDataPool();
+	this->global_->ss_eventdatapool = new core::datapool::EventDataPool();
 
 	// Clock(RTC&OBCTime)
-	this->global_->ss_clock = new Clock(ID_CLOCK,YEAR, MONTH, DATE);
+	this->global_->ss_clock = new Clock(YEAR, MONTH, DATE);
 
 	// Command/Telemetry Driver
-	this->global_->ss_commandreceiver = new CmHandler(0, global_->ss_commandmanager);
+	this->global_->ss_commandreceiver = new CmHandler(global_->ss_commandmanager);
 	this->global_->ss_tmhandler = new TmHandler("ss_telemetry.csv", false);
 
 	//Gyro
-	this->global_->ss_gyrox = new GYRO(ID_GYRO_X, datatype::TypeConverter::toDCM(0,-90, 0));
-	this->global_->ss_gyroy = new GYRO(ID_GYRO_Y, datatype::TypeConverter::toDCM(0, 0, 90));
-	this->global_->ss_gyroz = new GYRO(ID_GYRO_Z, datatype::TypeConverter::toDCM(0, 0, 0));
-	this->global_->ss_gyro =  new ThreeAxisGyro(ID_GYRO, datatype::TypeConverter::toDCM(0, 0, 0));
+	this->global_->ss_gyrox = new GYRO(datatype::TypeConverter::toDCM(0,-90, 0));
+	this->global_->ss_gyroy = new GYRO(datatype::TypeConverter::toDCM(0, 0, 90));
+	this->global_->ss_gyroz = new GYRO(datatype::TypeConverter::toDCM(0, 0, 0));
+	this->global_->ss_gyro =  new ThreeAxisGyro(datatype::TypeConverter::toDCM(0, 0, 0));
 	this->global_->ss_gyro->append_child(this->global_->ss_gyrox);
 	this->global_->ss_gyro->append_child(this->global_->ss_gyroy);
 	this->global_->ss_gyro->append_child(this->global_->ss_gyroz);
 
 	// Reaction Wheel
-	this->global_->ss_rw1 = new RW(ID_RW_1, datatype::TypeConverter::toDCM(0, 70, 0));
-	this->global_->ss_rw2 = new RW(ID_RW_2, datatype::TypeConverter::toDCM(0, 70, 120));
-	this->global_->ss_rw3 = new RW(ID_RW_3, datatype::TypeConverter::toDCM(0, 70, 240));
-	this->global_->ss_rw4 = new RW(ID_RW_4, datatype::TypeConverter::toDCM(0, 0, 0));
-	this->global_->ss_rw  = new SkewRW(ID_RW, datatype::TypeConverter::toDCM(0, 0, 0));
+	this->global_->ss_rw1 = new RW(datatype::TypeConverter::toDCM(0, 70, 0));
+	this->global_->ss_rw2 = new RW(datatype::TypeConverter::toDCM(0, 70, 120));
+	this->global_->ss_rw3 = new RW(datatype::TypeConverter::toDCM(0, 70, 240));
+	this->global_->ss_rw4 = new RW(datatype::TypeConverter::toDCM(0, 0, 0));
+	this->global_->ss_rw  = new SkewRW(datatype::TypeConverter::toDCM(0, 0, 0));
 	this->global_->ss_rw->append_child(this->global_->ss_rw1);
 	this->global_->ss_rw->append_child(this->global_->ss_rw2);
 	this->global_->ss_rw->append_child(this->global_->ss_rw3);
@@ -110,12 +110,12 @@ void SimpleSatelliteFactory<Env>::create_component(){
 
 template<class Env>
 void SimpleSatelliteFactory<Env>::create_funcmanager(){
-	global_->ss_modemanager = new manager::ModeManager(ID_MODEMANAGER);
-	global_->ss_controlmanager = new manager::ControlManager(ID_CONTROLMANAGER);
-	global_->ss_commandmanager = new manager::CommandManager(ID_COMMANDMANAGER);
-	global_->ss_telemetrymanager = new manager::TelemetryManager(ID_TELEMETRYMANAGER);
-	global_->ss_unitmanager = new manager::UnitManager(ID_UNITMANAGER);
-	global_->ss_systemmanager = new manager::SystemManager(ID_SYSTEMMANAGER);
+	global_->ss_modemanager = new manager::ModeManagerBase();
+	global_->ss_controlmanager = new manager::ControlManagerBase();
+	global_->ss_commandmanager = new manager::CommandManagerBase();
+	global_->ss_telemetrymanager = new manager::TelemetryManagerBase();
+	global_->ss_unitmanager = new manager::UnitManagerBase();
+	global_->ss_systemmanager = new manager::SystemManagerBase();
 
 	this->global_->add_function_manager(this->global_->ss_unitmanager);
 	this->global_->add_function_manager(this->global_->ss_systemmanager);
@@ -130,8 +130,8 @@ void SimpleSatelliteFactory<Env>::create_controller(){
 	typedef strategy::control::RateDumping RateDumping;
 	typedef strategy::control::ControlBlock ControlBlock;
 
-	RateDumping* rd = new RateDumping(0, 0.2, 0.0, 0.5, STEPTIME);
-	ControlBlock* cb = new ControlBlock(0, rd, this->global_->ss_rw);
+	RateDumping* rd = new RateDumping(0.2, 0.0, 0.5, STEPTIME);
+	ControlBlock* cb = new ControlBlock(rd, this->global_->ss_rw);
 
 	rd->connect_source<0>(this->global_->ss_gyro);
 
@@ -147,7 +147,7 @@ void SimpleSatelliteFactory<Env>::create_command(){
 
 template<class Env>
 void SimpleSatelliteFactory<Env>::create_telemetry(){
-	this->global_->ss_tmstrategy = new strategy::telemetry::OutputAll<>(0, global_->ss_tmhandler, global_->ss_aocsdatapool, global_->ss_eventdatapool);
+	this->global_->ss_tmstrategy = new strategy::telemetry::OutputAll<>(global_->ss_tmhandler, global_->ss_aocsdatapool, global_->ss_eventdatapool);
 
 	this->global_->ss_safemode->add_list(global_->ss_tmstrategy);
 	this->global_->ss_missionmode->add_list(global_->ss_tmstrategy);

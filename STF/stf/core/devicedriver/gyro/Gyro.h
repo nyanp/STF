@@ -22,9 +22,8 @@ namespace gyro {
 template<class T>
 class Gyro : public GyroBase<T> {
 public:
-	Gyro(){}
 	//Sigma =0.02, tau(ECRV)=1000sec
-	Gyro(int instance_id, const datatype::DCM &angle) : GyroBase(instance_id, angle, 0.02, 1000){}
+	Gyro(const datatype::DCM &angle) : GyroBase(angle, 0.02, 1000){}
 	~Gyro(){}
 private:
 };

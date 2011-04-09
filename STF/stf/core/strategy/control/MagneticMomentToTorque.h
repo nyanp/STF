@@ -30,8 +30,8 @@ class MagneticMomentToTorque
 	public devicedriver::OutputPorts< TYPELIST_1( datatype::StaticVector<3> ) >
 {
 public:
-	MagneticMomentToTorque(int instance_id) : StrategyBase(instance_id, "MagneticMomentToTorque"){}
-	MagneticMomentToTorque(int instance_id, 
+	MagneticMomentToTorque() : StrategyBase("MagneticMomentToTorque"){}
+	MagneticMomentToTorque( 
 		devicedriver::OutputPort<datatype::MagneticMoment>* mag_body_source,
 		devicedriver::OutputPort<datatype::MagneticMoment>* mag_out_source,
 		devicedriver::InputPort<datatype::StaticVector<3>>* torque_out = 0

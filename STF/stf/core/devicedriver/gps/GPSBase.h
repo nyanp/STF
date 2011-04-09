@@ -29,7 +29,7 @@ namespace gps {
 template <class T>
 class GPSBase : public AOCSSensor<datatype::PositionInfo, datatype::PositionInfo, T>, virtual public clock::IAbsoluteTimeClock{
 public:
-	GPSBase(int instance_id): AOCSSensor<datatype::PositionInfo, datatype::PositionInfo, T>(instance_id, "GPS"){}
+	GPSBase(): AOCSSensor<datatype::PositionInfo, datatype::PositionInfo, T>("GPS"){}
 	~GPSBase(){}
 	virtual void do_update();
 	virtual const datatype::DateTime get_datetime() const {return t_;}

@@ -22,7 +22,7 @@ namespace clock {
 class NJRTC : public CDHMultiComponent<TYPELIST_2( datatype::Time, datatype::DateTime ), ENV>, virtual public ITimeClock, virtual public IAbsoluteTimeClock
 {
 public:
-	NJRTC(int instance_id, int year, int month, int date);
+	NJRTC( int year, int month, int date);
 	~NJRTC(void);
 	virtual const datatype::Time get_time() const; 
 	virtual const datatype::DateTime get_datetime() const;

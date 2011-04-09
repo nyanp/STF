@@ -32,7 +32,7 @@ namespace cmhandler {
 */
 class DummyCommandReceiver: virtual public ICommandReceiver, public RootObject {
 public:
-	DummyCommandReceiver(int instance_id, core::manager::CommandManagerBase* manager, const std::string &filename = "");
+	DummyCommandReceiver(core::manager::CommandManagerBase* manager, const std::string &filename = "");
     ~DummyCommandReceiver() { }
     virtual void receive_command();
 	virtual void send_packet(const datatype::String& msg);

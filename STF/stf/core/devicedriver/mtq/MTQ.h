@@ -24,7 +24,7 @@ class MTQ : public MTQBase<T> {
 public:
 	~MTQ(){}
 	//1Nm出力，線形性誤差5％
-	MTQ(int instance_id, const datatype::DCM &angle) : MTQBase(instance_id, angle, 1, -1, 5){}
+	MTQ(const datatype::DCM &angle) : MTQBase(angle, 1, -1, 5){}
 private:
 	MTQ(){}
 };

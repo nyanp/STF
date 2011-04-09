@@ -28,8 +28,7 @@ namespace rw {
 template<class T>
 class RWBase : public AOCSActuator<datatype::StaticVector<3>, datatype::Scalar, T>{
 public:
-    RWBase();
-	RWBase(int instance_id, const datatype::DCM &dcm, double max_torque, double min_torque, double max_angular_momentum);
+	RWBase(const datatype::DCM &dcm, double max_torque, double min_torque, double max_angular_momentum);
     virtual ~RWBase();
 	virtual void do_update();
 	virtual double angular_momentum() { return this->angular_momentum_;}
@@ -40,13 +39,8 @@ private:
 };
 
 template<class T>
-RWBase<T>::RWBase()
-{
-}
-
-template<class T>
-RWBase<T>::RWBase(int instance_id, const datatype::DCM &dcm, double max_torque, double min_torque, double max_angular_momentum) :
-AOCSActuator<datatype::StaticVector<3>, datatype::Scalar, T>(instance_id, "RW", dcm), max_angular_momentum_(max_angular_momentum)
+RWBase<T>::RWBase(const datatype::DCM &dcm, double max_torque, double min_torque, double max_angular_momentum) :
+AOCSActuator<datatype::StaticVector<3>, datatype::Scalar, T>("RW", dcm), max_angular_momentum_(max_angular_momentum)
 {
 	this->max_output_ = max_torque;	
 	this->min_output_ = min_torque;
@@ -66,7 +60,7 @@ template <>
 void RWBase<environment::Simulator>::do_update();
 
 template<>
-RWBase<environment::Simulator>::RWBase(int instance_id, const datatype::DCM &dcm, double max_torque, double min_torque, double max_angular_momentum);
+RWBase<environment::Simulator>::RWBase( const datatype::DCM &dcm, double max_torque, double min_torque, double max_angular_momentum);
 
 
 } /* End of namespace stf::core::devicedriver::rw */

@@ -59,17 +59,17 @@ class NJFactory : public SatelliteFactory<Env, NJFactory<Env>>{
 
 template<class Env>
 void NJFactory<Env>::create_mode(){
-	this->global_->nj_sfem = new core::mode::Mode(ID_SAFEMODE, "NJ_SAFEMODE");
-	this->global_->nj_stbm = new core::mode::Mode(ID_SAFEMODE, "NJ_STBMODE");
-	this->global_->nj_inim = new core::mode::Mode(ID_SAFEMODE, "NJ_INITIALMODE");
-	this->global_->nj_ctrm = new core::mode::Mode(ID_SAFEMODE, "NJ_COARSECONTROLMODE");
-	this->global_->nj_ccdm = new core::mode::Mode(ID_SAFEMODE, "NJ_FINECONTROLMODE");
-	this->global_->nj_mism = new core::mode::Mode(ID_SAFEMODE, "NJ_MISSIONMODE");
-	this->global_->nj_rwum = new core::mode::Mode(ID_SAFEMODE, "NJ_UNLOADINGMODE");
-	this->global_->nj_estm_fog = new core::mode::Mode(ID_SAFEMODE, "NJ_ESTM_FOG");
-	this->global_->nj_estm_rmm = new core::mode::Mode(ID_SAFEMODE, "NJ_ESTM_RMM");
-	this->global_->nj_estm_rw = new core::mode::Mode(ID_SAFEMODE, "NJ_ESTM_RW");
-	this->global_->nj_estm_mc = new core::mode::Mode(ID_SAFEMODE, "NJ_ESTM_MC");
+	this->global_->nj_sfem = new core::mode::Mode("NJ_SAFEMODE");
+	this->global_->nj_stbm = new core::mode::Mode("NJ_STBMODE");
+	this->global_->nj_inim = new core::mode::Mode("NJ_INITIALMODE");
+	this->global_->nj_ctrm = new core::mode::Mode("NJ_COARSECONTROLMODE");
+	this->global_->nj_ccdm = new core::mode::Mode("NJ_FINECONTROLMODE");
+	this->global_->nj_mism = new core::mode::Mode("NJ_MISSIONMODE");
+	this->global_->nj_rwum = new core::mode::Mode("NJ_UNLOADINGMODE");
+	this->global_->nj_estm_fog = new core::mode::Mode("NJ_ESTM_FOG");
+	this->global_->nj_estm_rmm = new core::mode::Mode("NJ_ESTM_RMM");
+	this->global_->nj_estm_rw = new core::mode::Mode("NJ_ESTM_RW");
+	this->global_->nj_estm_mc = new core::mode::Mode("NJ_ESTM_MC");
 }
 
 template<class Env>
@@ -94,52 +94,52 @@ void NJFactory<Env>::create_component(){
 	typedef devicedriver::magnetometer::NJFineTAM<Env> ST5;
 
 	//DataPool
-	this->global_->nj_aocsdatapool = new core::datapool::AocsDataPool(0);
-	this->global_->nj_eventdatapool = new core::datapool::EventDataPool(0);
+	this->global_->nj_aocsdatapool = new core::datapool::AocsDataPool();
+	this->global_->nj_eventdatapool = new core::datapool::EventDataPool();
 
 	// MTQ
-	this->global_->nj_mtqx = new MTQ(ID_MTQ_X, datatype::TypeConverter::toDCM(0,-90, 0));
-	this->global_->nj_mtqy = new MTQ(ID_MTQ_Y, datatype::TypeConverter::toDCM(0, 0, 90));
-	this->global_->nj_mtqz = new MTQ(ID_MTQ_Z, datatype::TypeConverter::toDCM(0, 0, 0));
-	this->global_->nj_mtq = new ThreeAxisMTQ(ID_MTQ, datatype::TypeConverter::toDCM(0, 0, 0));
+	this->global_->nj_mtqx = new MTQ(datatype::TypeConverter::toDCM(0, -90, 0));
+	this->global_->nj_mtqy = new MTQ(datatype::TypeConverter::toDCM(0, 0, 90));
+	this->global_->nj_mtqz = new MTQ(datatype::TypeConverter::toDCM(0, 0, 0));
+	this->global_->nj_mtq = new ThreeAxisMTQ(datatype::TypeConverter::toDCM(0, 0, 0));
 	this->global_->nj_mtq->append_child(this->global_->nj_mtqx);
 	this->global_->nj_mtq->append_child(this->global_->nj_mtqy);
 	this->global_->nj_mtq->append_child(this->global_->nj_mtqz);
 
 	//MC
-	this->global_->nj_mcx = new MC(ID_MTQ_X, datatype::TypeConverter::toDCM(0,-90, 0));
-	this->global_->nj_mcy = new MC(ID_MTQ_Y, datatype::TypeConverter::toDCM(0, 0, 90));
-	this->global_->nj_mcz = new MC(ID_MTQ_Z, datatype::TypeConverter::toDCM(0, 0, 0));
-	this->global_->nj_mc = new ThreeAxisMC(ID_MTQ, datatype::TypeConverter::toDCM(0, 0, 0));
+	this->global_->nj_mcx = new MC(datatype::TypeConverter::toDCM(0,-90, 0));
+	this->global_->nj_mcy = new MC(datatype::TypeConverter::toDCM(0, 0, 90));
+	this->global_->nj_mcz = new MC(datatype::TypeConverter::toDCM(0, 0, 0));
+	this->global_->nj_mc = new ThreeAxisMC(datatype::TypeConverter::toDCM(0, 0, 0));
 	this->global_->nj_mc->append_child(this->global_->nj_mcx);
 	this->global_->nj_mc->append_child(this->global_->nj_mcy);
 	this->global_->nj_mc->append_child(this->global_->nj_mcz);
 
 	// Gyro
-	this->global_->nj_gyrox = new GYRO(ID_GYRO_X, datatype::TypeConverter::toDCM(0,-90, 0));
-	this->global_->nj_gyroy = new GYRO(ID_GYRO_Y, datatype::TypeConverter::toDCM(0, 0, 90));
-	this->global_->nj_gyroz = new GYRO(ID_GYRO_Z, datatype::TypeConverter::toDCM(0, 0, 0));
-	this->global_->nj_gyro =  new ThreeAxisGyro(ID_GYRO, datatype::TypeConverter::toDCM(0, 0, 0));
+	this->global_->nj_gyrox = new GYRO(datatype::TypeConverter::toDCM(0,-90, 0));
+	this->global_->nj_gyroy = new GYRO(datatype::TypeConverter::toDCM(0, 0, 90));
+	this->global_->nj_gyroz = new GYRO(datatype::TypeConverter::toDCM(0, 0, 0));
+	this->global_->nj_gyro =  new ThreeAxisGyro(datatype::TypeConverter::toDCM(0, 0, 0));
 	this->global_->nj_gyro->append_child(this->global_->nj_gyrox);
 	this->global_->nj_gyro->append_child(this->global_->nj_gyroy);
 	this->global_->nj_gyro->append_child(this->global_->nj_gyroz);
 
-	this->global_->nj_fogx = new FOG(ID_FOG_X, datatype::TypeConverter::toDCM(0,-90, 0));
-	this->global_->nj_fogy = new FOG(ID_FOG_Y, datatype::TypeConverter::toDCM(0, 0, 90));
-	this->global_->nj_fogz = new FOG(ID_FOG_Z, datatype::TypeConverter::toDCM(0, 0, 0));
-	this->global_->nj_fog =  new ThreeAxisFOG(ID_FOG, datatype::TypeConverter::toDCM(0, 0, 0));
+	this->global_->nj_fogx = new FOG(datatype::TypeConverter::toDCM(0,-90, 0));
+	this->global_->nj_fogy = new FOG(datatype::TypeConverter::toDCM(0, 0, 90));
+	this->global_->nj_fogz = new FOG(datatype::TypeConverter::toDCM(0, 0, 0));
+	this->global_->nj_fog =  new ThreeAxisFOG(datatype::TypeConverter::toDCM(0, 0, 0));
 	this->global_->nj_fog->append_child(this->global_->nj_fogx);
 	this->global_->nj_fog->append_child(this->global_->nj_fogy);
 	this->global_->nj_fog->append_child(this->global_->nj_fogz);
 
 	// Sun Sensor
-	this->global_->nj_sspx = new Sunsensor(ID_SS_PX, datatype::TypeConverter::toDCM(0,-90, 0));
-	this->global_->nj_sspy = new Sunsensor(ID_SS_PY, datatype::TypeConverter::toDCM(0, 0, 90));
-	this->global_->nj_sspz = new Sunsensor(ID_SS_PZ, datatype::TypeConverter::toDCM(0, 0, 0));
-	this->global_->nj_ssmx = new Sunsensor(ID_SS_MX, datatype::TypeConverter::toDCM(180,-90, 0));
-	this->global_->nj_ssmy = new Sunsensor(ID_SS_MY, datatype::TypeConverter::toDCM(180, 0, 90));
-	this->global_->nj_ssmz = new Sunsensor(ID_SS_MZ, datatype::TypeConverter::toDCM(180, 0, 0));
-	this->global_->nj_ss = new SixAxisSunsensor(ID_SS, datatype::TypeConverter::toDCM(0, 0, 0));
+	this->global_->nj_sspx = new Sunsensor(datatype::TypeConverter::toDCM(0,-90, 0));
+	this->global_->nj_sspy = new Sunsensor(datatype::TypeConverter::toDCM(0, 0, 90));
+	this->global_->nj_sspz = new Sunsensor(datatype::TypeConverter::toDCM(0, 0, 0));
+	this->global_->nj_ssmx = new Sunsensor(datatype::TypeConverter::toDCM(180,-90, 0));
+	this->global_->nj_ssmy = new Sunsensor(datatype::TypeConverter::toDCM(180, 0, 90));
+	this->global_->nj_ssmz = new Sunsensor(datatype::TypeConverter::toDCM(180, 0, 0));
+	this->global_->nj_ss = new SixAxisSunsensor(datatype::TypeConverter::toDCM(0, 0, 0));
 	this->global_->nj_ss->append_child(this->global_->nj_sspx);
 	this->global_->nj_ss->append_child(this->global_->nj_sspy);
 	this->global_->nj_ss->append_child(this->global_->nj_sspz);
@@ -148,41 +148,41 @@ void NJFactory<Env>::create_component(){
 	this->global_->nj_ss->append_child(this->global_->nj_ssmz);
 
 	// MagnetoMeter
-	this->global_->nj_st4 = new ST4(ID_TAM, datatype::TypeConverter::toDCM(0, 0, 0));
-	this->global_->nj_st5 = new ST5(ID_TAM, datatype::TypeConverter::toDCM(0, 0, 0));
+	this->global_->nj_st4 = new ST4(datatype::TypeConverter::toDCM(0, 0, 0));
+	this->global_->nj_st5 = new ST5(datatype::TypeConverter::toDCM(0, 0, 0));
 
 	// Star Tracker
-	this->global_->nj_sttx = new STT(ID_STT_X, datatype::TypeConverter::toDCM(0,-90, 0));
-	this->global_->nj_stty = new STT(ID_STT_Y, datatype::TypeConverter::toDCM(0, 0, 0));
-	this->global_->nj_stt = new TwoAxisSTT(ID_STT, datatype::TypeConverter::toDCM(0, 0, 0));
+	this->global_->nj_sttx = new STT(datatype::TypeConverter::toDCM(0,-90, 0));
+	this->global_->nj_stty = new STT(datatype::TypeConverter::toDCM(0, 0, 0));
+	this->global_->nj_stt = new TwoAxisSTT(datatype::TypeConverter::toDCM(0, 0, 0));
 	this->global_->nj_stt->append_child(this->global_->nj_sttx);
 	this->global_->nj_stt->append_child(this->global_->nj_stty);
 
 	// Reaction Wheel
-	this->global_->nj_rw1 = new RW(ID_RW_1, datatype::TypeConverter::toDCM(0, 0, 0));
-	this->global_->nj_rw2 = new RW(ID_RW_2, datatype::TypeConverter::toDCM(0, 0, 0));
-	this->global_->nj_rw3 = new RW(ID_RW_3, datatype::TypeConverter::toDCM(0, 0, 0));
-	this->global_->nj_rw4 = new RW(ID_RW_4, datatype::TypeConverter::toDCM(0, 0, 0));
-	this->global_->nj_rw  = new SkewRW(ID_RW, datatype::TypeConverter::toDCM(0, 0, 0));
+	this->global_->nj_rw1 = new RW(datatype::TypeConverter::toDCM(0, 0, 0));
+	this->global_->nj_rw2 = new RW(datatype::TypeConverter::toDCM(0, 0, 0));
+	this->global_->nj_rw3 = new RW(datatype::TypeConverter::toDCM(0, 0, 0));
+	this->global_->nj_rw4 = new RW(datatype::TypeConverter::toDCM(0, 0, 0));
+	this->global_->nj_rw  = new SkewRW(datatype::TypeConverter::toDCM(0, 0, 0));
 	this->global_->nj_rw->append_child(this->global_->nj_rw1);
 	this->global_->nj_rw->append_child(this->global_->nj_rw2);
 	this->global_->nj_rw->append_child(this->global_->nj_rw3);
 	this->global_->nj_rw->append_child(this->global_->nj_rw4);
 
 	// GPS,RTC
-	this->global_->nj_rtc = new RTC(ID_RTC, YEAR, MONTH, DATE);
-	this->global_->nj_gps = new GPS(ID_GPS);
+	this->global_->nj_rtc = new RTC(YEAR, MONTH, DATE);
+	this->global_->nj_gps = new GPS();
 
 	// ADC, 温度計，電圧計，電流計
-	this->global_->nj_adc  = new devicedriver::NJADC<Env>(ID_ADC);
-	this->global_->nj_temp1 = new devicedriver::NJCoarseTempSensor<Env>(ID_TEMPSENSOR, global_->nj_adc);
-	this->global_->nj_temp2 = new devicedriver::NJFineTempSensor<Env>(ID_TEMPSENSOR, global_->nj_adc);
-	this->global_->nj_currentsensor = new devicedriver::NJCurrentSensor<Env>(ID_CURRENTSENSOR, global_->nj_adc);
-	this->global_->nj_voltagesensor = new devicedriver::NJVoltageSensor<Env>(ID_VOLTAGESENSOR, global_->nj_adc);
+	this->global_->nj_adc  = new devicedriver::NJADC<Env>();
+	this->global_->nj_temp1 = new devicedriver::NJCoarseTempSensor<Env>(global_->nj_adc);
+	this->global_->nj_temp2 = new devicedriver::NJFineTempSensor<Env>(global_->nj_adc);
+	this->global_->nj_currentsensor = new devicedriver::NJCurrentSensor<Env>(global_->nj_adc);
+	this->global_->nj_voltagesensor = new devicedriver::NJVoltageSensor<Env>(global_->nj_adc);
 
 	// SDCard, Command Recv
 	this->global_->nj_tmhandler = new devicedriver::tmhandler::NJTelemetryHandler<Env>("NJTelemetry.csv", false);
-	this->global_->nj_commandreceiver = new devicedriver::cmhandler::NJCommandReceiver<Env>(0, this->global_->nj_commman, "command.txt", this->global_);
+	this->global_->nj_commandreceiver = new devicedriver::cmhandler::NJCommandReceiver<Env>(this->global_->nj_commman, "command.txt", this->global_);
 
 	// Other Components
 	this->global_->nj_tdi = new devicedriver::nj::NJTDI<Env>();
@@ -194,21 +194,19 @@ void NJFactory<Env>::create_component(){
 
 template<class Env>
 void NJFactory<Env>::create_funcmanager(){
-	this->global_->nj_modeman = new core::manager::ModeManager(ID_MODEMANAGER);
-	this->global_->nj_conman = new core::manager::ControlManager(ID_CONTROLMANAGER);
-	this->global_->nj_uniman1 = new core::manager::UnitManager(ID_UNITMANAGER);
-	this->global_->nj_uniman2 = new core::manager::UnitManager(ID_UNITMANAGER);
-	this->global_->nj_telman = new core::manager::TelemetryManager(ID_TELEMETRYMANAGER);
-	this->global_->nj_cusman = new core::manager::CustomManager(ID_CUSTOMMANAGER);
-	this->global_->nj_sysman = new core::manager::SystemManager(ID_SYSTEMMANAGER);
-	this->global_->nj_commman = new core::manager::CommandManager(ID_COMMANDMANAGER);
+	this->global_->nj_modeman = new core::manager::ModeManagerBase();
+	this->global_->nj_conman = new core::manager::ControlManagerBase();
+	this->global_->nj_uniman1 = new core::manager::UnitManagerBase();
+	this->global_->nj_uniman2 = new core::manager::UnitManagerBase();
+	this->global_->nj_telman = new core::manager::TelemetryManagerBase();
+	this->global_->nj_sysman = new core::manager::SystemManagerBase();
+	this->global_->nj_commman = new core::manager::CommandManagerBase();
 
 	this->global_->add_function_manager(this->global_->nj_modeman);
 	this->global_->add_function_manager(this->global_->nj_conman);
 	this->global_->add_function_manager(this->global_->nj_uniman1);
 	this->global_->add_function_manager(this->global_->nj_uniman2);
 	this->global_->add_function_manager(this->global_->nj_telman);
-	this->global_->add_function_manager(this->global_->nj_cusman);
 	this->global_->add_function_manager(this->global_->nj_sysman);
 	this->global_->add_function_manager(this->global_->nj_commman);
 }
@@ -236,17 +234,17 @@ void NJFactory<Env>::create_controller(){
 	typedef core::strategy::control::nj::MCConstantOutput MC_CONSTANT;
 	typedef core::strategy::control::nj::RWConstantOutput RW_CONSTANT;
 
-	CONTROLLER* NJ_CONTROLLER_SFEM = new CONTROLLER(0);
-	CONTROLLER* NJ_CONTROLLER_INIM = new CONTROLLER(0);
-	CONTROLLER* NJ_CONTROLLER_CTRM = new CONTROLLER(0);
-	CONTROLLER* NJ_CONTROLLER_CCDM = new CONTROLLER(0);
-	CONTROLLER* NJ_CONTROLLER_MISM = new CONTROLLER(0);
-	CONTROLLER* NJ_CONTROLLER_RWUM = new CONTROLLER(0);
-	CONTROLLER* NJ_CONTROLLER_STBM = new CONTROLLER(0);
-	CONTROLLER* NJ_CONTROLLER_ESTM_FOG = new CONTROLLER(0);
-	CONTROLLER* NJ_CONTROLLER_ESTM_RMM = new CONTROLLER(0);
-	CONTROLLER* NJ_CONTROLLER_ESTM_RW = new CONTROLLER(0);
-	CONTROLLER* NJ_CONTROLLER_ESTM_MC = new CONTROLLER(0);
+	CONTROLLER* NJ_CONTROLLER_SFEM = new CONTROLLER();
+	CONTROLLER* NJ_CONTROLLER_INIM = new CONTROLLER();
+	CONTROLLER* NJ_CONTROLLER_CTRM = new CONTROLLER();
+	CONTROLLER* NJ_CONTROLLER_CCDM = new CONTROLLER();
+	CONTROLLER* NJ_CONTROLLER_MISM = new CONTROLLER();
+	CONTROLLER* NJ_CONTROLLER_RWUM = new CONTROLLER();
+	CONTROLLER* NJ_CONTROLLER_STBM = new CONTROLLER();
+	CONTROLLER* NJ_CONTROLLER_ESTM_FOG = new CONTROLLER();
+	CONTROLLER* NJ_CONTROLLER_ESTM_RMM = new CONTROLLER();
+	CONTROLLER* NJ_CONTROLLER_ESTM_RW = new CONTROLLER();
+	CONTROLLER* NJ_CONTROLLER_ESTM_MC = new CONTROLLER();
 
 	/////////////////////////////////////
 	// セーフモード用の姿勢制御ブロック
@@ -258,7 +256,7 @@ void NJFactory<Env>::create_controller(){
 	// スタンバイモード用の姿勢制御ブロック
 	// 姿勢決定:なし
 	// 姿勢制御:磁気センサのみの太陽捕捉制御(制御ハンドブック9.3.3.3)
-	SOLAR_POINTING* stbm_pointing = new SOLAR_POINTING(0, 1);
+	SOLAR_POINTING* stbm_pointing = new SOLAR_POINTING(1);
 
 	stbm_pointing->connect_source<0>(this->global_->nj_st4);
 	stbm_pointing->connect_source<1>(this->global_->nj_ss);
@@ -270,8 +268,8 @@ void NJFactory<Env>::create_controller(){
     // 初期安定化モード用の姿勢制御ブロック
 	// 姿勢決定:なし(角速度のみ取得)
 	// 姿勢制御:Date-Dumping + CrossProduct
-	RATE_DUMPING* inim_ratedumping = new RATE_DUMPING(0, 1, 0.1, 0.1, STEPTIME);
-	CROSS_PRODUCT* inim_crossproduct = new CROSS_PRODUCT(0);
+	RATE_DUMPING* inim_ratedumping = new RATE_DUMPING(1, 0.1, 0.1, STEPTIME);
+	CROSS_PRODUCT* inim_crossproduct = new CROSS_PRODUCT();
 
 	inim_ratedumping->connect_source<0>(this->global_->nj_gyro);
 
@@ -285,10 +283,10 @@ void NJFactory<Env>::create_controller(){
     // 粗姿勢制御モード用の姿勢制御ブロック
 	// 姿勢決定:ST4 & SunsensorTRIAD(EKFなし) + EKF(FOG)
 	// 姿勢制御:Quaternion FB
-	TRIAD* ctrm_triad = new TRIAD(0);
-	EKF* ctrm_ekf = new EKF(0, this->global_->nj_mism);
-	SimplePID* ctrm_pid = new SimplePID(0, 1, 0.01, 0.5, STEPTIME, *(new datatype::Quaternion));
-	CROSS_PRODUCT* ctrm_crossproduct = new CROSS_PRODUCT(0);
+	TRIAD* ctrm_triad = new TRIAD();
+	EKF* ctrm_ekf = new EKF(this->global_->nj_mism);
+	SimplePID* ctrm_pid = new SimplePID(1, 0.01, 0.5, STEPTIME, *(new datatype::Quaternion));
+	CROSS_PRODUCT* ctrm_crossproduct = new CROSS_PRODUCT();
 
 	ctrm_crossproduct->connect_source<0>(ctrm_pid);
 	ctrm_crossproduct->connect_source<1>(this->global_->nj_st4);
@@ -310,11 +308,11 @@ void NJFactory<Env>::create_controller(){
 	//精姿勢制御モード用の姿勢制御ブロック
 	// 姿勢決定:STT-FOG EKF & RMM補償
 	// 姿勢制御:
-	EKF* ccdm_ekf = new EKF(0, this->global_->nj_mism);//->推定値を引き継ぐので観測モードでも使う
-	RMMEKF* ccdm_rmmekf = new RMMEKF(0);//->推定値を引き継ぐので観測モードでも使う
-	QUATERNION_AVE* ccdm_q_average = new QUATERNION_AVE(0);
-	RMMCOMP* ccdm_rmmcomp = new RMMCOMP(0,-1);
-	PID* ccdm_pid = new PID(0, 0.1, 0.001, 0.004, STEPTIME);
+	EKF* ccdm_ekf = new EKF(this->global_->nj_mism);//->推定値を引き継ぐので観測モードでも使う
+	RMMEKF* ccdm_rmmekf = new RMMEKF();//->推定値を引き継ぐので観測モードでも使う
+	QUATERNION_AVE* ccdm_q_average = new QUATERNION_AVE();
+	RMMCOMP* ccdm_rmmcomp = new RMMCOMP(-1);
+	PID* ccdm_pid = new PID(0.1, 0.001, 0.004, STEPTIME);
 
 	ccdm_rmmcomp->connect_source<0>(ccdm_rmmekf);
 
@@ -342,9 +340,9 @@ void NJFactory<Env>::create_controller(){
 	//観測モード用の姿勢制御ブロック．星像EKFやスピン軸の長期制御を除いて精制御モードの制御ブロックを引き継ぐ
 	// 姿勢決定：星像EKF?
 	// 姿勢制御：
-	STAR_EKF* mism_starekf = new STAR_EKF(0);
-	PID* mism_pid = new PID(0, 0.1, 0.001, 0.004, STEPTIME);
-	SPINAXIS_CONTROLLER* mism_spincond = new SPINAXIS_CONTROLLER(0);
+	STAR_EKF* mism_starekf = new STAR_EKF();
+	PID* mism_pid = new PID(0.1, 0.001, 0.004, STEPTIME);
+	SPINAXIS_CONTROLLER* mism_spincond = new SPINAXIS_CONTROLLER();
 
 	mism_pid->connect_source<0>(ccdm_ekf);//QuaternionはジャイロバイアスEKFから取得
 	mism_pid->connect_source<1>(mism_starekf);//角速度は星像EKFから取得．星像取得失敗時にはジャイロバイアスEKFの値がそのまま伝搬される
@@ -362,8 +360,8 @@ void NJFactory<Env>::create_controller(){
 	//アンローディングモード用の姿勢制御ブロック
 	// 姿勢決定：STT-サンセンサQUEST
 	// 姿勢制御：MTQ-RW分散
-	UNLOADING* unloading = new UNLOADING(0);
-	CROSS_PRODUCT* unloading_crossp = new CROSS_PRODUCT(0);
+	UNLOADING* unloading = new UNLOADING();
+	CROSS_PRODUCT* unloading_crossp = new CROSS_PRODUCT();
 	
 	unloading->add_wheel(this->global_->nj_rw1);
 	unloading->add_wheel(this->global_->nj_rw2);
@@ -381,9 +379,9 @@ void NJFactory<Env>::create_controller(){
 	// RMM推定用の姿勢制御ブロック
 	// 姿勢決定：STT-FOG EKF
 	// 姿勢制御：6面一定時間ずつ太陽指向制御
-	PID* estmrmm_pid = new PID(0, 0.1, 0.01, 0.01, STEPTIME);
+	PID* estmrmm_pid = new PID(0.1, 0.01, 0.01, STEPTIME);
 	datatype::Time t(1000, 0);
-	QUATERNION_RMMESTM* estmrmm_q = new QUATERNION_RMMESTM(0, this->global_->nj_rtc, t);//1000秒ごとに別の面を太陽指向させる
+	QUATERNION_RMMESTM* estmrmm_q = new QUATERNION_RMMESTM(this->global_->nj_rtc, t);//1000秒ごとに別の面を太陽指向させる
 
 	estmrmm_pid->connect_source<0>(ccdm_ekf);
 	estmrmm_pid->connect_source<1>(ccdm_ekf);
@@ -396,7 +394,7 @@ void NJFactory<Env>::create_controller(){
 	// FOG推定用の姿勢制御ブロック
 	// 姿勢決定：STT-FOG EKF
 	// 姿勢制御：FOG3軸それぞれ±1e-3rad/s,±1e-2rad/sの計12モード
-	PID* estmfog_pid = new PID(0, 0.1, 0.01, 0.01, STEPTIME);
+	PID* estmfog_pid = new PID(0.1, 0.01, 0.01, STEPTIME);
 
 	NJ_CONTROLLER_ESTM_FOG->set_actuator(this->global_->nj_rw, estmfog_pid);
 	this->global_->nj_estm_fog->add_list<core::strategy::control::IControlStrategy>(NJ_CONTROLLER_ESTM_FOG);
@@ -405,7 +403,7 @@ void NJFactory<Env>::create_controller(){
 	// MC推定用の姿勢制御ブロック
 	// 姿勢決定：STT-FOG EKF
 	// 姿勢制御：MC3軸それぞれ±0.2Am2,±0.4Am2,±0.6Am2の計18モード
-	MC_CONSTANT* estmmc = new MC_CONSTANT(0, this->global_->nj_rtc, t);
+	MC_CONSTANT* estmmc = new MC_CONSTANT(this->global_->nj_rtc, t);
 
 	NJ_CONTROLLER_ESTM_MC->set_actuator(this->global_->nj_mc, estmmc);
 	this->global_->nj_estm_mc->add_list<core::strategy::control::IControlStrategy>(NJ_CONTROLLER_ESTM_MC);
@@ -414,7 +412,7 @@ void NJFactory<Env>::create_controller(){
 	// RW推定用の姿勢制御ブロック
 	// 姿勢決定：STT-FOG EKF
 	// 姿勢制御：RW4基それぞれ±5e-5Nm,±2.5e-5Nmの計16モード
-	RW_CONSTANT* estmrw = new RW_CONSTANT(0, this->global_->nj_rtc, t);
+	RW_CONSTANT* estmrw = new RW_CONSTANT(this->global_->nj_rtc, t);
 
 	//NJ_CONTROLLER_ESTM_RW->set_actuator(this->global_->nj_rw1, &estmrw->outputport<0, datatype::StaticVector<3>>());
 	this->global_->nj_estm_rw->add_list<core::strategy::control::IControlStrategy>(NJ_CONTROLLER_ESTM_RW);
@@ -450,7 +448,7 @@ void NJFactory<Env>::create_command(){
 template<class Env>
 void NJFactory<Env>::create_telemetry(){
 	this->global_->nj_telemetrystrategy = new core::strategy::telemetry::SelectingOutput<unsigned int, 1000>
-		(0, this->global_->nj_tmhandler, this->global_->nj_aocsdatapool, this->global_->nj_eventdatapool);
+		(this->global_->nj_tmhandler, this->global_->nj_aocsdatapool, this->global_->nj_eventdatapool);
 
 	//ADCの取得値を全チャネルテレメトリに追加
 	this->global_->nj_telemetrystrategy->add_tmlist(new interface::CDHComponentIterator<datatype::Voltage,NJ__ADC__CHANNELS, Env>(this->global_->nj_adc));

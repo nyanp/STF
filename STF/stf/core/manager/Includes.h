@@ -8,12 +8,12 @@
 #ifndef core_manager_Includes_h
 #define core_manager_Includes_h
 
-#include "CommandManager.h"
-#include "ControlManager.h"
-#include "CustomManager.h"
-#include "ModeManager.h"
-#include "SystemManager.h"
-#include "TelemetryManager.h"
-#include "UnitManager.h"
+#include "CommandManagerBase.h"
+#include "ControlManagerBase.h"
+#include "CustomManagerBase.h"
+#include "ModeManagerBase.h"
+#include "SystemManagerBase.h"
+#include "TelemetryManagerBase.h"
+#include "UnitManagerBase.h"
 
 #endif // core_manager_h

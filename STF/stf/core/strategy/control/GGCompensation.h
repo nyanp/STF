@@ -34,8 +34,8 @@ class GGCompensation
 	public devicedriver::OutputPorts< TYPELIST_1( datatype::StaticVector<3> ) >
 {
 public:
-	GGCompensation(int instance_id) : StrategyBase(instance_id, "GGCompensation"){}
-	GGCompensation(int instance_id, 
+	GGCompensation() : StrategyBase("GGCompensation"){}
+	GGCompensation( 
 		const datatype::SatelliteModel& sat,
 		devicedriver::OutputPort<datatype::Quaternion>* q_source,
 		devicedriver::OutputPort<datatype::PositionInfo>* position_source,

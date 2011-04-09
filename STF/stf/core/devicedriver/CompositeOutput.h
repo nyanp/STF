@@ -63,7 +63,7 @@ public:
 	typedef Leaf Child;
 	enum { UseAlignmentForDistribution = UseAlignment, NumberOfChilds = Numbers };
 
-	CompositeOutput(int instance_id, const datatype::DCM& dcm) : Base(instance_id, "Composite", dcm), index_(0)
+	CompositeOutput(const datatype::DCM& dcm) : Base("Composite", dcm), index_(0)
 	{
 		for(int i = 0; i < Numbers; i++) childs_[index_] = 0;
 	}

@@ -12,7 +12,7 @@ namespace core {
 namespace datapool {
 
 
-AocsDataPool::AocsDataPool(int instance_id): DataPoolBase(instance_id){
+AocsDataPool::AocsDataPool() {
 	this->table_ = new Tuple<datatype::IAocsData>*[kMaxDataPoolRows];
 }
 

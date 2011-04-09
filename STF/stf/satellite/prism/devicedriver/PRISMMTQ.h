@@ -21,7 +21,7 @@ class PRISMMTQ : public MTQBase<T> {
 public:
 	~PRISMMTQ(){}
 	//1Nmo—ÍCüŒ`«Œë·5“
-	PRISMMTQ(int instance_id, const datatype::DCM &angle) : MTQBase(instance_id, angle, 1, -1, 5){}
+	PRISMMTQ( const datatype::DCM &angle) : MTQBase(angle, 1, -1, 5){}
 	virtual void do_update(){}
 private:
 	PRISMMTQ(){}

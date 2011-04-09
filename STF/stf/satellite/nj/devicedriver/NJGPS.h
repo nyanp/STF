@@ -21,7 +21,6 @@ class NJGPS : public GPSBase<T> {
 public:
 	NJGPS(){}
 	//Sigma =0.02, tau(ECRV)=1000sec
-	NJGPS(int instance_id) : GPSBase(instance_id){}
 	void set_orbit(const datatype::OrbitInfo& orbit){
 		this->set_value(datatype::TypeConverter::toPositionInfo(orbit));//‹O“¹—v‘f‚ğ‰q¯‚Ì6ŸŒ³ó‘Ô—Ê‚É•ÏŠ·
 	}

@@ -24,7 +24,7 @@ namespace control {
 /*! */
 class NoControl : public StrategyBase, public devicedriver::OutputPort<datatype::StaticVector<3>>{
 public:
-	NoControl(int instance_id) : StrategyBase(instance_id, "NoControl"){}
+	NoControl() : StrategyBase("NoControl"){}
 	~NoControl(){}
 	virtual void do_compute(const datatype::Time& t){
 		util::Trace trace(util::Trace::kControlBlock, name_);

@@ -16,16 +16,16 @@ namespace core {
 namespace strategy {
 namespace control {
 
-EKF::EKF(int instance_id, const EKFParameters &params) : StrategyBase(instance_id, "EKF")
+EKF::EKF( const EKFParameters &params) : StrategyBase("EKF")
 {	
     this->params_ = params;//copy
     init();   
 }
 
-EKF::EKF(int instance_id, const EKFParameters &params, 
+EKF::EKF( const EKFParameters &params, 
 		devicedriver::OutputPort<datatype::Quaternion>* q_source, OutputPort<datatype::StaticVector<3>>* omega_source,
 		devicedriver::InputPort<datatype::Quaternion>* q_out, InputPort<datatype::StaticVector<3>>* omega_out
-		) : StrategyBase(instance_id, "EKF")
+		) : StrategyBase("EKF")
 {
     this->params_ = params;//copy
 	this->connect_source<0>(q_source);
@@ -39,7 +39,7 @@ EKF::EKF(int instance_id, const EKFParameters &params,
     init();  
 }
 
-EKF::EKF(int instance_id) : StrategyBase(instance_id, "EKF")
+EKF::EKF() : StrategyBase("EKF")
 {
 	params_.tau = 1000;
 	params_.timestep = 0.1;

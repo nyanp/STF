@@ -14,11 +14,11 @@ namespace strategy {
 namespace control {
 
 
-MagneticMomentToTorque::MagneticMomentToTorque(int instance_id, 
+MagneticMomentToTorque::MagneticMomentToTorque( 
 		devicedriver::OutputPort<datatype::MagneticMoment>* mag_body_source,
 		devicedriver::OutputPort<datatype::MagneticMoment>* mag_out_source,
 		devicedriver::InputPort<datatype::StaticVector<3>>* torque_out
-		) : StrategyBase(instance_id, "MagneticMomentToTorque")
+		) : StrategyBase("MagneticMomentToTorque")
 {
 	this->connect_source<0>(mag_body_source);
 	this->connect_source<1>(mag_out_source);

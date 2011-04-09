@@ -42,13 +42,13 @@ datatype::Quaternion estimate_(
 }
 }
 
-TRIAD::TRIAD(int instance_id, 
+TRIAD::TRIAD( 
 		devicedriver::OutputPort<datatype::StaticVector<2>>* body_vector1,
 		devicedriver::OutputPort<datatype::StaticVector<2>>* inertial_vector1,
 		devicedriver::OutputPort<datatype::StaticVector<2>>* body_vector2,
 		devicedriver::OutputPort<datatype::StaticVector<2>>* inertial_vector2,
 		devicedriver::InputPort<datatype::Quaternion>* q_out
-		) : StrategyBase(instance_id, "TRIAD")
+		) : StrategyBase("TRIAD")
 {
 	this->connect_source<0>(body_vector1);
 	this->connect_source<1>(inertial_vector1);
@@ -80,13 +80,13 @@ void TRIAD::do_compute(const datatype::Time& t) {
 }
 
 
-SunEarthTRIAD::SunEarthTRIAD(int instance_id, 
+SunEarthTRIAD::SunEarthTRIAD( 
 		devicedriver::OutputPort<datatype::StaticVector<2>>* sunvector_source,
 		devicedriver::OutputPort<datatype::StaticVector<2>>* earthvector_source,
 		devicedriver::OutputPort<datatype::PositionInfo>* position_source,	
 		devicedriver::OutputPort<datatype::DateTime>* time_source,
 		devicedriver::InputPort<datatype::Quaternion>* q_out
-		) : StrategyBase(instance_id, "TRIAD")
+		) : StrategyBase("TRIAD")
 {
 	this->connect_source<0>(sunvector_source);
 	this->connect_source<1>(earthvector_source);
@@ -116,13 +116,13 @@ void SunEarthTRIAD::do_compute(const datatype::Time& t) {
 	this->last_update_ = t;
 }
 
-SunMagTRIAD::SunMagTRIAD(int instance_id, 
+SunMagTRIAD::SunMagTRIAD( 
 		devicedriver::OutputPort<datatype::StaticVector<2>>* sunvector_source,
 		devicedriver::OutputPort<datatype::MagneticField>* magvector_source,
 		devicedriver::OutputPort<datatype::PositionInfo>* position_source,
 		devicedriver::OutputPort<datatype::DateTime>* time_source,
 		devicedriver::InputPort<datatype::Quaternion>* q_out
-		) : StrategyBase(instance_id, "TRIAD")
+		) : StrategyBase("TRIAD")
 {
 	this->connect_source<0>(sunvector_source);
 	this->connect_source<1>(magvector_source);
@@ -153,13 +153,13 @@ void SunMagTRIAD::do_compute(const datatype::Time& t) {
 	this->last_update_ = t;
 }
 
-SunMagTRIAD2::SunMagTRIAD2(int instance_id, 
+SunMagTRIAD2::SunMagTRIAD2( 
 		devicedriver::clock::IAbsoluteTimeClock* clock,
 		devicedriver::OutputPort<datatype::StaticVector<2>>* sunvector_source,
 		devicedriver::OutputPort<datatype::MagneticField>* magvector_source,
 		devicedriver::OutputPort<datatype::PositionInfo>* position_source,
 		devicedriver::InputPort<datatype::Quaternion>* q_out
-		) : StrategyBase(instance_id, "TRIAD"), clock_(clock)
+		) : StrategyBase("TRIAD"), clock_(clock)
 {
 	if(sunvector_source != 0) this->connect_source<0>(sunvector_source);
 	if(magvector_source != 0) this->connect_source<1>(magvector_source);

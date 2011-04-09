@@ -27,7 +27,7 @@ namespace mode {
 */
 class Mode : public RootObject, virtual public StrategyHolder{
 public:
-	Mode(int instance_id, const datatype::String& name) : RootObject(instance_id, name){}
+	Mode( const datatype::String& name) : RootObject(name){}
 	virtual const datatype::String& name() const { return this->name_; }
 	~Mode(){}
 };

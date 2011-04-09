@@ -20,6 +20,7 @@
 #include "../strategy/includes.h"
 #include "../devicedriver/includes.h"
 #include "../manager/PRISMCustomManager.h"
+#include "../PRISMIterator.h"
 
 namespace stf {
 namespace factory {
@@ -77,15 +78,14 @@ struct PRISMGlobal : public Global<Env>{
 	/////////////////////////////////////////////////////
 	// Manager
 	/////////////////////////////////////////////////////
-	manager::ModeManager* pr_modeman;
-	manager::UnitManager* pr_uniman1; // 10Hz, 通常のセンサ，アクチュエータ
-	manager::UnitManager* pr_uniman2; // 25Hz, AD変換
-	manager::ControlManager* pr_conman;
-	manager::TelemetryManager* pr_telman1;// CDHテレメ
-	manager::TelemetryManager* pr_telman2;// AOCSテレメ
-	manager::CustomManager* pr_cusman;
-	manager::SystemManager* pr_sysman;
-	manager::CommandManager* pr_commman;
+	manager::ModeManagerBase* pr_modeman;
+	manager::UnitManagerBase* pr_uniman1; // 10Hz, 通常のセンサ，アクチュエータ
+	manager::UnitManagerBase* pr_uniman2; // 25Hz, AD変換
+	manager::ControlManagerBase* pr_conman;
+	manager::TelemetryManagerBase* pr_telman1;// CDHテレメ
+	manager::TelemetryManagerBase* pr_telman2;// AOCSテレメ
+	manager::SystemManagerBase* pr_sysman;
+	manager::CommandManagerBase* pr_commman;
 	manager::PRISMCustomManager<Env>* pr_customman;
 
 	/////////////////////////////////////////////////////

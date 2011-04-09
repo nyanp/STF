@@ -23,10 +23,9 @@ template <class T>
 class TAM : public TAMBase<T>{
 public:  
 	// 3-Sigmaで1度精度
-	TAM(int instance_id, const datatype::DCM &angle) : TAMBase(instance_id, angle){}
+	TAM(const datatype::DCM &angle) : TAMBase(angle){}
 	~TAM(){}
 private:
-	TAM(){}
 };
 
 } /* End of namespace stf::core::devicedriver::magnetometer */

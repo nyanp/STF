@@ -15,15 +15,15 @@ namespace strategy {
 namespace control {
 
 
-SingleAxisPID::SingleAxisPID(int instance_id, double kp, double ki, double kd, double dt, const datatype::Scalar &target)
-	: kp_(kp), kd_(kd), ki_(ki), dt_(dt), target_(target), StrategyBase(instance_id, "SingleAxisPID")
+SingleAxisPID::SingleAxisPID( double kp, double ki, double kd, double dt, const datatype::Scalar &target)
+	: kp_(kp), kd_(kd), ki_(ki), dt_(dt), target_(target), StrategyBase("SingleAxisPID")
 {
 }
 
-SingleAxisPID::SingleAxisPID(int instance_id, double kp, double ki, double kd, double dt, const datatype::Scalar &target, 
+SingleAxisPID::SingleAxisPID( double kp, double ki, double kd, double dt, const datatype::Scalar &target, 
 		devicedriver::OutputPort<datatype::Scalar>* source, 
 		devicedriver::InputPort<datatype::Scalar>* out)
-	: kp_(kp), kd_(kd), ki_(ki), dt_(dt), target_(target), StrategyBase(instance_id, "SingleAxisPID")
+	: kp_(kp), kd_(kd), ki_(ki), dt_(dt), target_(target), StrategyBase("SingleAxisPID")
 {
 	this->connect_source<0>(source);
 	out->connect_source_(this);

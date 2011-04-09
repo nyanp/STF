@@ -27,9 +27,9 @@ class LiniarCorrection : public devicedriver::InputPorts< TYPELIST_1(T) >,
 		public StrategyBase
 {
 public:
-	LiniarCorrection(int instance_id, double scale_factor) : sf_(scale_factor), StrategyBase(instance_id, "LiniarCorrection"){}
-	LiniarCorrection(int instance_id, double scale_factor, T offset): sf_(scale_factor), offset_(offset), StrategyBase(instance_id, "LiniarCorrection"){}
-	LiniarCorrection(int instance_id,
+	LiniarCorrection( double scale_factor) : sf_(scale_factor), StrategyBase("LiniarCorrection"){}
+	LiniarCorrection( double scale_factor, T offset): sf_(scale_factor), offset_(offset), StrategyBase("LiniarCorrection"){}
+	LiniarCorrection(
 		double scale_factor,
 		double offset,
 		devicedriver::OutputPort<T>* target_source, 

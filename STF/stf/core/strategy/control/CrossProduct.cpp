@@ -18,11 +18,11 @@ namespace strategy {
 namespace control {
 
 
-CrossProduct::CrossProduct(int instance_id, 
+CrossProduct::CrossProduct( 
 		devicedriver::OutputPort<datatype::StaticVector<3>>* torquer_source,
 		devicedriver::OutputPort<datatype::MagneticField>* b_source,
 		devicedriver::InputPort<datatype::MagneticMoment>* mag_out
-		) : StrategyBase(instance_id, "CrossProduct")
+		) : StrategyBase("CrossProduct")
 {
 	this->connect_source<0>(torquer_source);
 	this->connect_source<1>(b_source);

@@ -18,7 +18,7 @@ template <class T>
 class PRISMTAM : public TAMBase<T>{
 public:  
 	// 3-SigmaÇ≈1ìxê∏ìx
-	PRISMTAM(int instance_id, const datatype::DCM &angle) : TAMBase(instance_id, angle){}
+	PRISMTAM( const datatype::DCM &angle) : TAMBase(angle){}
 	~PRISMTAM(){}
 	virtual void do_update(){}
 private:

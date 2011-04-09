@@ -28,12 +28,12 @@ class Combining_2 : public devicedriver::InputPorts< TYPELIST_2(T, T) >,
 		public StrategyBase
 {
 public:
-	Combining_2(int instance_id) : StrategyBase(instance_id, "Combining_2"){}
+	Combining_2() : StrategyBase("Combining_2"){}
 
-	Combining_2(int instance_id,
+	Combining_2(
 		devicedriver::OutputPort<T>* source_1, 
 		devicedriver::OutputPort<T>* source_2,
-		devicedriver::InputPort<T>* torque_out) : StrategyBase(instance_id, "Combining_2") 
+		devicedriver::InputPort<T>* torque_out) : StrategyBase("Combining_2") 
 	{
 		this->connect_source<0>(source_1);
 		this->connect_source<1>(source_2);
@@ -73,13 +73,13 @@ class Combining_3 : public devicedriver::InputPorts< TYPELIST_3(T, T, T) >,
 		public StrategyBase
 {
 public:
-	Combining_3(int instance_id) : StrategyBase(instance_id, "Combining_3"){}
+	Combining_3() : StrategyBase("Combining_3"){}
 
-	Combining_3(int instance_id,
+	Combining_3(
 		devicedriver::OutputPort<T>* source_1, 
 		devicedriver::OutputPort<T>* source_2,
 		devicedriver::OutputPort<T>* source_3,
-		devicedriver::InputPort<T>* torque_out) : StrategyBase(instance_id, "Combining_3") 
+		devicedriver::InputPort<T>* torque_out) : StrategyBase("Combining_3") 
 	{
 		this->connect_source<0>(source_1);
 		this->connect_source<1>(source_2);
@@ -121,14 +121,14 @@ class Combining_4 : public devicedriver::InputPorts< TYPELIST_4(T, T, T, T) >,
 		public StrategyBase
 {
 public:
-	Combining_4(int instance_id) : StrategyBase(instance_id, "Combining_4"){}
+	Combining_4() : StrategyBase("Combining_4"){}
 
-	Combining_4(int instance_id,
+	Combining_4(
 		devicedriver::OutputPort<T>* source_1, 
 		devicedriver::OutputPort<T>* source_2,
 		devicedriver::OutputPort<T>* source_3,
 		devicedriver::OutputPort<T>* source_4,
-		devicedriver::InputPort<T>* torque_out) : StrategyBase(instance_id, "Combining_4") 
+		devicedriver::InputPort<T>* torque_out) : StrategyBase("Combining_4") 
 	{
 		this->connect_source<0>(source_1);
 		this->connect_source<1>(source_2);
@@ -172,15 +172,15 @@ class Combining_5 : public devicedriver::InputPorts< TYPELIST_5(T, T, T, T, T) >
 		public StrategyBase
 {
 public:
-	Combining_5(int instance_id) : StrategyBase(instance_id, "Combining_5"){}
+	Combining_5() : StrategyBase("Combining_5"){}
 
-	Combining_5(int instance_id,
+	Combining_5(
 		devicedriver::OutputPort<T>* source_1, 
 		devicedriver::OutputPort<T>* source_2,
 		devicedriver::OutputPort<T>* source_3,
 		devicedriver::OutputPort<T>* source_4,
 		devicedriver::OutputPort<T>* source_5,
-		devicedriver::InputPort<T>* torque_out) : StrategyBase(instance_id, "Combining_5") 
+		devicedriver::InputPort<T>* torque_out) : StrategyBase("Combining_5") 
 	{
 		this->connect_source<0>(source_1);
 		this->connect_source<1>(source_2);
@@ -226,16 +226,16 @@ class Combining_6 : public devicedriver::InputPorts< TYPELIST_6(T, T, T, T, T, T
 		public StrategyBase
 {
 public:
-	Combining_6(int instance_id) : StrategyBase(instance_id, "Combining_6"){}
+	Combining_6() : StrategyBase("Combining_6"){}
 
-	Combining_6(int instance_id,
+	Combining_6(
 		devicedriver::OutputPort<T>* source_1, 
 		devicedriver::OutputPort<T>* source_2,
 		devicedriver::OutputPort<T>* source_3,
 		devicedriver::OutputPort<T>* source_4,
 		devicedriver::OutputPort<T>* source_5,
 		devicedriver::OutputPort<T>* source_6,
-		devicedriver::InputPort<T>* torque_out) : StrategyBase(instance_id, "Combining_6") 
+		devicedriver::InputPort<T>* torque_out) : StrategyBase("Combining_6") 
 	{
 		this->connect_source<0>(source_1);
 		this->connect_source<1>(source_2);

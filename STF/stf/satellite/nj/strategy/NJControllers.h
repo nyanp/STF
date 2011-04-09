@@ -33,11 +33,11 @@ class QuaternionAveraging : public devicedriver::InputPorts< TYPELIST_2(datatype
 		public StrategyBase
 {
 public:
-	QuaternionAveraging(int instance_id): StrategyBase(instance_id, "Quaternion Averaging"){}
-	QuaternionAveraging(int instance_id,
+	QuaternionAveraging(): StrategyBase("Quaternion Averaging"){}
+	QuaternionAveraging(
 		devicedriver::OutputPort<datatype::Quaternion>* stt_1, 
 		devicedriver::OutputPort<datatype::Quaternion>* stt_2,
-		devicedriver::InputPort<datatype::Quaternion>* q_out = 0) : StrategyBase(instance_id, "Quaternion Averaging")
+		devicedriver::InputPort<datatype::Quaternion>* q_out = 0) : StrategyBase("Quaternion Averaging")
 	{
 			this->connect_source<0>(stt_1);
 			this->connect_source<1>(stt_2);
@@ -55,7 +55,7 @@ class StarImageEKF : public devicedriver::InputPorts< TYPELIST_2(datatype::Stati
 		public StrategyBase
 {
 public:
-	StarImageEKF(int instance_id) : StrategyBase(instance_id, "StarImageEKF") {}
+	StarImageEKF() : StrategyBase("StarImageEKF") {}
 	virtual void do_compute(const datatype::Time& t);
 private:
 };
@@ -67,8 +67,8 @@ class MidRangeSpinController : public devicedriver::InputPorts< TYPELIST_1(datat
 		public StrategyBase
 {
 public:
-	MidRangeSpinController(int instance_id) : StrategyBase(instance_id, "MidSpinController") {}
-	MidRangeSpinController(int instance_id, devicedriver::OutputPort<datatype::Quaternion>* q_source) : StrategyBase(instance_id, "MidSpinController"){
+	MidRangeSpinController() : StrategyBase("MidSpinController") {}
+	MidRangeSpinController( devicedriver::OutputPort<datatype::Quaternion>* q_source) : StrategyBase("MidSpinController"){
 		this->connect_source<0>(q_source);
 	}
 	virtual void do_compute(const datatype::Time& t);
@@ -81,7 +81,7 @@ class LongRangeSpinController :
 		public StrategyBase
 {
 public:
-	LongRangeSpinController(int instance_id) : StrategyBase(instance_id, "MidSpinController") {}
+	LongRangeSpinController() : StrategyBase("MidSpinController") {}
 	virtual void do_compute(const datatype::Time& t);
 private:
 };
@@ -93,8 +93,8 @@ class QuaternionForRMMEstimation : public devicedriver::InputPorts< TYPELIST_1(d
 		public StrategyBase
 {
 public:
-	QuaternionForRMMEstimation(int instance_id, devicedriver::clock::IAbsoluteTimeClock* clock, datatype::Time timespan)
-		: StrategyBase(instance_id, "QuaternionForFOGEstimation"), index_(0), clock_(clock), timespan_(timespan){}
+	QuaternionForRMMEstimation( devicedriver::clock::IAbsoluteTimeClock* clock, datatype::Time timespan)
+		: StrategyBase("QuaternionForFOGEstimation"), index_(0), clock_(clock), timespan_(timespan){}
 	virtual void do_compute(const datatype::Time& t);
 private:
 	devicedriver::clock::IAbsoluteTimeClock* clock_;
@@ -107,8 +107,8 @@ class MCConstantOutput :
 	public devicedriver::OutputPorts < TYPELIST_1(datatype::MagneticMoment) > , public StrategyBase
 {
 public:
-	MCConstantOutput(int instance_id, devicedriver::clock::IAbsoluteTimeClock* clock, datatype::Time timespan)
-		: StrategyBase(instance_id, "MCConstantOutput"), index_(0), axis_(0), clock_(clock), timespan_(timespan){}
+	MCConstantOutput( devicedriver::clock::IAbsoluteTimeClock* clock, datatype::Time timespan)
+		: StrategyBase("MCConstantOutput"), index_(0), axis_(0), clock_(clock), timespan_(timespan){}
 	virtual void do_compute(const datatype::Time& t);
 private:
 	devicedriver::clock::IAbsoluteTimeClock* clock_;
@@ -122,8 +122,8 @@ class RWConstantOutput :
 	public devicedriver::OutputPorts < TYPELIST_4(datatype::StaticVector<3>, datatype::StaticVector<3>, datatype::StaticVector<3>, datatype::StaticVector<3>) > , public StrategyBase
 {
 public:
-	RWConstantOutput(int instance_id, devicedriver::clock::IAbsoluteTimeClock* clock, datatype::Time timespan)
-		: StrategyBase(instance_id, "RWConstantOutput"), index_(0), axis_(0), clock_(clock), timespan_(timespan){}
+	RWConstantOutput( devicedriver::clock::IAbsoluteTimeClock* clock, datatype::Time timespan)
+		: StrategyBase("RWConstantOutput"), index_(0), axis_(0), clock_(clock), timespan_(timespan){}
 	virtual void do_compute(const datatype::Time& t);
 private:
 	devicedriver::clock::IAbsoluteTimeClock* clock_;

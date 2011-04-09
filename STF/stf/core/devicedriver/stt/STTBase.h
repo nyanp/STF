@@ -28,13 +28,11 @@ namespace stt {
 template <class T>
 class STTBase : public AOCSSensor<datatype::Quaternion, datatype::Quaternion, T>{
 public:
-	STTBase(int instance_id, const datatype::DCM &angle, double err_arcsec, int sigma = 3);
-    virtual ~STTBase();
+	STTBase(const datatype::DCM &angle, double err_arcsec, int sigma = 3);
+	virtual ~STTBase(){}
 	virtual void do_update();
-	//virtual const datatype::Quaternion& get_in_bodyframe();
 	virtual datatype::Quaternion filter(const datatype::Quaternion& value); 
 private:
-    STTBase();
 	datatype::Quaternion q_set_angle_;
 	double err_arcsec_;
 	int sigma_;
@@ -43,20 +41,10 @@ private:
 
 
 template <class T>
-STTBase<T>::STTBase(int instance_id, const datatype::DCM& dcm, double err_arcsec, int sigma) 
-	: AOCSSensor<datatype::Quaternion, datatype::Quaternion, T>(instance_id, "STT", dcm), err_arcsec_(err_arcsec), sigma_(sigma), count_(0)
+STTBase<T>::STTBase(const datatype::DCM& dcm, double err_arcsec, int sigma) 
+	: AOCSSensor<datatype::Quaternion, datatype::Quaternion, T>("STT", dcm), err_arcsec_(err_arcsec), sigma_(sigma), count_(0)
 {
 	this->q_set_angle_ = datatype::TypeConverter::toQuaternion(dcm);
-}
-
-template <class T>
-STTBase<T>::STTBase()
-{
-}
-
-template <class T>
-STTBase<T>::~STTBase()
-{
 }
 
 template <class T>

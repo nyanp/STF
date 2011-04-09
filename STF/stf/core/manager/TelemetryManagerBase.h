@@ -36,7 +36,7 @@ public:
 	typedef core::strategy::telemetry::ITelemetryStrategy HotSpot;
 	typedef Loki::Type2Type<core::strategy::telemetry::ITelemetryStrategy> SpotType;
 
-	TelemetryManagerBase(int instance_id) : ManagerBase(instance_id, "TelemetryManager"), telem_(0) {}
+	TelemetryManagerBase() : ManagerBase("TelemetryManager"), telem_(0) {}
 	virtual ~TelemetryManagerBase(){}
     virtual void run();
 	virtual bool runnable() const { return true; };

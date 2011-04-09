@@ -39,7 +39,7 @@ public:
 	typedef core::strategy::control::IControlStrategy HotSpot;
 	typedef Loki::Type2Type<HotSpot> SpotType;
 
-	ControlManagerBase(int instance_id) : ManagerBase(instance_id, "ControlManager"), controller_(0) {}
+	ControlManagerBase() : ManagerBase("ControlManager"), controller_(0) {}
 	virtual ~ControlManagerBase(){};
     virtual void run();
 	virtual bool runnable() const { return true; }

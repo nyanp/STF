@@ -22,7 +22,7 @@ namespace manager {
 class CustomManagerBase : public ManagerBase
 {
 public:
-	CustomManagerBase(int instance_id) : ManagerBase(instance_id, "CustomManager"){}
+	CustomManagerBase() : ManagerBase( "CustomManager"){}
 	virtual ~CustomManagerBase(){}
 protected:
 

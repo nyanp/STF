@@ -32,8 +32,8 @@ class CouplingCompensation
 	public devicedriver::OutputPorts< TYPELIST_1( datatype::StaticVector<3> ) >
 {
 public:
-	CouplingCompensation(int instance_id, Global<Env>* global) : global_(global), StrategyBase(instance_id, "CouplingCompensation"){}
-	CouplingCompensation(int instance_id, Global<Env>* global, 
+	CouplingCompensation( Global<Env>* global) : global_(global), StrategyBase("CouplingCompensation"){}
+	CouplingCompensation( Global<Env>* global, 
 		devicedriver::OutputPort<datatype::StaticVector<3>>* omega_source,
 		devicedriver::InputPort<datatype::StaticVector<3>>* torque_out = 0
 		) : global_(global) 

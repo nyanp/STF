@@ -32,7 +32,7 @@ public:
 	typedef core::devicedriver::IDataUpdatable HotSpot;
 	typedef Loki::Type2Type<core::devicedriver::IDataUpdatable> SpotType;
 
-	UnitManagerBase(int instance_id) : ManagerBase(instance_id, "UnitManager"), unit_list_(0) {}
+	UnitManagerBase() : ManagerBase("UnitManager"), unit_list_(0) {}
 	virtual ~UnitManagerBase(){}
 
     void run();

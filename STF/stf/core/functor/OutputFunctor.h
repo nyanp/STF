@@ -14,7 +14,7 @@
 namespace stf {
 namespace core {
 namespace manager {
-class ModeManager;
+class ModeManagerBase;
 }
 namespace mode {
 class Mode;
@@ -35,11 +35,11 @@ private:
 /*! 
 */
 struct ModeChangeFunc{
-	ModeChangeFunc(core::manager::ModeManager* modeman, const core::mode::Mode& next) : next_(next), modeman_(modeman){}
+	ModeChangeFunc(core::manager::ModeManagerBase* modeman, const core::mode::Mode& next) : next_(next), modeman_(modeman){}
 	int operator()() const;
 private:
 	const core::mode::Mode& next_;
-	core::manager::ModeManager* modeman_;
+	core::manager::ModeManagerBase* modeman_;
 };
 
 } /* End of namespace stf::core::fuctor */

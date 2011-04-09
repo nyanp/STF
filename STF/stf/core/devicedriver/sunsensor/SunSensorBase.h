@@ -27,7 +27,7 @@ namespace sunsensor {
 template <class T>
 class SunSensorBase : public AOCSSensor<datatype::StaticVector<2>, datatype::StaticVector<2>, T>{
 public:
-	SunSensorBase(int instance_id, const datatype::DCM &angle, double err_deg, int sigma = 3);
+	SunSensorBase(const datatype::DCM &angle, double err_deg, int sigma = 3);
 	virtual ~SunSensorBase(){}
 	virtual void do_update();
 	virtual datatype::StaticVector<2> filter(const datatype::StaticVector<2>& value); 
@@ -38,8 +38,8 @@ private:
 };
 
 template <class T>
-SunSensorBase<T>::SunSensorBase(int instance_id, const datatype::DCM& dcm, double err_deg, int sigma)
-	: AOCSSensor<datatype::StaticVector<2>, datatype::StaticVector<2>, T>(instance_id, "SS", dcm), err_deg_(err_deg), sigma_(sigma)
+SunSensorBase<T>::SunSensorBase(const datatype::DCM& dcm, double err_deg, int sigma)
+	: AOCSSensor<datatype::StaticVector<2>, datatype::StaticVector<2>, T>("SS", dcm), err_deg_(err_deg), sigma_(sigma)
 {
 
 }

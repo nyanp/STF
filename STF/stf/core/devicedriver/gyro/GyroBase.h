@@ -28,8 +28,7 @@ namespace gyro {
 template <class T>
 class GyroBase : public AOCSSensor<datatype::StaticVector<3>, datatype::Scalar, T>{
 public:
-	GyroBase(){}
-	GyroBase(int instance_id, const datatype::DCM &angle, double sigma, double tau);
+	GyroBase(const datatype::DCM &angle, double sigma, double tau);
 	~GyroBase(){}
 	virtual void do_update();
 	virtual datatype::Scalar filter(const datatype::Scalar& value); 
@@ -43,8 +42,8 @@ private:
 };
 
 template <class T>
-GyroBase<T>::GyroBase(int instance_id, const datatype::DCM &dcm, double sigma, double tau)
-	: AOCSSensor<datatype::StaticVector<3>, datatype::Scalar, T>(instance_id, "Gyro", dcm), sigma_(sigma), tau_(tau), bias_rate_(0.0)
+GyroBase<T>::GyroBase(const datatype::DCM &dcm, double sigma, double tau)
+	: AOCSSensor<datatype::StaticVector<3>, datatype::Scalar, T>( "Gyro", dcm), sigma_(sigma), tau_(tau), bias_rate_(0.0)
 {
 
 }

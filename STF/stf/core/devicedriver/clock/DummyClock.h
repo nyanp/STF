@@ -29,7 +29,7 @@ template<class Env, int CLOCK = 100>
 class DummyClock : public CDHMultiComponent<TYPELIST_2( datatype::Time, datatype::DateTime ), Env>, virtual public ITimeClock, virtual public IAbsoluteTimeClock
 {
 public:
-	DummyClock(int instance_id, int year, int month, int date): CDHMultiComponent<TYPELIST_2( datatype::Time, datatype::DateTime ), Env>(instance_id, "DummyClock")
+	DummyClock(int year, int month, int date): CDHMultiComponent<TYPELIST_2( datatype::Time, datatype::DateTime ), Env>("DummyClock")
 	{
 		const_cast<datatype::DateTime*>(&get<1, datatype::DateTime>())->init(year, month, date, 0, 0, 0);
 		this->clock_ = this;//staticポインタに割り当て

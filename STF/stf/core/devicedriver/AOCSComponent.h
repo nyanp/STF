@@ -45,8 +45,8 @@ public:
 	typedef T Target;//!< 測定している物理量を表す型．
 	typedef U Hold;//!< 可観測次元の量を表す型．全軸感度を持ったコンポーネントの場合はT=U
 
-	AOCSComponent(int instance_id, const datatype::String& name, const datatype::DCM& dcm);
-	AOCSComponent(int instance_id, const datatype::String& name);
+	AOCSComponent(const datatype::String& name, const datatype::DCM& dcm);
+	AOCSComponent(const datatype::String& name);
 	void connect(core::datapool::AocsDataPool* pool, int rows, const datatype::String name){ 
 		this->datapool_hold_index_ = pool->create(this, rows, name);
 		datapool_ = pool; 
@@ -72,15 +72,15 @@ private:
 };
 
 template<class T, class U, class Env>
-AOCSComponent<T, U, Env>::AOCSComponent(int instance_id, const datatype::String& name)
-	: RootObject(instance_id, name)
+AOCSComponent<T, U, Env>::AOCSComponent(const datatype::String& name)
+	: RootObject(name)
 {
 	this->environment_ = &Env::get_instance();
 }
 
 template<class T, class U, class Env>
-AOCSComponent<T, U, Env>::AOCSComponent(int instance_id, const datatype::String& name, const datatype::DCM& dcm)
-	: set_angle_(dcm), RootObject(instance_id, name)
+AOCSComponent<T, U, Env>::AOCSComponent(const datatype::String& name, const datatype::DCM& dcm)
+	: set_angle_(dcm), RootObject(name)
 {
 	this->environment_ = &Env::get_instance();
 }

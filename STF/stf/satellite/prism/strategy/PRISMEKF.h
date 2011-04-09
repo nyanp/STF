@@ -25,7 +25,7 @@ template<int U> class PRISMEKFIterator;
 class PRISMEKF : public EKF
 {
 public:
-	PRISMEKF(int instance_id) : EKF(instance_id){}
+	PRISMEKF(){}
 	virtual ~PRISMEKF(){}
 private:
 	template<int U>friend class interface::PRISMEKFIterator;

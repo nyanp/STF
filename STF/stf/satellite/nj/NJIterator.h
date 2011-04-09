@@ -9,9 +9,9 @@
 #define stf_satellite_nj_NJIterator_h
 
 #include "../../interface/Iterator.h"
-#include "NJEKF.h"
-#include "NJRMMEKF.h"
-#include "NJTRIAD.h"
+#include "strategy/NJEKF.h"
+#include "strategy/NJRMMEKF.h"
+#include "strategy/NJTRIAD.h"
 
 namespace stf {
 namespace interface {

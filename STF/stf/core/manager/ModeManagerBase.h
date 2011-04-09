@@ -39,7 +39,7 @@ public:
 	typedef core::devicedriver::ISwitchable HotSpot;
 	typedef Loki::Type2Type<core::devicedriver::ISwitchable> SpotType;
 
-	ModeManagerBase(int instance_id) : ManagerBase(instance_id, "ModeManager"), current_mode_(0), component_(0) {}
+	ModeManagerBase() : ManagerBase("ModeManager"), current_mode_(0), component_(0) {}
 	virtual ~ModeManagerBase(){}
 
 	virtual void change_mode(const mode::Mode *newmode);

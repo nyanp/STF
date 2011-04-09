@@ -36,8 +36,8 @@ class TRIAD
 	public devicedriver::OutputPorts< TYPELIST_1( datatype::Quaternion ) >
 {
 public:
-	TRIAD(int instance_id) : StrategyBase(instance_id, "TRIAD"){}
-	TRIAD(int instance_id, 
+	TRIAD() : StrategyBase("TRIAD"){}
+	TRIAD( 
 		devicedriver::OutputPort<datatype::StaticVector<2>>* body_vector1,
 		devicedriver::OutputPort<datatype::StaticVector<2>>* inertial_vector1,
 		devicedriver::OutputPort<datatype::StaticVector<2>>* body_vector2,
@@ -60,8 +60,8 @@ class SunEarthTRIAD
 	public devicedriver::OutputPorts< TYPELIST_1( datatype::Quaternion ) >
 {
 public:
-	SunEarthTRIAD(int instance_id) : StrategyBase(instance_id, "SunEarthTRIAD"){}
-	SunEarthTRIAD(int instance_id, 
+	SunEarthTRIAD() : StrategyBase("SunEarthTRIAD"){}
+	SunEarthTRIAD( 
 		devicedriver::OutputPort<datatype::StaticVector<2>>* sunvector_source,
 		devicedriver::OutputPort<datatype::StaticVector<2>>* earthvector_source,
 		devicedriver::OutputPort<datatype::PositionInfo>* position_source,
@@ -84,8 +84,8 @@ class SunMagTRIAD
 	public devicedriver::OutputPorts< TYPELIST_1( datatype::Quaternion ) >
 {
 public:
-	SunMagTRIAD(int instance_id) : StrategyBase(instance_id, "SunMagTRIAD"){}
-	SunMagTRIAD(int instance_id, 
+	SunMagTRIAD() : StrategyBase("SunMagTRIAD"){}
+	SunMagTRIAD( 
 		devicedriver::OutputPort<datatype::StaticVector<2>>* sunvector_source,
 		devicedriver::OutputPort<datatype::MagneticField>* mag_source,
 		devicedriver::OutputPort<datatype::PositionInfo>* position_source,
@@ -109,8 +109,8 @@ class SunMagTRIAD2
 	public devicedriver::OutputPorts< TYPELIST_1( datatype::Quaternion ) >
 {
 public:
-	SunMagTRIAD2(int instance_id) : StrategyBase(instance_id, "SunMagTRIAD"){}
-	SunMagTRIAD2(int instance_id, 
+	SunMagTRIAD2() : StrategyBase("SunMagTRIAD"){}
+	SunMagTRIAD2( 
 		devicedriver::clock::IAbsoluteTimeClock* clock,
 		devicedriver::OutputPort<datatype::StaticVector<2>>* sunvector_source = 0,
 		devicedriver::OutputPort<datatype::MagneticField>* mag_source = 0,

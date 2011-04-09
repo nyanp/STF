@@ -6,7 +6,7 @@
  * @date   2011.02.16
  */
 #include "OutputFunctor.h"
-#include "../manager/ModeManager.h"
+#include "../manager/ModeManagerBase.h"
 #include "../../util/Cout.h"
 
 namespace stf {

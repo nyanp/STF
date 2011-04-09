@@ -24,7 +24,7 @@ namespace manager {
 /*! */
 class ManagerBase : public RootObject {
 public:
-	ManagerBase(int instance_id, const datatype::String& name) : mode_(0), RootObject(instance_id, name) {}
+	ManagerBase(const datatype::String& name) : mode_(0), RootObject(name) {}
 	virtual ~ManagerBase(){}
     virtual void run() = 0;
 	virtual bool runnable() const { return true; }

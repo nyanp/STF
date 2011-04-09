@@ -22,10 +22,10 @@ namespace control {
 class NJRMMEKF : public RMMEKF
 {
 public:
-	NJRMMEKF(int instance_id) : RMMEKF(instance_id){}
-	NJRMMEKF(int instance_id, 
+	NJRMMEKF(){}
+	NJRMMEKF( 
 		OutputPort<datatype::MagneticField>* mag_source, OutputPort<datatype::StaticVector<3>>* omega_source,
-		InputPort<datatype::MagneticMoment>* mag_out = 0) : RMMEKF(instance_id, mag_source, omega_source, mag_out){}
+		InputPort<datatype::MagneticMoment>* mag_out = 0) : RMMEKF(mag_source, omega_source, mag_out){}
 	virtual ~NJRMMEKF(){}
 private:
 	template<int U>friend class interface::NJRMMEKFIterator;

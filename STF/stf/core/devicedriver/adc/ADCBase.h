@@ -26,7 +26,7 @@ namespace devicedriver {
 template<int NUM, class Env = ENV>
 class ADCBase : public CDHComponent< datatype::Voltage, NUM, Env >  {
 public:
-	ADCBase(int instance_id) :  CDHComponent<datatype::Voltage,NUM, Env>(instance_id, "ADCBase") {}
+	ADCBase() :  CDHComponent<datatype::Voltage,NUM, Env>("ADCBase") {}
 	virtual ~ADCBase(){}
 protected:
 };
@@ -43,7 +43,7 @@ protected:
 template<class T, int NUM, int ADCNUM = NUM, class Env = ENV, class ConversionPolicy = FirstOrderConvert>
 class MultiSensor : public CDHComponent< T, NUM, Env >, public ConversionPolicy {
 public:
-	MultiSensor(int instance_id, ADCBase<ADCNUM, Env>* adc, int offset) : adcsource_(adc), offset_(offset), CDHComponent< T, NUM, Env >(instance_id, "TempSensor")
+	MultiSensor( ADCBase<ADCNUM, Env>* adc, int offset) : adcsource_(adc), offset_(offset), CDHComponent< T, NUM, Env >( "TempSensor")
 	{
 		stf_assert(offset + NUM <= ADCNUM);//ADCの範囲をこえない
 	}

@@ -14,10 +14,10 @@ namespace core {
 namespace strategy {
 namespace control {
 
-Bdot::Bdot(int instance_id, double k, 
+Bdot::Bdot(double k, 
 		devicedriver::OutputPort<datatype::MagneticField>* mag_source,
 		devicedriver::InputPort<datatype::MagneticMoment>* torque_out
-		) : StrategyBase(instance_id, "Bdot"), k_(k)
+		) : StrategyBase("Bdot"), k_(k)
 {
 	this->connect_source<0>(mag_source);
 	if(torque_out != 0){

@@ -28,11 +28,10 @@ class FirstOrderCorrection : public devicedriver::InputPorts< TYPELIST_2(T, U) >
 		public StrategyBase
 {
 public:
-	FirstOrderCorrection(int instance_id) {}
+	FirstOrderCorrection() {}
 
 	FirstOrderCorrection
 	(
-		int instance_id,
 		devicedriver::OutputPort<T>* target_source, 
 		devicedriver::OutputPort<U>* corrector_source, 
 		devicedriver::InputPort<T>* target_out

@@ -17,6 +17,7 @@
 
 #include "../strategy/includes.h"
 #include "../devicedriver/includes.h"
+#include "../NJIterator.h"
 
 
 namespace stf {
@@ -95,14 +96,13 @@ struct NJGlobal : public Global<Env>{
 	mode::Mode* nj_estm_mc;
 
 	//Manager
-	manager::ModeManager* nj_modeman;
-	manager::UnitManager* nj_uniman1; // 10Hz, 通常のセンサ，アクチュエータ
-	manager::UnitManager* nj_uniman2; // 10Hz, 通常のセンサ，アクチュエータ
-	manager::ControlManager* nj_conman;
-	manager::TelemetryManager* nj_telman;
-	manager::CustomManager* nj_cusman;
-	manager::SystemManager* nj_sysman;
-	manager::CommandManager* nj_commman;
+	manager::ModeManagerBase* nj_modeman;
+	manager::UnitManagerBase* nj_uniman1; // 10Hz, 通常のセンサ，アクチュエータ
+	manager::UnitManagerBase* nj_uniman2; // 10Hz, 通常のセンサ，アクチュエータ
+	manager::ControlManagerBase* nj_conman;
+	manager::TelemetryManagerBase* nj_telman;
+	manager::SystemManagerBase* nj_sysman;
+	manager::CommandManagerBase* nj_commman;
 
 	//Control Strategy
 

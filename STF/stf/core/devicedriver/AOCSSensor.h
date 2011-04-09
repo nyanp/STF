@@ -24,11 +24,11 @@ namespace devicedriver {
 template<class T, class U, class Env>
 class AOCSSensor : public AOCSComponent<T, U, Env>, public OutputPorts< TYPELIST_1(U) > {
 public:
-	AOCSSensor(int instance_id, const datatype::String& name, const datatype::DCM& dcm)
-		: AOCSComponent<T, U, Env>(instance_id, name, dcm){}
+	AOCSSensor(const datatype::String& name, const datatype::DCM& dcm)
+		: AOCSComponent<T, U, Env>(name, dcm){}
 
-	AOCSSensor(int instance_id, const datatype::String& name)
-		: AOCSComponent<T, U, Env>(instance_id, name){}
+	AOCSSensor(const datatype::String& name)
+		: AOCSComponent<T, U, Env>(name){}
 
 	virtual ~AOCSSensor(){}
 

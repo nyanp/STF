@@ -31,8 +31,8 @@ class RateDumping : public StrategyBase,
 	public devicedriver::InputPorts< TYPELIST_1(datatype::StaticVector<3>)>,
 	public devicedriver::OutputPorts< TYPELIST_1(datatype::StaticVector<3>)>{
 public:
-    RateDumping(int instance_id, double kp, double ki, double kd, double dt);
-	RateDumping(int instance_id, double kp, double ki, double kd, double dt,
+    RateDumping( double kp, double ki, double kd, double dt);
+	RateDumping( double kp, double ki, double kd, double dt,
 		devicedriver::OutputPort<datatype::StaticVector<3>>* omega_source,
 		devicedriver::InputPort<datatype::StaticVector<3>>* torque_target );
 

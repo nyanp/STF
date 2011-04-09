@@ -21,7 +21,7 @@ class PRISMDummyClock
 	: public CDHMultiComponent<TYPELIST_2( datatype::Time, datatype::DateTime ), ENV>, virtual public ITimeClock, virtual public IAbsoluteTimeClock
 {
 public:
-	PRISMDummyClock(int instance_id, int year, int month, int date);
+	PRISMDummyClock( int year, int month, int date);
 	~PRISMDummyClock(void);
 	virtual const datatype::Time get_time() const; 
 	virtual const datatype::DateTime get_datetime() const;

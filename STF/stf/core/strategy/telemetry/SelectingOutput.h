@@ -38,10 +38,10 @@ namespace telemetry {
 template<class T, int SCALE>
 class SelectingOutput : public StrategyBase,  virtual public ITelemetryStrategy, virtual public interface::Iterator{
 public:
-	SelectingOutput(int instance_id, devicedriver::tmhandler::ITelemetryStoragable* storage,
+	SelectingOutput( devicedriver::tmhandler::ITelemetryStoragable* storage,
 		const core::datapool::AocsDataPool* pool,
 		const core::datapool::EventDataPool* eventpool
-		) : StrategyBase(instance_id, "SelectingOutput"), storage_(storage), pool_(pool)
+		) : StrategyBase("SelectingOutput"), storage_(storage), pool_(pool)
 	{
 		this->createindex_(pool);
 		this->tmlistiter_ = this->tmlist_.begin();

@@ -18,11 +18,11 @@ namespace strategy {
 namespace control {
 
 
-SolarPointing::SolarPointing(int instance_id, double k,
+SolarPointing::SolarPointing( double k,
 		devicedriver::OutputPort<datatype::MagneticField>* mag_source,
 		devicedriver::OutputPort<datatype::StaticVector<2>>* sunvector_source ,
 		devicedriver::InputPort<datatype::MagneticMoment>* mag_out
-		) : StrategyBase(instance_id, "SolarPointing"), K_(k)
+		) : StrategyBase("SolarPointing"), K_(k)
 {
 	this->connect_source<0>(mag_source);
 	this->connect_source<1>(sunvector_source);

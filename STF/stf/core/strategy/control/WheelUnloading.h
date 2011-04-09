@@ -38,8 +38,8 @@ class WheelUnloading
 	public devicedriver::OutputPorts< TYPELIST_2( datatype::StaticVector<3>, datatype::StaticVector<3> ) >
 {
 public:
-	WheelUnloading(int instance_id) : StrategyBase(instance_id, "WheelUnloading"){}
-	WheelUnloading(int instance_id, 
+	WheelUnloading() : StrategyBase("WheelUnloading"){}
+	WheelUnloading( 
 		devicedriver::OutputPort<datatype::PositionInfo>* position_source,
 		devicedriver::InputPort<datatype::StaticVector<3>>* torquer_out = 0,
 		devicedriver::InputPort<datatype::StaticVector<3>>* wheel_out = 0
@@ -53,11 +53,11 @@ protected:
 };
 
 template<class Env>
-WheelUnloading<Env>::WheelUnloading(int instance_id, 
+WheelUnloading<Env>::WheelUnloading( 
 		devicedriver::OutputPort<datatype::PositionInfo>* position_source,
 		devicedriver::InputPort<datatype::StaticVector<3>>* torquer_out,
 		devicedriver::InputPort<datatype::StaticVector<3>>* wheel_out
-		) : StrategyBase(instance_id, "WheelUnloading")
+		) : StrategyBase("WheelUnloading")
 {
 	this->connect_source<0>(position_source);
 	if(torquer_out != 0){

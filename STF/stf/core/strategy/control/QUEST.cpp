@@ -19,13 +19,13 @@ namespace strategy {
 namespace control {
 
 
-QUEST::QUEST(int instance_id, double sigma_sun, double sigma_earth,
+QUEST::QUEST( double sigma_sun, double sigma_earth,
 		devicedriver::OutputPort<datatype::StaticVector<2>>* sunvector_source,
 		devicedriver::OutputPort<datatype::StaticVector<2>>* earthvector_source,
 		devicedriver::OutputPort<datatype::PositionInfo>* position_source,	
 		devicedriver::OutputPort<datatype::DateTime>* time_source,	
 		devicedriver::InputPort<datatype::Quaternion>* q_out
-		) : StrategyBase(instance_id, "QUEST"), sigma_sun_(sigma_sun), sigma_earth_(sigma_earth)
+		) : StrategyBase("QUEST"), sigma_sun_(sigma_sun), sigma_earth_(sigma_earth)
 {
 	this->connect_source<0>(sunvector_source);
 	this->connect_source<1>(earthvector_source);

@@ -28,8 +28,7 @@ namespace mtq {
 template<class T>
 class MTQBase : public AOCSActuator<datatype::MagneticMoment, datatype::Scalar, T> {
 public:
-    MTQBase();
-	MTQBase(int instance_id, const datatype::DCM &dcm, double max_torque, double min_torque, double linearity);
+	MTQBase(const datatype::DCM &dcm, double max_torque, double min_torque, double linearity);
     virtual ~MTQBase();
 	virtual void do_update();
 private:
@@ -37,13 +36,8 @@ private:
 };
 
 template<class T>
-MTQBase<T>::MTQBase()
-{
-}
-
-template<class T>
-MTQBase<T>::MTQBase(int instance_id, const datatype::DCM &dcm, double max_torque, double min_torque, double linearity) 
-	: AOCSActuator<datatype::MagneticMoment, datatype::Scalar, T>(instance_id, "MTQ", dcm), linearity_(linearity)
+MTQBase<T>::MTQBase(const datatype::DCM &dcm, double max_torque, double min_torque, double linearity) 
+	: AOCSActuator<datatype::MagneticMoment, datatype::Scalar, T>( "MTQ", dcm), linearity_(linearity)
 {
 	this->max_output_ = max_torque;	
 	this->min_output_ = min_torque;
@@ -63,7 +57,7 @@ template <>
 void MTQBase<environment::Simulator>::do_update();
 
 template<>
-MTQBase<environment::Simulator>::MTQBase(int instance_id, const datatype::DCM &dcm, double max_torque, double min_torque, double linearity);
+MTQBase<environment::Simulator>::MTQBase( const datatype::DCM &dcm, double max_torque, double min_torque, double linearity);
 
 } /* End of namespace stf::core::devicedriver::mtq */
 } /* End of namespace stf::core::devicedriver */

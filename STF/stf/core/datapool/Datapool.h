@@ -106,7 +106,7 @@ private:
 class DataPoolBase : public RootObject
 {
 public:
-	DataPoolBase(int instance_id): createdindex_(-1) , RootObject(instance_id, "DataPoolBase"){}
+	DataPoolBase(): createdindex_(-1) , RootObject("DataPoolBase"){}
 	~DataPoolBase(void){}
 	const int rows () const{ return this->kMaxDataPoolRows; }
 	bool is_created(int index) const{ 
@@ -128,7 +128,7 @@ class AocsDataPoolIterator;
 class AocsDataPool : public DataPoolBase//: public RootObject
 {
 public:
-	AocsDataPool(int instance_id);
+	AocsDataPool();
 	~AocsDataPool(void){}
 
 	// 最新の値を元の型として取る
@@ -201,7 +201,7 @@ class EventDataPool : public RootObject
 public:
 	typedef Loki::Tuple<TYPELIST_2( event::EventType, datatype::Time )> EventLog;
 
-	EventDataPool(int instance_id) : RootObject(instance_id, "EventDataPool"), index_(-1)
+	EventDataPool() : RootObject("EventDataPool"), index_(-1)
 	{
 		for(int i = 0; i < kMaxEventDataCols; i++)
 			Loki::Field<0>(tuple_[i]) = event::NoEvent;	

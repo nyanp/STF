@@ -24,14 +24,14 @@ class NJSunMagTRIAD
 	: public SunMagTRIAD2
 {
 public:
-	NJSunMagTRIAD(int instance_id) : SunMagTRIAD2(instance_id), StrategyBase(instance_id, "NJTRIAD"){}
-	NJSunMagTRIAD(int instance_id, 
+	NJSunMagTRIAD() : StrategyBase("NJTRIAD"){}
+	NJSunMagTRIAD( 
 		devicedriver::OutputPort<datatype::StaticVector<2>>* sunvector_source,
 		devicedriver::OutputPort<datatype::MagneticField>* mag_source,
 		devicedriver::OutputPort<datatype::PositionInfo>* position_source,
 		devicedriver::clock::IAbsoluteTimeClock* clock,
 		devicedriver::InputPort<datatype::Quaternion>* q_out = 0
-		) : SunMagTRIAD2(instance_id, clock, sunvector_source, mag_source, position_source, q_out), StrategyBase(instance_id, "NJTRIAD"){}
+		) : SunMagTRIAD2(clock, sunvector_source, mag_source, position_source, q_out), StrategyBase("NJTRIAD"){}
 	~NJSunMagTRIAD(){}
 private:
 	template<int U> friend class interface::NJSunMagTRIADIterator;

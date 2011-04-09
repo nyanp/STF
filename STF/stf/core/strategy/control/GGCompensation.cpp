@@ -18,12 +18,12 @@ namespace strategy {
 namespace control {
 
 
-GGCompensation::GGCompensation(int instance_id, 
+GGCompensation::GGCompensation( 
 		const datatype::SatelliteModel& sat,
 		devicedriver::OutputPort<datatype::Quaternion>* q_source,
 		devicedriver::OutputPort<datatype::PositionInfo>* position_source,
 		devicedriver::InputPort<datatype::StaticVector<3>>* torque_out
-		) : StrategyBase(instance_id, "GGCompensation")
+		) : StrategyBase("GGCompensation")
 {
 	this->connect_source<0>(q_source);
 	this->connect_source<1>(position_source);

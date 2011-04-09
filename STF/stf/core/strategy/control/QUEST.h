@@ -35,9 +35,9 @@ class QUEST
 	public devicedriver::OutputPorts< TYPELIST_1( datatype::Quaternion ) >
 {
 public:
-	QUEST(int instance_id, double sigma_sun, double sigma_earth) : StrategyBase(instance_id, "QUEST"), 
+	QUEST( double sigma_sun, double sigma_earth) : StrategyBase("QUEST"), 
 		sigma_sun_(sigma_sun), sigma_earth_(sigma_earth){ init_(); }
-	QUEST(int instance_id, double sigma_sun, double sigma_earth, 
+	QUEST( double sigma_sun, double sigma_earth, 
 		devicedriver::OutputPort<datatype::StaticVector<2>>* sunvector_source,
 		devicedriver::OutputPort<datatype::StaticVector<2>>* earthvector_source,
 		devicedriver::OutputPort<datatype::PositionInfo>* position_source,

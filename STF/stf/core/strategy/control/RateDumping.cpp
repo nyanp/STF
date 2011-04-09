@@ -15,14 +15,14 @@ namespace strategy {
 namespace control {
 
 
-RateDumping::RateDumping(int instance_id, double kp, double ki, double kd, double dt)
-	: kp_(kp), kd_(kd), ki_(ki), dt_(dt), StrategyBase(instance_id, "RateDumping")
+RateDumping::RateDumping( double kp, double ki, double kd, double dt)
+	: kp_(kp), kd_(kd), ki_(ki), dt_(dt), StrategyBase("RateDumping")
 {
 }
 
-RateDumping::RateDumping(int instance_id, double kp, double ki, double kd, double dt,
+RateDumping::RateDumping( double kp, double ki, double kd, double dt,
 		devicedriver::OutputPort<datatype::StaticVector<3>>* omega_source,
-		devicedriver::InputPort<datatype::StaticVector<3>>* torque_target ) : kp_(kp), kd_(kd), ki_(ki), dt_(dt), StrategyBase(instance_id, "RateDumping")
+		devicedriver::InputPort<datatype::StaticVector<3>>* torque_target ) : kp_(kp), kd_(kd), ki_(ki), dt_(dt), StrategyBase("RateDumping")
 {
 	this->connect_source<0>(omega_source);
 	torque_target->connect_source_(this);

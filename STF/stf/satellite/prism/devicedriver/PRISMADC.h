@@ -27,7 +27,7 @@ namespace devicedriver {
 template<class Env>
 class PRISMADC : public ADCBase<PRISM__ADC__CHANNELS, Env>{
 public:
-	PRISMADC(int instance_id) : ADCBase<PRISM__ADC__CHANNELS, Env>(instance_id){}
+	PRISMADC(){}
 	virtual void do_update(){
 		//TBD
 	}
@@ -36,22 +36,22 @@ public:
 template<class Env = ENV>
 class PRISMCurrentSensor : public MultiSensor<datatype::Current, PRISM__CURRENT__CHANNELS, PRISM__ADC__CHANNELS, Env> {
 public:
-	PRISMCurrentSensor(int instance_id, ADCBase<PRISM__ADC__CHANNELS, Env>* adc) 
-		: MultiSensor<datatype::Current, PRISM__CURRENT__CHANNELS, PRISM__ADC__CHANNELS, Env>(instance_id, adc, PRISM__CURRENT__OFFSET){}
+	PRISMCurrentSensor( ADCBase<PRISM__ADC__CHANNELS, Env>* adc) 
+		: MultiSensor<datatype::Current, PRISM__CURRENT__CHANNELS, PRISM__ADC__CHANNELS, Env>( adc, PRISM__CURRENT__OFFSET){}
 };
 
 template<class Env = ENV>
 class PRISMVoltageSensor : public  MultiSensor<datatype::Voltage, PRISM__VOLTAGE__CHANNELS, PRISM__ADC__CHANNELS, Env> {
 public:
-	PRISMVoltageSensor(int instance_id, ADCBase<PRISM__ADC__CHANNELS, Env>* adc)
-		:  MultiSensor<datatype::Voltage, PRISM__VOLTAGE__CHANNELS, PRISM__ADC__CHANNELS, Env>(instance_id, adc, PRISM__VOLTAGE__OFFSET){}
+	PRISMVoltageSensor( ADCBase<PRISM__ADC__CHANNELS, Env>* adc)
+		:  MultiSensor<datatype::Voltage, PRISM__VOLTAGE__CHANNELS, PRISM__ADC__CHANNELS, Env>( adc, PRISM__VOLTAGE__OFFSET){}
 };
 
 template<class Env = ENV>
 class PRISMTempSensor : public  MultiSensor<datatype::Temperature, PRISM__TEMP__CHANNELS, PRISM__ADC__CHANNELS, Env> {
 public:
-	PRISMTempSensor(int instance_id, ADCBase<PRISM__ADC__CHANNELS, Env>* adc)
-		:  MultiSensor<datatype::Temperature, PRISM__TEMP__CHANNELS, PRISM__ADC__CHANNELS, Env>(instance_id, adc, PRISM__TEMP__OFFSET){}
+	PRISMTempSensor( ADCBase<PRISM__ADC__CHANNELS, Env>* adc)
+		:  MultiSensor<datatype::Temperature, PRISM__TEMP__CHANNELS, PRISM__ADC__CHANNELS, Env>( adc, PRISM__TEMP__OFFSET){}
 };
 
 

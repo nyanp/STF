@@ -32,8 +32,8 @@ class CrossProduct
 	public devicedriver::OutputPorts< TYPELIST_1( datatype::MagneticMoment ) >
 {
 public:
-	CrossProduct(int instance_id) : StrategyBase(instance_id, "CrossProduct"){}
-	CrossProduct(int instance_id, 
+	CrossProduct() : StrategyBase("CrossProduct"){}
+	CrossProduct( 
 		devicedriver::OutputPort<datatype::StaticVector<3>>* torquer_source,
 		devicedriver::OutputPort<datatype::MagneticField>* b_source,
 		devicedriver::InputPort<datatype::MagneticMoment>* mag_out = 0

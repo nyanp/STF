@@ -30,13 +30,12 @@ class PRISMTelemetryStrategy : public SelectingOutput<short, SCALE> {
 public:
 	PRISMTelemetryStrategy
 	(
-		int instance_id,
 		devicedriver::tmhandler::ITelemetryStoragable* storage,
 		const core::datapool::AocsDataPool* pool,
 		const core::datapool::EventDataPool* eventpool,
 		const devicedriver::clock::PRISMDummyClock* clock
 	) 
-		: SelectingOutput<short, SCALE>(instance_id, storage, pool, eventpool), clock_(clock){}
+		: SelectingOutput<short, SCALE>(storage, pool, eventpool), clock_(clock){}
 
 	void setstate(bool enable) { is_enabled_ = enable; }
 

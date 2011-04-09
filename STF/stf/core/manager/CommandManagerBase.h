@@ -43,7 +43,7 @@ namespace manager {
 */
 class CommandManagerBase : public ManagerBase, virtual public event::Observer<event::ModeChangeEvent>{
 public:
-	CommandManagerBase(int instance_id) : ManagerBase(instance_id, "CommandManager"), list_index_(0), crit_list_index_(0)
+	CommandManagerBase() : ManagerBase("CommandManager"), list_index_(0), crit_list_index_(0)
 	{
 		for(int i = 0; i < NUM_OF_LIST; i++)
 			this->commandList_[i] = 0;

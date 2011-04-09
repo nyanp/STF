@@ -20,7 +20,7 @@ class NJRW : public RWBase<T> {
 public:
 	~NJRW(){}
 	// 1Nm, 500Nms
-	NJRW(int instance_id, const datatype::DCM &angle) : RWBase(instance_id, angle, 1, -1, 500){}
+	NJRW( const datatype::DCM &angle) : RWBase( angle, 1, -1, 500){}
 private:
 
 };

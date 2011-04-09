@@ -19,7 +19,7 @@ template <class T>
 class NJSTT : public STTBase<T>{
 public:  
 	//10arcsecê∏ìx(3-Sigma)ÇÃSTTÅD
-	NJSTT(int instance_id, const datatype::DCM &angle) : STTBase(instance_id, angle, 10){}
+	NJSTT( const datatype::DCM &angle) : STTBase( angle, 10){}
 	~NJSTT(){}
 private:
 	NJSTT(){}

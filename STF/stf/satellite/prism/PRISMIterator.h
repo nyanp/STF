@@ -9,11 +9,11 @@
 #define stf_satellite_prism_PRISMIterator_h
 
 #include "../../interface/Iterator.h"
-#include "PRISMEKF.h"
-#include "PRISMRMMEKF.h"
-#include "PRISMTRIAD.h"
-#include "PRISMTelemetryStrategy.h"
-#include "PRISMControlBlock.h"
+#include "strategy/PRISMEKF.h"
+#include "strategy/PRISMRMMEKF.h"
+#include "strategy/PRISMTRIAD.h"
+#include "strategy/PRISMTelemetryStrategy.h"
+#include "strategy/PRISMControlBlock.h"
 
 namespace stf {
 namespace interface {

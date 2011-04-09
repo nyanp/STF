@@ -21,7 +21,7 @@ class NJMC : public MTQBase<T> {
 public:
 	~NJMC(){}
 	//1Nmo—ÍCüŒ`«Œë·5“
-	NJMC(int instance_id, const datatype::DCM &angle) : MTQBase(instance_id, angle, 1, -1, 5){}
+	NJMC( const datatype::DCM &angle) : MTQBase( angle, 1, -1, 5){}
 	virtual void do_update(){}
 private:
 	NJMC(){}

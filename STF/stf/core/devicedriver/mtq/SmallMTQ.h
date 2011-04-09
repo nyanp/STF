@@ -24,9 +24,8 @@ class SmallMTQ : public MTQBase<T> {
 public:
 	~SmallMTQ(){}
 	//50mNm出力，線形性誤差1％
-	SmallMTQ(int instance_id, const datatype::DCM &angle) : MTQBase(instance_id, angle, 0.05, 1){}
+	SmallMTQ(const datatype::DCM &angle) : MTQBase(angle, 0.05, 1){}
 private:
-	SmallMTQ(){}
 };
 
 } /* End of namespace stf::core::devicedriver::mtq */

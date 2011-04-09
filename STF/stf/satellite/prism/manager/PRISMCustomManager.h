@@ -20,8 +20,8 @@ template <class Env>
 class PRISMCustomManager : public CustomManagerBase
 {
 public:
-	PRISMCustomManager(int instance_id, HeaterControl<Env>* control)
-		: CustomManagerBase(instance_id), control_(control){}
+	PRISMCustomManager( HeaterControl<Env>* control)
+		: CustomManagerBase(), control_(control){}
 	~PRISMCustomManager(){}
 	virtual void run();
 	virtual bool runnable();

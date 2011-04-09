@@ -16,7 +16,7 @@
 #include "../../../RootObject.h"
 #include "../../../core/environment/Simulator.h"
 #include "../../../core/command/Command.h"
-#include "../../../core/manager/CommandManager.h"
+#include "../../../core/manager/CommandManagerBase.h"
 #include "../../../util/Cout.h"
 
 namespace stf {
@@ -51,8 +51,8 @@ public:
 	virtual void send_packet(const datatype::String& msg);
 	virtual void send_packet(int msg);
 	virtual void add_command(command::Command*);
-	PRISMCommandReceiver(int instance_id, core::manager::CommandManagerBase* manager, const datatype::String& filename,PRISMGlobal<T>* global)
-		: RootObject(instance_id, "PRISMReceiver"), manager_(manager), global_(global){
+	PRISMCommandReceiver( core::manager::CommandManagerBase* manager, const datatype::String& filename,PRISMGlobal<T>* global)
+		: RootObject("PRISMReceiver"), manager_(manager), global_(global){
 			this->ifs_ = new typename T::InputFileStream(filename.to_char());
 	}
     ~PRISMCommandReceiver() { }

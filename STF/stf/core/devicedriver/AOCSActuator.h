@@ -23,8 +23,8 @@ namespace devicedriver {
 template<class T, class U, class Env>
 class AOCSActuator : public AOCSComponent<T, U, Env>, public InputPorts< TYPELIST_1(U) > {
 public:
-	AOCSActuator(int instance_id, const datatype::String& name, const datatype::DCM& dcm)
-		: AOCSComponent<T, U, Env>(instance_id, name, dcm){}
+	AOCSActuator(const datatype::String& name, const datatype::DCM& dcm)
+		: AOCSComponent<T, U, Env>(name, dcm){}
 
 	virtual ~AOCSActuator(){}
 

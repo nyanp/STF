@@ -53,12 +53,12 @@ struct SSGlobal : public Global<Env>{
 	devicedriver::clock::DummyClock<Env, 100>* ss_clock;
 
 	//Manager
-	manager::ModeManager* ss_modemanager;
-	manager::ControlManager* ss_controlmanager;
-	manager::TelemetryManager* ss_telemetrymanager;
-	manager::CommandManager* ss_commandmanager;
-	manager::UnitManager* ss_unitmanager;
-	manager::SystemManager* ss_systemmanager;
+	manager::ModeManagerBase* ss_modemanager;
+	manager::ControlManagerBase* ss_controlmanager;
+	manager::TelemetryManagerBase* ss_telemetrymanager;
+	manager::CommandManagerBase* ss_commandmanager;
+	manager::UnitManagerBase* ss_unitmanager;
+	manager::SystemManagerBase* ss_systemmanager;
 
 	// Command / Telemetry Handler 
 	devicedriver::cmhandler::ICommandReceiver* ss_commandreceiver;

@@ -38,7 +38,7 @@ public:
 	typedef T   Hold; //!< 測定対象の型．
 	typedef Env Environment;//!< 環境クラス．
 
-	CDHComponent(int instance_id, const datatype::String& name) : RootObject(instance_id, name) {}
+	CDHComponent(const datatype::String& name) : RootObject(name) {}
 	void connect(core::datapool::AocsDataPool* pool, int rows, const datatype::String name){ 
 		this->datapool_hold_index_ = pool->create(this, rows, name);
 		datapool_ = pool; 
@@ -68,7 +68,7 @@ class CDHMultiComponent : public RootObject, public OutputPorts<TList>, virtual 
 public:
 	typedef Env Environment;//!< 環境クラス．
 
-	CDHMultiComponent(int instance_id, const datatype::String& name) : RootObject(instance_id, name) {}
+	CDHMultiComponent(const datatype::String& name) : RootObject(name) {}
 	virtual void on(){ is_on_ = true;}
 	virtual void off(){ is_on_ = false;}
 	virtual bool is_on() const{ return is_on_; }

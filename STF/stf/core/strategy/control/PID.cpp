@@ -17,45 +17,45 @@ namespace strategy {
 namespace control {
 
 
-PID::PID(int instance_id, double kp, double ki, double kd, double dt, const datatype::Quaternion &target)
-	: kp_(kp), kd_(kd), ki_(ki), dt_(dt), q_target_(target), StrategyBase(instance_id, "PID")
+PID::PID( double kp, double ki, double kd, double dt, const datatype::Quaternion &target)
+	: kp_(kp), kd_(kd), ki_(ki), dt_(dt), q_target_(target), StrategyBase("PID")
 {
 }
 
-PID::PID(int instance_id, double kp, double ki, double kd, double dt, const datatype::Quaternion &target, 
+PID::PID( double kp, double ki, double kd, double dt, const datatype::Quaternion &target, 
 		devicedriver::OutputPort<datatype::Quaternion>* q_source, 
 		devicedriver::OutputPort<datatype::StaticVector<3>>* omega_source, 
 		devicedriver::InputPort<datatype::StaticVector<3>>* torque_out)
-	: kp_(kp), kd_(kd), ki_(ki), dt_(dt), q_target_(target), StrategyBase(instance_id, "PID")
+	: kp_(kp), kd_(kd), ki_(ki), dt_(dt), q_target_(target), StrategyBase("PID")
 {
 	if(q_source != 0) this->connect_source<0>(q_source);
 	if(omega_source != 0) this->connect_source<1>(omega_source);
 	torque_out->connect_source_(this);
 }
 
-QuaternionPID::QuaternionPID(int instance_id, double kp, double ki, double kd, double dt, const datatype::Quaternion &target)
- : PID(instance_id, kp, ki, kd, dt, target)
+QuaternionPID::QuaternionPID( double kp, double ki, double kd, double dt, const datatype::Quaternion &target)
+ : PID( kp, ki, kd, dt, target)
 {
 }
 
-QuaternionPID::QuaternionPID(int instance_id, double kp, double ki, double kd, double dt, const datatype::Quaternion &target, 
+QuaternionPID::QuaternionPID( double kp, double ki, double kd, double dt, const datatype::Quaternion &target, 
 		devicedriver::OutputPort<datatype::Quaternion>* q_source, 
 		devicedriver::InputPort<datatype::StaticVector<3>>* torque_out)
-		: PID(instance_id, kp, ki, kd, dt, target, q_source, 0, torque_out)
+		: PID( kp, ki, kd, dt, target, q_source, 0, torque_out)
 {
 }
 
-EarthPointingPID::EarthPointingPID(int instance_id, double kp, double ki, double kd, double dt, const datatype::StaticVector<3>& target)
-	: kp_(kp), kd_(kd), ki_(ki), dt_(dt), target_earthvector_(target), StrategyBase(instance_id, "EarthPointingPID")
+EarthPointingPID::EarthPointingPID( double kp, double ki, double kd, double dt, const datatype::StaticVector<3>& target)
+	: kp_(kp), kd_(kd), ki_(ki), dt_(dt), target_earthvector_(target), StrategyBase("EarthPointingPID")
 {
 }
 
-EarthPointingPID::EarthPointingPID(int instance_id, double kp, double ki, double kd, double dt, const datatype::StaticVector<3>& target,
+EarthPointingPID::EarthPointingPID( double kp, double ki, double kd, double dt, const datatype::StaticVector<3>& target,
 		devicedriver::OutputPort<datatype::Quaternion>* q_source, 
 		devicedriver::OutputPort<datatype::StaticVector<3>>* omega_source, 
 		devicedriver::OutputPort<datatype::PositionInfo>* position_source,
 		devicedriver::InputPort<datatype::StaticVector<3>>* torque_out)
-	: kp_(kp), kd_(kd), ki_(ki), dt_(dt), target_earthvector_(target), StrategyBase(instance_id, "EarthPointingPID")
+	: kp_(kp), kd_(kd), ki_(ki), dt_(dt), target_earthvector_(target), StrategyBase("EarthPointingPID")
 {
 	if(q_source != 0) this->connect_source<0>(q_source);
 	if(omega_source != 0) this->connect_source<1>(omega_source);
@@ -63,17 +63,17 @@ EarthPointingPID::EarthPointingPID(int instance_id, double kp, double ki, double
 	torque_out->connect_source_(this);
 }
 
-DynamicPID::DynamicPID(int instance_id, double kp, double ki, double kd, double dt)
-	: kp_(kp), kd_(kd), ki_(ki), dt_(dt), StrategyBase(instance_id, "DynamicPID")
+DynamicPID::DynamicPID( double kp, double ki, double kd, double dt)
+	: kp_(kp), kd_(kd), ki_(ki), dt_(dt), StrategyBase("DynamicPID")
 {
 }
 
-DynamicPID::DynamicPID(int instance_id, double kp, double ki, double kd, double dt,
+DynamicPID::DynamicPID( double kp, double ki, double kd, double dt,
 		devicedriver::OutputPort<datatype::Quaternion>* q_source, 
 		devicedriver::OutputPort<datatype::StaticVector<3>>* omega_source, 
 		devicedriver::OutputPort<datatype::Quaternion>* reference_source,
 		devicedriver::InputPort<datatype::StaticVector<3>>* torque_out)
-	: kp_(kp), kd_(kd), ki_(ki), dt_(dt), StrategyBase(instance_id, "DynamicPID")
+	: kp_(kp), kd_(kd), ki_(ki), dt_(dt), StrategyBase("DynamicPID")
 {
 	if(q_source != 0) this->connect_source<0>(q_source);
 	if(omega_source != 0) this->connect_source<1>(omega_source);

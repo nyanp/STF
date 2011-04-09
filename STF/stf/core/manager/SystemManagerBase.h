@@ -38,7 +38,7 @@ public:
 	typedef functor::IFunctor HotSpot;
 	typedef Loki::Type2Type<functor::IFunctor> SpotType;
 
-	SystemManagerBase(int instance_id) : ManagerBase(instance_id, "SystemManager"), func_(0) {}
+	SystemManagerBase() : ManagerBase("SystemManager"), func_(0) {}
 	virtual ~SystemManagerBase(){}
     virtual void run();
 	virtual bool runnable() const { return true; };

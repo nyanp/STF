@@ -22,10 +22,10 @@ namespace control {
 class PRISMRMMEKF : public RMMEKF
 {
 public:
-	PRISMRMMEKF(int instance_id) : RMMEKF(instance_id){}
-	PRISMRMMEKF(int instance_id, 
+	PRISMRMMEKF(){}
+	PRISMRMMEKF( 
 		OutputPort<datatype::MagneticField>* mag_source, OutputPort<datatype::StaticVector<3>>* omega_source,
-		InputPort<datatype::MagneticMoment>* mag_out = 0) : RMMEKF(instance_id, mag_source, omega_source, mag_out){}
+		InputPort<datatype::MagneticMoment>* mag_out = 0) : RMMEKF(mag_source, omega_source, mag_out){}
 	virtual ~PRISMRMMEKF(){}
 private:
 	template<int U>friend class interface::PRISMRMMEKFIterator;

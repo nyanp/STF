@@ -34,10 +34,10 @@ class RMMEKF : public StrategyBase,
 	public devicedriver::OutputPorts< TYPELIST_1( datatype::MagneticMoment ) >
 {
 public:
-	RMMEKF(int instance_id) : StrategyBase(instance_id, "RMMEKF"){}
-	RMMEKF(int instance_id, 
+	RMMEKF() : StrategyBase("RMMEKF"){}
+	RMMEKF( 
 		OutputPort<datatype::MagneticField>* mag_source, OutputPort<datatype::StaticVector<3>>* omega_source,
-		InputPort<datatype::MagneticMoment>* mag_out = 0) : StrategyBase(instance_id, "RMMEKF")
+		InputPort<datatype::MagneticMoment>* mag_out = 0) : StrategyBase("RMMEKF")
 	{
 	
 	}

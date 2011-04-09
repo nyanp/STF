@@ -24,9 +24,8 @@ class RW : public RWBase<T> {
 public:
 	~RW(){}
 	// 1Nm, 500Nms
-	RW(int instance_id, const datatype::DCM &angle) : RWBase(instance_id, angle, 1, -1, 500){}
+	RW(const datatype::DCM &angle) : RWBase(angle, 1, -1, 500){}
 private:
-	RW(){}
 };
 
 } /* End of namespace stf::core::devicedriver::rw */

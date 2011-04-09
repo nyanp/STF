@@ -28,8 +28,8 @@ class SingleAxisPID : public devicedriver::InputPorts< TYPELIST_1(datatype::Scal
 		public StrategyBase
 {
 public:
-    SingleAxisPID(int instance_id, double kp, double ki, double kd, double dt, const datatype::Scalar &target);
-	SingleAxisPID(int instance_id, double kp, double ki, double kd, double dt, const datatype::Scalar &target, 
+    SingleAxisPID( double kp, double ki, double kd, double dt, const datatype::Scalar &target);
+	SingleAxisPID( double kp, double ki, double kd, double dt, const datatype::Scalar &target, 
 		devicedriver::OutputPort<datatype::Scalar>* source, 
 		devicedriver::InputPort<datatype::Scalar>* out);
 	~SingleAxisPID(){}

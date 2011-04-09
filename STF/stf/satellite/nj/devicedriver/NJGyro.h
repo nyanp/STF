@@ -20,7 +20,7 @@ class NJGyro : public GyroBase<T> {
 public:
 	NJGyro(){}
 	//Sigma =0.02, tau(ECRV)=1000sec
-	NJGyro(int instance_id, const datatype::DCM &angle) : GyroBase(instance_id, angle, 0.02, 1000){}
+	NJGyro( const datatype::DCM &angle) : GyroBase( angle, 0.02, 1000){}
 	~NJGyro(){}
 	virtual void do_update(){}
 private:

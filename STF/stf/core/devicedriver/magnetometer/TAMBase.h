@@ -29,7 +29,7 @@ namespace magnetometer {
 template <class T>
 class TAMBase : public AOCSSensor<datatype::MagneticField, datatype::MagneticField, T>{
 public:
-	TAMBase(int instance_id, const datatype::DCM &angle);
+	TAMBase(const datatype::DCM &angle);
 	virtual ~TAMBase(){}
 	virtual void do_update();
 	virtual datatype::MagneticField filter(const datatype::MagneticField& value); 
@@ -40,8 +40,8 @@ private:
 };
 
 template <class T>
-TAMBase<T>::TAMBase(int instance_id, const datatype::DCM& dcm)
-	: AOCSSensor<datatype::MagneticField, datatype::MagneticField, T>(instance_id, "TAM", dcm)
+TAMBase<T>::TAMBase(const datatype::DCM& dcm)
+	: AOCSSensor<datatype::MagneticField, datatype::MagneticField, T>( "TAM", dcm)
 {
 
 }

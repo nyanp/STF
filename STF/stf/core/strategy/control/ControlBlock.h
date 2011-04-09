@@ -30,11 +30,11 @@ namespace control {
 class ControlBlock : public StrategyBase, virtual public IControlStrategy
 {
 public:
-	ControlBlock(int instance_id) : StrategyBase(instance_id, "ControlBlock") {}
+	ControlBlock() : StrategyBase("ControlBlock") {}
 
 	template<class T>
-	ControlBlock(int instance_id, devicedriver::OutputPort<typename T::Hold>* torque_source, T* torque_target)
-		: StrategyBase(instance_id, "ControlBlock")
+	ControlBlock( devicedriver::OutputPort<typename T::Hold>* torque_source, T* torque_target)
+		: StrategyBase("ControlBlock")
 	{
 		set_actuator<T>(torque_target, torque_source);
 	}

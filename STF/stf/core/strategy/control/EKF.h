@@ -40,12 +40,12 @@ class EKF : public StrategyBase,
 	public devicedriver::OutputPorts< TYPELIST_2( datatype::Quaternion, datatype::StaticVector<3> ) >
 {
 public:
-    EKF(int instance_id, const EKFParameters &params);
-	EKF(int instance_id, const EKFParameters &params, 
+    EKF( const EKFParameters &params);
+	EKF( const EKFParameters &params, 
 		OutputPort<datatype::Quaternion>* q_source, OutputPort<datatype::StaticVector<3>>* omega_source,
 		InputPort<datatype::Quaternion>* q_out = 0, InputPort<datatype::StaticVector<3>>* omega_out = 0
 		);
-    EKF(int instance_id);
+    EKF();
 	virtual ~EKF(){}	
 	virtual void init(const EKFParameters &params);//!< 与えられたEKFParametersを用いて推定値と各伝搬行列を全て初期化する．
     virtual void init();  //!< ローカルのparams_を用いて推定値と各伝搬行列を全て初期化する．

@@ -467,8 +467,8 @@ void MTQBase<environment::Simulator>::do_update(){
 // シミュレータ用の特殊化版コンストラクタ．
 // トルクソースとしてシミュレータに自動的に登録
 template<>
-MTQBase<environment::Simulator>::MTQBase(int instance_id, const datatype::DCM &dcm, double max_torque, double min_torque, double linearity) 
-	: AOCSActuator<datatype::MagneticMoment, datatype::Scalar, environment::Simulator>(instance_id, "MTQ", dcm), linearity_(linearity)
+MTQBase<environment::Simulator>::MTQBase( const datatype::DCM &dcm, double max_torque, double min_torque, double linearity) 
+	: AOCSActuator<datatype::MagneticMoment, datatype::Scalar, environment::Simulator>( "MTQ", dcm), linearity_(linearity)
 {
 	//this->max_output_ = max_torque;
 	//this->min_output_ = min_torque;	
@@ -492,8 +492,8 @@ void RWBase<environment::Simulator>::do_update(){
 // シミュレータ用の特殊化版コンストラクタ．
 // トルクソースとしてシミュレータに自動的に登録
 template<>
-RWBase<environment::Simulator>::RWBase(int instance_id, const datatype::DCM &dcm, double max_torque, double min_torque, double max_angular_momentum) : 
-AOCSActuator<datatype::StaticVector<3>, datatype::Scalar, environment::Simulator>(instance_id, "RW", dcm), max_angular_momentum_(max_angular_momentum)
+RWBase<environment::Simulator>::RWBase( const datatype::DCM &dcm, double max_torque, double min_torque, double max_angular_momentum) : 
+AOCSActuator<datatype::StaticVector<3>, datatype::Scalar, environment::Simulator>( "RW", dcm), max_angular_momentum_(max_angular_momentum)
 {
 	this->environment_->attachTorqueSource(this);
 	//this->max_output_ = max_torque;
