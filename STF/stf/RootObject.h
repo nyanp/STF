@@ -8,7 +8,6 @@
 #ifndef RootObject_h
 #define RootObject_h
 
-#include "InstanceID.h"
 #include "datatype/String.h"
 #include "util/Macros.h"
 
@@ -36,24 +35,27 @@ class EventDataPool;
 */
 class RootObject {
 public:
-	RootObject(int instance_id, const datatype::String& name);
-	int instance_id() const{ return instance_id_; }
+	RootObject(const datatype::String& name);
 	const datatype::String& name() const { return name_; }
 	virtual ~RootObject(){}
 	virtual int get_datapoolKey() const;
+
 protected:
-    int oid_;
-	int instance_id_;
+	//! オブジェクトID．メモリが割り当てられた順に番号が振られる
+    const int oid_;
+	//! オブジェクト名．
 	const datatype::String name_;
-    static int last_oid_;
+
 	static core::devicedriver::clock::ITimeClock* clock_;
 	static core::datapool::EventDataPool* eventdatapool_;
 	//観測値が格納されるデータベースインデックス．
 	int datapool_hold_index_;
 	core::datapool::AocsDataPool* datapool_;
+
 private:
     RootObject();
 	DISALLOW_COPY_AND_ASSIGN(RootObject);
+	static int last_oid_;
 };
 
 } /* End of namespace stf */
