@@ -17,10 +17,10 @@ namespace rw {
 
 //! ソフトウェアシミュレーションレベルで動作するRWドライバ．
 /*! 
-	@tparam T コンポーネントの環境クラス．
+	@tparam Env コンポーネントの環境クラス．
 */
-template<class T>
-class RW : public RWBase<T> {
+template<class Env>
+class RW : public RWBase<Env> {
 public:
 	~RW(){}
 	// 1Nm, 500Nms

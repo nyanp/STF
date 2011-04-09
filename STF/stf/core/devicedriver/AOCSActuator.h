@@ -20,11 +20,11 @@ namespace devicedriver {
 	@tparam U   アクチュエータが出力する次元での物理量．3軸アクチュエータならTと一致，1軸ならScalar．
 	@tparam Env コンポーネントの環境クラス．
 */
-template<class T, class U, class Env>
-class AOCSActuator : public AOCSComponent<T, U, Env>, public InputPorts< TYPELIST_1(U) > {
+template<class Env, class T, class U>
+class AOCSActuator : public AOCSComponent<Env, T, U>, public InputPorts< TYPELIST_1(U) > {
 public:
 	AOCSActuator(const datatype::String& name, const datatype::DCM& dcm)
-		: AOCSComponent<T, U, Env>(name, dcm){}
+		: AOCSComponent<Env, T, U>(name, dcm){}
 
 	virtual ~AOCSActuator(){}
 

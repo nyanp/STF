@@ -17,10 +17,10 @@ namespace magnetometer {
 
 //! ソフトウェアシミュレーションレベルで動作する磁気センサドライバ．
 /*! 
-	@tparam T コンポーネントの環境クラス．
+	@tparam Env コンポーネントの環境クラス．
 */
-template <class T>
-class TAM : public TAMBase<T>{
+template <class Env>
+class TAM : public TAMBase<Env>{
 public:  
 	// 3-Sigmaで1度精度
 	TAM(const datatype::DCM &angle) : TAMBase(angle){}

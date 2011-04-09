@@ -9,7 +9,6 @@
 #define stf_core_mode_Mode_h
 
 #include "../../RootObject.h"
-#include "../../Config.h"
 #include "../../util/loki/TypeManip.h"
 #include "ModeHotSpot.h"
 

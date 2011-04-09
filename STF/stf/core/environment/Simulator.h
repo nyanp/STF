@@ -35,8 +35,8 @@ template<class> class List;
 }
 namespace core {
 namespace devicedriver {
-template<class T, class U, class Env> class AOCSSensor;
-template<class T, class U, class Env> class AOCSActuator;
+template<class Env, class T, class U> class AOCSSensor;
+template<class Env, class T, class U> class AOCSActuator;
 namespace clock {
 class ITimeClock;
 }
@@ -86,14 +86,14 @@ public:
 	typedef util::Ofstream OutputFileStream;
 	typedef std::ifstream InputFileStream;
 
-	typedef core::devicedriver::AOCSSensor<datatype::StaticVector<3>, datatype::StaticVector<3>, Simulator> MultiGyro;
-	typedef core::devicedriver::AOCSSensor<datatype::StaticVector<3>, datatype::Scalar, Simulator> Gyro;
-	typedef core::devicedriver::AOCSSensor<datatype::Quaternion, datatype::Quaternion, Simulator> STT;
-	typedef core::devicedriver::AOCSSensor<datatype::StaticVector<2>, datatype::StaticVector<2>, Simulator> Vectorsensor;
-	typedef core::devicedriver::AOCSSensor<datatype::MagneticField, datatype::MagneticField, Simulator> Magnetometer;
+	typedef core::devicedriver::AOCSSensor<Simulator, datatype::StaticVector<3>, datatype::StaticVector<3>> MultiGyro;
+	typedef core::devicedriver::AOCSSensor<Simulator, datatype::StaticVector<3>, datatype::Scalar> Gyro;
+	typedef core::devicedriver::AOCSSensor<Simulator, datatype::Quaternion, datatype::Quaternion> STT;
+	typedef core::devicedriver::AOCSSensor<Simulator, datatype::StaticVector<2>, datatype::StaticVector<2>> Vectorsensor;
+	typedef core::devicedriver::AOCSSensor<Simulator, datatype::MagneticField, datatype::MagneticField> Magnetometer;
 	typedef core::devicedriver::clock::ITimeClock Clock;
-	typedef core::devicedriver::AOCSActuator<datatype::StaticVector<3>, datatype::Scalar, Simulator> TorqueSource;
-	typedef core::devicedriver::AOCSActuator<datatype::MagneticMoment, datatype::Scalar, Simulator> MagneticSource;
+	typedef core::devicedriver::AOCSActuator<Simulator, datatype::StaticVector<3>, datatype::Scalar> TorqueSource;
+	typedef core::devicedriver::AOCSActuator<Simulator, datatype::MagneticMoment, datatype::Scalar> MagneticSource;
 
 	static Simulator& get_instance();
 	void init(Global<Simulator>* global, double stepTimeInSecond, double maxTimeInSecond, const datatype::OrbitInfo& orbit, std::ofstream *ostream);

@@ -15,12 +15,12 @@ namespace core {
 namespace devicedriver {
 namespace gyro {
 
-template<class T>
-class PRISMGyro : public GyroBase<T> {
+template<class Env>
+class PRISMGyro : public GyroBase<Env> {
 public:
 	PRISMGyro(){}
 	//Sigma =0.02, tau(ECRV)=1000sec
-	PRISMGyro( const datatype::DCM &angle) : GyroBase(angle, 0.02, 1000){}
+	PRISMGyro(const datatype::DCM &angle) : GyroBase(angle, 0.02, 1000){}
 	~PRISMGyro(){}
 	virtual void do_update(){}
 private:

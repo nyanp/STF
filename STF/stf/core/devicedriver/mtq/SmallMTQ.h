@@ -17,10 +17,10 @@ namespace mtq {
 
 //! ソフトウェアシミュレーションレベルで動作する小規模磁気トルカドライバ．
 /*! 
-	@tparam T コンポーネントの環境クラス．
+	@tparam Env コンポーネントの環境クラス．
 */
-template<class T>
-class SmallMTQ : public MTQBase<T> {
+template<class Env>
+class SmallMTQ : public MTQBase<Env> {
 public:
 	~SmallMTQ(){}
 	//50mNm出力，線形性誤差1％

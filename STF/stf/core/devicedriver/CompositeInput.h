@@ -72,11 +72,11 @@ template
 	bool UseAlignment = false, 
 	class AggregationPolicy = typename AggregationSelector<typename Leaf::Target, typename Leaf::Hold,Numbers, UseAlignment>::Result 
 >
-class CompositeInput : public AOCSSensor<typename Leaf::Target, typename Leaf::Target, typename Leaf::Environment>, public AggregationPolicy {
+class CompositeInput : public AOCSSensor<typename Leaf::Environment, typename Leaf::Target, typename Leaf::Target>, public AggregationPolicy {
 public:
 	STF_STATIC_ASSERT( Numbers <= 255, CHILD_NUMBER_OVERFLOW );
 
-	typedef AOCSSensor<typename Leaf::Target, typename Leaf::Target, typename Leaf::Environment> Base;
+	typedef AOCSSensor<typename Leaf::Environment, typename Leaf::Target, typename Leaf::Target> Base;
 	typedef Leaf Child;
 	enum { UseAlignmentForAggregation = UseAlignment, NumberOfChilds = Numbers };
 

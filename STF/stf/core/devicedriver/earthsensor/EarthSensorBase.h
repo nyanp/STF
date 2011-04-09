@@ -22,10 +22,10 @@ namespace earthsensor {
 
 //! 地球センサの基底クラス．
 /*! 
-	@tparam T コンポーネントの環境クラス．
+	@tparam Env コンポーネントの環境クラス．
 */
-template <class T>
-class EarthSensorBase : public AOCSSensor<datatype::StaticVector<2>, datatype::StaticVector<2>, T>{
+template <class Env>
+class EarthSensorBase : public AOCSSensor<Env, datatype::StaticVector<2>, datatype::StaticVector<2>>{
 public:
 	EarthSensorBase(const datatype::DCM &angle, double err_deg, int sigma = 3);
 	virtual ~EarthSensorBase(){}
@@ -37,15 +37,15 @@ private:
 	int sigma_;
 };
 
-template <class T>
-EarthSensorBase<T>::EarthSensorBase(const datatype::DCM& dcm, double err_deg, int sigma)
+template <class Env>
+EarthSensorBase<Env>::EarthSensorBase(const datatype::DCM& dcm, double err_deg, int sigma)
 	: AOCSSensor<datatype::StaticVector<2>, datatype::StaticVector<2>, T>("EarthSensor", dcm), err_deg_(err_deg), sigma_(sigma)
 {
 
 }
 
-template <class T>
-void EarthSensorBase<T>::do_update(){
+template <class Env>
+void EarthSensorBase<Env>::do_update(){
 	stf_static_assert(0 && "Not-Implemented-Exception");
 }
 

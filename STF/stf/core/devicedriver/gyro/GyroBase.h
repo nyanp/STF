@@ -23,10 +23,10 @@ namespace gyro {
 
 //! ジャイロセンサの基底クラス．
 /*! 
-	@tparam T コンポーネントの環境クラス．
+	@tparam Env コンポーネントの環境クラス．
 */
-template <class T>
-class GyroBase : public AOCSSensor<datatype::StaticVector<3>, datatype::Scalar, T>{
+template <class Env>
+class GyroBase : public AOCSSensor<Env, datatype::StaticVector<3>, datatype::Scalar>{
 public:
 	GyroBase(const datatype::DCM &angle, double sigma, double tau);
 	~GyroBase(){}
@@ -41,15 +41,15 @@ private:
     double tau_;
 };
 
-template <class T>
-GyroBase<T>::GyroBase(const datatype::DCM &dcm, double sigma, double tau)
-	: AOCSSensor<datatype::StaticVector<3>, datatype::Scalar, T>( "Gyro", dcm), sigma_(sigma), tau_(tau), bias_rate_(0.0)
+template <class Env>
+GyroBase<Env>::GyroBase(const datatype::DCM &dcm, double sigma, double tau)
+	: AOCSSensor<Env, datatype::StaticVector<3>, datatype::Scalar>( "Gyro", dcm), sigma_(sigma), tau_(tau), bias_rate_(0.0)
 {
 
 }
 
-template <class T>
-void GyroBase<T>::do_update(){
+template <class Env>
+void GyroBase<Env>::do_update(){
 	stf_static_assert(0 && "Not-Implemented-Exception");
 }
 

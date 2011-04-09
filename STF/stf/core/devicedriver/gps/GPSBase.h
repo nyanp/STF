@@ -24,12 +24,12 @@ namespace gps {
 
 //! GPSセンサの基底クラス．
 /*! 
-	@tparam T コンポーネントの環境クラス．
+	@tparam Env コンポーネントの環境クラス．
 */
-template <class T>
-class GPSBase : public AOCSSensor<datatype::PositionInfo, datatype::PositionInfo, T>, virtual public clock::IAbsoluteTimeClock{
+template <class Env>
+class GPSBase : public AOCSSensor<Env, datatype::PositionInfo, datatype::PositionInfo>, virtual public clock::IAbsoluteTimeClock{
 public:
-	GPSBase(): AOCSSensor<datatype::PositionInfo, datatype::PositionInfo, T>("GPS"){}
+	GPSBase(): AOCSSensor<Env, datatype::PositionInfo, datatype::PositionInfo>("GPS"){}
 	~GPSBase(){}
 	virtual void do_update();
 	virtual const datatype::DateTime get_datetime() const {return t_;}
@@ -42,8 +42,8 @@ protected:
 	datatype::DateTime t_;
 };
 
-template <class T>
-void GPSBase<T>::do_update(){
+template <class Env>
+void GPSBase<Env>::do_update(){
 	stf_static_assert(0 && "Not-Implemented-Exception");
 }
 

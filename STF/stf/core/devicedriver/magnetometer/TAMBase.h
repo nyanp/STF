@@ -24,10 +24,10 @@ namespace magnetometer {
 
 //! 3軸磁気センサの基底クラス．
 /*! 
-	@tparam T コンポーネントの環境クラス．
+	@tparam Env コンポーネントの環境クラス．
 */
-template <class T>
-class TAMBase : public AOCSSensor<datatype::MagneticField, datatype::MagneticField, T>{
+template <class Env>
+class TAMBase : public AOCSSensor<Env, datatype::MagneticField, datatype::MagneticField>{
 public:
 	TAMBase(const datatype::DCM &angle);
 	virtual ~TAMBase(){}
@@ -39,15 +39,15 @@ private:
 	int sigma_;
 };
 
-template <class T>
-TAMBase<T>::TAMBase(const datatype::DCM& dcm)
-	: AOCSSensor<datatype::MagneticField, datatype::MagneticField, T>( "TAM", dcm)
+template <class Env>
+TAMBase<Env>::TAMBase(const datatype::DCM& dcm)
+	: AOCSSensor<Env, datatype::MagneticField, datatype::MagneticField>( "TAM", dcm)
 {
 
 }
 
-template <class T>
-void TAMBase<T>::do_update(){
+template <class Env>
+void TAMBase<Env>::do_update(){
 	stf_static_assert(0 && "Not-Implemented-Exception");
 }
 

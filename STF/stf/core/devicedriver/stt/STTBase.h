@@ -22,11 +22,11 @@ namespace stt {
 
 //! スターセンサの基底クラス．
 /*! 
-	@tparam T コンポーネントの環境クラス．
+	@tparam Env コンポーネントの環境クラス．
 	@todo count_をどうにかする
 */
-template <class T>
-class STTBase : public AOCSSensor<datatype::Quaternion, datatype::Quaternion, T>{
+template <class Env>
+class STTBase : public AOCSSensor<Env, datatype::Quaternion, datatype::Quaternion>{
 public:
 	STTBase(const datatype::DCM &angle, double err_arcsec, int sigma = 3);
 	virtual ~STTBase(){}
@@ -40,15 +40,15 @@ private:
 };
 
 
-template <class T>
-STTBase<T>::STTBase(const datatype::DCM& dcm, double err_arcsec, int sigma) 
-	: AOCSSensor<datatype::Quaternion, datatype::Quaternion, T>("STT", dcm), err_arcsec_(err_arcsec), sigma_(sigma), count_(0)
+template <class Env>
+STTBase<Env>::STTBase(const datatype::DCM& dcm, double err_arcsec, int sigma) 
+	: AOCSSensor<Env, datatype::Quaternion, datatype::Quaternion>("STT", dcm), err_arcsec_(err_arcsec), sigma_(sigma), count_(0)
 {
 	this->q_set_angle_ = datatype::TypeConverter::toQuaternion(dcm);
 }
 
-template <class T>
-void STTBase<T>::do_update(){
+template <class Env>
+void STTBase<Env>::do_update(){
 	stf_static_assert(0 && "Not-Implemented-Exception");
 }
 

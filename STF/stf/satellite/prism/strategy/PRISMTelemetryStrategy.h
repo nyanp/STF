@@ -11,12 +11,12 @@
 
 namespace stf {
 namespace interface {
-template<int SCALE, int DEPTH> class PRISMTelemetryIterator;
+template<class Env, int SCALE, int DEPTH> class PRISMTelemetryIterator;
 }
 namespace core {
 namespace devicedriver {
 namespace clock {
-class PRISMDummyClock;
+template<class Env> class PRISMDummyClock;
 }
 }
 namespace strategy {
@@ -25,7 +25,7 @@ namespace telemetry {
 // PRISMのテレメトリ（AOCS/CDH/詳細/粗履歴）を担当するStrategy.
 // 基本的にはSelectingOutputの実装を引き継いでいるが，外部イテレータへ実装を公開する点，
 // 時刻によって開始と終了を制御する点が異なる．
-template<int SCALE>
+template<class Env, int SCALE>
 class PRISMTelemetryStrategy : public SelectingOutput<short, SCALE> {
 public:
 	PRISMTelemetryStrategy
@@ -33,7 +33,7 @@ public:
 		devicedriver::tmhandler::ITelemetryStoragable* storage,
 		const core::datapool::AocsDataPool* pool,
 		const core::datapool::EventDataPool* eventpool,
-		const devicedriver::clock::PRISMDummyClock* clock
+		const devicedriver::clock::PRISMDummyClock<Env>* clock
 	) 
 		: SelectingOutput<short, SCALE>(storage, pool, eventpool), clock_(clock){}
 
@@ -58,9 +58,9 @@ private:
 	// どちらか一方が超え，かつテレメ有効フラグが立っていたら取得開始．データがいっぱいになり，かつ上書き禁止モードのとき取得停止．
 	datatype::DateTime start_rtc_;
 	datatype::Time start_obc_;
-	const devicedriver::clock::PRISMDummyClock* clock_;
+	const devicedriver::clock::PRISMDummyClock<Env>* clock_;
 	bool is_enabled_;
-	template<int SCALE, int DEPTH> friend class PRISMTelemetryIterator;
+	template<class Env, int SCALE, int DEPTH> friend class PRISMTelemetryIterator;
 };
 
 } /* End of namespace stf::core::strategy::telemetry */

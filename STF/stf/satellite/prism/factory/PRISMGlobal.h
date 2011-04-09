@@ -92,8 +92,8 @@ struct PRISMGlobal : public Global<Env>{
 	// Strategy
 	/////////////////////////////////////////////////////
 	core::strategy::control::IControlStrategy* pr_controlstrategy;
-	core::strategy::telemetry::PRISMTelemetryStrategy<1000>* pr_tmstrategy;
-	core::strategy::telemetry::PRISMTelemetryStrategy<1000>* pr_aocstmstrategy;
+	core::strategy::telemetry::PRISMTelemetryStrategy<Env, 1000>* pr_tmstrategy;
+	core::strategy::telemetry::PRISMTelemetryStrategy<Env, 1000>* pr_aocstmstrategy;
 
 	/////////////////////////////////////////////////////
 	// Device Driver
@@ -124,7 +124,7 @@ struct PRISMGlobal : public Global<Env>{
 	//GPS
 	devicedriver::gps::DummyGPS<Env>* pr_gpsdummy;
 	//
-	devicedriver::clock::PRISMDummyClock* pr_clock;
+	devicedriver::clock::PRISMDummyClock<Env>* pr_clock;
 	
 	devicedriver::PRISMADC<Env>* pr_adc;
 
@@ -140,10 +140,10 @@ struct PRISMGlobal : public Global<Env>{
 	// Iterator
 	/////////////////////////////////////////////////////
 	// CDH/AOCSのステータスとテレメをダウンリンクするためのイテレータ
-	interface::PRISMTelemetryIterator<100, 1>* pr_statusiterator;
-	interface::PRISMTelemetryIterator<100, 4>* pr_telemetryiterator;
-	interface::PRISMTelemetryIterator<100, 1>* pr_aocsstatusiterator;
-	interface::PRISMTelemetryIterator<100, 4>* pr_aocstelemetryiterator;
+	interface::PRISMTelemetryIterator<Env, 100, 1>* pr_statusiterator;
+	interface::PRISMTelemetryIterator<Env, 100, 4>* pr_telemetryiterator;
+	interface::PRISMTelemetryIterator<Env, 100, 1>* pr_aocsstatusiterator;
+	interface::PRISMTelemetryIterator<Env, 100, 4>* pr_aocstelemetryiterator;
 
 	/////////////////////////////////////////////////////
 	// Command-Prototypes

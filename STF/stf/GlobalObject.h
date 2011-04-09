@@ -9,7 +9,6 @@
 #define stf_GlobalObject_h
 
 #include <fstream>
-#include "InstanceID.h"
 #include "datatype/List.h"
 #include "datatype/Time.h"
 #include "datatype/DateTime.h"

@@ -21,7 +21,6 @@
 #include "../../../core/mode/Mode.h"
 #include "../../../core/strategy/telemetry/Includes.h"
 #include "../../../datatype/Time.h"
-#include "../../../InstanceID.h"
 
 #include "PRISMGlobal.h"
 
@@ -77,7 +76,7 @@ void PRISMFactory<Env>::create_component(){
 	typedef stf::core::devicedriver::sunsensor::PRISMSunSensor<Env> SS;
 	typedef stf::core::devicedriver::magnetometer::PRISMTAM<Env> TAM;
 	typedef stf::core::devicedriver::gps::DummyGPS<Env> GPS;
-	typedef stf::core::devicedriver::clock::PRISMDummyClock Clock;
+	typedef stf::core::devicedriver::clock::PRISMDummyClock<Env> Clock;
 
 	//DataPool
 	this->global_->pr_aocsdatapool = new core::datapool::AocsDataPool();
@@ -305,8 +304,8 @@ void PRISMFactory<Env>::create_controller(){
 template<class Env>
 void PRISMFactory<Env>::create_command(){
 	typedef core::manager::HeaterControl<Env> Heater;
-	typedef core::devicedriver::clock::PRISMDummyClock Clock;
-	typedef core::strategy::telemetry::PRISMTelemetryStrategy<1000> Telem;
+	typedef core::devicedriver::clock::PRISMDummyClock<Env> Clock;
+	typedef core::strategy::telemetry::PRISMTelemetryStrategy<Env, 1000> Telem;
 	typedef core::manager::ModeManagerBase ModeManager;
 	datatype::Time t_init = this->global_->pr_clock->get_time();
 
@@ -400,8 +399,8 @@ void PRISMFactory<Env>::create_command(){
 
 template<class Env>
 void PRISMFactory<Env>::create_telemetry(){
-	this->global_->pr_tmstrategy = new core::strategy::telemetry::PRISMTelemetryStrategy<1000>(this->global_->pr_tmhandler, this->global_->pr_aocsdatapool, this->global_->pr_eventdatapool, this->global_->pr_clock);
-	this->global_->pr_aocstmstrategy = new core::strategy::telemetry::PRISMTelemetryStrategy<1000>(this->global_->pr_tmhandler, this->global_->pr_aocsdatapool, this->global_->pr_eventdatapool, this->global_->pr_clock);
+	this->global_->pr_tmstrategy = new core::strategy::telemetry::PRISMTelemetryStrategy<Env, 1000>(this->global_->pr_tmhandler, this->global_->pr_aocsdatapool, this->global_->pr_eventdatapool, this->global_->pr_clock);
+	this->global_->pr_aocstmstrategy = new core::strategy::telemetry::PRISMTelemetryStrategy<Env, 1000>(this->global_->pr_tmhandler, this->global_->pr_aocsdatapool, this->global_->pr_eventdatapool, this->global_->pr_clock);
 	///////////////////////////////////////////////////
 	// テレメトリストラテジをモードに登録
 	this->global_->pr_safemode->add_list<core::strategy::telemetry::ITelemetryStrategy>(this->global_->pr_tmstrategy);

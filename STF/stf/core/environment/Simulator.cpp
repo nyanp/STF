@@ -38,14 +38,14 @@ namespace environment {
 
 class SimulatorImpl {
 public:
-	typedef core::devicedriver::AOCSSensor<datatype::StaticVector<3>, datatype::StaticVector<3>, Simulator> MultiGyro;
-	typedef core::devicedriver::AOCSSensor<datatype::StaticVector<3>, datatype::Scalar, Simulator> Gyro;
-	typedef core::devicedriver::AOCSSensor<datatype::Quaternion, datatype::Quaternion, Simulator> STT;
-	typedef core::devicedriver::AOCSSensor<datatype::StaticVector<2>, datatype::StaticVector<2>, Simulator> Vectorsensor;
-	typedef core::devicedriver::AOCSSensor<datatype::MagneticField, datatype::MagneticField, Simulator> Magnetometer;
+	typedef core::devicedriver::AOCSSensor<Simulator, datatype::StaticVector<3>, datatype::StaticVector<3> > MultiGyro;
+	typedef core::devicedriver::AOCSSensor<Simulator, datatype::StaticVector<3>, datatype::Scalar> Gyro;
+	typedef core::devicedriver::AOCSSensor<Simulator, datatype::Quaternion, datatype::Quaternion> STT;
+	typedef core::devicedriver::AOCSSensor<Simulator, datatype::StaticVector<2>, datatype::StaticVector<2> > Vectorsensor;
+	typedef core::devicedriver::AOCSSensor<Simulator, datatype::MagneticField, datatype::MagneticField> Magnetometer;
 	typedef core::devicedriver::clock::ITimeClock Clock;
-	typedef core::devicedriver::AOCSActuator<datatype::StaticVector<3>, datatype::Scalar, Simulator> TorqueSource;
-	typedef core::devicedriver::AOCSActuator<datatype::MagneticMoment, datatype::Scalar, Simulator> MagneticSource;
+	typedef core::devicedriver::AOCSActuator<Simulator, datatype::StaticVector<3>, datatype::Scalar> TorqueSource;
+	typedef core::devicedriver::AOCSActuator<Simulator, datatype::MagneticMoment, datatype::Scalar> MagneticSource;
 
     SimulatorImpl();
     ~SimulatorImpl();
@@ -468,7 +468,7 @@ void MTQBase<environment::Simulator>::do_update(){
 // トルクソースとしてシミュレータに自動的に登録
 template<>
 MTQBase<environment::Simulator>::MTQBase( const datatype::DCM &dcm, double max_torque, double min_torque, double linearity) 
-	: AOCSActuator<datatype::MagneticMoment, datatype::Scalar, environment::Simulator>( "MTQ", dcm), linearity_(linearity)
+	: AOCSActuator<environment::Simulator, datatype::MagneticMoment, datatype::Scalar>( "MTQ", dcm), linearity_(linearity)
 {
 	//this->max_output_ = max_torque;
 	//this->min_output_ = min_torque;	
@@ -493,7 +493,7 @@ void RWBase<environment::Simulator>::do_update(){
 // トルクソースとしてシミュレータに自動的に登録
 template<>
 RWBase<environment::Simulator>::RWBase( const datatype::DCM &dcm, double max_torque, double min_torque, double max_angular_momentum) : 
-AOCSActuator<datatype::StaticVector<3>, datatype::Scalar, environment::Simulator>( "RW", dcm), max_angular_momentum_(max_angular_momentum)
+AOCSActuator<environment::Simulator, datatype::StaticVector<3>, datatype::Scalar>( "RW", dcm), max_angular_momentum_(max_angular_momentum)
 {
 	this->environment_->attachTorqueSource(this);
 	//this->max_output_ = max_torque;
@@ -512,7 +512,7 @@ void STTBase<environment::Simulator>::do_update(){
 	if(count_ >= 5){
 		this->value_ = filter(this->environment_->getQuaternion(*this));
 		if(this->datapool_ != 0){
-			datapool_->set<STTBase<environment::Simulator>>(datapool_hold_index_, this->value_);
+			datapool_->set<STTBase<environment::Simulator> >(datapool_hold_index_, this->value_);
 		}
 		count_ = 0;
 	}

@@ -22,10 +22,10 @@ namespace sunsensor {
 
 //! 太陽センサの基底クラス．
 /*! 
-	@tparam T コンポーネントの環境クラス．
+	@tparam Env コンポーネントの環境クラス．
 */
-template <class T>
-class SunSensorBase : public AOCSSensor<datatype::StaticVector<2>, datatype::StaticVector<2>, T>{
+template <class Env>
+class SunSensorBase : public AOCSSensor<Env, datatype::StaticVector<2>, datatype::StaticVector<2>>{
 public:
 	SunSensorBase(const datatype::DCM &angle, double err_deg, int sigma = 3);
 	virtual ~SunSensorBase(){}
@@ -37,15 +37,15 @@ private:
 	int sigma_;
 };
 
-template <class T>
-SunSensorBase<T>::SunSensorBase(const datatype::DCM& dcm, double err_deg, int sigma)
-	: AOCSSensor<datatype::StaticVector<2>, datatype::StaticVector<2>, T>("SS", dcm), err_deg_(err_deg), sigma_(sigma)
+template <class Env>
+SunSensorBase<Env>::SunSensorBase(const datatype::DCM& dcm, double err_deg, int sigma)
+	: AOCSSensor<Env, datatype::StaticVector<2>, datatype::StaticVector<2>>("SS", dcm), err_deg_(err_deg), sigma_(sigma)
 {
 
 }
 
-template <class T>
-void SunSensorBase<T>::do_update(){
+template <class Env>
+void SunSensorBase<Env>::do_update(){
 	stf_static_assert(0 && "Not-Implemented-Exception");
 }
 

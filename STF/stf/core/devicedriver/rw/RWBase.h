@@ -23,13 +23,13 @@ namespace rw {
 
 //! リアクションホイールの基底クラス．
 /*! 
-	@tparam T コンポーネントの環境クラス．
+	@tparam Env コンポーネントの環境クラス．
 */
-template<class T>
-class RWBase : public AOCSActuator<datatype::StaticVector<3>, datatype::Scalar, T>{
+template<class Env>
+class RWBase : public AOCSActuator<Env, datatype::StaticVector<3>, datatype::Scalar>{
 public:
 	RWBase(const datatype::DCM &dcm, double max_torque, double min_torque, double max_angular_momentum);
-    virtual ~RWBase();
+	virtual ~RWBase(){}
 	virtual void do_update();
 	virtual double angular_momentum() { return this->angular_momentum_;}
 	virtual bool is_saturated() const{ if(this->angular_momentum_ >= this->max_angular_momentum_) return true; return false; }//ホイールが飽和していたらtrue
@@ -38,21 +38,16 @@ private:
 	double angular_momentum_;//内部およびアンローディング制御ブロックで使用する角運動量．
 };
 
-template<class T>
-RWBase<T>::RWBase(const datatype::DCM &dcm, double max_torque, double min_torque, double max_angular_momentum) :
+template<class Env>
+RWBase<Env>::RWBase(const datatype::DCM &dcm, double max_torque, double min_torque, double max_angular_momentum) :
 AOCSActuator<datatype::StaticVector<3>, datatype::Scalar, T>("RW", dcm), max_angular_momentum_(max_angular_momentum)
 {
 	this->max_output_ = max_torque;	
 	this->min_output_ = min_torque;
 }
 
-template<class T>
-RWBase<T>::~RWBase()
-{
-}
-
-template<class T>
-void RWBase<T>::do_update(){
+template<class Env>
+void RWBase<Env>::do_update(){
 	stf_static_assert(0 && "Not-Implemented-Exception");
 }
 

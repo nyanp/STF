@@ -14,8 +14,9 @@ namespace stf {
 namespace core {
 namespace devicedriver {
 namespace sunsensor {
-template <class T>
-class PRISMSunSensor : public SunSensorBase<T>{
+
+template <class Env>
+class PRISMSunSensor : public SunSensorBase<Env>{
 public:  
 	// 3-SigmaÇ≈1ìxê∏ìx
 	PRISMSunSensor( const datatype::DCM &angle) : SunSensorBase(angle, 1, 3){}

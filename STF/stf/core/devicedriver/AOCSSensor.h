@@ -21,14 +21,14 @@ namespace devicedriver {
 	@tparam U   センサが入力する次元での物理量．3軸センサならTと一致，1軸ならScalar．
 	@tparam Env コンポーネントの環境クラス．
 */
-template<class T, class U, class Env>
-class AOCSSensor : public AOCSComponent<T, U, Env>, public OutputPorts< TYPELIST_1(U) > {
+template<class Env, class T, class U>
+class AOCSSensor : public AOCSComponent<Env, T, U>, public OutputPorts< TYPELIST_1(U) > {
 public:
 	AOCSSensor(const datatype::String& name, const datatype::DCM& dcm)
-		: AOCSComponent<T, U, Env>(name, dcm){}
+		: AOCSComponent<Env, T, U>(name, dcm){}
 
 	AOCSSensor(const datatype::String& name)
-		: AOCSComponent<T, U, Env>(name){}
+		: AOCSComponent<Env, T, U>(name){}
 
 	virtual ~AOCSSensor(){}
 

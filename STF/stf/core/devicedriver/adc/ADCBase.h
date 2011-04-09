@@ -23,10 +23,10 @@ namespace devicedriver {
 	@tparam NUM AD変換対象のチャネル数．
 	@tparam Env コンポーネントの環境クラス．
 */
-template<int NUM, class Env = ENV>
-class ADCBase : public CDHComponent< datatype::Voltage, NUM, Env >  {
+template<class Env, int NUM>
+class ADCBase : public CDHComponent<Env, datatype::Voltage, NUM>  {
 public:
-	ADCBase() :  CDHComponent<datatype::Voltage,NUM, Env>("ADCBase") {}
+	ADCBase() :  CDHComponent<Env, datatype::Voltage, NUM>("ADCBase") {}
 	virtual ~ADCBase(){}
 protected:
 };
@@ -40,10 +40,10 @@ protected:
 	@tparam Env              コンポーネントの環境クラス．
 	@tparam ConversionPolicy convert関数の実装を決定する変換ポリシークラス．
 */
-template<class T, int NUM, int ADCNUM = NUM, class Env = ENV, class ConversionPolicy = FirstOrderConvert>
-class MultiSensor : public CDHComponent< T, NUM, Env >, public ConversionPolicy {
+template<class Env, class T, int NUM, int ADCNUM = NUM, class ConversionPolicy = FirstOrderConvert>
+class MultiSensor : public CDHComponent<Env, T, NUM>, public ConversionPolicy {
 public:
-	MultiSensor( ADCBase<ADCNUM, Env>* adc, int offset) : adcsource_(adc), offset_(offset), CDHComponent< T, NUM, Env >( "TempSensor")
+	MultiSensor( ADCBase<Env, ADCNUM>* adc, int offset) : adcsource_(adc), offset_(offset), CDHComponent<Env, T, NUM>( "TempSensor")
 	{
 		stf_assert(offset + NUM <= ADCNUM);//ADCの範囲をこえない
 	}
@@ -54,7 +54,7 @@ public:
 	}
 	virtual ~MultiSensor(){}
 private:
-	ADCBase<ADCNUM, Env>* adcsource_;
+	ADCBase<Env, ADCNUM>* adcsource_;
 	int offset_;
 };
 

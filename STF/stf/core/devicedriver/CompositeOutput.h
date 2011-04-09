@@ -55,11 +55,11 @@ template
 	bool UseAlignment = false, 
 	class DistributionPolicy = typename DistributionSelector<typename Leaf::Hold, typename Leaf::Target, Numbers, UseAlignment>::Result 
 >
-class CompositeOutput : public AOCSActuator<typename Leaf::Target, typename Leaf::Target, typename Leaf::Environment>, public DistributionPolicy {
+class CompositeOutput : public AOCSActuator<typename Leaf::Environment, typename Leaf::Target, typename Leaf::Target>, public DistributionPolicy {
 public:
 	STF_STATIC_ASSERT( Numbers <= 255 , CHILD_NUMBER_OVERFLOW );
 
-	typedef AOCSActuator<typename Leaf::Target, typename Leaf::Target, typename Leaf::Environment> Base;
+	typedef AOCSActuator<typename Leaf::Environment, typename Leaf::Target, typename Leaf::Target> Base;
 	typedef Leaf Child;
 	enum { UseAlignmentForDistribution = UseAlignment, NumberOfChilds = Numbers };
 

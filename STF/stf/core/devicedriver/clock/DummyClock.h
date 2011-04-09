@@ -26,10 +26,10 @@ namespace clock {
 	@tparam CLOCK 時計の刻み幅（単位ミリ秒）．
 */
 template<class Env, int CLOCK = 100>
-class DummyClock : public CDHMultiComponent<TYPELIST_2( datatype::Time, datatype::DateTime ), Env>, virtual public ITimeClock, virtual public IAbsoluteTimeClock
+class DummyClock : public CDHMultiComponent<Env, TYPELIST_2( datatype::Time, datatype::DateTime )>, virtual public ITimeClock, virtual public IAbsoluteTimeClock
 {
 public:
-	DummyClock(int year, int month, int date): CDHMultiComponent<TYPELIST_2( datatype::Time, datatype::DateTime ), Env>("DummyClock")
+	DummyClock(int year, int month, int date): CDHMultiComponent<Env, TYPELIST_2( datatype::Time, datatype::DateTime )>("DummyClock")
 	{
 		const_cast<datatype::DateTime*>(&get<1, datatype::DateTime>())->init(year, month, date, 0, 0, 0);
 		this->clock_ = this;//staticポインタに割り当て

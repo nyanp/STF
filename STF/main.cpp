@@ -6,7 +6,6 @@
 #include "stf/Config.h"
 //#include "stf/core/strategy/control/Includes.h"
 #include "stf/GlobalObject.h"
-#include "stf/InstanceID.h"
 
 #include "stf/core/environment/NullEnv.h"
 #include "stf/core/environment/Simulator.h"

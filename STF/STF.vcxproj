@@ -81,11 +81,9 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="stf\core\devicedriver\cmhandler\DummyCommandReceiver.cpp" />
     <ClCompile Include="stf\core\devicedriver\earthsensor\EarthSensor.cpp" />
-    <ClCompile Include="stf\core\devicedriver\earthsensor\EarthSensorBase.cpp" />
     <ClCompile Include="stf\core\functor\OutputFunctor.cpp" />
     <ClCompile Include="stf\core\manager\CommandManagerBase.cpp" />
     <ClCompile Include="stf\core\manager\ControlManagerBase.cpp" />
-    <ClCompile Include="stf\core\manager\CustomManagerBase.cpp" />
     <ClCompile Include="stf\core\manager\ModeManagerBase.cpp" />
     <ClCompile Include="stf\core\manager\SystemManagerBase.cpp" />
     <ClCompile Include="stf\core\manager\TelemetryManagerBase.cpp" />

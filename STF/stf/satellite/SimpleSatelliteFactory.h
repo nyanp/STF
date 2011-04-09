@@ -24,7 +24,6 @@
 
 #include "../core/strategy/telemetry/Includes.h"
 #include "../datatype/Time.h"
-#include "../InstanceID.h"
 #include "simplesatellite/SSGlobal.h"
 
 namespace stf {

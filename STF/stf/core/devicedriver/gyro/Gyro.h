@@ -17,10 +17,10 @@ namespace gyro {
 
 //! ソフトウェアシミュレーションレベルで動作するジャイロセンサドライバ．
 /*! 
-	@tparam T コンポーネントの環境クラス．
+	@tparam Env コンポーネントの環境クラス．
 */
-template<class T>
-class Gyro : public GyroBase<T> {
+template<class Env>
+class Gyro : public GyroBase<Env> {
 public:
 	//Sigma =0.02, tau(ECRV)=1000sec
 	Gyro(const datatype::DCM &angle) : GyroBase(angle, 0.02, 1000){}

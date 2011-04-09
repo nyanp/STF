@@ -17,10 +17,10 @@ namespace earthsensor {
 
 //! ソフトウェアシミュレーションレベルで動作する地球センサドライバ．
 /*! 
-	@tparam T コンポーネントの環境クラス．
+	@tparam Env コンポーネントの環境クラス．
 */
-template <class T>
-class EarthSensor : public EarthSensorBase<T>{
+template <class Env>
+class EarthSensor : public EarthSensorBase<Env>{
 public:  
 	// 3-Sigmaで1度精度
 	EarthSensor(const datatype::DCM &angle) : EarthSensorBase(angle, 1, 3){}

@@ -59,7 +59,7 @@ struct NJGlobal : public Global<Env>{
 	typedef devicedriver::CompositeInput<STT, 2> TwoAxisSTT;
 	typedef devicedriver::sunsensor::NJSunSensor<Env> Sunsensor;
 	typedef devicedriver::CompositeInput<Sunsensor, 6> SixAxisSunsensor;
-	typedef devicedriver::clock::NJRTC RTC;
+	typedef devicedriver::clock::NJRTC<Env> RTC;
 	typedef devicedriver::gps::NJGPS<Env> GPS;
 	typedef devicedriver::gyro::NJGyro<Env> Gyro;
 	typedef devicedriver::CompositeInput<Gyro, 3> ThreeAxisGyro;

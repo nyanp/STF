@@ -20,7 +20,7 @@ namespace datatype {
 class String;
 }
 namespace interface {
-template<class T, int NUM, class Env> class CDHComponentIterator;
+template<class Env, class T, int NUM> class CDHComponentIterator;
 }
 namespace core {
 namespace devicedriver {
@@ -31,7 +31,7 @@ namespace devicedriver {
 	@tparam NUM 観測チャネル数．
 	@tparam Env コンポーネントの環境クラス．
 */
-template<class T, int NUM, class Env>
+template<class Env, class T, int NUM>
 class CDHComponent : public RootObject, virtual public IDataUpdatable, virtual public ISwitchable {
 public:
 	enum { NumberOfChannels = NUM };
@@ -54,16 +54,16 @@ protected:
 	bool is_on_;
 	T value_[NUM];
 private:
-	friend class interface::CDHComponentIterator<T, NUM, Env>;
+	friend class interface::CDHComponentIterator<Env, T, NUM>;
     CDHComponent();
 };
 
 //! 電圧と電流など，異なる物理量を複合的に取り扱うコンポーネントの基底クラス．
 /*! 
-	@tparam TList   測定している物理量を表す型．LokiのTypelistを与える
 	@tparam Env     コンポーネントの環境クラス．
+	@tparam TList   測定している物理量を表す型．LokiのTypelistを与える
 */
-template<class TList, class Env>
+template<class Env, class TList>
 class CDHMultiComponent : public RootObject, public OutputPorts<TList>, virtual public IDataUpdatable, virtual public ISwitchable {
 public:
 	typedef Env Environment;//!< 環境クラス．
@@ -83,14 +83,14 @@ namespace interface {
 
 //! scalar型など, value()でdoubleを取れる型のCDHComponentに対して使えるイテレータ
 /*! 
+	@tparam Env コンポーネントの環境クラス．
 	@tparam T   対象CDHComponentが測定している物理量を表す型．
 	@tparam NUM 対象CDHComponentの観測チャネル数．
-	@tparam Env コンポーネントの環境クラス．
 */
-template<class T, int NUM, class Env>
+template<class Env, class T, int NUM>
 class CDHComponentIterator : public Iterator {
 public:
-	CDHComponentIterator(core::devicedriver::CDHComponent<T, NUM, Env>* data) : data_(data), index_(0){}
+	CDHComponentIterator(core::devicedriver::CDHComponent<Env, T, NUM>* data) : data_(data), index_(0){}
 	virtual void init(){ index_  = 0; }
 	virtual bool end(){
 		if(index_ >= NUM) return true; return false;
@@ -102,7 +102,7 @@ public:
 		return data_->value_[index_].value();
 	}
 private:
-	const core::devicedriver::CDHComponent<T, NUM, Env>* data_;
+	const core::devicedriver::CDHComponent<Env, T, NUM>* data_;
 	int index_;
 };
 

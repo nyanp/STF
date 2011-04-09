@@ -23,33 +23,28 @@ namespace mtq {
 
 //! 磁気トルカの基底クラス．
 /*! 
-	@tparam T コンポーネントの環境クラス．
+	@tparam Env コンポーネントの環境クラス．
 */
-template<class T>
-class MTQBase : public AOCSActuator<datatype::MagneticMoment, datatype::Scalar, T> {
+template<class Env>
+class MTQBase : public AOCSActuator<Env, datatype::MagneticMoment, datatype::Scalar> {
 public:
 	MTQBase(const datatype::DCM &dcm, double max_torque, double min_torque, double linearity);
-    virtual ~MTQBase();
+	virtual ~MTQBase(){}
 	virtual void do_update();
 private:
     double linearity_;
 };
 
-template<class T>
-MTQBase<T>::MTQBase(const datatype::DCM &dcm, double max_torque, double min_torque, double linearity) 
+template<class Env>
+MTQBase<Env>::MTQBase(const datatype::DCM &dcm, double max_torque, double min_torque, double linearity) 
 	: AOCSActuator<datatype::MagneticMoment, datatype::Scalar, T>( "MTQ", dcm), linearity_(linearity)
 {
 	this->max_output_ = max_torque;	
 	this->min_output_ = min_torque;
 }
 
-template<class T>
-MTQBase<T>::~MTQBase()
-{
-}
-
-template<class T>
-void MTQBase<T>::do_update(){
+template<class Env>
+void MTQBase<Env>::do_update(){
 	stf_static_assert(0 && "Not-Implemented-Exception");
 }
 

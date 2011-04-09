@@ -38,7 +38,7 @@ namespace devicedriver {
 	@tparam U   可観測次元の量を表す型．全軸感度を持ったコンポーネントの場合はT=U．Holdにtypedefされる
 	@tparam Env コンポーネントの環境クラス．
 */
-template<class T, class U, class Env>
+template<class Env, class T, class U>
 class AOCSComponent : public RootObject, virtual public IDataUpdatable, virtual public ISwitchable {
 public:
 	typedef Env Environment;//!< 環境クラス．
@@ -71,15 +71,15 @@ private:
 	DISALLOW_COPY_AND_ASSIGN_3(AOCSComponent, T, U, Env);
 };
 
-template<class T, class U, class Env>
-AOCSComponent<T, U, Env>::AOCSComponent(const datatype::String& name)
+template<class Env, class T, class U>
+AOCSComponent<Env, T, U>::AOCSComponent(const datatype::String& name)
 	: RootObject(name)
 {
 	this->environment_ = &Env::get_instance();
 }
 
-template<class T, class U, class Env>
-AOCSComponent<T, U, Env>::AOCSComponent(const datatype::String& name, const datatype::DCM& dcm)
+template<class Env, class T, class U>
+AOCSComponent<Env, T, U>::AOCSComponent(const datatype::String& name, const datatype::DCM& dcm)
 	: set_angle_(dcm), RootObject(name)
 {
 	this->environment_ = &Env::get_instance();

@@ -24,7 +24,6 @@
 #include "../../../core/datapool/Datapool.h"
 
 #include "../../../core/strategy/telemetry/Includes.h"
-#include "../../../InstanceID.h"
 
 namespace stf {
 namespace core {
@@ -84,7 +83,7 @@ void NJFactory<Env>::create_component(){
 	typedef devicedriver::CompositeInput<STT, 2> TwoAxisSTT;
 	typedef devicedriver::sunsensor::NJSunSensor<Env> Sunsensor;
 	typedef devicedriver::CompositeInput<Sunsensor, 6> SixAxisSunsensor;
-	typedef devicedriver::clock::NJRTC RTC;
+	typedef devicedriver::clock::NJRTC<Env> RTC;
 	typedef devicedriver::gps::NJGPS<Env> GPS;
 	typedef devicedriver::gyro::NJGyro<Env> GYRO;
 	typedef devicedriver::CompositeInput<GYRO, 3> ThreeAxisGyro;
@@ -451,7 +450,7 @@ void NJFactory<Env>::create_telemetry(){
 		(this->global_->nj_tmhandler, this->global_->nj_aocsdatapool, this->global_->nj_eventdatapool);
 
 	//ADCの取得値を全チャネルテレメトリに追加
-	this->global_->nj_telemetrystrategy->add_tmlist(new interface::CDHComponentIterator<datatype::Voltage,NJ__ADC__CHANNELS, Env>(this->global_->nj_adc));
+	this->global_->nj_telemetrystrategy->add_tmlist(new interface::CDHComponentIterator<Env, datatype::Voltage,NJ__ADC__CHANNELS>(this->global_->nj_adc));
 
 	///////////////////////////////////////////////////
 	// テレメトリストラテジをモードに登録

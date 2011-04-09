@@ -19,10 +19,10 @@ namespace gps {
 
 //! TLEのアップリンクで軌道情報を保持するGPSダミー．
 /*! 
-	@tparam T コンポーネントの環境クラス．
+	@tparam Env コンポーネントの環境クラス．
 */
-template<class T>
-class DummyGPS : public GPSBase<T> {
+template<class Env>
+class DummyGPS : public GPSBase<Env> {
 public:
 	DummyGPS(){}
 	void set_orbit(const datatype::OrbitInfo& orbit){

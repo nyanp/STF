@@ -25,7 +25,7 @@ namespace devicedriver {
 #define PRISM__TEMP__OFFSET       60
 
 template<class Env>
-class PRISMADC : public ADCBase<PRISM__ADC__CHANNELS, Env>{
+class PRISMADC : public ADCBase<Env, PRISM__ADC__CHANNELS>{
 public:
 	PRISMADC(){}
 	virtual void do_update(){
@@ -33,25 +33,25 @@ public:
 	}
 };
 
-template<class Env = ENV>
-class PRISMCurrentSensor : public MultiSensor<datatype::Current, PRISM__CURRENT__CHANNELS, PRISM__ADC__CHANNELS, Env> {
+template<class Env>
+class PRISMCurrentSensor : public MultiSensor<Env, datatype::Current, PRISM__CURRENT__CHANNELS, PRISM__ADC__CHANNELS> {
 public:
-	PRISMCurrentSensor( ADCBase<PRISM__ADC__CHANNELS, Env>* adc) 
-		: MultiSensor<datatype::Current, PRISM__CURRENT__CHANNELS, PRISM__ADC__CHANNELS, Env>( adc, PRISM__CURRENT__OFFSET){}
+	PRISMCurrentSensor( ADCBase<Env, PRISM__ADC__CHANNELS>* adc) 
+		: MultiSensor<Env, datatype::Current, PRISM__CURRENT__CHANNELS, PRISM__ADC__CHANNELS>( adc, PRISM__CURRENT__OFFSET){}
 };
 
-template<class Env = ENV>
-class PRISMVoltageSensor : public  MultiSensor<datatype::Voltage, PRISM__VOLTAGE__CHANNELS, PRISM__ADC__CHANNELS, Env> {
+template<class Env>
+class PRISMVoltageSensor : public  MultiSensor<Env, datatype::Voltage, PRISM__VOLTAGE__CHANNELS, PRISM__ADC__CHANNELS> {
 public:
-	PRISMVoltageSensor( ADCBase<PRISM__ADC__CHANNELS, Env>* adc)
-		:  MultiSensor<datatype::Voltage, PRISM__VOLTAGE__CHANNELS, PRISM__ADC__CHANNELS, Env>( adc, PRISM__VOLTAGE__OFFSET){}
+	PRISMVoltageSensor( ADCBase<Env, PRISM__ADC__CHANNELS>* adc)
+		:  MultiSensor<Env, datatype::Voltage, PRISM__VOLTAGE__CHANNELS, PRISM__ADC__CHANNELS>( adc, PRISM__VOLTAGE__OFFSET){}
 };
 
-template<class Env = ENV>
-class PRISMTempSensor : public  MultiSensor<datatype::Temperature, PRISM__TEMP__CHANNELS, PRISM__ADC__CHANNELS, Env> {
+template<class Env>
+class PRISMTempSensor : public  MultiSensor<Env, datatype::Temperature, PRISM__TEMP__CHANNELS, PRISM__ADC__CHANNELS> {
 public:
-	PRISMTempSensor( ADCBase<PRISM__ADC__CHANNELS, Env>* adc)
-		:  MultiSensor<datatype::Temperature, PRISM__TEMP__CHANNELS, PRISM__ADC__CHANNELS, Env>( adc, PRISM__TEMP__OFFSET){}
+	PRISMTempSensor( ADCBase<Env, PRISM__ADC__CHANNELS>* adc)
+		:  MultiSensor<Env, datatype::Temperature, PRISM__TEMP__CHANNELS, PRISM__ADC__CHANNELS>( adc, PRISM__TEMP__OFFSET){}
 };
 
 

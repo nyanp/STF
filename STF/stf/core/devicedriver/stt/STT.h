@@ -17,10 +17,10 @@ namespace stt {
 
 //! ソフトウェアシミュレーションレベルで動作するスターセンサドライバ．
 /*! 
-	@tparam T コンポーネントの環境クラス．
+	@tparam Env コンポーネントの環境クラス．
 */
-template <class T>
-class STT : public STTBase<T>{
+template <class Env>
+class STT : public STTBase<Env>{
 public:  
 	//10arcsec精度(3-Sigma)のSTT．
 	STT(const datatype::DCM &angle) : STTBase(angle, 10){}

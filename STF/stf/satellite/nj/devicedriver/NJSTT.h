@@ -15,8 +15,8 @@ namespace core {
 namespace devicedriver {
 namespace stt {
 
-template <class T>
-class NJSTT : public STTBase<T>{
+template <class Env>
+class NJSTT : public STTBase<Env>{
 public:  
 	//10arcsecê∏ìx(3-Sigma)ÇÃSTTÅD
 	NJSTT( const datatype::DCM &angle) : STTBase( angle, 10){}

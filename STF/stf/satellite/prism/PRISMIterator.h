@@ -85,15 +85,15 @@ public:
 };
 
 // TBD: not implemented yet
-template<int SCALE, int DEPTH> class PRISMTelemetryIterator : public Iterator{
+template<class Env, int SCALE, int DEPTH> class PRISMTelemetryIterator : public Iterator{
 public:
-	PRISMTelemetryIterator(const core::strategy::telemetry::PRISMTelemetryStrategy<SCALE>* data) : data_(data) {}
+	PRISMTelemetryIterator(const core::strategy::telemetry::PRISMTelemetryStrategy<Env, SCALE>* data) : data_(data) {}
 	virtual void init(){}
 	virtual bool end(){ return true; }
 	virtual void operator ++() {}
 	virtual double operator()() {}
 private:
-	const core::strategy::telemetry::PRISMTelemetryStrategy<SCALE>* data_;
+	const core::strategy::telemetry::PRISMTelemetryStrategy<Env, SCALE>* data_;
 
 };
 

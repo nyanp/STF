@@ -17,10 +17,10 @@ namespace sunsensor {
 
 //! ソフトウェアシミュレーションレベルで動作する太陽センサドライバ．
 /*! 
-	@tparam T コンポーネントの環境クラス．
+	@tparam Env コンポーネントの環境クラス．
 */
-template <class T>
-class SunSensor : public SunSensorBase<T>{
+template <class Env>
+class SunSensor : public SunSensorBase<Env>{
 public:  
 	// 3-Sigmaで1度精度
 	SunSensor(const datatype::DCM &angle) : SunSensorBase(angle, 1, 3){}
