@@ -7,18 +7,19 @@
  */
 #include "Cout.h"
 
+
 namespace stf { 
 namespace util {
 
-ENV::OutputStream cout;
-ENV::OutputFileStream clog("log.csv");
+app::Default::ios_env::OutputStream cout;
+app::Default::ios_env::OutputFileStream clog("log.csv");
 
-ENV::OutputStream& endl(ENV::OutputStream& os){
+app::Default::ios_env::OutputStream& endl(app::Default::ios_env::OutputStream& os){
 	os << "\n";
 	return os;
 }
 
-ENV::OutputFileStream& endl(ENV::OutputFileStream& os){
+app::Default::ios_env::OutputFileStream& endl(app::Default::ios_env::OutputFileStream& os){
 	os << "\n";
 	return os;
 }

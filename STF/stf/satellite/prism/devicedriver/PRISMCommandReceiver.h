@@ -18,9 +18,9 @@
 #include "../../../core/command/Command.h"
 #include "../../../core/manager/CommandManagerBase.h"
 #include "../../../util/Cout.h"
+#include "../PRISMfwd.h"
 
 namespace stf {
-template<class T> struct PRISMGlobal;
 namespace core {
 namespace devicedriver {
 namespace cmhandler {
@@ -34,11 +34,11 @@ template<class T>
 core::command::Command* __prism_adcscmd_analyze(char* cmd, int* params, int paramlength, const datatype::Time& t, const stf::PRISMGlobal<T>* g);
 
 template<>
-core::command::Command* __prism_powercmd_analyze<environment::Simulator>(char* cmd, int* params, int paramlength, const datatype::Time& t, const PRISMGlobal<environment::Simulator>*);
+core::command::Command* __prism_powercmd_analyze<environment::Simulator<app::PRISM> >(char* cmd, int* params, int paramlength, const datatype::Time& t, const PRISMGlobal<environment::Simulator<app::PRISM> >*);
 template<>
-core::command::Command* __prism_cdhcmd_analyze<environment::Simulator>(char* cmd, int* params, int paramlength, const datatype::Time& t, const PRISMGlobal<environment::Simulator>*);
+core::command::Command* __prism_cdhcmd_analyze<environment::Simulator<app::PRISM> >(char* cmd, int* params, int paramlength, const datatype::Time& t, const PRISMGlobal<environment::Simulator<app::PRISM> >*);
 template<>
-core::command::Command* __prism_adcscmd_analyze<environment::Simulator>(char* cmd, int* params, int paramlength, const datatype::Time& t, const PRISMGlobal<environment::Simulator>*);
+core::command::Command* __prism_adcscmd_analyze<environment::Simulator<app::PRISM> >(char* cmd, int* params, int paramlength, const datatype::Time& t, const PRISMGlobal<environment::Simulator<app::PRISM> >*);
 
 
 //
@@ -51,7 +51,7 @@ public:
 	virtual void send_packet(const datatype::String& msg);
 	virtual void send_packet(int msg);
 	virtual void add_command(command::Command*);
-	PRISMCommandReceiver( core::manager::CommandManagerBase* manager, const datatype::String& filename,PRISMGlobal<T>* global)
+	PRISMCommandReceiver( core::manager::CommandManagerBase* manager, const datatype::String& filename, PRISMGlobal<T>* global)
 		: RootObject("PRISMReceiver"), manager_(manager), global_(global){
 			this->ifs_ = new typename T::InputFileStream(filename.to_char());
 	}
@@ -70,7 +70,7 @@ void PRISMCommandReceiver<T>::receive_command()
 }
 
 //デバッグ用の特殊化．外部ファイルから1行ずつ読み込み，
-template<> void PRISMCommandReceiver<environment::Simulator>::receive_command();
+template<> void PRISMCommandReceiver<environment::Simulator<app::PRISM> >::receive_command();
 
 
 // デバッグ用なので送信機に送る変わりにコンソールに出力する

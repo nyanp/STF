@@ -13,7 +13,7 @@
 namespace stf {
 namespace core {
 namespace environment {
-class Simulator;
+class SimulatorBase;
 } /* End of namespace stf::core::environment */
 } /* End of namespace stf::core */
 } /* End of namespace stf */
@@ -27,13 +27,13 @@ namespace torquesource {
 /*! */
 class NoiseBase {
 public:
-	NoiseBase(environment::Simulator* env) : environment_(env) {}
+	NoiseBase(environment::SimulatorBase* env) : environment_(env) {}
 	virtual ~NoiseBase(){}
     virtual double get_torque() const = 0;
     virtual datatype::StaticVector<3> get_torque_bodyframe() const = 0;
     virtual void set_torque(double value) = 0;
  public:
-    environment::Simulator *environment_;
+    environment::SimulatorBase *environment_;
 };
 
 } /* End of namespace stf::core::environment::torquesource */

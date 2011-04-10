@@ -9,14 +9,15 @@
 #define stf_core_devicedriver_gyro_GyroBase_h
 
 #include "../../../util/stfassert.h"
+#include "../../../util/Macros.h"
+#include "../../../util/math/Rand.h"
+#include "../../../util/math/RungeKutta.h"
 #include "../../../datatype/Scalar.h"
 #include "../../../datatype/StaticVector.h"
+#include "../../environment/Envfwd.h"
 #include "../AOCSSensor.h"
 
 namespace stf {
-namespace environment {
-class Simulator;
-}
 namespace core {
 namespace devicedriver {
 namespace gyro {
@@ -30,9 +31,16 @@ class GyroBase : public AOCSSensor<Env, datatype::StaticVector<3>, datatype::Sca
 public:
 	GyroBase(const datatype::DCM &angle, double sigma, double tau);
 	~GyroBase(){}
-	virtual void do_update();
 	virtual datatype::Scalar filter(const datatype::Scalar& value); 
+
 private:
+
+	DO_UPDATE_SIMULATOR(){
+		this->value_ = filter(this->environment_->getAngularVelocity(*this));
+		if(this->datapool_ != 0)
+			datapool_->set<GyroBase<environment::Simulator<App> >>(datapool_hold_index_, this->value_);
+	}
+
 	//! バイアス分散
     double sigma_;
 	//! バイアスレートの真値
@@ -49,12 +57,14 @@ GyroBase<Env>::GyroBase(const datatype::DCM &dcm, double sigma, double tau)
 }
 
 template <class Env>
-void GyroBase<Env>::do_update(){
-	stf_static_assert(0 && "Not-Implemented-Exception");
+datatype::Scalar GyroBase<Env>::filter(const datatype::Scalar& value){
+    for(int i = 0; i < 3; i++){
+		double noise = util::math::WhiteNoise(this->sigma_, 0);
+		//slope計算は高速化のためScalarではなくdoubleで行う
+		this->bias_rate_ += util::math::RungeKutta::slope(bias_rate_.value(), -1 / tau_, noise, 0.1);
+    }
+	return value + bias_rate_;
 }
-
-template<>
-void GyroBase<environment::Simulator>::do_update();
 
 } /* End of namespace stf::core::devicedriver::gyro */
 } /* End of namespace stf::core::devicedriver */

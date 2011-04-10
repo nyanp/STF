@@ -9,10 +9,10 @@
 #define stf_core_mode_ModeHotSpot_h
 
 #include "../../RootObject.h"
-#include "../../Config.h"
 #include "../../datatype/List.h"
 #include "../../util/loki/HierarchyGenerators.h"
 #include "../../util/loki/TypeManip.h"
+#include "../../app/Default.h"
 
 namespace stf {
 namespace core {
@@ -59,8 +59,8 @@ public:
 /*! 
 */
 struct StrategyHolder : 
-	public Loki::GenScatterHierarchy<MODEHOTSPOT, HotSpotList>
-{
+	public Loki::GenScatterHierarchy<typename app::Default::modehotspot, HotSpotList>
+{	
 	template<class T>
 	void add_list(T* value){
 		(static_cast<HotSpotList<T>& >(*this).add_list_(*value));

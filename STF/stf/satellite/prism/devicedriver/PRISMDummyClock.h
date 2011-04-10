@@ -10,7 +10,6 @@
 #include "../../../core/devicedriver/Includes.h"
 #include "../../../RootObject.h"
 #include "../../../util/loki/Typelist.h"
-#include "../../../Config.h"
 
 namespace stf {
 namespace core {

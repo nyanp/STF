@@ -14,18 +14,19 @@
 #include "../../../datatype/String.h"
 #include "../../../core/devicedriver/cmhandler/ICommandReceiver.h"
 #include "../../../RootObject.h"
-#include "../../../core/environment/Simulator.h"
+
 #include "../../../core/command/Command.h"
 #include "../../../core/manager/CommandManagerBase.h"
 #include "../../../util/Cout.h"
+#include "../NJfwd.h"
 
 namespace stf {
-template<class T> struct NJGlobal;
+namespace environment {
+template<class App> class Simulator;
+}
 namespace core {
 namespace devicedriver {
 namespace cmhandler {
-
-
 
 //
 // 通信系CPUとのインターフェースを成すコマンドレシーバのデバッグ用具象クラス．
@@ -55,7 +56,7 @@ void NJCommandReceiver<T>::receive_command()
 }
 
 //デバッグ用の特殊化．外部ファイルから1行ずつ読み込み，
-template<> void NJCommandReceiver<environment::Simulator>::receive_command();
+template<> void NJCommandReceiver<environment::Simulator<app::NJ> >::receive_command();
 
 
 // デバッグ用なので送信機に送る変わりにコンソールに出力する

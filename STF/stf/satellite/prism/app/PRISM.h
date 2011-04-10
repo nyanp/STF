@@ -1,15 +1,16 @@
 /**
- * @file   Default.h
+ * @file   PRISM.h
  * @brief  
  *
  * @author Taiga Nomi
  * @date   2011.04.09
  */
-#ifndef stf_app_Default_h
-#define stf_app_Default_h
+#ifndef stf_app_PRISM_h
+#define stf_app_PRISM_h
 
-#include "../util/loki/Typelist.h"
-#include "../core/environment/Simulator.h"
+
+#include "../../../util/loki/Typelist.h"
+#include "../../../core/environment/Simulator.h"
 
 namespace stf {
 
@@ -41,13 +42,13 @@ class IControlStrategy;
 
 namespace app {
 
-struct Default {
+struct PRISM {
 	static const int year;
 	static const int month;
 	static const int date;
 	static const double steptime;
 
-	typedef stf::core::environment::Simulator<Default> ios_env;
+	typedef stf::core::environment::Simulator<PRISM> ios_env;
 
 	typedef TYPELIST_5(core::devicedriver::ISwitchable, 
 			core::devicedriver::IDataUpdatable, 

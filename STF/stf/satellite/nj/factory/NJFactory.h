@@ -29,10 +29,12 @@ namespace stf {
 namespace core {
 namespace factory {
 
-template<class Env>
-class NJFactory : public SatelliteFactory<Env, NJFactory<Env>>{
-	friend class SatelliteFactory<Env, NJFactory<Env>>;
+template<class Env, class App>
+class NJFactory : public SatelliteFactory<Env, App, NJFactory<Env, App> >{
+	friend class SatelliteFactory<Env, App, NJFactory<Env, App> >;
 	typedef Env Environment;//!< 環境クラス．
+	typedef App Application;//!< アプリケーションクラス．
+
 
 	NJFactory(){ this->global_ = new NJGlobal<Env>();}
 	virtual ~NJFactory(){ delete this->global_; }
@@ -56,8 +58,8 @@ class NJFactory : public SatelliteFactory<Env, NJFactory<Env>>{
 	NJGlobal<Env>* global_;
 };
 
-template<class Env>
-void NJFactory<Env>::create_mode(){
+template<class Env, class App>
+void NJFactory<Env, App>::create_mode(){
 	this->global_->nj_sfem = new core::mode::Mode("NJ_SAFEMODE");
 	this->global_->nj_stbm = new core::mode::Mode("NJ_STBMODE");
 	this->global_->nj_inim = new core::mode::Mode("NJ_INITIALMODE");
@@ -71,8 +73,8 @@ void NJFactory<Env>::create_mode(){
 	this->global_->nj_estm_mc = new core::mode::Mode("NJ_ESTM_MC");
 }
 
-template<class Env>
-void NJFactory<Env>::create_component(){
+template<class Env, class App>
+void NJFactory<Env, App>::create_component(){
 	typedef devicedriver::mtq::NJMTQ<Env> MTQ;
 	typedef devicedriver::CompositeOutput<MTQ, 3> ThreeAxisMTQ;
 	typedef devicedriver::mtq::NJMC<Env> MC;
@@ -169,7 +171,7 @@ void NJFactory<Env>::create_component(){
 	this->global_->nj_rw->append_child(this->global_->nj_rw4);
 
 	// GPS,RTC
-	this->global_->nj_rtc = new RTC(YEAR, MONTH, DATE);
+	this->global_->nj_rtc = new RTC(App::year, App::month, App::date);
 	this->global_->nj_gps = new GPS();
 
 	// ADC, 温度計，電圧計，電流計
@@ -191,8 +193,8 @@ void NJFactory<Env>::create_component(){
 	this->global_->nj_tx = new devicedriver::nj::NJTX<Env>();
 }
 
-template<class Env>
-void NJFactory<Env>::create_funcmanager(){
+template<class Env, class App>
+void NJFactory<Env, App>::create_funcmanager(){
 	this->global_->nj_modeman = new core::manager::ModeManagerBase();
 	this->global_->nj_conman = new core::manager::ControlManagerBase();
 	this->global_->nj_uniman1 = new core::manager::UnitManagerBase();
@@ -210,8 +212,8 @@ void NJFactory<Env>::create_funcmanager(){
 	this->global_->add_function_manager(this->global_->nj_commman);
 }
 
-template<class Env>
-void NJFactory<Env>::create_controller(){
+template<class Env, class App>
+void NJFactory<Env, App>::create_controller(){
 	typedef core::strategy::control::ControlBlock CONTROLLER;
 	typedef core::strategy::control::PID SimplePID;
 	typedef core::strategy::control::DynamicPID PID;
@@ -267,7 +269,7 @@ void NJFactory<Env>::create_controller(){
     // 初期安定化モード用の姿勢制御ブロック
 	// 姿勢決定:なし(角速度のみ取得)
 	// 姿勢制御:Date-Dumping + CrossProduct
-	RATE_DUMPING* inim_ratedumping = new RATE_DUMPING(1, 0.1, 0.1, STEPTIME);
+	RATE_DUMPING* inim_ratedumping = new RATE_DUMPING(1, 0.1, 0.1, App::steptime);
 	CROSS_PRODUCT* inim_crossproduct = new CROSS_PRODUCT();
 
 	inim_ratedumping->connect_source<0>(this->global_->nj_gyro);
@@ -284,7 +286,7 @@ void NJFactory<Env>::create_controller(){
 	// 姿勢制御:Quaternion FB
 	TRIAD* ctrm_triad = new TRIAD();
 	EKF* ctrm_ekf = new EKF(this->global_->nj_mism);
-	SimplePID* ctrm_pid = new SimplePID(1, 0.01, 0.5, STEPTIME, *(new datatype::Quaternion));
+	SimplePID* ctrm_pid = new SimplePID(1, 0.01, 0.5, App::steptime, *(new datatype::Quaternion));
 	CROSS_PRODUCT* ctrm_crossproduct = new CROSS_PRODUCT();
 
 	ctrm_crossproduct->connect_source<0>(ctrm_pid);
@@ -311,7 +313,7 @@ void NJFactory<Env>::create_controller(){
 	RMMEKF* ccdm_rmmekf = new RMMEKF();//->推定値を引き継ぐので観測モードでも使う
 	QUATERNION_AVE* ccdm_q_average = new QUATERNION_AVE();
 	RMMCOMP* ccdm_rmmcomp = new RMMCOMP(-1);
-	PID* ccdm_pid = new PID(0.1, 0.001, 0.004, STEPTIME);
+	PID* ccdm_pid = new PID(0.1, 0.001, 0.004, App::steptime);
 
 	ccdm_rmmcomp->connect_source<0>(ccdm_rmmekf);
 
@@ -340,7 +342,7 @@ void NJFactory<Env>::create_controller(){
 	// 姿勢決定：星像EKF?
 	// 姿勢制御：
 	STAR_EKF* mism_starekf = new STAR_EKF();
-	PID* mism_pid = new PID(0.1, 0.001, 0.004, STEPTIME);
+	PID* mism_pid = new PID(0.1, 0.001, 0.004, App::steptime);
 	SPINAXIS_CONTROLLER* mism_spincond = new SPINAXIS_CONTROLLER();
 
 	mism_pid->connect_source<0>(ccdm_ekf);//QuaternionはジャイロバイアスEKFから取得
@@ -378,7 +380,7 @@ void NJFactory<Env>::create_controller(){
 	// RMM推定用の姿勢制御ブロック
 	// 姿勢決定：STT-FOG EKF
 	// 姿勢制御：6面一定時間ずつ太陽指向制御
-	PID* estmrmm_pid = new PID(0.1, 0.01, 0.01, STEPTIME);
+	PID* estmrmm_pid = new PID(0.1, 0.01, 0.01, App::steptime);
 	datatype::Time t(1000, 0);
 	QUATERNION_RMMESTM* estmrmm_q = new QUATERNION_RMMESTM(this->global_->nj_rtc, t);//1000秒ごとに別の面を太陽指向させる
 
@@ -393,7 +395,7 @@ void NJFactory<Env>::create_controller(){
 	// FOG推定用の姿勢制御ブロック
 	// 姿勢決定：STT-FOG EKF
 	// 姿勢制御：FOG3軸それぞれ±1e-3rad/s,±1e-2rad/sの計12モード
-	PID* estmfog_pid = new PID(0.1, 0.01, 0.01, STEPTIME);
+	PID* estmfog_pid = new PID(0.1, 0.01, 0.01, App::steptime);
 
 	NJ_CONTROLLER_ESTM_FOG->set_actuator(this->global_->nj_rw, estmfog_pid);
 	this->global_->nj_estm_fog->add_list<core::strategy::control::IControlStrategy>(NJ_CONTROLLER_ESTM_FOG);
@@ -439,13 +441,13 @@ void NJFactory<Env>::create_controller(){
 	this->global_->nj_estm_mc->add_list<core::strategy::control::IControlStrategy>(NJ_CONTROLLER_ESTM_MC);
 }
 
-template<class Env>
-void NJFactory<Env>::create_command(){
+template<class Env, class App>
+void NJFactory<Env, App>::create_command(){
 
 }
 
-template<class Env>
-void NJFactory<Env>::create_telemetry(){
+template<class Env, class App>
+void NJFactory<Env, App>::create_telemetry(){
 	this->global_->nj_telemetrystrategy = new core::strategy::telemetry::SelectingOutput<unsigned int, 1000>
 		(this->global_->nj_tmhandler, this->global_->nj_aocsdatapool, this->global_->nj_eventdatapool);
 
@@ -467,8 +469,8 @@ void NJFactory<Env>::create_telemetry(){
 	this->global_->nj_estm_mc->add_list<core::strategy::telemetry::ITelemetryStrategy>(this->global_->nj_telemetrystrategy);
 }
 
-template<class Env>
-void NJFactory<Env>::create_dataupdates(){
+template<class Env, class App>
+void NJFactory<Env, App>::create_dataupdates(){
 	// 全モード共通でONの機器は最初にまとめてリストに加える
 	datatype::List<core::devicedriver::IDataUpdatable> defaultUpdateList;
 	defaultUpdateList.add(*this->global_->nj_rtc);
@@ -573,8 +575,8 @@ void NJFactory<Env>::create_dataupdates(){
 
 }
 
-template<class Env>
-void NJFactory<Env>::create_switches(){
+template<class Env, class App>
+void NJFactory<Env, App>::create_switches(){
 	// 全モード共通でONの機器は最初にまとめてリストに加える
 	datatype::List<core::devicedriver::ISwitchable> defaultSwitchList;
 	defaultSwitchList.add(*this->global_->nj_rtc);
@@ -679,8 +681,8 @@ void NJFactory<Env>::create_switches(){
 
 }
 
-template<class Env>
-void NJFactory<Env>::create_functor(){
+template<class Env, class App>
+void NJFactory<Env, App>::create_functor(){
 	////////////////////////////////
 	// モード変更関係のファンクタ
 	
@@ -779,13 +781,13 @@ void NJFactory<Env>::create_functor(){
 	//RWの角運動量が解放されたらふたたび粗制御モードへ
 }
 
-template<class Env>
-void NJFactory<Env>::create_additional_hotspot(){
+template<class Env, class App>
+void NJFactory<Env, App>::create_additional_hotspot(){
 
 }
 
-template<class Env>
-void NJFactory<Env>::create_datapool(){
+template<class Env, class App>
+void NJFactory<Env, App>::create_datapool(){
 	this->global_->nj_mtqx->connect(global_->nj_aocsdatapool, 10, "NJ_MTQ1");
 	this->global_->nj_mtqy->connect(global_->nj_aocsdatapool, 10, "NJ_MTQ2");
 	this->global_->nj_mtqz->connect(global_->nj_aocsdatapool, 10, "NJ_MTQ3");

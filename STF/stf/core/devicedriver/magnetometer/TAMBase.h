@@ -10,13 +10,12 @@
 
 #include "../../../util/stfassert.h"
 #include "../../../datatype/Magnetic.h"
+#include "../../../util/loki/TypeManip.h"
+#include "../../environment/Envfwd.h"
 
 #include "../AOCSSensor.h"
 
 namespace stf {
-namespace environment {
-class Simulator;
-}
 namespace core {
 namespace devicedriver {
 namespace magnetometer {
@@ -31,9 +30,19 @@ class TAMBase : public AOCSSensor<Env, datatype::MagneticField, datatype::Magnet
 public:
 	TAMBase(const datatype::DCM &angle);
 	virtual ~TAMBase(){}
-	virtual void do_update();
+	virtual void do_update(){
+		do_update(Loki::Type2Type<Env>());
+	}
 	virtual datatype::MagneticField filter(const datatype::MagneticField& value); 
 private:
+	template<class T> void do_update(Loki::Type2Type<T>);
+	template<class App> void do_update(Loki::Type2Type<environment::Simulator<App> >){
+		this->value_ = filter(this->environment_->getMagneticField(*this));
+		if(this->datapool_ != 0){
+			datapool_->set<TAMBase<environment::Simulator<App> >>(datapool_hold_index_, this->value_);
+		}
+	}
+
     TAMBase();
 	double err_deg_;
 	int sigma_;
@@ -41,20 +50,12 @@ private:
 
 template <class Env>
 TAMBase<Env>::TAMBase(const datatype::DCM& dcm)
-	: AOCSSensor<Env, datatype::MagneticField, datatype::MagneticField>( "TAM", dcm)
-{
-
-}
+	: AOCSSensor<Env, datatype::MagneticField, datatype::MagneticField>( "TAM", dcm){}
 
 template <class Env>
-void TAMBase<Env>::do_update(){
-	stf_static_assert(0 && "Not-Implemented-Exception");
+datatype::MagneticField TAMBase<Env>::filter(const datatype::MagneticField& value){
+	return value;
 }
-
-//シミュレータ用の特殊化
-template <>
-void TAMBase<environment::Simulator>::do_update();
-
 
 } /* End of namespace stf::core::devicedriver::magnetometer */
 } /* End of namespace stf::core::devicedriver */

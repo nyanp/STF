@@ -9,14 +9,14 @@
 #define stf_core_devicedriver_mtq_MTQBase_h
 
 #include "../../../util/stfassert.h"
+#include "../../../util/Macros.h"
+#include "../../../util/loki/TypeManip.h"
 #include "../AOCSActuator.h"
 #include "../../../datatype/Scalar.h"
 #include "../../../datatype/Magnetic.h"
+#include "../../environment/Envfwd.h"
 
 namespace stf {
-namespace environment {
-class Simulator;
-}
 namespace core {
 namespace devicedriver {
 namespace mtq {
@@ -30,29 +30,32 @@ class MTQBase : public AOCSActuator<Env, datatype::MagneticMoment, datatype::Sca
 public:
 	MTQBase(const datatype::DCM &dcm, double max_torque, double min_torque, double linearity);
 	virtual ~MTQBase(){}
-	virtual void do_update();
 private:
+
+	DO_UPDATE_SIMULATOR(){
+		//線形性誤差の付加→TBD
+		//this->linearity_ * 0.01
+		//DBへ記録
+		if(this->datapool_ != 0){
+			datapool_->set<MTQBase<environment::Simulator<App> >>(this->datapool_hold_index_, this->output_);
+		}
+	}
+
+	INIT(){
+		this->environment_->attachMagneticSource(this);
+	}
+
     double linearity_;
 };
 
 template<class Env>
 MTQBase<Env>::MTQBase(const datatype::DCM &dcm, double max_torque, double min_torque, double linearity) 
-	: AOCSActuator<datatype::MagneticMoment, datatype::Scalar, T>( "MTQ", dcm), linearity_(linearity)
+	: AOCSActuator<Env, datatype::MagneticMoment, datatype::Scalar>( "MTQ", dcm), linearity_(linearity)
 {
-	this->max_output_ = max_torque;	
-	this->min_output_ = min_torque;
+	//this->max_output_ = max_torque;	
+	//this->min_output_ = min_torque;
+	init();
 }
-
-template<class Env>
-void MTQBase<Env>::do_update(){
-	stf_static_assert(0 && "Not-Implemented-Exception");
-}
-
-template <>
-void MTQBase<environment::Simulator>::do_update();
-
-template<>
-MTQBase<environment::Simulator>::MTQBase( const datatype::DCM &dcm, double max_torque, double min_torque, double linearity);
 
 } /* End of namespace stf::core::devicedriver::mtq */
 } /* End of namespace stf::core::devicedriver */

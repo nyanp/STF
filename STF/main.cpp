@@ -3,7 +3,7 @@
 #include<vector>
 
 #include "stf/util/Cout.h"
-#include "stf/Config.h"
+//#include "stf/Config.h"
 //#include "stf/core/strategy/control/Includes.h"
 #include "stf/GlobalObject.h"
 
@@ -41,6 +41,8 @@
 #include "stf/satellite/nj/factory/NJFactory.h"
 #include "stf/satellite/SimpleSatelliteFactory.h"
 #include "stf/util/math/Exp.h"
+#include "stf/satellite/nj/app/NJ.h"
+#include "stf/satellite/prism/app/PRISM.h"
 
 #include "stf/core/environment/sh/iodefine.h"
 #include "stf/interface/Iterator.h"
@@ -66,22 +68,27 @@ int main(void){
 
 	std::cout << "AOCS Framework Test Program:\n\n";
 
+	typedef stf::app::NJ NJ;
+	typedef stf::app::PRISM PRISM;
+	typedef stf::core::environment::Simulator<stf::app::NJ> NJSimulator;
+	typedef stf::core::environment::Simulator<stf::app::PRISM> PRISMSimulator;
+
 	//stf::factory::SatelliteFactory<ENV>* en = new ();
-	stf::core::factory::PRISMFactory<ENV>& factory = stf::core::factory::PRISMFactory<ENV>::getInstance();
-	stf::Global<ENV>* gl = factory.create();
+	stf::core::factory::PRISMFactory<PRISMSimulator, PRISM>& factory = stf::core::factory::PRISMFactory<PRISMSimulator, PRISM>::getInstance();
+	stf::Global<PRISMSimulator>* gl = factory.create();
 
 	//stf::factory::SatelliteFactory<ENV>* en2 = new stf::factory::NJFactory<ENV>();
-	stf::Global<ENV>* gl2 = stf::core::factory::NJFactory<ENV>::getInstance().create();
+	stf::Global<NJSimulator>* gl2 = stf::core::factory::NJFactory<NJSimulator, NJ>::getInstance().create();
 
 	//stf::factory::SatelliteFactory<ENV>* en3 = new stf::factory::SimpleSatelliteFactory<ENV>();
-	stf::Global<ENV>* gl3 = stf::core::factory::SimpleSatelliteFactory<ENV>::getInstance().create();
+	//stf::Global<ENV>* gl3 = stf::core::factory::SimpleSatelliteFactory<ENV>::getInstance().create();
 
 	//シミュレータの生成
-	stf::core::environment::Simulator& s = stf::core::environment::Simulator::get_instance();
+	NJSimulator& s = NJSimulator::get_instance();
 	//シミュレーション用の軌道情報
 	datatype::OrbitInfo orbit(7100000, 0.01, 0, 0.5 * util::math::PI, 0, 0);
 	//シミュレータ初期化
-	s.init(gl3, STEPTIME, 100, orbit, new std::ofstream("output.csv"));
+	s.init(gl2, stf::app::NJ::steptime, 100, orbit, new std::ofstream("output.csv"));
 	
 	//シミュレータ外乱設定
 	datatype::StaticVector<3> v;
@@ -91,9 +98,9 @@ int main(void){
     s.attachNoiseSource(new stf::core::environment::torquesource::WhiteNoise(0.01, 0));
 
 	datatype::List<core::manager::ManagerBase>::iterator it,end;
-	end	= gl3->get_function_manager()->end();
+	end	= gl2->get_function_manager()->end();
 
-	for(it = gl3->get_function_manager()->begin(); it != end; ++it){
+	for(it = gl2->get_function_manager()->begin(); it != end; ++it){
 		(*it).run();
 	}
 

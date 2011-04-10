@@ -8,6 +8,7 @@
 #include "NJCommandReceiver.h"
 #include "../../../core/command/Includes.h"
 #include "../factory/NJGlobal.h"
+#include "../../../core/environment/Simulator.h"
 
 namespace stf {
 namespace core {
@@ -15,7 +16,7 @@ namespace devicedriver {
 namespace cmhandler {
 
 //デバッグ用の特殊化．外部ファイルから1行ずつ読み込み，
-template<> void NJCommandReceiver<environment::Simulator>::receive_command(){
+template<> void NJCommandReceiver<environment::Simulator<app::NJ> >::receive_command(){
 
 
 }

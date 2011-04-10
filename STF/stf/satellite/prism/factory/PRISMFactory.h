@@ -28,10 +28,11 @@ namespace stf {
 namespace core {
 namespace factory {
 
-template<class Env>
-class PRISMFactory : public SatelliteFactory<Env, PRISMFactory<Env>>{
-	friend class SatelliteFactory<Env, PRISMFactory<Env>>;
+template<class Env, class App>
+class PRISMFactory : public SatelliteFactory<Env, App, PRISMFactory<Env, App> >{
+	friend class SatelliteFactory<Env, App, PRISMFactory<Env, App> >;
 	typedef Env Environment;//!< 環境クラス．
+	typedef App Application;//!< アプリケーションクラス．
 
 	PRISMFactory(){ this->global_ = new PRISMGlobal<Env>();}
 	virtual ~PRISMFactory(){ delete this->global_; }
@@ -55,8 +56,8 @@ class PRISMFactory : public SatelliteFactory<Env, PRISMFactory<Env>>{
 	PRISMGlobal<Env>* global_;
 };
 
-template<class Env>
-void PRISMFactory<Env>::create_mode(){
+template<class Env, class App>
+void PRISMFactory<Env, App>::create_mode(){
 	this->global_->pr_safemode = new core::mode::Mode("PRISM_SAFEMODE");
 	this->global_->pr_amode = new core::mode::Mode("PRISM_AOCSMODE");
 	this->global_->pr_dmode = new core::mode::Mode("PRISM_NOCONTROLMODE");
@@ -66,8 +67,8 @@ void PRISMFactory<Env>::create_mode(){
 }
 
 
-template<class Env>
-void PRISMFactory<Env>::create_component(){
+template<class Env, class App>
+void PRISMFactory<Env, App>::create_component(){
 	typedef stf::core::devicedriver::CompositeOutput<devicedriver::mtq::PRISMMTQ<Env>, 3> ThreeAxisMTQ;
 	typedef stf::core::devicedriver::CompositeInput<devicedriver::gyro::PRISMGyro<Env>, 3> ThreeAxisGyro;
 	typedef stf::core::devicedriver::CompositeInput<devicedriver::sunsensor::PRISMSunSensor<Env>, 6> SixAxisSS;
@@ -122,7 +123,7 @@ void PRISMFactory<Env>::create_component(){
 	this->global_->pr_gpsdummy = new GPS();
 
 	// Clock(RTC&OBCTime)
-	this->global_->pr_clock = new Clock(YEAR, MONTH, DATE);
+	this->global_->pr_clock = new Clock(App::year, App::month, App::date);
 
 	// Telemetery Handler
 	//this->global_->pr_tmhandler = new core::devicedriver::tmhandler::PRISMTelemetryHandler();
@@ -136,8 +137,8 @@ void PRISMFactory<Env>::create_component(){
 	//this->global_->pr_currentsensor = new core::devicedriver::CDHComponent<
 }
 
-template<class Env>
-void PRISMFactory<Env>::create_funcmanager(){
+template<class Env, class App>
+void PRISMFactory<Env, App>::create_funcmanager(){
 	this->global_->pr_modeman = new core::manager::ModeManagerBase();
 	this->global_->pr_conman = new core::manager::ControlManagerBase();
 	this->global_->pr_uniman1 = new core::manager::UnitManagerBase();
@@ -160,8 +161,8 @@ void PRISMFactory<Env>::create_funcmanager(){
 	this->global_->add_function_manager(this->global_->pr_customman);
 }
 
-template<class Env>
-void PRISMFactory<Env>::create_controller(){
+template<class Env, class App>
+void PRISMFactory<Env, App>::create_controller(){
 	typedef core::strategy::control::Combining_5<datatype::StaticVector<3>>     TorqueCombiner;
 	typedef core::strategy::control::Combining_3<datatype::MagneticMoment>      MagCombiner;
 	typedef core::strategy::control::CrossProduct                               CrossProduct;
@@ -182,9 +183,9 @@ void PRISMFactory<Env>::create_controller(){
 	LiniarCorrection* PRISM_RMMCOMP         = new LiniarCorrection(-1);
 	Bdot*             PRISM_BDOT            = new Bdot(1);
 	Decoupling*       PRISM_DECOUPLING      = new Decoupling(this->global_);
-	RateDumping*      PRISM_RATEDUMPING     = new RateDumping(1, 0.1, 0.1, STEPTIME);
-	PID*              PRISM_PID             = new PID(1, 0.01, 0.01, STEPTIME,*(new datatype::StaticVector<3>));
-	PID*              PRISM_PD              = new PID(1, 0, 0.01, STEPTIME,*(new datatype::StaticVector<3>));
+	RateDumping*      PRISM_RATEDUMPING     = new RateDumping(1, 0.1, 0.1, App::steptime);
+	PID*              PRISM_PID             = new PID(1, 0.01, 0.01, App::steptime, *(new datatype::StaticVector<3>));
+	PID*              PRISM_PD              = new PID(1, 0, 0.01, App::steptime, *(new datatype::StaticVector<3>));
 	GGComp*           PRISM_GGCOMP          = new GGComp();
 	EKF*              PRISM_EKF             = new EKF();
 	TRIAD*            PRISM_TRIAD           = new TRIAD();
@@ -301,8 +302,8 @@ void PRISMFactory<Env>::create_controller(){
 	this->global_->pr_amode->add_list<core::strategy::control::IControlStrategy>(PRISM_CONTROLLER);
 }
 
-template<class Env>
-void PRISMFactory<Env>::create_command(){
+template<class Env, class App>
+void PRISMFactory<Env, App>::create_command(){
 	typedef core::manager::HeaterControl<Env> Heater;
 	typedef core::devicedriver::clock::PRISMDummyClock<Env> Clock;
 	typedef core::strategy::telemetry::PRISMTelemetryStrategy<Env, 1000> Telem;
@@ -397,8 +398,8 @@ void PRISMFactory<Env>::create_command(){
 		(t_init, this->global_->pr_aocstmstrategy,&Telem::set_time, 0);
 }
 
-template<class Env>
-void PRISMFactory<Env>::create_telemetry(){
+template<class Env, class App>
+void PRISMFactory<Env, App>::create_telemetry(){
 	this->global_->pr_tmstrategy = new core::strategy::telemetry::PRISMTelemetryStrategy<Env, 1000>(this->global_->pr_tmhandler, this->global_->pr_aocsdatapool, this->global_->pr_eventdatapool, this->global_->pr_clock);
 	this->global_->pr_aocstmstrategy = new core::strategy::telemetry::PRISMTelemetryStrategy<Env, 1000>(this->global_->pr_tmhandler, this->global_->pr_aocsdatapool, this->global_->pr_eventdatapool, this->global_->pr_clock);
 	///////////////////////////////////////////////////
@@ -418,8 +419,8 @@ void PRISMFactory<Env>::create_telemetry(){
 	this->global_->pr_resetmode->add_list<core::strategy::telemetry::ITelemetryStrategy>(this->global_->pr_aocstmstrategy);
 }
 
-template<class Env>
-void PRISMFactory<Env>::create_dataupdates(){
+template<class Env, class App>
+void PRISMFactory<Env, App>::create_dataupdates(){
 	datatype::List<core::devicedriver::IDataUpdatable> defaultUpdateList;
 	defaultUpdateList.add(*this->global_->pr_clock);
 	defaultUpdateList.add(*this->global_->pr_gpsdummy);
@@ -451,8 +452,8 @@ void PRISMFactory<Env>::create_dataupdates(){
 	this->global_->pr_dsmode->add_list((core::devicedriver::IDataUpdatable*)(this->global_->pr_mtq));
 }
 
-template<class Env>
-void PRISMFactory<Env>::create_switches(){
+template<class Env, class App>
+void PRISMFactory<Env, App>::create_switches(){
 	datatype::List<core::devicedriver::ISwitchable> defaultSwitchList;
 	defaultSwitchList.add(*this->global_->pr_clock);
 	defaultSwitchList.add(*this->global_->pr_gpsdummy);
@@ -484,8 +485,8 @@ void PRISMFactory<Env>::create_switches(){
 	this->global_->pr_dsmode->add_list((core::devicedriver::ISwitchable*)(this->global_->pr_mtq));
 }
 
-template<class Env>
-void PRISMFactory<Env>::create_functor(){
+template<class Env, class App>
+void PRISMFactory<Env, App>::create_functor(){
 	////////////////////////////////
 	// モード変更関係のファンクタ
 
@@ -509,13 +510,13 @@ void PRISMFactory<Env>::create_functor(){
 	//  アノマリー関係のファンクタ
 }
 
-template<class Env>
-void PRISMFactory<Env>::create_additional_hotspot(){
+template<class Env, class App>
+void PRISMFactory<Env, App>::create_additional_hotspot(){
 
 }
 
-template<class Env>
-void PRISMFactory<Env>::create_datapool(){
+template<class Env, class App>
+void PRISMFactory<Env, App>::create_datapool(){
 	this->global_->pr_mtqx->connect(global_->pr_aocsdatapool, 10, "PR_MTQ1");
 	this->global_->pr_mtqy->connect(global_->pr_aocsdatapool, 10, "PR_MTQ2");
 	this->global_->pr_mtqz->connect(global_->pr_aocsdatapool, 10, "PR_MTQ3");

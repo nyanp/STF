@@ -23,9 +23,6 @@
 #include "../PRISMIterator.h"
 
 namespace stf {
-namespace factory {
-template <class Env> class PRISMFactory;
-}
 
 template <class Env>
 struct PRISMGlobal : public Global<Env>{

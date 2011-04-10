@@ -31,10 +31,12 @@ namespace core {
 namespace factory {
 
 
-template<class Env>
-class SimpleSatelliteFactory : public SatelliteFactory<Env, SimpleSatelliteFactory<Env>>{
-	friend class SatelliteFactory<Env, SimpleSatelliteFactory<Env>>;
+template<class Env, class App>
+class SimpleSatelliteFactory : public SatelliteFactory<Env, App, SimpleSatelliteFactory<Env, App> >{
+	friend class SatelliteFactory<Env, App, SimpleSatelliteFactory<Env, App> >;
 	typedef Env Environment;//!< 環境クラス．
+	typedef App Application;//!< アプリケーションクラス．
+
 
 	SimpleSatelliteFactory(){ this->global_ = new SSGlobal<Env>();}
 	virtual ~SimpleSatelliteFactory(){ delete this->global_; }
@@ -58,15 +60,15 @@ class SimpleSatelliteFactory : public SatelliteFactory<Env, SimpleSatelliteFacto
 	SSGlobal<Env>* global_;
 };
 
-template<class Env>
-void SimpleSatelliteFactory<Env>::create_mode(){
+template<class Env, class App>
+void SimpleSatelliteFactory<Env, App>::create_mode(){
 	this->global_->ss_safemode = new mode::Mode("SS_SAFEMODE");
 	this->global_->ss_missionmode = new mode::Mode("SS_MISSIONMODE");
 }
 
 
-template<class Env>
-void SimpleSatelliteFactory<Env>::create_component(){
+template<class Env, class App>
+void SimpleSatelliteFactory<Env, App>::create_component(){
 	typedef devicedriver::gyro::Gyro<Env> GYRO;
 	typedef devicedriver::CompositeInput<GYRO, 3> ThreeAxisGyro;
 	typedef devicedriver::rw::RW<Env> RW;
@@ -80,7 +82,7 @@ void SimpleSatelliteFactory<Env>::create_component(){
 	this->global_->ss_eventdatapool = new core::datapool::EventDataPool();
 
 	// Clock(RTC&OBCTime)
-	this->global_->ss_clock = new Clock(YEAR, MONTH, DATE);
+	this->global_->ss_clock = new Clock(App::year, App::month, App::date);
 
 	// Command/Telemetry Driver
 	this->global_->ss_commandreceiver = new CmHandler(global_->ss_commandmanager);
@@ -107,8 +109,8 @@ void SimpleSatelliteFactory<Env>::create_component(){
 	this->global_->ss_rw->append_child(this->global_->ss_rw4);
 }
 
-template<class Env>
-void SimpleSatelliteFactory<Env>::create_funcmanager(){
+template<class Env, class App>
+void SimpleSatelliteFactory<Env, App>::create_funcmanager(){
 	global_->ss_modemanager = new manager::ModeManagerBase();
 	global_->ss_controlmanager = new manager::ControlManagerBase();
 	global_->ss_commandmanager = new manager::CommandManagerBase();
@@ -124,12 +126,12 @@ void SimpleSatelliteFactory<Env>::create_funcmanager(){
 	this->global_->add_function_manager(this->global_->ss_telemetrymanager);
 }
 
-template<class Env>
-void SimpleSatelliteFactory<Env>::create_controller(){
+template<class Env, class App>
+void SimpleSatelliteFactory<Env, App>::create_controller(){
 	typedef strategy::control::RateDumping RateDumping;
 	typedef strategy::control::ControlBlock ControlBlock;
 
-	RateDumping* rd = new RateDumping(0.2, 0.0, 0.5, STEPTIME);
+	RateDumping* rd = new RateDumping(0.2, 0.0, 0.5, App::steptime);
 	ControlBlock* cb = new ControlBlock(rd, this->global_->ss_rw);
 
 	rd->connect_source<0>(this->global_->ss_gyro);
@@ -140,12 +142,12 @@ void SimpleSatelliteFactory<Env>::create_controller(){
 
 }
 
-template<class Env>
-void SimpleSatelliteFactory<Env>::create_command(){
+template<class Env, class App>
+void SimpleSatelliteFactory<Env, App>::create_command(){
 }
 
-template<class Env>
-void SimpleSatelliteFactory<Env>::create_telemetry(){
+template<class Env, class App>
+void SimpleSatelliteFactory<Env, App>::create_telemetry(){
 	this->global_->ss_tmstrategy = new strategy::telemetry::OutputAll<>(global_->ss_tmhandler, global_->ss_aocsdatapool, global_->ss_eventdatapool);
 
 	this->global_->ss_safemode->add_list(global_->ss_tmstrategy);
@@ -153,8 +155,8 @@ void SimpleSatelliteFactory<Env>::create_telemetry(){
 
 }
 
-template<class Env>
-void SimpleSatelliteFactory<Env>::create_dataupdates(){
+template<class Env, class App>
+void SimpleSatelliteFactory<Env, App>::create_dataupdates(){
 	// SafeMode
 	this->global_->ss_safemode->add_list((core::devicedriver::IDataUpdatable*)(this->global_->ss_clock));
 	this->global_->ss_safemode->add_list((core::devicedriver::IDataUpdatable*)(this->global_->ss_gyro));
@@ -164,8 +166,8 @@ void SimpleSatelliteFactory<Env>::create_dataupdates(){
 	this->global_->ss_missionmode->add_list((core::devicedriver::IDataUpdatable*)(this->global_->ss_gyro));
 }
 
-template<class Env>
-void SimpleSatelliteFactory<Env>::create_switches(){
+template<class Env, class App>
+void SimpleSatelliteFactory<Env, App>::create_switches(){
 	// SafeMode
 	this->global_->ss_safemode->add_list((core::devicedriver::ISwitchable*)(this->global_->ss_clock));
 	this->global_->ss_safemode->add_list((core::devicedriver::ISwitchable*)(this->global_->ss_gyro));
@@ -175,8 +177,8 @@ void SimpleSatelliteFactory<Env>::create_switches(){
 	this->global_->ss_missionmode->add_list((core::devicedriver::ISwitchable*)(this->global_->ss_gyro));
 }
 
-template<class Env>
-void SimpleSatelliteFactory<Env>::create_functor(){
+template<class Env, class App>
+void SimpleSatelliteFactory<Env, App>::create_functor(){
 	//一定時間が経過したらSafeMode->MissionModeへ移行
 	core::functor::IFunctor* timerfunc = new functor::Functor<functor::Getter_Over<datatype::Time, devicedriver::clock::ITimeClock>, core::functor::ModeChangeFunc>
 			(
@@ -188,13 +190,13 @@ void SimpleSatelliteFactory<Env>::create_functor(){
 	this->global_->ss_safemode->add_list(timerfunc);
 }
 
-template<class Env>
-void SimpleSatelliteFactory<Env>::create_additional_hotspot(){
+template<class Env, class App>
+void SimpleSatelliteFactory<Env, App>::create_additional_hotspot(){
 
 }
 
-template<class Env>
-void SimpleSatelliteFactory<Env>::create_datapool(){
+template<class Env, class App>
+void SimpleSatelliteFactory<Env, App>::create_datapool(){
 	this->global_->ss_gyrox->connect(global_->ss_aocsdatapool, 20, "SS_GYRO1");
 	this->global_->ss_gyroy->connect(global_->ss_aocsdatapool, 20, "SS_GYRO2");
 	this->global_->ss_gyroz->connect(global_->ss_aocsdatapool, 20, "SS_GYRO3");
@@ -207,8 +209,8 @@ void SimpleSatelliteFactory<Env>::create_datapool(){
 	this->global_->ss_rw->connect(global_->ss_aocsdatapool, 10, "SS_RW");
 }
 
-template<class Env>
-void SimpleSatelliteFactory<Env>::satellite_initialize(){
+template<class Env, class App>
+void SimpleSatelliteFactory<Env, App>::satellite_initialize(){
 	this->global_->ss_modemanager->change_mode(this->global_->ss_safemode);
 }
 

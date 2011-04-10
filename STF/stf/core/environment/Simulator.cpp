@@ -35,7 +35,7 @@ namespace stf {
 namespace core {
 namespace environment {
 
-
+/*
 class SimulatorImpl {
 public:
 	typedef core::devicedriver::AOCSSensor<Simulator, datatype::StaticVector<3>, datatype::StaticVector<3> > MultiGyro;
@@ -176,7 +176,7 @@ void SimulatorImpl::runOneCycle()
 			<< this->noise_torque_[0] << ", "
 			<< this->noise_torque_[1] << ", "
 			<< this->noise_torque_[2] << "\n";
-            /*<< this->global_->fog1->bias_rate_ << ", "
+            << this->global_->fog1->bias_rate_ << ", "
             << this->global_->fog2->bias_rate_ << ", "
             << this->global_->fog3->bias_rate_ << ", "
             << this->global_->ekf->q_[0] << ", "
@@ -185,7 +185,7 @@ void SimulatorImpl::runOneCycle()
             << this->global_->ekf->q_[3] << ", "
             << this->global_->ekf->bref_[0] << ", "
             << this->global_->ekf->bref_[1] << ", "
-            << this->global_->ekf->bref_[2] << "\n";*/
+            << this->global_->ekf->bref_[2] << "\n";
 	}
 
 	datatype::List<core::manager::ManagerBase>::iterator it_m = global_->get_function_manager()->begin(), end_m = global_->get_function_manager()->end();
@@ -255,8 +255,10 @@ SimulatorImpl::SimulatorImpl()
 : orbit_()
 {
 	util::math::WhiteNoise_init(0);
-}
+}*/
 
+/////////////////////////////////////////////////////////////////////
+/*
 Simulator* Simulator::singleton_ = new Simulator();
 
 Simulator& Simulator::get_instance(){
@@ -349,212 +351,14 @@ void Simulator::attachMagneticSource(MagneticSource* source)
 {
 	this->simulatorimpl_->attachMagneticSource(source);
 }
-
+*/
+/*
 Simulator::Simulator()
 {
 	this->simulatorimpl_ = new SimulatorImpl();
-}
+}*/
 
 } /* End of namespace stf::core::environment */
 } /* End of namespace stf::core */
 } /* End of namespace core */
 
-/////////////////////////////////////
-// シミュレータ用の部分特殊化
-////////////////////////////////////
-
-namespace stf {
-namespace core {
-namespace devicedriver {
-namespace gyro {
-
-template <>
-void GyroBase<environment::Simulator>::do_update(){
-	this->value_ = filter(this->environment_->getAngularVelocity(*this));
-	if(this->datapool_ != 0){
-		datapool_->set<GyroBase<environment::Simulator>>(datapool_hold_index_, this->value_);
-	}
-}
-
-template <>
-datatype::Scalar GyroBase<environment::Simulator>::filter(const datatype::Scalar& value){
-    for(int i = 0; i < 3; i++){
-		double noise = util::math::WhiteNoise(this->sigma_, 0);
-		//slope計算は高速化のためScalarではなくdoubleで行う
-		this->bias_rate_ += util::math::RungeKutta::slope(bias_rate_.value(), -1 / tau_, noise, 0.1);
-    }
-	return value + bias_rate_;
-}
-
-} /* End of namespace stf::core::devicedriver::gyro */
-
-namespace earthsensor {
-template <>
-void EarthSensorBase<environment::Simulator>::do_update(){
-	this->value_ = filter(this->environment_->getEarthDirection(*this));
-	if(this->datapool_ != 0){
-		datapool_->set<EarthSensorBase<environment::Simulator>>(datapool_hold_index_, this->value_);
-	}
-}
-
-template <>
-datatype::StaticVector<2> EarthSensorBase<environment::Simulator>::filter(const datatype::StaticVector<2>& value){
-	datatype::StaticVector<3> earthvector_true = datatype::TypeConverter::toRectangular(value);
-
-	datatype::EulerAngle angle;
-	angle[0] = util::math::WhiteNoise(this->err_deg_ * util::math::DEG2RAD , 0) / 3;
-	angle[1] = util::math::WhiteNoise(this->err_deg_ * util::math::DEG2RAD, 0) / 3;
-	angle[2] = util::math::WhiteNoise(this->err_deg_ * util::math::DEG2RAD, 0) / 3;
-
-	datatype::StaticVector<3> earthvector = datatype::TypeConverter::toDCM(angle) * earthvector_true;
-
-	return datatype::TypeConverter::toPolar(earthvector);
-}
-
-} /* End of namespace stf::core::devicedriver::stt */
-
-namespace gps {
-
-template <>
-void GPSBase<environment::Simulator>::do_update(){
-	this->value_ = filter(this->environment_->getTrueSatellitePosition());
-
-	//if(this->datapool_ != 0){
-	//	datapool_->set<GPSBase<environment::Simulator>>(datapool_hold_index_, this->value_);
-	//}
-}
-//
-template <>
-datatype::PositionInfo GPSBase<environment::Simulator>::filter(const datatype::PositionInfo& value){
-	return value;
-}
-
-} /* End of namespace stf::core::devicedriver::gps */
-
-namespace magnetometer {
-
-//STT本体のQuaternion
-//シミュレータ環境ではSTT座標系での真値を取得する
-template <>
-void TAMBase<environment::Simulator>::do_update(){
-	this->value_ = filter(this->environment_->getMagneticField(*this));
-	if(this->datapool_ != 0){
-		datapool_->set<TAMBase<environment::Simulator>>(datapool_hold_index_, this->value_);
-	}
-}
-
-template <>
-datatype::MagneticField TAMBase<environment::Simulator>::filter(const datatype::MagneticField& value){
-	return value;
-}
-
-} /* End of namespace stf::core::devicedriver::magnetometer */
-
-
-namespace mtq {
-
-
-template <>
-void MTQBase<environment::Simulator>::do_update(){
-	//線形性誤差の付加→TBD
-	//this->linearity_ * 0.01
-	//DBへ記録
-	if(this->datapool_ != 0){
-		datapool_->set<MTQBase<environment::Simulator>>(this->datapool_hold_index_, this->output_);
-	}
-}
-
-// シミュレータ用の特殊化版コンストラクタ．
-// トルクソースとしてシミュレータに自動的に登録
-template<>
-MTQBase<environment::Simulator>::MTQBase( const datatype::DCM &dcm, double max_torque, double min_torque, double linearity) 
-	: AOCSActuator<environment::Simulator, datatype::MagneticMoment, datatype::Scalar>( "MTQ", dcm), linearity_(linearity)
-{
-	//this->max_output_ = max_torque;
-	//this->min_output_ = min_torque;	
-	this->environment_->attachMagneticSource(this);
-}
-
-} /* End of namespace stf::core::devicedriver::mtq */
-namespace rw {
-
-
-template <>
-void RWBase<environment::Simulator>::do_update(){
-	//角運動量（回転数）の更新
-	this->angular_momentum_ += this->output_.value() * STEPTIME;
-	//
-	if(this->datapool_ != 0){
-		datapool_->set<RWBase<environment::Simulator>>(datapool_hold_index_, this->output_);
-	}
-}
-
-// シミュレータ用の特殊化版コンストラクタ．
-// トルクソースとしてシミュレータに自動的に登録
-template<>
-RWBase<environment::Simulator>::RWBase( const datatype::DCM &dcm, double max_torque, double min_torque, double max_angular_momentum) : 
-AOCSActuator<environment::Simulator, datatype::StaticVector<3>, datatype::Scalar>( "RW", dcm), max_angular_momentum_(max_angular_momentum)
-{
-	this->environment_->attachTorqueSource(this);
-	//this->max_output_ = max_torque;
-	//this->min_output_ = min_torque;
-}
-
-} /* End of namespace stf::core::devicedriver::rw */
-
-namespace stt {
-
-//STT本体のQuaternion
-//シミュレータ環境ではSTT座標系での真値を取得する
-template <>
-void STTBase<environment::Simulator>::do_update(){
-	count_++;
-	if(count_ >= 5){
-		this->value_ = filter(this->environment_->getQuaternion(*this));
-		if(this->datapool_ != 0){
-			datapool_->set<STTBase<environment::Simulator> >(datapool_hold_index_, this->value_);
-		}
-		count_ = 0;
-	}
-}
-
-template <>
-datatype::Quaternion STTBase<environment::Simulator>::filter(const datatype::Quaternion& value){
-	datatype::EulerAngle angle;
-	angle[0] = util::math::WhiteNoise(this->err_arcsec_ * util::math::ARCSEC2RAD , 0) / 3;
-	angle[1] = util::math::WhiteNoise(this->err_arcsec_ * util::math::ARCSEC2RAD, 0) / 3;
-	angle[2] = util::math::WhiteNoise(this->err_arcsec_ * util::math::ARCSEC2RAD, 0) / 3;
-	return datatype::TypeConverter::toQuaternion(angle) * value;
-}
-
-} /* End of namespace stf::core::devicedriver::stt */
-namespace sunsensor {
-
-//STT本体のQuaternion
-//シミュレータ環境ではSTT座標系での真値を取得する
-template <>
-void SunSensorBase<environment::Simulator>::do_update(){
-	this->value_ = filter(this->environment_->getSunDirection(*this));
-	if(this->datapool_ != 0){
-		datapool_->set<SunSensorBase<environment::Simulator>>(datapool_hold_index_, this->value_);
-	}
-}
-
-template <>
-datatype::StaticVector<2> SunSensorBase<environment::Simulator>::filter(const datatype::StaticVector<2>& value){
-	datatype::StaticVector<3> sunvector_true = datatype::TypeConverter::toRectangular(value);
-
-	datatype::EulerAngle angle;
-	//angle[0] = util::math::WhiteNoise(this->err_deg_ * util::math::DEG2RAD , 0) / 3;
-	//angle[1] = util::math::WhiteNoise(this->err_deg_ * util::math::DEG2RAD, 0) / 3;
-	//angle[2] = util::math::WhiteNoise(this->err_deg_ * util::math::DEG2RAD, 0) / 3;
-
-	datatype::StaticVector<3> sunvector = datatype::TypeConverter::toDCM(angle) * sunvector_true;
-
-	return datatype::TypeConverter::toPolar(sunvector);
-}
-
-} /* End of namespace stf::core::devicedriver::stt */
-} /* End of namespace stf::core::devicedriver */
-} /* End of namespace stf::core */
-} /* End of namespace stf */

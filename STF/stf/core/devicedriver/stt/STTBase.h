@@ -9,13 +9,14 @@
 #define stf_core_devicedriver_stt_STTBase_h
 
 #include "../../../util/stfassert.h"
+#include "../../../util/Macros.h"
+#include "../../../util/math/Rand.h"
+#include "../../../util/math.h"
 #include "../AOCSSensor.h"
 #include "../../../datatype/StaticVector.h"
+#include "../../environment/Envfwd.h"
 
 namespace stf {
-namespace environment {
-class Simulator;
-}
 namespace core {
 namespace devicedriver {
 namespace stt {
@@ -30,9 +31,18 @@ class STTBase : public AOCSSensor<Env, datatype::Quaternion, datatype::Quaternio
 public:
 	STTBase(const datatype::DCM &angle, double err_arcsec, int sigma = 3);
 	virtual ~STTBase(){}
-	virtual void do_update();
 	virtual datatype::Quaternion filter(const datatype::Quaternion& value); 
 private:
+	DO_UPDATE_SIMULATOR(){
+		count_++;
+		if(count_ >= 5){
+			this->value_ = filter(this->environment_->getQuaternion(*this));
+			if(this->datapool_ != 0){
+				datapool_->set<STTBase<environment::Simulator<App> > >(datapool_hold_index_, this->value_);
+			}
+			count_ = 0;
+		}
+	}
 	datatype::Quaternion q_set_angle_;
 	double err_arcsec_;
 	int sigma_;
@@ -47,21 +57,16 @@ STTBase<Env>::STTBase(const datatype::DCM& dcm, double err_arcsec, int sigma)
 	this->q_set_angle_ = datatype::TypeConverter::toQuaternion(dcm);
 }
 
+
 template <class Env>
-void STTBase<Env>::do_update(){
-	stf_static_assert(0 && "Not-Implemented-Exception");
+datatype::Quaternion STTBase<Env>::filter(const datatype::Quaternion& value){
+	datatype::EulerAngle angle;
+	angle[0] = util::math::WhiteNoise(this->err_arcsec_ * util::math::ARCSEC2RAD , 0) / 3;
+	angle[1] = util::math::WhiteNoise(this->err_arcsec_ * util::math::ARCSEC2RAD, 0) / 3;
+	angle[2] = util::math::WhiteNoise(this->err_arcsec_ * util::math::ARCSEC2RAD, 0) / 3;
+	return datatype::TypeConverter::toQuaternion(angle) * value;
 }
 
-// DCMで計算せずにQuaternionで計算するためにオーバーライド
-/*template <class T>
-const datatype::Quaternion& STTBase<T>::get_in_bodyframe(){
-	this->value_b_ = q_set_angle_ * value_;
-	return this->value_b_;
-}*/
-
-//STT本体のQuaternion
-template <>
-void STTBase<environment::Simulator>::do_update();
 
 } /* End of namespace stf::core::devicedriver::stt */
 } /* End of namespace stf::core::devicedriver */

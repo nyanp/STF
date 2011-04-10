@@ -8,16 +8,16 @@
 #ifndef util_Cout_h
 #define util_Cout_h
 
-#include"../Config.h"
+#include "../app/Default.h"
 
 namespace stf { 
 namespace util {
 
-extern ENV::OutputStream cout;
-extern ENV::OutputFileStream clog;
+extern app::Default::ios_env::OutputStream cout;
+extern app::Default::ios_env::OutputFileStream clog;
 
-ENV::OutputStream& endl(ENV::OutputStream& os);
-ENV::OutputFileStream& endl(ENV::OutputFileStream& os);
+app::Default::ios_env::OutputStream& endl(app::Default::ios_env::OutputStream& os);
+app::Default::ios_env::OutputFileStream& endl(app::Default::ios_env::OutputFileStream& os);
 
 } /* End of namespace stf::util */
 } /* End of namespace stf */

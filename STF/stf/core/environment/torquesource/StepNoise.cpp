@@ -13,13 +13,13 @@ namespace core {
 namespace environment {
 namespace torquesource {
 
-StepNoise::StepNoise(double magnitude, stf::core::environment::Simulator *env)
+StepNoise::StepNoise(double magnitude, stf::core::environment::SimulatorBase *env)
 : magnitude_(magnitude), NoiseBase(env)
 {
     vector_[0] = 1;//デフォルトはX軸まわりのトルク
 }
 
-StepNoise::StepNoise(double magnitude, const datatype::StaticVector<3> &vector, const int &startTimeInSecond, stf::core::environment::Simulator *env)
+StepNoise::StepNoise(double magnitude, const datatype::StaticVector<3> &vector, const int &startTimeInSecond, stf::core::environment::SimulatorBase *env)
 : magnitude_(magnitude), vector_(vector), starttime_(startTimeInSecond, 0), NoiseBase(env)
 {
 }

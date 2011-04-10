@@ -9,7 +9,7 @@
 #define Config_h
 
 #include "core/environment/Simulator.h"
-typedef stf::core::environment::Simulator ENV;
+/// stf::core::environment::Simulator ENV;
 
 
 //datetime settings
@@ -19,7 +19,6 @@ typedef stf::core::environment::Simulator ENV;
 
 //satellite settings
 #define STEPTIME 0.1
-#define MODEHOTSPOT TYPELIST_5(devicedriver::ISwitchable, devicedriver::IDataUpdatable, functor::IFunctor, core::strategy::telemetry::ITelemetryStrategy, core::strategy::control::IControlStrategy)
-#define char_t datatype::String
+//#define MODEHOTSPOT TYPELIST_5(devicedriver::ISwitchable, devicedriver::IDataUpdatable, functor::IFunctor, core::strategy::telemetry::ITelemetryStrategy, core::strategy::control::IControlStrategy)
 
 #endif // Config_h

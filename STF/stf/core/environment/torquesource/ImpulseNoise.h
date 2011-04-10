@@ -16,7 +16,7 @@
 namespace stf {
 namespace core {
 namespace environment {
-class Simulator;
+class SimulatorBase;
 } /* End of namespace stf::core::environment */
 } /* End of namespace stf::core */
 } /* End of namespace stf */
@@ -30,8 +30,8 @@ namespace torquesource {
 /*! */
 class ImpulseNoise : virtual public NoiseBase {
 public:
-    ImpulseNoise(double magnitude, const datatype::StaticVector<3> &vector, const int &startTimeInSecond, const double &durationInMillisec, environment::Simulator *env);
-    ImpulseNoise(double magnitude, environment::Simulator *env);
+    ImpulseNoise(double magnitude, const datatype::StaticVector<3> &vector, const int &startTimeInSecond, const double &durationInMillisec, environment::SimulatorBase *env);
+    ImpulseNoise(double magnitude, environment::SimulatorBase *env);
     virtual ~ImpulseNoise();
     virtual double get_torque() const ;
     virtual datatype::StaticVector<3> get_torque_bodyframe() const ;

@@ -14,7 +14,7 @@
 namespace stf {
 namespace core {
 namespace environment {
-class Simulator;
+class SimulatorBase;
 } /* End of namespace stf::core::environment */
 } /* End of namespace stf::core */
 } /* End of namespace stf */
@@ -32,7 +32,7 @@ public:
     virtual double get_torque() const ;
     virtual datatype::StaticVector<3> get_torque_bodyframe() const ;
     virtual void set_torque(double value);
-    environment::Simulator *environment_;
+    environment::SimulatorBase* environment_;
 private:
     double sigma_;
     double mu_;

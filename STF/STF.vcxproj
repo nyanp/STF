@@ -74,6 +74,8 @@
     <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="stf\satellite\nj\app\NJ.cpp" />
+    <ClCompile Include="stf\app\Default.cpp" />
     <ClCompile Include="stf\core\command\ModeChangeCommand.cpp" />
     <ClCompile Include="stf\core\command\TypeListFunctionCommand.cpp" />
     <ClCompile Include="stf\core\command\UnaryFunctionCommand.cpp" />
@@ -120,6 +122,7 @@
     <ClCompile Include="stf\satellite\nj\devicedriver\NJCommandReceiver.cpp" />
     <ClCompile Include="stf\satellite\nj\strategy\NJControllers.cpp" />
     <ClCompile Include="stf\satellite\nj\devicedriver\NJRTC.cpp" />
+    <ClCompile Include="stf\satellite\prism\app\PRISM.cpp" />
     <ClCompile Include="stf\satellite\prism\devicedriver\PRISMCommandReceiver.cpp" />
     <ClCompile Include="stf\satellite\prism\strategy\PRISMControlBlock.cpp" />
     <ClCompile Include="stf\satellite\prism\devicedriver\PRISMDummyClock.cpp" />
@@ -139,8 +142,9 @@
     <ClCompile Include="stf\util\Trace.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="stf\core\environment\Envfwd.h" />
+    <ClInclude Include="stf\satellite\nj\app\NJ.h" />
     <ClInclude Include="stf\app\Default.h" />
-    <ClInclude Include="stf\Config.h" />
     <ClInclude Include="stf\core\command\Command.h" />
     <ClInclude Include="stf\core\command\GetCommand.h" />
     <ClInclude Include="stf\core\command\Includes.h" />
@@ -284,8 +288,11 @@
     <ClInclude Include="stf\GlobalObject.h" />
     <ClInclude Include="stf\interface\Iterator.h" />
     <ClInclude Include="stf\satellite\nj\devicedriver\includes.h" />
+    <ClInclude Include="stf\satellite\nj\NJfwd.h" />
     <ClInclude Include="stf\satellite\nj\strategy\includes.h" />
+    <ClInclude Include="stf\satellite\prism\app\PRISM.h" />
     <ClInclude Include="stf\satellite\prism\devicedriver\includes.h" />
+    <ClInclude Include="stf\satellite\prism\PRISMfwd.h" />
     <ClInclude Include="stf\satellite\prism\strategy\includes.h" />
     <ClInclude Include="stf\util\Macros.h" />
     <ClInclude Include="stf\RootObject.h" />
@@ -342,6 +349,7 @@
     <ClInclude Include="stf\datatype\String.h" />
     <ClInclude Include="stf\datatype\TypeConverter.h" />
     <ClInclude Include="stf\datatype\Vector.h" />
+    <ClInclude Include="stf\util\mathfwd.h" />
     <ClInclude Include="stf\util\math\Exp.h" />
     <ClInclude Include="stf\util\math\Rand.h" />
     <ClInclude Include="stf\util\math\RungeKutta.h" />

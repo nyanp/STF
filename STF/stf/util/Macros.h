@@ -32,6 +32,21 @@
   TypeName(const TypeName<T1, T2, T3, T4>&);                \
   void operator=(const TypeName<T1, T2, T3, T4>&)
 
+#define DO_UPDATE_SIMULATOR() \
+	public:\
+	virtual void do_update(){\
+		do_update(Loki::Type2Type<Env>());\
+	}\
+	private:\
+	template<class T> void do_update(Loki::Type2Type<T>);\
+	template<class App> void do_update(Loki::Type2Type<environment::Simulator<App> >)\
+
+#define INIT() \
+	virtual void init(){\
+		init(Loki::Type2Type<Env>());\
+	}\
+	template<class T> void init(Loki::Type2Type<T>){}\
+	template<class App> void inti(Loki::Type2Type<environment::Simulator<App> >)
 
 namespace stf {
 
@@ -67,6 +82,5 @@ template<> struct CompileTimeError<true> {};
 */
 #define MUST_BE_DERIVED_FROM(derived, base) \
 	STF_STATIC_ASSERT((Conversion<derived, base>::exists != 0), IS_NOT_CONVARIANT)
-
 
 #endif // Macros_h

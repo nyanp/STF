@@ -30,7 +30,7 @@ int strcmp(const char *s1, const char *s2)
 
 
 //デバッグ用の特殊化．外部ファイルから1行ずつ読み込み，
-template<> void PRISMCommandReceiver<environment::Simulator>::receive_command(){
+template<> void PRISMCommandReceiver<environment::Simulator<app::PRISM> >::receive_command(){
 	std::string line;
 
 
@@ -43,7 +43,7 @@ template<> void PRISMCommandReceiver<environment::Simulator>::receive_command(){
 }
 
 template<>
-core::command::Command* __prism_powercmd_analyze<environment::Simulator>(char* cmd, int* params, int paramlength, const datatype::Time& t, const stf::PRISMGlobal<environment::Simulator>* g){
+core::command::Command* __prism_powercmd_analyze<environment::Simulator<app::PRISM> >(char* cmd, int* params, int paramlength, const datatype::Time& t, const stf::PRISMGlobal<environment::Simulator<app::PRISM> >* g){
 	if(strcmp(cmd, "pu") == 0)
 	{
 		command::Command* c = g->pr_c_pu->clone(t);
@@ -85,7 +85,7 @@ core::command::Command* __prism_powercmd_analyze<environment::Simulator>(char* c
 
 
 template<>
-core::command::Command* __prism_cdhcmd_analyze<environment::Simulator>(char* cmd, int* params, int paramlength, const datatype::Time& t, const stf::PRISMGlobal<environment::Simulator>* g){
+core::command::Command* __prism_cdhcmd_analyze<environment::Simulator<app::PRISM> >(char* cmd, int* params, int paramlength, const datatype::Time& t, const stf::PRISMGlobal<environment::Simulator<app::PRISM> >* g){
 	if(strcmp(cmd, "alv") == 0)
 	{
 		return g->pr_c_alv->clone(t);
@@ -157,7 +157,7 @@ core::command::Command* __prism_cdhcmd_analyze<environment::Simulator>(char* cmd
 }
 
 template<>
-core::command::Command* __prism_adcscmd_analyze<environment::Simulator>(char* cmd, int* params, int paramlength, const datatype::Time& t, const stf::PRISMGlobal<environment::Simulator>* g){
+core::command::Command* __prism_adcscmd_analyze<environment::Simulator<app::PRISM> >(char* cmd, int* params, int paramlength, const datatype::Time& t, const stf::PRISMGlobal<environment::Simulator<app::PRISM> >* g){
 	if(strcmp(cmd, "aen") == 0)
 	{
 		if(params[0] == 0){

@@ -9,13 +9,12 @@
 #define stf_core_devicedriver_sunsensor_SunSensorBase_h
 
 #include "../../../util/stfassert.h"
+#include "../../../util/Macros.h"
 #include "../AOCSSensor.h"
 #include "../../../datatype/StaticVector.h"
+#include "../../environment/Envfwd.h"
 
 namespace stf {
-namespace environment {
-class Simulator;
-}
 namespace core {
 namespace devicedriver {
 namespace sunsensor {
@@ -29,9 +28,16 @@ class SunSensorBase : public AOCSSensor<Env, datatype::StaticVector<2>, datatype
 public:
 	SunSensorBase(const datatype::DCM &angle, double err_deg, int sigma = 3);
 	virtual ~SunSensorBase(){}
-	virtual void do_update();
 	virtual datatype::StaticVector<2> filter(const datatype::StaticVector<2>& value); 
 private:
+
+	DO_UPDATE_SIMULATOR(){
+		this->value_ = filter(this->environment_->getSunDirection(*this));
+		if(this->datapool_ != 0){
+			datapool_->set<SunSensorBase<environment::Simulator<App> >>(datapool_hold_index_, this->value_);
+		}
+	}
+
     SunSensorBase();
 	double err_deg_;
 	int sigma_;
@@ -45,14 +51,18 @@ SunSensorBase<Env>::SunSensorBase(const datatype::DCM& dcm, double err_deg, int 
 }
 
 template <class Env>
-void SunSensorBase<Env>::do_update(){
-	stf_static_assert(0 && "Not-Implemented-Exception");
+datatype::StaticVector<2> SunSensorBase<Env>::filter(const datatype::StaticVector<2>& value){
+	datatype::StaticVector<3> sunvector_true = datatype::TypeConverter::toRectangular(value);
+
+	datatype::EulerAngle angle;
+	//angle[0] = util::math::WhiteNoise(this->err_deg_ * util::math::DEG2RAD , 0) / 3;
+	//angle[1] = util::math::WhiteNoise(this->err_deg_ * util::math::DEG2RAD, 0) / 3;
+	//angle[2] = util::math::WhiteNoise(this->err_deg_ * util::math::DEG2RAD, 0) / 3;
+
+	datatype::StaticVector<3> sunvector = datatype::TypeConverter::toDCM(angle) * sunvector_true;
+
+	return datatype::TypeConverter::toPolar(sunvector);
 }
-
-//シミュレータ用の特殊化
-template <>
-void SunSensorBase<environment::Simulator>::do_update();
-
 } /* End of namespace stf::core::devicedriver::sunsensor */
 } /* End of namespace stf::core::devicedriver */
 } /* End of namespace stf::core */

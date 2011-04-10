@@ -65,7 +65,7 @@ namespace factory {
 	@endcode
 
 */
-template<class Env, class Derived>
+template<class Env, class App, class Derived>
 class SatelliteFactory {
 public:
 	static Derived& getInstance(){

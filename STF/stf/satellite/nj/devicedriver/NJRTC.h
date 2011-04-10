@@ -12,7 +12,6 @@
 #include "../../../core/devicedriver/clock/IAbsoluteTimeClock.h"
 #include "../../../RootObject.h"
 #include "../../../util/loki/Typelist.h"
-#include "../../../Config.h"
 
 namespace stf {
 namespace core {
