@@ -12,7 +12,6 @@
 #include <iostream>
 #include <vector>
 #include "IODriverBase.h"
-#include "../../util/Ostream.h"
 #include "Orbit.h"
 #include "../../datatype/EulerAngle.h"
 #include "../../datatype/TypeConverter.h"
@@ -20,6 +19,7 @@
 #include "../../datatype/Scalar.h"
 #include "../../datatype/Time.h"
 #include "../../datatype/DateTime.h"
+#include "../../util/Ostream.h"
 
 namespace interface {
 class IAngularVelocityMeasurable;
@@ -29,7 +29,6 @@ class ITimeMeasure;
 
 namespace stf {
 template<class T> class Global;
-
 namespace datatype {
 template<int> class StaticVector;
 template<int,int> class StaticMatrix;
@@ -352,57 +351,5 @@ Simulator<App>* Simulator<App>::singleton_ = new Simulator<App>();
 } /* End of namespace stf::core::environment */
 } /* End of namespace stf::core */
 } /* End of namespace stf */
-
-
-/////////////////////////////////////
-// シミュレータ用の部分特殊化
-////////////////////////////////////
-
-namespace stf {
-namespace core {
-namespace devicedriver {
-namespace gyro {
-
-
-} /* End of namespace stf::core::devicedriver::gyro */
-
-namespace earthsensor {
-
-
-} /* End of namespace stf::core::devicedriver::stt */
-
-namespace gps {
-
-
-
-} /* End of namespace stf::core::devicedriver::gps */
-
-namespace magnetometer {
-
-
-} /* End of namespace stf::core::devicedriver::magnetometer */
-
-
-namespace mtq {
-
-
-} /* End of namespace stf::core::devicedriver::mtq */
-namespace rw {
-
-
-} /* End of namespace stf::core::devicedriver::rw */
-
-namespace stt {
-
-
-} /* End of namespace stf::core::devicedriver::stt */
-namespace sunsensor {
-
-
-} /* End of namespace stf::core::devicedriver::stt */
-} /* End of namespace stf::core::devicedriver */
-} /* End of namespace stf::core */
-} /* End of namespace stf */
-
 
 #endif // stf_core_environment_Simulator_h

@@ -74,11 +74,11 @@ int main(void){
 	typedef stf::core::environment::Simulator<stf::app::PRISM> PRISMSimulator;
 
 	//stf::factory::SatelliteFactory<ENV>* en = new ();
-	stf::core::factory::PRISMFactory<PRISMSimulator, PRISM>& factory = stf::core::factory::PRISMFactory<PRISMSimulator, PRISM>::getInstance();
+	stf::core::factory::PRISMFactory<PRISMSimulator>& factory = stf::core::factory::PRISMFactory<PRISMSimulator>::getInstance();
 	stf::Global<PRISMSimulator>* gl = factory.create();
 
 	//stf::factory::SatelliteFactory<ENV>* en2 = new stf::factory::NJFactory<ENV>();
-	stf::Global<NJSimulator>* gl2 = stf::core::factory::NJFactory<NJSimulator, NJ>::getInstance().create();
+	stf::Global<NJSimulator>* gl2 = stf::core::factory::NJFactory<NJSimulator>::getInstance().create();
 
 	//stf::factory::SatelliteFactory<ENV>* en3 = new stf::factory::SimpleSatelliteFactory<ENV>();
 	//stf::Global<ENV>* gl3 = stf::core::factory::SimpleSatelliteFactory<ENV>::getInstance().create();

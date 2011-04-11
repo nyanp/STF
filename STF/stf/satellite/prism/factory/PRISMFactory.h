@@ -21,14 +21,14 @@
 #include "../../../core/mode/Mode.h"
 #include "../../../core/strategy/telemetry/Includes.h"
 #include "../../../datatype/Time.h"
-
+#include "../PRISMfwd.h"
 #include "PRISMGlobal.h"
 
 namespace stf {
 namespace core {
 namespace factory {
 
-template<class Env, class App>
+template<class Env, class App = app::PRISM>
 class PRISMFactory : public SatelliteFactory<Env, App, PRISMFactory<Env, App> >{
 	friend class SatelliteFactory<Env, App, PRISMFactory<Env, App> >;
 	typedef Env Environment;//!< ŠÂ‹«ƒNƒ‰ƒXD

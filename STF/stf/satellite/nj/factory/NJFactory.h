@@ -25,11 +25,13 @@
 
 #include "../../../core/strategy/telemetry/Includes.h"
 
+#include "../NJfwd.h"
+
 namespace stf {
 namespace core {
 namespace factory {
 
-template<class Env, class App>
+template<class Env, class App = app::NJ>
 class NJFactory : public SatelliteFactory<Env, App, NJFactory<Env, App> >{
 	friend class SatelliteFactory<Env, App, NJFactory<Env, App> >;
 	typedef Env Environment;//!< ŠÂ‹«ƒNƒ‰ƒXD
