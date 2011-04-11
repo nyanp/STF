@@ -83,14 +83,14 @@ int main(void){
 	//stf::factory::SatelliteFactory<ENV>* en3 = new stf::factory::SimpleSatelliteFactory<ENV>();
 	//stf::Global<ENV>* gl3 = stf::core::factory::SimpleSatelliteFactory<ENV>::getInstance().create();
 
-	//ƒVƒ~ƒ…ƒŒ[ƒ^‚Ì¶¬
+	//ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚¿ã®ç”Ÿæˆ
 	NJSimulator& s = NJSimulator::get_instance();
-	//ƒVƒ~ƒ…ƒŒ[ƒVƒ‡ƒ“—p‚Ì‹O“¹î•ñ
+	//ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ç”¨ã®è»Œé“æƒ…å ±
 	datatype::OrbitInfo orbit(7100000, 0.01, 0, 0.5 * util::math::PI, 0, 0);
-	//ƒVƒ~ƒ…ƒŒ[ƒ^‰Šú‰»
+	//ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚¿åˆæœŸåŒ–
 	s.init(gl2, stf::app::NJ::steptime, 100, orbit, new std::ofstream("output.csv"));
 	
-	//ƒVƒ~ƒ…ƒŒ[ƒ^ŠO—İ’è
+	//ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚¿å¤–ä¹±è¨­å®š
 	datatype::StaticVector<3> v;
 	v[0] = 0.3;
 	v[1] = -0.2;
@@ -104,14 +104,14 @@ int main(void){
 		(*it).run();
 	}
 
-	//Àsƒ^ƒXƒN‚Ì’Ç‰Á
+	//å®Ÿè¡Œã‚¿ã‚¹ã‚¯ã®è¿½åŠ 
 
-	//‚»‚Ì‚Ù‚©‚Ìİ’è
+	//ãã®ã»ã‹ã®è¨­å®š
 	//g.comm->add_command(new core::command::modeChangeCommand(g.get_global_time(), g.missionmode, g.modeman));
 	//g.modeman->change_mode(g.safemode);
 
 	///////////////////////////////////////////////
-	// Às
+	// å®Ÿè¡Œ
 	for(int i = 0; i < 800; i++)
 		s.runOneCycle();
 
