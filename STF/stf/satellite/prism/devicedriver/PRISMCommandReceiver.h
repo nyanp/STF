@@ -42,8 +42,8 @@ core::command::Command* __prism_adcscmd_analyze<environment::Simulator<app::PRIS
 
 
 //
-// ’ÊMŒnCPU‚Æ‚ÌƒCƒ“ƒ^[ƒtƒF[ƒX‚ğ¬‚·ƒRƒ}ƒ“ƒhƒŒƒV[ƒo‚ÌƒfƒoƒbƒO—p‹ïÛƒNƒ‰ƒXD
-//  ƒvƒ‹Œ^‚ÌƒRƒ}ƒ“ƒhi’ÊMŒn‚©‚ç‚Ì—v‹‚ğ‚à‚Æ‚ÉC“KØ‚È’l‚ğ•Ô‚·j‚É‘Î‚µ‚Ä‚Í
+// é€šä¿¡ç³»CPUã¨ã®ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ãƒ¼ã‚¹ã‚’æˆã™ã‚³ãƒãƒ³ãƒ‰ãƒ¬ã‚·ãƒ¼ãƒã®ãƒ‡ãƒãƒƒã‚°ç”¨å…·è±¡ã‚¯ãƒ©ã‚¹ï¼
+//  ãƒ—ãƒ«å‹ã®ã‚³ãƒãƒ³ãƒ‰ï¼ˆé€šä¿¡ç³»ã‹ã‚‰ã®è¦æ±‚ã‚’ã‚‚ã¨ã«ï¼Œé©åˆ‡ãªå€¤ã‚’è¿”ã™ï¼‰ã«å¯¾ã—ã¦ã¯
 template<class T>
 class PRISMCommandReceiver: virtual public ICommandReceiver, public RootObject {
 public:
@@ -63,24 +63,24 @@ private:
 	typename T::InputFileStream* ifs_;
 };
 
-//ŠO•”ƒfƒoƒCƒX‚©‚çƒRƒ}ƒ“ƒh‚ÌóM‚ğs‚¤D
+//å¤–éƒ¨ãƒ‡ãƒã‚¤ã‚¹ã‹ã‚‰ã‚³ãƒãƒ³ãƒ‰ã®å—ä¿¡ã‚’è¡Œã†ï¼
 template<class T>
 void PRISMCommandReceiver<T>::receive_command()
 {
 }
 
-//ƒfƒoƒbƒO—p‚Ì“Áê‰»DŠO•”ƒtƒ@ƒCƒ‹‚©‚ç1s‚¸‚Â“Ç‚İ‚İC
+//ãƒ‡ãƒãƒƒã‚°ç”¨ã®ç‰¹æ®ŠåŒ–ï¼å¤–éƒ¨ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰1è¡Œãšã¤èª­ã¿è¾¼ã¿ï¼Œ
 template<> void PRISMCommandReceiver<environment::Simulator<app::PRISM> >::receive_command();
 
 
-// ƒfƒoƒbƒO—p‚È‚Ì‚Å‘—M‹@‚É‘—‚é•Ï‚í‚è‚ÉƒRƒ“ƒ\[ƒ‹‚Éo—Í‚·‚é
+// ãƒ‡ãƒãƒƒã‚°ç”¨ãªã®ã§é€ä¿¡æ©Ÿã«é€ã‚‹å¤‰ã‚ã‚Šã«ã‚³ãƒ³ã‚½ãƒ¼ãƒ«ã«å‡ºåŠ›ã™ã‚‹
 template<class T>
 void PRISMCommandReceiver<T>::send_packet(const datatype::String& msg)
 {
 	util::cout << "downlink:" << msg << "at:" << this->clock_->get_time() << util::endl;
 }
 
-// ƒfƒoƒbƒO—p‚È‚Ì‚Å‘—M‹@‚É‘—‚é•Ï‚í‚è‚ÉƒRƒ“ƒ\[ƒ‹‚Éo—Í‚·‚é
+// ãƒ‡ãƒãƒƒã‚°ç”¨ãªã®ã§é€ä¿¡æ©Ÿã«é€ã‚‹å¤‰ã‚ã‚Šã«ã‚³ãƒ³ã‚½ãƒ¼ãƒ«ã«å‡ºåŠ›ã™ã‚‹
 template<class T>
 void PRISMCommandReceiver<T>::send_packet(int msg)
 {
@@ -94,7 +94,7 @@ void PRISMCommandReceiver<T>::add_command(command::Command* cmd)
 }
 
 
-//ƒRƒ}ƒ“ƒh‚ğ‰ğß‚µ‚ÄC‘Î‰‚·‚éƒIƒuƒWƒFƒNƒg‚ğ“Š‚°‚é
+//ã‚³ãƒãƒ³ãƒ‰ã‚’è§£é‡ˆã—ã¦ï¼Œå¯¾å¿œã™ã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’æŠ•ã’ã‚‹
 template<class T>
 void PRISMCommandReceiver<T>::analyzeCommand_(char* cmd)
 {
@@ -102,7 +102,7 @@ void PRISMCommandReceiver<T>::analyzeCommand_(char* cmd)
 	char* cmd;
 	char* params;
 	int paramlength;
-	//ƒRƒ}ƒ“ƒh‰ğß•”
+	//ã‚³ãƒãƒ³ãƒ‰è§£é‡ˆéƒ¨
 
 	//
 	const datatype::Time t = this->clock_->get_time();

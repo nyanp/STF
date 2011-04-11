@@ -24,16 +24,16 @@ namespace control {
 
 template<int U> class NJEKFIterator;
 
-// �t���[�����[�N��EKF���p������NJ�p�̃J���}���t�B���^�D
-// �C�e���[�^�ɂ��Ǝ��̃e�����g���������\�ł���_�C
-// Observer�p�^�[���ɂ���ă��[�h�ύX�̃^�C�~���O�Ńp�����[�^������������_���ėpEKF�Ƃ̈Ⴂ�D
+// フレームワークのEKFを継承したNJ用のカルマンフィルタ．
+// イテレータによる独自のテレメトリ生成が可能である点，
+// Observerパターンによってモード変更のタイミングでパラメータ初期化が入る点が汎用EKFとの違い．
 class NJEKF : public EKF, virtual public event::Observer<event::ModeChangeEvent>
 {
 public:
 	NJEKF(mode::Mode* missionmode) : missionmode_(missionmode){}
 	virtual ~NJEKF(){}
 	virtual void notify(const mode::Mode* value){ 
-		if(value == missionmode_) return; //�����ϑ����[�h�̏ꍇ�̓��Z�b�g���Ȃ�
+		if(value == missionmode_) return; //次が観測モードの場合はリセットしない
 		this->init(); 
 	}
 private:

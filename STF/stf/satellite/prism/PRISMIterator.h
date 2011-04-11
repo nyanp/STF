@@ -31,7 +31,7 @@ protected:
 };
 
 
-// PRISM‚ÌƒeƒŒƒƒgƒŠ‚É•K—v‚ÈEKF‚ÌƒeƒŒƒƒgƒŠo—Í‚ğ’è‹`B
+// PRISMã®ãƒ†ãƒ¬ãƒ¡ãƒˆãƒªã«å¿…è¦ãªEKFã®ãƒ†ãƒ¬ãƒ¡ãƒˆãƒªå‡ºåŠ›ã‚’å®šç¾©ã€‚
 template<int SCALE>
 class PRISMEKFIterator : public PRISMIteratorBase<SCALE, 13, core::strategy::control::PRISMEKF> {
 public:
@@ -44,7 +44,7 @@ public:
 private:
 };
 
-// PRISM‚ÌƒeƒŒƒƒgƒŠ‚É•K—v‚ÈEKF‚ÌƒeƒŒƒƒgƒŠo—Í‚ğ’è‹`B
+// PRISMã®ãƒ†ãƒ¬ãƒ¡ãƒˆãƒªã«å¿…è¦ãªEKFã®ãƒ†ãƒ¬ãƒ¡ãƒˆãƒªå‡ºåŠ›ã‚’å®šç¾©ã€‚
 template<int SCALE>
 class PRISMRMMEKFIterator : public PRISMIteratorBase<SCALE, 3, core::strategy::control::PRISMRMMEKF> {
 public:
@@ -55,7 +55,7 @@ public:
 private:
 };
 
-// TRIAD‚©‚çQuaternion‚Ì„’è’l‚ğƒeƒŒƒƒgƒŠ‚Æ‚µ‚Äo—ÍD
+// TRIADã‹ã‚‰Quaternionã®æ¨å®šå€¤ã‚’ãƒ†ãƒ¬ãƒ¡ãƒˆãƒªã¨ã—ã¦å‡ºåŠ›ï¼
 template<int SCALE>
 class PRISMSunMagTRIADIterator : public PRISMIteratorBase<SCALE, 4, core::strategy::control::PRISMSunMagTRIAD> {
 public:

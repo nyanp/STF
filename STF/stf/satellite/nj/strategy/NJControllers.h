@@ -21,13 +21,13 @@ namespace core {
 namespace strategy {
 namespace control {
 namespace nj {
-// Nano-JASMINEŒÅ—L‚Ì§ŒäƒuƒƒbƒN‚ğ‹Lq‚·‚é
+// Nano-JASMINEå›ºæœ‰ã®åˆ¶å¾¡ãƒ–ãƒ­ãƒƒã‚¯ã‚’è¨˜è¿°ã™ã‚‹
 
 // Quaternion Avevraging Block
-// 2²‚ÌQuaternion‚ğ1ŒÂ‚ÌQuaternion‚É•ÏŠ·
+// 2è»¸ã®Quaternionã‚’1å€‹ã®Quaternionã«å¤‰æ›
 
 
-//3‚Â‚Ìƒgƒ‹ƒN‚ğ’Pƒ‰ÁZ‚Å‡¬‚·‚é§ŒäƒuƒƒbƒND
+//3ã¤ã®ãƒˆãƒ«ã‚¯ã‚’å˜ç´”åŠ ç®—ã§åˆæˆã™ã‚‹åˆ¶å¾¡ãƒ–ãƒ­ãƒƒã‚¯ï¼
 class QuaternionAveraging : public devicedriver::InputPorts< TYPELIST_2(datatype::Quaternion, datatype::Quaternion) >, 
 		public devicedriver::OutputPorts < TYPELIST_1(datatype::Quaternion) > ,
 		public StrategyBase
@@ -49,7 +49,7 @@ protected:
 
 };
 
-//StarEKF ¯‘œ‚©‚çŠp‘¬“x‚ğ„’è‚·‚éEKF.
+//StarEKF æ˜Ÿåƒã‹ã‚‰è§’é€Ÿåº¦ã‚’æ¨å®šã™ã‚‹EKF.
 class StarImageEKF : public devicedriver::InputPorts< TYPELIST_2(datatype::StaticVector<3>, datatype::StaticVector<3>) >,
 		public devicedriver::OutputPorts < TYPELIST_1(datatype::StaticVector<3>) > ,
 		public StrategyBase
@@ -61,7 +61,7 @@ private:
 };
 
 
-//’†Šúp¨ˆÀ’è“x—v‹‚É‰‚¶‚Ä–Ú•WQuaternion‚ğ“`”À‚·‚é§ŒäƒuƒƒbƒND
+//ä¸­æœŸå§¿å‹¢å®‰å®šåº¦è¦æ±‚ã«å¿œã˜ã¦ç›®æ¨™Quaternionã‚’ä¼æ¬ã™ã‚‹åˆ¶å¾¡ãƒ–ãƒ­ãƒƒã‚¯ï¼
 class MidRangeSpinController : public devicedriver::InputPorts< TYPELIST_1(datatype::Quaternion) >,
 		public devicedriver::OutputPorts < TYPELIST_1(datatype::Quaternion) > ,
 		public StrategyBase
@@ -75,7 +75,7 @@ public:
 private:
 };
 
-//’·Šúp¨ˆÀ’è“x—v‹‚É‰‚¶‚Ä–Ú•WƒXƒsƒ“²‚ğ“`”À‚·‚é§ŒäƒuƒƒbƒND
+//é•·æœŸå§¿å‹¢å®‰å®šåº¦è¦æ±‚ã«å¿œã˜ã¦ç›®æ¨™ã‚¹ãƒ”ãƒ³è»¸ã‚’ä¼æ¬ã™ã‚‹åˆ¶å¾¡ãƒ–ãƒ­ãƒƒã‚¯ï¼
 class LongRangeSpinController : 
 		public devicedriver::OutputPorts < TYPELIST_1(datatype::Quaternion) > ,
 		public StrategyBase
@@ -86,8 +86,8 @@ public:
 private:
 };
 
-//FOG„’èƒ‚[ƒh‚É‚¨‚¯‚é–Ú•WQuaternion‚ğ§Œä‚·‚éƒuƒƒbƒND
-//‰q¯6–Ê‚Ì‚¤‚¿1–Ê‚ğ‘¾—z•ûŒü‚ğwŒü‚³‚¹‚é
+//FOGæ¨å®šãƒ¢ãƒ¼ãƒ‰ã«ãŠã‘ã‚‹ç›®æ¨™Quaternionã‚’åˆ¶å¾¡ã™ã‚‹ãƒ–ãƒ­ãƒƒã‚¯ï¼
+//è¡›æ˜Ÿ6é¢ã®ã†ã¡1é¢ã‚’å¤ªé™½æ–¹å‘ã‚’æŒ‡å‘ã•ã›ã‚‹
 class QuaternionForRMMEstimation : public devicedriver::InputPorts< TYPELIST_1(datatype::PositionInfo) >,
 		public devicedriver::OutputPorts < TYPELIST_1(datatype::Quaternion) > ,
 		public StrategyBase
@@ -100,7 +100,7 @@ private:
 	devicedriver::clock::IAbsoluteTimeClock* clock_;
 	datatype::Time before_;
 	datatype::Time timespan_;
-	int index_;//Œ»İ‚Ì‘¾—zwŒü–Ê
+	int index_;//ç¾åœ¨ã®å¤ªé™½æŒ‡å‘é¢
 };
 
 class MCConstantOutput : 

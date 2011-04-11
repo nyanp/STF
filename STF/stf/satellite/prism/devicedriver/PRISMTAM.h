@@ -17,7 +17,7 @@ namespace magnetometer {
 template <class T>
 class PRISMTAM : public TAMBase<T>{
 public:  
-	// 3-SigmaÇ≈1ìxê∏ìx
+	// 3-Sigma„Åß1Â∫¶Á≤æÂ∫¶
 	PRISMTAM( const datatype::DCM &angle) : TAMBase(angle){}
 	~PRISMTAM(){}
 	virtual void do_update(){}

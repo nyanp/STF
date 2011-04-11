@@ -1,6 +1,6 @@
 /**
  * @file   PRISMfwd.h
- * @brief  PRISMŒÅ—LƒNƒ‰ƒX‚Ì‘O•ûéŒ¾D
+ * @brief  PRISMå›ºæœ‰ã‚¯ãƒ©ã‚¹ã®å‰æ–¹å®£è¨€ï¼
  *
  * @author Taiga Nomi
  * @date   2011.04.09

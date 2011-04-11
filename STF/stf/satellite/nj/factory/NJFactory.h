@@ -1,6 +1,6 @@
 /**
  * @file   NJFactory.h
- * @brief  Nano-JASMINE‚ÌƒIƒuƒWƒFƒNƒg‚ğ¶¬‚·‚éƒtƒ@ƒNƒgƒŠD
+ * @brief  Nano-JASMINEã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ç”Ÿæˆã™ã‚‹ãƒ•ã‚¡ã‚¯ãƒˆãƒªï¼
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -34,8 +34,8 @@ namespace factory {
 template<class Env, class App = app::NJ>
 class NJFactory : public SatelliteFactory<Env, App, NJFactory<Env, App> >{
 	friend class SatelliteFactory<Env, App, NJFactory<Env, App> >;
-	typedef Env Environment;//!< ŠÂ‹«ƒNƒ‰ƒXD
-	typedef App Application;//!< ƒAƒvƒŠƒP[ƒVƒ‡ƒ“ƒNƒ‰ƒXD
+	typedef Env Environment;//!< ç’°å¢ƒã‚¯ãƒ©ã‚¹ï¼
+	typedef App Application;//!< ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã‚¯ãƒ©ã‚¹ï¼
 
 
 	NJFactory(){ this->global_ = new NJGlobal<Env>();}
@@ -176,7 +176,7 @@ void NJFactory<Env, App>::create_component(){
 	this->global_->nj_rtc = new RTC(App::year, App::month, App::date);
 	this->global_->nj_gps = new GPS();
 
-	// ADC, ‰·“xŒvC“dˆ³ŒvC“d—¬Œv
+	// ADC, æ¸©åº¦è¨ˆï¼Œé›»åœ§è¨ˆï¼Œé›»æµè¨ˆ
 	this->global_->nj_adc  = new devicedriver::NJADC<Env>();
 	this->global_->nj_temp1 = new devicedriver::NJCoarseTempSensor<Env>(global_->nj_adc);
 	this->global_->nj_temp2 = new devicedriver::NJFineTempSensor<Env>(global_->nj_adc);
@@ -250,15 +250,15 @@ void NJFactory<Env, App>::create_controller(){
 	CONTROLLER* NJ_CONTROLLER_ESTM_MC = new CONTROLLER();
 
 	/////////////////////////////////////
-	// ƒZ[ƒtƒ‚[ƒh—p‚Ìp¨§ŒäƒuƒƒbƒN
-	// p¨Œˆ’è:‚È‚µ
-	// p¨§Œä:‚È‚µ
+	// ã‚»ãƒ¼ãƒ•ãƒ¢ãƒ¼ãƒ‰ç”¨ã®å§¿å‹¢åˆ¶å¾¡ãƒ–ãƒ­ãƒƒã‚¯
+	// å§¿å‹¢æ±ºå®š:ãªã—
+	// å§¿å‹¢åˆ¶å¾¡:ãªã—
 	this->global_->nj_sfem->add_list<core::strategy::control::IControlStrategy>(NJ_CONTROLLER_SFEM);
 
 	/////////////////////////////////////
-	// ƒXƒ^ƒ“ƒoƒCƒ‚[ƒh—p‚Ìp¨§ŒäƒuƒƒbƒN
-	// p¨Œˆ’è:‚È‚µ
-	// p¨§Œä:¥‹CƒZƒ“ƒT‚Ì‚İ‚Ì‘¾—z•ß‘¨§Œä(§Œäƒnƒ“ƒhƒuƒbƒN9.3.3.3)
+	// ã‚¹ã‚¿ãƒ³ãƒã‚¤ãƒ¢ãƒ¼ãƒ‰ç”¨ã®å§¿å‹¢åˆ¶å¾¡ãƒ–ãƒ­ãƒƒã‚¯
+	// å§¿å‹¢æ±ºå®š:ãªã—
+	// å§¿å‹¢åˆ¶å¾¡:ç£æ°—ã‚»ãƒ³ã‚µã®ã¿ã®å¤ªé™½æ•æ‰åˆ¶å¾¡(åˆ¶å¾¡ãƒãƒ³ãƒ‰ãƒ–ãƒƒã‚¯9.3.3.3)
 	SOLAR_POINTING* stbm_pointing = new SOLAR_POINTING(1);
 
 	stbm_pointing->connect_source<0>(this->global_->nj_st4);
@@ -268,9 +268,9 @@ void NJFactory<Env, App>::create_controller(){
 	this->global_->nj_stbm->add_list<core::strategy::control::IControlStrategy>(NJ_CONTROLLER_STBM);
 
 	//////////////////////////////////////
-    // ‰ŠúˆÀ’è‰»ƒ‚[ƒh—p‚Ìp¨§ŒäƒuƒƒbƒN
-	// p¨Œˆ’è:‚È‚µ(Šp‘¬“x‚Ì‚İæ“¾)
-	// p¨§Œä:Date-Dumping + CrossProduct
+    // åˆæœŸå®‰å®šåŒ–ãƒ¢ãƒ¼ãƒ‰ç”¨ã®å§¿å‹¢åˆ¶å¾¡ãƒ–ãƒ­ãƒƒã‚¯
+	// å§¿å‹¢æ±ºå®š:ãªã—(è§’é€Ÿåº¦ã®ã¿å–å¾—)
+	// å§¿å‹¢åˆ¶å¾¡:Date-Dumping + CrossProduct
 	RATE_DUMPING* inim_ratedumping = new RATE_DUMPING(1, 0.1, 0.1, App::steptime);
 	CROSS_PRODUCT* inim_crossproduct = new CROSS_PRODUCT();
 
@@ -283,9 +283,9 @@ void NJFactory<Env, App>::create_controller(){
 	this->global_->nj_inim->add_list<core::strategy::control::IControlStrategy>(NJ_CONTROLLER_INIM);
 
 	//////////////////////////////////////
-    // ‘ep¨§Œäƒ‚[ƒh—p‚Ìp¨§ŒäƒuƒƒbƒN
-	// p¨Œˆ’è:ST4 & SunsensorTRIAD(EKF‚È‚µ) + EKF(FOG)
-	// p¨§Œä:Quaternion FB
+    // ç²—å§¿å‹¢åˆ¶å¾¡ãƒ¢ãƒ¼ãƒ‰ç”¨ã®å§¿å‹¢åˆ¶å¾¡ãƒ–ãƒ­ãƒƒã‚¯
+	// å§¿å‹¢æ±ºå®š:ST4 & SunsensorTRIAD(EKFãªã—) + EKF(FOG)
+	// å§¿å‹¢åˆ¶å¾¡:Quaternion FB
 	TRIAD* ctrm_triad = new TRIAD();
 	EKF* ctrm_ekf = new EKF(this->global_->nj_mism);
 	SimplePID* ctrm_pid = new SimplePID(1, 0.01, 0.5, App::steptime, *(new datatype::Quaternion));
@@ -295,7 +295,7 @@ void NJFactory<Env, App>::create_controller(){
 	ctrm_crossproduct->connect_source<1>(this->global_->nj_st4);
 
 	ctrm_pid->connect_source<0>(ctrm_ekf);
-	ctrm_pid->connect_source<1>(ctrm_ekf);//TRIAD‚©‚ç’¼ÚQuaternion‚ğ‚Æ‚é‚Ì‚Å‚Í‚È‚­EKF‚ğ‹²‚Ş‚±‚Æ‚ÅCI‚É‚ÍFOG‚©‚ç‚Ì“`”À’l‚ª©“®“I‚É—p‚¢‚ç‚ê‚é
+	ctrm_pid->connect_source<1>(ctrm_ekf);//TRIADã‹ã‚‰ç›´æ¥Quaternionã‚’ã¨ã‚‹ã®ã§ã¯ãªãEKFã‚’æŒŸã‚€ã“ã¨ã§ï¼Œè•æ™‚ã«ã¯FOGã‹ã‚‰ã®ä¼æ¬å€¤ãŒè‡ªå‹•çš„ã«ç”¨ã„ã‚‰ã‚Œã‚‹
 
 	ctrm_ekf->connect_source<0>(ctrm_triad);
 	ctrm_ekf->connect_source<1>(this->global_->nj_fog);
@@ -308,11 +308,11 @@ void NJFactory<Env, App>::create_controller(){
 	this->global_->nj_ctrm->add_list<core::strategy::control::IControlStrategy>(NJ_CONTROLLER_CTRM);
 
 	//////////////////////////////////////
-	//¸p¨§Œäƒ‚[ƒh—p‚Ìp¨§ŒäƒuƒƒbƒN
-	// p¨Œˆ’è:STT-FOG EKF & RMM•â
-	// p¨§Œä:
-	EKF* ccdm_ekf = new EKF(this->global_->nj_mism);//->„’è’l‚ğˆø‚«Œp‚®‚Ì‚ÅŠÏ‘ªƒ‚[ƒh‚Å‚àg‚¤
-	RMMEKF* ccdm_rmmekf = new RMMEKF();//->„’è’l‚ğˆø‚«Œp‚®‚Ì‚ÅŠÏ‘ªƒ‚[ƒh‚Å‚àg‚¤
+	//ç²¾å§¿å‹¢åˆ¶å¾¡ãƒ¢ãƒ¼ãƒ‰ç”¨ã®å§¿å‹¢åˆ¶å¾¡ãƒ–ãƒ­ãƒƒã‚¯
+	// å§¿å‹¢æ±ºå®š:STT-FOG EKF & RMMè£œå„Ÿ
+	// å§¿å‹¢åˆ¶å¾¡:
+	EKF* ccdm_ekf = new EKF(this->global_->nj_mism);//->æ¨å®šå€¤ã‚’å¼•ãç¶™ãã®ã§è¦³æ¸¬ãƒ¢ãƒ¼ãƒ‰ã§ã‚‚ä½¿ã†
+	RMMEKF* ccdm_rmmekf = new RMMEKF();//->æ¨å®šå€¤ã‚’å¼•ãç¶™ãã®ã§è¦³æ¸¬ãƒ¢ãƒ¼ãƒ‰ã§ã‚‚ä½¿ã†
 	QUATERNION_AVE* ccdm_q_average = new QUATERNION_AVE();
 	RMMCOMP* ccdm_rmmcomp = new RMMCOMP(-1);
 	PID* ccdm_pid = new PID(0.1, 0.001, 0.004, App::steptime);
@@ -332,37 +332,37 @@ void NJFactory<Env, App>::create_controller(){
 	ccdm_q_average->connect_source<0>(this->global_->nj_sttx);
 	ccdm_q_average->connect_source<1>(this->global_->nj_stty);
 
-	//§Œäƒgƒ‹ƒN‚ÍRW‚Öo—Í
+	//åˆ¶å¾¡ãƒˆãƒ«ã‚¯ã¯RWã¸å‡ºåŠ›
 	NJ_CONTROLLER_CCDM->set_actuator(this->global_->nj_rw, ccdm_pid);
-	//„’è‚³‚ê‚½c—¯¥‹Cƒ‚[ƒƒ“ƒg‚Ì•â¬•ª‚Í¥‹CƒLƒƒƒ“ƒZƒ‰‚Öo—Í
+	//æ¨å®šã•ã‚ŒãŸæ®‹ç•™ç£æ°—ãƒ¢ãƒ¼ãƒ¡ãƒ³ãƒˆã®è£œå„Ÿæˆåˆ†ã¯ç£æ°—ã‚­ãƒ£ãƒ³ã‚»ãƒ©ã¸å‡ºåŠ›
 	NJ_CONTROLLER_CCDM->set_actuator(this->global_->nj_mc, ccdm_rmmcomp);
 
 	this->global_->nj_ccdm->add_list<core::strategy::control::IControlStrategy>(NJ_CONTROLLER_CCDM);
 
 	////////////////////////////////////
-	//ŠÏ‘ªƒ‚[ƒh—p‚Ìp¨§ŒäƒuƒƒbƒND¯‘œEKF‚âƒXƒsƒ“²‚Ì’·Šú§Œä‚ğœ‚¢‚Ä¸§Œäƒ‚[ƒh‚Ì§ŒäƒuƒƒbƒN‚ğˆø‚«Œp‚®
-	// p¨Œˆ’èF¯‘œEKF?
-	// p¨§ŒäF
+	//è¦³æ¸¬ãƒ¢ãƒ¼ãƒ‰ç”¨ã®å§¿å‹¢åˆ¶å¾¡ãƒ–ãƒ­ãƒƒã‚¯ï¼æ˜ŸåƒEKFã‚„ã‚¹ãƒ”ãƒ³è»¸ã®é•·æœŸåˆ¶å¾¡ã‚’é™¤ã„ã¦ç²¾åˆ¶å¾¡ãƒ¢ãƒ¼ãƒ‰ã®åˆ¶å¾¡ãƒ–ãƒ­ãƒƒã‚¯ã‚’å¼•ãç¶™ã
+	// å§¿å‹¢æ±ºå®šï¼šæ˜ŸåƒEKF?
+	// å§¿å‹¢åˆ¶å¾¡ï¼š
 	STAR_EKF* mism_starekf = new STAR_EKF();
 	PID* mism_pid = new PID(0.1, 0.001, 0.004, App::steptime);
 	SPINAXIS_CONTROLLER* mism_spincond = new SPINAXIS_CONTROLLER();
 
-	mism_pid->connect_source<0>(ccdm_ekf);//Quaternion‚ÍƒWƒƒƒCƒƒoƒCƒAƒXEKF‚©‚çæ“¾
-	mism_pid->connect_source<1>(mism_starekf);//Šp‘¬“x‚Í¯‘œEKF‚©‚çæ“¾D¯‘œæ“¾¸”s‚É‚ÍƒWƒƒƒCƒƒoƒCƒAƒXEKF‚Ì’l‚ª‚»‚Ì‚Ü‚Ü“`”À‚³‚ê‚é
-	mism_pid->connect_source<2>(mism_spincond);//’·Šú—v‹‚ÉŠî‚Ã‚¢‚Ä–Ú•WQuaterion‚ğXV
+	mism_pid->connect_source<0>(ccdm_ekf);//Quaternionã¯ã‚¸ãƒ£ã‚¤ãƒ­ãƒã‚¤ã‚¢ã‚¹EKFã‹ã‚‰å–å¾—
+	mism_pid->connect_source<1>(mism_starekf);//è§’é€Ÿåº¦ã¯æ˜ŸåƒEKFã‹ã‚‰å–å¾—ï¼æ˜Ÿåƒå–å¾—å¤±æ•—æ™‚ã«ã¯ã‚¸ãƒ£ã‚¤ãƒ­ãƒã‚¤ã‚¢ã‚¹EKFã®å€¤ãŒãã®ã¾ã¾ä¼æ¬ã•ã‚Œã‚‹
+	mism_pid->connect_source<2>(mism_spincond);//é•·æœŸè¦æ±‚ã«åŸºã¥ã„ã¦ç›®æ¨™Quaterionã‚’æ›´æ–°
 
 	mism_starekf->connect_source<0>(ccdm_ekf);
 	//mism_starekf->connect_source<1>(this->global_->nj_rw);
 
-	//§Œäƒgƒ‹ƒN‚ÍRW‚Öo—Í
+	//åˆ¶å¾¡ãƒˆãƒ«ã‚¯ã¯RWã¸å‡ºåŠ›
 	NJ_CONTROLLER_MISM->set_actuator(this->global_->nj_rw, mism_pid);
-	//RMM‚Í¸§Œäƒ‚[ƒh‚Æ“¯‚¶Œo˜H‚ÅƒLƒƒƒ“ƒZƒ‰‚Ö
+	//RMMã¯ç²¾åˆ¶å¾¡ãƒ¢ãƒ¼ãƒ‰ã¨åŒã˜çµŒè·¯ã§ã‚­ãƒ£ãƒ³ã‚»ãƒ©ã¸
 	NJ_CONTROLLER_MISM->set_actuator(this->global_->nj_mc, ccdm_rmmcomp);
 
 	//////////////////////////////////////
-	//ƒAƒ“ƒ[ƒfƒBƒ“ƒOƒ‚[ƒh—p‚Ìp¨§ŒäƒuƒƒbƒN
-	// p¨Œˆ’èFSTT-ƒTƒ“ƒZƒ“ƒTQUEST
-	// p¨§ŒäFMTQ-RW•ªU
+	//ã‚¢ãƒ³ãƒ­ãƒ¼ãƒ‡ã‚£ãƒ³ã‚°ãƒ¢ãƒ¼ãƒ‰ç”¨ã®å§¿å‹¢åˆ¶å¾¡ãƒ–ãƒ­ãƒƒã‚¯
+	// å§¿å‹¢æ±ºå®šï¼šSTT-ã‚µãƒ³ã‚»ãƒ³ã‚µQUEST
+	// å§¿å‹¢åˆ¶å¾¡ï¼šMTQ-RWåˆ†æ•£
 	UNLOADING* unloading = new UNLOADING();
 	CROSS_PRODUCT* unloading_crossp = new CROSS_PRODUCT();
 	
@@ -379,12 +379,12 @@ void NJFactory<Env, App>::create_controller(){
 	NJ_CONTROLLER_RWUM->set_actuator(this->global_->nj_mtq, unloading_crossp);
 
 	/////////////////////////////////////
-	// RMM„’è—p‚Ìp¨§ŒäƒuƒƒbƒN
-	// p¨Œˆ’èFSTT-FOG EKF
-	// p¨§ŒäF6–Êˆê’èŠÔ‚¸‚Â‘¾—zwŒü§Œä
+	// RMMæ¨å®šç”¨ã®å§¿å‹¢åˆ¶å¾¡ãƒ–ãƒ­ãƒƒã‚¯
+	// å§¿å‹¢æ±ºå®šï¼šSTT-FOG EKF
+	// å§¿å‹¢åˆ¶å¾¡ï¼š6é¢ä¸€å®šæ™‚é–“ãšã¤å¤ªé™½æŒ‡å‘åˆ¶å¾¡
 	PID* estmrmm_pid = new PID(0.1, 0.01, 0.01, App::steptime);
 	datatype::Time t(1000, 0);
-	QUATERNION_RMMESTM* estmrmm_q = new QUATERNION_RMMESTM(this->global_->nj_rtc, t);//1000•b‚²‚Æ‚É•Ê‚Ì–Ê‚ğ‘¾—zwŒü‚³‚¹‚é
+	QUATERNION_RMMESTM* estmrmm_q = new QUATERNION_RMMESTM(this->global_->nj_rtc, t);//1000ç§’ã”ã¨ã«åˆ¥ã®é¢ã‚’å¤ªé™½æŒ‡å‘ã•ã›ã‚‹
 
 	estmrmm_pid->connect_source<0>(ccdm_ekf);
 	estmrmm_pid->connect_source<1>(ccdm_ekf);
@@ -394,42 +394,42 @@ void NJFactory<Env, App>::create_controller(){
 	this->global_->nj_estm_rmm->add_list<core::strategy::control::IControlStrategy>(NJ_CONTROLLER_ESTM_RMM);
 
 	/////////////////////////////////////
-	// FOG„’è—p‚Ìp¨§ŒäƒuƒƒbƒN
-	// p¨Œˆ’èFSTT-FOG EKF
-	// p¨§ŒäFFOG3²‚»‚ê‚¼‚ê}1e-3rad/s,}1e-2rad/s‚ÌŒv12ƒ‚[ƒh
+	// FOGæ¨å®šç”¨ã®å§¿å‹¢åˆ¶å¾¡ãƒ–ãƒ­ãƒƒã‚¯
+	// å§¿å‹¢æ±ºå®šï¼šSTT-FOG EKF
+	// å§¿å‹¢åˆ¶å¾¡ï¼šFOG3è»¸ãã‚Œãã‚ŒÂ±1e-3rad/s,Â±1e-2rad/sã®è¨ˆ12ãƒ¢ãƒ¼ãƒ‰
 	PID* estmfog_pid = new PID(0.1, 0.01, 0.01, App::steptime);
 
 	NJ_CONTROLLER_ESTM_FOG->set_actuator(this->global_->nj_rw, estmfog_pid);
 	this->global_->nj_estm_fog->add_list<core::strategy::control::IControlStrategy>(NJ_CONTROLLER_ESTM_FOG);
 
 	/////////////////////////////////////
-	// MC„’è—p‚Ìp¨§ŒäƒuƒƒbƒN
-	// p¨Œˆ’èFSTT-FOG EKF
-	// p¨§ŒäFMC3²‚»‚ê‚¼‚ê}0.2Am2,}0.4Am2,}0.6Am2‚ÌŒv18ƒ‚[ƒh
+	// MCæ¨å®šç”¨ã®å§¿å‹¢åˆ¶å¾¡ãƒ–ãƒ­ãƒƒã‚¯
+	// å§¿å‹¢æ±ºå®šï¼šSTT-FOG EKF
+	// å§¿å‹¢åˆ¶å¾¡ï¼šMC3è»¸ãã‚Œãã‚ŒÂ±0.2Am2,Â±0.4Am2,Â±0.6Am2ã®è¨ˆ18ãƒ¢ãƒ¼ãƒ‰
 	MC_CONSTANT* estmmc = new MC_CONSTANT(this->global_->nj_rtc, t);
 
 	NJ_CONTROLLER_ESTM_MC->set_actuator(this->global_->nj_mc, estmmc);
 	this->global_->nj_estm_mc->add_list<core::strategy::control::IControlStrategy>(NJ_CONTROLLER_ESTM_MC);
 
 	/////////////////////////////////////
-	// RW„’è—p‚Ìp¨§ŒäƒuƒƒbƒN
-	// p¨Œˆ’èFSTT-FOG EKF
-	// p¨§ŒäFRW4Šî‚»‚ê‚¼‚ê}5e-5Nm,}2.5e-5Nm‚ÌŒv16ƒ‚[ƒh
+	// RWæ¨å®šç”¨ã®å§¿å‹¢åˆ¶å¾¡ãƒ–ãƒ­ãƒƒã‚¯
+	// å§¿å‹¢æ±ºå®šï¼šSTT-FOG EKF
+	// å§¿å‹¢åˆ¶å¾¡ï¼šRW4åŸºãã‚Œãã‚ŒÂ±5e-5Nm,Â±2.5e-5Nmã®è¨ˆ16ãƒ¢ãƒ¼ãƒ‰
 	RW_CONSTANT* estmrw = new RW_CONSTANT(this->global_->nj_rtc, t);
 
 	//NJ_CONTROLLER_ESTM_RW->set_actuator(this->global_->nj_rw1, &estmrw->outputport<0, datatype::StaticVector<3>>());
 	this->global_->nj_estm_rw->add_list<core::strategy::control::IControlStrategy>(NJ_CONTROLLER_ESTM_RW);
 
 	///////////////////////////////////////////////////
-	// §ŒäƒuƒƒbƒN‚Ö‚ÌƒAƒNƒZƒX‚ª•K—v‚È‰Šú‰»ˆ—
+	// åˆ¶å¾¡ãƒ–ãƒ­ãƒƒã‚¯ã¸ã®ã‚¢ã‚¯ã‚»ã‚¹ãŒå¿…è¦ãªåˆæœŸåŒ–å‡¦ç†
 
-	// EKF‚Ìó‘Ô—Ê‚ğƒeƒŒƒƒgƒŠ‚Éo—Í
+	// EKFã®çŠ¶æ…‹é‡ã‚’ãƒ†ãƒ¬ãƒ¡ãƒˆãƒªã«å‡ºåŠ›
 	this->global_->nj_telemetrystrategy->add_tmlist(new interface::NJEKFIterator<1000>(ccdm_ekf));
 	this->global_->nj_telemetrystrategy->add_tmlist(new interface::NJRMMEKFIterator<1000>(ccdm_rmmekf));
 	this->global_->nj_telemetrystrategy->add_tmlist(new interface::NJSunMagTRIADIterator<1000>(ctrm_triad));
 
 	///////////////////////////////////////////////////
-	// §Œä‘¥‚ğƒ‚[ƒh‚É“o˜^
+	// åˆ¶å¾¡å‰‡ã‚’ãƒ¢ãƒ¼ãƒ‰ã«ç™»éŒ²
 	this->global_->nj_sfem->add_list<core::strategy::control::IControlStrategy>(NJ_CONTROLLER_SFEM);
 	this->global_->nj_inim->add_list<core::strategy::control::IControlStrategy>(NJ_CONTROLLER_INIM);
 	this->global_->nj_ctrm->add_list<core::strategy::control::IControlStrategy>(NJ_CONTROLLER_CTRM);
@@ -453,11 +453,11 @@ void NJFactory<Env, App>::create_telemetry(){
 	this->global_->nj_telemetrystrategy = new core::strategy::telemetry::SelectingOutput<unsigned int, 1000>
 		(this->global_->nj_tmhandler, this->global_->nj_aocsdatapool, this->global_->nj_eventdatapool);
 
-	//ADC‚Ìæ“¾’l‚ğ‘Sƒ`ƒƒƒlƒ‹ƒeƒŒƒƒgƒŠ‚É’Ç‰Á
+	//ADCã®å–å¾—å€¤ã‚’å…¨ãƒãƒ£ãƒãƒ«ãƒ†ãƒ¬ãƒ¡ãƒˆãƒªã«è¿½åŠ 
 	this->global_->nj_telemetrystrategy->add_tmlist(new interface::CDHComponentIterator<Env, datatype::Voltage,NJ__ADC__CHANNELS>(this->global_->nj_adc));
 
 	///////////////////////////////////////////////////
-	// ƒeƒŒƒƒgƒŠƒXƒgƒ‰ƒeƒW‚ğƒ‚[ƒh‚É“o˜^
+	// ãƒ†ãƒ¬ãƒ¡ãƒˆãƒªã‚¹ãƒˆãƒ©ãƒ†ã‚¸ã‚’ãƒ¢ãƒ¼ãƒ‰ã«ç™»éŒ²
 	this->global_->nj_sfem->add_list<core::strategy::telemetry::ITelemetryStrategy>(this->global_->nj_telemetrystrategy);
 	this->global_->nj_inim->add_list<core::strategy::telemetry::ITelemetryStrategy>(this->global_->nj_telemetrystrategy);
 	this->global_->nj_ctrm->add_list<core::strategy::telemetry::ITelemetryStrategy>(this->global_->nj_telemetrystrategy);
@@ -473,7 +473,7 @@ void NJFactory<Env, App>::create_telemetry(){
 
 template<class Env, class App>
 void NJFactory<Env, App>::create_dataupdates(){
-	// ‘Sƒ‚[ƒh‹¤’Ê‚ÅON‚Ì‹@Ší‚ÍÅ‰‚É‚Ü‚Æ‚ß‚ÄƒŠƒXƒg‚É‰Á‚¦‚é
+	// å…¨ãƒ¢ãƒ¼ãƒ‰å…±é€šã§ONã®æ©Ÿå™¨ã¯æœ€åˆã«ã¾ã¨ã‚ã¦ãƒªã‚¹ãƒˆã«åŠ ãˆã‚‹
 	datatype::List<core::devicedriver::IDataUpdatable> defaultUpdateList;
 	defaultUpdateList.add(*this->global_->nj_rtc);
 	defaultUpdateList.add(*this->global_->nj_adc);
@@ -499,9 +499,9 @@ void NJFactory<Env, App>::create_dataupdates(){
 		this->global_->nj_estm_mc->add_list<core::devicedriver::IDataUpdatable>(&(*it));
 		++it;
 	}
-	//ˆÈ‰ºŠeƒ‚[ƒhŒÅ—L‚ÌƒRƒ“ƒ|[ƒlƒ“ƒgŒQ
+	//ä»¥ä¸‹å„ãƒ¢ãƒ¼ãƒ‰å›ºæœ‰ã®ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆç¾¤
 
-	//Safe Mode ->default‚Ì‚İ
+	//Safe Mode ->defaultã®ã¿
 
 	//Standby Mode
 	this->global_->nj_stbm->add_list<core::devicedriver::IDataUpdatable>((core::devicedriver::IDataUpdatable*)(this->global_->nj_ss));
@@ -579,7 +579,7 @@ void NJFactory<Env, App>::create_dataupdates(){
 
 template<class Env, class App>
 void NJFactory<Env, App>::create_switches(){
-	// ‘Sƒ‚[ƒh‹¤’Ê‚ÅON‚Ì‹@Ší‚ÍÅ‰‚É‚Ü‚Æ‚ß‚ÄƒŠƒXƒg‚É‰Á‚¦‚é
+	// å…¨ãƒ¢ãƒ¼ãƒ‰å…±é€šã§ONã®æ©Ÿå™¨ã¯æœ€åˆã«ã¾ã¨ã‚ã¦ãƒªã‚¹ãƒˆã«åŠ ãˆã‚‹
 	datatype::List<core::devicedriver::ISwitchable> defaultSwitchList;
 	defaultSwitchList.add(*this->global_->nj_rtc);
 	defaultSwitchList.add(*this->global_->nj_adc);
@@ -605,9 +605,9 @@ void NJFactory<Env, App>::create_switches(){
 		this->global_->nj_estm_mc->add_list<core::devicedriver::ISwitchable>(&(*it));
 		++it;
 	}
-	//ˆÈ‰ºŠeƒ‚[ƒhŒÅ—L‚ÌƒRƒ“ƒ|[ƒlƒ“ƒgŒQ
+	//ä»¥ä¸‹å„ãƒ¢ãƒ¼ãƒ‰å›ºæœ‰ã®ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆç¾¤
 
-	//Safe Mode ->default‚Ì‚İ
+	//Safe Mode ->defaultã®ã¿
 
 	//Standby Mode
 	this->global_->nj_stbm->add_list<core::devicedriver::ISwitchable>((core::devicedriver::ISwitchable*)(this->global_->nj_ss));
@@ -686,9 +686,9 @@ void NJFactory<Env, App>::create_switches(){
 template<class Env, class App>
 void NJFactory<Env, App>::create_functor(){
 	////////////////////////////////
-	// ƒ‚[ƒh•ÏXŠÖŒW‚Ìƒtƒ@ƒ“ƒNƒ^
+	// ãƒ¢ãƒ¼ãƒ‰å¤‰æ›´é–¢ä¿‚ã®ãƒ•ã‚¡ãƒ³ã‚¯ã‚¿
 	
-	//MEMSƒWƒƒƒCƒ‚Ì’l‚ª0.001rad/sˆÈ‰º‚É‚È‚Á‚½‚ç‰ŠúˆÀ’è‰»ƒ‚[ƒh¨‘ep¨§Œäƒ‚[ƒh‚Ö
+	//MEMSã‚¸ãƒ£ã‚¤ãƒ­ã®å€¤ãŒ0.001rad/sä»¥ä¸‹ã«ãªã£ãŸã‚‰åˆæœŸå®‰å®šåŒ–ãƒ¢ãƒ¼ãƒ‰â†’ç²—å§¿å‹¢åˆ¶å¾¡ãƒ¢ãƒ¼ãƒ‰ã¸
 	this->global_->nj_inim->add_list<functor::IFunctor>(
 		new functor::Functor<functor::Is_Under<datatype::StaticVector<3>>, functor::ModeChangeFunc>
 			(
@@ -697,7 +697,7 @@ void NJFactory<Env, App>::create_functor(){
 			)
 		);
 
-	//MEMSƒWƒƒƒCƒ‚Ì’l‚ª0.002rad/sˆÈã‚É‚È‚Á‚½‚ç‘ep¨§Œäƒ‚[ƒh¨‰ŠúˆÀ’è‰»ƒ‚[ƒh‚Ö
+	//MEMSã‚¸ãƒ£ã‚¤ãƒ­ã®å€¤ãŒ0.002rad/sä»¥ä¸Šã«ãªã£ãŸã‚‰ç²—å§¿å‹¢åˆ¶å¾¡ãƒ¢ãƒ¼ãƒ‰â†’åˆæœŸå®‰å®šåŒ–ãƒ¢ãƒ¼ãƒ‰ã¸
 	this->global_->nj_ctrm->add_list<functor::IFunctor>(
 		new functor::Functor<functor::Is_Over<datatype::StaticVector<3>>, functor::ModeChangeFunc>
 			(
@@ -706,7 +706,7 @@ void NJFactory<Env, App>::create_functor(){
 			)
 		);
 
-	//FOG‚Ì’l‚ª0.0001rad/sˆÈ‰º‚É‚È‚Á‚½‚ç‘ep¨§Œäƒ‚[ƒh¨¸p¨§Œäƒ‚[ƒh‚Ö
+	//FOGã®å€¤ãŒ0.0001rad/sä»¥ä¸‹ã«ãªã£ãŸã‚‰ç²—å§¿å‹¢åˆ¶å¾¡ãƒ¢ãƒ¼ãƒ‰â†’ç²¾å§¿å‹¢åˆ¶å¾¡ãƒ¢ãƒ¼ãƒ‰ã¸
 	this->global_->nj_ctrm->add_list<functor::IFunctor>(
 		new functor::Functor<functor::Is_Under<datatype::StaticVector<3>>, functor::ModeChangeFunc>
 			(
@@ -715,7 +715,7 @@ void NJFactory<Env, App>::create_functor(){
 			)
 		);
 
-	//FOG‚Ì’l‚ª0.0002rad/sˆÈã‚É‚È‚Á‚½‚ç¸p¨§Œäƒ‚[ƒh¨‘ep¨§Œäƒ‚[ƒh‚Ö
+	//FOGã®å€¤ãŒ0.0002rad/sä»¥ä¸Šã«ãªã£ãŸã‚‰ç²¾å§¿å‹¢åˆ¶å¾¡ãƒ¢ãƒ¼ãƒ‰â†’ç²—å§¿å‹¢åˆ¶å¾¡ãƒ¢ãƒ¼ãƒ‰ã¸
 	this->global_->nj_ccdm->add_list<functor::IFunctor>(
 		new functor::Functor<functor::Is_Over<datatype::StaticVector<3>>, functor::ModeChangeFunc>
 			(
@@ -724,7 +724,7 @@ void NJFactory<Env, App>::create_functor(){
 			)
 		);
 
-	//FOG‚Ì’l‚ª0.00001rad/sˆÈ‰º‚É‚È‚Á‚½‚ç¸p¨§Œäƒ‚[ƒh¨ŠÏ‘ªƒ‚[ƒh‚Ö
+	//FOGã®å€¤ãŒ0.00001rad/sä»¥ä¸‹ã«ãªã£ãŸã‚‰ç²¾å§¿å‹¢åˆ¶å¾¡ãƒ¢ãƒ¼ãƒ‰â†’è¦³æ¸¬ãƒ¢ãƒ¼ãƒ‰ã¸
 	this->global_->nj_ctrm->add_list<functor::IFunctor>(
 		new functor::Functor<functor::Is_Under<datatype::StaticVector<3>>, functor::ModeChangeFunc>
 			(
@@ -733,7 +733,7 @@ void NJFactory<Env, App>::create_functor(){
 			)
 		);
 
-	//FOG‚Ì’l‚ª0.00002rad/sˆÈã‚É‚È‚Á‚½‚çŠÏ‘ªƒ‚[ƒh¨¸p¨§Œäƒ‚[ƒh‚Ö
+	//FOGã®å€¤ãŒ0.00002rad/sä»¥ä¸Šã«ãªã£ãŸã‚‰è¦³æ¸¬ãƒ¢ãƒ¼ãƒ‰â†’ç²¾å§¿å‹¢åˆ¶å¾¡ãƒ¢ãƒ¼ãƒ‰ã¸
 	this->global_->nj_ccdm->add_list<functor::IFunctor>(
 		new functor::Functor<functor::Is_Over<datatype::StaticVector<3>>, functor::ModeChangeFunc>
 			(
@@ -743,7 +743,7 @@ void NJFactory<Env, App>::create_functor(){
 		);
 	typedef devicedriver::rw::RWBase<Env> RW;
 
-	//RW‚ª1‚Â‚Å‚à–O˜a‚µ‚½‚çƒAƒ“ƒ[ƒfƒBƒ“ƒOƒ‚[ƒh‚Ö
+	//RWãŒ1ã¤ã§ã‚‚é£½å’Œã—ãŸã‚‰ã‚¢ãƒ³ãƒ­ãƒ¼ãƒ‡ã‚£ãƒ³ã‚°ãƒ¢ãƒ¼ãƒ‰ã¸
 	functor::IFunctor* rwfunc1 = new functor::Functor<functor::Getter_Is<RW>, functor::ModeChangeFunc>
 		(
 			new functor::Getter_Is<RW>(this->global_->nj_rw1, &RW::is_saturated),
@@ -780,7 +780,7 @@ void NJFactory<Env, App>::create_functor(){
 	this->global_->nj_ccdm->add_list(rwfunc3);
 	this->global_->nj_ccdm->add_list(rwfunc4);
 
-	//RW‚ÌŠp‰^“®—Ê‚ª‰ğ•ú‚³‚ê‚½‚ç‚Ó‚½‚½‚Ñ‘e§Œäƒ‚[ƒh‚Ö
+	//RWã®è§’é‹å‹•é‡ãŒè§£æ”¾ã•ã‚ŒãŸã‚‰ãµãŸãŸã³ç²—åˆ¶å¾¡ãƒ¢ãƒ¼ãƒ‰ã¸
 }
 
 template<class Env, class App>

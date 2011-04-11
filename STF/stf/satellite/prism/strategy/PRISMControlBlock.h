@@ -56,8 +56,8 @@ private:
 	int ads_mode_;
 	int acs_mode_;
 	int obs_mode_;
-	// acrƒ‚[ƒhFƒ~ƒbƒVƒ‡ƒ“ŒnŠÖ˜Aƒpƒ‰ƒ[ƒ^‚È‚Ì‚ÅÈ—ª
-	// memƒ‚[ƒhF Telemetry Strategy‚Ìƒpƒ‰ƒ[ƒ^
+	// acrãƒ¢ãƒ¼ãƒ‰ï¼šãƒŸãƒƒã‚·ãƒ§ãƒ³ç³»é–¢é€£ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ãªã®ã§çœç•¥
+	// memãƒ¢ãƒ¼ãƒ‰ï¼š Telemetry Strategyã®ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
 	core::strategy::StrategyBase* strategylist_[13];
 
 };

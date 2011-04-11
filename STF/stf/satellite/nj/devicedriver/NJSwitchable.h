@@ -16,7 +16,7 @@ namespace core {
 namespace devicedriver {
 namespace nj {
 
-// “dŒ¹ƒXƒCƒbƒ`‚ğ‘€ì‰Â”\‚ÈƒRƒ“ƒ|[ƒlƒ“ƒgŒQD
+// é›»æºã‚¹ã‚¤ãƒƒãƒã‚’æ“ä½œå¯èƒ½ãªã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆç¾¤ï¼
 template<class Env, int Ports = 1>
 class NJSimpleComponent : virtual public ISwitchable, virtual public IDataUpdatable {
 public:

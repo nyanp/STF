@@ -17,7 +17,7 @@ namespace magnetometer {
 template <class T>
 class NJCoarseTAM : public TAMBase<T>{
 public:  
-	// 3-SigmaÇ≈1ìxê∏ìx
+	// 3-Sigma„Åß1Â∫¶Á≤æÂ∫¶
 	NJCoarseTAM( const datatype::DCM &angle) : TAMBase( angle){}
 	~NJCoarseTAM(){}
 	virtual void do_update(){}

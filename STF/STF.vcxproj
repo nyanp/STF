@@ -123,8 +123,6 @@
     <ClCompile Include="stf\satellite\prism\app\PRISM.cpp" />
     <ClCompile Include="stf\satellite\prism\devicedriver\PRISMCommandReceiver.cpp" />
     <ClCompile Include="stf\satellite\prism\strategy\PRISMControlBlock.cpp" />
-    <ClCompile Include="stf\satellite\prism\devicedriver\PRISMDummyClock.cpp" />
-    <ClCompile Include="stf\satellite\prism\devicedriver\PRISMTAM.cpp" />
     <ClCompile Include="stf\util\Cout.cpp" />
     <ClCompile Include="stf\util\math.cpp" />
     <ClCompile Include="stf\datatype\DCM.cpp" />

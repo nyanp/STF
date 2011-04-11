@@ -1,6 +1,7 @@
 /**
  * @file   PRISMCustomManager.h
- * @brief  
+ * @brief  ヒーター制御コントロールを行うカスタムマネージャ
+ * @todo ヒータースイッチ部の実装
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -52,10 +53,10 @@ public:
 	void run()
 	{
 		if(!enable_) return;
-		datatype::Temperature value = (*(this->source_))[channel_];//����Ώۂ̉��x���擾
-			if(value < ref_){//����l��菬�������ON
+		datatype::Temperature value = (*(this->source_))[channel_];//制御対象の温度を取得
+			if(value < ref_){//ある値より小さければON
 
-			}else{//���������OFF
+			}else{//小さければOFF
 
 			}
 	}

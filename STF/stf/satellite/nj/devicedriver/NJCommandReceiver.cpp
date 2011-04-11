@@ -15,7 +15,7 @@ namespace core {
 namespace devicedriver {
 namespace cmhandler {
 
-//ƒfƒoƒbƒO—p‚Ì“Áê‰»DŠO•”ƒtƒ@ƒCƒ‹‚©‚ç1s‚¸‚Â“Ç‚İ‚İC
+//ãƒ‡ãƒãƒƒã‚°ç”¨ã®ç‰¹æ®ŠåŒ–ï¼å¤–éƒ¨ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰1è¡Œãšã¤èª­ã¿è¾¼ã¿ï¼Œ
 template<> void NJCommandReceiver<environment::Simulator<app::NJ> >::receive_command(){
 
 

@@ -35,7 +35,7 @@ public:
 	}
 };
 
-//“d—¬ƒZƒ“ƒT
+//é›»æµã‚»ãƒ³ã‚µ
 template<class Env>
 class NJCurrentSensor : public MultiSensor<Env, datatype::Current, NJ__CURRENT__CHANNELS, NJ__ADC__CHANNELS> {
 public:
@@ -43,7 +43,7 @@ public:
 		: MultiSensor<Env, datatype::Current, NJ__CURRENT__CHANNELS, NJ__ADC__CHANNELS>( adc, NJ__CURRENT__OFFSET){}
 };
 
-//“dˆ³ƒZƒ“ƒT
+//é›»åœ§ã‚»ãƒ³ã‚µ
 template<class Env>
 class NJVoltageSensor : public  MultiSensor<Env, datatype::Voltage, NJ__VOLTAGE__CHANNELS, NJ__ADC__CHANNELS> {
 public:
@@ -51,7 +51,7 @@ public:
 		:  MultiSensor<Env, datatype::Voltage, NJ__VOLTAGE__CHANNELS, NJ__ADC__CHANNELS>( adc, NJ__VOLTAGE__OFFSET){}
 };
 
-//2ü®‰·“xŒv
+//2ç·šå¼æ¸©åº¦è¨ˆ
 template<class Env>
 class NJCoarseTempSensor : public  MultiSensor<Env, datatype::Temperature, NJ__TEMP1__CHANNELS, NJ__ADC__CHANNELS> {
 public:
@@ -59,7 +59,7 @@ public:
 		:  MultiSensor<Env, datatype::Temperature, NJ__TEMP1__CHANNELS, NJ__ADC__CHANNELS>( adc,  NJ__TEMP1__OFFSET){}
 };
 
-//4ü®‰·“xŒv
+//4ç·šå¼æ¸©åº¦è¨ˆ
 template<class Env>
 class NJFineTempSensor : public  MultiSensor<Env, datatype::Temperature, NJ__TEMP2__CHANNELS, NJ__ADC__CHANNELS> {
 public:

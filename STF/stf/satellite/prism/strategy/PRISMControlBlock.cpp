@@ -26,7 +26,7 @@ void PRISMControlBlock::set_mode(int id, int value){
 	}
 }
 
-// p¨Œˆ’èŒnƒ‚[ƒh
+// å§¿å‹¢æ±ºå®šç³»ãƒ¢ãƒ¼ãƒ‰
 void PRISMControlBlock::set_acs_(int mode){
 	this->acs_mode_ = mode;
 	unsigned int mask = 0x00000001;
@@ -40,17 +40,17 @@ void PRISMControlBlock::set_acs_(int mode){
 	(mode & (mask << 7)) ? this->strategylist_[GGComp]->enable() : this->strategylist_[GGComp]->disable() ;
 }
 
-// p¨§ŒäŒnƒ‚[ƒh
+// å§¿å‹¢åˆ¶å¾¡ç³»ãƒ¢ãƒ¼ãƒ‰
 void PRISMControlBlock::set_ads_(int mode){
 	this->ads_mode_ = mode;
 	unsigned int mask = 0x00000001;
-	// ƒZƒ“ƒTæ“¾‚Ì—LŒøE–³Œø‚Íadsmode‚Å‚Í‚È‚­•Ê“rƒRƒ}ƒ“ƒh‚ğ—pˆÓ‚·‚é
+	// ã‚»ãƒ³ã‚µå–å¾—ã®æœ‰åŠ¹ãƒ»ç„¡åŠ¹ã¯adsmodeã§ã¯ãªãåˆ¥é€”ã‚³ãƒãƒ³ãƒ‰ã‚’ç”¨æ„ã™ã‚‹
 	(mode & (mask << 12)) ? this->strategylist_[TRIAD]->enable() : this->strategylist_[TRIAD]->disable();
 	(mode & (mask << 10)) ? this->strategylist_[EKF]->enable() : this->strategylist_[EKF]->disable();
 
 }
 
-// ¥‹CŒnƒ‚[ƒh
+// ç£æ°—ç³»ãƒ¢ãƒ¼ãƒ‰
 void PRISMControlBlock::set_obs_(int mode){
 	this->obs_mode_ = mode;
 	unsigned int mask = 0x00000001;

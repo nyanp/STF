@@ -18,7 +18,7 @@ namespace stt {
 template <class Env>
 class NJSTT : public STTBase<Env>{
 public:  
-	//10arcsecê∏ìx(3-Sigma)ÇÃSTTÅD
+	//10arcsecÁ≤æÂ∫¶(3-Sigma)„ÅÆSTTÔºé
 	NJSTT( const datatype::DCM &angle) : STTBase( angle, 10){}
 	~NJSTT(){}
 private:

@@ -17,7 +17,7 @@ namespace sunsensor {
 template <class T>
 class NJSunSensor : public SunSensorBase<T>{
 public:  
-	// 3-SigmaÇ≈1ìxê∏ìx
+	// 3-Sigma„Åß1Â∫¶Á≤æÂ∫¶
 	NJSunSensor( const datatype::DCM &angle) : SunSensorBase( angle, 1, 3){}
 	~NJSunSensor(){}
 	virtual void do_update(){}

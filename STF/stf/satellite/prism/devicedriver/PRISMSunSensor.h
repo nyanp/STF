@@ -18,7 +18,7 @@ namespace sunsensor {
 template <class Env>
 class PRISMSunSensor : public SunSensorBase<Env>{
 public:  
-	// 3-SigmaÇ≈1ìxê∏ìx
+	// 3-Sigma„Åß1Â∫¶Á≤æÂ∫¶
 	PRISMSunSensor( const datatype::DCM &angle) : SunSensorBase(angle, 1, 3){}
 	~PRISMSunSensor(){}
 	virtual void do_update(){}

@@ -31,8 +31,8 @@ namespace factory {
 template<class Env, class App = app::PRISM>
 class PRISMFactory : public SatelliteFactory<Env, App, PRISMFactory<Env, App> >{
 	friend class SatelliteFactory<Env, App, PRISMFactory<Env, App> >;
-	typedef Env Environment;//!< ŠÂ‹«ƒNƒ‰ƒXD
-	typedef App Application;//!< ƒAƒvƒŠƒP[ƒVƒ‡ƒ“ƒNƒ‰ƒXD
+	typedef Env Environment;//!< ç’°å¢ƒã‚¯ãƒ©ã‚¹ï¼
+	typedef App Application;//!< ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã‚¯ãƒ©ã‚¹ï¼
 
 	PRISMFactory(){ this->global_ = new PRISMGlobal<Env>();}
 	virtual ~PRISMFactory(){ delete this->global_; }
@@ -191,7 +191,7 @@ void PRISMFactory<Env, App>::create_controller(){
 	TRIAD*            PRISM_TRIAD           = new TRIAD();
 	RMMEKF*           PRISM_RMMEKF          = new RMMEKF();
 
-	//§ŒäƒuƒƒbƒN‚ÌƒRƒ“ƒeƒi
+	//åˆ¶å¾¡ãƒ–ãƒ­ãƒƒã‚¯ã®ã‚³ãƒ³ãƒ†ãƒŠ
 	STRATEGY* PRISM_CONTROLLER = new STRATEGY(PRISM_MAG_COMBINER, this->global_->pr_mtq);
 	PRISM_CONTROLLER->setStrategy(STRATEGY::TorqueCombiner, PRISM_TORQUE_COMBINER);
 	PRISM_CONTROLLER->setStrategy(STRATEGY::MagCombiner, PRISM_MAG_COMBINER);
@@ -207,12 +207,12 @@ void PRISMFactory<Env, App>::create_controller(){
 	PRISM_CONTROLLER->setStrategy(STRATEGY::TRIAD, PRISM_TRIAD);
 	PRISM_CONTROLLER->setStrategy(STRATEGY::RMMEKF, PRISM_RMMEKF);
 	
-	// ¥‹Cƒ‚[ƒƒ“ƒg‡¬
+	// ç£æ°—ãƒ¢ãƒ¼ãƒ¡ãƒ³ãƒˆåˆæˆ
 	PRISM_MAG_COMBINER->connect_source<0>(PRISM_CROSSPRODUCT);
 	PRISM_MAG_COMBINER->connect_source<1>(PRISM_BDOT);
 	PRISM_MAG_COMBINER->connect_source<2>(PRISM_RMMCOMP);
 
-	// c—¯¥‹C•â
+	// æ®‹ç•™ç£æ°—è£œå„Ÿ
 	// input: RMMEKF -> MagneticMoment
 	PRISM_RMMCOMP->connect_source<0>(PRISM_RMMEKF);
 
@@ -226,7 +226,7 @@ void PRISMFactory<Env, App>::create_controller(){
 	PRISM_CROSSPRODUCT->connect_source<0>(PRISM_TORQUE_COMBINER);
 	PRISM_CROSSPRODUCT->connect_source<1>(this->global_->pr_tam);
 	
-	// ƒgƒ‹ƒN‡¬
+	// ãƒˆãƒ«ã‚¯åˆæˆ
 	PRISM_TORQUE_COMBINER->connect_source<0>(PRISM_DECOUPLING);
 	PRISM_TORQUE_COMBINER->connect_source<1>(PRISM_RATEDUMPING);
 	PRISM_TORQUE_COMBINER->connect_source<2>(PRISM_PID);
@@ -276,16 +276,16 @@ void PRISMFactory<Env, App>::create_controller(){
 	PRISM_TRIAD->connect_source<3>(this->global_->pr_clock);
 	
 	///////////////////////////////////////////////////
-	// §ŒäƒuƒƒbƒN‚Ö‚ÌƒAƒNƒZƒX‚ª•K—v‚È‰Šú‰»ˆ—
+	// åˆ¶å¾¡ãƒ–ãƒ­ãƒƒã‚¯ã¸ã®ã‚¢ã‚¯ã‚»ã‚¹ãŒå¿…è¦ãªåˆæœŸåŒ–å‡¦ç†
 
 	this->global_->pr_controlstrategy = PRISM_CONTROLLER;
 
-	// AOCSƒeƒŒƒƒgƒŠ‚ÉƒJƒ‹ƒ}ƒ“ƒtƒBƒ‹ƒ^‚ÆTRIAD‚Ìƒpƒ‰ƒ[ƒ^‚ğ’Ç‰Á
+	// AOCSãƒ†ãƒ¬ãƒ¡ãƒˆãƒªã«ã‚«ãƒ«ãƒãƒ³ãƒ•ã‚£ãƒ«ã‚¿ã¨TRIADã®ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’è¿½åŠ 
 	this->global_->pr_aocstmstrategy->add_tmlist(new interface::PRISMEKFIterator<1000>(PRISM_EKF));
 	this->global_->pr_aocstmstrategy->add_tmlist(new interface::PRISMRMMEKFIterator<1000>(PRISM_RMMEKF));
 	this->global_->pr_aocstmstrategy->add_tmlist(new interface::PRISMSunMagTRIADIterator<1000>(PRISM_TRIAD));
 
-	//@AOCSŒnƒRƒ}ƒ“ƒh
+	//ã€€AOCSç³»ã‚³ãƒãƒ³ãƒ‰
 	datatype::Time t_init = this->global_->pr_clock->get_time();
 
 	this->global_->pr_c_aen0 = new command::SimpleMemberFunctionCommand<STRATEGY, void>(t_init,PRISM_CONTROLLER,&STRATEGY::enable);
@@ -298,7 +298,7 @@ void PRISMFactory<Env, App>::create_controller(){
 	this->global_->pr_c_amG = new command::IteratorStreamCommand<1>(t_init, new interface::PRISMControlBlockIterator(PRISM_CONTROLLER));
 
 	///////////////////////////////////////////////////
-	// §Œä‘¥‚ğƒ‚[ƒh‚É“o˜^
+	// åˆ¶å¾¡å‰‡ã‚’ãƒ¢ãƒ¼ãƒ‰ã«ç™»éŒ²
 	this->global_->pr_amode->add_list<core::strategy::control::IControlStrategy>(PRISM_CONTROLLER);
 }
 
@@ -310,10 +310,10 @@ void PRISMFactory<Env, App>::create_command(){
 	typedef core::manager::ModeManagerBase ModeManager;
 	datatype::Time t_init = this->global_->pr_clock->get_time();
 
-	// ¶‘¶Šm”F
+	// ç”Ÿå­˜ç¢ºèª
 	this->global_->pr_c_alv = new core::command::MessageCommand(t_init, "alive");
 
-	// ƒq[ƒ^[§ŒäŠÖŒW
+	// ãƒ’ãƒ¼ã‚¿ãƒ¼åˆ¶å¾¡é–¢ä¿‚
 	this->global_->pr_c_hta = 
 		new core::command::SimpleMemberFunctionCommand<Heater, void>
 		(t_init, this->global_->pr_heater,&Heater::enable);
@@ -330,7 +330,7 @@ void PRISMFactory<Env, App>::create_command(){
 		new core::command::TypeListMemberFunctionCommand<Heater, int, 3>
 		(t_init, this->global_->pr_heater,&Heater::set_params, 0, 0, 0);
 
-	// İ’èEæ“¾ŠÖŒW
+	// æ™‚åˆ»è¨­å®šãƒ»æ™‚åˆ»å–å¾—é–¢ä¿‚
 	this->global_->pr_c_rtg = 
 		new core::command::GetIteratorCommand<Clock, interface::DateTimeIterator, const datatype::DateTime, 100>(t_init, this->global_->pr_clock,&Clock::get_datetime);
 
@@ -345,7 +345,7 @@ void PRISMFactory<Env, App>::create_command(){
 		new core::command::TypeListMemberFunctionCommand<Clock, int, 2>
 		(t_init, this->global_->pr_clock,&Clock::set_time, 0, 0);
 
-	//CDHƒeƒŒƒ
+	//CDHãƒ†ãƒ¬ãƒ¡
 	this->global_->pr_c_tlg = 
 		new core::command::IteratorStreamCommand<100>(t_init, this->global_->pr_telemetryiterator);
 
@@ -360,7 +360,7 @@ void PRISMFactory<Env, App>::create_command(){
 		new core::command::UnAryMemberFunctionCommand<Telem, void, int>
 		(t_init, this->global_->pr_tmstrategy,&Telem::set_time, 0);
 
-	//“dŒ¹Œn
+	//é›»æºç³»
 	//this->global_->pr_c_pd = 
 	//	new core::command::SwitchCommand();
 	
@@ -384,7 +384,7 @@ void PRISMFactory<Env, App>::create_command(){
 		new core::command::TypeListMemberFunctionCommand<Heater, int, 3>
 		(t_init, this->global_->pr_battheater,&Heater::set_params, 0, 0, 0);
 
-	//AOCSŒn->ˆê•”‚ÍcontrollerHotSpot‚ÅƒCƒ“ƒXƒ^ƒ“ƒX‰»
+	//AOCSç³»->ä¸€éƒ¨ã¯controllerHotSpotã§ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
 	this->global_->pr_c_atw = new core::command::UnAryMemberFunctionCommand<Telem, void, bool>
 		(t_init, this->global_->pr_aocstmstrategy,&Telem::setstate, false);
 
@@ -403,7 +403,7 @@ void PRISMFactory<Env, App>::create_telemetry(){
 	this->global_->pr_tmstrategy = new core::strategy::telemetry::PRISMTelemetryStrategy<Env, 1000>(this->global_->pr_tmhandler, this->global_->pr_aocsdatapool, this->global_->pr_eventdatapool, this->global_->pr_clock);
 	this->global_->pr_aocstmstrategy = new core::strategy::telemetry::PRISMTelemetryStrategy<Env, 1000>(this->global_->pr_tmhandler, this->global_->pr_aocsdatapool, this->global_->pr_eventdatapool, this->global_->pr_clock);
 	///////////////////////////////////////////////////
-	// ƒeƒŒƒƒgƒŠƒXƒgƒ‰ƒeƒW‚ğƒ‚[ƒh‚É“o˜^
+	// ãƒ†ãƒ¬ãƒ¡ãƒˆãƒªã‚¹ãƒˆãƒ©ãƒ†ã‚¸ã‚’ãƒ¢ãƒ¼ãƒ‰ã«ç™»éŒ²
 	this->global_->pr_safemode->add_list<core::strategy::telemetry::ITelemetryStrategy>(this->global_->pr_tmstrategy);
 	this->global_->pr_dpmode->add_list<core::strategy::telemetry::ITelemetryStrategy>(this->global_->pr_tmstrategy);
 	this->global_->pr_dsmode->add_list<core::strategy::telemetry::ITelemetryStrategy>(this->global_->pr_tmstrategy);
@@ -488,9 +488,9 @@ void PRISMFactory<Env, App>::create_switches(){
 template<class Env, class App>
 void PRISMFactory<Env, App>::create_functor(){
 	////////////////////////////////
-	// ƒ‚[ƒh•ÏXŠÖŒW‚Ìƒtƒ@ƒ“ƒNƒ^
+	// ãƒ¢ãƒ¼ãƒ‰å¤‰æ›´é–¢ä¿‚ã®ãƒ•ã‚¡ãƒ³ã‚¯ã‚¿
 
-	//ˆê’èŠÔ‚ªŒo‰ß‚µ‚½‚çSafeMode‚ÉˆÚs‚·‚éƒtƒ@ƒ“ƒNƒ^
+	//ä¸€å®šæ™‚é–“ãŒçµŒéã—ãŸã‚‰SafeModeã«ç§»è¡Œã™ã‚‹ãƒ•ã‚¡ãƒ³ã‚¯ã‚¿
 	core::functor::IFunctor* timerfunc = new functor::Functor<functor::Getter_Over<datatype::Time, devicedriver::clock::ITimeClock>, core::functor::ModeChangeFunc>
 			(
 				new functor::Getter_Over<datatype::Time, devicedriver::clock::ITimeClock>(
@@ -500,14 +500,14 @@ void PRISMFactory<Env, App>::create_functor(){
 			);
 	this->global_->pr_resetmode->add_list(timerfunc);
 
-	//EventDataPool‚ÌAnomaryEvent‚ªˆê’è”—­‚Ü‚Á‚½‚çSafeMode‚ÉˆÚs‚·‚éƒtƒ@ƒ“ƒNƒ^
+	//EventDataPoolã®AnomaryEventãŒä¸€å®šæ•°æºœã¾ã£ãŸã‚‰SafeModeã«ç§»è¡Œã™ã‚‹ãƒ•ã‚¡ãƒ³ã‚¯ã‚¿
 
-	//B‰e—\–ñ‚É“’B‚µ‚½‚çDPMode‚ÉˆÚs‚·‚éƒtƒ@ƒ“ƒNƒ^
+	//æ’®å½±äºˆç´„æ™‚åˆ»ã«åˆ°é”ã—ãŸã‚‰DPModeã«ç§»è¡Œã™ã‚‹ãƒ•ã‚¡ãƒ³ã‚¯ã‚¿
 
-	//B‰eŠ®—¹‚µ‚½‚çDSMode‚ÉˆÚs‚·‚éƒtƒ@ƒ“ƒNƒ^
+	//æ’®å½±å®Œäº†ã—ãŸã‚‰DSModeã«ç§»è¡Œã™ã‚‹ãƒ•ã‚¡ãƒ³ã‚¯ã‚¿
 
 	//////////////////////////////////
-	//  ƒAƒmƒ}ƒŠ[ŠÖŒW‚Ìƒtƒ@ƒ“ƒNƒ^
+	//  ã‚¢ãƒãƒãƒªãƒ¼é–¢ä¿‚ã®ãƒ•ã‚¡ãƒ³ã‚¯ã‚¿
 }
 
 template<class Env, class App>

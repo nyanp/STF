@@ -49,7 +49,7 @@ template<class T>
 NJTelemetryHandler<T>::NJTelemetryHandler()
 : console_out_(true), ofs_(0)
 {
-	//ˆø”‚È‚µ‚Ìê‡‚Í•W€o—Í‚É‚Ì‚İ•\¦CƒƒO‚Í‚Æ‚ç‚È‚¢
+	//å¼•æ•°ãªã—ã®å ´åˆã¯æ¨™æº–å‡ºåŠ›ã«ã®ã¿è¡¨ç¤ºï¼Œãƒ­ã‚°ã¯ã¨ã‚‰ãªã„
 }
 
 template<class T>
@@ -61,7 +61,7 @@ NJTelemetryHandler<T>::~NJTelemetryHandler()
 template<class T>
 void NJTelemetryHandler<T>::logging(int value, int address)
 {
-   *this << value;//ƒƒK[‚Í‘‚«‚İæƒAƒhƒŒƒX‚Ìw’è‚ğ–³‹‚·‚é   
+   *this << value;//ãƒ­ã‚¬ãƒ¼ã¯æ›¸ãè¾¼ã¿å…ˆã‚¢ãƒ‰ãƒ¬ã‚¹ã®æŒ‡å®šã‚’ç„¡è¦–ã™ã‚‹   
 }
 
 template<class T>

@@ -1,6 +1,6 @@
 /**
  * @file   SimpleSatelliteFactory.h
- * @brief  SimpleSatellite—p‚Ì‹ïÛƒtƒ@ƒNƒgƒŠD
+ * @brief  SimpleSatelliteç”¨ã®å…·è±¡ãƒ•ã‚¡ã‚¯ãƒˆãƒªï¼
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -34,8 +34,8 @@ namespace factory {
 template<class Env, class App>
 class SimpleSatelliteFactory : public SatelliteFactory<Env, App, SimpleSatelliteFactory<Env, App> >{
 	friend class SatelliteFactory<Env, App, SimpleSatelliteFactory<Env, App> >;
-	typedef Env Environment;//!< ŠÂ‹«ƒNƒ‰ƒXD
-	typedef App Application;//!< ƒAƒvƒŠƒP[ƒVƒ‡ƒ“ƒNƒ‰ƒXD
+	typedef Env Environment;//!< ç’°å¢ƒã‚¯ãƒ©ã‚¹ï¼
+	typedef App Application;//!< ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã‚¯ãƒ©ã‚¹ï¼
 
 
 	SimpleSatelliteFactory(){ this->global_ = new SSGlobal<Env>();}
@@ -179,7 +179,7 @@ void SimpleSatelliteFactory<Env, App>::create_switches(){
 
 template<class Env, class App>
 void SimpleSatelliteFactory<Env, App>::create_functor(){
-	//ˆê’èŠÔ‚ªŒo‰ß‚µ‚½‚çSafeMode->MissionMode‚ÖˆÚs
+	//ä¸€å®šæ™‚é–“ãŒçµŒéã—ãŸã‚‰SafeMode->MissionModeã¸ç§»è¡Œ
 	core::functor::IFunctor* timerfunc = new functor::Functor<functor::Getter_Over<datatype::Time, devicedriver::clock::ITimeClock>, core::functor::ModeChangeFunc>
 			(
 				new functor::Getter_Over<datatype::Time, devicedriver::clock::ITimeClock>(

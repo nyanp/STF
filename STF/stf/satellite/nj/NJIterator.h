@@ -28,7 +28,7 @@ protected:
 	const BASE* data_;
 };
 
-// NJ‚ÌƒeƒŒƒƒgƒŠ‚É•K—v‚ÈEKF‚ÌƒeƒŒƒƒgƒŠo—Í‚ğ’è‹`B
+// NJã®ãƒ†ãƒ¬ãƒ¡ãƒˆãƒªã«å¿…è¦ãªEKFã®ãƒ†ãƒ¬ãƒ¡ãƒˆãƒªå‡ºåŠ›ã‚’å®šç¾©ã€‚
 template<int SCALE>
 class NJEKFIterator : public NJIteratorBase<SCALE, 13, core::strategy::control::NJEKF> {
 public:
@@ -41,7 +41,7 @@ public:
 private:
 };
 
-// NJ‚ÌƒeƒŒƒƒgƒŠ‚É•K—v‚ÈEKF‚ÌƒeƒŒƒƒgƒŠo—Í‚ğ’è‹`B
+// NJã®ãƒ†ãƒ¬ãƒ¡ãƒˆãƒªã«å¿…è¦ãªEKFã®ãƒ†ãƒ¬ãƒ¡ãƒˆãƒªå‡ºåŠ›ã‚’å®šç¾©ã€‚
 template<int SCALE>
 class NJRMMEKFIterator : public NJIteratorBase<SCALE, 3, core::strategy::control::NJRMMEKF> {
 public:
@@ -52,7 +52,7 @@ public:
 private:
 };
 
-// TRIAD‚©‚çQuaternion‚Ì„’è’l‚ğƒeƒŒƒƒgƒŠ‚Æ‚µ‚Äo—ÍD
+// TRIADã‹ã‚‰Quaternionã®æ¨å®šå€¤ã‚’ãƒ†ãƒ¬ãƒ¡ãƒˆãƒªã¨ã—ã¦å‡ºåŠ›ï¼
 template<int SCALE>
 class NJSunMagTRIADIterator : public NJIteratorBase<SCALE, 4, core::strategy::control::NJSunMagTRIAD> {
 public:

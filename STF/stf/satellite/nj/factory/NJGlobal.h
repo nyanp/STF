@@ -1,6 +1,6 @@
 /**
  * @file   NJGlobal.h
- * @brief  Nano-JASMINE‚ÌƒIƒuƒWƒFƒNƒgŒQ‚ğ•Û‚·‚éƒNƒ‰ƒXD
+ * @brief  Nano-JASMINEã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆç¾¤ã‚’ä¿æŒã™ã‚‹ã‚¯ãƒ©ã‚¹ï¼
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -24,27 +24,27 @@ namespace stf {
 
 template <class Env>
 struct NJGlobal : public Global<Env>{
-	//! ‰q¯‚ÌOBC‚ğæ“¾
+	//! è¡›æ˜Ÿã®OBCæ™‚åˆ»ã‚’å–å¾—
 	virtual const datatype::Time get_global_time(){
 		return this->nj_rtc->get_time();
 	}
 
-	//! ‰q¯‚ÌRTC‚ğæ“¾
+	//! è¡›æ˜Ÿã®RTCæ™‚åˆ»ã‚’å–å¾—
 	virtual const datatype::DateTime get_global_datetime(){
 		return this->nj_gps->get_datetime();
 	}
 
-	//! ‰q¯‚Ì¿—Ê“Á«ƒ‚ƒfƒ‹‚ğæ“¾
+	//! è¡›æ˜Ÿã®è³ªé‡ç‰¹æ€§ãƒ¢ãƒ‡ãƒ«ã‚’å–å¾—
 	virtual const datatype::SatelliteModel get_satellitemodel() const{
 		return this->nj_body_;
 	}
 
-	//! Aocsƒf[ƒ^ƒv[ƒ‹‚Ìƒnƒ“ƒhƒ‰‚ğæ“¾D
+	//! Aocsãƒ‡ãƒ¼ã‚¿ãƒ—ãƒ¼ãƒ«ã®ãƒãƒ³ãƒ‰ãƒ©ã‚’å–å¾—ï¼
 	virtual const core::datapool::AocsDataPool* get_datapool() const {
 		return this->nj_aocsdatapool;
 	}
 
-	//! Eventƒf[ƒ^ƒv[ƒ‹‚Ìƒnƒ“ƒhƒ‰‚ğæ“¾D
+	//! Eventãƒ‡ãƒ¼ã‚¿ãƒ—ãƒ¼ãƒ«ã®ãƒãƒ³ãƒ‰ãƒ©ã‚’å–å¾—ï¼
 	virtual const core::datapool::EventDataPool* get_eventdatapool() const {
 		return this->nj_eventdatapool;
 	}
@@ -97,8 +97,8 @@ struct NJGlobal : public Global<Env>{
 
 	//Manager
 	manager::ModeManagerBase* nj_modeman;
-	manager::UnitManagerBase* nj_uniman1; // 10Hz, ’Êí‚ÌƒZƒ“ƒTCƒAƒNƒ`ƒ…ƒG[ƒ^
-	manager::UnitManagerBase* nj_uniman2; // 10Hz, ’Êí‚ÌƒZƒ“ƒTCƒAƒNƒ`ƒ…ƒG[ƒ^
+	manager::UnitManagerBase* nj_uniman1; // 10Hz, é€šå¸¸ã®ã‚»ãƒ³ã‚µï¼Œã‚¢ã‚¯ãƒãƒ¥ã‚¨ãƒ¼ã‚¿
+	manager::UnitManagerBase* nj_uniman2; // 10Hz, é€šå¸¸ã®ã‚»ãƒ³ã‚µï¼Œã‚¢ã‚¯ãƒãƒ¥ã‚¨ãƒ¼ã‚¿
 	manager::ControlManagerBase* nj_conman;
 	manager::TelemetryManagerBase* nj_telman;
 	manager::SystemManagerBase* nj_sysman;
@@ -161,11 +161,11 @@ struct NJGlobal : public Global<Env>{
 	ST5* nj_st5;
 
 	//ADC Sensors
-	core::devicedriver::NJADC<Env>* nj_adc;//ƒZƒ“ƒT—Ş‚Ì‚½‚ß‚ÌƒfƒWƒ^ƒ‹’l‚ğæ“¾‚·‚éAD•ÏŠ·Ší
-	core::devicedriver::NJCoarseTempSensor<Env>* nj_temp1;//2ü®‰·“xŒv
-	core::devicedriver::NJFineTempSensor<Env>* nj_temp2;//4ü®‰·“xŒv
-	core::devicedriver::NJVoltageSensor<Env>* nj_voltagesensor;//“dˆ³ƒZƒ“ƒT
-	core::devicedriver::NJCurrentSensor<Env>* nj_currentsensor;//“d—¬ƒZƒ“ƒT
+	core::devicedriver::NJADC<Env>* nj_adc;//ã‚»ãƒ³ã‚µé¡ã®ãŸã‚ã®ãƒ‡ã‚¸ã‚¿ãƒ«å€¤ã‚’å–å¾—ã™ã‚‹ADå¤‰æ›å™¨
+	core::devicedriver::NJCoarseTempSensor<Env>* nj_temp1;//2ç·šå¼æ¸©åº¦è¨ˆ
+	core::devicedriver::NJFineTempSensor<Env>* nj_temp2;//4ç·šå¼æ¸©åº¦è¨ˆ
+	core::devicedriver::NJVoltageSensor<Env>* nj_voltagesensor;//é›»åœ§ã‚»ãƒ³ã‚µ
+	core::devicedriver::NJCurrentSensor<Env>* nj_currentsensor;//é›»æµã‚»ãƒ³ã‚µ
 
 	// Command / Telemetry Handler 
 	core::devicedriver::cmhandler::NJCommandReceiver<Env>* nj_commandreceiver;

@@ -44,7 +44,7 @@ void StarImageEKF::do_compute(const datatype::Time& t){
 
 void QuaternionForRMMEstimation::do_compute(const datatype::Time& t){
 	if(t > this->last_update_){
-		//Šµ«‹óŠÔ‚É‚¨‚¯‚é‘¾—z•ûŒü‚ğŒvZ
+		//æ…£æ€§ç©ºé–“ã«ãŠã‘ã‚‹å¤ªé™½æ–¹å‘ã‚’è¨ˆç®—
 		datatype::StaticVector<2> sunvector = datatype::OrbitCalc::getSunDirection2D(this->clock_->get_datetime());
 
 		datatype::DCM sundcm = datatype::TypeConverter::toDCM(sunvector[0], sunvector[1], 0);

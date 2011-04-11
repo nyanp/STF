@@ -20,7 +20,7 @@ template<class T>
 class NJMTQ : public MTQBase<T> {
 public:
 	~NJMTQ(){}
-	//1Nmo—ÍCüŒ`«Œë·5“
+	//1Nmå‡ºåŠ›ï¼Œç·šå½¢æ€§èª¤å·®5ï¼…
 	NJMTQ( const datatype::DCM &angle) : MTQBase( angle, 1, -1, 5){}
 	virtual void do_update(){}
 private:

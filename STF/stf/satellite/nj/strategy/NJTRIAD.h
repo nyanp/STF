@@ -19,7 +19,7 @@ namespace core {
 namespace strategy {
 namespace control {
 
-//‹O“¹î•ñ‚Æ¥êC‘¾—z•ûŒüƒxƒNƒgƒ‹‚©‚çquaternion‚ğo—Í‚·‚éNJTRIADƒuƒƒbƒND
+//è»Œé“æƒ…å ±ã¨ç£å ´ï¼Œå¤ªé™½æ–¹å‘ãƒ™ã‚¯ãƒˆãƒ«ã‹ã‚‰quaternionã‚’å‡ºåŠ›ã™ã‚‹NJTRIADãƒ–ãƒ­ãƒƒã‚¯ï¼
 class NJSunMagTRIAD
 	: public SunMagTRIAD2
 {

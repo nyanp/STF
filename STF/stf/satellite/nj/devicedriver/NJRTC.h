@@ -42,7 +42,7 @@ NJRTC<Env>::NJRTC( int year, int month, int date)
 	: CDHMultiComponent<Env, TYPELIST_2( datatype::Time, datatype::DateTime )>( "NJRTC")//, datetime_(year, month, date)
 {
 	const_cast<datatype::DateTime*>(&get<1, datatype::DateTime>())->init(year, month, date, 0, 0, 0);
-	this->clock_ = this;//staticƒ|ƒCƒ“ƒ^‚ÉŠ„‚è“–‚Ä
+	this->clock_ = this;//staticãƒã‚¤ãƒ³ã‚¿ã«å‰²ã‚Šå½“ã¦
 }
 
 template<class Env>

@@ -1,6 +1,6 @@
 /**
  * @file   PRISMGlobal.h
- * @brief  PRISM‚ÌƒIƒuƒWƒFƒNƒgŒQ‚ğ•Û‚·‚éƒNƒ‰ƒXD
+ * @brief  PRISMã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆç¾¤ã‚’ä¿æŒã™ã‚‹ã‚¯ãƒ©ã‚¹ï¼
  *
  * @author Taiga Nomi
  * @date   2011.02.16
@@ -26,27 +26,27 @@ namespace stf {
 
 template <class Env>
 struct PRISMGlobal : public Global<Env>{
-	//! ‰q¯‚ÌOBC‚ğæ“¾
+	//! è¡›æ˜Ÿã®OBCæ™‚åˆ»ã‚’å–å¾—
 	virtual const datatype::Time get_global_time(){
 		return this->pr_clock->get_time();
 	}
 
-	//! ‰q¯‚ÌRTC‚ğæ“¾
+	//! è¡›æ˜Ÿã®RTCæ™‚åˆ»ã‚’å–å¾—
 	virtual const datatype::DateTime get_global_datetime(){
 		return this->pr_clock->get_datetime();
 	}
 
-	//! ‰q¯‚Ì¿—Ê“Á«ƒ‚ƒfƒ‹‚ğæ“¾
+	//! è¡›æ˜Ÿã®è³ªé‡ç‰¹æ€§ãƒ¢ãƒ‡ãƒ«ã‚’å–å¾—
 	virtual const datatype::SatelliteModel get_satellitemodel() const{
 		return this->prism_body_;
 	}
 
-	//! Aocsƒf[ƒ^ƒv[ƒ‹‚Ìƒnƒ“ƒhƒ‰‚ğæ“¾D
+	//! Aocsãƒ‡ãƒ¼ã‚¿ãƒ—ãƒ¼ãƒ«ã®ãƒãƒ³ãƒ‰ãƒ©ã‚’å–å¾—ï¼
 	virtual const core::datapool::AocsDataPool* get_datapool() const {
 		return this->pr_aocsdatapool;
 	}
 
-	//! Eventƒf[ƒ^ƒv[ƒ‹‚Ìƒnƒ“ƒhƒ‰‚ğæ“¾D
+	//! Eventãƒ‡ãƒ¼ã‚¿ãƒ—ãƒ¼ãƒ«ã®ãƒãƒ³ãƒ‰ãƒ©ã‚’å–å¾—ï¼
 	virtual const core::datapool::EventDataPool* get_eventdatapool() const {
 		return this->pr_eventdatapool;
 	}
@@ -76,11 +76,11 @@ struct PRISMGlobal : public Global<Env>{
 	// Manager
 	/////////////////////////////////////////////////////
 	manager::ModeManagerBase* pr_modeman;
-	manager::UnitManagerBase* pr_uniman1; // 10Hz, ’Êí‚ÌƒZƒ“ƒTCƒAƒNƒ`ƒ…ƒG[ƒ^
-	manager::UnitManagerBase* pr_uniman2; // 25Hz, AD•ÏŠ·
+	manager::UnitManagerBase* pr_uniman1; // 10Hz, é€šå¸¸ã®ã‚»ãƒ³ã‚µï¼Œã‚¢ã‚¯ãƒãƒ¥ã‚¨ãƒ¼ã‚¿
+	manager::UnitManagerBase* pr_uniman2; // 25Hz, ADå¤‰æ›
 	manager::ControlManagerBase* pr_conman;
-	manager::TelemetryManagerBase* pr_telman1;// CDHƒeƒŒƒ
-	manager::TelemetryManagerBase* pr_telman2;// AOCSƒeƒŒƒ
+	manager::TelemetryManagerBase* pr_telman1;// CDHãƒ†ãƒ¬ãƒ¡
+	manager::TelemetryManagerBase* pr_telman2;// AOCSãƒ†ãƒ¬ãƒ¡
 	manager::SystemManagerBase* pr_sysman;
 	manager::CommandManagerBase* pr_commman;
 	manager::PRISMCustomManager<Env>* pr_customman;
@@ -136,7 +136,7 @@ struct PRISMGlobal : public Global<Env>{
 	/////////////////////////////////////////////////////
 	// Iterator
 	/////////////////////////////////////////////////////
-	// CDH/AOCS‚ÌƒXƒe[ƒ^ƒX‚ÆƒeƒŒƒ‚ğƒ_ƒEƒ“ƒŠƒ“ƒN‚·‚é‚½‚ß‚ÌƒCƒeƒŒ[ƒ^
+	// CDH/AOCSã®ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ã¨ãƒ†ãƒ¬ãƒ¡ã‚’ãƒ€ã‚¦ãƒ³ãƒªãƒ³ã‚¯ã™ã‚‹ãŸã‚ã®ã‚¤ãƒ†ãƒ¬ãƒ¼ã‚¿
 	interface::PRISMTelemetryIterator<Env, 100, 1>* pr_statusiterator;
 	interface::PRISMTelemetryIterator<Env, 100, 4>* pr_telemetryiterator;
 	interface::PRISMTelemetryIterator<Env, 100, 1>* pr_aocsstatusiterator;
@@ -146,39 +146,39 @@ struct PRISMGlobal : public Global<Env>{
 	// Command-Prototypes
 	/////////////////////////////////////////////////////
 	// CDH
-	command::Command* pr_c_alv;//¶‘¶M†
-	command::Command* pr_c_hta;//ƒq[ƒ^[—LŒø
-	command::Command* pr_c_htd;//ƒq[ƒ^[–³Œø
-	command::Command* pr_c_htg;//ƒq[ƒ^[ó‘Ôæ“¾
-	command::Command* pr_c_hts;//ƒq[ƒ^[ó‘Ôİ’è
-	command::Command* pr_c_rtg;//RTCæ“¾
-	command::Command* pr_c_rts;//RTCƒZƒbƒg
-	command::Command* pr_c_tmg;//OBCæ“¾
-	command::Command* pr_c_tms;//OBCƒZƒbƒg
-	command::Command* pr_c_tlg;//ƒeƒŒƒƒgƒŠæ“¾
-	command::Command* pr_c_tos;//Ú×—š—ğæ“¾ŠJn‚Ìİ’è
-	command::Command* pr_c_trs;//Ú×—š—ğæ“¾ŠJn‚Ìİ’è
-	command::Command* pr_c_tss;//Ú×—š—ğæ“¾
-	command::Command* pr_c_sgs;//ƒXƒe[ƒ^ƒXæ“¾
+	command::Command* pr_c_alv;//ç”Ÿå­˜ä¿¡å·
+	command::Command* pr_c_hta;//ãƒ’ãƒ¼ã‚¿ãƒ¼æœ‰åŠ¹
+	command::Command* pr_c_htd;//ãƒ’ãƒ¼ã‚¿ãƒ¼ç„¡åŠ¹
+	command::Command* pr_c_htg;//ãƒ’ãƒ¼ã‚¿ãƒ¼çŠ¶æ…‹å–å¾—
+	command::Command* pr_c_hts;//ãƒ’ãƒ¼ã‚¿ãƒ¼çŠ¶æ…‹è¨­å®š
+	command::Command* pr_c_rtg;//RTCæ™‚åˆ»å–å¾—
+	command::Command* pr_c_rts;//RTCæ™‚åˆ»ã‚»ãƒƒãƒˆ
+	command::Command* pr_c_tmg;//OBCæ™‚åˆ»å–å¾—
+	command::Command* pr_c_tms;//OBCæ™‚åˆ»ã‚»ãƒƒãƒˆ
+	command::Command* pr_c_tlg;//ãƒ†ãƒ¬ãƒ¡ãƒˆãƒªå–å¾—
+	command::Command* pr_c_tos;//è©³ç´°å±¥æ­´å–å¾—é–‹å§‹æ™‚åˆ»ã®è¨­å®š
+	command::Command* pr_c_trs;//è©³ç´°å±¥æ­´å–å¾—é–‹å§‹æ™‚åˆ»ã®è¨­å®š
+	command::Command* pr_c_tss;//è©³ç´°å±¥æ­´å–å¾—
+	command::Command* pr_c_sgs;//ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹å–å¾—
 	// Power
-	command::Command* pr_c_pd;//“dŒ¹OFF
-	command::Command* pr_c_pu;//“dŒ¹ON
-	command::Command* pr_c_mds;//ƒZ[ƒtƒ‚[ƒhˆÚs
-	command::Command* pr_c_mdn;//ƒm[ƒ}ƒ‹ƒ‚[ƒhˆÚs
-	command::Command* pr_c_md;//ƒ‚[ƒhæ“¾
-	command::Command* pr_c_hth;//“d’rƒq[ƒ^[ó‘Ôæ“¾
-	command::Command* pr_c_hdt;//“d’rƒq[ƒ^[ó‘Ôİ’è
+	command::Command* pr_c_pd;//é›»æºOFF
+	command::Command* pr_c_pu;//é›»æºON
+	command::Command* pr_c_mds;//ã‚»ãƒ¼ãƒ•ãƒ¢ãƒ¼ãƒ‰ç§»è¡Œ
+	command::Command* pr_c_mdn;//ãƒãƒ¼ãƒãƒ«ãƒ¢ãƒ¼ãƒ‰ç§»è¡Œ
+	command::Command* pr_c_md;//ãƒ¢ãƒ¼ãƒ‰å–å¾—
+	command::Command* pr_c_hth;//é›»æ± ãƒ’ãƒ¼ã‚¿ãƒ¼çŠ¶æ…‹å–å¾—
+	command::Command* pr_c_hdt;//é›»æ± ãƒ’ãƒ¼ã‚¿ãƒ¼çŠ¶æ…‹è¨­å®š
 	// ADCS
-	command::Command* pr_c_aen0;//AOCSŒn—LŒø
-	command::Command* pr_c_aen1;//AOCSŒn–³Œø
-	command::Command* pr_c_ams;//AOCSƒ‚[ƒh•ÏX
-	command::Command* pr_c_amG;//AOCSƒ‚[ƒhæ“¾
-	command::Command* pr_c_atw;//AOCSƒeƒŒƒƒgƒŠ‚Ì—LŒøE–³Œø
-	command::Command* pr_c_atg;//AOCSƒeƒŒƒƒgƒŠæ“¾
-	command::Command* pr_c_atr;//AOCSƒeƒŒƒƒgƒŠŠJn‚Ìİ’è
+	command::Command* pr_c_aen0;//AOCSç³»æœ‰åŠ¹
+	command::Command* pr_c_aen1;//AOCSç³»ç„¡åŠ¹
+	command::Command* pr_c_ams;//AOCSãƒ¢ãƒ¼ãƒ‰å¤‰æ›´
+	command::Command* pr_c_amG;//AOCSãƒ¢ãƒ¼ãƒ‰å–å¾—
+	command::Command* pr_c_atw;//AOCSãƒ†ãƒ¬ãƒ¡ãƒˆãƒªã®æœ‰åŠ¹ãƒ»ç„¡åŠ¹
+	command::Command* pr_c_atg;//AOCSãƒ†ãƒ¬ãƒ¡ãƒˆãƒªå–å¾—
+	command::Command* pr_c_atr;//AOCSãƒ†ãƒ¬ãƒ¡ãƒˆãƒªé–‹å§‹æ™‚åˆ»ã®è¨­å®š
 	command::Command* pr_c_ato;//
-	command::Command* pr_c_aps;//AOCSƒpƒ‰ƒ[ƒ^ƒZƒbƒg
-	command::Command* pr_c_apg;//AOCSƒpƒ‰ƒ[ƒ^æ“¾
+	command::Command* pr_c_aps;//AOCSãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚»ãƒƒãƒˆ
+	command::Command* pr_c_apg;//AOCSãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å–å¾—
 	//command::Command* pr_c_amq;
 	//
 	core::manager::HeaterControl<Env>* pr_heater;

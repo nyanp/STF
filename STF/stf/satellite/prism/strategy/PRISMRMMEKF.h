@@ -1,6 +1,6 @@
 /**
  * @file   PRISMRMMEKF.h
- * @brief  
+ * @brief  PRISM残留磁気EKF制御アルゴリズム
  *
  * @author Taiga Nomi
  * @date   2011.02.16
